@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Heading from "@theme/Heading";
-import UseCaseItem from "@site/src/components/HomepageFeatures/UseCases/UseCaseItem";
+import UseCaseItem from "@site/src/components/Homepage/UseCases/UseCaseItem";
 
 const UseCasesList = [
   {

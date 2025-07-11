@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import StartingPoint from "@site/src/components/HomepageFeatures/StartingPoints/StartingPointItem";
+import StartingPoint from "@site/src/components/Homepage/StartingPoints/StartingPointItem";
 import Heading from "@theme/Heading";
 
 const StartingPointsList = [

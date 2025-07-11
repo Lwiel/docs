@@ -1,4 +1,4 @@
-import FeatureItem from "@site/src/components/HomepageFeatures/Features/FeatureItem";
+import FeatureItem from "@site/src/components/Homepage/Features/FeatureItem";
 import Heading from "@theme/Heading";
 
 const AiFeaturesList = [

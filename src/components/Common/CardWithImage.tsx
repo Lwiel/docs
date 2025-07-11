@@ -25,7 +25,7 @@ export default function CardWithImage({
         <img
           src={imgSrc}
           alt={imgAlt}
-          className="object-cover transition-transform origin-center duration-500 group-hover:scale-105 group-hover:translate-y-1"
+          className="pointer-events-none object-cover transition-transform origin-center duration-500 group-hover:scale-105 group-hover:translate-y-1"
         />
       </div>
       <Heading as="h4" className="!mb-2">
