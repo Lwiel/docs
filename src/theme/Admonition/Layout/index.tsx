@@ -2,14 +2,9 @@ import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames} from '@docusaurus/theme-common';
 
-import type {Props as BaseProps} from '@theme/Admonition/Layout';
+import type {Props} from '@theme/Admonition/Layout';
 
 import styles from './styles.module.css';
-
-interface Props extends BaseProps {
-    id?: string;
-    href?: string;
-}
 
 function AdmonitionContainer({
   type,
@@ -29,12 +24,12 @@ function AdmonitionContainer({
   );
 }
 
-function AdmonitionHeading({icon, title, id, href}: Pick<Props, 'icon' | 'title' | 'id' | 'href'>) {
+function AdmonitionHeading({icon, title, id, href}: Pick<Props, 'icon' | 'title'>) {
   return (
     <div className={styles.admonitionHeading}>
       <span className={styles.admonitionIcon}>{icon}</span>
       <a id={id} href={href}>
-        {title}
+      {title}
       </a>
     </div>
   );

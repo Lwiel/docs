@@ -1,0 +1,147 @@
+---
+title: "Configuration: License Options"
+sidebar_label: License Configuration
+sidebar_position: 11
+---
+
+import Admonition from '@theme/Admonition';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import LanguageSwitcher from "@site/src/components/language-switcher";
+import LanguageContent from "@site/src/components/language-content";
+
+# Configuration: License Options
+
+<Admonition type="info" title="License" id="license" href="#license">
+
+* When using this configuration key in _settings.json_ embed the license key as a __string__, e.g.:  
+  `"License": "{ paste your license key including curly brackets here }"`.  
+
+* When using this configuration key as an [environment variable](../../server/configuration/configuration-options#environment-variables) embed the JSON license key __object__.  
+
+* If `License` is specified, it overrides the `License.Path` configuration.  
+ 
+---
+
+- **Type**: `string`
+- **Default**: `null`
+- **Scope**: Server-wide only
+
+</Admonition>
+
+<Admonition type="info" title="License.Path" id="license-path" href="#license-path">
+
+Save the license key to a `license.json` file.  
+Provide the path to this file in the 'License.Path' configuration key:
+
+  * Either the __full__ path to the license file, e.g.:  
+    `"License.Path": "D:\\RavenDB\\Server\\license.json"`  
+
+  * Or, a __relative__ path to the license file from the Server folder, e.g.:  
+    `"License.Path": "License\\license.json"`  
+    (where 'License' folder is under the 'Server' folder)
+
+---
+
+- **Type**: `string`
+- **Default**: `license.json`
+- **Scope**: Server-wide only
+
+</Admonition>
+
+<Admonition type="info" title="License.Eula.Accepted" id="license-eula-accepted" href="#license-eula-accepted">
+
+Indicates if End-User License Agreement was accepted.
+
+- **Type**: `bool`
+- **Default**: `false`
+- **Scope**: Server-wide only
+
+</Admonition>
+
+<Admonition type="info" title="License.CanActivate" id="license-canactivate" href="#license-canactivate">
+
+EXPERT ONLY.  
+Indicates if license can be activated.  
+
+- **Type**: `bool`
+- **Default**: `true`
+- **Scope**: Server-wide only
+
+</Admonition>
+
+<Admonition type="info" title="License.CanForceUpdate" id="license-canforceupdate" href="#license-canforceupdate">
+
+EXPERT ONLY.  
+Indicates if license can be updated from the License Server (api.ravendb.net).
+
+- **Type**: `bool`
+- **Default**: `true`
+- **Scope**: Server-wide only
+
+</Admonition>
+
+<Admonition type="info" title="License.CanRenewLicense / License.CanRenew" id="license-canrenewlicense-license-canrenew" href="#license-canrenewlicense-license-canrenew">
+
+EXPERT ONLY.  
+Indicates if license can be renewed from the License Server (api.ravendb.net).  
+Relevant only for Developer and Community licenses.
+
+- **Type**: `bool`
+- **Default**: `true`
+- **Scope**: Server-wide only
+
+</Admonition>
+
+<Admonition type="info" title="License.SkipLeasingErrorsLogging" id="license-skipleasingerrorslogging" href="#license-skipleasingerrorslogging">
+
+EXPERT ONLY.  
+Skip logging of lease license errors.
+
+- **Type**: `bool`
+- **Default**: `false`
+- **Scope**: Server-wide only
+
+</Admonition>
+
+<Admonition type="info" title="License.DisableAutoUpdate" id="license-disableautoupdate" href="#license-disableautoupdate">
+
+EXPERT ONLY.  
+Disable all updates of the license, from string, from path and from the License Server (api.ravendb.net). 
+
+- **Type**: `bool`
+- **Default**: `false`
+- **Scope**: Server-wide only
+
+</Admonition>
+
+<Admonition type="info" title="License.DisableAutoUpdateFromApi" id="license-disableautoupdatefromapi" href="#license-disableautoupdatefromapi">
+
+EXPERT ONLY.  
+Disable automatic updates of the license from the License Server (api.ravendb.net).  
+Can still update the license by either:  
+
+* Setting the [License](../../server/configuration/license-configuration#license) configuration
+* Setting the [License.Path](../../server/configuration/license-configuration#license.path) configuration
+* Replacing the _license.json_ file on disk
+
+---
+
+- **Type**: `bool`
+- **Default**: `false`
+- **Scope**: Server-wide only
+
+</Admonition>
+
+<Admonition type="info" title="License.DisableLicenseSupportCheck" id="license-disablelicensesupportcheck" href="#license-disablelicensesupportcheck">
+
+EXPERT ONLY.  
+Disable checking the license support options from the License Server (api.ravendb.net).
+
+- **Type**: `bool`
+- **Default**: `false`
+- **Scope**: Server-wide only
+
+</Admonition>
+
