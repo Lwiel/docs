@@ -1,30 +1,91 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@import "tailwindcss";
 
-/* You can override the default Infima variables here. */
+@custom-variant dark (&:is([data-theme="dark"] *));
+
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #0c2fa5;
+  --ifm-color-primary-dark: #0b2a94;
+  --ifm-color-primary-darker: #0a288c;
+  --ifm-color-primary-darkest: #082173;
+  --ifm-color-primary-light: #0d34b5;
+  --ifm-color-primary-lighter: #0e36be;
+  --ifm-color-primary-lightest: #0f3bce;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base:
+    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell,
+    "Noto Sans", sans-serif, BlinkMacSystemFont, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --ifm-font-family-monospace:
+    "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --ifm-global-shadow-lw: none;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+[data-theme="dark"] {
+  --ifm-color-primary: #388ee9;
+  --ifm-color-primary-dark: #2e88e8;
+  --ifm-color-primary-darker: #2885e7;
+  --ifm-color-primary-darkest: #2382e7;
+  --ifm-color-primary-light: #529dec;
+  --ifm-color-primary-lighter: #5fa4ed;
+  --ifm-color-primary-lightest: #86baf2;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+@theme {
+  --color-primary: var(--ifm-color-primary);
+  --color-primary-dark: var(--ifm-color-primary-dark);
+  --color-primary-darker: var(--ifm-color-primary-darker);
+  --color-primary-darkest: var(--ifm-color-primary-darkest);
+  --color-primary-light: var(--ifm-color-primary-light);
+  --color-primary-lighter: var(--ifm-color-primary-lighter);
+  --color-primary-lightest: var(--ifm-color-primary-lightest);
+}
+
+[class*="docSidebarContainer"] {
+  @apply !border-black/10 dark:!border-white/10;
+}
+
+.navbar {
+  @apply !border-black/10 dark:!border-white/10;
+  border-bottom: 1px solid;
+}
+
+.breadcrumbs {
+  @apply flex;
+}
+
+.breadcrumbs__item {
+  @apply flex;
+}
+
+.breadcrumbs__item:not(:last-child):after {
+  margin: auto var(--ifm-breadcrumb-spacing);
+}
+
+.menu__link--sublist-caret:after {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem;
+}
+
+.menu {
+  font-weight: var(--ifm-font-weight-normal);
+}
+
+.menu > .menu__list .menu__list {
+  @apply !border-black/10 dark:!border-white/10;
+  border-left: 1px dashed;
+  margin-left: var(--ifm-global-spacing);
+}
+
+.pagination-nav:empty {
+  display: none;
+}
+
+.yarl__flex_center {
+  flex-direction: column;
+}
+
+.yarl__slide_description_container {
+  @apply mt-4;
 }
