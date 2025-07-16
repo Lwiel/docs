@@ -10,8 +10,8 @@
   --ifm-color-primary-light: #0d34b5;
   --ifm-color-primary-lighter: #0e36be;
   --ifm-color-primary-lightest: #0f3bce;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f6f6f6;
   --ifm-font-family-base:
     "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell,
     "Noto Sans", sans-serif, BlinkMacSystemFont, Helvetica, Arial,
@@ -20,6 +20,10 @@
     "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   --ifm-global-shadow-lw: none;
+  --font-mono:
+    "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --anchor-icon: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIvPjxwYXRoIGQ9Ik0yMTAsNDZhNTEuOCw1MS44LDAsMCwwLTczLjUsMEwxMTYuNyw2NS44QTgsOCwwLDAsMCwxMjgsNzcuMWwxOS44LTE5LjhhMzYuMSwzNi4xLDAsMCwxLDUwLjksMCwzNS45LDM1LjksMCwwLDEsMCw1MC45bC0yOC4zLDI4LjNhMzYuMSwzNi4xLDAsMCwxLTUwLjksMCw4LDgsMCwxLDAtMTEuMywxMS4zLDUyLDUyLDAsMCwwLDczLjUsMEwyMTAsMTE5LjVBNTEuOCw1MS44LDAsMCwwLDIxMCw0NloiLz48cGF0aCBkPSJNMTI4LDE3OC45bC0xOS44LDE5LjhhMzYsMzYsMCwwLDEtNTAuOS01MC45bDI4LjMtMjguM2EzNi4xLDM2LjEsMCwwLDEsNTAuOSwwLDgsOCwwLDAsMCwxMS4zLTExLjMsNTIsNTIsMCwwLDAtNzMuNSwwTDQ2LDEzNi41QTUyLDUyLDAsMSwwLDExOS41LDIxMGwxOS44LTE5LjhBOCw4LDAsMCwwLDEyOCwxNzguOVoiLz48L3N2Zz4=");
 }
 
 [data-theme="dark"] {
@@ -30,9 +34,12 @@
   --ifm-color-primary-light: #529dec;
   --ifm-color-primary-lighter: #5fa4ed;
   --ifm-color-primary-lightest: #86baf2;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-navbar-background-color: var(--ifm-background-color);
+  --ifm-background-surface-color: #222225;
+  --anchor-icon: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2Ij4KIDxnPgogIDx0aXRsZT5iYWNrZ3JvdW5kPC90aXRsZT4KICA8cmVjdCBmaWxsPSJub25lIiBpZD0iY2FudmFzX2JhY2tncm91bmQiIGhlaWdodD0iNDAyIiB3aWR0aD0iNTgyIiB5PSItMSIgeD0iLTEiLz4KIDwvZz4KIDxnPgogIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICA8cmVjdCBpZD0ic3ZnXzEiIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZmlsbD0iI2ZmZmZmZiIgaWQ9InN2Z18yIiBkPSJtMjEwLDQ2YTUxLjgsNTEuOCAwIDAgMCAtNzMuNSwwbC0xOS44LDE5LjhhOCw4IDAgMCAwIDExLjMsMTEuM2wxOS44LC0xOS44YTM2LjEsMzYuMSAwIDAgMSA1MC45LDBhMzUuOSwzNS45IDAgMCAxIDAsNTAuOWwtMjguMywyOC4zYTM2LjEsMzYuMSAwIDAgMSAtNTAuOSwwYTgsOCAwIDEgMCAtMTEuMywxMS4zYTUyLDUyIDAgMCAwIDczLjUsMGwyOC4zLC0yOC4zYTUxLjgsNTEuOCAwIDAgMCAwLC03My41eiIvPgogIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGlkPSJzdmdfMyIgZD0ibTEyOCwxNzguOWwtMTkuOCwxOS44YTM2LDM2IDAgMCAxIC01MC45LC01MC45bDI4LjMsLTI4LjNhMzYuMSwzNi4xIDAgMCAxIDUwLjksMGE4LDggMCAwIDAgMTEuMywtMTEuM2E1Miw1MiAwIDAgMCAtNzMuNSwwbC0yOC4zLDI4LjNhNTIsNTIgMCAxIDAgNzMuNSw3My41bDE5LjgsLTE5LjhhOCw4IDAgMCAwIC0xMS4zLC0xMS4zeiIvPgogPC9nPgo8L3N2Zz4= ");
 }
 
+/* Merge Infima colors to tailwind table */
 @theme {
   --color-primary: var(--ifm-color-primary);
   --color-primary-dark: var(--ifm-color-primary-dark);
@@ -41,8 +48,53 @@
   --color-primary-light: var(--ifm-color-primary-light);
   --color-primary-lighter: var(--ifm-color-primary-lighter);
   --color-primary-lightest: var(--ifm-color-primary-lightest);
+  --color-ifm-background: var(--ifm-background-color);
+  --color-ifm-background-surface: var(--ifm-background-surface-color);
+  --color-ifm-menu: var(--ifm-menu-color);
+  --color-pre-background: var(--ifm-pre-background);
 }
 
+/* Custom font-faces */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  src:
+    url("fonts/Inter[wght].woff2") format("woff2 supports variations"),
+    url("fonts/Inter[wght].woff2") format("woff2-variations");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  src:
+    url("fonts/Inter-Italic[wght].woff2") format("woff2 supports variations"),
+    url("fonts/Inter-Italic[wght].woff2") format("woff2-variations");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  src:
+    url("fonts/JetBrainsMono[wght].woff2") format("woff2 supports variations"),
+    url("fonts/JetBrainsMono[wght].woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: italic;
+  src:
+    url("fonts/JetBrainsMono-Italic[wght].woff2")
+      format("woff2 supports variations"),
+    url("fonts/JetBrainsMono-Italic[wght].woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* Custom border for sidebar and navbar */
 [class*="docSidebarContainer"] {
   @apply !border-black/10 dark:!border-white/10;
 }
@@ -52,6 +104,7 @@
   border-bottom: 1px solid;
 }
 
+/* Custom layout for breadcrumbs */
 .breadcrumbs {
   @apply flex;
 }
@@ -64,9 +117,7 @@
   margin: auto var(--ifm-breadcrumb-spacing);
 }
 
-.menu__link--sublist-caret:after {
-  background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem;
-}
+/* Custom styling for menu */
 
 .menu {
   font-weight: var(--ifm-font-weight-normal);
@@ -78,14 +129,58 @@
   margin-left: var(--ifm-global-spacing);
 }
 
+/* Custom styling for caret in menu */
+.menu__link--sublist-caret:after,
+.menu__caret:before {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem;
+}
+
+.menu__caret:hover {
+  background: transparent;
+}
+
+/* Hide pagination container when empty */
 .pagination-nav:empty {
   display: none;
 }
 
+/* Custom styling for lightbox */
 .yarl__flex_center {
+  @apply !p-[64px];
   flex-direction: column;
 }
 
 .yarl__slide_description_container {
-  @apply mt-4;
+  @apply mt-4 text-white;
+}
+
+/* Custom border for alerts */
+.alert {
+  @apply border;
+}
+
+/* Custom styling for anchors */
+.anchor {
+  @apply flex items-center;
+}
+
+.hash-link {
+  @apply flex items-center;
+}
+
+.hash-link:before {
+  @apply inline-flex h-[1.5rem] w-[1.5rem] bg-black/10 dark:!bg-white/10 rounded-sm bg-center bg-size-[0.875rem] bg-no-repeat transition-all duration-300;
+  content: "" !important;
+  background-image: var(--anchor-icon);
+  display: inline-flex;
+  line-height: 1.5rem;
+}
+
+.tabs__item {
+  @apply py-3;
+}
+
+.tabs__item--active,
+.tabs__item:hover {
+  @apply border-b border-primary;
 }

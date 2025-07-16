@@ -23,12 +23,12 @@ export default function LanguageSwitcher() {
           className={clsx(
             "px-3 py-1.5 rounded-md border text-sm transition-colors cursor-pointer",
             "border-gray-300 text-gray-500",
-            "hover:border-gray-500 hover:text-gray-600",
-            "dark:text-gray-300 dark:border-gray-600 dark:hover:text-gray-200 dark:hover:border-gray-400",
+            "hover:bg-black/5 hover:border-gray-500 hover:text-gray-600",
+            "dark:text-gray-300 dark:border-gray-600 dark:hover:text-gray-200 dark:hover:border-gray-400 dark:hover:bg-white/5",
             language === lang.value && [
               "bg-primary/10 border-primary text-primary",
-              "hover:border-primary hover:text-primary",
-              "dark:border-primary dark:text-primary dark:hover:border-primary dark:hover:text-primary",
+              "hover:border-primary hover:text-primary hover:!bg-primary/10",
+              "dark:border-primary dark:text-primary dark:hover:border-primary dark:hover:text-primary dark:hover:!bg-primary/10",
             ],
           )}
         >

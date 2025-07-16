@@ -25,16 +25,15 @@ export default function CardWithImage({
         <img
           src={imgSrc}
           alt={imgAlt}
-          className="pointer-events-none object-cover transition-transform origin-center duration-500 group-hover:scale-105 group-hover:translate-y-1"
+          className="pointer-events-none object-cover transition-transform origin-bottom duration-500 group-hover:scale-105 group-hover:translate-y-1"
         />
       </div>
       <Heading as="h4" className="!mb-2">
         {title}
       </Heading>
-      <p className="!mb-2 text-sm">{description}</p>
-
+      <p className="!mb-3 text-sm">{description}</p>
       {url && (
-        <Button textColor="!text-white dark:!text-white" url={url}>
+        <Button variant="default" url={url} className="mt-auto">
           {ctaLabel}
         </Button>
       )}

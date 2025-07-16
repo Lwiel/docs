@@ -1,3 +1,6 @@
-.darkNavbarColorModeToggle:hover {
-  background: var(--ifm-color-gray-800);
-}
+/*button[data-theme-toggle] svg {*/
+/*  @apply transition duration-300 ease-in-out opacity-100 scale-100;*/
+/*}*/
+/*[data-theme="dark"] button[data-theme-toggle] svg {*/
+/*  @apply opacity-80 scale-90;*/
+/*}*/

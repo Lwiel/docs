@@ -4,28 +4,29 @@ import UseCaseItem from "@site/src/components/Homepage/UseCases/UseCaseItem";
 
 const UseCasesList = [
   {
-    title: "Collect & process data from thousands of IoT devices",
+    title: "Short introduction to data modeling in non-relational database",
     imgSrc:
-      "https://ravendb.net/wp-content/uploads/2025/04/migrate-to-ravendb-article-cover.jpg",
+      "https://ravendb.net/wp-content/uploads/2024/11/data-modeling-article.jpg",
     description: (
       <>
-        Discover how to gather and manage data from thousands of IoT devices,
-        connect to servers
+        Discover why data modeling in a document database is particularly
+        important, and what should be taken into consideration when designing
+        the data model
       </>
     ),
-    url: "https://ravendb.net",
+    url: "https://ravendb.net/articles/short-introduction-to-data-modeling-in-non-relational-database",
   },
   {
-    title: "Learn how to process and analyze receipts from shops",
+    title: "Processing invoices using Data Subscriptions in RavenDB",
     imgSrc:
-      "https://ravendb.net/wp-content/uploads/2025/04/high-memory-usage-article-cover.jpg",
+      "https://ravendb.net/wp-content/uploads/2024/12/processing-invoices-article-cover.jpg",
     description: (
       <>
-        Discover the steps to process receipts from shops, including how to
-        create a client
+        Learn how to process invoices in asynchronous manner using the data
+        subscriptions feature
       </>
     ),
-    url: "https://ravendb.net",
+    url: "https://ravendb.net/articles/processing-invoices-using-data-subscriptions-in-ravendb",
   },
 ];
 
