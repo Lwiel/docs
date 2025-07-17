@@ -5,7 +5,7 @@ import Heading from "@theme/Heading";
 const StartingPointsList = [
   {
     title: "Developer",
-    url: "/start/getting-started",
+    url: "/start/getting-started#documentstore",
     description: (
       <>
         Learn how to create a client, connect to the server, handle documents

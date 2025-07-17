@@ -27,7 +27,7 @@ export default function NavbarColorModeToggle({
   return (
     <button
       onClick={() => setColorMode(isDark ? "light" : "dark")}
-      className={`relative w-8 h-8 max-w-[31.48px] max-h-[31.48px] rounded-full overflow-hidden border border-black/10 dark:border-white/10 flex items-center justify-center bg-transparent transition-colors duration-300 ms-3 lg:ms-0 cursor-pointer hover:bg-black/5 dark:hover:bg-white/5 ${className}`}
+      className={`relative w-8 h-8 max-w-[31.48px] max-h-[31.48px] rounded-full overflow-hidden border border-black/10 dark:border-white/10 flex items-center justify-center bg-ifm-background transition-colors duration-300 ms-3 lg:ms-0 cursor-pointer hover:bg-black/5 dark:hover:bg-white/5 ${className}`}
       aria-label="Toggle mode"
     >
       <div

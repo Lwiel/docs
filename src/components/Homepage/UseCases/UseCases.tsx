@@ -1,20 +1,20 @@
 import type { ReactNode } from "react";
 import Heading from "@theme/Heading";
 import UseCaseItem from "@site/src/components/Homepage/UseCases/UseCaseItem";
+import Link from "@docusaurus/Link";
 
 const UseCasesList = [
   {
     title: "Short introduction to data modeling in non-relational database",
     imgSrc:
-      "https://ravendb.net/wp-content/uploads/2024/11/data-modeling-article.jpg",
+      "https://ravendb.net/wp-content/uploads/2025/06/article-cover-genai.png",
     description: (
       <>
-        Discover why data modeling in a document database is particularly
-        important, and what should be taken into consideration when designing
-        the data model
+        Learn how to harness the power of Generative AI by pairing it with a
+        high-performance document database.
       </>
     ),
-    url: "https://ravendb.net/articles/short-introduction-to-data-modeling-in-non-relational-database",
+    url: "https://ravendb.net/articles/survive-the-ai-tidal-wave-with-ravendb-genai",
   },
   {
     title: "Processing invoices using Data Subscriptions in RavenDB",
@@ -33,7 +33,10 @@ const UseCasesList = [
 export default function UseCases(): ReactNode {
   return (
     <section className="mb-8">
-      <Heading as="h3">Use cases</Heading>
+      <div className="flex justify-between">
+        <Heading as="h3">Use cases</Heading>
+        <Link to="https://ravendb.net/articles">See all</Link>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {UseCasesList.map((props, idx) => (
           <UseCaseItem key={idx} {...props} />
