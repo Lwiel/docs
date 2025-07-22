@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Add ETL Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Add ETL Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -37,17 +39,11 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../client-api/operations/maintenance/etl/add-etl#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Add RavenDB ETL task" id="add-ravendb-etl-task" href="#add-ravendb-etl-task">
+## Add RavenDB ETL task
 
 * Learn about the RavenDB ETL task in the **[RavenDB ETL task](../../../../server/ongoing-tasks/etl/raven)** article.  
 * Learn how to define a connection string for the RavenDB ETL task here: **[Add a RavenDB connection string](../../../../client-api/operations/maintenance/connection-strings/add-connection-string#add-a-ravendb-connection-string)**  
 * To manage the RavenDB ETL task from Studio, see **[Studio: RavenDB ETL task](../../../../studio/database/tasks/ongoing-tasks/ravendb-etl-task)**.  
-
----
-
 The following example adds a RavenDB ETL task:
 
 <TabItem value="something" label="add_raven_etl">
@@ -91,15 +87,12 @@ AddEtlOperationResult result = store.Maintenance.Send(operation);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add SQL ETL task" id="add-sql-etl-task" href="#add-sql-etl-task">
+
+## Add SQL ETL task
 
 * Learn about the SQL ETL task in the **[SQL ETL task](../../../../server/ongoing-tasks/etl/sql)** article.  
 * Learn how to define a connection string for the SQL ETL task here: **[Add an SQL connection string](../../../../client-api/operations/maintenance/connection-strings/add-connection-string#add-an-sql-connection-string)**  
-
----
-
 The following example adds an SQL ETL task:
 
 <TabItem value="something" label="add_sql_etl">
@@ -161,15 +154,12 @@ AddEtlOperationResult result = store.Maintenance.Send(operation);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add Snowflake ETL task" id="add-snowflake-etl-task" href="#add-snowflake-etl-task">
+
+## Add Snowflake ETL task
 
 * Learn about the Snowflake ETL task in the **[Snowflake ETL task](../../../../server/ongoing-tasks/etl/snowflake)** article.  
 * Learn how to define a connection string for the Snowflake ETL task here: **[Add a Snowflake connection string](../../../../client-api/operations/maintenance/connection-strings/add-connection-string#add-a-snowflake-connection-string)**  
-
----
-
 The following example adds a Snowflake ETL task:
 
 <TabItem value="something" label="add_snowflake_etl">
@@ -231,16 +221,13 @@ AddEtlOperationResult result = store.Maintenance.Send(operation);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add OLAP ETL task" id="add-olap-etl-task" href="#add-olap-etl-task">
+
+## Add OLAP ETL task
 
 * Learn about the OLAP ETL task in the **[OLAP ETL task](../../../../server/ongoing-tasks/etl/olap)** article.  
 * Learn how to define a connection string for the OLAP ETL task here: **[Add an OLAP connection string](../../../../client-api/operations/maintenance/connection-strings/add-connection-string#add-an-olap-connection-string)**  
 * To manage the OLAP ETL task from Studio, see **[Studio: OLAP ETL task](../../../../studio/database/tasks/ongoing-tasks/olap-etl-task)**.  
-
----
-
 The following example adds an OLAP ETL task:
 
 <TabItem value="something" label="add_olap_etl">
@@ -280,16 +267,13 @@ AddEtlOperationResult result = store.Maintenance.Send(operation);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add Elasticsearch ETL task" id="add-elasticsearch-etl-task" href="#add-elasticsearch-etl-task">
+
+## Add Elasticsearch ETL task
 
 * Learn about the Elasticsearch ETL task in the **[Elasticsearch ETL task](../../../../server/ongoing-tasks/etl/elasticsearch)** article.  
 * Learn how to define a connection string for the Elasticsearch ETL task here: **[Add an Elasticsearch connection string](../../../../client-api/operations/maintenance/connection-strings/add-connection-string#add-an-elasticsearch-connection-string)**  
 * To manage the Elasticsearch ETL task from Studio, see **[Studio: Elasticsearch ETL task](../../../../studio/database/tasks/ongoing-tasks/elasticsearch-etl-task)**.  
-
----
-
 The following example adds an Elasticsearch ETL task:
 
 <TabItem value="something" label="add_elasticsearch_etl">
@@ -350,46 +334,37 @@ store.Maintenance.Send(operation);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add Kafka ETL task" id="add-kafka-etl-task" href="#add-kafka-etl-task">
+
+## Add Kafka ETL task
 
 * Learn about the Kafka ETL task in the **[Kafka ETL task](../../../../server/ongoing-tasks/etl/queue-etl/kafka)** article.  
 * Learn how to define a connection string for the Kafka ETL task here: **[Add a Kafka connection string](../../../../server/ongoing-tasks/etl/queue-etl/kafka#add-a-kafka-connection-string)**  
 * To manage the Kafka ETL task from Studio, see **[Studio: Kafka ETL task](../../../../studio/database/tasks/ongoing-tasks/kafka-etl-task)**.  
-
----
-
 * Examples showing how to add a Kafka ETL task are available in the **[Add a Kafka ETL task](../../../../server/ongoing-tasks/etl/queue-etl/kafka#add-a-kafka-etl-task)** section.  
 
-</Admonition>
 
-<Admonition type="info" title="Add RabbitMQ ETL task" id="add-rabbitmq-etl-task" href="#add-rabbitmq-etl-task">
+
+## Add RabbitMQ ETL task
 
 * Learn about the RabbitMQ ETL task in the **[RabbitMQ ETL task](../../../../server/ongoing-tasks/etl/queue-etl/rabbit-mq)** article.  
 * Learn how to define a connection string for the RabbitMQ ETL task here: **[Add a RabbitMQ connection string](../../../../server/ongoing-tasks/etl/queue-etl/rabbit-mq#add-a-rabbitmq-connection-string)**  
 * To manage the RabbitMQ ETL task from Studio, see **[Studio: RabbitMQ ETL task](../../../../studio/database/tasks/ongoing-tasks/rabbitmq-etl-task)**.  
-
----
-
 * Examples showing how to add a RabbitMQ ETL task are available in the **[Add a RabbitMQ ETL task](../../../../server/ongoing-tasks/etl/queue-etl/rabbit-mq#add-a-rabbitmq-etl-task)** section.  
 
-</Admonition>
 
-<Admonition type="info" title="Add Azure Queue Storage ETL task" id="add-azure-queue-storage-etl-task" href="#add-azure-queue-storage-etl-task">
+
+## Add Azure Queue Storage ETL task
 
 * Learn about the Azure Queue Storage ETL task in the **[Azure Queue Storage ETL task](../../../../server/ongoing-tasks/etl/queue-etl/azure-queue)** article.  
 * Learn how to define a connection string for the Azure Queue Storage ETL task here: 
   **[Add an Azure Queue Storage connection string](../../../../server/ongoing-tasks/etl/queue-etl/azure-queue#add-an-azure-queue-storage-connection-string)**  
 * To manage the Azure Queue Storage ETL task from Studio, see **[Studio: Azure Queue Storage ETL task](../../../../studio/database/tasks/ongoing-tasks/azure-queue-storage-etl)**.  
-
----
-
 * Examples showing how to add an Azure Queue Storage ETL task are available in the **[Add a Azure Queue Storage ETL task](../../../../server/ongoing-tasks/etl/queue-etl/azure-queue#add-an-azure-queue-storage-etl-task)** section.  
 
-</Admonition>
 
-<Admonition type="info" title="Add Amazon SQS ETL task" id="add-amazon-sqs-etl-task" href="#add-amazon-sqs-etl-task">
+
+## Add Amazon SQS ETL task
 
 * Learn about the AWS SQS ETL task in the **[Amazon SQS ETL task](../../../../server/ongoing-tasks/etl/queue-etl/amazon-sqs)** article.  
    * [This section](../../../../server/ongoing-tasks/etl/queue-etl/amazon-sqs#add-an-amazon-sqs-connection-string) 
@@ -398,9 +373,9 @@ store.Maintenance.Send(operation);
      shows how to run an ETL task that uses the defined connection string.  
 * To learn how to manage the task from Studio, see **[Studio: Amazon SQS ETL Task](../../../../studio/database/tasks/ongoing-tasks/amazon-sqs-etl)**.  
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="add_etl_operation">
 <CodeBlock language="csharp">
@@ -413,13 +388,11 @@ store.Maintenance.Send(operation);
 |-------------------|-----------------------|----------------------------------------------------------------------|
 | **configuration** | `EtlConfiguration<T>` | The ETL configuration object where `T` is the connection string type |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Add ETL Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -435,10 +408,7 @@ store.Maintenance.Send(operation);
   * [Syntax](../../../../client-api/operations/maintenance/etl/add-etl#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Example - add Raven ETL" id="example-add-raven-etl" href="#example-add-raven-etl">
+## Example - add Raven ETL
 
 <TabItem value="something-something" label="add_raven_etl">
 <CodeBlock language="java">
@@ -471,9 +441,9 @@ you need to
 This can be done in the RavenDB Studio -&gt; Server Management -&gt; [Certificates view](../../../../server/security/authentication/certificate-management#studio-certificates-management-view).
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Example - add SQL ETL" id="example-add-sql-etl" href="#example-add-sql-etl">
+
+## Example - add SQL ETL
 
 <TabItem value="something-something" label="add_sql_etl">
 <CodeBlock language="java">
@@ -527,9 +497,9 @@ AddEtlOperationResult result = store.maintenance().send(operation);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Example - add OLAP ETL" id="example-add-olap-etl" href="#example-add-olap-etl">
+
+## Example - add OLAP ETL
 
 <TabItem value="something-something" label="add_olap_etl">
 <CodeBlock language="java">
@@ -560,9 +530,9 @@ AddEtlOperationResult result = store.maintenance().send(operation);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="add_etl_operation">
 <CodeBlock language="java">
@@ -575,13 +545,11 @@ AddEtlOperationResult result = store.maintenance().send(operation);
 |-------------------|-----------------------|-------------------------------------------------------|
 | **configuration** | `EtlConfiguration<T>` | ETL configuration where `T` is connection string type |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Add ETL Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -597,10 +565,7 @@ AddEtlOperationResult result = store.maintenance().send(operation);
     * [Syntax](../../../../client-api/operations/maintenance/etl/add-etl#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Example - add Raven ETL" id="example-add-raven-etl" href="#example-add-raven-etl">
+## Example - add Raven ETL
 
 <TabItem value="something-something" label="add_raven_etl">
 <CodeBlock language="nodejs">
@@ -623,9 +588,9 @@ const etlResultRvn = await store.maintenance.send(operationRvn);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Example - add SQL ETL" id="example-add-sql-etl" href="#example-add-sql-etl">
+
+## Example - add SQL ETL
 
 <TabItem value="something-something" label="add_sql_etl">
 <CodeBlock language="nodejs">
@@ -654,9 +619,9 @@ const etlResult = await store.maintenance.send(operationSql);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Example - add OLAP ETL" id="example-add-olap-etl" href="#example-add-olap-etl">
+
+## Example - add OLAP ETL
 
 <TabItem value="something-something" label="add_olap_etl">
 <CodeBlock language="nodejs">
@@ -678,9 +643,9 @@ const etlResultOlap = await store.maintenance.send(operationOlap);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="add_etl_operation">
 <CodeBlock language="nodejs">
@@ -708,7 +673,7 @@ const etlResultOlap = await store.maintenance.send(operationOlap);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

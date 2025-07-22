@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Queries
----
-
 <Admonition type="note" title="Note">
 
 
@@ -33,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Inner implementation details](../../integrations/akka.net-persistence/queries#inner-implementation-details)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Interface types" id="interface-types" href="#interface-types">
+## Interface types
 
 Each query interface comes in two forms to allow flexible querying based on whether you need  
 real-time updates (continuous) or a snapshot of the current state (current).
@@ -51,16 +46,13 @@ real-time updates (continuous) or a snapshot of the current state (current).
   Once all current data is fetched, the stream is completed.  
   Data that is persisted after the query is completed is Not included in the stream.
 
-</Admonition>
 
-<Admonition type="info" title="Supported interfaces" id="supported-interfaces" href="#supported-interfaces">
+
+## Supported interfaces
 
 <Admonition type="note" title="Note">
 
 #### IPersistenceIdsQuery & ICurrentPersistenceIdsQuery
-
----
-
 Use these methods to retrieve the PersistenceIds of ALL actors that have persisted events to the journal store:
 
 `PersistenceIds()`  
@@ -117,9 +109,6 @@ allPersistenceIds.RunForeach(persistenceId =>
 <Admonition type="note" title="Note">
 
 #### IEventsByPersistenceIdQuery & ICurrentEventsByPersistenceIdQuery
-
----
-
 * Use the methods below to retrieve events that have been persisted by a specific actor.
  
 * The returned event stream is ordered by the sequence numbers of the events.
@@ -182,9 +171,6 @@ eventsSource.RunForeach(envelope =>
 <Admonition type="note" title="Note">
 
 #### IEventsByTagQuery & ICurrentEventsByTagQuery
-
----
-
 * In Akka.Persistence, you can add one or more string **tags** to events.  
 
 * Use the methods below to retrieve events that have a specific tag.  
@@ -261,9 +247,6 @@ Note:
 <Admonition type="note" title="Note">
 
 #### IAllEventsQuery & ICurrentAllEventsQuery
-
----
-
 * Use the methods below to retrieve all events regardless of which PersistenceId they are associated with.
 
 * The returned event stream is ordered by the change-vector value of the event documents.
@@ -314,9 +297,9 @@ for the `EventsByTag` & `CurrentEventsByTag` methods above.
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Inner implementation details" id="inner-implementation-details" href="#inner-implementation-details">
+
+## Inner implementation details
 
 #### Indexes
 
@@ -325,9 +308,6 @@ the RavenDB plugin automatically creates the following internal static-indexes u
 
   * `ActorsByChangeVector`
   * `EventsByTagAndChangeVector`
-
----
-
 #### Additional collections
 
 In addition to the _Events_ & _Snapshots_ collections, which contain the persisted data,  
@@ -340,9 +320,6 @@ the RavenDB plugin creates the following collections to keep track of actors and
   * `EventMetadatas`  
     This collection stores a document for each unique actor that has persisted data.  
     Each document includes the latest sequence number of the most recent event persisted by the actor.
-
----
-
 #### Streaming queries
 
 The RavenDb plugin implements the above queries as [streaming queries](../../client-api/session/querying/how-to-stream-query-results).  
@@ -356,5 +333,5 @@ You can monitor each query sent from your client to the RavenDB server in the _T
 ![Queries in traffic watch](./assets/queries-in-traffic-watch.png)
 
 
-</Admonition>
+
 

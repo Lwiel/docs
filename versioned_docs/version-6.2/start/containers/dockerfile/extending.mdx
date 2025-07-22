@@ -73,10 +73,6 @@ You can:
 - Add scripts that configure or extend RavenDB's behavior (e.g., preloading data or setting specific configurations). Ensure scripts are executable (chmod +x).
 - Pass custom values or configurations via ENV directives or at runtime using docker run -e.
 - Customize HEALTHCHECK to match your deployment’s requirements, ensuring RavenDB is responding as expected.
-
-
----
-
 ## Customizing the RavenDB Dockerfile
 
 If your use case requires more extensive customization, you can modify the Dockerfile directly to create a tailored image.
@@ -170,9 +166,6 @@ Use signal trapping for smooth termination of the server:
 
 ###### Custom Operations
 Add database initialization or additional setup scripts as needed.
-
----
-
 ##### **Example Custom Script**
 
 <TabItem value="something" label="bash">
@@ -199,5 +192,3 @@ wait $COMMANDPID
 `}
 </CodeBlock>
 </TabItem>
-
----

@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Put Attachment Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Put Attachment Operation
+
 
 This operation is used to put an attachment to a document. 
 
@@ -83,7 +87,7 @@ public class AttachmentName
 
 </LanguageContent>
 <LanguageContent language="java">
-# Put Attachment Operation
+
 
 This operation is used to put an attachment to a document. 
 
@@ -198,8 +202,6 @@ public class AttachmentName \{
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Put Attachment Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -211,10 +213,7 @@ public class AttachmentName \{
   * [Syntax](../../../client-api/operations/attachments/put-attachment#syntax)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="Put attachment example" id="put-attachment-example" href="#put-attachment-example">
+## Put attachment example
 
 <TabItem value="something-something" label="put_attachment">
 <CodeBlock language="nodejs">
@@ -232,9 +231,9 @@ const attachmentDetails = await documentStore.operations.send(putAttachmentOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -285,7 +284,7 @@ const putAttachmentOp = new PutAttachmentOperation(documentId, name, stream, con
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

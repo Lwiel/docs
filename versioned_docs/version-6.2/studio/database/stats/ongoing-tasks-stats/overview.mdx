@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Ongoing Tasks Stats: Overview
----
-
 <Admonition type="note" title="Note">
 
 * The **Ongoing Tasks Stats** view monitors the following ongoing tasks:  
@@ -34,10 +32,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Active and Inactive Display](../../../../studio/database/stats/ongoing-tasks-stats/overview#active-and-inactive-display)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Ongoing Tasks Stats View" id="ongoing-tasks-stats-view" href="#ongoing-tasks-stats-view">
+## Ongoing Tasks Stats View
 
 ![Ongoing Tasks Stats View](./assets/stats-view-01-ongoing-tasks-stats-view.png)
 
@@ -59,17 +54,17 @@ import LanguageContent from "@site/src/components/language-content";
    Import file to view a previously exported graph data.  
    No new data is collected & displayed when showing imported data.  
 
-</Admonition>
 
-<Admonition type="info" title="Stats Graph" id="stats-graph" href="#stats-graph">
+
+## Stats Graph
 
 ![Ongoing Tasks Stats Graph](./assets/stats-view-02-rulers-and-bars.png)
 
 * The graph is added to the view once data is collected from at least one of the monitored tasks.  
 
-</Admonition>
 
-<Admonition type="info" title="The Timeline Ruler" id="the-timeline-ruler" href="#the-timeline-ruler">
+
+## The Timeline Ruler
 
 ![The Timeline Ruler](./assets/stats-view-03-selection-and-clear-buttons.png)
 
@@ -90,17 +85,14 @@ import LanguageContent from "@site/src/components/language-content";
    refresh the stats view without losing its entire history.  
    Using the `Clear Graph` button will clear all historical data.  
    </Admonition>
-
----
-
 ![Tail Stream End](./assets/stats-view-04-monitor-tail.png)
 
 * 6. **Monitoring (tail -f)**  
   When this option is checked, the selected time frame will be continuously reallocated at the end of the data stream.  
 
-</Admonition>
 
-<Admonition type="info" title="Task Rulers" id="task-rulers" href="#task-rulers">
+
+## Task Rulers
 
 Each monitored task has its dedicated ruler that displays the task's activities 
 during the time specified by the timeline ruler above.  
@@ -117,9 +109,6 @@ during the time specified by the timeline ruler above.
      * Click and drag the bar to slide the graph.  
      * Zoom in & out using the mouse wheel.  
      * Click the bar for an expanded view that details task events in multiple bars.  
-
----
-
 ### Task Ruler Expanded View
 
 ![Task Ruler Expanded Views](./assets/stats-view-06-task-rulers-expanded-views.png)
@@ -133,9 +122,6 @@ during the time specified by the timeline ruler above.
       See the dedicated tasks stats articles for task-specific information.  
     * Click and drag to slide the graph.  
     * Zoom in & out using the mouse wheel.  
-
----
-
 ### Task Rulers Time Grid
 
 A grid of vertical time lines allows you to easily relate task events to their time of occurence.  
@@ -161,9 +147,6 @@ displays **two different time grids**.
    of task activity after a period in which all tasks were idle.  
     * Hover over the gap line to show a tooltip that details the idle period 
       start time and duration.  
-
----
-
 ### Active and Inactive Display
 
 **Active** tasks (e.g. a subscription task that a client is currently connected to) 
@@ -175,6 +158,6 @@ and **Inactive** tasks are shown in different styles.
   ![Inactive Task](./assets/stats-view-inactive-task.png)
 
 
-</Admonition>
+
 
 

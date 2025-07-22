@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Ongoing Tasks Stats: Subscription Stats
----
-
 <Admonition type="note" title="Note">
 
 * A **Subscription Task** is an ongoing task in which the server sends documents that match a query defined on 
@@ -28,10 +26,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Connection Event Indicators](../../../../studio/database/stats/ongoing-tasks-stats/subscription-stats#connection-event-indicators)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Subscription Stats" id="subscription-stats" href="#subscription-stats">
+## Subscription Stats
 
 ### Subscription Stats Closed View
 
@@ -47,9 +42,6 @@ import LanguageContent from "@site/src/components/language-content";
     * Click the bar for the expanded view.  
     * Click and Drag the bar to slide the graph.  
     * Zoom in & out using the mouse wheel.  
-
----
-
 ### Subscription Stats Expanded View
 
 ![Subscription Stats Expanded View](./assets/stats-view-12-data-subscription-expanded-view.png)
@@ -80,9 +72,6 @@ import LanguageContent from "@site/src/components/language-content";
   The time it took the server to send the documents in this batch.  
 * **Waiting for ACK**  
   The time it took the client to acknowledge this batch.  
-
----
-
 ### Connection Event Indicators
 
 Connection Event Indicators signify events related to the initiation, state, 
@@ -92,29 +81,17 @@ or termination of a client connection.
   and the [Expanded](../../../../studio/database/stats/ongoing-tasks-stats/overview#task-rulers-expanded-view) 
   task views.  
 * Hovering over a connection event indicator will popup information related to it, if available.  
-
----
-
 **Connection Initiated**  
 ![Connnection Initiated](./assets/stats-view-connection-initiated.png)  
-
----
-
 **Connection Aborted**  
 ![Forcibly-Aborted Connnection](./assets/stats-view-forcibly-aborted-connection.png)  
 The client has forcibly aborted the connection.  
-
----
-
 **Connection Rejected**  
 ![Rejected Connnection](./assets/stats-view-rejected-connection.png)  
 A subscription task handles only a single client/connection at a time.  
 A client that uses the *OpenIfFree* [strategy](../../../../client-api/data-subscriptions/consumption/how-to-consume-data-subscription#worker-interplay) 
 has attempted to open a connection to the subscription task but was rejected 
 because the task is already occupied by another client.  
-
----
-
 **Pending Connection**  
 ![Pending Connnection](./assets/stats-view-pending-connection.png)  
   
@@ -127,6 +104,6 @@ because the task is already occupied by another client.
 3. Client **A** disconnects from the subscription task.  
 4. Client **B** starts a new connection to the subscription task.  
 
-</Admonition>
+
 
 

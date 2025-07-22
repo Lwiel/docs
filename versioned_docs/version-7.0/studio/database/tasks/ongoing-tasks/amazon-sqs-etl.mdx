@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Studio: Amazon SQS ETL Task
----
-
 <Admonition type="note" title="Note">
 
 * The RavenDB **Amazon SQS ETL task** -  
@@ -35,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Comments](../../../../studio/database/tasks/ongoing-tasks/amazon-sqs-etl#comments)  
       * [ETL message size -vs- Queue message size](../../../../studio/database/tasks/ongoing-tasks/amazon-sqs-etl#etl-message-size--vs--queue-message-size)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Ongoing Tasks View" id="ongoing-tasks-view" href="#ongoing-tasks-view">
+## Ongoing Tasks View
 
 ![Open the 'Add a Database Task' window](./assets/sqs_ongoing-tasks.png)
 
@@ -46,14 +41,11 @@ import LanguageContent from "@site/src/components/language-content";
    Click to open the ongoing tasks view.  
 2. **Add a Database Task**  
    Click to create a new ongoing task.  
-
----
-
 ![Select the Task to Create](./assets/sqs_task-selection.png)
    
-</Admonition>
 
-<Admonition type="info" title="Define Amazon SQS ETL task" id="define-amazon-sqs-etl-task" href="#define-amazon-sqs-etl-task">
+
+## Define Amazon SQS ETL task
 
 ![Define Amazon SQS ETL Task](./assets/sqs_etl-define-task.png)
 
@@ -103,9 +95,9 @@ import LanguageContent from "@site/src/components/language-content";
       3. **Delete script**  
          Click to remove this script.
 
-</Admonition>  
+  
 
-<Admonition type="info" title="Add or Edit Transformation Script" id="add-or-edit-transformation-script" href="#add-or-edit-transformation-script">
+## Add or Edit Transformation Script
 
 ![Add or Edit Transform Script](./assets/sqs_etl_transformation-script.png)
 
@@ -149,9 +141,9 @@ import LanguageContent from "@site/src/components/language-content";
 8. **Test Script**  
    Click to **test** the transformation script.  
 
-</Admonition>
 
-<Admonition type="info" title="Comments" id="comments" href="#comments">
+
+## Comments
 
 #### ETL message size -vs- Queue message size
 Please **be aware** that the maximum size of an SQS queue message is `64 KB`, while the 
@@ -159,5 +151,5 @@ maximum size of an ETL message to the queue is `256 KB`.
 The significance of this difference is that when a maximum-size ETL message arrives 
 at its destination queue it may be charged for not 1 but 4 queue messages.  
 
-</Admonition>
+
 

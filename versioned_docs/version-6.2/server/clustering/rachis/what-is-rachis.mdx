@@ -12,18 +12,13 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Rachis - RavenDB's Raft Implementation
----
-
 <Admonition type="note" title="Note">
 
 * **Rachis** is the RavenDB's **Raft** implementation.  
 
 * Definition of Rachis: Spinal column, also the distal part of the shaft of a feather that bears the web.  
 </Admonition>
-
----
-
-<Admonition type="info" title="What is Raft ?" id="what-is-raft" href="#what-is-raft">
+## What is Raft ?
 
 * **Raft** is a simple and easy-to-understand distributed consensus protocol.  
 
@@ -39,9 +34,9 @@ import LanguageContent from "@site/src/components/language-content";
 * Nice visualizations can be found in [the secret life of data](http://thesecretlivesofdata.com/raft/) & [raft.github](https://raft.github.io/).  
 * The full Raft thesis can be found in: [Raft paper](http://web.stanford.edu/~ouster/cgi-bin/papers/raft-atc14).  
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="What is Rachis ?" id="what-is-rachis" href="#what-is-rachis">
+
+## What is Rachis ?
 
 **Rachis** is RavenDB's Raft implementation with the following added features:  
 
@@ -51,4 +46,4 @@ import LanguageContent from "@site/src/components/language-content";
 * Dynamic topology, nodes can be added and removed from the cluster on the fly.  
 * Managing situations such as handling a Leader timeout and forcing a leader to step down.  
 * ACID local log using the Voron Storage Engine.   
-</Admonition>
+

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Logging
----
-
 <Admonition type="note" title="Note">
 
 * **Multiple logging levels**  
@@ -54,10 +52,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Studio: Admin Logs](../../server/troubleshooting/logging#studio:-admin-logs)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Available logging destinations" id="available-logging-destinations" href="#available-logging-destinations">
+## Available logging destinations
 
 RavenDB versions up to `6.2` output log data to files on the server machine, and can 
 optionally stream it to the server console.  
@@ -71,9 +66,9 @@ Available logging destinations include, among others, log aggregators like
 filtering and error handling tools, and a long list of applications that NLog 
 is integrated with.  
 
-</Admonition>
 
-<Admonition type="info" title="Logging configuration" id="logging-configuration" href="#logging-configuration">
+
+## Logging configuration
 
 * By default, RavenDB uses **internal configuration keys** to adjust logging.  
   Using this method, you can only output data to log files and to your console.  
@@ -95,9 +90,6 @@ is integrated with.
    - a [path](../../server/troubleshooting/logging#use-external-config-file) 
      to the configuration file you want to apply  
    - or `null` to continue using internal configuration keys.  
-
----
-
 <Admonition type="info" title="Applying changes" id="applying-changes" href="#applying-changes">
 
 * Permanent changes in the logging configuration, through either configuration keys 
@@ -110,15 +102,12 @@ is integrated with.
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Available logging levels" id="available-logging-levels" href="#available-logging-levels">
+
+## Available logging levels
 
 The logging levels offered by RavenDB have changed from versions prior to `7.0` 
 to newer versions.  
-
----
-
 #### Logging Modes
 
 RavenDB versions up to `6.2` support proprietary **logging modes**.  
@@ -128,9 +117,6 @@ RavenDB versions up to `6.2` support proprietary **logging modes**.
 | `Operations` | High-level info for operational use |
 | `Information` | Low-level debug info |
 | `None` | Logging is disabled |
-
----
-
 #### Logging Levels
 
 From version `7.0` on, RavenDB's **logging levels** are NLog-compliant.  
@@ -198,9 +184,9 @@ You **will** need to modify these settings, however, if you want to use NLog fea
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Default values" id="default-values" href="#default-values">
+
+## Default values
 
 * **Default logging level**  
   The default minimal logging level is `LogLevel.Info`.  
@@ -228,9 +214,9 @@ You **will** need to modify these settings, however, if you want to use NLog fea
   are **identical** to those given to internal configuration keys.  
    - [The list of logging configuration keys and their default values](../../server/configuration/logs-configuration)  
 
-</Admonition>
 
-<Admonition type="info" title="CLI customization: immediate temporary changes" id="cli-customization-immediate-temporary-changes" href="#cli-customization-immediate-temporary-changes">
+
+## CLI customization: immediate temporary changes
 
 Logging settings can also be customized via [CLI](../../server/administration/cli), 
 using the [log](../../server/administration/cli#log) command.  
@@ -258,9 +244,9 @@ To temporarily change the logging level to `debug`, issue this command in the se
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Configuring and using NLog" id="configuring-and-using-nlog" href="#configuring-and-using-nlog">
+
+## Configuring and using NLog
 
 To use NLog you need to:  
 
@@ -275,9 +261,6 @@ NLog options are customized using an NLog configuration file.
 Direct RavenDB to the location of your configuration file using the 
 [Logs.ConfigPath](../../server/configuration/logs-configuration#logs.configpath) 
 configuration key with the file's path as a value.  
-
----
-
 #### Example:
 To use a configuration file named `NLog.config` that resides in the RavenDB server 
 folder, add `settings.json` this line:  
@@ -299,9 +282,6 @@ folder, add `settings.json` this line:
   settings.  
 </Admonition>
 </Admonition>
-
----
-
 <a id="install-nlog-plugins"/>
 <Admonition type="note" title="2. Load and run NLog plugins Nuget packages" id="2-load-and-run-nlog-plugins-nuget-packages" href="#2-load-and-run-nlog-plugins-nuget-packages">
 
@@ -312,9 +292,6 @@ and run during startup.
 We do this by defining the plugin Nuget package URL as a property of the 
 [Logs.NuGet.AdditionalPackages](../../server/configuration/logs-configuration#logs.nuget.additionalpackages) 
 configuration key, with the plugin version we want to use as a value.  
-
----
-
 #### Example
 To load a [Grafana Loki](https://grafana.com/oss/loki/) plugin, for example, 
 add RavenDB's `Logs.NuGet.AdditionalPackages` configuration key an `NLog.Targets.Loki` 
@@ -340,25 +317,16 @@ property, with the plugin's version you want to use as a value.
   Use this key to determine whether RavenDB is allowed to use pre-release versions of NuGet packages.  
 </Admonition>
 </Admonition>
-
----
-
 <a id="set-nlog-config-file"/>
 <Admonition type="note" title="3. Set your NLog configuration file" id="3-set-your-nlog-configuration-file" href="#3-set-your-nlog-configuration-file">
 
 Follow the procedure below to create and modify an NLog configuration file.  
 When you're done, restart the server to apply the new settings.  
-
----
-
 #### An available template:
 We've created an NLog configuration file **template** for your convenience, it is 
 available in the RavenDB **server** folder under the name `NLog.template.config`.  
 You can copy the template and modify it by your needs, or use your own configuration 
 file, as you prefer.  
-
----
-
 #### Mandatory `logger` definitions:
 Whether you base your configuration file on our template or use your own file, please 
 be sure it includes the four _loggers_ defined in the template file's **rules** section.  
@@ -379,9 +347,6 @@ These definitions are mandatory, and failing to include them will generate an ex
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Your own loggers:
 The **Raven_Default** logger, for example, directs log records to **Raven_Default_Target**.  
 Looking at the **Raven_Default_Target** definition (also included in the template file) we 
@@ -451,12 +416,12 @@ see [this article](https://ravendb.net/articles/sending-your-ravendb-7-0-logs-to
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Studio: Admin Logs" id="studio-admin-logs" href="#studio-admin-logs">
+
+## Studio: Admin Logs
 
 Another way to view debug (or any other level) logs without having to restart 
 the server, is Studio's [Admin Logs view](../../studio/server/debug/admin-logs).  
 
-</Admonition>
+
 

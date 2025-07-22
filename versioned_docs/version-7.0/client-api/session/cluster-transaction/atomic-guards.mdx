@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
+
+
+# Atomic Guards
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Atomic Guards
----
 
 <Admonition type="note" title="Note">
 
@@ -35,17 +37,11 @@ import LanguageContent from "@site/src/components/language-content";
   * [Best practice when storing a document in a cluster-wide transaction](../../../client-api/session/cluster-transaction/atomic-guards#best-practice-when-storing-a-document-in-a-cluster-wide-transaction)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Atomic guard creation and update" id="atomic-guard-creation-and-update" href="#atomic-guard-creation-and-update">
+## Atomic guard creation and update
 
 <Admonition type="info" title="Info">
 Atomic guards are created and managed **only when the session's transaction mode is set to [ClusterWide](../../../client-api/session/cluster-transaction/overview#open-a-cluster-transaction)**.
 </Admonition>
-
----
- 
 * **When creating a new document**:  
   A new atomic guard is created when a new document is successfully saved.
 
@@ -64,9 +60,9 @@ Atomic guards are created and managed **only when the session's transaction mode
   * If a session's `SaveChanges()` fails, the entire session is rolled back and the atomic guard is Not created.  
   * Ensure your business logic is designed to re-execute the session in case saving changes fails for any reason.
 
-</Admonition>
 
-<Admonition type="info" title="Atomic guard usage example" id="atomic-guard-usage-example" href="#atomic-guard-usage-example">
+
+## Atomic guard usage example
 
 In the code sample below, an atomic guard is automatically created when a new document is saved.  
 It is then used to detect and prevent conflicting writes: when two sessions load and modify the same document,  
@@ -152,9 +148,6 @@ using (var asyncSession2 = store.OpenAsyncSession(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 After running the above example, you can view the automatically created atomic guard in the Studio’s  
 [Compare-Exchange view](../../../studio/database/documents/compare-exchange-view#the-compare-exchange-view):
 
@@ -176,9 +169,9 @@ After running the above example, you can view the automatically created atomic g
        * Doing so will interfere with RavenDB's ability to track document versioning through atomic guards.
       </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Atomic guard database scope" id="atomic-guard-database-scope" href="#atomic-guard-database-scope">
+
+## Atomic guard database scope
 
 * Atomic guards are local to the database on which they were defined.
 
@@ -186,9 +179,9 @@ After running the above example, you can view the automatically created atomic g
   they are Not externally replicated to other databases by any ongoing replication task.  
   Learn more in [why compare-exchange items are not replicated](../../../client-api/operations/compare-exchange/overview#why-compare-exchange-items-are-not-replicated-to-external-databases).
 
-</Admonition>
 
-<Admonition type="info" title="Disabling atomic guards" id="disabling-atomic-guards" href="#disabling-atomic-guards">
+
+## Disabling atomic guards
 
 * Before atomic guards were introduced (in RavenDB 5.2), client code had to explicitly manage compare-exchange entries
   to ensure concurrency control and maintain ACID guarantees in cluster-wide transactions.
@@ -237,9 +230,9 @@ After running the above example, you can view the automatically created atomic g
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="When are atomic guards removed" id="when-are-atomic-guards-removed" href="#when-are-atomic-guards-removed">
+
+## When are atomic guards removed
 
 Atomic guards are removed **automatically** in the following scenarios:  
 (you don't need to clean them up manually)
@@ -255,9 +248,6 @@ Atomic guards are removed **automatically** in the following scenarios:
     * Since different cleanup tasks handle the removal of **expired** documents and the removal of their associated atomic guards,
       it may happen that atomic guards of removed documents would linger in the compare exchange entries list a short while longer before they are removed.
       You do Not need to remove such atomic guards yourself, they will be removed by the cleanup task.
-
----
-
 <Admonition type="warning" title="Warning">
 
 * **Do not delete or modify atomic guards manually while they are in use by an active session**.  
@@ -269,9 +259,9 @@ Atomic guards are removed **automatically** in the following scenarios:
   this will re-create the atomic guard automatically.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Best practice when storing a document in a cluster-wide transaction" id="best-practice-when-storing-a-document-in-a-cluster-wide-transaction" href="#best-practice-when-storing-a-document-in-a-cluster-wide-transaction">
+
+## Best practice when storing a document in a cluster-wide transaction
 
 * When working with a cluster-wide session,  
   we recommend that you always **`Load` the document into the session before storing it** -  
@@ -283,9 +273,6 @@ Atomic guards are removed **automatically** in the following scenarios:
   In these cases, the document is deleted, but the atomic guard remains (it is not automatically removed).  
   If you attempt to re-create such a document without loading it first,
   RavenDB will fail to save it because the session is unaware of the existing atomic guard’s latest Raft index.
-  
----
-
 In this example, the document is loaded into the session BEFORE creating or modifying it:
 
 <Tabs groupId='languageSyntax'>
@@ -386,13 +373,11 @@ When _loading_ a document in a cluster-wide session, RavenDB attempts to retriev
       the document is treated as a brand new document and will be saved as usual.
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Atomic Guards
----
 
 <Admonition type="note" title="Note">
 
@@ -413,17 +398,11 @@ When _loading_ a document in a cluster-wide session, RavenDB attempts to retriev
   * [Best practice when storing a document in a cluster-wide transaction](../../../client-api/session/cluster-transaction/atomic-guards#best-practice-when-storing-a-document-in-a-cluster-wide-transaction)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Atomic guard creation and update" id="atomic-guard-creation-and-update" href="#atomic-guard-creation-and-update">
+## Atomic guard creation and update
 
 <Admonition type="info" title="Info">
 Atomic guards are created and managed **only when the session's transaction mode is set to [CLUSTER_WIDE](../../../client-api/session/cluster-transaction/overview#open-a-cluster-transaction)**.
 </Admonition>
-
----
-
 * **When creating a new document**:  
   A new atomic guard is created when a new document is successfully saved.
 
@@ -442,9 +421,9 @@ Atomic guards are created and managed **only when the session's transaction mode
     * If a session's `save_changes()` fails, the entire session is rolled back and the atomic guard is Not created.
     * Ensure your business logic is designed to re-execute the session in case saving changes fails for any reason.
 
-</Admonition>
 
-<Admonition type="info" title="Atomic guard usage example" id="atomic-guard-usage-example" href="#atomic-guard-usage-example">
+
+## Atomic guard usage example
 
 In the code sample below, an atomic guard is automatically created when a new document is saved.  
 It is then used to detect and prevent conflicting writes: when two sessions load and modify the same document,  
@@ -483,9 +462,6 @@ with store.open_session(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 After running the above example, you can view the automatically created atomic guard in the Studio’s  
 [Compare-Exchange view](../../../studio/database/documents/compare-exchange-view#the-compare-exchange-view):
 
@@ -507,9 +483,9 @@ After running the above example, you can view the automatically created atomic g
        * Doing so will interfere with RavenDB's ability to track document versioning through atomic guards.
       </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Atomic guard database scope" id="atomic-guard-database-scope" href="#atomic-guard-database-scope">
+
+## Atomic guard database scope
 
 * Atomic guards are local to the database on which they were defined.
 
@@ -517,9 +493,9 @@ After running the above example, you can view the automatically created atomic g
   they are Not externally replicated to other databases by any ongoing replication task.  
   Learn more in [why compare-exchange items are not replicated](../../../client-api/operations/compare-exchange/overview#why-compare-exchange-items-are-not-replicated-to-external-databases).
 
-</Admonition>
 
-<Admonition type="info" title="Disabling atomic guards" id="disabling-atomic-guards" href="#disabling-atomic-guards">
+
+## Disabling atomic guards
 
 * Before atomic guards were introduced (in RavenDB 5.2), client code had to explicitly manage compare-exchange entries
   to ensure concurrency control and maintain ACID guarantees in cluster-wide transactions.
@@ -548,9 +524,9 @@ After running the above example, you can view the automatically created atomic g
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="When are atomic guards removed" id="when-are-atomic-guards-removed" href="#when-are-atomic-guards-removed">
+
+## When are atomic guards removed
 
 Atomic guards are removed **automatically** in the following scenarios:  
 (you don't need to clean them up manually)
@@ -566,9 +542,6 @@ Atomic guards are removed **automatically** in the following scenarios:
     * Since different cleanup tasks handle the removal of **expired** documents and the removal of their associated atomic guards,
       it may happen that atomic guards of removed documents would linger in the compare exchange entries list a short while longer before they are removed.
       You do Not need to remove such atomic guards yourself, they will be removed by the cleanup task.
-
----
-
 <Admonition type="warning" title="Warning">
 
 * **Do not delete or modify atomic guards manually while they are in use by an active session**.  
@@ -580,9 +553,9 @@ Atomic guards are removed **automatically** in the following scenarios:
   this will re-create the atomic guard automatically.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Best practice when storing a document in a cluster-wide transaction" id="best-practice-when-storing-a-document-in-a-cluster-wide-transaction" href="#best-practice-when-storing-a-document-in-a-cluster-wide-transaction">
+
+## Best practice when storing a document in a cluster-wide transaction
 
 * When working with a cluster-wide session,  
   we recommend that you always **`load` the document into the session before storing it** -  
@@ -649,13 +622,11 @@ When _loading_ a document in a cluster-wide session, RavenDB attempts to retriev
       the document is treated as a brand new document and will be saved as usual.
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Atomic Guards
----
 
 <Admonition type="note" title="Note">
 
@@ -676,17 +647,11 @@ When _loading_ a document in a cluster-wide session, RavenDB attempts to retriev
   * [Best practice when storing a document in a cluster-wide transaction](../../../client-api/session/cluster-transaction/atomic-guards#best-practice-when-storing-a-document-in-a-cluster-wide-transaction)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Atomic guard creation and update" id="atomic-guard-creation-and-update" href="#atomic-guard-creation-and-update">
+## Atomic guard creation and update
 
 <Admonition type="info" title="Info">
 Atomic guards are created and managed **only when the session's transaction mode is set to [ClusterWide](../../../client-api/session/cluster-transaction/overview#open-a-cluster-transaction)**.
 </Admonition>
-
----
-
 * **When creating a new document**:  
   A new atomic guard is created when a new document is successfully saved.
 
@@ -705,9 +670,9 @@ Atomic guards are created and managed **only when the session's transaction mode
     * If a session's `saveChanges()` fails, the entire session is rolled back and the atomic guard is Not created.
     * Ensure your business logic is designed to re-execute the session in case saving changes fails for any reason.
 
-</Admonition>
 
-<Admonition type="info" title="Atomic guard usage example" id="atomic-guard-usage-example" href="#atomic-guard-usage-example">
+
+## Atomic guard usage example
 
 In the code sample below, an atomic guard is automatically created when a new document is saved.  
 It is then used to detect and prevent conflicting writes: when two sessions load and modify the same document,  
@@ -765,9 +730,6 @@ try \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 After running the above example, you can view the automatically created atomic guard in the Studio’s  
 [Compare-Exchange view](../../../studio/database/documents/compare-exchange-view#the-compare-exchange-view):
 
@@ -789,9 +751,9 @@ After running the above example, you can view the automatically created atomic g
        * Doing so will interfere with RavenDB's ability to track document versioning through atomic guards.
       </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Atomic guard database scope" id="atomic-guard-database-scope" href="#atomic-guard-database-scope">
+
+## Atomic guard database scope
 
 * Atomic guards are local to the database on which they were defined.
 
@@ -799,9 +761,9 @@ After running the above example, you can view the automatically created atomic g
   they are Not externally replicated to other databases by any ongoing replication task.  
   Learn more in [why compare-exchange items are not replicated](../../../client-api/operations/compare-exchange/overview#why-compare-exchange-items-are-not-replicated-to-external-databases).
 
-</Admonition>
 
-<Admonition type="info" title="Disabling atomic guards" id="disabling-atomic-guards" href="#disabling-atomic-guards">
+
+## Disabling atomic guards
 
 * Before atomic guards were introduced (in RavenDB 5.2), client code had to explicitly manage compare-exchange entries
   to ensure concurrency control and maintain ACID guarantees in cluster-wide transactions.
@@ -832,9 +794,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="When are atomic guards removed" id="when-are-atomic-guards-removed" href="#when-are-atomic-guards-removed">
+
+## When are atomic guards removed
 
 Atomic guards are removed **automatically** in the following scenarios:  
 (you don't need to clean them up manually)
@@ -850,9 +812,6 @@ Atomic guards are removed **automatically** in the following scenarios:
     * Since different cleanup tasks handle the removal of **expired** documents and the removal of their associated atomic guards,
       it may happen that atomic guards of removed documents would linger in the compare exchange entries list a short while longer before they are removed.
       You do Not need to remove such atomic guards yourself, they will be removed by the cleanup task.
-
----
-
 <Admonition type="warning" title="Warning">
 
 * **Do not delete or modify atomic guards manually while they are in use by an active session**.  
@@ -864,9 +823,9 @@ Atomic guards are removed **automatically** in the following scenarios:
   this will re-create the atomic guard automatically.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Best practice when storing a document in a cluster-wide transaction" id="best-practice-when-storing-a-document-in-a-cluster-wide-transaction" href="#best-practice-when-storing-a-document-in-a-cluster-wide-transaction">
+
+## Best practice when storing a document in a cluster-wide transaction
 
 * When working with a cluster-wide session,  
   we recommend that you always **`load` the document into the session before storing it** -  
@@ -937,13 +896,11 @@ When _loading_ a document in a cluster-wide session, RavenDB attempts to retriev
       the document is treated as a brand new document and will be saved as usual.
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Atomic Guards
----
 
 <Admonition type="note" title="Note">
 
@@ -964,17 +921,11 @@ When _loading_ a document in a cluster-wide session, RavenDB attempts to retriev
   * [Best practice when storing a document in a cluster-wide transaction](../../../client-api/session/cluster-transaction/atomic-guards#best-practice-when-storing-a-document-in-a-cluster-wide-transaction)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Atomic guard creation and update" id="atomic-guard-creation-and-update" href="#atomic-guard-creation-and-update">
+## Atomic guard creation and update
 
 <Admonition type="info" title="Info">
 Atomic guards are created and managed **only when the session's transaction mode is set to [ClusterWide](../../../client-api/session/cluster-transaction/overview#open-a-cluster-transaction)**.
 </Admonition>
-
----
-
 * **When creating a new document**:  
   A new atomic guard is created when a new document is successfully saved.
 
@@ -993,9 +944,9 @@ Atomic guards are created and managed **only when the session's transaction mode
     * If a session's `saveChanges()` fails, the entire session is rolled back and the atomic guard is Not created.
     * Ensure your business logic is designed to re-execute the session in case saving changes fails for any reason.
 
-</Admonition>
 
-<Admonition type="info" title="Atomic guard usage example" id="atomic-guard-usage-example" href="#atomic-guard-usage-example">
+
+## Atomic guard usage example
 
 In the code sample below, an atomic guard is automatically created when a new document is saved.  
 It is then used to detect and prevent conflicting writes: when two sessions load and modify the same document,  
@@ -1042,9 +993,6 @@ await session2.saveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 After running the above example, you can view the automatically created atomic guard in the Studio’s  
 [Compare-Exchange view](../../../studio/database/documents/compare-exchange-view#the-compare-exchange-view):
 
@@ -1066,9 +1014,9 @@ After running the above example, you can view the automatically created atomic g
        * Doing so will interfere with RavenDB's ability to track document versioning through atomic guards.
       </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Atomic guard database scope" id="atomic-guard-database-scope" href="#atomic-guard-database-scope">
+
+## Atomic guard database scope
 
 * Atomic guards are local to the database on which they were defined.
 
@@ -1076,9 +1024,9 @@ After running the above example, you can view the automatically created atomic g
   they are Not externally replicated to other databases by any ongoing replication task.  
   Learn more in [why compare-exchange items are not replicated](../../../client-api/operations/compare-exchange/overview#why-compare-exchange-items-are-not-replicated-to-external-databases).
 
-</Admonition>
 
-<Admonition type="info" title="Disabling atomic guards" id="disabling-atomic-guards" href="#disabling-atomic-guards">
+
+## Disabling atomic guards
 
 * Before atomic guards were introduced (in RavenDB 5.2), client code had to explicitly manage compare-exchange entries
   to ensure concurrency control and maintain ACID guarantees in cluster-wide transactions.
@@ -1107,9 +1055,9 @@ await session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="When are atomic guards removed" id="when-are-atomic-guards-removed" href="#when-are-atomic-guards-removed">
+
+## When are atomic guards removed
 
 Atomic guards are removed **automatically** in the following scenarios:  
 (you don't need to clean them up manually)
@@ -1125,9 +1073,6 @@ Atomic guards are removed **automatically** in the following scenarios:
     * Since different cleanup tasks handle the removal of **expired** documents and the removal of their associated atomic guards,
       it may happen that atomic guards of removed documents would linger in the compare exchange entries list a short while longer before they are removed.
       You do Not need to remove such atomic guards yourself, they will be removed by the cleanup task.
-
----
-
 <Admonition type="warning" title="Warning">
 
 * **Do not delete or modify atomic guards manually while they are in use by an active session**.  
@@ -1139,9 +1084,9 @@ Atomic guards are removed **automatically** in the following scenarios:
   this will re-create the atomic guard automatically.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Best practice when storing a document in a cluster-wide transaction" id="best-practice-when-storing-a-document-in-a-cluster-wide-transaction" href="#best-practice-when-storing-a-document-in-a-cluster-wide-transaction">
+
+## Best practice when storing a document in a cluster-wide transaction
 
 * When working with a cluster-wide session,  
   we recommend that you always **`load` the document into the session before storing it** -  
@@ -1210,7 +1155,7 @@ When _loading_ a document in a cluster-wide session, RavenDB attempts to retriev
       the document is treated as a brand new document and will be saved as usual.
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>

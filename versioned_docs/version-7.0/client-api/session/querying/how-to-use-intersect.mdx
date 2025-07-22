@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Using Intersect
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Using Intersect
+
 
 To return only documents that match **all** provided sub-queries, use the `Intersect` extension which enables RavenDB to perform server-side intersection queries.
 
@@ -102,7 +106,7 @@ where intersect(Manufacturer = 'Raven', Color = 'Blue' and Size = 'Small', Color
 
 </LanguageContent>
 <LanguageContent language="java">
-# Using Intersect
+
 
 To return only documents that match **all** provided sub-queries, use the `intersect` method which enables RavenDB to perform server-side intersection queries.
 
@@ -203,7 +207,7 @@ where intersect(Manufacturer = 'Raven', Color = 'Blue' and Size = 'Small', Color
 
 </LanguageContent>
 <LanguageContent language="python">
-# Using Intersect
+
 
 To return only documents that match **all** provided sub-queries, use the `intersect` method 
 which enables RavenDB to perform server-side intersection queries.
@@ -275,7 +279,7 @@ where intersect(Manufacturer = 'Raven', Color = 'Blue' and Size = 'Small', Color
 
 </LanguageContent>
 <LanguageContent language="php">
-# Using Intersect
+
 
 To return only documents that match **all** provided sub-queries, use the 
 `intersect` extension to allow RavenDB to perform server-side intersection queries.
@@ -324,7 +328,7 @@ where intersect(Manufacturer = 'Raven', Color = 'Blue' and Size = 'Small', Color
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Using Intersect
+
 
 To return only documents that match *all* provided sub-queries, use the `intersect()` method which enables RavenDB to perform server-side intersection queries.
 

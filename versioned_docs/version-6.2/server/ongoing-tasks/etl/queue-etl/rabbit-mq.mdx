@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Queue ETL: RabbitMQ
----
-
 <Admonition type="note" title="Note">
 
 * RabbitMQ exchanges are designed to disperse data to multiple queues,  
@@ -27,9 +25,6 @@ import LanguageContent from "@site/src/components/language-content";
 * Utilizing this task allows RavenDB to act as an event producer in a RabbitMQ architecture.
 
 * Read more about RabbitMQ in the platform's [official documentation](https://www.rabbitmq.com/).
-
----
-
 * This article focuses on how to create a RabbitMQ ETL task using the Client API.  
   To define a RabbitMQ ETL task from Studio see [Studio: RabbitMQ ETL Task](../../../../studio/database/tasks/ongoing-tasks/rabbitmq-etl-task)  
   For an **overview of Queue ETL tasks**, see [Queue ETL tasks overview](../../../../server/ongoing-tasks/etl/queue-etl/overview).
@@ -47,15 +42,9 @@ import LanguageContent from "@site/src/components/language-content";
         * [Available method overloads](../../../../server/ongoing-tasks/etl/queue-etl/rabbit-mq#available-method-overloads)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Add a RabbitMQ connection string" id="add-a-rabbitmq-connection-string" href="#add-a-rabbitmq-connection-string">
+## Add a RabbitMQ connection string
 
 Before setting up the ETL task, define a connection string that the task will use to connect to RabbitMQ.
-
----
-
 #### Example
 
 <TabItem value="something" label="add_rabbitMq_connection_string">
@@ -82,9 +71,6 @@ var res = store.Maintenance.Send(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax
 
 <TabItem value="something" label="queue_connection_string">
@@ -129,16 +115,13 @@ var res = store.Maintenance.Send(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add a RabbitMQ ETL task" id="add-a-rabbitmq-etl-task" href="#add-a-rabbitmq-etl-task">
+
+## Add a RabbitMQ ETL task
 
 <Admonition type="note" title="Note">
 
 <a id="example-basic"/> **Example - basic**:
-
----
-
 * In this example, the RabbitMQ ETL Task will -
     * Extract source documents from the "Orders" collection in RavenDB.
     * Process each "Order" document using a defined script that creates a new `orderData` object.
@@ -211,9 +194,6 @@ store.Maintenance.Send(new AddEtlOperation<QueueConnectionString>(etlTask));
 <Admonition type="note" title="Note">
 
 <a id="delete-processed-documents"/> **Example - delete processed documents**:
-
----
-
 * You have the option to delete documents from your RavenDB database once they have been processed by the Queue ETL task.
 
 * Set the optional `Queues` property in your ETL configuration with the list of RabbitMQ queues for which processed documents should be deleted.
@@ -251,9 +231,6 @@ store.Maintenance.Send(new AddEtlOperation<QueueConnectionString>(etlTask));
 </TabItem>
 
 </Admonition>
-
----
-
 #### Syntax
 
 <TabItem value="something" label="etl_configuration">
@@ -302,16 +279,13 @@ public class EtlQueue
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="The transformation script" id="the-transformation-script" href="#the-transformation-script">
+
+## The transformation script
 
 The [basic characteristics](../../../../server/ongoing-tasks/etl/basics) of a RabbitMQ ETL script are similar to those of other ETL types.  
 The script defines what data to **extract** from the source document, how to **transform** this data,  
 and which RabbitMQ Exchange to **load** it to.
-
----
-
 #### The loadTo method
 
 To specify which RabbitMQ Exchange to load the data into, use either of the following methods in your script.  
@@ -338,9 +312,6 @@ For example, the following two calls, which load data to the Orders exchange, ar
 
   * `loadToOrdersExchange(obj, 'users', {attributes})`
   * `loadTo('OrdersExchange', obj, 'users', {attributes})`
-
----
-
 #### Available method overloads
 
   * `loadTo('', obj, 'routingKey', {attributes})`  
@@ -353,16 +324,10 @@ For example, the following two calls, which load data to the Orders exchange, ar
 
   * `loadTo<ExchangeName>(obj, 'routingKey')`  
     When omitting the attributes, default attribute values will be assigned.
-
----
-
 <Admonition type="note" title="Note">
 If no exchange is defined in the RabbitMQ platform, RavenDB will create a default exchange of the **Fanout** type. 
 In this case, all routing keys will be ignored, and messages will be distributed to all bound queues.
 </Admonition>
-
----
-
 A sample script that process documents from the Orders collection:
 
 <TabItem value="something" label="javascript">
@@ -394,5 +359,5 @@ loadToOrdersExchange(orderData, 'users-queue', \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

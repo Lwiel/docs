@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # GenAI Integration: Overview
----
-
 <Admonition type="note" title="Note">
 
 * **GenAI Integration** allows RavenDB to connect and interact with Generative AI models, 
@@ -42,10 +40,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Supported services](../../ai-integration/gen-ai-integration/gen-ai-overview#supported-services)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="RavenDB GenAI tasks" id="ravendb-genai-tasks" href="#ravendb-genai-tasks">
+## RavenDB GenAI tasks
 
 RavenDB offers an integration of generative AI capabilities through user-defined **GenAI tasks**.  
 A GenAI task is an ongoing process that continuously monitors a document collection associated with it, 
@@ -199,16 +194,13 @@ if($output.Blocked)
 * You can also create GenAI tasks using the [Client API](../../ai-integration/gen-ai-integration/gen-ai-api) 
 </Admonition>
  
-</Admonition>
 
-<Admonition type="info" title="Run time" id="run-time" href="#run-time">
+
+## Run time
 
 Once you complete the configuration and save the task, it will start running (if enabled).  
 The task will monitor the collection associated with it, and process documents as they are 
 added or modified.  
-
----
-
 #### Tracking of processed document parts
 
 * After creating a [context object](../../ai-integration/gen-ai-integration/gen-ai-studio#generate-context-objects) 
@@ -242,24 +234,24 @@ added or modified.
 2. **Hash codes**  
    These two hash codes were added after processing `comment/1` and `comment/3`.  
 
-</Admonition>
 
-<Admonition type="info" title="Licensing" id="licensing" href="#licensing">
+
+## Licensing
 
 For RavenDB to support the GenAI Integration feature, you need a `RavenDB AI` license type.  
 A `Developer` license will also enable the feature for experimentation and development.  
 
 ![Licensing: RavenDB AI license](./assets/gen-ai_licensing.png)
 
-</Admonition>
 
-<Admonition type="info" title="Supported services" id="supported-services" href="#supported-services">
+
+## Supported services
 
 Supported services include:
 
 * `OpenAI` and `OpenAI-compatible` services  
 * `Ollama`  
 
-</Admonition>
+
 
 

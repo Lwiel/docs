@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Delete Document Command
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Delete Document Command
+
 
 <Admonition type="note" title="Note">
 
@@ -27,17 +31,11 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../client-api/commands/documents/delete#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 <Admonition type="note" title="Note">
 
 **Delete document command - using the Store's request executor**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Delete_document" label="Delete_document">
 <CodeBlock language="csharp">
@@ -67,9 +65,6 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 <Admonition type="note" title="Note">
 
 **Delete document command - using the Session's request executor**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Delete_document" label="Delete_document">
 <CodeBlock language="csharp">
@@ -91,9 +86,6 @@ await asyncSession.Advanced.RequestExecutor.ExecuteAsync(command, asyncSession.A
 <Admonition type="note" title="Note">
 
 **Delete document command - with concurrency check**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Delete_document" label="Delete_document">
 <CodeBlock language="csharp">
@@ -152,9 +144,9 @@ catch (Exception e)
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -168,12 +160,12 @@ catch (Exception e)
 | **id**           | `string` | The ID of the document to delete.                                                                                                                                                                                                                       |
 | **changeVector** | `string` | The change-vector of the document you wish to delete,<br/>used for [optimistic concurrency control](../../../server/clustering/replication/change-vector#concurrency-control-&-change-vectors).<br/>Pass `null` to skip the check and force the deletion. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Delete Document Command
+
 
 **Delete** is used to remove a document from a database.
 
@@ -204,7 +196,7 @@ session.advanced().getRequestExecutor().execute(command);
 
 </LanguageContent>
 <LanguageContent language="python">
-# Delete Document Command
+
 
 <Admonition type="note" title="Note">
 
@@ -216,10 +208,7 @@ session.advanced().getRequestExecutor().execute(command);
     * [Syntax](../../../client-api/commands/documents/delete#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Example" id="example" href="#example">
+## Example
 
 <TabItem value="something-something" label="delete_sample">
 <CodeBlock language="python">
@@ -229,10 +218,10 @@ session.advanced.request_executor.execute_command(command)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="delete_interface">
 <CodeBlock language="python">
@@ -247,12 +236,12 @@ session.advanced.request_executor.execute_command(command)
 | **key**           | `str` | ID of a document to be deleted |
 | **change_vector** | `str` (optional) | Entity Change Vector, used for concurrency checks (`None` to skip check) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Commands: Delete Document
+
 
 <Admonition type="note" title="Note">
 
@@ -264,10 +253,7 @@ session.advanced.request_executor.execute_command(command)
     * [Syntax](../../../client-api/commands/documents/delete#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Example" id="example" href="#example">
+## Example
 
 <TabItem value="something-something" label="delete_sample">
 <CodeBlock language="php">
@@ -277,10 +263,10 @@ $session->advanced()->getRequestExecutor()->execute($command);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="delete_interface">
 <CodeBlock language="php">
@@ -294,12 +280,12 @@ $session->advanced()->getRequestExecutor()->execute($command);
 | **idOrCopy** | `string` | ID of a document to be deleted |
 | **changeVector** | `string` (optional) | Entity Change Vector, used for concurrency checks (`None` to skip check) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Delete Document Command
+
 
 <Admonition type="note" title="Note">
 
@@ -313,17 +299,11 @@ $session->advanced()->getRequestExecutor()->execute($command);
     * [Syntax](../../../client-api/commands/documents/delete#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 <Admonition type="note" title="Note">
 
 **Delete document command - using the Store's request executor**:
-
----
-
 <TabItem value="something-something" label="delete_document_1">
 <CodeBlock language="nodejs">
 {`// Define the Delete Command
@@ -340,9 +320,6 @@ await documentStore.getRequestExecutor().execute(command);
 <Admonition type="note" title="Note">
 
 **Delete document command - using the Session's request executor**:
-
----
-
 <TabItem value="something-something" label="delete_document_2">
 <CodeBlock language="nodejs">
 {`const command = new DeleteDocumentCommand("employees/1-A", null);
@@ -357,9 +334,6 @@ await session.advanced.requestExecutor.execute(command);
 <Admonition type="note" title="Note">
 
 **Delete document command - with concurrency check**:
-
----
-
 <TabItem value="something-something" label="delete_document_3">
 <CodeBlock language="nodejs">
 {`// Load a document
@@ -387,9 +361,9 @@ catch (err) \{
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -403,7 +377,7 @@ catch (err) \{
 | **id**           | `string` | The ID of the document to delete.                                                                                                                                                                                                                       |
 | **changeVector** | `string` | The change-vector of the document you wish to delete,<br/>used for [optimistic concurrency control](../../../server/clustering/replication/change-vector#concurrency-control-&-change-vectors).<br/>Pass `null` to skip the check and force the deletion. |
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Put Document Command
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Put Document Command
----
 
 <Admonition type="note" title="Note">
 
@@ -32,17 +34,11 @@ import LanguageContent from "@site/src/components/language-content";
    * [Syntax](../../../client-api/commands/documents/put#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 <Admonition type="note" title="Note">
 
 **Put document command - using the Store's request executor**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Put_document" label="Put_document">
 <CodeBlock language="csharp">
@@ -112,9 +108,6 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 <Admonition type="note" title="Note">
 
 **Put document command - using the Session's request executor**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Put_document" label="Put_document">
 <CodeBlock language="csharp">
@@ -184,9 +177,9 @@ var theDocumentCV = putResult.ChangeVector;
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -219,12 +212,12 @@ public class PutResult
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Put Document Command
+
 
 **Put** is used to insert or update a document in a database.
 
@@ -264,8 +257,6 @@ session.advanced().getRequestExecutor().execute(command);
 
 </LanguageContent>
 <LanguageContent language="python">
-# Put Document Command
----
 
 <Admonition type="note" title="Note">
 
@@ -277,10 +268,7 @@ session.advanced().getRequestExecutor().execute(command);
    * [Syntax](../../../client-api/commands/documents/put#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Example" id="example" href="#example">
+## Example
 
 <TabItem value="something-something" label="put_sample">
 <CodeBlock language="python">
@@ -301,9 +289,9 @@ session.advanced.request_executor.execute_command(command)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="put_interface">
 <CodeBlock language="python">
@@ -319,13 +307,11 @@ session.advanced.request_executor.execute_command(command)
 | **change_vector** | `str` (optional) | Entity changeVector, used for concurrency checks (`None` to skip check) |
 | **document**      | `dict`           | The document to store                                                   |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Commands: Put Document
----
 
 <Admonition type="note" title="Note">
 
@@ -337,10 +323,7 @@ session.advanced.request_executor.execute_command(command)
    * [Syntax](../../../client-api/commands/documents/put#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Example" id="example" href="#example">
+## Example
 
 <TabItem value="something-something" label="put_sample">
 <CodeBlock language="php">
@@ -364,9 +347,9 @@ $session->advanced()->getRequestExecutor()->execute($command);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="put_interface">
 <CodeBlock language="php">
@@ -381,13 +364,11 @@ $session->advanced()->getRequestExecutor()->execute($command);
 | **changeVector** | `string` (optional) | Entity changeVector, used for concurrency checks (`None` to skip check) |
 | **document** | `array` | The document to store |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Put Document Command
----
 
 <Admonition type="note" title="Note">
 
@@ -405,17 +386,11 @@ $session->advanced()->getRequestExecutor()->execute($command);
    * [Syntax](../../../client-api/commands/documents/put#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 <Admonition type="note" title="Note">
 
 **Put document command - using the Store's request executor**:
-
----
-
 <TabItem value="something-something" label="put_document_1">
 <CodeBlock language="nodejs">
 {`// Define the json document to 'put'
@@ -449,9 +424,6 @@ assert.strictEqual(theDocumentID, "categories/999");
 <Admonition type="note" title="Note">
 
 **Put document command - using the Session's request executor**:
-
----
-
 <TabItem value="something-something" label="put_document_2">
 <CodeBlock language="nodejs">
 {`const session = documentStore.openSession();
@@ -491,9 +463,9 @@ assert.strictEqual(theDocumentID, "categories/999");
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -522,7 +494,7 @@ assert.strictEqual(theDocumentID, "categories/999");
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

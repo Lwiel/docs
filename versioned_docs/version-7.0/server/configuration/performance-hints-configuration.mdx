@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Performance Hints Options
----
-
 <Admonition type="note" title="Note">
 
 * In this page:  
@@ -28,10 +26,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [PerformanceHints.TooLongRequestThresholdInSec](../../server/configuration/performance-hints-configuration#performancehints.toolongrequestthresholdinsec)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="PerformanceHints.Documents.HugeDocumentsCollectionSize" id="performancehints-documents-hugedocumentscollectionsize" href="#performancehints-documents-hugedocumentscollectionsize">
+## PerformanceHints.Documents.HugeDocumentsCollectionSize
 
 The maximum size of the huge documents collection.
 
@@ -39,9 +34,9 @@ The maximum size of the huge documents collection.
 - **Default**: `100`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="PerformanceHints.Documents.HugeDocumentSizeInMb" id="performancehints-documents-hugedocumentsizeinmb" href="#performancehints-documents-hugedocumentsizeinmb">
+
+## PerformanceHints.Documents.HugeDocumentSizeInMb
 
 The size of a document after which it will get into the huge documents collection.  
 Value is in MB.
@@ -50,9 +45,9 @@ Value is in MB.
 - **Default**: `5`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="PerformanceHints.Indexing.AlertWhenSourceDocumentIncludedInOutput" id="performancehints-indexing-alertwhensourcedocumentincludedinoutput" href="#performancehints-indexing-alertwhensourcedocumentincludedinoutput">
+
+## PerformanceHints.Indexing.AlertWhenSourceDocumentIncludedInOutput
 
 Alert when source document in indexed as field.
 
@@ -60,9 +55,9 @@ Alert when source document in indexed as field.
 - **Default**: `true`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="PerformanceHints.Indexing.MaxDepthOfRecursionInLinqSelect" id="performancehints-indexing-maxdepthofrecursioninlinqselect" href="#performancehints-indexing-maxdepthofrecursioninlinqselect">
+
+## PerformanceHints.Indexing.MaxDepthOfRecursionInLinqSelect
 
 Maximum depth of recursion in LINQ Select clause.
 
@@ -70,9 +65,9 @@ Maximum depth of recursion in LINQ Select clause.
 - **Default**: `32`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="PerformanceHints.Indexing.MaxIndexOutputsPerDocument" id="performancehints-indexing-maxindexoutputsperdocument" href="#performancehints-indexing-maxindexoutputsperdocument">
+
+## PerformanceHints.Indexing.MaxIndexOutputsPerDocument
 
 The maximum number of index outputs per document after which we will create a performance hint.
 
@@ -80,9 +75,9 @@ The maximum number of index outputs per document after which we will create a pe
 - **Default**: `1024`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="PerformanceHints.Indexing.MaxNumberOfLoadsPerReference" id="performancehints-indexing-maxnumberofloadsperreference" href="#performancehints-indexing-maxnumberofloadsperreference">
+
+## PerformanceHints.Indexing.MaxNumberOfLoadsPerReference
 
 The maximum number of `LoadDocument()` / `LoadCompareExchangeValue()` calls per a document/compare-exchange reference value 
 after which we will create a performance hint.
@@ -91,9 +86,9 @@ after which we will create a performance hint.
 - **Default**: `1024`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="PerformanceHints.MaxNumberOfResults" id="performancehints-maxnumberofresults" href="#performancehints-maxnumberofresults">
+
+## PerformanceHints.MaxNumberOfResults
 
 The maximum number of query results after which we will create a performance hint.
 
@@ -101,9 +96,9 @@ The maximum number of query results after which we will create a performance hin
 - **Default**: `2048`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="PerformanceHints.Memory.MinSwapSizeInMb" id="performancehints-memory-minswapsizeinmb" href="#performancehints-memory-minswapsizeinmb">
+
+## PerformanceHints.Memory.MinSwapSizeInMb
 
 * The minimum swap size (Linux only) in Megabytes.  
   If the swap size is below this value, a notification will be triggered.
@@ -113,16 +108,13 @@ The maximum number of query results after which we will create a performance hin
     the default value is set to 1 GB.
   * If the total physical memory is greater than or equal to 8 GB,  
     the default value is set to the smaller value between half of the total physical memory and 8 GB.
-
----
-
 - **Type**: `int`
 - **Default**: `DefaultValueSetInConstructor`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="PerformanceHints.TooLongRequestThresholdInSec" id="performancehints-toolongrequestthresholdinsec" href="#performancehints-toolongrequestthresholdinsec">
+
+## PerformanceHints.TooLongRequestThresholdInSec
 
 Request latency threshold before the server would issue a performance hint.  
 Value is in seconds.
@@ -131,4 +123,4 @@ Value is in seconds.
 - **Default**: `30`
 - **Scope**: Server-wide or per database
 
-</Admonition>
+

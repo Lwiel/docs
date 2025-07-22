@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# How to Get Entity Counters
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# How to Get Entity Counters
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -29,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Get entity counters](../../../client-api/session/how-to/get-entity-counters#get-entity-counters)
     * [Syntax](../../../client-api/session/how-to/get-entity-counters#syntax)
 </Admonition>
-
----
-
-<Admonition type="info" title="Get entity counters" id="get-entity-counters" href="#get-entity-counters">
+## Get entity counters
 
 <TabItem value="something" label="example">
 <CodeBlock language="csharp">
@@ -45,9 +43,9 @@ List<string> counterNames = session.Advanced.GetCountersFor(employee);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -65,14 +63,11 @@ List<string> counterNames = session.Advanced.GetCountersFor(employee);
 | ----------- | ----------- |
 | `List<string>` | Returns the counter names for the specified entity, or `null` if the entity has no counters.<br/>An exception is thrown if the `instance` is not tracked by the session. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# How to Get Entity Counters
-
----
 
 <Admonition type="note" title="Note">
 
@@ -88,10 +83,7 @@ List<string> counterNames = session.Advanced.GetCountersFor(employee);
     * [Get entity counters](../../../client-api/session/how-to/get-entity-counters#get-entity-counters)
     * [Syntax](../../../client-api/session/how-to/get-entity-counters#syntax)
 </Admonition>
-
----
-
-<Admonition type="info" title="Get entity counters" id="get-entity-counters" href="#get-entity-counters">
+## Get entity counters
 
 <TabItem value="something-something" label="example">
 <CodeBlock language="python">
@@ -104,9 +96,9 @@ counter_names = session.advanced.get_counters_for(employee)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -124,14 +116,11 @@ counter_names = session.advanced.get_counters_for(employee)
 | ----------- | ----------- |
 | `List[str]` | Returns the counter names for the specified entity, or `None` if the entity has no counters.<br/>An exception is thrown if the entity is not tracked by the session. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# How to Get Entity Counters
-
----
 
 <Admonition type="note" title="Note">
 
@@ -147,10 +136,7 @@ counter_names = session.advanced.get_counters_for(employee)
     * [Get entity counters](../../../client-api/session/how-to/get-entity-counters#get-entity-counters)
     * [Syntax](../../../client-api/session/how-to/get-entity-counters#syntax)
 </Admonition>
-
----
-
-<Admonition type="info" title="Get entity counters" id="get-entity-counters" href="#get-entity-counters">
+## Get entity counters
 
 <TabItem value="something-something" label="example">
 <CodeBlock language="php">
@@ -163,9 +149,9 @@ $counterNames = $session->advanced()->getCountersFor($employee);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -183,14 +169,11 @@ $counterNames = $session->advanced()->getCountersFor($employee);
 | ----------- | ----------- |
 | `?StringList` | Returns the counter names for the specified entity, or `None` if the entity has no counters.<br/>An exception is thrown if the entity is not tracked by the session. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# How to Get Entity Counters
-
----
 
 <Admonition type="note" title="Note">
 
@@ -204,10 +187,7 @@ $counterNames = $session->advanced()->getCountersFor($employee);
     * [Get entity counters](../../../client-api/session/how-to/get-entity-counters#get-entity-counters)
     * [Syntax](../../../client-api/session/how-to/get-entity-counters#syntax)
 </Admonition>
-
----
-
-<Admonition type="info" title="Get entity counters" id="get-entity-counters" href="#get-entity-counters">
+## Get entity counters
 
 <TabItem value="something-something" label="example">
 <CodeBlock language="nodejs">
@@ -220,9 +200,9 @@ const counterNames = session.advanced.getCountersFor(employee);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -239,7 +219,7 @@ const counterNames = session.advanced.getCountersFor(employee);
 | ----------- | ----------- |
 | `string[]` | Returns the counter names for the specified entity, or `null` if the entity has no counters.<br/>An exception is thrown if the entity is not tracked by the session. |
 
-</Admonition>
+
 
 
 </LanguageContent>

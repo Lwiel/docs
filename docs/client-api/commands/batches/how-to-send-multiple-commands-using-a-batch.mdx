@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Send Multiple Commands in a Batch
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Send Multiple Commands in a Batch
----
 
 <Admonition type="note" title="Note">
 
@@ -32,17 +34,11 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../client-api/commands/batches/how-to-send-multiple-commands-using-a-batch#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 <Admonition type="note" title="Note">
 
 #### Send multiple commands - using the Store's request executor:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
 <CodeBlock language="csharp">
@@ -147,9 +143,6 @@ using (store.GetRequestExecutor()
 <Admonition type="note" title="Note">
 
 #### Send multiple commands - using the Session's request executor:
-
----
-
 * `SingleNodeBatchCommand` can also be executed using the session's request executor.
 
 * Note that the transaction created for the HTTP request when executing `SingleNodeBatchCommand`
@@ -255,9 +248,9 @@ using (store.GetRequestExecutor()
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Available batch commands" id="available-batch-commands" href="#available-batch-commands">
+
+## Available batch commands
 
 **The following commands can be sent in a batch via `SingleNodeBatchCommand`**:  
 (These commands implement the `ICommandData` interface).
@@ -279,9 +272,9 @@ using (store.GetRequestExecutor()
    * PutCompareExchangeCommandData
    * TimeSeriesBatchCommandData
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -350,12 +343,12 @@ public sealed class BlittableArrayResult
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Send Multiple Commands in a Batch
+
 
 To send **multiple commands** in a **single request**, reducing the number of remote calls and allowing several operations to share **same transaction**, `BatchCommand` should be used.
 
@@ -429,8 +422,6 @@ All the commands in the batch will succeed or fail as a **transaction**. Other u
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Send Multiple Commands in a Batch
----
 
 <Admonition type="note" title="Note">
 
@@ -448,17 +439,11 @@ All the commands in the batch will succeed or fail as a **transaction**. Other u
     * [Syntax](../../../client-api/commands/batches/how-to-send-multiple-commands-using-a-batch#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 <Admonition type="note" title="Note">
 
 #### Send multiple commands - using the Store's request executor:
-
----
-
 <TabItem value="something-something" label="batch_1">
 <CodeBlock language="nodejs">
 {`// This patch request will be used in the following 'PatchCommandData' command
@@ -499,9 +484,6 @@ assert.equal(commandResults[0]["@id"], "employees/999");
 <Admonition type="note" title="Note">
 
 #### Send multiple commands - using the Session's request executor:
-
----
-
 * `SingleNodeBatchCommand` can also be executed using the session's request executor.
 
 * Note that the transaction created for the HTTP request when executing `SingleNodeBatchCommand`
@@ -547,9 +529,9 @@ assert.equal(commandResults[0]["@id"], "employees/999");
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Available batch commands" id="available-batch-commands" href="#available-batch-commands">
+
+## Available batch commands
 
 * **The following commands can be sent in a batch via `SingleNodeBatchCommand`**:
 
@@ -570,9 +552,9 @@ assert.equal(commandResults[0]["@id"], "employees/999");
     * PutCompareExchangeCommandData
     * TimeSeriesBatchCommandData
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -625,7 +607,7 @@ class BatchCommandResult \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Set Index Lock Mode Operation
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Set Index Lock Mode Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -39,10 +40,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/indexes/set-index-lock#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Lock modes" id="lock-modes" href="#lock-modes">
+## Lock modes
 
 * **Unlocked** - when lock mode is set to `Unlock`:  
   * Any change to the index definition will be applied.  
@@ -61,9 +59,9 @@ import LanguageContent from "@site/src/components/language-content";
   * An exception will be thrown upon trying to modify or delete the index.  
   * The index cannot be deleted. Attempting to do so will result in an exception.
 
-</Admonition>
 
-<Admonition type="info" title="Sample usage flow" id="sample-usage-flow" href="#sample-usage-flow">
+
+## Sample usage flow
 
 Consider the following scenario:
 
@@ -87,9 +85,9 @@ Consider the following scenario:
      since the index is 'locked'.  
   5. Once the replacement index is done indexing, it will replace the original index.  
 
-</Admonition>
 
-<Admonition type="info" title="Set lock mode - single index" id="set-lock-mode-single-index" href="#set-lock-mode-single-index">
+
+## Set lock mode - single index
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -124,9 +122,9 @@ await store.Maintenance.SendAsync(setLockModeOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Set lock mode - multiple indexes" id="set-lock-mode-multiple-indexes" href="#set-lock-mode-multiple-indexes">
+
+## Set lock mode - multiple indexes
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -171,9 +169,9 @@ await store.Maintenance.SendAsync(setLockModeOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -213,12 +211,12 @@ public SetIndexesLockOperation(Parameters parameters);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Set Index Lock Mode Operation
+
 
 **SetIndexesLockOperation**  allows you to change index lock mode for a given index or indexes.
 
@@ -300,9 +298,6 @@ store.maintenance().send(new SetIndexesLockOperation(parameters));
 
 </LanguageContent>
 <LanguageContent language="python">
-# Set Index Lock Mode Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -326,10 +321,7 @@ store.maintenance().send(new SetIndexesLockOperation(parameters));
     * [Syntax](../../../../client-api/operations/maintenance/indexes/set-index-lock#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Lock modes" id="lock-modes" href="#lock-modes">
+## Lock modes
 
 * **Unlocked** - when lock mode is set to `UNLOCK`:  
   * Any change to the index definition will be applied.  
@@ -348,9 +340,9 @@ store.maintenance().send(new SetIndexesLockOperation(parameters));
   * An exception will be thrown upon trying to modify the index.
   * The index cannot be deleted. Attempting to do so will result in an exception.
 
-</Admonition>
 
-<Admonition type="info" title="Sample usage flow" id="sample-usage-flow" href="#sample-usage-flow">
+
+## Sample usage flow
 
 Consider the following scenario:
 
@@ -374,9 +366,9 @@ Consider the following scenario:
      since the index is `LOCKED`.  
   5. Once the replacement index is done indexing, it will replace the original index.  
 
-</Admonition>
 
-<Admonition type="info" title="Set lock mode - single index" id="set-lock-mode-single-index" href="#set-lock-mode-single-index">
+
+## Set lock mode - single index
 
 <TabItem value="something-something" label="set_lock_single">
 <CodeBlock language="python">
@@ -394,9 +386,9 @@ store.maintenance.send(set_lock_mode_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set lock mode - multiple indexes" id="set-lock-mode-multiple-indexes" href="#set-lock-mode-multiple-indexes">
+
+## Set lock mode - multiple indexes
 
 <TabItem value="something-something" label="set_lock_multiple">
 <CodeBlock language="python">
@@ -413,9 +405,9 @@ store.maintenance.send(set_lock_mode_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="python">
@@ -443,15 +435,12 @@ store.maintenance.send(set_lock_mode_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Set Index Lock Mode Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -475,10 +464,7 @@ store.maintenance.send(set_lock_mode_op)
     * [Syntax](../../../../client-api/operations/maintenance/indexes/set-index-lock#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Lock modes" id="lock-modes" href="#lock-modes">
+## Lock modes
 
 * **Unlocked** - when lock mode is set using `unlock()`:  
   * Any change to the index definition will be applied.  
@@ -497,9 +483,9 @@ store.maintenance.send(set_lock_mode_op)
   * An exception will be thrown upon trying to modify the index.
   * The index cannot be deleted. Attempting to do so will result in an exception.
 
-</Admonition>
 
-<Admonition type="info" title="Sample usage flow" id="sample-usage-flow" href="#sample-usage-flow">
+
+## Sample usage flow
 
 Consider the following scenario:
 
@@ -523,9 +509,9 @@ Consider the following scenario:
      since the index is locked.  
   5. Once the replacement index is done indexing, it will replace the original index.  
 
-</Admonition>
 
-<Admonition type="info" title="Set lock mode - single index" id="set-lock-mode-single-index" href="#set-lock-mode-single-index">
+
+## Set lock mode - single index
 
 <TabItem value="something-something" label="set_lock_single">
 <CodeBlock language="php">
@@ -543,9 +529,9 @@ $store->maintenance()->send($setLockModeOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set lock mode - multiple indexes" id="set-lock-mode-multiple-indexes" href="#set-lock-mode-multiple-indexes">
+
+## Set lock mode - multiple indexes
 
 <TabItem value="something-something" label="set_lock_multiple">
 <CodeBlock language="php">
@@ -567,9 +553,9 @@ $store->maintenance()->send($setLockModeOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -602,15 +588,12 @@ SetIndexesLockOperation(?Parameters $parameters);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Set Index Lock Mode Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -635,10 +618,7 @@ SetIndexesLockOperation(?Parameters $parameters);
     * [Syntax](../../../../client-api/operations/maintenance/indexes/set-index-lock#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Lock modes" id="lock-modes" href="#lock-modes">
+## Lock modes
 
 * **Unlocked** - when lock mode is set to `Unlock`:  
   * Any change to the index definition will be applied.  
@@ -657,9 +637,9 @@ SetIndexesLockOperation(?Parameters $parameters);
   * An exception will be thrown upon trying to modify the index.
   * The index cannot be deleted. Attempting to do so will result in an exception.
 
-</Admonition>
 
-<Admonition type="info" title="Sample usage flow" id="sample-usage-flow" href="#sample-usage-flow">
+
+## Sample usage flow
 
 Consider the following scenario:
 
@@ -683,9 +663,9 @@ Consider the following scenario:
      since the index is 'locked'.  
   5. Once the replacement index is done indexing, it will replace the original index.  
 
-</Admonition>
 
-<Admonition type="info" title="Set lock mode - single index" id="set-lock-mode-single-index" href="#set-lock-mode-single-index">
+
+## Set lock mode - single index
 
 <TabItem value="something-something" label="set_lock_single">
 <CodeBlock language="nodejs">
@@ -703,9 +683,9 @@ await store.maintenance.send(setLockModeOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set lock mode - multiple indexes" id="set-lock-mode-multiple-indexes" href="#set-lock-mode-multiple-indexes">
+
+## Set lock mode - multiple indexes
 
 <TabItem value="something-something" label="set_lock_multiple">
 <CodeBlock language="nodejs">
@@ -728,9 +708,9 @@ await store.maintenance.send(setLockModeOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -758,7 +738,7 @@ const setLockModeOp = new SetIndexesLockOperation(parameters);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

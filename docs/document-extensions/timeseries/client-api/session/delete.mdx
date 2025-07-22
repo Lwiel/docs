@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Delete Time Series
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Delete Time Series
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -33,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../document-extensions/timeseries/client-api/session/delete#syntax)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="`Delete` usage" id="delete-usage" href="#delete-usage">
+## `Delete` usage
 
 **Flow**:
 
@@ -59,15 +57,12 @@ import LanguageContent from "@site/src/components/language-content";
   The series is removed when all its entries are deleted.
 * Deleting a document deletes all its time series as well.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 In the following examples we delete time series entries appended by sample code in the 
 [Append](../../../../document-extensions/timeseries/client-api/session/append) article.  
-
----
-
 #### Delete single entry:
 
 <TabItem value="something" label="timeseries_region_Delete-TimeSeriesFor-Single-Time-Point">
@@ -83,9 +78,6 @@ using (var session = store.OpenSession())
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Delete range of entries:
 
 <TabItem value="something" label="timeseries_region_TimeSeriesFor-Delete-Time-Points-Range">
@@ -102,9 +94,9 @@ using (var session = store.OpenSession())
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="TimeSeriesFor-Delete-definition-single-timepoint">
 <CodeBlock language="csharp">
@@ -128,14 +120,11 @@ void Delete(DateTime? from = null, DateTime? to = null);
 | **from**  | `DateTime?` | Delete the time series entries range that starts at this timestamp (inclusive).<br/>Default: `DateTime.MinValue` |
 | **to**    | `DateTime?` | Delete the time series entries range that ends at this timestamp (inclusive).<br/>Default: `DateTime.MaxValue`   |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Delete Time Series
-
----
 
 <Admonition type="note" title="Note">
 
@@ -149,10 +138,7 @@ void Delete(DateTime? from = null, DateTime? to = null);
     * [Syntax](../../../../document-extensions/timeseries/client-api/session/delete#syntax)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="usage" id="usage" href="#usage">
+## usage
 
 **Flow**:
 
@@ -176,9 +162,9 @@ void Delete(DateTime? from = null, DateTime? to = null);
   The series is removed when all its entries are deleted.  
 * Deleting a document deletes all its time series as well.  
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 In the following example we delete a time series entry appended by sample code in the 
 [Append](../../../../document-extensions/timeseries/client-api/session/append) article.  
@@ -192,9 +178,9 @@ with store.open_session() as session:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="TimeSeriesFor-Delete-definition-single-timepoint">
 <CodeBlock language="python">
@@ -215,14 +201,11 @@ with store.open_session() as session:
 | **at**    | `datetime`  | Timestamp of a time series entry to delete |
 | **datetime_from** (Optional) | `datetime` | Delete the time series entries range that starts at this timestamp (inclusive) |
 | **datetime_to** (Optional) | `datetime` | Delete the time series entries range that ends at this timestamp (inclusive)     |
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Delete Time Series
-
----
 
 <Admonition type="note" title="Note">
 
@@ -234,10 +217,7 @@ with store.open_session() as session:
     * [Example](../../../../document-extensions/timeseries/client-api/session/delete#example)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="usage" id="usage" href="#usage">
+## usage
 
 **Flow**:
 
@@ -259,9 +239,9 @@ with store.open_session() as session:
   The series is removed when all its entries are deleted.  
 * Deleting a document deletes all its time series as well.  
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 In the following example we delete a time series entry appended by sample code in the 
 [append](../../../../document-extensions/timeseries/client-api/session/append#examples) article.  
@@ -281,14 +261,11 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Delete Time Series
-
----
 
 <Admonition type="note" title="Note">
 
@@ -306,10 +283,7 @@ try \{
     * [Syntax](../../../../document-extensions/timeseries/client-api/session/delete#syntax)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="`Delete` usage" id="delete-usage" href="#delete-usage">
+## `Delete` usage
 
 **Flow**:
 
@@ -332,15 +306,12 @@ try \{
   The series is removed when all its entries are deleted.
 * Deleting a document deletes all its time series as well.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 In the following examples we delete time series entries appended by sample code in the 
 [Append](../../../../document-extensions/timeseries/client-api/session/append) article.  
-
----
-
 #### Delete single entry:
 
 <TabItem value="something-something" label="delete_1">
@@ -357,9 +328,6 @@ await session.saveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Delete range of entries:
 
 <TabItem value="something-something" label="delete_2">
@@ -377,9 +345,6 @@ await session.saveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Delete time series:
 
 <TabItem value="something-something" label="delete_3">
@@ -397,9 +362,9 @@ await session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -419,7 +384,7 @@ delete(from, to);  // Delete a range of enties
 | **from**  | `Date` | Delete the time series entries range that starts at this timestamp (inclusive).<br/>Pass `null` to use the minimum date value. |
 | **to**    | `Date` | Delete the time series entries range that ends at this timestamp (inclusive).<br/>Pass `null` to use the maximum date value.   |
 
-</Admonition>
+
 
 
 </LanguageContent>

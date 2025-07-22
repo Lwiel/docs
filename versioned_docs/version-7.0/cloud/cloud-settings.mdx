@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # RavenDB Cloud Instance Settings
----
-
 <Admonition type="note" title="Note">
 
 * In most cases, the cloud configuration settings are similar to the on-premise settings.  
@@ -29,10 +27,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Indexing Settings](../cloud/cloud-settings#indexing-settings)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Setting Cloud Configurations via Studio" id="setting-cloud-configurations-via-studio" href="#setting-cloud-configurations-via-studio">
+## Setting Cloud Configurations via Studio
 
 If you want to change configurations for cloud instances, they must be set in Studio. 
 
@@ -41,9 +36,9 @@ If you want to change configurations for cloud instances, they must be set in St
 
 To learn how to access the RavenDB Cloud Studio interface, see the [Studio section in the Cloud Overview](../cloud/cloud-overview#ravendb-studio---graphic-user-interface) article.
 
-</Admonition>
 
-<Admonition type="info" title="Indexing Settings" id="indexing-settings" href="#indexing-settings">
+
+## Indexing Settings
 
 ### Max Batch Size
 
@@ -64,9 +59,6 @@ The factors to consider when adjusting the max indexing batch size:
 * [Size of documents](https://ravendb.net/articles/dealing-with-large-documents-100-mb#:~:text=RavenDB%20can%20handle%20large%20documents,isn't%20a%20practical%20one.)
 * [The Complexity of calculations](../studio/database/indexes/indexing-performance#common-indexing-issues) that static indexes do.
 * [IOPS](../cloud/cloud-scaling#change-storage) - Input/Output Operations Per Second
-
----
-
 #### Cloud Indexing Batch Size 
 
 RavenDB Cloud sets batch sizes with the following default formula:  
@@ -83,9 +75,6 @@ Explanation of the configuration value:
 
 In this example, 4,096 is larger than 1024, so the maximum batch size will be 4,096 documents.
 </Admonition>
-
----
-
 #### Overriding the Default Setting
 
 Change [cloud configurations in Studio](../studio/database/indexes/create-map-index#configuration).
@@ -95,13 +84,5 @@ Change [cloud configurations in Studio](../studio/database/indexes/create-map-in
 **Configuration Key**: `Indexing.MapBatchSize`  
 **Value**: Set your preferred maximum number of documents per batch.   
 
-</Admonition>
 
-## Related Articles
-  
-[Portal](../cloud/portal/cloud-portal)  
-  
-**Links**  
-[Register]( https://cloud.ravendb.net/user/register)  
-[Login]( https://cloud.ravendb.net/user/login)  
-  
+

@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Session: How to Change Maximum Number of Requests per Session
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: How to Change Maximum Number of Requests per Session
+
 
 By default, the maximum number of requests that a session can send the server is **30**.  
 This number, if everything is done correctly, should never be reached since remote 
@@ -56,7 +60,7 @@ configuration from the Server. Read more about this [here](../../../studio/serve
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Change Maximum Number of Requests per Session
+
 
 By default, the maximum number of requests that a session can send the server is **30**.  
 This number, if everything is done correctly, should never be reached since remote 
@@ -99,7 +103,7 @@ configuration from the Server. Read more about this [here](../../../studio/serve
 
 </LanguageContent>
 <LanguageContent language="python">
-# Session: How to Change Maximum Number of Requests per Session
+
 
 By default, the maximum number of requests that a session can send the server is **30**.  
 This number, if everything is done correctly, should never be reached since remote 
@@ -142,7 +146,7 @@ configuration from the Server. Read more about this [here](../../../studio/serve
 
 </LanguageContent>
 <LanguageContent language="php">
-# Session: How to Change Maximum Number of Requests per Session
+
 
 By default, the maximum number of requests that a session can send the server is **30**.  
 This number, if everything is done correctly, should never be reached since remote 
@@ -189,7 +193,7 @@ configuration from the Server. Read more about this [here](../../../studio/serve
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: How to Change Maximum Number of Requests per Session
+
 
 By default, the maximum number of requests that a session can send the server is **30**.  
 This number, if everything is done correctly, should never be reached since remote 

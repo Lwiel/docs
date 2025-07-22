@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Customizing Data Files Locations
-
----
-
 <Admonition type="note" title="Note">
 
 * The structure of [RavenDB directories](../../server/storage/directory-structure) **cannot** be changed. However:  
@@ -32,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
         * [Script example - Point Indexes to different location](../../server/storage/customizing-raven-data-files-locations#script-example---point-indexes-to-different-location)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why store data on different devices" id="why-store-data-on-different-devices" href="#why-store-data-on-different-devices">
+## Why store data on different devices
 
 * A file or directory can be redirected to a different storage location according to its speed, durability, etc.  
 
@@ -45,9 +39,9 @@ import LanguageContent from "@site/src/components/language-content";
 * [Voron components](../../server/storage/directory-structure#voron-storage-environment) operate concurrently.  
   Storing them to different locations can help avoid traffic jams and achieve better concurrency.  
 
-</Admonition>
 
-<Admonition type="info" title="Configuring temp files location" id="configuring-temp-files-location" href="#configuring-temp-files-location">
+
+## Configuring temp files location
 
 * __System temporary files__  
   By default, temporary files containing cluster data and server-wide data are written to the `Temp` folder under the System directory. 
@@ -78,9 +72,9 @@ Refer to article [Configuration overview](../../server/configuration/configurati
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Configuring data files location" id="configuring-data-files-location" href="#configuring-data-files-location">
+
+## Configuring data files location
 
 * You can store RavenDB data files in any directory of your choice.  
   This is done by defining __junction points__ (Windows) or __mount points__ (Linux).
@@ -138,18 +132,15 @@ ln -s /mnt/FastDrive/Databases/Northwind/Indexes ~/RavenDB/Server/RavenData/Data
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Automate storage definitions" id="automate-storage-definitions" href="#automate-storage-definitions">
+
+## Automate storage definitions
 
 * To help automate the process, we have added the [on directory initialize](../../server/configuration/storage-configuration#storage.ondirectoryinitialize.exec) configuration option.  
   Whenever RavenDB __creates a directory__, it will invoke the process that is defined within that configuration.
 
 * The process is called just before the directory is created.  
   This allows you to create a script with your own logic, defining junction/mount points as needed.  
-
----
-
 * RavenDB will invoke the process with the following params:
 
     * Params passed by the user: 
@@ -161,9 +152,6 @@ ln -s /mnt/FastDrive/Databases/Northwind/Indexes ~/RavenDB/Server/RavenData/Data
         * Path of the `DataDir` directory
         * Path of the `Temp` directory
         * Path of the `Journals` directory
-
----
-
 <Admonition type="note" title="Note">
 #### Script example - Basic usage
 
@@ -287,5 +275,5 @@ Add the script to the _settings.json_ file as follows:
 
 </Admonition>
 
-</Admonition>
+
 

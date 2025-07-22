@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Storage: Directory Structure
-
----
-
 <Admonition type="note" title="Note">
 
 * RavenDB keeps all data under the location specified by the [DataDir](../../server/configuration/core-configuration#datadir) configuration value.
@@ -23,10 +20,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [On-disk Data Structure](../../server/storage/directory-structure#on-disk-data-structure)
     * [Voron Storage Environment](../../server/storage/directory-structure#voron-storage-environment)
 </Admonition>
-
----
-
-<Admonition type="info" title="On-disk Data Structure" id="on-disk-data-structure" href="#on-disk-data-structure">
+## On-disk Data Structure
 
 * The on-disk structure of RavenDB data directories is as follows:
 
@@ -66,9 +60,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 * The System folder, the Database folders, and their inner folders (the Configuration folder and each Index folder) are each a separate **Voron storage environment**.
 
-</Admonition>
 
-<Admonition type="info" title="Voron Storage Environment" id="voron-storage-environment" href="#voron-storage-environment">
+
+## Voron Storage Environment
 
 * Each Voron storage environment is composed of:  
 
@@ -87,14 +81,8 @@ __Journals Folder__
 
 * Contains Write-Ahead Journal files (WAJ) that are used in the hot path of a transaction commit.  
 * From the journals, transactions will be flushed to the Voron data file where they are persisted.  
-
----
-
 * Entries written to these files use unbuffered sequential writes and direct I/O to ensure a direct write that bypasses all caches.  
 * Writes to the journals happen immediately, have high priority, and take precedence over writes to the Voron data file.  
-
----
-
 * Data is cleared from the journals once it is successfully stored in the Voron data file.  
 * The journal's transactions take part in database recovery - info is used to recover up to the same point you were at before failure.  
 </Admonition>
@@ -106,5 +94,5 @@ __Raven.voron file__
 * It is a memory-mapped data file using buffered writes with random reads and writes.
 </Admonition>
  
-</Admonition>
+
 

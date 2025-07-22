@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java"];
+
+
+# JavaScript Indexes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# JavaScript Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -23,9 +25,6 @@ import LanguageContent from "@site/src/components/language-content";
 * The RavenDB JavaScript engine supports ECMAScript 5.1 syntax.  
   In addition, RavenDB provides a set of predefined JavaScript functions that can be used in JavaScript indexes and in other features such as subscriptions, ETL scripts, set-based patching, and more.  
   See the full list in [Predefined JavaScript functions](../server/kb/javascript-engine#predefined-javascript-functions).
-
----
-
 * In this article:
   * [Creating and deploying a JavaScript index](../indexes/javascript-indexes#creating-and-deploying-a-javascript-index)
   * [Map index](../indexes/javascript-indexes#map-index)
@@ -37,7 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Creating and deploying a JavaScript index" id="creating-and-deploying-a-javascript-index" href="#creating-and-deploying-a-javascript-index">
+## Creating and deploying a JavaScript index
 
 **Creating a JavaScript index**:
 
@@ -65,9 +64,6 @@ import LanguageContent from "@site/src/components/language-content";
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Deploying a JavaScript index**:  
 
 * Deploy a JavaScript index using the standard creation flow as described in [Deploy a static-index](../indexes/creating-and-deploying#deploy-a-static-index).
@@ -80,9 +76,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 * All other capabilities and features of JavaScript indexes are identical to those of [C# indexes](../indexes/indexing-basics).
 
-</Admonition>
 
-<Admonition type="info" title="Map index" id="map-index" href="#map-index">
+
+## Map index
 
 * A map index contains a single `map` function.  
   To define an index that uses multiple map functions, see the section on [Multi-Map indexes](../indexes/javascript-indexes#multi-map-index) below.
@@ -92,8 +88,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 #### Example I - Map index - basic
----
-
 The following index indexes the `FirstName` and `LastName` of employees from the _Employees_ collection.
 
 <TabItem value="something" label="index_1">
@@ -162,8 +156,6 @@ where LastName == "King"
 <Admonition type="note" title="Note">
 
 #### Example II - Map index - with additional sources
----
-
 * The following index indexes the names of all comment authors (including nested replies) for each _BlogPost_ document.  
 
 * It uses `getNames`, a recursive helper defined in `AdditionalSources`, to traverse every comment level and accumulate author names.
@@ -237,8 +229,6 @@ public class BlogPostComment
 <Admonition type="note" title="Note">
 
 #### Example III - Map index - with inline string compilation
----
-
 * To define a JavaScript index using inline string compilation,  
   you must set the [Indexing.AllowStringCompilation](../server/configuration/indexing-configuration#indexing.allowstringcompilation) configuration key to _true_.
   
@@ -319,9 +309,9 @@ public class BlogPostComment
 
 Learn more about [Map indexes here](../indexes/map-indexes).
 
-</Admonition>
 
-<Admonition type="info" title="Multi-Map index" id="multi-map-index" href="#multi-map-index">
+
+## Multi-Map index
 
 * A Multi-Map index allows indexing data from multiple collections.
 
@@ -381,9 +371,9 @@ where Name == "Milo"
 
 Learn more about [Multi-Map indexes here](../indexes/multi-map-indexes).
 
-</Admonition>
 
-<Admonition type="info" title="Map-Reduce index" id="map-reduce-index" href="#map-reduce-index">
+
+## Map-Reduce index
 
 * A Map-Reduce index allows you to perform complex data aggregations.
 
@@ -394,8 +384,6 @@ Learn more about [Multi-Map indexes here](../indexes/multi-map-indexes).
 <Admonition type="note" title="Note">
 
 #### Example I
----
-
 The following index counts the number of products per category by grouping on the category name.
 
 <TabItem value="something" label="index_6">
@@ -467,8 +455,6 @@ order by Count as long desc
 <Admonition type="note" title="Note">
 
 #### Example II
----
-
 The following index calculates how many items were sold and the total sales amount for each product and month.
 
 <TabItem value="something" label="index_7">
@@ -537,12 +523,12 @@ The following index calculates how many items were sold and the total sales amou
 
 Learn more about [Map-Reduce indexes here](../indexes/map-reduce-indexes).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# JavaScript Indexes
+
 
 This feature was created for users who want to create an index and prefer JavaScript over C#.   
 JavaScript indexes can be defined by a user with lower permissions than the C# indexes (admin not required).   

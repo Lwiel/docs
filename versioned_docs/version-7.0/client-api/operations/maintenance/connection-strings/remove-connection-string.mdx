@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Remove Connection String Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Remove Connection String Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -25,10 +27,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../client-api/operations/maintenance/connection-strings/remove-connection-string#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Remove connection string" id="remove-connection-string" href="#remove-connection-string">
+## Remove connection string
 
 The following example removes a RavenDB Connection String.
 
@@ -53,9 +52,9 @@ store.Maintenance.Send(removeConStrOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="remove_connection_string">
 <CodeBlock language="csharp">
@@ -68,7 +67,7 @@ store.Maintenance.Send(removeConStrOp);
 |----------------------|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **connectionString** | `T`   | Connection string to remove:<br/>`RavenConnectionString`<br/>`SqlConnectionString`<br/>`OlapConnectionString`<br/>`ElasticSearchConnectionString`<br/>`QueueConnectionString` |
 
-</Admonition>
+
 
 
 </LanguageContent>

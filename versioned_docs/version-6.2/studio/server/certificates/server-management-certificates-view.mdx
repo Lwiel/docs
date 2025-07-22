@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Certificates View
----
-
 <Admonition type="note" title="Note">
 
 * Use the **Certificates** view to create, customize, import and export certificates.  
@@ -28,10 +26,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Certificate collections](../../../studio/server/certificates/server-management-certificates-view#certificate-collections)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="The certificates view" id="the-certificates-view" href="#the-certificates-view">
+## The certificates view
 
 ![Studio Certificates Management View](./assets/studio-certificates-overview.png)
 
@@ -56,9 +51,9 @@ the permissions entirely using this view.
    e.g. databases permissions and [authorization](../../../server/security/authorization/security-clearance-and-permissions#authorization-security-clearance-and-permissions) 
    (security clearance) levels.  
 
-</Admonition>
 
-<Admonition type="info" title="View and edit certificates" id="view-and-edit-certificates" href="#view-and-edit-certificates">
+
+## View and edit certificates
 
 In the image below, the client certificates (`sampledom.client.certificate` and `Booking`) have different 
 **security clearance** and **database permissions** configurations.  
@@ -89,9 +84,9 @@ by using different client certificates, each with its own set of permissions.
    Configure which databases it can access (applicable for User level) and its authorization clearance level.  
 8. **Delete Certificate**  
 
-</Admonition>
 
-<Admonition type="info" title="Generate a client certificate" id="generate-a-client-certificate" href="#generate-a-client-certificate"> 
+
+## Generate a client certificate 
 
 Use this view to generate a client certificate directly via RavenDB.  
 Newly generated certificates will be added to the list of registered certificates.  
@@ -134,18 +129,15 @@ The information collected in this view is used by RavenDB internally,
 and will not be stored in the certificate itself.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Enable communication between secure servers" id="enable-communication-between-secure-servers" href="#enable-communication-between-secure-servers"> 
+
+## Enable communication between secure servers 
 
 To enable communication between two secure databases, you need to:
 
 1. **Export** ([download](../../../server/security/authentication/certificate-management#export-server-certificates)) 
    the `.pfx` certificate from the destination cluster.  
 2. **Upload** (import) the downloaded certificate into the source server.  
-
----
-
 ### Upload an existing client certificate
 
 Use this option to upload an existing client certificate.  
@@ -159,9 +151,6 @@ While uploading the client certificate you can modify its settings.
 
 See the [Generate a client certificate](../../../studio/server/certificates/server-management-certificates-view#generate-a-client-certificate) 
 section to learn about the available settings.  
-
----
-
 ### Export server certificates
 
 ![Export Server Certificates](./assets/export-server-certificates.png)
@@ -171,9 +160,9 @@ In the case of a cluster that contains several different server certificates,
 a `.pfx` [collection](../../../server/security/authentication/certificate-management#certificate-collections) 
 will be exported.
 
-</Admonition>
 
-<Admonition type="info" title="Certificate collections" id="certificate-collections" href="#certificate-collections"> 
+
+## Certificate collections 
 
 `.pfx` files may contain a single certificate or a collection of certificates.
 
@@ -181,5 +170,5 @@ When uploading a `.pfx` file with multiple certificates, RavenDB will add all ce
 to the list of registered certificates as a single entry, and explicitly allow access to 
 all certificates by their thumbprint.
 
-</Admonition>
+
 

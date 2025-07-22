@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Guides: Add RavenDB to an Existing Azure Functions Project (.NET C#)
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Guides: Add RavenDB to an Existing Azure Functions Project (.NET C#)
----
 
 <Admonition type="note" title="Note">
 
@@ -37,7 +39,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Before We Get Started" id="before-we-get-started" href="#before-we-get-started">
+## Before We Get Started
 
 You will need the following before continuing:
 
@@ -51,9 +53,9 @@ which is set up with dependency injection and X.509 certificate support.
 You can also reference the template to see how the integration is set up.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Installing the RavenDB Client SDK" id="installing-the-ravendb-client-sdk" href="#installing-the-ravendb-client-sdk">
+
+## Installing the RavenDB Client SDK
 
 Get started by installing the [RavenDB.Client][nuget-ravendb-client] Nuget package in your solution or project 
 which provides the .NET client SDK.  
@@ -67,9 +69,9 @@ Using the .NET CLI:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Initializing the Document Store" id="initializing-the-document-store" href="#initializing-the-document-store">
+
+## Initializing the Document Store
 
 Import the `DocumentStore` from `Raven.Client.Documents` namespace to create a new instance with 
 the required configuration and initialize your connection to RavenDB by calling the `Initialize` method.  
@@ -153,9 +155,9 @@ otherwise it will be constructed each time the function warms up. For more, see 
 
 You can set options manually but it's more likely you'll want to configure support for app settings.  
 
-</Admonition>
 
-<Admonition type="info" title="Adding Support for App Settings" id="adding-support-for-app-settings" href="#adding-support-for-app-settings">
+
+## Adding Support for App Settings
 
 You will need a way to pass options to the `DocumentStore` on your local machine and when deployed to Azure.  
 
@@ -227,9 +229,9 @@ Environment variables follow the .NET conventions with `__` being the dot-notati
 
 You can pass environment variables in your terminal profile, OS settings, Docker `env`, on the command-line, or within Azure.  
 
-</Admonition>
 
-<Admonition type="info" title="Configuring Support for Certificates" id="configuring-support-for-certificates" href="#configuring-support-for-certificates">
+
+## Configuring Support for Certificates
 
 RavenDB uses client certificate authentication (mutual TLS) to secure your database connection. The .NET Client SDK 
 supports `X509Certificate2` which is passed to the `DocumentStore.Certificate` option. There are multiple ways to load a certificate:  
@@ -387,9 +389,9 @@ However, you will need to use the [CertificateClient][ms-az-key-vault-cert-clien
 
 For more, see the [sample code for using CertificateClient][ms-az-key-vault-sample-get].
 
-</Admonition>
 
-<Admonition type="info" title="Configuring Azure" id="configuring-azure" href="#configuring-azure">
+
+## Configuring Azure
 
 You will need to configure certificate authentication in Azure. Depending on the method you choose above, the steps vary.  
 
@@ -453,16 +455,16 @@ The `WEBSITE_LOAD_CERTIFICATES` setting is not supported yet for Linux-based con
 To use this method, you will need to use a Windows-based plan.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Next Steps" id="next-steps" href="#next-steps">
+
+## Next Steps
 
 - Learn more about [how to use the RavenDB .NET client SDK][docs-dotnet]  
 - Reference the [.NET Azure Function starter template][gh-ravendb-template] to see the code  
 - [Troubleshoot][troubleshooting] issues with RavenDB and Azure Functions  
 - [Deployment Considerations][deployment-considerations] for RavenDB and Azure Functions  
 
-</Admonition>
+
 
 [troubleshooting]: ../../../start/guides/azure-functions/troubleshooting
 [deployment-considerations]: ../../../start/guides/azure-functions/deployment
@@ -489,8 +491,6 @@ To use this method, you will need to use a Windows-based plan.
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Guides: Add RavenDB to an Existing Azure Functions Project (Node.js)
----
 
 <Admonition type="note" title="Note">
 
@@ -513,7 +513,7 @@ To use this method, you will need to use a Windows-based plan.
 
 </Admonition>
 
-<Admonition type="info" title="Before We Get Started" id="before-we-get-started" href="#before-we-get-started">
+## Before We Get Started
 
 You will need the following before continuing:  
 
@@ -527,9 +527,9 @@ which is set up with PEM certificate support.
 You can also reference the template to see how the integration is set up.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Installing the RavenDB Client SDK" id="installing-the-ravendb-client-sdk" href="#installing-the-ravendb-client-sdk">
+
+## Installing the RavenDB Client SDK
 
 Get started by installing the [ravendb][npm-ravendb-client] npm package in your project which provides the Node.js client SDK.  
 
@@ -542,9 +542,9 @@ Using npm:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Initializing the Document Store" id="initializing-the-document-store" href="#initializing-the-document-store">
+
+## Initializing the Document Store
 
 Import the `DocumentStore` from `ravendb` package to create a new instance with the required 
 configuration and initialize your connection to RavenDB by calling the `initialize` method.  
@@ -590,9 +590,9 @@ otherwise it will be constructed each time the function warms up. For more, see 
 
 You can set options manually but it's more likely you'll want to configure support for app settings.  
 
-</Admonition>
 
-<Admonition type="info" title="Adding Support for App Settings" id="adding-support-for-app-settings" href="#adding-support-for-app-settings">
+
+## Adding Support for App Settings
 
 You will need a way to pass options to the `DocumentStore` on your local machine and when deployed to Azure.  
 
@@ -654,9 +654,9 @@ export function openAsyncSession() \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Configuring Support for Certificates" id="configuring-support-for-certificates" href="#configuring-support-for-certificates">
+
+## Configuring Support for Certificates
 
 RavenDB uses client certificate authentication (mutual TLS) to secure your database connection.  
 The Node.js client SDK supports `.pfx` files or `.pem` files which is passed to the `authOptions.certificate` option.  
@@ -851,9 +851,9 @@ However, you will need to use the [CertificateClient][ms-az-key-vault-cert-clien
 
 For more, see the [sample code for using CertificateClient][ms-az-key-vault-sample-get].  
 
-</Admonition>
 
-<Admonition type="info" title="Configuring Azure" id="configuring-azure" href="#configuring-azure">
+
+## Configuring Azure
 
 You will need to configure certificate authentication in Azure. Depending on the method you choose above, the steps vary.  
 
@@ -875,16 +875,16 @@ If you are loading a PEM-encoded certificate, follow the steps below to make you
 
 These values will override `local.settings.json` once deployed on Azure.  
 
-</Admonition>
 
-<Admonition type="info" title="Next Steps" id="next-steps" href="#next-steps">
+
+## Next Steps
 
 - Learn more about [how to use the RavenDB Node.js client SDK][docs-nodejs]  
 - Reference the [Node.js Azure Function starter template][gh-ravendb-template] to see the code  
 - [Troubleshoot][troubleshooting] issues with RavenDB and Azure Functions  
 - [Deployment Considerations][deployment-considerations] for RavenDB and Azure Functions  
 
-</Admonition>
+
 
 [troubleshooting]: ../../../start/guides/azure-functions/troubleshooting
 [deployment-considerations]: ../../../start/guides/azure-functions/deployment

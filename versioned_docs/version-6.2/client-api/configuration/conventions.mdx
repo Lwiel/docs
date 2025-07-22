@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Conventions
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Conventions
+
 
 <Admonition type="note" title="Note">
 
@@ -71,10 +75,7 @@ import LanguageContent from "@site/src/components/language-content";
       [WaitForReplicationAfterSaveChangesTimeout](../../client-api/configuration/conventions#waitforreplicationaftersavechangestimeout)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="How to set conventions" id="how-to-set-conventions" href="#how-to-set-conventions">
+## How to set conventions
 
 * Access the conventions via the `Conventions` property of the `DocumentStore` object.
 
@@ -105,16 +106,13 @@ import LanguageContent from "@site/src/components/language-content";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Conventions:" id="conventions" href="#conventions">
+
+## Conventions:
 
 <Admonition type="note" title="Note">
 
 #### AddIdFieldToDynamicObjects
-
----
-
 * Use the `AddIdFieldToDynamicObjects` convention to determine whether an `Id` field is automatically added  
   to [dynamic objects](https://learn.microsoft.com/en-us/dotnet/csharp/advanced-topics/interop/using-type-dynamic) when [storing new entities](../../client-api/session/storing-entities) via the session.
 
@@ -132,9 +130,6 @@ public bool AddIdFieldToDynamicObjects \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### AggressiveCache.Duration
-
----
-
 * Use the `AggressiveCache.Duration` convention to define the [aggressive cache](../../client-api/how-to/setup-aggressive-caching) duration period.
 
 * DEFAULT: `1 day`
@@ -151,9 +146,6 @@ public TimeSpan Duration \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### AggressiveCache.Mode
-
----
-
 * Use the `AggressiveCache.Mode` convention to define the [aggressive cache](../../client-api/how-to/setup-aggressive-caching) mode.  
   (`AggressiveCacheMode.TrackChanges` or `AggressiveCacheMode.DoNotTrackChanges`)
 
@@ -171,9 +163,6 @@ public AggressiveCacheMode Mode \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### AsyncDocumentIdGenerator
-
----
-
 * Use the `AsyncDocumentIdGenerator` convention to define the document ID generator method that will be used when storing a document without explicitly specifying its `Id`.
 
 * You can override this global ID generator for specific object types using the [RegisterAsyncIdConvention](../../client-api/configuration/identifier-generation/type-specific) convention.
@@ -210,9 +199,6 @@ public Func<string, object, Task<string>> AsyncDocumentIdGenerator \{ get; set; 
 <Admonition type="note" title="Note">
 
 #### CreateHttpClient
-
----
-
 * Use the `CreateHttpClient` convention to modify the HTTP client your client application uses.
 
 * For example, implementing your own HTTP client can be useful when you'd like your clients to provide the server with tracing info.
@@ -243,9 +229,6 @@ public Func<HttpClientHandler, HttpClient> CreateHttpClient \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### DisableAtomicDocumentWritesInClusterWideTransaction
-
----
-
 * EXPERT ONLY:   
   Use the `DisableAtomicDocumentWritesInClusterWideTransaction` convention to disable automatic  
   atomic writes with cluster write transactions.
@@ -266,9 +249,6 @@ public bool? DisableAtomicDocumentWritesInClusterWideTransaction \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### DisableTcpCompression
-
----
-
 * When setting the `DisableTcpCompression` convention to `true`, TCP data will not be compressed.
 
 * DEFAULT: `false`
@@ -285,9 +265,6 @@ public bool DisableTcpCompression \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### DisableTopologyCache
-
----
-
 * By default, the client caches the cluster's topology in `*.raven-cluster-topology` files on disk.  
   When all servers provided in the `DocumentStore.Urls` property are down or unavailable,
   the client will load the topology from the latest file and try to connect to nodes that are not listed in the URL property.
@@ -313,9 +290,6 @@ public bool DisableTopologyCache \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### DisableTopologyUpdates
-
----
-
 * When setting the `DisableTopologyUpdates` convention to `true`,  
   no database topology updates will be sent from the server to the client (e.g. adding or removing a node).
 
@@ -333,9 +307,6 @@ public bool DisableTopologyUpdates \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### DisposeCertificate
-
----
-
 * When setting the `DisposeCertificate` convention to `true`,  
   the `DocumentStore.Certificate` will be disposed of during DocumentStore disposal. 
 
@@ -353,9 +324,6 @@ public bool DisposeCertificate \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### FindClrType
-
----
-
 * Use the `FindClrType` convention to define a function that finds the CLR type of a document.
 
 * DEFAULT:  
@@ -387,9 +355,6 @@ public Func<string, BlittableJsonReaderObject, string> FindClrType \{ get; set; 
 <Admonition type="note" title="Note">
 
 #### FindClrTypeName
-
----
-
 * Use the `FindClrTypeName` convention to define a function that returns the CLR type name from a given type.
 
 * DEFAULT: The entity's full name with the assembly name is returned.
@@ -406,9 +371,6 @@ public Func<Type, string> FindClrTypeName \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### FindClrTypeNameForDynamic
-
----
-
 * Use the `FindClrTypeNameForDynamic` convention to define a function that returns the CLR type name  
   from a dynamic entity.
 
@@ -433,9 +395,6 @@ public Func<dynamic, string> FindClrTypeNameForDynamic \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### FindCollectionName
-
----
-
 * Use the `FindCollectionName` convention to define a function that will customize the collection name  
   from given type.
 
@@ -460,9 +419,6 @@ public Func<Type, string> FindCollectionName \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### FindCollectionNameForDynamic
-
----
-
 * Use the `FindCollectionNameForDynamic` convention to define a function that will customize the  
   collection name from a dynamic type.
 
@@ -487,9 +443,6 @@ public Func<dynamic, string> FindCollectionNameForDynamic \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### FindIdentityProperty
-
----
-
 * Use the `FindIdentityProperty` convention to define a function that finds the specified ID property  
   in the entity.
 
@@ -514,9 +467,6 @@ public Func<MemberInfo, bool> FindIdentityProperty \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### FindIdentityPropertyNameFromCollectionName
-
----
-
 * Use the `FindIdentityPropertyNameFromCollectionName` convention to define a function that customizes
   the entity's ID property from the collection name.
 
@@ -541,9 +491,6 @@ public Func<string, string> FindIdentityPropertyNameFromCollectionName \{ get; s
 <Admonition type="note" title="Note">
 
 #### FindProjectedPropertyNameForIndex
-
----
-
 * Use the `FindProjectedPropertyNameForIndex` convention to define a function that customizes the  
   projected fields names that will be used in the RQL sent to the server when querying an index.
 
@@ -564,9 +511,6 @@ public Func<Type, string, string, string, string> FindProjectedPropertyNameForIn
 <Admonition type="note" title="Note">
 
 #### FindPropertyNameForDynamicIndex
-
----
-
 * Use the `FindPropertyNameForDynamicIndex` convention to define a function that customizes the  
   property name that will be used in the RQL sent to the server when making a dynamic query.
 
@@ -593,9 +537,6 @@ public Func<Type, string, string, string, string> FindPropertyNameForDynamicInde
 <Admonition type="note" title="Note">
 
 #### FindPropertyNameForIndex
-
----
-
 * Use the `FindPropertyNameForIndex` convention to define a function that customizes the name of the  
   index-field property that will be used in the RQL sent to the server when querying an index.
 
@@ -624,9 +565,6 @@ public Func<Type, string, string, string, string> FindPropertyNameForIndex \{ ge
 <Admonition type="note" title="Note">
 
 #### FirstBroadcastAttemptTimeout
-
----
-
 * Use the `FirstBroadcastAttemptTimeout` convention to set the timeout for the first broadcast attempt.
 
 * In the first attempt, the request executor will send a single request to the selected node.  
@@ -654,9 +592,6 @@ public TimeSpan FirstBroadcastAttemptTimeout \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### HttpClientType
-
----
-
 * Use the `HttpClientType` convention to set the type of HTTP client you're using.
 
 * RavenDB uses the HTTP type internally to manage its cache.
@@ -683,9 +618,6 @@ public Type HttpClientType \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### HttpVersion
-
----
-
 * Use the `HttpVersion` convention to set the Http version the client will use when communicating  
   with the server.
 
@@ -705,9 +637,6 @@ public Version HttpVersion \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### IdentityPartsSeparator
-
----
-
 * Use the `IdentityPartsSeparator` convention to set the default **ID separator** for automatically-generated document IDs.
 
 * DEFAULT: `/` (forward slash)
@@ -733,9 +662,6 @@ public char IdentityPartsSeparator \{ get; set; \}
 #### LoadBalanceBehavior
 #### LoadBalancerPerSessionContextSelector
 #### LoadBalancerContextSeed
-
----
-
 * Configure the **load balance behavior** by setting the following conventions:
     * `LoadBalanceBehavior`
     * `LoadBalancerPerSessionContextSelector`
@@ -747,9 +673,6 @@ public char IdentityPartsSeparator \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### MaxHttpCacheSize
-
----
-
 * Use the `MaxHttpCacheSize` convention to set the maximum HTTP cache size.  
   This setting will affect all the databases accessed by the Document Store.
 
@@ -792,9 +715,6 @@ public Size MaxHttpCacheSize \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### MaxNumberOfRequestsPerSession
-
----
-
 * Use the `MaxNumberOfRequestsPerSession` convention to set the maximum number of requests per session.
 
 * DEFAULT: `30`
@@ -811,9 +731,6 @@ public int MaxNumberOfRequestsPerSession \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### Modify serialization of property name
-
----
-
 * Different clients use different casing conventions for entity field names. For example:
 
   | Language   | Default casing  | Example    |
@@ -862,9 +779,6 @@ public ISerializationConventions Serialization \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### OperationStatusFetchMode
-
----
-
 * Use the `OperationStatusFetchMode` convention to set the way an [operation](../../client-api/operations/what-are-operations) is getting its status when [waiting for completion](../../client-api/operations/what-are-operations#wait-for-completion).
 
 * DEFAULT:  
@@ -891,9 +805,6 @@ public OperationStatusFetchMode OperationStatusFetchMode \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### PreserveDocumentPropertiesNotFoundOnModel
-
----
-
 * Loading a document using a different model will result in the removal of the missing model properties  
   from the loaded entity, and no exception is thrown.
 
@@ -916,9 +827,6 @@ public bool PreserveDocumentPropertiesNotFoundOnModel \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### ReadBalanceBehavior
-
----
-
 * Configure the **read request behavior** by setting the `ReadBalanceBehavior` convention.
 
 * Learn more in the dedicated [Read balance behavior](../../client-api/configuration/load-balance/read-balance-behavior) article.
@@ -927,9 +835,6 @@ public bool PreserveDocumentPropertiesNotFoundOnModel \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### RequestTimeout
-
----
-
 * Use the `RequestTimeout` convention to define the global request timeout value for all `RequestExecutors` created per database.
 
 * DEFAULT: `null` (the default HTTP client timout will be applied - 12h)
@@ -952,9 +857,6 @@ public TimeSpan? RequestTimeout \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### ResolveTypeFromClrTypeName
-
----
-
 * Use the `ResolveTypeFromClrTypeName` convention to define a function that resolves the CLR type  
   from the CLR type name.
 
@@ -979,9 +881,6 @@ public Func<string, Type> ResolveTypeFromClrTypeName \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### SaveEnumsAsIntegers
-
----
-
 * When setting the `SaveEnumsAsIntegers` convention to `true`,  
   C# `enum` types will be stored and queried as integers, rather than their string representations.
 
@@ -999,9 +898,6 @@ public bool SaveEnumsAsIntegers \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### SecondBroadcastAttemptTimeout
-
----
-
 * Use the `SecondBroadcastAttemptTimeout` convention to set the timeout for the second broadcast attempt.
 
 * Upon failure of the [first attempt](../../client-api/configuration/conventions#firstbroadcastattempttimeout) the request executor will resend the command to all nodes simultaneously.
@@ -1025,9 +921,6 @@ public bool SaveEnumsAsIntegers \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### SendApplicationIdentifier
-
----
-
 * Use the `SendApplicationIdentifier` convention to `true` to enable sending a unique application identifier to the RavenDB Server.
 
 * Setting to _true_ allows the server to issue performance hint notifications to the client,
@@ -1047,9 +940,6 @@ public bool SendApplicationIdentifier \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### ShouldIgnoreEntityChanges
-
----
-
 * Set the `ShouldIgnoreEntityChanges` convention to disable entity tracking for certain entities.
 
 * Learn more in [Customize tracking in conventions](../../client-api/session/configuration/how-to-disable-tracking#customize-tracking-in-conventions).
@@ -1058,9 +948,6 @@ public bool SendApplicationIdentifier \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### TopologyCacheLocation
-
----
-
 * Use the `TopologyCacheLocation` convention to change the location of the topology cache files   
   (`*.raven-database-topology` & `*.raven-cluster-topology`).
 
@@ -1086,9 +973,6 @@ public string TopologyCacheLocation \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### TransformTypeCollectionNameToDocumentIdPrefix
-
----
-
 * Use the `TransformTypeCollectionNameToDocumentIdPrefix` convention to define a function that will  
   customize the document ID prefix from the the collection name.
 
@@ -1112,9 +996,6 @@ public Func<string, string> TransformTypeCollectionNameToDocumentIdPrefix \{ get
 <Admonition type="note" title="Note">
 
 #### UseHttpCompression
-
----
-
 * When setting the `UseHttpCompression` convention to `true`,  
   then `Gzip` compression will be used when sending content of HTTP request.
 
@@ -1134,9 +1015,6 @@ public bool UseHttpCompression \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### UseHttpDecompression
-
----
-
 * When setting the `UseHttpDecompression` convention to `true`,  
   the client can accept compressed HTTP response content and will use zstd/gzip/deflate decompression methods.
 
@@ -1154,9 +1032,6 @@ public bool UseHttpDecompression \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### UseOptimisticConcurrency
-
----
-
 * When setting the `UseOptimisticConcurrency` convention to `true`,  
   Optimistic Concurrency checks will be applied for all sessions opened from the Document Store.
 
@@ -1177,9 +1052,6 @@ public bool UseOptimisticConcurrency \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### WaitForIndexesAfterSaveChangesTimeout
-
----
-
 * Use the `WaitForIndexesAfterSaveChangesTimeout` convention to set the default timeout for the
   `DocumentSession.Advanced.WaitForIndexesAfterSaveChanges` method.
 
@@ -1203,9 +1075,6 @@ public TimeSpan WaitForIndexesAfterSaveChangesTimeout \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### WaitForNonStaleResultsTimeout
-
----
-
 * Use the `WaitForNonStaleResultsTimeout` convention to set the default timeout used by the  
   `WaitForNonStaleResults` method when querying.
 
@@ -1229,9 +1098,6 @@ public TimeSpan WaitForNonStaleResultsTimeout \{ get; set; \}
 <Admonition type="note" title="Note">
 
 #### WaitForReplicationAfterSaveChangesTimeout
-
----
-
 * Use the `WaitForReplicationAfterSaveChangesTimeout` convention to set the default timeout for the  
   `DocumentSession.Advanced.WaitForReplicationAfterSaveChanges`method.
 
@@ -1252,12 +1118,12 @@ public TimeSpan WaitForReplicationAfterSaveChangesTimeout \{ get; set; \}
 </TabItem>
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Conventions
+
 
 <Admonition type="note" title="Note">
 
@@ -1297,10 +1163,7 @@ public TimeSpan WaitForReplicationAfterSaveChangesTimeout \{ get; set; \}
       [waitForReplicationAfterSaveChangesTimeout](../../client-api/configuration/conventions#waitforreplicationaftersavechangestimeout)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="How to set conventions" id="how-to-set-conventions" href="#how-to-set-conventions">
+## How to set conventions
 
 * Access the conventions via the `conventions` property of the `DocumentStore` object.
 
@@ -1327,16 +1190,13 @@ documentStore.initialize();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Conventions:" id="conventions" href="#conventions">
+
+## Conventions:
 
 <Admonition type="note" title="Note">
 
 #### customFetch
-
----
-
 * Use the `customFetch` convention to override the default _fetch_ method.  
   This method is useful to enable RavenDB Node.js client on CloudFlare Workers.
 
@@ -1356,9 +1216,6 @@ set customFetch(customFetch);
 <Admonition type="note" title="Note">
 
 #### disableAtomicDocumentWritesInClusterWideTransaction
-
----
-
 * EXPERT ONLY:   
   Use the `disableAtomicDocumentWritesInClusterWideTransaction` convention to disable automatic  
   atomic writes with cluster write transactions.
@@ -1383,9 +1240,6 @@ set disableAtomicDocumentWritesInClusterWideTransaction(
 <Admonition type="note" title="Note">
 
 #### disableTopologyUpdates
-
----
-
 * When setting the `disableTopologyUpdates` convention to `true`,  
   no database topology updates will be sent from the server to the client (e.g. adding or removing a node).
  
@@ -1405,9 +1259,6 @@ set disableTopologyUpdates(value);
 <Admonition type="note" title="Note">
 
 #### findCollectionName
-
----
-
 * Use the `findCollectionName` convention to define a function that will customize the collection name  
   from given type.
 
@@ -1427,9 +1278,6 @@ set findCollectionName(value);
 <Admonition type="note" title="Note">
 
 #### findJsType
-
----
-
 * Use the `findJsType` convention to define a function that finds the class of a document (if exists).
 
 * The type is retrieved from the `Raven-Node-Type` property under the `@metadata` key in the document.
@@ -1450,9 +1298,6 @@ set findJsType(value);
 <Admonition type="note" title="Note">
 
 #### findJsTypeName
-
----
-
 * Use the `findJsTypeName` convention to define a function that returns the class type name from a given type.
 
 * The class name will be stored in the entity metadata.
@@ -1473,9 +1318,6 @@ set findJsTypeName(value);
 <Admonition type="note" title="Note">
 
 #### firstBroadcastAttemptTimeout
-
----
-
 * Use the `firstBroadcastAttemptTimeout` convention to set the timeout for the first broadcast attempt.  
  
 * In the first attempt, the request executor will send a single request to the selected node.  
@@ -1499,9 +1341,6 @@ set firstBroadcastAttemptTimeout(firstBroadcastAttemptTimeout);
 <Admonition type="note" title="Note">
 
 #### identityPartsSeparator
-
----
-
 * Use the `identityPartsSeparator` convention to set the default **ID separator** for automatically-generated document IDs.
  
 * DEFAULT: `/` (forward slash)  
@@ -1529,9 +1368,6 @@ set identityPartsSeparator(value);
 #### loadBalanceBehavior
 #### loadBalancerPerSessionContextSelector
 #### loadBalancerContextSeed
-
----
-
 * Configure the **load balance behavior** by setting the following conventions:
   * `loadBalanceBehavior`
   * `loadBalancerPerSessionContextSelector`
@@ -1543,9 +1379,6 @@ set identityPartsSeparator(value);
 <Admonition type="note" title="Note">
 
 #### maxHttpCacheSize
-
----
-
 * Use the `MaxHttpCacheSize` convention to set the maximum HTTP cache size.  
   This setting will affect all the databases accessed by the Document Store.
  
@@ -1573,9 +1406,6 @@ set maxHttpCacheSize(value);
 <Admonition type="note" title="Note">
 
 #### maxNumberOfRequestsPerSession
-
----
-
 * Use the `maxNumberOfRequestsPerSession` convention to set the maximum number of requests per session.
  
 * DEFAULT: `30`
@@ -1594,9 +1424,6 @@ set maxNumberOfRequestsPerSession(value);
 <Admonition type="note" title="Note">
 
 #### readBalanceBehavior
-
----
-
 * Configure the **read request behavior** by setting the `readBalanceBehavior` convention.
 
 * Learn more in the dedicated [Read balance behavior](../../client-api/configuration/load-balance/read-balance-behavior) article.
@@ -1605,9 +1432,6 @@ set maxNumberOfRequestsPerSession(value);
 <Admonition type="note" title="Note">
 
 #### requestTimeout
-
----
-
 * Use the `requestTimeout` convention to define the global request timeout value for all `RequestExecutors` created per database.
  
 * DEFAULT: `null` (the default HTTP client timout will be applied - 12h)
@@ -1626,9 +1450,6 @@ set requestTimeout(value);
 <Admonition type="note" title="Note">
 
 #### secondBroadcastAttemptTimeout
-
----
-
 * Use the `secondBroadcastAttemptTimeout` convention to set the timeout for the second broadcast attempt.
  
 * Upon failure of the [first attempt](../../client-api/configuration/conventions#firstbroadcastattempttimeout) the request executor will resend the command to all nodes simultaneously.
@@ -1649,9 +1470,6 @@ set secondBroadcastAttemptTimeout(timeout);
 <Admonition type="note" title="Note">
 
 #### sendApplicationIdentifier
-
----
-
 * Use the `sendApplicationIdentifier` convention to `true` to enable sending a unique application identifier to the RavenDB Server.
 
 * Setting to _true_ allows the server to issue performance hint notifications to the client, 
@@ -1673,9 +1491,6 @@ set sendApplicationIdentifier(sendApplicationIdentifier)
 <Admonition type="note" title="Note">
 
 #### shouldIgnoreEntityChanges
-
----
-
 * Set the `shouldIgnoreEntityChanges` convention to disable entity tracking for certain entities.  
  
 * Learn more in [Customize tracking in conventions](../../client-api/session/configuration/how-to-disable-tracking#customize-tracking-in-conventions).
@@ -1684,9 +1499,6 @@ set sendApplicationIdentifier(sendApplicationIdentifier)
 <Admonition type="note" title="Note">
 
 #### storeDatesInUtc
-
----
-
 * When setting the `storeDatesInUtc` convention to `true`,  
   DateTime values will be stored in the database in UTC format.
 
@@ -1706,9 +1518,6 @@ set storeDatesInUtc(value);
 <Admonition type="note" title="Note">
 
 #### storeDatesWithTimezoneInfo
-
----
-
 * When setting the `storeDatesWithTimezoneInfo` to `true`,  
   DateTime values will be stored in the database with their time zone information included.
 
@@ -1728,9 +1537,6 @@ set storeDatesWithTimezoneInfo(value);
 <Admonition type="note" title="Note">
 
 #### syncJsonParseLimit
-
----
-
 * Use the `syncJsonParseLimit` convention to define the maximum size for the _sync_ parsing of the JSON data responses received from the server.  
   For data exceeding this size, the client switches to _async_ parsing.
 
@@ -1750,9 +1556,6 @@ set syncJsonParseLimit(value);
 <Admonition type="note" title="Note">
 
 #### throwIfQueryPageSizeIsNotSet
-
----
-
 * When setting the `throwIfQueryPageSizeIsNotSet` convention to `true`,  
   an exception will be thrown if a query is performed without explicitly setting a page size.
 
@@ -1775,9 +1578,6 @@ set throwIfQueryPageSizeIsNotSet(value);
 <Admonition type="note" title="Note">
 
 #### transformClassCollectionNameToDocumentIdPrefix
-
----
-
 * Use the `transformTypeCollectionNameToDocumentIdPrefix` convention to define a function that will  
   customize the document ID prefix from the the collection name.
 
@@ -1803,9 +1603,6 @@ set transformClassCollectionNameToDocumentIdPrefix(value);
 <Admonition type="note" title="Note">
 
 #### useCompression
-
----
-
 * Set the `useCompression` convention to true in order to accept the **response** in compressed format and the automatic decompression of the HTTP response content.
 
 * A `Gzip` compression is always applied when sending content in an HTTP request.
@@ -1827,9 +1624,6 @@ set useCompression(value);
 <Admonition type="note" title="Note">
 
 #### useJsonlStreaming
-
----
-
 * Set the `useJsonlStreaming` convention to `true` when streaming query results as JSON Lines (JSONL) format.
 
 * DEFAULT: `true`
@@ -1848,9 +1642,6 @@ set useJsonlStreaming(value);
 <Admonition type="note" title="Note">
 
 #### useOptimisticConcurrency
-
----
-
 * When setting the `useOptimisticConcurrency` convention to `true`,  
   Optimistic Concurrency checks will be applied for all sessions opened from the Document Store. 
 
@@ -1873,9 +1664,6 @@ set useOptimisticConcurrency(value);
 <Admonition type="note" title="Note">
 
 #### waitForIndexesAfterSaveChangesTimeout
-
----
-
 * Use the `waitForIndexesAfterSaveChangesTimeout` convention to set the default timeout for the 
   `documentSession.advanced.waitForIndexesAfterSaveChanges` method.  
  
@@ -1895,9 +1683,6 @@ set waitForIndexesAfterSaveChangesTimeout(value);
 <Admonition type="note" title="Note">
 
 #### waitForNonStaleResultsTimeout
-
----
-
 * Use the `waitForNonStaleResultsTimeout` convention to set the default timeout used by the  
   `waitForNonStaleResults` method when querying.  
  
@@ -1917,9 +1702,6 @@ set waitForNonStaleResultsTimeout(value);
 <Admonition type="note" title="Note">
 
 #### waitForReplicationAfterSaveChangesTimeout
-
----
-
 * Use the `waitForReplicationAfterSaveChangesTimeout` convention to set the default timeout for the  
   `documentSession.advanced.waitForReplicationAfterSaveChanges`method.  
  
@@ -1936,7 +1718,7 @@ set waitForReplicationAfterSaveChangesTimeout(value);
 </TabItem>
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>

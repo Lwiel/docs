@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Distributed Database
----
-
 <Admonition type="note" title="Note">
 
 * In RavenDB, a database can be replicated across multiple nodes, depending on its [Replication Factor](../../../server/clustering/distribution/distributed-database#replication-factor).  
@@ -33,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Sharding](../../../server/clustering/distribution/distributed-database#sharding)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="The Database Record" id="the-database-record" href="#the-database-record">
+## The Database Record
 
 Each database instance keeps its configuration (e.g. Index definitions, Database topology) in a [Database Record](../../../client-api/operations/server-wide/create-database) object.
 Upon database creation, this object is propagated through Rachis to all nodes in the cluster.  
@@ -44,9 +39,9 @@ Upon database creation, this object is propagated through Rachis to all nodes in
 After that, each node updates its own `Database Record` independently upon receiving any new Raft command,  
 e.g. when an index has changed.  
 
-</Admonition>
 
-<Admonition type="info" title="Replication Factor" id="replication-factor" href="#replication-factor">
+
+## Replication Factor
 
 When creating a database, you can either:
 
@@ -59,9 +54,9 @@ In either case, the number of nodes will represent the `Replication Factor`.
 Once the database is created by getting a [Consensus](../../../server/clustering/rachis/consensus-operations),  
 the [Cluster Observer](../../../server/clustering/distribution/cluster-observer) begins monitoring the _Database Group_ in order to maintain this Replication Factor.
 
-</Admonition>
 
-<Admonition type="info" title="Database Topology" id="database-topology" href="#database-topology">
+
+## Database Topology
 
 The `Database Topology` describes the relationships between the Database Nodes within the [Database Group](../../../studio/database/settings/manage-database-group).  
 Each **Database Node** can be in one of the following states:  
@@ -99,9 +94,9 @@ Each **Database Node** can be in one of the following states:
 All `Members` have master-master [Replication](../../../server/clustering/replication/replication) in order to keep the documents in sync across the nodes.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Dynamic Database Distribution" id="dynamic-database-distribution" href="#dynamic-database-distribution">
+
+## Dynamic Database Distribution
 
 If any of the `Database Nodes` is down or partitioned, the [Cluster Observer](../../../server/clustering/distribution/cluster-observer) will recognize it and act as follows:  
 
@@ -128,14 +123,14 @@ The _Dynamic Database Distribution_ feature can be toggled on and off with the f
 |--------------------------------------------|----------|-----------------------------------------|
 | /admin/databases/dynamic-node-distribution | `POST`   | name=[`database-name`], enable=[`bool`] |
 
-</Admonition>
 
-<Admonition type="info" title="Sharding" id="sharding" href="#sharding">
+
+## Sharding
 
 * Sharding, supported by RavenDB as an out-of-the-box solution starting with version **6.0**,  
   is the distribution of a database's content across autonomous shards.
 
 * Learn more about sharding in this dedicated [Sharding overview](../../../sharding/overview) article.
 
-</Admonition>
+
 

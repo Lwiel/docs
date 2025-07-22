@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Get Compare Exchange Values Operation
+export const supportedLanguages = ["csharp", "java", "nodejs"];
 
----
+
+# Get Compare Exchange Values Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Example I - Get Values for Specified Keys](../../../client-api/operations/compare-exchange/get-compare-exchange-values#example-i---get-values-for-specified-keys)  
   * [Example II - Get Values for Keys with Common Prefix](../../../client-api/operations/compare-exchange/get-compare-exchange-values#example-ii---get-values-for-keys-with-common-prefix)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 **Methods**:
 
@@ -73,9 +71,9 @@ at `session.Advanced.ClusterTransaction`.
 This method also exposes methods getting compare exchange [lazily](../../../client-api/session/cluster-transaction/compare-exchange#get-compare-exchange).  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Example I - Get Values for Specified Keys" id="example-i-get-values-for-specified-keys" href="#example-i-get-values-for-specified-keys">
+
+## Example I - Get Values for Specified Keys
 
 <TabItem value="something" label="get_list_2">
 <CodeBlock language="csharp">
@@ -86,9 +84,9 @@ This method also exposes methods getting compare exchange [lazily](../../../clie
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
 
-<Admonition type="info" title="Example II - Get Values for Keys with Common Prefix" id="example-ii-get-values-for-keys-with-common-prefix" href="#example-ii-get-values-for-keys-with-common-prefix">
+
+## Example II - Get Values for Keys with Common Prefix
 
 <TabItem value="something" label="get_list_3">
 <CodeBlock language="csharp">
@@ -100,14 +98,11 @@ Dictionary<string, CompareExchangeValue<User>> compareExchangeValues
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Get Compare Exchange Values Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -120,10 +115,7 @@ Dictionary<string, CompareExchangeValue<User>> compareExchangeValues
   * [Example I - Get Value for Specified Keys](../../../client-api/operations/compare-exchange/get-compare-exchange-values#example-i---get-values-for-specified-keys)  
   * [Example II - Get Values for Keys with Common Prefix](../../../client-api/operations/compare-exchange/get-compare-exchange-values#example-ii---get-values-for-keys-with-common-prefix)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 **Methods**:
 <TabItem value="something-something" label="get_list_0">
@@ -194,9 +186,9 @@ GetCompareExchangeValuesOperation(Class<T> clazz, String startWith, Integer star
 | Return Value | Description |
 | ------------- | ----- |
 | `Map<String, CompareExchangeValue<T>>` | A map containing _'Key'_ to _'CompareExchangeValue'_ associations |
-</Admonition>
 
-<Admonition type="info" title="Example I - Get Values for Specified Keys" id="example-i-get-values-for-specified-keys" href="#example-i-get-values-for-specified-keys">
+
+## Example I - Get Values for Specified Keys
 
 <TabItem value="something-something" label="get_list_2">
 <CodeBlock language="java">
@@ -206,9 +198,9 @@ GetCompareExchangeValuesOperation(Class<T> clazz, String startWith, Integer star
 `}
 </CodeBlock>
 </TabItem>  
-</Admonition>
 
-<Admonition type="info" title="Example II - Get Values for Keys with Common Prefix" id="example-ii-get-values-for-keys-with-common-prefix" href="#example-ii-get-values-for-keys-with-common-prefix">
+
+## Example II - Get Values for Keys with Common Prefix
 
 <TabItem value="something-something" label="get_list_3">
 <CodeBlock language="java">
@@ -220,13 +212,11 @@ Map<String, CompareExchangeValue<User>> compareExchangeValues
 `}
 </CodeBlock>
 </TabItem>  
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Compare Exchange Values Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -245,17 +235,11 @@ Map<String, CompareExchangeValue<User>> compareExchangeValues
   * [Syntax](../../../client-api/operations/compare-exchange/get-compare-exchange-values#syntax)    
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 <Admonition type="note" title="Note">
 
 <a id="get-cmpxchg-items-for-specified-keys"/> __Get cmpXchg items for specified keys__:
-
----
-
 <TabItem value="something-something" label="get_values_1">
 <CodeBlock language="nodejs">
 {`// Save some new compare-exchange items
@@ -291,9 +275,6 @@ assert.equal(items["employees/3-A"].value, "someValue3");
 <Admonition type="note" title="Note">
 
 <a id="get-cmpxchg-items-for-keys-with-common-prefix"/> __Get cmpXchg items for keys with common prefix__:
-
----
-
 <TabItem value="something-something" label="get_values_2">
 <CodeBlock language="nodejs">
 {`// Get multiple compare-exchange items with common key prefix:
@@ -319,9 +300,9 @@ const items = await documentStore.operations.send(getCmpXchgOp);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -369,7 +350,7 @@ const items = await documentStore.operations.send(getCmpXchgOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

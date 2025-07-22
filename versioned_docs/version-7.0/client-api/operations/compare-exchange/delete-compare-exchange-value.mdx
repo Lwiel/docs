@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Delete Compare Exchange Operation
+export const supportedLanguages = ["csharp", "java", "nodejs"];
 
----
+
+# Delete Compare Exchange Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -29,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../client-api/operations/compare-exchange/get-compare-exchange-values#syntax)  
   * [Example](../../../client-api/operations/compare-exchange/delete-compare-exchange-value#example)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 **Method**:
 <TabItem value="something" label="delete_0">
@@ -71,9 +69,9 @@ import LanguageContent from "@site/src/components/language-content";
 | **Index** | long | * The next available version number upon success
 * The next available version number if _key_ doesn't exist
 * The currently existing index on the server if the delete operation failed |  
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something" label="delete_1">
 <CodeBlock language="csharp">
@@ -92,14 +90,11 @@ bool deleteResultSuccessful = deleteResult.Successful;
 `}
 </CodeBlock>
 </TabItem>  
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Delete Compare Exchange Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -113,10 +108,7 @@ bool deleteResultSuccessful = deleteResult.Successful;
   * [Syntax](../../../client-api/operations/compare-exchange/get-compare-exchange-values#syntax)  
   * [Example](../../../client-api/operations/compare-exchange/delete-compare-exchange-value#example)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 **Method**:
 <TabItem value="something-something" label="delete_0">
@@ -178,9 +170,9 @@ bool deleteResultSuccessful = deleteResult.Successful;
 | **Index** | long | * The next available version number upon success
 * The next available version number if _key_ doesn't exist
 * The currently existing index on the server if the delete operation failed |  
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something-something" label="delete_1">
 <CodeBlock language="java">
@@ -199,14 +191,11 @@ boolean deleteResultSuccessful = deleteResult.isSuccessful();
 `}
 </CodeBlock>
 </TabItem>  
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Delete Compare Exchange Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -223,10 +212,7 @@ boolean deleteResultSuccessful = deleteResult.isSuccessful();
   * [Syntax](../../../client-api/operations/compare-exchange/delete-compare-exchange-value#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Delete compare exchange item" id="delete-compare-exchange-item" href="#delete-compare-exchange-item">
+## Delete compare exchange item
 
 <TabItem value="something-something" label="delete_1">
 <CodeBlock language="nodejs">
@@ -256,9 +242,9 @@ assert.ok(deleteResult.successful);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -293,7 +279,7 @@ e.g. when the index version doesn't match.&lt;/li&gt;&lt;ul&gt;       |
 | __value__      | object  | &lt;ul&gt;&lt;li&gt;The value that was deleted upon a successful delete.&lt;/li&gt;&lt;li&gt;`null` if _key_ doesn't exist.&lt;/li&gt;&lt;li&gt;The currently existing _value_ on the server if the delete operation has failed.&lt;/li&gt;&lt;ul&gt;                       |  
 | __index__      | number  | &lt;ul&gt;&lt;li&gt;The next available version number upon success.&lt;/li&gt;&lt;li&gt;The next available version number if _key_ doesn't exist.&lt;/li&gt;&lt;li&gt;The currently existing _index_ on the server if the delete operation has failed.&lt;/li&gt;&lt;ul&gt; |  
 
-</Admonition>
+
 
 
 </LanguageContent>

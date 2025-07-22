@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Guides: Azure Functions (.NET C#)
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Guides: Azure Functions (.NET C#)
----
 
 <Admonition type="note" title="Note">
 
@@ -46,7 +48,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Before We Get Started" id="before-we-get-started" href="#before-we-get-started">
+## Before We Get Started
 
 You will need the following before continuing:  
 
@@ -58,9 +60,9 @@ You will need the following before continuing:
 If you are new to Azure Function local development, see the [Getting started guide][az-funcs] 
 for how to get up and running with your toolchain of choice.  
 
-</Admonition>
 
-<Admonition type="info" title="Create a Local Azure Function App" id="create-a-local-azure-function-app" href="#create-a-local-azure-function-app">
+
+## Create a Local Azure Function App
 
 The [RavenDB Azure Function template][template] is a template repository on GitHub which means 
 you can either create a new repository derived from the template or clone and push it to a new repository.  
@@ -128,10 +130,10 @@ You will see the welcome screen if the template is set up correctly:
 
 ![.NET template welcome screen](./assets/dotnet-func-start.jpg)
 
-</Admonition>
 
 
-<Admonition type="info" title="Configuring Local Connection to RavenDB" id="configuring-local-connection-to-ravendb" href="#configuring-local-connection-to-ravendb">
+
+## Configuring Local Connection to RavenDB
 
 To configure the local version of your Azure Functions app to connect to RavenDB, you will need to update 
 the `appsettings.json` file with the `RavenSettings:Urls` value and `RavenSettings:DatabaseName` value.  
@@ -203,9 +205,9 @@ Example `appsettings.json`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Creating Function App Resources in Azure" id="creating-function-app-resources-in-azure" href="#creating-function-app-resources-in-azure">
+
+## Creating Function App Resources in Azure
 
 At this point, the local Function app is ready to be deployed. Before you can do that, 
 you need to set up the Function App resources in Azure.  
@@ -268,9 +270,9 @@ allowed certificates are made available. This avoids accidentally exposing a cer
 to the application that isn't explicitly used.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Deploying to Azure" id="deploying-to-azure" href="#deploying-to-azure">
+
+## Deploying to Azure
 
 Once the Azure app is set up in the portal, you are ready to deploy your app. 
 There are 3 main ways to deploy your new Azure Function app: GitHub actions, command-line, and an extension.  
@@ -304,9 +306,9 @@ Your repository and GitHub action is now set up. To test the deployment, you can
 If you have already committed and pushed, it is likely that the Action failed and you can re-run the job using 
 the new secret variable.  
 
-</Admonition>
 
-<Admonition type="info" title="Verify the Connection Works" id="verify-the-connection-works" href="#verify-the-connection-works">
+
+## Verify the Connection Works
 
 If the deployment succeeds, the `HttpTrigger` endpoint should now be available at your Function URL.  
 
@@ -316,9 +318,9 @@ Once you open the URL in the browser, you should see a welcome screen like this 
 
 This means your Azure Functions app is correctly configured and ready to work with RavenDB.  
 
-</Admonition>
 
-<Admonition type="info" title="Using RavenDB in the Azure Functions App" id="using-ravendb-in-the-azure-functions-app" href="#using-ravendb-in-the-azure-functions-app">
+
+## Using RavenDB in the Azure Functions App
 
 The template sets up a singleton `DocumentStore` and dependency injection for the `IAsyncDocumentStore` per function 
 invocation which you can inject into Function classes.  
@@ -381,14 +383,14 @@ public async Task<IActionResult> Run(
 
 Learn more about using the RavenDB .NET client SDK [here][ravendb-dotnet].
 
-</Admonition>
 
-<Admonition type="info" title="Tutorial Video" id="tutorial-video" href="#tutorial-video">
+
+## Tutorial Video
 
 Watch our _Using Azure Functions with RavenDB .NET_ tutorial:  
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/1vnpfsD3bSE?si=X6hyNiwfzEH5wR8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
 
-</Admonition>
+
 
 [download-dotnet]: https://dotnet.microsoft.com/en-us/download/dotnet/6.0
 [az-funcs]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-get-started
@@ -406,8 +408,6 @@ Watch our _Using Azure Functions with RavenDB .NET_ tutorial:
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Guides: Azure Functions (Node.js)
----
 
 <Admonition type="note" title="Note">
 
@@ -439,7 +439,7 @@ Watch our _Using Azure Functions with RavenDB .NET_ tutorial:
 
 </Admonition>
 
-<Admonition type="info" title="Before We Get Started" id="before-we-get-started" href="#before-we-get-started">
+## Before We Get Started
 
 You will need the following before continuing:
 
@@ -451,9 +451,9 @@ You will need the following before continuing:
 If you are new to Azure Function local development, see the [Getting started guide][az-funcs] 
 for how to get up and running with your toolchain of choice.  
 
-</Admonition>
 
-<Admonition type="info" title="Create a Local Azure Function App" id="create-a-local-azure-function-app" href="#create-a-local-azure-function-app">
+
+## Create a Local Azure Function App
 
 The [RavenDB Azure Function template][template] is a template repository on GitHub which means 
 you can either create a new repository derived from the template or clone and push it to a new repository.  
@@ -505,9 +505,9 @@ You will see the welcome screen if the template is set up correctly:
 
 Since this is only for testing purposes, next you will configure the connection to your existing RavenDB database.  
 
-</Admonition>
 
-<Admonition type="info" title="Connecting to RavenDB" id="connecting-to-ravendb" href="#connecting-to-ravendb">
+
+## Connecting to RavenDB
 
 To configure the local version of your Azure Functions app to connect to RavenDB, 
 you will need to update the `local.settings.json` file with the `DB_URLS` value and `DB_NAME` value.  
@@ -548,9 +548,9 @@ profile (e.g. `.bashrc`).
 Do not store the `.pfx` files to source control.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Creating a Function App in Azure" id="creating-a-function-app-in-azure" href="#creating-a-function-app-in-azure">
+
+## Creating a Function App in Azure
 At this point, the local Function app is ready to be deployed. There are multiple ways to create 
 and deploy Function apps using tools like Visual Studio Code or the portal itself.  
 
@@ -594,9 +594,9 @@ The template is configured to use the PEM certificate method for ease of use acr
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Deploying to Azure" id="deploying-to-azure" href="#deploying-to-azure">
+
+## Deploying to Azure
 
 Once the Azure app is set up in the portal, you are ready to deploy your app. There are 3 main 
 ways to deploy your new Azure Function app: GitHub actions, command-line, and an extension.  
@@ -631,9 +631,9 @@ a commit to the repository.
 If you have already committed and pushed, it is likely that the Action failed and you 
 can re-run the job using the new secret variable.  
 
-</Admonition>
 
-<Admonition type="info" title="Verify the Connection Works" id="verify-the-connection-works" href="#verify-the-connection-works">
+
+## Verify the Connection Works
 
 If the deployment succeeds, the `HttpTrigger` endpoint should now be available at your Function URL.  
 
@@ -643,9 +643,9 @@ Once you open the URL in the browser, you should see a welcome screen like this 
 
 This means your Azure Functions app is correctly configured and ready to work with RavenDB.  
 
-</Admonition>
 
-<Admonition type="info" title="Using RavenDB in the Azure Functions App" id="using-ravendb-in-the-azure-functions-app" href="#using-ravendb-in-the-azure-functions-app">
+
+## Using RavenDB in the Azure Functions App
 
 The template uses the [@senacor/azure-function-middleware][npm-middleware] npm package to provide 
 a `middleware` helper function that can wrap Azure function handlers. The template includes a database 
@@ -712,14 +712,14 @@ The middleware injects a `db` parameter on the `context` object of type `IDocume
 
 Learn more about using the RavenDB Node.js client SDK [here][ravendb-nodejs].  
 
-</Admonition>
 
-<Admonition type="info" title="Tutorial Video" id="tutorial-video" href="#tutorial-video">
+
+## Tutorial Video
 
 Watch our _Using Azure Functions with RavenDB Node.js_ tutorial:  
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/TJdJ3TJK-Sg?si=m1cSrn2k7EF6z6bW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
 
-</Admonition>
+
 
 [az-funcs]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-get-started
 [az-core-tools]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local

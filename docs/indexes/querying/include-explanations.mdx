@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Include Explanations in Index Query
+export const supportedLanguages = ["csharp", "nodejs"];
 
----
+
+# Include Explanations in Index Query
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,19 +29,13 @@ import LanguageContent from "@site/src/components/language-content";
     * Including explanations is available only when using **Lucene** as the underlying search engine for static-indexes.
     * You can configure which search engine will be used. Learn how in [Selecting the search engine](../../indexes/search-engine/corax#selecting-the-search-engine).
     </Admonition>
-
----
-
 * In this page:
   * [Include explanations when querying Map index](../../indexes/querying/include-explanations#include-explanations-when-querying-map-index)  
   * [Include explanations when querying Map-Reduce index](../../indexes/querying/include-explanations#include-explanations-when-querying-map-reduce-index)  
   * [Syntax](../../indexes/querying/include-explanations#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include explanations when querying Map index" id="include-explanations-when-querying-map-index" href="#include-explanations-when-querying-map-index">
+## Include explanations when querying Map index
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Map_index" label="Map_index">
@@ -181,9 +176,9 @@ include explanations()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Include explanations when querying Map-Reduce index" id="include-explanations-when-querying-map-reduce-index" href="#include-explanations-when-querying-map-reduce-index">
+
+## Include explanations when querying Map-Reduce index
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Map_Reduce_index" label="Map_Reduce_index">
@@ -338,9 +333,9 @@ include explanations($p0)
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -381,14 +376,11 @@ IDocumentQuery<T> IncludeExplanations(ExplanationOptions options, out Explanatio
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Include Explanations in Index Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -401,19 +393,13 @@ IDocumentQuery<T> IncludeExplanations(ExplanationOptions options, out Explanatio
     * Including explanations is available only when using **Lucene** as the underlying search engine for static-indexes.
     * You can configure which search engine will be used. Learn how in [Selecting the search engine](../../indexes/search-engine/corax#selecting-the-search-engine).
     </Admonition>
-
----
-
 * In this page:
   * [Include explanations when querying Map index](../../indexes/querying/include-explanations#include-explanations-when-querying-map-index)  
   * [Include explanations when querying Map-Reduce index](../../indexes/querying/include-explanations#include-explanations-when-querying-map-reduce-index)  
   * [Syntax](../../indexes/querying/include-explanations#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include explanations when querying Map index" id="include-explanations-when-querying-map-index" href="#include-explanations-when-querying-map-index">
+## Include explanations when querying Map index
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Map_index" label="Map_index">
@@ -471,9 +457,9 @@ include explanations()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Include explanations when querying Map-Reduce index" id="include-explanations-when-querying-map-reduce-index" href="#include-explanations-when-querying-map-reduce-index">
+
+## Include explanations when querying Map-Reduce index
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Map_Reduce_index" label="Map_Reduce_index">
@@ -538,9 +524,9 @@ include explanations($p0)
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -583,7 +569,7 @@ class Explanations \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

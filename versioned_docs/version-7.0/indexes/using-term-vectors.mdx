@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["java", "nodejs", "csharp"];
+
+
+# Indexes: Term Vectors
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="java">
-# Indexes: Term Vectors
+
 
 [Term Vector](https://en.wikipedia.org/wiki/Vector_space_model) is a representation of a text document as a vector of identifiers that can be used for similarity searches, information filtering, information retrieval, and indexing. In RavenDB the feature like [MoreLikeThis](../client-api/session/querying/how-to-use-morelikethis) is leveraging the term vectors to accomplish its purposes.
 
@@ -91,7 +95,7 @@ The available Term Vector options are:
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexes: Term Vectors
+
 
 [Term Vector](https://en.wikipedia.org/wiki/Vector_space_model) is a representation of a text document as a vector of identifiers that can be used for similarity searches, information filtering, information retrieval, and indexing. In RavenDB the feature like [MoreLikeThis](../client-api/session/querying/how-to-use-morelikethis) is leveraging the term vectors to accomplish its purposes.
 
@@ -148,8 +152,6 @@ The available Term Vector options are:
 
 </LanguageContent>
 <LanguageContent language="csharp">
-# Indexes: Term Vectors
----
 
 <Admonition type="note" title="Note">
 
@@ -169,10 +171,7 @@ The available Term Vector options are:
        * [Using Studio](../indexes/using-term-vectors#using-studio)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Creating an index and enabling Term Vectors on a field" id="creating-an-index-and-enabling-term-vectors-on-a-field" href="#creating-an-index-and-enabling-term-vectors-on-a-field">
+## Creating an index and enabling Term Vectors on a field
 
 Indexes that include term vectors can be created and configured using the API 
 or Studio.  
@@ -291,7 +290,7 @@ where morelikethis(id() = 'products/7-A')
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

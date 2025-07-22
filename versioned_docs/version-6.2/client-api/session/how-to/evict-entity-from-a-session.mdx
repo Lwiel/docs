@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Session: How to Evict Single Entity from a Session
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: How to Evict Single Entity from a Session
+
 
 We can clear all session operations and stop tracking of all entities using the 
 [Clear](../../../client-api/session/how-to/clear-a-session) method, but sometimes 
@@ -73,7 +77,7 @@ employee = session.Load<Employee>("employees/1-A"); // loading from server
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Evict Single Entity from a Session
+
 
 We can clear all session operations and stop tracking of all entities using the 
 [clear](../../../client-api/session/how-to/clear-a-session) method, but sometimes 
@@ -129,7 +133,7 @@ employee = session.load(Employee.class, "employees/1-A"); // loading form server
 
 </LanguageContent>
 <LanguageContent language="python">
-# Session: How to Evict Single Entity from a Session
+
 
 We can clear all session operations and stop tracking of all entities using the 
 [clear](../../../client-api/session/how-to/clear-a-session) method, but sometimes 
@@ -180,7 +184,7 @@ employee = session.load("employees/1-A")  # loading form server
 
 </LanguageContent>
 <LanguageContent language="php">
-# Session: How to Evict Single Entity from a Session
+
 
 We can clear all session operations and stop tracking of all entities using the 
 [clear](../../../client-api/session/how-to/clear-a-session) method, but sometimes 
@@ -236,7 +240,7 @@ $employee = $session->load(Employee::class, "employees/1-A"); // loading form se
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: How to Evict Single Entity from a Session
+
 
 We can clear all session operations and stop tracking of all entities using the 
 [session.advanced.clear()](../../../client-api/session/how-to/clear-a-session) method, 

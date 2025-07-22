@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Import Data from a Live RavenDB Server
----
-
 <Admonition type="note" title="Note">
 
 * In addition to importing data from a [.ravendbdump](../../../../studio/database/tasks/import-data/import-data-file) file, 
@@ -29,10 +27,7 @@ import LanguageContent from "@site/src/components/language-content";
   4th Step: [Set Import Options](../../../../studio/database/tasks/import-data/import-from-ravendb#4th-step:-set-import-options)  
   5th Step: [Advanced Import Options](../../../../studio/database/tasks/import-data/import-from-ravendb#5th-step:-advanced-import-options)  
 </Admonition>
-
----
-
-<Admonition type="info" title="1st Step: Prepare Servers for the Import Process " id="1st-step-prepare-servers-for-the-import-process" href="#1st-step-prepare-servers-for-the-import-process">
+## 1st Step: Prepare Servers for the Import Process 
 
 * Before migrating data from a secure source server, the destination server must also be secure.  
   You must pass the certificate from the destination to the source server.  The following steps explain how.
@@ -88,10 +83,10 @@ import LanguageContent from "@site/src/components/language-content";
 
 
 
-</Admonition>
 
 
-<Admonition type="info" title="2nd Step: Access the Import View" id="2nd-step-access-the-import-view" href="#2nd-step-access-the-import-view">
+
+## 2nd Step: Access the Import View
 
    
 ![Databases List](./assets/import-from-ravendb-db-list.png)
@@ -103,9 +98,6 @@ import LanguageContent from "@site/src/components/language-content";
   1. Verify that this database is empty as the import will overwrite any existing content.
 
 </Admonition>
-
----
-   
 ![Import Data](./assets/import-from-ravendb-from-ravendb.png)
 
  1. Click **Tasks** tab.  
@@ -113,11 +105,8 @@ import LanguageContent from "@site/src/components/language-content";
  3. Select **From RavenDB**.  
 
 
-</Admonition>
 
----
-
-<Admonition type="info" title="3rd Step: Set the Source Server URL and database" id="3rd-step-set-the-source-server-url-and-database" href="#3rd-step-set-the-source-server-url-and-database">
+## 3rd Step: Set the Source Server URL and database
 
 * Specify the source server URL and select the database to import the data from.  
 
@@ -130,9 +119,9 @@ import LanguageContent from "@site/src/components/language-content";
 3. **Database Name**  
    Enter the name of the database that you want to migrate your data from.  
 
-</Admonition>
 
-<Admonition type="info" title="4th Step: Set Import Options" id="4th-step-set-import-options" href="#4th-step-set-import-options">
+
+## 4th Step: Set Import Options
 
 * Filter the data you want to import.  
 * Customize advanced configuration and apply a transform script under the [Advanced Import Options](../../../../studio/database/tasks/import-data/import-from-ravendb#step-#5:-advanced-import-options).
@@ -164,9 +153,9 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Importing an item that doesn't exist" id="importing-an-item-that-doesn-t-exist" href="#importing-an-item-that-doesn-t-exist">
 If any of the options is set but the source database doesn't contain any items of that type, the type will be skipped.  
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="5th Step: Advanced Import Options" id="5th-step-advanced-import-options" href="#5th-step-advanced-import-options">
+
+## 5th Step: Advanced Import Options
 
 Click the **Advanced** button at the bottom of the options view for the following import features.
 
@@ -228,4 +217,4 @@ In the Studio, select **database** &gt; click **Task** tab &gt; select **Import*
 
  - [Connection Strings](../../../../client-api/operations/maintenance/connection-strings/add-connection-string) used by ETL tasks to authenticate and connect to external databases will be imported.
 
-</Admonition>
+

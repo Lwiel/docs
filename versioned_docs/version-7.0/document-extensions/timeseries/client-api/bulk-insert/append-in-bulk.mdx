@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Append Time Series with Bulk Insert
+export const supportedLanguages = ["csharp", "nodejs"];
 
----
+
+# Append Time Series with Bulk Insert
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -35,7 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Usage" id="usage" href="#usage">
+## Usage
 
 **Flow**:
 
@@ -57,9 +58,9 @@ import LanguageContent from "@site/src/components/language-content";
 * The client converts all timestamps to **UTC** before sending the batch to the server.
 * Multiple time series can be appended in the same `BulkInsertOperation`. See this [example](../../../../document-extensions/timeseries/client-api/bulk-insert/append-in-bulk#append-multiple-time-series) below.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Append single entry:
 
@@ -88,9 +89,6 @@ using (BulkInsertOperation bulkInsert = store.BulkInsert())
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Append multiple entries:
 
 In this example, we append 100 entries with a single value to time series "HeartRates". 
@@ -113,9 +111,6 @@ In this example, we append 100 entries with a single value to time series "Heart
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Append multiple values per entry:
 
 In this example, we append multiple values per entry in time series "HeartRates".
@@ -136,9 +131,6 @@ In this example, we append multiple values per entry in time series "HeartRates"
 `}
 </CodeBlock>
 </TabItem>  
-
----
-
 #### Append multiple time series:
 
 In this example, we append multiple time series in different documents in the same batch.
@@ -174,9 +166,9 @@ In this example, we append multiple time series in different documents in the sa
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **`BulkInsert.TimeSeriesFor`**
 
@@ -216,14 +208,11 @@ public void Append(DateTime timestamp, ICollection<double> values, string tag = 
 | **values**    | `ICollection<double>` | Multiple values           |
 | **tag**       | `string`              | TS-entry's tag (optional) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Append Time Series with Bulk Insert
-
----
 
 <Admonition type="note" title="Note">
 
@@ -243,7 +232,7 @@ public void Append(DateTime timestamp, ICollection<double> values, string tag = 
 
 </Admonition>
 
-<Admonition type="info" title="Usage" id="usage" href="#usage">
+## Usage
 
 **Flow**:
 
@@ -265,9 +254,9 @@ public void Append(DateTime timestamp, ICollection<double> values, string tag = 
 * The client converts all timestamps to **UTC** before sending the batch to the server.
 * Multiple time series can be appended in the same `BulkInsertOperation`. See this [example](../../../../document-extensions/timeseries/client-api/bulk-insert/append-in-bulk#append-multiple-time-series) below.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Append single entry:
 
@@ -300,9 +289,6 @@ await bulkInsert.finish();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Append multiple entries:
 
 In this example, we append 100 entries with a single value to time series "HeartRates". 
@@ -329,9 +315,6 @@ await bulkInsert.finish();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Append multiple values per entry:
 
 In this example, we append multiple values per entry in time series "HeartRates".
@@ -359,9 +342,6 @@ await bulkInsert.finish();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Append multiple time series:
 
 In this example, we append multiple time series in different documents in the same batch.
@@ -398,9 +378,9 @@ await bulkInsert.finish();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **`bulkInsert.timeSeriesFor`**
 
@@ -435,7 +415,7 @@ append(timestamp, values, tag);
 | **values**    | `number[]` | Multiple values           |
 | **tag**       | `string`   | TS-entry's tag (optional) |
 
-</Admonition>
+
 
 
 </LanguageContent>

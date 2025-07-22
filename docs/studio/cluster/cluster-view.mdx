@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Cluster View
----
-
 <Admonition type="note" title="Note">
 
 * A **RavenDB Cluster** is one or more machines (nodes) that have been joined together, 
@@ -38,10 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Cluster Nodes States & Types Flow](../../studio/cluster/cluster-view#cluster-nodes-states-&-types-flow)  
   * [Cluster-Wide operation -vs- Database Operations](../../studio/cluster/cluster-view#cluster-wide-operation--vs--database-operations)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Cluster View Stats" id="cluster-view-stats" href="#cluster-view-stats">
+## Cluster View Stats
 
 ![Figure 1. Cluster Stats](./assets/cluster-view-1.png)
 
@@ -69,9 +64,9 @@ import LanguageContent from "@site/src/components/language-content";
     This memory limit is set by your license, and it applies to managed memory (.NET),  
     and to unmanaged memory handled by RavenDB.  
     It doesn't apply to memory-mapped files managed by the OS.  
-</Admonition>
 
-<Admonition type="info" title="Cluster View Operations" id="cluster-view-operations" href="#cluster-view-operations">
+
+## Cluster View Operations
 
 ![Figure 2. Cluster Operations](./assets/cluster-view-2.png)
 
@@ -90,9 +85,9 @@ import LanguageContent from "@site/src/components/language-content";
    Clicking 'Force Timeout' will trigger actions on the node as if it did not hear from the Leader in this time period.  
 6. **Remove Node from Cluster**  
    Remove the node from the cluster. Note: The server on this node is not shut down.
-</Admonition>
 
-<Admonition type="info" title="Reassign Cores" id="reassign-cores" href="#reassign-cores">
+
+## Reassign Cores
 
 ![Figure 3. Reassign Cores](./assets/cluster-view-3.png)
 
@@ -107,9 +102,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 Learn more in [Setting a Cluster](../../studio/cluster/setting-a-cluster#add-another-node-to-the-cluster).
 
-</Admonition>
 
-<Admonition type="info" title="Cluster Nodes Types" id="cluster-nodes-types" href="#cluster-nodes-types">
+
+## Cluster Nodes Types
 
 * **Member**
   * A Member is a fully functional voting member in the cluster  
@@ -135,13 +130,13 @@ Learn more in [Setting a Cluster](../../studio/cluster/setting-a-cluster#add-ano
   * Cannot make cluster decisions (i.e vote for leader, enter a new Raft command to the log).  
   * Updated by the leader to the latest Raft state.  
 
-</Admonition>
 
-<Admonition type="info" title="Cluster Nodes States & Types Flow" id="cluster-nodes-states-types-flow" href="#cluster-nodes-states-types-flow">
+
+## Cluster Nodes States & Types Flow
 
 ![Figure 4. States Flow](./assets/cluster-states.png)
 
-<Admonition type="note" title="Note">
+
 
 * **1.** A new server/node will start as **Passive**, meaning it is _not_ part of any cluster yet.  
          Learn how to add a node to a cluster in: [Setting a Cluster](../../studio/cluster/setting-a-cluster).  
@@ -178,10 +173,10 @@ Elections can occur when:
 * During elections, a Watcher enters a **waiting** state until elections are over.
 </Admonition>
 
-</Admonition>
-</Admonition>
 
-<Admonition type="info" title="Cluster-Wide operation -vs- Database Operations" id="cluster-wide-operation-vs-database-operations" href="#cluster-wide-operation-vs-database-operations">
+
+
+## Cluster-Wide operation -vs- Database Operations
 
 Operations in RavenDB are usually divided into cluster-wide operations and internal database operations.  
 
@@ -205,4 +200,4 @@ Operations in RavenDB are usually divided into cluster-wide operations and inter
   * Create/Delete/Update a document, attachment or revision  
   * Performing a query  
 
-</Admonition>
+

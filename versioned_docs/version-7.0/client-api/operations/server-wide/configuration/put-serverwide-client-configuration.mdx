@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Put Client Configuration Operation (Server-Wide)
+export const supportedLanguages = ["csharp", "nodejs"];
 
----
+
+# Put Client Configuration Operation (Server-Wide)
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -35,18 +36,12 @@ import LanguageContent from "@site/src/components/language-content";
 
 * Once the Client-Configuration is modified on the server, the running client will [receive the updated settings](../../../../client-api/configuration/load-balance/overview#keeping-the-client-topology-up-to-date)
   the next time it makes a request to the database.
-
----
-
 * In this page:
     * [Put client-configuration (server-wide)](../../../../client-api/operations/server-wide/configuration/put-serverwide-client-configuration#put-client-configuration-(server-wide))
     * [Syntax](../../../../client-api/operations/server-wide/configuration/put-serverwide-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Put client-configuration (server-wide)" id="put-client-configuration-server-wide" href="#put-client-configuration-server-wide">
+## Put client-configuration (server-wide)
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -87,9 +82,9 @@ tore.Maintenance.Server.SendAsync(putServerWideClientConfigOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -119,14 +114,11 @@ tore.Maintenance.Server.SendAsync(putServerWideClientConfigOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Put Client Configuration Operation (Server-Wide)
-
----
 
 <Admonition type="note" title="Note">
 
@@ -146,18 +138,12 @@ tore.Maintenance.Server.SendAsync(putServerWideClientConfigOp);
 
 * Once the Client-Configuration is modified on the server, the running client will [receive the updated settings](../../../../client-api/configuration/load-balance/overview#keeping-the-client-topology-up-to-date)
   the next time it makes a request to the database.
-
----
-
 * In this page:
     * [Put client-configuration (server-wide)](../../../../client-api/operations/server-wide/configuration/put-serverwide-client-configuration#put-client-configuration-(server-wide))
     * [Syntax](../../../../client-api/operations/server-wide/configuration/put-serverwide-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Put client-configuration (server-wide)" id="put-client-configuration-server-wide" href="#put-client-configuration-server-wide">
+## Put client-configuration (server-wide)
 
 <TabItem value="something-something" label="put_config">
 <CodeBlock language="nodejs">
@@ -178,9 +164,9 @@ await documentStore.maintenance.server.send(putServerWideClientConfigOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -209,7 +195,7 @@ await documentStore.maintenance.server.send(putServerWideClientConfigOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

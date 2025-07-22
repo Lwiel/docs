@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Client Integration with the Cluster
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Client Integration with the Cluster
----
 
 <Admonition type="note" title="Note">
 
@@ -26,10 +28,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Write assurance and database groups](../../client-api/cluster/how-client-integrates-with-replication-and-cluster#write-assurance-and-database-groups)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Failover behavior" id="failover-behavior" href="#failover-behavior">
+## Failover behavior
 
 * In RavenDB, the replication is _not_ a bundle and is always enabled if there are two nodes or more in the cluster. 
   This means that the failover mechanism is always turned on by default.  
@@ -46,15 +45,12 @@ import LanguageContent from "@site/src/components/language-content";
     For more information see [Cluster Node Health Check](health-check).
     </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Cluster topology in the client" id="cluster-topology-in-the-client" href="#cluster-topology-in-the-client">
+
+## Cluster topology in the client
 
 When the client is initialized, it fetches the topologies and populates the nodes list for the load-balancing and failover functionality.
 During the lifetime of a RavenDB Client object, it periodically receives the cluster and the databases topologies from the server.  
-
----
-
 The **topology** is updated with the following logic:
 
 * Each topology has an etag, which is a number
@@ -64,18 +60,15 @@ The **topology** is updated with the following logic:
 * If a client detects the `"Refresh-Topology:true"` header in the response, the client will fetch the updated topology from the server.
   Note: if `ReadBalanceBehavior.FastestNode` is selected, the client will schedule a speed test to determine the fastest node.
 * In addition, every 5 minutes, the client fetches the current topology from the server if no requests are made within that time frame.
-
----
-
 The **client configuration** is handled in a similar way:
 
 * Each client configuration has an etag attached
 * Each time the configuration has changed at the server-side, the server adds `"Refresh-Client-Configuration"` to the response
 * When the client detects the aforementioned header in the response, it schedules fetching the new configuration
 
-</Admonition>
 
-<Admonition type="info" title="Topology discovery" id="topology-discovery" href="#topology-discovery">
+
+## Topology discovery
 
 In RavenDB, the cluster topology has an etag that increments with each topology change.
 
@@ -85,9 +78,9 @@ In RavenDB, the cluster topology has an etag that increments with each topology 
 * Each subsequent request happens with a fetched topology etag in the HTTP headers, under the key `Topology-Etag`
 * If the response contains the `Refresh-Topology: true` header, then a thread responsible for updating the topology will be spawned
 
-</Admonition>
 
-<Admonition type="info" title="Configuring topology nodes" id="configuring-topology-nodes" href="#configuring-topology-nodes">
+
+## Configuring topology nodes
 
 Listing any node in the initialization of the cluster in the client is enough to be able to properly connect to the specified database. 
 Each node in the cluster contains the full topology of all databases and all nodes that are in the cluster.
@@ -117,9 +110,9 @@ But for larger clusters, we'll usually just list enough nodes that having them a
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Write assurance and database groups" id="write-assurance-and-database-groups" href="#write-assurance-and-database-groups">
+
+## Write assurance and database groups
 
 In RavenDB clusters, the databases are hosted in [database groups](../../glossary/database-group). 
 Since there is a master-master replication configured between database group members, a write to one of the nodes will be replicated to all other instances of the group.
@@ -148,13 +141,11 @@ It is called a 'write assurance', and it is available with the `WaitForReplicati
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Client Integration with the Cluster
----
 
 <Admonition type="note" title="Note">
 
@@ -166,10 +157,7 @@ It is called a 'write assurance', and it is available with the `WaitForReplicati
     * [Write assurance and database groups](../../client-api/cluster/how-client-integrates-with-replication-and-cluster#write-assurance-and-database-groups)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Failover behavior" id="failover-behavior" href="#failover-behavior">
+## Failover behavior
 
 * In RavenDB, the replication is _not_ a bundle and is always enabled if there are two nodes or more in the cluster. 
   This means that the failover mechanism is always turned on by default.  
@@ -186,15 +174,12 @@ It is called a 'write assurance', and it is available with the `WaitForReplicati
      For more information see [Cluster Node Health Check](health-check).
      </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Cluster topology in the client" id="cluster-topology-in-the-client" href="#cluster-topology-in-the-client">
+
+## Cluster topology in the client
 
 When the client is initialized, it fetches the topologies and populates the nodes list for the load-balancing and failover functionality.
 During the lifetime of a RavenDB Client object, it periodically receives the cluster and the databases topologies from the server.  
-
----
-
 The **topology** is updated with the following logic:
 
 * Each topology has an etag, which is a number
@@ -204,18 +189,15 @@ The **topology** is updated with the following logic:
 * If a client detects the `"Refresh-Topology:true"` header in the response, the client will fetch the updated topology from the server.
   Note: if `ReadBalanceBehavior.FASTEST_NODE` is selected, the client will schedule a speed test to determine the fastest node.
 * In addition, every 5 minutes, the client fetches the current topology from the server if no requests are made within that time frame.
-
----
-
 The **client configuration** is handled in a similar way:
 
 * Each client configuration has an etag attached
 * Each time the configuration has changed at the server-side, the server adds `"Refresh-Client-Configuration"` to the response
 * When the client detects the aforementioned header in the response, it schedules fetching the new configuration
 
-</Admonition>
 
-<Admonition type="info" title="Topology discovery" id="topology-discovery" href="#topology-discovery">
+
+## Topology discovery
 
 In RavenDB, the cluster topology has an etag that increments with each topology change.
 
@@ -225,9 +207,9 @@ In RavenDB, the cluster topology has an etag that increments with each topology 
 * Each subsequent request happens with a fetched topology etag in the HTTP headers, under the key `Topology-Etag`
 * If the response contains the `Refresh-Topology: true` header, then a thread responsible for updating the topology will be spawned
 
-</Admonition>
 
-<Admonition type="info" title="Configuring topology nodes" id="configuring-topology-nodes" href="#configuring-topology-nodes">
+
+## Configuring topology nodes
 
 Listing any node in the initialization of the cluster in the client is enough to be able to properly connect to the specified database. 
 Each node in the cluster contains the full topology of all databases and all nodes that are in the cluster.
@@ -254,9 +236,9 @@ But for larger clusters, we'll usually just list enough nodes that having them a
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Write assurance and database groups" id="write-assurance-and-database-groups" href="#write-assurance-and-database-groups">
+
+## Write assurance and database groups
 
 In RavenDB clusters, the databases are hosted in database groups. 
 Since there is a master-master replication configured between database group members, a write to one of the nodes will be replicated to all other instances of the group.
@@ -281,14 +263,12 @@ It is called a 'write assurance', and it is available with the `WaitForReplicati
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Client Integration with the Cluster
----
 
 <Admonition type="note" title="Note">
 
@@ -300,10 +280,7 @@ It is called a 'write assurance', and it is available with the `WaitForReplicati
   * [Write assurance and database groups](../../client-api/cluster/how-client-integrates-with-replication-and-cluster#write-assurance-and-database-groups)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Failover behavior" id="failover-behavior" href="#failover-behavior">
+## Failover behavior
 
 * In RavenDB, the replication is _not_ a bundle and is always enabled if there are two nodes or more in the cluster. 
   This means that the failover mechanism is always turned on by default.  
@@ -320,15 +297,12 @@ It is called a 'write assurance', and it is available with the `WaitForReplicati
      For more information see [Cluster Node Health Check](health-check).
      </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Cluster topology in the client" id="cluster-topology-in-the-client" href="#cluster-topology-in-the-client">
+
+## Cluster topology in the client
 
 When the client is initialized, it fetches the topologies and populates the nodes list for the load-balancing and failover functionality.
 During the lifetime of a RavenDB Client object, it periodically receives the cluster and the databases topologies from the server.  
-
----
-
 The **topology** is updated with the following logic:
 
 * Each topology has an etag, which is a number
@@ -338,18 +312,15 @@ The **topology** is updated with the following logic:
 * If a client detects the `"Refresh-Topology: true"` header in the response, the client will fetch the updated topology from the server.
   Note: if `ReadBalanceBehavior` `FastestNode` is selected, the client will schedule a speed test to determine the fastest node.
 * In addition, every 5 minutes, the client fetches the current topology from the server if no requests are made within that time frame.
-
----
-
 The **client configuration** is handled in a similar way:
 
 * Each client configuration has an etag attached
 * Each time the configuration has changed at the server-side, the server adds `"Refresh-Client-Configuration"` to the response
 * When the client detects the aforementioned header in the response, it schedules fetching the new configuration
 
-</Admonition>
 
-<Admonition type="info" title="Topology discovery" id="topology-discovery" href="#topology-discovery">
+
+## Topology discovery
 
 In RavenDB, the cluster topology has an etag that increments with each topology change.
 
@@ -359,9 +330,9 @@ In RavenDB, the cluster topology has an etag that increments with each topology 
 * Each subsequent request happens with a fetched topology etag in the HTTP headers, under the key `Topology-Etag`
 * If the response contains the `Refresh-Topology: true` header, then a thread responsible for updating the topology will be spawned
 
-</Admonition>
 
-<Admonition type="info" title="Configuring topology nodes" id="configuring-topology-nodes" href="#configuring-topology-nodes">
+
+## Configuring topology nodes
 
 Listing any node in the initialization of the cluster in the client is enough to be able to properly connect to the specified database. 
 Each node in the cluster contains the full topology of all databases and all nodes that are in the cluster.
@@ -386,9 +357,9 @@ store.initialize();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Write assurance and database groups" id="write-assurance-and-database-groups" href="#write-assurance-and-database-groups">
+
+## Write assurance and database groups
 
 In RavenDB clusters, the databases are hosted in database groups. 
 Since there is a master-master replication configured between database group members, a write to one of the nodes will be replicated to all other instances of the group.
@@ -411,7 +382,7 @@ session
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

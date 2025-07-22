@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Session: Deleting Entities
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: Deleting Entities
+
 
 Entities can be marked for deletion by using the `Delete` method, but will not be removed from the server until `SaveChanges` is called.  
 
@@ -117,7 +121,7 @@ You can read more about defer operations [here](../../client-api/session/how-to/
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: Deleting Entities
+
 
 Entities can be marked for deletion by using the `delete` method, but will not be removed from the server until `saveChanges` is called.
 
@@ -201,7 +205,7 @@ You can read more about defer operations [here](./how-to/defer-operations).
 
 </LanguageContent>
 <LanguageContent language="python">
-# Session: Deleting Entities
+
 
 Entities can be marked for deletion by using the `delete()` method, but will not be removed from the server until `save_changes()` is called.  
 
@@ -281,7 +285,7 @@ You can read more about defer operations [here](../../client-api/session/how-to/
 
 </LanguageContent>
 <LanguageContent language="php">
-# Session: Deleting Entities
+
 
 Entities can be marked for deletion by using the `delete` method, but will not be removed from the server until `saveChanges` is called.  
 
@@ -365,7 +369,7 @@ You can read more about defer operations [here](../../client-api/session/how-to/
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: Deleting Entities
+
 
 Entities can be marked for deletion by using the `delete()` method, but will *not* be removed from the server until `saveChanges()` is called.
 

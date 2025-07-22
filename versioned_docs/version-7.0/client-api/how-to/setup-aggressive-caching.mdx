@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java"];
+
+
+# Client API: How to Setup Aggressive Caching
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Client API: How to Setup Aggressive Caching
+
 
 ## Standard Cache Configuration
 
@@ -154,7 +158,7 @@ per session?
 
 </LanguageContent>
 <LanguageContent language="java">
-# Client API: How to Setup Aggressive Caching
+
 
 ## Standard Cache Configuration
 

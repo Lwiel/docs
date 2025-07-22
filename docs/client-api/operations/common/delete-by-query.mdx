@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Delete by Query Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Delete by Query Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -38,9 +40,6 @@ import LanguageContent from "@site/src/components/language-content";
     see [Best practice when storing a document](../../../client-api/session/cluster-transaction/atomic-guards#best-practice-when-storing-a-document-in-a-cluster-wide-transaction).
   * To learn more about the differences between transaction types,
     see [Cluster-wide transaction vs. Single-node transaction](../../../client-api/session/cluster-transaction/overview#cluster-wide-transaction-vs.-single-node-transaction).
-
----
-
 * In this article:  
    * [Delete by dynamic query](../../../client-api/operations/common/delete-by-query#delete-by-dynamic-query)
    * [Delete by index query](../../../client-api/operations/common/delete-by-query#delete-by-index-query)
@@ -48,7 +47,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Delete by dynamic query" id="delete-by-dynamic-query" href="#delete-by-dynamic-query">
+## Delete by dynamic query
 
 <Admonition type="note" title="Note">
 
@@ -132,17 +131,14 @@ var result = await store.Operations.SendAsync(deleteByQueryOp);
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Delete by index query" id="delete-by-index-query" href="#delete-by-index-query">
+
+## Delete by index query
 
 * `DeleteByQueryOperation` can only be performed on a **Map-index**.  
   An exception is thrown when executing the operation on a Map-Reduce index.  
 
 * A few overloads are available, see the following examples:
-
----
-
 <Admonition type="note" title="Note">
 
 ##### A sample Map-index
@@ -333,9 +329,9 @@ var documentIdThatWasDeleted = details[0].ToJson()["Id"];
 * Specifying `QueryOperationOptions` is also supported by the other overload methods, see the Syntax section below.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -400,12 +396,12 @@ DeleteByQueryOperation DeleteByQueryOperation<TEntity, TIndexCreator>(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Delete by Query Operation
+
 
 `DeleteByQueryOperation` gives you the ability to delete a large number of documents with a single query.
 This operation is performed in the background on the server. 
@@ -533,8 +529,6 @@ so it can happen than a document has been updated or deleted meanwhile.
 
 </LanguageContent>
 <LanguageContent language="python">
-# Delete by Query Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -557,16 +551,13 @@ so it can happen than a document has been updated or deleted meanwhile.
       see [Best practice when storing a document](../../../client-api/session/cluster-transaction/atomic-guards#best-practice-when-storing-a-document-in-a-cluster-wide-transaction).
     * To learn more about the differences between transaction types,
       see [Cluster-wide transaction vs. Single-node transaction](../../../client-api/session/cluster-transaction/overview#cluster-wide-transaction-vs.-single-node-transaction).
-
----
-
 * In this article:  
    * [Delete by dynamic query](../../../client-api/operations/common/delete-by-query#delete-by-dynamic-query)
    * [Delete by index query](../../../client-api/operations/common/delete-by-query#delete-by-index-query)
 
 </Admonition>
 
-<Admonition type="info" title="Delete by dynamic query" id="delete-by-dynamic-query" href="#delete-by-dynamic-query">
+## Delete by dynamic query
 
 <Admonition type="note" title="Note">
 
@@ -623,17 +614,14 @@ operation = store.operations.send_async(delete_by_query_op)
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Delete by index query" id="delete-by-index-query" href="#delete-by-index-query">
+
+## Delete by index query
 
 * `DeleteByQueryOperation` can only be performed on a **Map-index**.  
   An exception is thrown when executing the operation on a Map-Reduce index.  
 
 * A few overloads are available, see the following examples:
-
----
-
 <Admonition type="note" title="Note">
 
 ##### A sample Map-index
@@ -738,13 +726,11 @@ document_id_that_was_deleted = details[0]["Id"]
 * Specifying `QueryOperationOptions` is also supported by the other overload methods, see the Syntax section below.
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Delete by Query Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -768,9 +754,6 @@ document_id_that_was_deleted = details[0]["Id"]
       see [Best practice when storing a document](../../../client-api/session/cluster-transaction/atomic-guards#best-practice-when-storing-a-document-in-a-cluster-wide-transaction).
     * To learn more about the differences between transaction types,
       see [Cluster-wide transaction vs. Single-node transaction](../../../client-api/session/cluster-transaction/overview#cluster-wide-transaction-vs.-single-node-transaction).
-
----
-
 * In this article:  
    * [Delete by dynamic query](../../../client-api/operations/common/delete-by-query#delete-by-dynamic-query)
    * [Delete by index query](../../../client-api/operations/common/delete-by-query#delete-by-index-query)
@@ -778,7 +761,7 @@ document_id_that_was_deleted = details[0]["Id"]
 
 </Admonition>
 
-<Admonition type="info" title="Delete by dynamic query" id="delete-by-dynamic-query" href="#delete-by-dynamic-query">
+## Delete by dynamic query
 
 <Admonition type="note" title="Note">
 
@@ -835,17 +818,14 @@ $operation = $store->operations()->send($deleteByQueryOp);
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Delete by index query" id="delete-by-index-query" href="#delete-by-index-query">
+
+## Delete by index query
 
 * `DeleteByQueryOperation` can only be performed on a **Map-index**.  
   An exception is thrown when executing the operation on a Map-Reduce index.  
 
 * A few overloads are available, see the following examples:
-
----
-
 <Admonition type="note" title="Note">
 
 ##### A sample Map-index
@@ -972,9 +952,9 @@ $documentIdThatWasDeleted = $details[0]->getId();
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -1037,14 +1017,12 @@ $documentIdThatWasDeleted = $details[0]->getId();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Delete by Query Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -1068,9 +1046,6 @@ $documentIdThatWasDeleted = $details[0]->getId();
       see [Best practice when storing a document](../../../client-api/session/cluster-transaction/atomic-guards#best-practice-when-storing-a-document-in-a-cluster-wide-transaction).
     * To learn more about the differences between transaction types,
       see [Cluster-wide transaction vs. Single-node transaction](../../../client-api/session/cluster-transaction/overview#cluster-wide-transaction-vs.-single-node-transaction).
-
----
-
 * In this article:  
    * [Delete by dynamic query](../../../client-api/operations/common/delete-by-query#delete-by-dynamic-query)
    * [Delete by index query](../../../client-api/operations/common/delete-by-query#delete-by-index-query)
@@ -1078,7 +1053,7 @@ $documentIdThatWasDeleted = $details[0]->getId();
 
 </Admonition>
 
-<Admonition type="info" title="Delete by dynamic query" id="delete-by-dynamic-query" href="#delete-by-dynamic-query">
+## Delete by dynamic query
 
 <Admonition type="note" title="Note">
 
@@ -1135,17 +1110,14 @@ const operation = await store.operations.send(deleteByQueryOp);
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Delete by index query" id="delete-by-index-query" href="#delete-by-index-query">
+
+## Delete by index query
 
 * `DeleteByQueryOperation` can only be performed on a **Map-index**.  
   An exception is thrown when executing the operation on a Map-Reduce index.  
 
 * A few overloads are available, see the following examples:
-
----
-
 <Admonition type="note" title="Note">
 
 ##### A sample Map-index
@@ -1255,9 +1227,9 @@ const operation = await store.operations.send(deleteByQueryOp);
 * Specifying `options` is also supported by the other overload methods, see the Syntax section below.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -1297,7 +1269,7 @@ const deleteByQueryOp = new DeleteByQueryOperation(indexQuery, options);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

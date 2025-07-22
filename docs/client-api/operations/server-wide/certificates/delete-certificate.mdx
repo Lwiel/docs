@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Operations: Server: How to Delete a Client Certificate
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Operations: Server: How to Delete a Client Certificate
+
 
 You can delete a client certificate using the **DeleteCertificateOperation**.  
 
@@ -43,7 +47,7 @@ store.Maintenance.Server.Send(new DeleteCertificateOperation(thumbprint));
 
 </LanguageContent>
 <LanguageContent language="java">
-# Operations: Server: How to delete client certificate?
+
 
 You can delete client certificate using **DeleteCertificateOperation**. 
 
@@ -73,7 +77,7 @@ store.maintenance().server().send(new DeleteCertificateOperation(thumbprint));
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Operations: Server: How to Delete a Client Certificate
+
 
 You can delete a client certificate using the **DeleteCertificateOperation**.  
 

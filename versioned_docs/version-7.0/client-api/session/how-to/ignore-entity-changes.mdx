@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# How to Ignore Entity Changes
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# How to Ignore Entity Changes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -29,12 +30,9 @@ import LanguageContent from "@site/src/components/language-content";
     * [Customize tracking in conventions](../../../client-api/session/configuration/how-to-disable-tracking#customize-tracking-in-conventions)
 </Admonition>
 
----
-
-
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Ignore Entity Changes
+
 
 To indicate that an entity should be ignored when tracking changes, 
 use the `advanced` session `ignoreChangesFor` method.  
@@ -72,7 +70,7 @@ session.saveChanges();
 
 </LanguageContent>
 <LanguageContent language="python">
-# Session: How to Ignore Entity Changes
+
 
 To indicate that an entity should be ignored when tracking changes, 
 use the `advanced` session `ignore_changes_for` method.  
@@ -111,9 +109,6 @@ session.save_changes()
 
 </LanguageContent>
 <LanguageContent language="php">
-# How to Ignore Entity Changes
-
----
 
 <Admonition type="note" title="Note">
 
@@ -126,15 +121,9 @@ session.save_changes()
     * [Disable tracking for query results](../../../client-api/session/configuration/how-to-disable-tracking#disable-tracking-query-results)
     * [Customize tracking in conventions](../../../client-api/session/configuration/how-to-disable-tracking#customize-tracking-in-conventions)
 </Admonition>
-
----
-
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# How to Ignore Entity Changes
-
----
 
 <Admonition type="note" title="Note">
 
@@ -147,8 +136,5 @@ session.save_changes()
     * [Disable tracking for query results](../../../client-api/session/configuration/how-to-disable-tracking#disable-tracking-query-results)
     * [Customize tracking in conventions](../../../client-api/session/configuration/how-to-disable-tracking#customize-tracking-in-conventions)
 </Admonition>
-
----
-
 
 </LanguageContent>

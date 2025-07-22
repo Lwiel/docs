@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Indexes: Indexing Counters
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Indexes: Indexing Counters
----
 
 <Admonition type="note" title="Note">
 
@@ -30,10 +32,7 @@ that inherits from `AbstractCountersIndexCreationTask` or `AbstractJavaScriptCou
   * [Querying the Index](../../document-extensions/counters/indexing#querying-the-index)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 In order to index counter values, create an index that inherits from `AbstractCountersIndexCreationTask`. 
 Next, choose one of these two methods which take the index expression:  
@@ -92,9 +91,6 @@ Examples of indexes using each method:
 </Tabs>  
 
 
-
----
-
 ### `AbstractJavaScriptCountersIndexCreationTask`
 
 Creating an index inheriting from `AbstractJavaScriptCountersIndexCreationTask` allows 
@@ -140,9 +136,6 @@ Example:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### `CounterNamesFor`
 
 While indexes inheriting from `AbstractIndexCreationTask` cannot index counter _values_, the `CounterNamesFor` 
@@ -180,9 +173,9 @@ Example of index using `CounterNamesFor`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Querying the Index" id="querying-the-index" href="#querying-the-index">  
+
+## Querying the Index  
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -220,13 +213,11 @@ List<Company> companies = session
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Indexes: Indexing Counters
----
 
 <Admonition type="note" title="Note">
 
@@ -242,10 +233,7 @@ that inherits from `AbstractCountersIndexCreationTask` or `AbstractJavaScriptCou
   * [Querying the Index](../../document-extensions/counters/indexing#querying-the-index)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 In order to index counter values, create an index that inherits from `AbstractCountersIndexCreationTask`. 
 Next, use these method which take the index expression:  
@@ -279,9 +267,6 @@ Examples of indexes using each method:
 </TabItem>
 </Tabs>  
 
-
-
----
 
 ### `AbstractJavaScriptCountersIndexCreationTask`
 
@@ -358,9 +343,6 @@ Example:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### `CounterNamesFor`
 
 While indexes inheriting from `AbstractIndexCreationTask` cannot index counter _values_, the `counterNamesFor` 
@@ -391,9 +373,9 @@ Example of index using `counterNamesFor`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Querying the Index" id="querying-the-index" href="#querying-the-index">  
+
+## Querying the Index  
 
 <TabItem value="something-something" label="query1">
 <CodeBlock language="java">
@@ -407,13 +389,11 @@ List<Company> companies = session
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Indexes: Indexing Counters
----
 
 <Admonition type="note" title="Note">
 
@@ -428,10 +408,7 @@ that inherits from `AbstractCountersIndexCreationTask` or `AbstractJavaScriptCou
   * [CounterNamesFor](../../document-extensions/counters/indexing#section)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 To index counter values, create an index that inherits from `AbstractCountersIndexCreationTask` 
 and use `map` as follows.  
@@ -447,9 +424,6 @@ and use `map` as follows.
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### AbstractJavaScriptCountersIndexCreationTask
 
 Creating an index inheriting from `AbstractJavaScriptCountersIndexCreationTask` allows 
@@ -491,9 +465,6 @@ Example:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### `CounterNamesFor`
 
 While indexes inheriting from `AbstractIndexCreationTask` cannot index counter _values_, the `CounterNamesFor` 
@@ -526,13 +497,11 @@ Example of index using `CounterNamesFor`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Indexes: Indexing Counters
----
 
 <Admonition type="note" title="Note">
 
@@ -547,10 +516,7 @@ that inherits from `AbstractCountersIndexCreationTask` or `AbstractJavaScriptCou
   * [CounterNamesFor](../../document-extensions/counters/indexing#section)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 To index counter values, create an index that inherits from `AbstractCountersIndexCreationTask` 
 and set a map as follows.  
@@ -575,9 +541,6 @@ and set a map as follows.
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### AbstractJavaScriptCountersIndexCreationTask
 
 Creating an index inheriting from `AbstractJavaScriptCountersIndexCreationTask` allows 
@@ -624,9 +587,6 @@ Example:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### `CounterNamesFor`
 
 While indexes inheriting from `AbstractIndexCreationTask` cannot index counter _values_, the `CounterNamesFor` 
@@ -674,13 +634,11 @@ class Companies_ByCounterNames extends AbstractIndexCreationTask
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# indexes: Indexing Counters
----
 
 <Admonition type="note" title="Note">
 
@@ -696,10 +654,7 @@ that inherits from `AbstractCountersIndexCreationTask ` or `AbstractRawJavaScrip
   * [Querying the Index](../../document-extensions/counters/indexing#querying-the-index)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Usage" id="usage" href="#usage">
+## Usage
 
 In order to index counter values, create an index that inherits from `AbstractCountersIndexCreationTask`. 
 Next, choose one of these two methods which take the index expression:  
@@ -735,9 +690,6 @@ Examples of indexes using each method:
 </Tabs>  
 
 
-
----
-
 ### `AbstractRawJavaScriptCountersIndexCreationTask `
 
 Creating an index inheriting from `AbstractCsharpCountersIndexCreationTask ` allows 
@@ -764,9 +716,6 @@ Learn more about JavaScript indexes [here](../../indexes/javascript-indexes).
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### `CounterNamesFor`
 
 While indexes inheriting from `AbstractIndexCreationTask` cannot index counter _values_, the `counterNamesFor()` 
@@ -791,9 +740,9 @@ Example of index using `CounterNamesFor`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Querying the Index" id="querying-the-index" href="#querying-the-index">  
+
+## Querying the Index  
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -807,7 +756,7 @@ Example of index using `CounterNamesFor`:
 </TabItem>
 </Tabs>  
 
-</Admonition>
+
 
 
 </LanguageContent>

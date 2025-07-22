@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Get Client Configuration Operation (Server-Wide)
+export const supportedLanguages = ["csharp", "nodejs"];
 
----
+
+# Get Client Configuration Operation (Server-Wide)
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/configuration/get-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get client-configuration" id="get-client-configuration" href="#get-client-configuration">
+## Get client-configuration
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -57,9 +55,9 @@ ClientConfiguration config =
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -72,14 +70,11 @@ ClientConfiguration config =
 |-----------------------|------------------------------------------------|
 | `ClientConfiguration` | Configuration which will be used by the Client |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Client Configuration Operation (Server-Wide)
-
----
 
 <Admonition type="note" title="Note">
 
@@ -92,10 +87,7 @@ ClientConfiguration config =
     * [Syntax](../../../../client-api/operations/maintenance/configuration/get-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get client-configuration" id="get-client-configuration" href="#get-client-configuration">
+## Get client-configuration
 
 <TabItem value="something-something" label="get_config">
 <CodeBlock language="nodejs">
@@ -108,9 +100,9 @@ const config = await documentStore.maintenance.server.send(getServerWideClientCo
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -135,7 +127,7 @@ const config = await documentStore.maintenance.server.send(getServerWideClientCo
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

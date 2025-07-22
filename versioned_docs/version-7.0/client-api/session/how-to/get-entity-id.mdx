@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Session: How to Get Entity ID
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: How to Get Entity ID
+
 
 Entities does not have to contain an ID property or field. In the case of such an entity, and a need for knowing under what ID it is stored on the server, the `GetDocumentId` method was created.
 
@@ -60,7 +64,7 @@ Entities does not have to contain an ID property or field. In the case of such a
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Get Entity ID
+
 
 Entities does not have to contain an ID property or field. In the case of such an entity, and a need for knowing under what ID it is stored on the server, the `getDocumentId` method was created.
 
@@ -121,7 +125,7 @@ Entities does not have to contain an ID property or field. In the case of such a
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: How to Get Entity ID
+
 
 Entities does not have to contain an ID property or field. In the case of such an entity, and a need for knowing under what ID it is stored on the server, the `getDocumentId()` method was created.
 

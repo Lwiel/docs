@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Time Series Design
+export const supportedLanguages = ["csharp", "nodejs"];
 
----
+
+# Time Series Design
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -37,13 +38,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Case insensitive](../../document-extensions/timeseries/design#case-insensitive)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Time series architecture" id="time-series-architecture" href="#time-series-architecture">
-
----
-
+## Time series architecture
 ### Time series as a document extension  
 
 * Each time series belongs to, or _extends_, one particular document.  
@@ -52,9 +47,6 @@ import LanguageContent from "@site/src/components/language-content";
   * The document's metadata keeps a reference to the time series **name**.  
     The time series **data** itself is stored in a separate location.
   * The [segments](../../document-extensions/timeseries/design#segmentation) containing the time series data keep a reference to the document ID.
-
----
-
 ### The&nbsp;`HasTimeSeries`&nbsp;flag
 
 * When a document has one or more time series,  
@@ -77,9 +69,6 @@ import LanguageContent from "@site/src/components/language-content";
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### The time series entry
 
 Each time series entry is composed of a `TimeSeriesEntry` object which contains:
@@ -97,9 +86,6 @@ Doubles with higher precision - i.e. more digits after the decimal point, are mu
 In other words, `1.672` takes up more space than `1672`.
 
 </Admonition>
-
----
-
 ### Segmentation
 
 * At the server storage level, time series data is divided into **segments**.  
@@ -134,20 +120,14 @@ In other words, `1.672` takes up more space than `1672`.
      When segment entries store multiple values, e.g. each entry contains a _Latitude_ value and a _Longitude_ value,
      the six aggregated values are stored for each value separately.  
      </Admonition>
-
----
-
 ### Compression
 
 Time series data is stored using a format called [Gorilla compression](https://www.vldb.org/pvldb/vol8/p1816-teller.pdf).  
 On top of the Gorilla compression, the time series segments are compressed using the [LZ4 algorithm](https://lz4.github.io/lz4/).
 
-</Admonition>
 
-<Admonition type="info" title="Updating Time Series" id="updating-time-series" href="#updating-time-series">
 
----
-
+## Updating Time Series
 ### Document-change event  
 
 * **Time series name update**:  
@@ -157,9 +137,6 @@ On top of the Gorilla compression, the time series segments are compressed using
 * **Time series entries updates**:  
   As long as a new time series is not created, or an existing one is not removed,  
   modifying time series entries does Not invoke a document-change event, 
-
----
-
 ### No conflicts
 
 Time series actions do not cause conflicts, updating a time series is designed to succeed without causing a concurrency conflict; 
@@ -181,16 +158,10 @@ as long as the document it extends exists, updating a time series will always su
       RavenDB uses the last-write strategy.  
     * When an existing value at a certain timestamp is deleted by a client and updated by another client,  
       RavenDB still uses the last-write strategy.  
-
----
-
 ### Transactions
 
 When a session transaction that includes a time series modification fails for any reason,  
 the time series modification is reverted.  
-
----
-
 ### Case insensitive
 
 All time series operations are case insensitive. E.g. -
@@ -213,14 +184,11 @@ is equivalent to
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Time Series Design
-
----
 
 <Admonition type="note" title="Note">
 
@@ -242,13 +210,7 @@ is equivalent to
       * [Case insensitive](../../document-extensions/timeseries/design#case-insensitive)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Time series architecture" id="time-series-architecture" href="#time-series-architecture">
-
----
-
+## Time series architecture
 ### Time series as a document extension  
 
 * Each time series belongs to, or _extends_, one particular document.  
@@ -257,9 +219,6 @@ is equivalent to
   * The document's metadata keeps a reference to the time series **name**.  
     The time series **data** itself is stored in a separate location.
   * The [segments](../../document-extensions/timeseries/design#segmentation) containing the time series data keep a reference to the document ID.
-
----
-
 ### The&nbsp;`HasTimeSeries`&nbsp;flag
 
 * When a document has one or more time series,  
@@ -282,9 +241,6 @@ is equivalent to
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### The time series entry
 
 Each time series entry is composed of a `TimeSeriesEntry` object which contains:
@@ -302,9 +258,6 @@ Doubles with higher precision - i.e. more digits after the decimal point, are mu
 In other words, `1.672` takes up more space than `1672`.
 
 </Admonition>
-
----
-
 ### Segmentation
 
 * At the server storage level, time series data is divided into **segments**.  
@@ -340,20 +293,14 @@ In other words, `1.672` takes up more space than `1672`.
      When segment entries store multiple values, e.g. each entry contains a _Latitude_ value and a _Longitude_ value,
      the six aggregated values are stored for each value separately.  
      </Admonition>
-
----
-
 ### Compression
 
 Time series data is stored using a format called [Gorilla compression](https://www.vldb.org/pvldb/vol8/p1816-teller.pdf).  
 On top of the Gorilla compression, the time series segments are compressed using the [LZ4 algorithm](https://lz4.github.io/lz4/).
 
-</Admonition>
 
-<Admonition type="info" title="Updating Time Series" id="updating-time-series" href="#updating-time-series">
 
----
-
+## Updating Time Series
 ### Document-change event  
 
 * **Time series name update**:  
@@ -363,9 +310,6 @@ On top of the Gorilla compression, the time series segments are compressed using
 * **Time series entries updates**:  
   As long as a new time series is not created, or an existing one is not removed,  
   modifying time series entries does Not invoke a document-change event, 
-
----
-
 ### No conflicts
 
 Time series actions do not cause conflicts, updating a time series is designed to succeed without causing a concurrency conflict; 
@@ -387,16 +331,10 @@ as long as the document it extends exists, updating a time series will always su
       RavenDB uses the last-write strategy.  
     * When an existing value at a certain timestamp is deleted by a client and updated by another client,  
       RavenDB still uses the last-write strategy.  
-
----
-
 ### Transactions
 
 When a session transaction that includes a time series modification fails for any reason,  
 the time series modification is reverted.  
-
----
-
 ### Case insensitive
 
 All time series operations are case insensitive. E.g. -
@@ -419,7 +357,7 @@ is equivalent to
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

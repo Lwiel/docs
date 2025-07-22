@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["java", "csharp", "python", "php", "nodejs"];
+
+
+# Indexes: Indexing Related Documents
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="java">
-# Indexes: Indexing Related Documents
+
 
 To extend indexing capabilities and simplify many scenarios, we have introduced the possibility for indexing related documents.
 
@@ -209,8 +213,6 @@ Using the `LoadDocument` adds a loaded document to the tracking list. This may c
 
 </LanguageContent>
 <LanguageContent language="csharp">
-# Indexes: Indexing Related Documents
----
 
 <Admonition type="note" title="Note">
 
@@ -240,7 +242,7 @@ Using the `LoadDocument` adds a loaded document to the tracking list. This may c
   
 </Admonition>
 
-<Admonition type="info" title="What are related documents" id="what-are-related-documents" href="#what-are-related-documents">
+## What are related documents
 
 * Whenever a document references another document, the referenced document is called a **Related Document**.  
 
@@ -248,9 +250,9 @@ Using the `LoadDocument` adds a loaded document to the tracking list. This may c
   which are considered Related Documents.
   ![Referencing related documents](./assets/index-related-documents.png)
 
-</Admonition>
 
-<Admonition type="info" title="Index related documents - With tracking" id="index-related-documents-with-tracking" href="#index-related-documents-with-tracking">
+
+## Index related documents - With tracking
 
 ### Example I - basic
 
@@ -356,9 +358,6 @@ where CategoryName == "Beverages"
 </CodeBlock>
 </TabItem>
      </Tabs>
-
----
-
 ### Example II - list
 
 * **The documents**:  
@@ -473,9 +472,6 @@ where BookNames = "The Witcher"
 </CodeBlock>
 </TabItem>
   </Tabs>
-
----
-
 <Admonition type="info" title="Info">
 ### Tracking implications
 
@@ -493,9 +489,9 @@ where BookNames = "The Witcher"
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Index related documents - No tracking" id="index-related-documents-no-tracking" href="#index-related-documents-no-tracking">
+
+## Index related documents - No tracking
 
 ### Example III - no tracking
 
@@ -595,9 +591,6 @@ where CategoryName == "Beverages"
 </CodeBlock>
 </TabItem>
      </Tabs>
-
----
-
 <Admonition type="info" title="Info">
 ### No-tracking implications
 
@@ -611,9 +604,9 @@ where CategoryName == "Beverages"
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Document changes that cause re-indexing" id="document-changes-that-cause-re-indexing" href="#document-changes-that-cause-re-indexing">
+
+## Document changes that cause re-indexing
 
 * The following changes done to a document will trigger re-indexing:  
    * Any modification to any document field (not just to the indexed fields)
@@ -626,9 +619,9 @@ where CategoryName == "Beverages"
 * Any such change done on any document in the **indexed related documents** will trigger re-indexing  
   only if `NoTracking` was Not used in the index definition.
 
-</Admonition>
 
-<Admonition type="info" title="LoadDocument syntax" id="loaddocument-syntax" href="#loaddocument-syntax">
+
+## LoadDocument syntax
 
 #### Syntax for LINQ-index:
 
@@ -644,9 +637,6 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax for JavaScript-index:
 
 <TabItem value="something-something" label="syntax_JS">
@@ -662,13 +652,11 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
 | **relatedCollectionName** | `string`              | The related collection name            |
 | **relatedDocumentIds**    | `IEnumerable<string>` | A list of related document IDs to load |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Indexes: Indexing Related Documents
----
 
 <Admonition type="note" title="Note">
 
@@ -698,7 +686,7 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
   
 </Admonition>
 
-<Admonition type="info" title="What are related documents" id="what-are-related-documents" href="#what-are-related-documents">
+## What are related documents
 
 * Whenever a document references another document, the referenced document is called a **Related Document**.  
 
@@ -706,9 +694,9 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
   which are considered Related Documents.
   ![Referencing related documents](./assets/index-related-documents.png)
 
-</Admonition>
 
-<Admonition type="info" title="Index related documents - With tracking" id="index-related-documents-with-tracking" href="#index-related-documents-with-tracking">
+
+## Index related documents - With tracking
 
 ### Example I - basic
 
@@ -787,9 +775,6 @@ where CategoryName == "Beverages"
 </CodeBlock>
 </TabItem>
      </Tabs>
-
----
-
 ### Example II - list
 
 * **The documents**:  
@@ -886,9 +871,6 @@ where BookNames = "The Witcher"
 </CodeBlock>
 </TabItem>
   </Tabs>
-
----
-
 <Admonition type="info" title="Info">
 ### Tracking implications
 
@@ -906,9 +888,9 @@ where BookNames = "The Witcher"
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Index related documents - No tracking" id="index-related-documents-no-tracking" href="#index-related-documents-no-tracking">
+
+## Index related documents - No tracking
 
 ### Example III - no tracking
 
@@ -990,9 +972,6 @@ where CategoryName == "Beverages"
 </CodeBlock>
 </TabItem>
      </Tabs>
-
----
-
 <Admonition type="info" title="Info">
 ### No-tracking implications
 
@@ -1006,9 +985,9 @@ where CategoryName == "Beverages"
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Document changes that cause re-indexing" id="document-changes-that-cause-re-indexing" href="#document-changes-that-cause-re-indexing">
+
+## Document changes that cause re-indexing
 
 * The following changes done to a document will trigger re-indexing:  
    * Any modification to any document field (not just to the indexed fields)
@@ -1021,9 +1000,9 @@ where CategoryName == "Beverages"
 * Any such change done on any document in the **indexed related documents** will trigger re-indexing  
   only if `NoTracking` was Not used in the index definition.
 
-</Admonition>
 
-<Admonition type="info" title="LoadDocument syntax" id="loaddocument-syntax" href="#loaddocument-syntax">
+
+## LoadDocument syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -1037,9 +1016,6 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax for JavaScript-index:
 
 <TabItem value="something-something" label="syntax_JS">
@@ -1055,13 +1031,11 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
 | **relatedCollectionName** | `string`              | The related collection name            |
 | **relatedDocumentIds**    | `IEnumerable<string>` | A list of related document IDs to load |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Indexes: Indexing Related Documents
----
 
 <Admonition type="note" title="Note">
 
@@ -1091,7 +1065,7 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
   
 </Admonition>
 
-<Admonition type="info" title="What are related documents" id="what-are-related-documents" href="#what-are-related-documents">
+## What are related documents
 
 * Whenever a document references another document, the referenced document is called a **Related Document**.  
 
@@ -1099,9 +1073,9 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
   which are considered Related Documents.
   ![Referencing related documents](./assets/index-related-documents.png)
 
-</Admonition>
 
-<Admonition type="info" title="Index related documents - With tracking" id="index-related-documents-with-tracking" href="#index-related-documents-with-tracking">
+
+## Index related documents - With tracking
 
 ### Example I - basic
 
@@ -1202,9 +1176,6 @@ where CategoryName == "Beverages"
 </CodeBlock>
 </TabItem>
      </Tabs>
-
----
-
 ### Example II - list
 
 * **The documents**:  
@@ -1371,9 +1342,6 @@ where BookNames = "The Witcher"
 </CodeBlock>
 </TabItem>
   </Tabs>
-
----
-
 <Admonition type="info" title="Info">
 ### Tracking implications
 
@@ -1391,9 +1359,9 @@ where BookNames = "The Witcher"
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Index related documents - No tracking" id="index-related-documents-no-tracking" href="#index-related-documents-no-tracking">
+
+## Index related documents - No tracking
 
 ### Example III - no tracking
 
@@ -1493,9 +1461,6 @@ where CategoryName == "Beverages"
 </CodeBlock>
 </TabItem>
      </Tabs>
-
----
-
 <Admonition type="info" title="Info">
 ### No-tracking implications
 
@@ -1509,9 +1474,9 @@ where CategoryName == "Beverages"
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Document changes that cause re-indexing" id="document-changes-that-cause-re-indexing" href="#document-changes-that-cause-re-indexing">
+
+## Document changes that cause re-indexing
 
 * The following changes done to a document will trigger re-indexing:  
    * Any modification to any document field (not just to the indexed fields)
@@ -1524,9 +1489,9 @@ where CategoryName == "Beverages"
 * Any such change done on any document in the **indexed related documents** will trigger re-indexing  
   only if `NoTracking` was Not used in the index definition.
 
-</Admonition>
 
-<Admonition type="info" title="LoadDocument syntax" id="loaddocument-syntax" href="#loaddocument-syntax">
+
+## LoadDocument syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -1540,9 +1505,6 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax for JavaScript-index:
 
 <TabItem value="something-something" label="syntax_JS">
@@ -1558,13 +1520,11 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
 | **relatedCollectionName** | `string`              | The related collection name            |
 | **relatedDocumentIds**    | `IEnumerable<string>` | A list of related document IDs to load |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexes: Indexing Related Documents
----
 
 <Admonition type="note" title="Note">
 
@@ -1594,7 +1554,7 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
 
 </Admonition>
 
-<Admonition type="info" title="What are related documents" id="what-are-related-documents" href="#what-are-related-documents">
+## What are related documents
 
 * Whenever a document references another document, the referenced document is called a **Related Document**.
 
@@ -1602,15 +1562,12 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
   which are considered Related Documents.
   ![Referencing related documents](./assets/index-related-documents.png)
 
-</Admonition>
 
-<Admonition type="info" title="Index related documents - With tracking" id="index-related-documents-with-tracking" href="#index-related-documents-with-tracking">
+
+## Index related documents - With tracking
 
 <Admonition type="note" title="Note">
 #### Example I - basic
-
----
-
 **What is tracked**:
 
 * Both the documents from the **indexed collection** and the **indexed related documents** are tracked for changes.  
@@ -1698,9 +1655,6 @@ where CategoryName == "Beverages"
 
 <Admonition type="note" title="Note">
 #### Example II - list
-
----
-
 **The documents**:
 
 <TabItem value="something-something" label="indexing_related_documents_3">
@@ -1817,15 +1771,12 @@ where BookNames = "The Witcher"
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Index related documents - No tracking" id="index-related-documents-no-tracking" href="#index-related-documents-no-tracking">
+
+## Index related documents - No tracking
 
 <Admonition type="note" title="Note">
 #### Example III - no tracking
-
----
-
 **What is tracked**:
 
 * Only the documents from the **indexed collection** are tracked for changes and can trigger re-indexing.  
@@ -1916,9 +1867,9 @@ where CategoryName == "Beverages"
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Document changes that cause re-indexing" id="document-changes-that-cause-re-indexing" href="#document-changes-that-cause-re-indexing">
+
+## Document changes that cause re-indexing
 
 * The following changes done to a document will trigger re-indexing:
 
@@ -1932,9 +1883,9 @@ where CategoryName == "Beverages"
 * Any such change done on any document in the **indexed related documents** will trigger re-indexing  
   only if `NoTracking` was Not used in the index definition.
 
-</Admonition>
 
-<Admonition type="info" title="LoadDocument syntax" id="loaddocument-syntax" href="#loaddocument-syntax">
+
+## LoadDocument syntax
 
 #### Syntax for LINQ-index:
 
@@ -1950,9 +1901,6 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax for JavaScript-index:
 
 <TabItem value="something-something" label="syntax_JS">
@@ -1968,7 +1916,7 @@ T[] LoadDocument<T>(IEnumerable<string> relatedDocumentIds, string relatedCollec
 | **relatedCollectionName** | `string`              | The related collection name            |
 | **relatedDocumentIds**    | `IEnumerable<string>` | A list of related document IDs to load |
 
-</Admonition>
+
 
 
 </LanguageContent>

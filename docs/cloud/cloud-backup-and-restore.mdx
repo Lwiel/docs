@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Cloud: Backup And Restore
----
-
 <Admonition type="note" title="Note">
 
 * RavenDB cloud instances of the [Free](../cloud/cloud-instances#a-free-cloud-node) and 
@@ -32,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Creating a Custom Backup](../cloud/cloud-backup-and-restore#creating-a-custom-backup)  
   * [Restore Mandatory-Backup Files](../cloud/cloud-backup-and-restore#restore-mandatory-backup-files)  
 </Admonition>
-
----
-
-<Admonition type="info" title="The Mandatory-Backup Routine" id="the-mandatory-backup-routine" href="#the-mandatory-backup-routine">
+## The Mandatory-Backup Routine
 
 Each database you create using a RavenDB cloud product, is assigned a mandatory-backup task that 
 stores a [full backup](../server/ongoing-tasks/backup-overview#backup-scope-full-or-incremental) 
@@ -50,9 +45,6 @@ The mandatory backup process cannot be disabled.
 We keep your backup files for no less than 14 days.  
 You can [contact support](../cloud/portal/cloud-portal-support-tab) to prolong this period, but not reduce it.  
 </Admonition>
-
----
-
 #### The Backup Task
 
 To view or activate the mandatory backup task, open your product's management studio and -  
@@ -63,10 +55,8 @@ To view or activate the mandatory backup task, open your product's management st
 
 !["Backup Task"](./assets/backup-and-restore-001-backup-task.png)  
 
----
-</Admonition>
 
-<Admonition type="info" title="Backup storage" id="backup-storage" href="#backup-storage">
+## Backup storage
 
 #### Mandatory-Backup Storage
 Backups created by the [mandatory backup routine](../cloud/cloud-backup-and-restore#the-mandatory-backup-routine) are stored in a RavenDB 
@@ -88,17 +78,11 @@ Upon backup geographically closest AWS S3 bucket is used for backup storage e.g.
 
 - if your RavenDB Cloud cluster has been created in the US, it backs up to AWS S3 buckets in the US.
 </Admonition>
-
----
-
 #### Custom-Backup Storage
 [Custom-backup](../cloud/cloud-backup-and-restore#creating-a-custom-backup) files can be kept using an Amazon service 
 (S3 or S3 Glacier) or a Microsoft service (Azure).  
 We recommend that you use a backup method **local to your host cloud**. If your product is hosted by Amazon AWS for example, 
 you can store your backup files on an Amazon S3 bucket.  
-
----
-
 <Admonition type="info" title="Info">
 All mandatory-backup files are **compressed** and **encrypted**. This is the case whether the backed-up database is encrypted or not.  
 
@@ -107,9 +91,9 @@ and we recommend that you use this option.
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Charging For Backup storage" id="charging-for-backup-storage" href="#charging-for-backup-storage">
+
+## Charging For Backup storage
 
 #### Mandatory-Backup charge
 Mandatory-backup files are kept in RavenDB's own cloud.  
@@ -120,9 +104,6 @@ Your backup storage usage is measured once a day, and you'll be charged each mon
 
 Free-tier users that overuse backup storage may trim their database to fit the limitation, pay for the extra storage, 
 or stop the product.  
-
----
-
 #### Custom-Backup charge
 Your custom backups are kept in a storage location of your choosing, and charges for it are unrelated to RavenDB Cloud.  
 
@@ -132,9 +113,9 @@ Your custom backups are kept in a storage location of your choosing, and charges
 * File transfer costs you may be charged for (especially if you are backing up outside the region / cloud you are using).  
 
 
-</Admonition>
 
-<Admonition type="info" title="Backup Encryption" id="backup-encryption" href="#backup-encryption">
+
+## Backup Encryption
 
 Your mandatory backup files are encrypted.
 
@@ -150,33 +131,24 @@ Your mandatory backup files are encrypted.
 * If your database is **not encrypted**:  
   We will encrypt its backup files using an encryption key that **we** manage and is unique to your account.  
 
-</Admonition>
 
-<Admonition type="info" title="Creating a Custom Backup" id="creating-a-custom-backup" href="#creating-a-custom-backup">
+
+## Creating a Custom Backup
 
 You can create your own [ongoing backup tasks](https://ravendb.net/docs/article-page/4.2/Csharp/studio/database/tasks/ongoing-tasks/backup-task) 
 on your RavenDB cloud instance, as you would off-cloud.  
-
----
-
 Use your cloud instance's management Studio to create a new task.  
 !["Create Task"](./assets/backup-001-add-backup-task.png)  
-
----
-
 Add a Backup task  
 !["Backup Task"](./assets/backup-002-add-backup-task.png)  
-
----
-
 You can store custom-backup files on an unrelated cloud service like an S3 bucket, a Glacier vault, or an Azure platform.  
 
 Activate and configure your unrelated cloud storage service, e.g. the bucket in which your backup files would be kept.  
 !["Set S3 Bucket"](./assets/backup-003-set-s3-bucket.png)  
 
-</Admonition>
 
-<Admonition type="info" title="Restore Mandatory-Backup Files" id="restore-mandatory-backup-files" href="#restore-mandatory-backup-files">
+
+## Restore Mandatory-Backup Files
 
 #### View The mandatory Backups List  
 Backup files that have already been created, are listed in the backups tab.  
@@ -186,9 +158,6 @@ Backup files that have already been created, are listed in the backups tab.
 * Click "Generate Restore Link" for the database you want to restore.  
   The backup link window will open.
   !["Backups List"](./assets/backup-and-restore-002-mandatory-backups-tab-list.png "Backups List")  
-
----
-
 #### Restore the Database  
 Clicking the **Generate Restore Link** button will show you a simple procedure. Follow it to restore your database.  
 
@@ -210,27 +179,5 @@ Clicking the **Generate Restore Link** button will show you a simple procedure. 
   Copy it from the right Backups Tab box.  
   !["Encryption Key: Unencrypted Database"](./assets/backup-and-restore-009-encryption-key-2.png)  
 
-</Admonition>
 
-## Related Articles
 
-**Cloud**  
-[Overview](cloud-overview)  
-[Migration](cloud-migration)  
-[Security](cloud-security)  
-  
-[Portal](../cloud/portal/cloud-portal)  
-[Backup Tab](../cloud/portal/cloud-portal-backups-tab)  
-  
-[RavenDB on Burstable Instances](https://ayende.com/blog/187681-B/running-ravendb-on-burstable-cloud-instances)  
-[AWS CPU Credits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html)  
-
-**Client-API**  
-[Backup](../client-api/operations/maintenance/backup/backup)  
-[Restore](../client-api/operations/maintenance/backup/restore)  
-
-**Server**  
-[Backup Overview](../server/ongoing-tasks/backup-overview)  
-
-**Studio**  
-[Backup Task](../studio/database/tasks/backup-task)  

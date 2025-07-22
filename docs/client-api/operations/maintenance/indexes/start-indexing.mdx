@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Resume Indexing Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Resume Indexing Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -35,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../client-api/operations/maintenance/indexes/start-indexing#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Resume indexing example" id="resume-indexing-example" href="#resume-indexing-example">
+## Resume indexing example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -77,9 +76,9 @@ Assert.Equal(IndexRunningStatus.Running, indexingStatus.Status);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -89,12 +88,12 @@ public StartIndexingOperation()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Resume Indexing Operation
+
 
 **StartIndexingOperation** is used to resume indexing for entire database. 
 
@@ -119,8 +118,6 @@ public StartIndexingOperation()
 
 </LanguageContent>
 <LanguageContent language="python">
-# Resume Indexing Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -141,10 +138,7 @@ public StartIndexingOperation()
   * [Syntax](../../../../client-api/operations/maintenance/indexes/start-indexing#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Resume indexing example" id="resume-indexing-example" href="#resume-indexing-example">
+## Resume indexing example
 
 <TabItem value="something-something" label="resume_indexing">
 <CodeBlock language="python">
@@ -165,9 +159,9 @@ self.assertEqual(indexing_status.status, IndexRunningStatus.RUNNING)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -177,13 +171,11 @@ self.assertEqual(indexing_status.status, IndexRunningStatus.RUNNING)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Resume Indexing Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -204,10 +196,7 @@ self.assertEqual(indexing_status.status, IndexRunningStatus.RUNNING)
   * [Syntax](../../../../client-api/operations/maintenance/indexes/start-indexing#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Resume indexing example" id="resume-indexing-example" href="#resume-indexing-example">
+## Resume indexing example
 
 <TabItem value="something-something" label="resume_indexing">
 <CodeBlock language="php">
@@ -228,9 +217,9 @@ $this->assertTrue($indexingStatus->getStatus()->isPaused());
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -240,13 +229,11 @@ public StartIndexingOperation()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Resume Indexing Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -267,10 +254,7 @@ public StartIndexingOperation()
   * [Syntax](../../../../client-api/operations/maintenance/indexes/start-indexing#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Resume indexing example" id="resume-indexing-example" href="#resume-indexing-example">
+## Resume indexing example
 
 <TabItem value="something-something" label="resume_indexing">
 <CodeBlock language="nodejs">
@@ -290,9 +274,9 @@ assert.strictEqual(indexingStatus.status, "Running");
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -302,7 +286,7 @@ const resumeIndexingOp = new StartIndexingOperation();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Indexes: Rolling Index Deployment
----
-
 <Admonition type="note" title="Note">
 
 * When **Rolling Index Deployment** is enabled, indexing a database is performed by one node at a time.  
@@ -35,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [Deployment Mode in an Index Definition](../indexes/rolling-index-deployment#deployment-mode-in-an-index-definition)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why Rolling Index Deployment" id="why-rolling-index-deployment" href="#why-rolling-index-deployment">
+## Why Rolling Index Deployment
 
 When heavy-duty indexing is performed in parallel by all cluster nodes, the cluster's 
 performance and availability may be reduced.  
@@ -57,12 +52,9 @@ the cluster remains fully available and performant.
 Parallel indexing may be a better option when there is minor or no database activity.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="How Does It Work" id="how-does-it-work" href="#how-does-it-work">
 
----
-
+## How Does It Work
 ### The Rolling Procedure
 
 Nodes are assigned with the indexing of each database in a linear order, one node at a time.  
@@ -78,9 +70,6 @@ Nodes are assigned with the indexing of each database in a linear order, one nod
    Confirmation delivery may fail, for example, due to forceful disconnection of the indexing 
    node or cluster leader node during indexation.  
    </Admonition>
-
----
-
 ### Deployment Concurrency and Order
 
 * **Deployment Concurrency**  
@@ -94,12 +83,9 @@ Nodes are assigned with the indexing of each database in a linear order, one nod
     Nodes that are currently in [Rehab or Promotable state](../server/clustering/distribution/distributed-database#database-topology) 
     are given a lower priority.  
 
-</Admonition>
 
-<Admonition type="info" title="Setting Indexing Deployment Mode" id="setting-indexing-deployment-mode" href="#setting-indexing-deployment-mode">
 
----
-
+## Setting Indexing Deployment Mode
 ### Server-Wide Deployment Mode
 
  Deployment mode can be set server-wide using [configuration options](../server/configuration/configuration-options#settings.json).  
@@ -114,8 +100,6 @@ Nodes are assigned with the indexing of each database in a linear order, one nod
   Set a deployment mode for static indexes using the `Indexing.Static.DeploymentMode` configuration option.  
   `"Indexing.Static.DeploymentMode": "Rolling"`  
   `"Indexing.Static.DeploymentMode": "Parallel"`  
-    
----
 ### Database Deployment Mode
 
 Enable or disable rolling for a specific database using database configuration keys.  
@@ -145,9 +129,6 @@ Setting these properties overrides the
          <Admonition type="warning" title="Warning">
          An edited configuration key value will become effective only after the database is reloaded.  
          </Admonition>
-    
----
-
 ### Deployment Mode in an Index Definition
 
 Enable or disable rolling for a specific index using the index-definition `DeploymentMode` property.  
@@ -180,5 +161,5 @@ and [database](../indexes/rolling-index-deployment#database-deployment-mode) set
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

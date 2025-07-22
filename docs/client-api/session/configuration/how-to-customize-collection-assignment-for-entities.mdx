@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Session: How to Customize Collection Assignment for Entities
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: How to Customize Collection Assignment for Entities
+
 
 Entities are grouped into [collections](../../faq/what-is-a-collection) on the server side. In order to determine the collection name that an entity belongs to
 there are special conventions which return the collection name based on the type of an entity: [`FindCollectionName` and `FindCollectionNameForDynamic`](../../configuration/identifier-generation/global#findcollectionname-and-findcollectionnamefordynamic).
@@ -41,7 +45,7 @@ This can become very useful when there is a need to deal with [polymorphic data]
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Customize Collection Assignment for Entities
+
 
 Entities are grouped into [collections](../../faq/what-is-a-collection) on the server side. In order to determine the collection name that an entity belongs to
 there is special convention which return the collection name based on the type of an entity: [`findCollectionName`](../../configuration/identifier-generation/global#findcollectionname).
@@ -69,7 +73,7 @@ This can become very useful when there is a need to deal with [polymorphic data]
 
 </LanguageContent>
 <LanguageContent language="python">
-# Session: How to Customize Collection Assignment for Entities
+
 
 Entities are grouped into [collections](../../faq/what-is-a-collection) on the server side.  
 The name of the collection that an entity belongs to can be retrieved using the `find_collection_name` convention.  
@@ -98,7 +102,7 @@ This can become very useful when there is a need to deal with [polymorphic data]
 
 </LanguageContent>
 <LanguageContent language="php">
-# Session: How to Customize Collection Assignment for Entities
+
 
 Entities are grouped on the server side into [collections](../../faq/what-is-a-collection).  
 A collection's name is determined by the type of the entities in it.  
@@ -128,7 +132,7 @@ This can become very useful when there is a need to deal with [polymorphic data]
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: How to Customize Collection Assignment for Entities
+
 
 Entities are grouped into [collections](../../faq/what-is-a-collection) on the server side. In order to determine the collection name that an entity belongs to
 there is special convention which return the collection name based on the type of an entity: [`findCollectionName`](../../configuration/identifier-generation/global#findcollectionname).

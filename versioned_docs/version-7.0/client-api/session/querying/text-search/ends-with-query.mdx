@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Ends-With Query
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Ends-With Query
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -34,10 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Negate EndsWith](../../../../client-api/session/querying/text-search/ends-with-query#negate-endswith)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="EndsWith" id="endswith" href="#endswith">
+## EndsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -91,9 +89,9 @@ where endsWith(Name, "Lager")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="EndsWith (case-sensitive)" id="endswith-case-sensitive" href="#endswith-case-sensitive">
+
+## EndsWith (case-sensitive)
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -145,9 +143,9 @@ where exact(endsWith(Name, "Lager"))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Negate EndsWith" id="negate-endswith" href="#negate-endswith">
+
+## Negate EndsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -203,14 +201,11 @@ where (true and not endsWith(Name, "Lager"))
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# where_ends_with Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -229,10 +224,7 @@ where (true and not endsWith(Name, "Lager"))
     * [Negate where_ends_with](../../../../client-api/session/querying/text-search/ends-with-query#negate-where_ends_with)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="where_ends_with" id="where_ends_with" href="#where_ends_with">
+## where_ends_with
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -258,9 +250,9 @@ where endsWith(Name, "Lager")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="where_ends_with (case-sensitive)" id="where_ends_with-case-sensitive" href="#where_ends_with-case-sensitive">
+
+## where_ends_with (case-sensitive)
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -285,9 +277,9 @@ where exact(endsWith(Name, "Lager"))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Negate where_ends_with" id="negate-where_ends_with" href="#negate-where_ends_with">
+
+## Negate where_ends_with
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -314,14 +306,11 @@ where (true and not endsWith(Name, "Lager"))
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# where_ends_with Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -340,10 +329,7 @@ where (true and not endsWith(Name, "Lager"))
     * [Negate where_ends_with](../../../../client-api/session/querying/text-search/ends-with-query#negate-where_ends_with)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="where_ends_with" id="where_ends_with" href="#where_ends_with">
+## where_ends_with
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="query" label="query">
@@ -384,9 +370,9 @@ where endsWith(Name, "Lager")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="where_ends_with (case-sensitive)" id="where_ends_with-case-sensitive" href="#where_ends_with-case-sensitive">
+
+## where_ends_with (case-sensitive)
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="query" label="query">
@@ -426,9 +412,9 @@ where exact(endsWith(Name, "Lager"))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Negate where_ends_with" id="negate-where_ends_with" href="#negate-where_ends_with">
+
+## Negate where_ends_with
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="query" label="query">
@@ -473,14 +459,11 @@ where (true and not endsWith(Name, "Lager"))
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Ends-With Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -500,10 +483,7 @@ where (true and not endsWith(Name, "Lager"))
     * [Syntax](../../../../client-api/session/querying/text-search/ends-with-query#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="whereEndsWith" id="whereendswith" href="#whereendswith">
+## whereEndsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -529,9 +509,9 @@ where endsWith(Name, "Lager")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="whereEndsWith (case-sensitive)" id="whereendswith-case-sensitive" href="#whereendswith-case-sensitive">
+
+## whereEndsWith (case-sensitive)
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -557,9 +537,9 @@ where exact(endsWith(Name, "Lager"))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Negate whereEndsWith" id="negate-whereendswith" href="#negate-whereendswith">
+
+## Negate whereEndsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -587,9 +567,9 @@ where exists(Name) and not endsWith(Name, "Lager")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -607,7 +587,7 @@ whereStartsWith(fieldName, value, exact);
 | **exact**     | boolean | `false` - search is case-insensitive<br/>`true` - search is case-sensitive |
 
 
-</Admonition>
+
 
 
 </LanguageContent>

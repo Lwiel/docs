@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding by prefix
----
-
 <Admonition type="note" title="Note">
 
 * The default technique of distributing data across shards uses a hashing algorithm based on document IDs  
@@ -42,10 +40,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Prefixed sharding vs Anchoring documents](../../sharding/administration/sharding-by-prefix#prefixed-sharding-vs-anchoring-documents)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why use prefixed sharding" id="why-use-prefixed-sharding" href="#why-use-prefixed-sharding">
+## Why use prefixed sharding
 
 **Control over data placement**:
 Prefixed sharding offers customized data distribution by allowing you to assign data to specific shards.
@@ -68,9 +63,9 @@ You can add servers and shards as needed, allowing for controlled scaling that m
 By grouping related data on the same shard, prefixed sharding optimizes data storage and access patterns,
 reduces network latency for region-specific operations, and enhances overall system performance in distributed database environments.
 
-</Admonition>
 
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+
+## Overview
 
 **Configure shards**:  
 
@@ -108,9 +103,9 @@ reduces network latency for region-specific operations, and enhances overall sys
   * Document "_/users/us/123_" will be stored in shard **#0**.  
   * Document "_/users/us/florida/123_" will be stored in shard **#1**, even though it also matches the `/users/us/` prefix.
 
-</Admonition>
 
-<Admonition type="info" title="Bucket management" id="bucket-management" href="#bucket-management">
+
+## Bucket management
 
 **When you define a sharded database**:  
 RavenDB reserves 1,048,576 buckets for the entire database. Each shard is assigned a range of buckets from this set. 
@@ -127,26 +122,20 @@ So now, if we add prefixes **`users/us/`** for shard #0 and **`users/asia/`** fo
 
   * Additional buckets assigned to shard **#0** `[1048576 .. 2097151]` for documents with prefix `users/us/`
   * Additional buckets assigned to shard **#1** `[2097152 .. 3,145,727]` for documents with prefix `users/asia/`
-
---- 
-
 When creating a new document with an ID that matches any of the defined prefixes -  
 the hashing algorithm is applied to the document ID, but the resulting bucket number is limited to the set of buckets reserved for that prefix,
 thereby routing the document to be stored in the chosen shard.
 
 When creating a new document with an ID that does Not match any predefined prefix -   
 the resulting hashed bucket number could fall into any of the 3 shards.
-
----
-
 The reserved buckets ranges are visible in the database record in the Studio.  
 Navigate to **Settings &gt; Database Record** and expand the "Sharding &gt; BucketRanges" property:
 
 !["Bucket ranges"](./assets/assigned-bucket-ranges.png 'Bucket ranges across the shards')
 
-</Admonition>
 
-<Admonition type="info" title="Adding prefixes via Studio" id="adding-prefixes-via-studio" href="#adding-prefixes-via-studio">
+
+## Adding prefixes via Studio
 
 You can define prefixes when creating a sharded database via the Studio.
 
@@ -155,9 +144,6 @@ You can define prefixes when creating a sharded database via the Studio.
 1. From the database list view, click **New database** to create a new database.  
 2. Enter a name for the new database.   
 3. Click **Next** to proceed to the sharding settings on the next screen.
-
----
-
 In this example, we define a sharded database with 3 shards, each having a replication factor of 2:
 
 !["Enable sharding"](./assets/enable-sharding.png 'Enable sharding')
@@ -166,9 +152,6 @@ In this example, we define a sharded database with 3 shards, each having a repli
 2. Set the number of shards you want.    
 3. Turn on the **Add prefixes for shards** toggle.  
 4. Set the replication factor and other options as desired, and then click **Next** to proceed to define the prefixes.
-
----
-
 Add the prefixes and specify their destination shards:  
 
 !["|Define prefixes"](./assets/define-prefixes.png 'Define prefixes')
@@ -178,9 +161,6 @@ Add the prefixes and specify their destination shards:
 3. Click **Add prefix** to add additional prefixes.  
 4. Click **Quick Create** to complete the process using the default settings for the remaining configurations and create the new database.
    Or, click **Next** to configure additional settings. 
-
----
-
 New documents will be stored in the matching shards:
 
 !["Document list view"](./assets/document-list-view.png 'Documents are stored in the requested shards')
@@ -190,17 +170,15 @@ New documents will be stored in the matching shards:
 3. Documents with an ID that does Not match any prefix will be stored on any of the 3 shards.  
    e.g. document `users/uk/london/clients/1` is stored on shard **#2** since no matching prefix was defined.  
 
-</Admonition>
 
-<Admonition type="info" title="Adding prefixes via Client API" id="adding-prefixes-via-client-api" href="#adding-prefixes-via-client-api">
+
+## Adding prefixes via Client API
 
 Using the Client API, you can add prefixes when creating the database or after database creation:  
 
 <Admonition type="note" title="Note">
 
 ##### Add prefixes when creating a database
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
 <CodeBlock language="csharp">
@@ -316,8 +294,6 @@ var numberOfPrefixes = shardingConfiguration.Prefixed.Count; // 2
 <Admonition type="note" title="Note">
 
 ##### Add prefixes after database creation
----
-
 * Use `AddPrefixedShardingSettingOperation` to add a prefix to your sharding configuration after the database has been created.
 
 * In this case, you can only add prefixes that do not match any existing document IDs in the database.  
@@ -364,9 +340,9 @@ await store.Maintenance.SendAsync(addPrefixOp);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Removing prefixes" id="removing-prefixes" href="#removing-prefixes">
+
+## Removing prefixes
 
 * Use `DeletePrefixedShardingSettingOperation` to remove a prefix from your sharding configuration.
 
@@ -398,9 +374,9 @@ await store.Maintenance.SendAsync(deletePrefixOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Updating shard configurations for prefixes" id="updating-shard-configurations-for-prefixes" href="#updating-shard-configurations-for-prefixes">
+
+## Updating shard configurations for prefixes
 
 * Use `UpdatePrefixedShardingSettingOperation` to modify the shards assigned to an existing prefix.
 
@@ -458,9 +434,9 @@ await store.Maintenance.SendAsync(updatePrefixOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Querying selected shards by prefix" id="querying-selected-shards-by-prefix" href="#querying-selected-shards-by-prefix">
+
+## Querying selected shards by prefix
 
 * Storing documents on specific shards allows you to query only those shards directly,  
   avoiding unnecessary trips to other shards by the orchestrator.
@@ -772,9 +748,9 @@ where Address.Country == "US"
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Prefixed sharding vs Anchoring documents" id="prefixed-sharding-vs-anchoring-documents" href="#prefixed-sharding-vs-anchoring-documents">
+
+## Prefixed sharding vs Anchoring documents
 
 **Anchoring documents**:  
 With [anchoring documents](../../sharding/administration/anchoring-documents), you can ensure that designated documents will be stored in the same bucket  
@@ -805,5 +781,5 @@ The result:
  * Since prefixed sharding is prioritized, this new document will be stored in shard **#0**,  
    even though the suffix suggests it should be stored in shard **#1**, where the Companies document resides.
 
-</Admonition>
+
 

@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "php", "nodejs"];
+
+
+# Session: How to Customize the Identity Property Lookup for Entities
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: How to Customize the Identity Property Lookup for Entities
+
 
 The client must know which property of your entity is considered as an identity. By default, it always looks for the `Id` property (case-sensitive). This behavior can be changed by overwriting one of our conventions called `FindIdentityProperty`.
 
@@ -42,7 +46,7 @@ The simplest example would be to check if the property name is equal to 'Identif
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Customize the Identity Property Lookup for Entities
+
 
 The client must know which property of your entity is considered as an identity. By default, it always looks for the `id` field (case-sensitive). This behavior can be changed by overwriting one of our conventions called `findIdentityProperty`.
 
@@ -71,7 +75,7 @@ The simplest example would be to check if the property name is equal to 'Identif
 
 </LanguageContent>
 <LanguageContent language="php">
-# Session: How to Customize the Identity Property Lookup for Entities
+
 
 * When a client handles an entity, it must know which property is the entity's identifier.  
   By default, the client always looks for the `Id` property (case-sensitive).  
@@ -104,7 +108,7 @@ The simplest example would be to check if the property name is equal to 'Identif
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: How to Customize the Identity Property Lookup for Entities
+
 
 The client must know which property of your entity is considered as an identity. By default, it always looks for the `id` field (case-sensitive). This behavior can be changed by overwriting one of our conventions called `identityProperty`.
 

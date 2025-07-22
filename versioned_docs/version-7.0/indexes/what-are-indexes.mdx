@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# What are Indexes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# What are Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -34,16 +36,13 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Indexes overview" id="indexes-overview" href="#indexes-overview">
+## Indexes overview
 
 **Indexes are fundamental**:
 
 * Indexes are fundamental to RavenDB’s query execution, enabling efficient query performance by processing the underlying data and delivering faster results.
 * ALL queries in RavenDB use an index to deliver results and ensure optimal performance.  
   Learn more in [Queries always provide results using an index](../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
-
----
-
 **Main concepts**:
 
 * When discussing indexes in RavenDB, three key components come into play:
@@ -52,9 +51,6 @@ import LanguageContent from "@site/src/components/language-content";
     * The indexed data
 
 * Each of these components is described in detail in [Indexes - The moving parts](../studio/database/indexes/indexes-overview#indexes---the-moving-parts).
-
----
-
 **The indexing process**:
 
 * The indexing process iterates over the raw documents, creating an **index-entry** for each document that is processed.
@@ -63,9 +59,6 @@ import LanguageContent from "@site/src/components/language-content";
   as defined by the index definition and depending on the [analyzer](../indexes/using-analyzers) used.
 * A map is built between the indexed-terms and the documents they originated from,  
   enabling you to query for documents based on the indexed data.
-
----
-
 **Automatic data processing**:
 
 * Once defined and deployed, an index will initially process the entire dataset.  
@@ -75,17 +68,11 @@ import LanguageContent from "@site/src/components/language-content";
   all indexes defined for the "Orders" collection will be triggered to update the index with the new data.
 * This approach helps avoid costly table scans, allows the server to respond quickly,  
   and reduces the load on queries while optimizing machine resource usage.
-
----
-
 **Background operation**:
 
 * RavenDB indexes are designed to run asynchronously in the background.
 * The indexing process does not block or interrupt database operations, such as writing data or running queries,
   though queries may temporarily return [stale results](../indexes/stale-indexes) until the index is fully updated.
-
----
-
 **Separate storage**:
 
 * Indexes store their processed data separately, ensuring that the raw data remains unaffected.  
@@ -94,9 +81,9 @@ import LanguageContent from "@site/src/components/language-content";
 * If system resources become strained due to indexing, it may require adjustments to the index design, hardware, or other factors.
   Learn more in [If indexes exhaust system resources](../indexes/what-are-indexes#if-indexes-exhaust-system-resources).
 
-</Admonition>
 
-<Admonition type="info" title="Types of indexes" id="types-of-indexes" href="#types-of-indexes">
+
+## Types of indexes
 
 * Indexes in RavenDB are categorized along the following axes:
     * **Auto** indexes -vs- **Static** indexes
@@ -105,9 +92,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 * For a detailed description of each type, refer to section [Index types](../studio/database/indexes/indexes-overview#index-types).
 
-</Admonition>
 
-<Admonition type="info" title="Basic example" id="basic-example" href="#basic-example">
+
+## Basic example
 
 In this example we create a static-index that indexes content from documents in the `Employees` [collection](../client-api/faq/what-is-a-collection).  
 This allows querying for _Employee_ documents by any of the index-fields (`FullName`, `LastName`, `Country`).
@@ -201,9 +188,9 @@ IList<Employee> employeesFromUK = session
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Understanding index query results" id="understanding-index-query-results" href="#understanding-index-query-results">
+
+## Understanding index query results
 
 <Admonition type="warning" title="Warning">
 
@@ -215,9 +202,6 @@ This behavior can be changed by applying [Projections](../indexes/querying/proje
 which let you project the query results into selected fields instead of returning the entire document.
 
 </Admonition>
-
----
-
 #### Viewing the resulting documents:
 
 For example, the results shown in the following image are the **documents** that match the query predicate.
@@ -228,9 +212,6 @@ For example, the results shown in the following image are the **documents** that
    The query predicate filters the resulting documents based on the content of the index-fields.
 2. Each row in the results represents a **matching document**.
 3. In this example, the `LastName`, `FirstName`, `Title`, etc., are the raw **document-fields**.
-
----
-
 #### Viewing the index-entries:
 
 If you wish to **view the index-entries** that compose the index itself,  
@@ -246,9 +227,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 5. This a **term**.  
    In this example, `usa` is a term generated by the analyzer for index-field `Country` from document `employees/4-a`.
 
-</Admonition>
 
-<Admonition type="info" title="If indexes exhaust system resources" id="if-indexes-exhaust-system-resources" href="#if-indexes-exhaust-system-resources">
+
+## If indexes exhaust system resources
 
 * The indexing process utilizes machine resources to keep the data up-to-date for queries.
 
@@ -264,13 +245,11 @@ you can enable the option to show "raw index entries" instead of the matching do
 * Additionally, refer to the [Common indexing issues](../studio/database/indexes/indexing-performance#common-indexing-issues) section
   for troubleshooting and resolving indexing challenges.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# What are Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -290,16 +269,13 @@ you can enable the option to show "raw index entries" instead of the matching do
 
 </Admonition>
 
-<Admonition type="info" title="Indexes overview" id="indexes-overview" href="#indexes-overview">
+## Indexes overview
 
 **Indexes are fundamental**:
 
 * Indexes are fundamental to RavenDB’s query execution, enabling efficient query performance by processing the underlying data and delivering faster results.
 * ALL queries in RavenDB use an index to deliver results and ensure optimal performance.  
   Learn more in [Queries always provide results using an index](../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
-
----
-
 **Main concepts**:
 
 * When discussing indexes in RavenDB, three key components come into play:
@@ -308,9 +284,6 @@ you can enable the option to show "raw index entries" instead of the matching do
     * The indexed data
 
 * Each of these components is described in detail in [Indexes - The moving parts](../studio/database/indexes/indexes-overview#indexes---the-moving-parts).
-
----
-
 **The indexing process**:
 
 * The indexing process iterates over the raw documents, creating an **index-entry** for each document that is processed.
@@ -319,9 +292,6 @@ you can enable the option to show "raw index entries" instead of the matching do
   as defined by the index definition and depending on the [analyzer](../indexes/using-analyzers) used.
 * A map is built between the indexed-terms and the documents they originated from,  
   enabling you to query for documents based on the indexed data.
-
----
-
 **Automatic data processing**:
 
 * Once defined and deployed, an index will initially process the entire dataset.  
@@ -331,17 +301,11 @@ you can enable the option to show "raw index entries" instead of the matching do
   all indexes defined for the "Orders" collection will be triggered to update the index with the new data.
 * This approach helps avoid costly table scans, allows the server to respond quickly,  
   and reduces the load on queries while optimizing machine resource usage.
-
----
-
 **Background operation**:
 
 * RavenDB indexes are designed to run asynchronously in the background.
 * The indexing process does not block or interrupt database operations, such as writing data or running queries,
   though queries may temporarily return [stale results](../indexes/stale-indexes) until the index is fully updated.
-
----
-
 **Separate storage**:
 
 * Indexes store their processed data separately, ensuring that the raw data remains unaffected.  
@@ -350,9 +314,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 * If system resources become strained due to indexing, it may require adjustments to the index design, hardware, or other factors.
   Learn more in [If indexes exhaust system resources](../indexes/what-are-indexes#if-indexes-exhaust-system-resources).
 
-</Admonition>
 
-<Admonition type="info" title="Types of indexes" id="types-of-indexes" href="#types-of-indexes">
+
+## Types of indexes
 
 * Indexes in RavenDB are categorized along the following axes:
     * **Auto** indexes -vs- **Static** indexes
@@ -361,9 +325,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 
 * For a detailed description of each type, refer to section [Index types](../studio/database/indexes/indexes-overview#index-types).
 
-</Admonition>
 
-<Admonition type="info" title="Basic example" id="basic-example" href="#basic-example">
+
+## Basic example
 
 In this example we create a static-index that indexes content from documents in the `Employees` [collection](../client-api/faq/what-is-a-collection).  
 This allows querying for _Employee_ documents by any of the index-fields (`FullName`, `LastName`, `Country`).
@@ -444,9 +408,9 @@ List<Employee> employeesFromUK = session
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Understanding index query results" id="understanding-index-query-results" href="#understanding-index-query-results">
+
+## Understanding index query results
 
 <Admonition type="warning" title="Warning">
 
@@ -458,9 +422,6 @@ This behavior can be changed by applying [Projections](../indexes/querying/proje
 which let you project the query results into selected fields instead of returning the entire document.
 
 </Admonition>
-
----
-
 #### Viewing the resulting documents:
 
 For example, the results shown in the following image are the **documents** that match the query predicate.
@@ -471,9 +432,6 @@ For example, the results shown in the following image are the **documents** that
    The query predicate filters the resulting documents based on the content of the index-fields.
 2. Each row in the results represents a **matching document**.
 3. In this example, the `LastName`, `FirstName`, `Title`, etc., are the raw **document-fields**.
-
----
-
 #### Viewing the index-entries:
 
 If you wish to **view the index-entries** that compose the index itself,  
@@ -489,9 +447,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 5. This a **term**.  
    In this example, `usa` is a term generated by the analyzer for index-field `Country` from document `employees/4-a`.
 
-</Admonition>
 
-<Admonition type="info" title="If indexes exhaust system resources" id="if-indexes-exhaust-system-resources" href="#if-indexes-exhaust-system-resources">
+
+## If indexes exhaust system resources
 
 * The indexing process utilizes machine resources to keep the data up-to-date for queries.
 
@@ -507,13 +465,11 @@ you can enable the option to show "raw index entries" instead of the matching do
 * Additionally, refer to the [Common indexing issues](../studio/database/indexes/indexing-performance#common-indexing-issues) section
   for troubleshooting and resolving indexing challenges.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# What are Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -533,16 +489,13 @@ you can enable the option to show "raw index entries" instead of the matching do
 
 </Admonition>
 
-<Admonition type="info" title="Indexes overview" id="indexes-overview" href="#indexes-overview">
+## Indexes overview
 
 **Indexes are fundamental**:
 
 * Indexes are fundamental to RavenDB’s query execution, enabling efficient query performance by processing the underlying data and delivering faster results.
 * ALL queries in RavenDB use an index to deliver results and ensure optimal performance.  
   Learn more in [Queries always provide results using an index](../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
-
----
-
 **Main concepts**:
 
 * When discussing indexes in RavenDB, three key components come into play:
@@ -551,9 +504,6 @@ you can enable the option to show "raw index entries" instead of the matching do
     * The indexed data
 
 * Each of these components is described in detail in [Indexes - The moving parts](../studio/database/indexes/indexes-overview#indexes---the-moving-parts).
-
----
-
 **The indexing process**:
 
 * The indexing process iterates over the raw documents, creating an **index-entry** for each document that is processed.
@@ -562,9 +512,6 @@ you can enable the option to show "raw index entries" instead of the matching do
   as defined by the index definition and depending on the [analyzer](../indexes/using-analyzers) used.
 * A map is built between the indexed-terms and the documents they originated from,  
   enabling you to query for documents based on the indexed data.
-
----
-
 **Automatic data processing**:
 
 * Once defined and deployed, an index will initially process the entire dataset.  
@@ -574,17 +521,11 @@ you can enable the option to show "raw index entries" instead of the matching do
   all indexes defined for the "Orders" collection will be triggered to update the index with the new data.
 * This approach helps avoid costly table scans, allows the server to respond quickly,  
   and reduces the load on queries while optimizing machine resource usage.
-
----
-
 **Background operation**:
 
 * RavenDB indexes are designed to run asynchronously in the background.
 * The indexing process does not block or interrupt database operations, such as writing data or running queries,
   though queries may temporarily return [stale results](../indexes/stale-indexes) until the index is fully updated.
-
----
-
 **Separate storage**:
 
 * Indexes store their processed data separately, ensuring that the raw data remains unaffected.  
@@ -593,9 +534,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 * If system resources become strained due to indexing, it may require adjustments to the index design, hardware, or other factors.
   Learn more in [If indexes exhaust system resources](../indexes/what-are-indexes#if-indexes-exhaust-system-resources).
 
-</Admonition>
 
-<Admonition type="info" title="Types of indexes" id="types-of-indexes" href="#types-of-indexes">
+
+## Types of indexes
 
 * Indexes in RavenDB are categorized along the following axes:
     * **Auto** indexes -vs- **Static** indexes
@@ -604,9 +545,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 
 * For a detailed description of each type, refer to section [Index types](../studio/database/indexes/indexes-overview#index-types).
 
-</Admonition>
 
-<Admonition type="info" title="Basic example" id="basic-example" href="#basic-example">
+
+## Basic example
 
 In this example we create a static-index that indexes content from documents in the `Employees` [collection](../client-api/faq/what-is-a-collection).  
 This allows querying for _Employee_ documents by any of the index-fields (`FullName`, `LastName`, `Country`).
@@ -690,9 +631,9 @@ employeesFromUK = list(
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Understanding index query results" id="understanding-index-query-results" href="#understanding-index-query-results">
+
+## Understanding index query results
 
 <Admonition type="warning" title="Warning">
 
@@ -704,9 +645,6 @@ This behavior can be changed by applying [Projections](../indexes/querying/proje
 which let you project the query results into selected fields instead of returning the entire document.
 
 </Admonition>
-
----
-
 #### Viewing the resulting documents:
 
 For example, the results shown in the following image are the **documents** that match the query predicate.
@@ -717,9 +655,6 @@ For example, the results shown in the following image are the **documents** that
    The query predicate filters the resulting documents based on the content of the index-fields.
 2. Each row in the results represents a **matching document**.
 3. In this example, the `LastName`, `FirstName`, `Title`, etc., are the raw **document-fields**.
-
----
-
 #### Viewing the index-entries:
 
 If you wish to **view the index-entries** that compose the index itself,  
@@ -735,9 +670,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 5. This a **term**.  
    In this example, `usa` is a term generated by the analyzer for index-field `Country` from document `employees/4-a`.
 
-</Admonition>
 
-<Admonition type="info" title="If indexes exhaust system resources" id="if-indexes-exhaust-system-resources" href="#if-indexes-exhaust-system-resources">
+
+## If indexes exhaust system resources
 
 * The indexing process utilizes machine resources to keep the data up-to-date for queries.
 
@@ -753,13 +688,11 @@ you can enable the option to show "raw index entries" instead of the matching do
 * Additionally, refer to the [Common indexing issues](../studio/database/indexes/indexing-performance#common-indexing-issues) section
   for troubleshooting and resolving indexing challenges.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# What are Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -779,16 +712,13 @@ you can enable the option to show "raw index entries" instead of the matching do
 
 </Admonition>
 
-<Admonition type="info" title="Indexes overview" id="indexes-overview" href="#indexes-overview">
+## Indexes overview
 
 **Indexes are fundamental**:
 
 * Indexes are fundamental to RavenDB’s query execution, enabling efficient query performance by processing the underlying data and delivering faster results.
 * ALL queries in RavenDB use an index to deliver results and ensure optimal performance.  
   Learn more in [Queries always provide results using an index](../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
-
----
-
 **Main concepts**:
 
 * When discussing indexes in RavenDB, three key components come into play:
@@ -797,9 +727,6 @@ you can enable the option to show "raw index entries" instead of the matching do
     * The indexed data
 
 * Each of these components is described in detail in [Indexes - The moving parts](../studio/database/indexes/indexes-overview#indexes---the-moving-parts).
-
----
-
 **The indexing process**:
 
 * The indexing process iterates over the raw documents, creating an **index-entry** for each document that is processed.
@@ -808,9 +735,6 @@ you can enable the option to show "raw index entries" instead of the matching do
   as defined by the index definition and depending on the [analyzer](../indexes/using-analyzers) used.
 * A map is built between the indexed-terms and the documents they originated from,  
   enabling you to query for documents based on the indexed data.
-
----
-
 **Automatic data processing**:
 
 * Once defined and deployed, an index will initially process the entire dataset.  
@@ -820,17 +744,11 @@ you can enable the option to show "raw index entries" instead of the matching do
   all indexes defined for the "Orders" collection will be triggered to update the index with the new data.
 * This approach helps avoid costly table scans, allows the server to respond quickly,  
   and reduces the load on queries while optimizing machine resource usage.
-
----
-
 **Background operation**:
 
 * RavenDB indexes are designed to run asynchronously in the background.
 * The indexing process does not block or interrupt database operations, such as writing data or running queries,
   though queries may temporarily return [stale results](../indexes/stale-indexes) until the index is fully updated.
-
----
-
 **Separate storage**:
 
 * Indexes store their processed data separately, ensuring that the raw data remains unaffected.  
@@ -839,9 +757,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 * If system resources become strained due to indexing, it may require adjustments to the index design, hardware, or other factors.
   Learn more in [If indexes exhaust system resources](../indexes/what-are-indexes#if-indexes-exhaust-system-resources).
 
-</Admonition>
 
-<Admonition type="info" title="Types of indexes" id="types-of-indexes" href="#types-of-indexes">
+
+## Types of indexes
 
 * Indexes in RavenDB are categorized along the following axes:
     * **Auto** indexes -vs- **Static** indexes
@@ -850,9 +768,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 
 * For a detailed description of each type, refer to section [Index types](../studio/database/indexes/indexes-overview#index-types).
 
-</Admonition>
 
-<Admonition type="info" title="Basic example" id="basic-example" href="#basic-example">
+
+## Basic example
 
 In this example we create a static-index that indexes content from documents in the `Employees` [collection](../client-api/faq/what-is-a-collection).  
 This allows querying for _Employee_ documents by any of the index-fields (`FullName`, `LastName`, `Country`).
@@ -925,9 +843,9 @@ $results = $session->query(Employee::class, Employees_ByFirstAndLastName::class)
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Understanding index query results" id="understanding-index-query-results" href="#understanding-index-query-results">
+
+## Understanding index query results
 
 <Admonition type="warning" title="Warning">
 
@@ -939,9 +857,6 @@ This behavior can be changed by applying [Projections](../indexes/querying/proje
 which let you project the query results into selected fields instead of returning the entire document.
 
 </Admonition>
-
----
-
 #### Viewing the resulting documents:
 
 For example, the results shown in the following image are the **documents** that match the query predicate.
@@ -952,9 +867,6 @@ For example, the results shown in the following image are the **documents** that
    The query predicate filters the resulting documents based on the content of the index-fields.
 2. Each row in the results represents a **matching document**.
 3. In this example, the `LastName`, `FirstName`, `Title`, etc., are the raw **document-fields**.
-
----
-
 #### Viewing the index-entries:
 
 If you wish to **view the index-entries** that compose the index itself,  
@@ -970,9 +882,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 5. This a **term**.  
    In this example, `usa` is a term generated by the analyzer for index-field `Country` from document `employees/4-a`.
 
-</Admonition>
 
-<Admonition type="info" title="If indexes exhaust system resources" id="if-indexes-exhaust-system-resources" href="#if-indexes-exhaust-system-resources">
+
+## If indexes exhaust system resources
 
 * The indexing process utilizes machine resources to keep the data up-to-date for queries.
 
@@ -988,13 +900,11 @@ you can enable the option to show "raw index entries" instead of the matching do
 * Additionally, refer to the [Common indexing issues](../studio/database/indexes/indexing-performance#common-indexing-issues) section
   for troubleshooting and resolving indexing challenges.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# What are Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -1014,16 +924,13 @@ you can enable the option to show "raw index entries" instead of the matching do
 
 </Admonition>
 
-<Admonition type="info" title="Indexes overview" id="indexes-overview" href="#indexes-overview">
+## Indexes overview
 
 **Indexes are fundamental**:
 
 * Indexes are fundamental to RavenDB’s query execution, enabling efficient query performance by processing the underlying data and delivering faster results.
 * ALL queries in RavenDB use an index to deliver results and ensure optimal performance.  
   Learn more in [Queries always provide results using an index](../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
-
----
-
 **Main concepts**:
 
 * When discussing indexes in RavenDB, three key components come into play:
@@ -1032,9 +939,6 @@ you can enable the option to show "raw index entries" instead of the matching do
     * The indexed data
 
 * Each of these components is described in detail in [Indexes - The moving parts](../studio/database/indexes/indexes-overview#indexes---the-moving-parts).
-
----
-
 **The indexing process**:
 
 * The indexing process iterates over the raw documents, creating an **index-entry** for each document that is processed.
@@ -1043,9 +947,6 @@ you can enable the option to show "raw index entries" instead of the matching do
   as defined by the index definition and depending on the [analyzer](../indexes/using-analyzers) used.
 * A map is built between the indexed-terms and the documents they originated from,  
   enabling you to query for documents based on the indexed data.
-
----
-
 **Automatic data processing**:
 
 * Once defined and deployed, an index will initially process the entire dataset.  
@@ -1055,17 +956,11 @@ you can enable the option to show "raw index entries" instead of the matching do
   all indexes defined for the "Orders" collection will be triggered to update the index with the new data.
 * This approach helps avoid costly table scans, allows the server to respond quickly,  
   and reduces the load on queries while optimizing machine resource usage.
-
----
-
 **Background operation**:
 
 * RavenDB indexes are designed to run asynchronously in the background.
 * The indexing process does not block or interrupt database operations, such as writing data or running queries,
   though queries may temporarily return [stale results](../indexes/stale-indexes) until the index is fully updated.
-
----
-
 **Separate storage**:
 
 * Indexes store their processed data separately, ensuring that the raw data remains unaffected.  
@@ -1074,9 +969,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 * If system resources become strained due to indexing, it may require adjustments to the index design, hardware, or other factors.
   Learn more in [If indexes exhaust system resources](../indexes/what-are-indexes#if-indexes-exhaust-system-resources).
 
-</Admonition>
 
-<Admonition type="info" title="Types of indexes" id="types-of-indexes" href="#types-of-indexes">
+
+## Types of indexes
 
 * Indexes in RavenDB are categorized along the following axes:
     * **Auto** indexes -vs- **Static** indexes
@@ -1085,9 +980,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 
 * For a detailed description of each type, refer to section [Index types](../studio/database/indexes/indexes-overview#index-types).
 
-</Admonition>
 
-<Admonition type="info" title="Basic example" id="basic-example" href="#basic-example">
+
+## Basic example
 
 In this example we create a static-index that indexes content from documents in the `Employees` [collection](../client-api/faq/what-is-a-collection).  
 This allows querying for _Employee_ documents by any of the index-fields (`FullName`, `LastName`, `Country`).
@@ -1175,9 +1070,9 @@ const employeesFromUK = await session
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Understanding index query results" id="understanding-index-query-results" href="#understanding-index-query-results">
+
+## Understanding index query results
 
 <Admonition type="warning" title="Warning">
 
@@ -1189,9 +1084,6 @@ This behavior can be changed by applying [Projections](../indexes/querying/proje
 which let you project the query results into selected fields instead of returning the entire document.
 
 </Admonition>
-
----
-
 #### Viewing the resulting documents:
 
 For example, the results shown in the following image are the **documents** that match the query predicate.
@@ -1202,9 +1094,6 @@ For example, the results shown in the following image are the **documents** that
    The query predicate filters the resulting documents based on the content of the index-fields.
 2. Each row in the results represents a **matching document**.
 3. In this example, the `LastName`, `FirstName`, `Title`, etc., are the raw **document-fields**.
-
----
-
 #### Viewing the index-entries:
 
 If you wish to **view the index-entries** that compose the index itself,  
@@ -1220,9 +1109,9 @@ you can enable the option to show "raw index entries" instead of the matching do
 5. This a **term**.  
    In this example, `usa` is a term generated by the analyzer for index-field `Country` from document `employees/4-a`.
 
-</Admonition>
 
-<Admonition type="info" title="If indexes exhaust system resources" id="if-indexes-exhaust-system-resources" href="#if-indexes-exhaust-system-resources">
+
+## If indexes exhaust system resources
 
 * The indexing process utilizes machine resources to keep the data up-to-date for queries.
 
@@ -1238,7 +1127,7 @@ you can enable the option to show "raw index entries" instead of the matching do
 * Additionally, refer to the [Common indexing issues](../studio/database/indexes/indexing-performance#common-indexing-issues) section
   for troubleshooting and resolving indexing challenges.
 
-</Admonition>
+
 
 
 </LanguageContent>

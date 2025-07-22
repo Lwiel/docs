@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Indexes: Stale Indexes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Indexes: Stale Indexes
+
 
 RavenDB performs indexing in the background threads. The indexes start processing whenever the new data comes in, and the existing documents are updated or deleted.
 
@@ -135,7 +139,7 @@ If the last Etag processed by the index is greater than the cutoff, then the res
 
 </LanguageContent>
 <LanguageContent language="java">
-# Indexes: Stale Indexes
+
 
 RavenDB performs indexing in the background threads. The indexes start processing whenever the new data comes in, and the existing documents are updated or deleted.
 
@@ -260,7 +264,7 @@ If the last Etag processed by the index is greater than the cutoff, then the res
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexes: Stale Indexes
+
 
 RavenDB performs indexing in the background threads. The indexes start processing whenever the new data comes in, and the existing documents are updated or deleted.
 

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Query Overview
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Query Overview
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,18 +29,12 @@ import LanguageContent from "@site/src/components/language-content";
 
 * Queries defined with `Query` or `DocumentQuery` are translated by the RavenDB client to [RQL](../../../client-api/session/querying/what-is-rql)  
   when sent to the server.
-
----
-
 * All queries in RavenDB use an **index** to provide results, even when you don't specify one.  
   Learn more [below](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
 
 * Queries that do Not specify which index to use are called **Dynamic Queries**.  
   This article displays examples of dynamic queries only.  
   For examples showing how to query an index see [querying an index](../../../indexes/querying/query-index).
-
----
-
 * The entities returned by the query are 'loaded' and **tracked** by the [Session](../../../client-api/session/what-is-a-session-and-how-does-it-work).  
   Entities will Not be tracked when:  
     * Query returns a [projection](../../../client-api/session/querying/how-to-project-query-results)  
@@ -48,9 +43,6 @@ import LanguageContent from "@site/src/components/language-content";
 * Query results are **cached** by default. To disable query caching see [NoCaching](../../../client-api/session/querying/how-to-customize-query#nocaching).
 
 * Queries are timed out after a configurable time period.  See [query timeout](../../../server/configuration/database-configuration#databases.querytimeoutinsec).
-
----
-
 * In this page:
   * [Queries always provide results using an index](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index)  
   * [Session.Query](../../../client-api/session/querying/how-to-query#session.query)  
@@ -60,10 +52,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../client-api/session/querying/how-to-query#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Queries always provide results using an index" id="queries-always-provide-results-using-an-index" href="#queries-always-provide-results-using-an-index"> 
+## Queries always provide results using an index 
 
 * Queries always use an index to provide fast results regardless of the size of your data.  
 
@@ -86,9 +75,6 @@ We differentiate between the following **3 query scenarios**:
 For each scenario, a different index type is used, as described below.
 
 </Admonition>
-
----
-
 <Admonition type="note" title="Note">
 
 <a id="indexQuery"/> 
@@ -137,9 +123,6 @@ For each scenario, a different index type is used, as described below.
 
 * Example RQL: &nbsp; `from Employees where FirstName == "Laura"`  
   See more examples [below](../../../client-api/session/querying/how-to-query#session.query).
-
----
-
 * Note: Counters and Time series are an exception to this flow.  
   Dynamic queries on counters and time series values don't create auto-indexes.  
   However, a static-index can be defined on [Time series](../../../document-extensions/timeseries/indexing) and [Counters](../../../document-extensions/counters/indexing).
@@ -174,9 +157,9 @@ For each scenario, a different index type is used, as described below.
     See more examples [below](../../../client-api/session/querying/how-to-query#session.query).
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Session.Query" id="session-query" href="#session-query">
+
+## Session.Query
 
 * The simplest way to issue a query is by using the session's `Query` method which supports LINQ.  
   Both the LINQ method syntax and the LINQ query syntax are supported.  
@@ -508,9 +491,9 @@ from "Products" limit 5, 10 // skip 5, take 10
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Session.Advanced.DocumentQuery" id="session-advanced-documentquery" href="#session-advanced-documentquery">
+
+## Session.Advanced.DocumentQuery
 
 * `DocumentQuery` provides a full spectrum of low-level querying capabilities,  
    giving you more flexibility and control when making complex queries.
@@ -568,9 +551,9 @@ from "Employees" where FirstName = "Robert"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Session.Advanced.RawQuery" id="session-advanced-rawquery" href="#session-advanced-rawquery">
+
+## Session.Advanced.RawQuery
 
 * Queries defined with [Query](../../../client-api/session/querying/how-to-query#session.query) or [DocumentQuery](../../../client-api/session/querying/how-to-query#session.advanced.documentquery) are translated by the RavenDB client to [RQL](../../../client-api/session/querying/what-is-rql)  
   when sent to the server.
@@ -616,9 +599,9 @@ List<Employee> employees = await asyncSession
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Custom methods and extensions for LINQ" id="custom-methods-and-extensions-for-linq" href="#custom-methods-and-extensions-for-linq">
+
+## Custom methods and extensions for LINQ
 
 * Available custom methods and extensions for the session's [Query](../../../client-api/session/querying/how-to-query#session.query) method:
 
@@ -654,9 +637,9 @@ List<Employee> employees = await asyncSession
    * ToArrayAsync
    * [VectorSearch](../../../ai-integration/vector-search/vector-search-using-dynamic-query)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -697,14 +680,11 @@ IRawDocumentQuery<T> RawQuery<T>(string query);
 | - | - |
 | `IRavenQueryable`<br/>`IDocumentQuery`<br/>`IRawDocumentQuery` | Instances exposing additional query methods and [extensions](../../../client-api/session/querying/how-to-query#custom-methods-and-extensions-for-linq) |
  
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Query Overview
-
----
 
 <Admonition type="note" title="Note">
 
@@ -717,18 +697,12 @@ IRawDocumentQuery<T> RawQuery<T>(string query);
 
 * Queries defined with `query` or `document_query` are translated by the RavenDB client to [RQL](../../../client-api/session/querying/what-is-rql)  
   when sent to the server.
-
----
-
 * All queries in RavenDB use an **index** to provide results, even when you don't specify one.  
   Learn more [below](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
 
 * Queries that do Not specify which index to use are called **Dynamic Queries**.  
   This article displays examples of dynamic queries only.  
   For examples showing how to query an index see [querying an index](../../../indexes/querying/query-index).
-
----
-
 * The entities returned by the query are 'loaded' and **tracked** by the [Session](../../../client-api/session/what-is-a-session-and-how-does-it-work).  
   Entities will Not be tracked when:  
     * Query returns a [projection](../../../client-api/session/querying/how-to-project-query-results)  
@@ -737,9 +711,6 @@ IRawDocumentQuery<T> RawQuery<T>(string query);
 * Query results are **cached** by default. To disable query caching see [NoCaching](../../../client-api/session/querying/how-to-customize-query#nocaching).
 
 * Queries are timed out after a configurable time period.  See [query timeout](../../../server/configuration/database-configuration#databases.querytimeoutinsec).
-
----
-
 * In this page:
   * [Queries always provide results using an index](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index)  
   * [session.query](../../../client-api/session/querying/how-to-query#session.query)  
@@ -749,10 +720,7 @@ IRawDocumentQuery<T> RawQuery<T>(string query);
   * [Syntax](../../../client-api/session/querying/how-to-query#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Queries always provide results using an index" id="queries-always-provide-results-using-an-index" href="#queries-always-provide-results-using-an-index"> 
+## Queries always provide results using an index 
 
 * Queries always use an index to provide fast results regardless of the size of your data.
 
@@ -775,9 +743,6 @@ We differentiate between the following **3 query scenarios**:
 For each scenario, a different index type is used, as described below.
 
 </Admonition>
-
----
-
 <Admonition type="note" title="Note">
 
 <a id="indexQuery"/> 
@@ -826,9 +791,6 @@ For each scenario, a different index type is used, as described below.
 
 * Example RQL: &nbsp; `from Employees where FirstName == "Laura"`  
   See more examples [below](../../../client-api/session/querying/how-to-query#session.query).
-
----
-
 * Note: Counters and Time series are an exception to this flow.  
   Dynamic queries on counters and time series values don't create auto-indexes.  
   However, a static-index can be defined on [Time series](../../../document-extensions/timeseries/indexing) and [Counters](../../../document-extensions/counters/indexing).
@@ -863,9 +825,9 @@ For each scenario, a different index type is used, as described below.
     See more examples [below](../../../client-api/session/querying/how-to-query#session.query).
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="session.query" id="session-query" href="#session-query">
+
+## session.query
 
 * The simplest way to issue a query is using session's `query` method.  
 
@@ -1067,9 +1029,9 @@ from "Products" limit 5, 10 // skip 5, take 10
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="session.advanced.document_query" id="session-advanced-document_query" href="#session-advanced-document_query">
+
+## session.advanced.document_query
 
 * Below is a simple `document_query` usage sample and its RQL equivalent.  
   For a full description and more examples see:  
@@ -1109,9 +1071,9 @@ from "Employees" where FirstName = "Robert"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="session.advanced.raw_query" id="session-advanced-raw_query" href="#session-advanced-raw_query">
+
+## session.advanced.raw_query
 
 * Queries defined with [query](../../../client-api/session/querying/how-to-query#session.query) or [document_query](../../../client-api/session/querying/how-to-query#session.advanced.document_query) are translated by the RavenDB client to [RQL](../../../client-api/session/querying/what-is-rql)  
   when sent to the server.
@@ -1139,9 +1101,9 @@ employees = list(  # Execute the query
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Custom methods" id="custom-methods" href="#custom-methods">
+
+## Custom methods
 
 Available custom methods for session's [query](../../../client-api/session/querying/how-to-query#session.query) method:
 
@@ -1166,9 +1128,9 @@ Available custom methods for session's [query](../../../client-api/session/query
 - [statistics](../../../client-api/session/querying/how-to-get-query-statistics)
 - [suggest_using](../../../client-api/session/querying/how-to-work-with-suggestions)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -1231,14 +1193,11 @@ def raw_query(self, query: str, object_type: Optional[Type[_T]] = None) -> RawDo
 | - | - |
 | `DocumentQuery[_T]`<br/>`RawDocumentQuery[_T]` | Instances exposing additional query methods and [extensions](../../../client-api/session/querying/how-to-query#custom-methods-and-extensions-for-linq) |
  
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Query Overview
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1251,18 +1210,12 @@ def raw_query(self, query: str, object_type: Optional[Type[_T]] = None) -> RawDo
 
 * Queries defined using `query` or `documentQuery` are translated by the RavenDB client 
   to [RQL](../../../client-api/session/querying/what-is-rql) when sent to the server.  
-
----
-
 * All RavenDB queries use an **index** to provide results, even when an index is not explicitly defined.  
   Learn more [below](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
 
 * Queries that do Not specify which index to use are called **Dynamic Queries**.  
   This article shows examples of dynamic queries only.  
   For index query examples see [querying an index](../../../indexes/querying/query-index).
-
----
-
 * The entities returned by the query are 'loaded' and **tracked** by the [session](../../../client-api/session/what-is-a-session-and-how-does-it-work).  
   Entities will Not be tracked when:  
     * Query returns a [projection](../../../client-api/session/querying/how-to-project-query-results)  
@@ -1273,9 +1226,6 @@ def raw_query(self, query: str, object_type: Optional[Type[_T]] = None) -> RawDo
 
 * Queries are timed out after a configurable time period.  
   See [query timeout](../../../server/configuration/database-configuration#databases.querytimeoutinsec).
-
----
-
 * In this page:
   * [Queries always provide results using an index](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index)  
   * [session.query](../../../client-api/session/querying/how-to-query#session.query)  
@@ -1285,10 +1235,7 @@ def raw_query(self, query: str, object_type: Optional[Type[_T]] = None) -> RawDo
   * [Syntax](../../../client-api/session/querying/how-to-query#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Queries always provide results using an index" id="queries-always-provide-results-using-an-index" href="#queries-always-provide-results-using-an-index"> 
+## Queries always provide results using an index 
 
 * Queries always use an index to provide fast results regardless of the size of your data.
 
@@ -1311,9 +1258,6 @@ We differentiate between the following **3 query scenarios**:
 For each scenario, a different index type is used, as described below.
 
 </Admonition>
-
----
-
 <Admonition type="note" title="Note">
 
 <a id="indexQuery"/> 
@@ -1362,9 +1306,6 @@ For each scenario, a different index type is used, as described below.
 
 * RQL Example: &nbsp; `from Employees where FirstName == "Laura"`  
   See more examples [below](../../../client-api/session/querying/how-to-query#session.query).
-
----
-
 * Note: Counters and Time series are an exception to this flow.  
   Dynamic queries on counters and time series values don't create auto-indexes.  
   However, a static-index can be defined on [Time series](../../../document-extensions/timeseries/indexing) 
@@ -1400,9 +1341,9 @@ For each scenario, a different index type is used, as described below.
     See more examples [below](../../../client-api/session/querying/how-to-query#session.query).
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="session.query" id="session-query" href="#session-query">
+
+## session.query
 
 * The simplest way to issue a query is by using the session's `query` method which supports LINQ.  
   Both the LINQ method syntax and the LINQ query syntax are supported.  
@@ -1546,9 +1487,9 @@ from "Products" limit 5, 10 // skip 5, take 10
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="session.advanced.documentQuery" id="session-advanced-documentquery" href="#session-advanced-documentquery">
+
+## session.advanced.documentQuery
 
 * `documentQuery` provides a full spectrum of low-level querying capabilities,  
    giving you more flexibility and control when making complex queries.
@@ -1590,9 +1531,9 @@ from "Employees" where FirstName = "Robert"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="session.advanced.rawQuery" id="session-advanced-rawquery" href="#session-advanced-rawquery">
+
+## session.advanced.rawQuery
 
 * Queries defined with [query](../../../client-api/session/querying/how-to-query#session.query) 
   or [documentQuery](../../../client-api/session/querying/how-to-query#session.advanced.documentquery) 
@@ -1621,9 +1562,9 @@ $employees = $session
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Custom methods" id="custom-methods" href="#custom-methods">
+
+## Custom methods
 
 Available custom methods for session's [query](../../../client-api/session/querying/how-to-query#session.query) method:
 
@@ -1648,9 +1589,9 @@ Available custom methods for session's [query](../../../client-api/session/query
 - [statistics](../../../client-api/session/querying/how-to-get-query-statistics)
 - [suggestUsing](../../../client-api/session/querying/how-to-work-with-suggestions)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -1681,14 +1622,11 @@ public function rawQuery(?string $className, string $query): RawDocumentQueryInt
 | - | - |
 | `DocumentQueryInterface`<br/>`RawDocumentQueryInterface` | Interfaces exposing additional query methods and [extensions](../../../client-api/session/querying/how-to-query#custom-methods) |
  
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Query Overview
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1699,18 +1637,12 @@ public function rawQuery(?string $className, string $query): RawDocumentQueryInt
 
 * Queries defined with the `query` method are translated by the RavenDB client to [RQL](../../../client-api/session/querying/what-is-rql)  
   when sent to the server.
-
----
-
 * All queries in RavenDB use an **index** to provide results, even when you don't specify one.  
   Learn more [below](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
 
 * Queries that do Not specify which index to use are called **Dynamic Queries**.  
   This article displays examples of dynamic queries only.  
   For examples showing how to query an index see [querying an index](../../../indexes/querying/query-index).
-
----
-
 * The entities returned by the query are 'loaded' and **tracked** by the [Session](../../../client-api/session/what-is-a-session-and-how-does-it-work).  
   Entities will Not be tracked when:  
     * Query returns a [projection](../../../client-api/session/querying/how-to-project-query-results)  
@@ -1719,9 +1651,6 @@ public function rawQuery(?string $className, string $query): RawDocumentQueryInt
 * Query results are **cached** by default. To disable query caching see [noCaching](../../../client-api/session/querying/how-to-customize-query#nocaching).  
 
 * Queries are timed out after a configurable time period.  See [query timeout](../../../server/configuration/database-configuration#databases.querytimeoutinsec).
-
----
-
 * In this page:
   * [Queries always provide results using an index](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index)  
   * [session.query](../../../client-api/session/querying/how-to-query#session.query)  
@@ -1730,10 +1659,7 @@ public function rawQuery(?string $className, string $query): RawDocumentQueryInt
   * [Syntax](../../../client-api/session/querying/how-to-query#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Queries always provide results using an index" id="queries-always-provide-results-using-an-index" href="#queries-always-provide-results-using-an-index"> 
+## Queries always provide results using an index 
 
 * Queries always use an index to provide fast results regardless of the size of your data.
 
@@ -1756,9 +1682,6 @@ We differentiate between the following **3 query scenarios**:
 For each scenario, a different index type is used, as described below.
 
 </Admonition>
-
----
-
 <Admonition type="note" title="Note">
 
 <a id="indexQuery"/> 
@@ -1807,9 +1730,6 @@ For each scenario, a different index type is used, as described below.
 
 * Example RQL: &nbsp; `from Employees where FirstName == "Laura"`  
   See more examples [below](../../../client-api/session/querying/how-to-query#session.query).
-
----
-
 * Note: Counters and Time series are an exception to this flow.  
   Dynamic queries on counters and time series values don't create auto-indexes.  
   However, a static-index can be defined on [Time series](../../../document-extensions/timeseries/indexing) and [Counters](../../../document-extensions/counters/indexing).
@@ -1844,9 +1764,9 @@ For each scenario, a different index type is used, as described below.
     See more examples [below](../../../client-api/session/querying/how-to-query#session.query).
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="session.query" id="session-query" href="#session-query">
+
+## session.query
 
 * The simplest way to issue a query is by using the session's `query` method.    
   Customize your query with these [API methods](../../../client-api/session/querying/how-to-query#query-api).
@@ -2042,9 +1962,9 @@ from "products" limit 5, 10 // skip 5, take 10
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="session.advanced.rawQuery" id="session-advanced-rawquery" href="#session-advanced-rawquery">
+
+## session.advanced.rawQuery
 
 * Queries defined with [query](../../../client-api/session/querying/how-to-query#session.query) are translated by the RavenDB client to [RQL](../../../client-api/session/querying/what-is-rql) when sent to the server.  
 
@@ -2070,9 +1990,9 @@ const employees = await session.advanced
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="query API" id="query-api" href="#query-api">
+
+## query API
 
 Available methods for the session's [query](../../../client-api/session/querying/how-to-query#session.query) method:
 
@@ -2148,9 +2068,9 @@ Available methods for the session's [query](../../../client-api/session/querying
 - [whereStartsWith](../../../client-api/session/querying/text-search/starts-with-query)
 - withinRadiusOf
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -2188,7 +2108,7 @@ session.rawQuery(query);
 
 * Note:  
   Use `await` when executing the query, e.g. when calling `.all`, `.single`, `.first`, `.count`, etc.  
-</Admonition>
+
 
 
 </LanguageContent>

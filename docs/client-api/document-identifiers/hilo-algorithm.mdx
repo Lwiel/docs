@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# HiLo Algorithm
+export const supportedLanguages = ["csharp"];
 
----
+
+# HiLo Algorithm
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,9 +29,6 @@ import LanguageContent from "@site/src/components/language-content";
   For an overview of all methods for generating unique IDs in RavenDB, see:
   * [Document identifier generation](../../server/kb/document-identifier-generation)
   * [Working with document identifiers](../../client-api/document-identifiers/working-with-document-identifiers).
-
----
-
 * In this page:
    * [How the HiLo algorithm works in RavenDB](../../client-api/document-identifiers/hilo-algorithm#how-the-hilo-algorithm-works-in-ravendb)
      * [Generating unique IDs efficiently](../../client-api/document-identifiers/hilo-algorithm#generating-unique-ids-efficiently)
@@ -44,7 +42,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="How the HiLo algorithm works in RavenDB" id="how-the-hilo-algorithm-works-in-ravendb" href="#how-the-hilo-algorithm-works-in-ravendb">
+## How the HiLo algorithm works in RavenDB
 
 ### Generating unique IDs efficiently:
 
@@ -64,9 +62,6 @@ The node-tag is added to ensure unique IDs across the cluster.
 
 Thus, with minimal trips to the server, the client is able to determine to which collection an entity belongs  
 and automatically assign it a number with a node-tag to ensure that the ID is unique across the cluster.
-
----
-
 ### Using HiLo documents:
 
 **HiLo documents are used by the server to provide the next range of numbers.**  
@@ -98,9 +93,9 @@ The `Max` property means the maximum possible number that has been used by any c
    This range object is then used to generate unique document IDs as needed.
 5. When the client reaches the max limit, it will repeat the process.
 
-</Admonition>
 
-<Admonition type="info" title="Returning HiLo ranges" id="returning-hilo-ranges" href="#returning-hilo-ranges">
+
+## Returning HiLo ranges
 
 When the document store is disposed, the client sends the server the last value it used to create an identifier 
 and the max value that was previously received from the server.
@@ -160,20 +155,18 @@ using (var session = newStore.OpenSession())
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 <Admonition type="info" title="Info">
 
 #### Identity parts separator
----
-
 * By default, document IDs created by the server use the character `/` to separate their components.  
 
 * This separator can be customized to any other character, except `|`, by setting the [IdentityPartsSeparator](../../client-api/configuration/conventions#identitypartsseparator) convention.  
 
 </Admonition>
 
-<Admonition type="info" title="Manual HiLo ID generation" id="manual-hilo-id-generation" href="#manual-hilo-id-generation">
+## Manual HiLo ID generation
 
 * **Automatic generation**:  
   When the session stores a new document with the `Id` set to `null`, RavenDB's default HiLo ID generator automatically generates the ID for the document.
@@ -184,9 +177,6 @@ using (var session = newStore.OpenSession())
   You can retrieve either the next number portion or the full document ID and then use it when storing the document, as explained below:  
     * [Get next ID - number only](../../client-api/document-identifiers/hilo-algorithm#get-next-id---number-only)
     * [Get next ID - full document ID](../../client-api/document-identifiers/hilo-algorithm#get-next-id---full-document-id)
-
----
-
 ### Get next ID - number only
 
 You can take advantage of the HiLo algorithm and create documents with your own customized ID that is based on the next HiLo ID number provided by the client.
@@ -284,9 +274,6 @@ It is more costly than the default HiLo generator because it requires a request 
 and the server needs to do a Raft consensus check to ensure that the other nodes in the cluster agree that the ID is unique, then returns the ID to the client.
 
 </Admonition>
-
----
-
 ### Get next ID - full document ID
 
 You can request to get the next full document ID from the default HiLo generator without having to store the document first.
@@ -326,9 +313,9 @@ the consecutive number `4` is retrieved and incorporated into the full document 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Overriding the HiLo algorithm" id="overriding-the-hilo-algorithm" href="#overriding-the-hilo-algorithm">
+
+## Overriding the HiLo algorithm
 
 * RavenDB's default HiLo generator is managed by the `HiLoIdGenerator` property in your _DocumentStore_ object.
 
@@ -342,7 +329,7 @@ the consecutive number `4` is retrieved and incorporated into the full document 
       [GenerateDocumentIdAsync](../../client-api/document-identifiers/hilo-algorithm#get-next-id---full-document-id) via the store's `HiLoIdGenerator`   
       will throw an exception.
 
-</Admonition>
+
 
 
 </LanguageContent>

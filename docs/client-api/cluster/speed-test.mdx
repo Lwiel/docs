@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Cluster: Speed Test
----
-
 <Admonition type="note" title="Note">
 
 * In RavenDB Client API, if the [Read Balance Behavior](../../client-api/configuration/load-balance/read-balance-behavior) is configured for the _Fastest Node_, 
@@ -25,10 +23,7 @@ import LanguageContent from "@site/src/components/language-content";
 * Once the Speed Test is finished, the client stores the fastest node found.  
   After that, the speed test will be repeated every minute.  
 </Admonition>
-
----
-
-<Admonition type="info" title="When does the Speed Test Trigger?" id="when-does-the-speed-test-trigger" href="#when-does-the-speed-test-trigger">
+## When does the Speed Test Trigger?
 
 The Speed Test is triggered in the following cases:
 
@@ -40,5 +35,5 @@ The Speed Test is triggered in the following cases:
    At this periodic check, the Speed Test will be triggered if _FastestNode_ is set.  
 
 * Any time when the nodes' topology changes, and again - only if _FastestNode_ is set.  
-</Admonition>
+
 

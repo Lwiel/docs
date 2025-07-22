@@ -45,6 +45,14 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           routeBasePath: "/",
+          includeCurrentVersion: true,
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: "7.1",
+              path: "/"
+            }
+          }
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:

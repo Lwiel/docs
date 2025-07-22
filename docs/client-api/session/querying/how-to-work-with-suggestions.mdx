@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["java", "csharp", "python", "php", "nodejs"];
+
+
+# Query for Suggestions
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="java">
-# Query for Suggestions
+
 
 The `suggestion` feature is available through query extension methods. It gives you the ability to find word similarities using string distance algorithms.
 
@@ -133,9 +137,6 @@ select suggest('FullName', 'johne')
 
 </LanguageContent>
 <LanguageContent language="csharp">
-# Query for Suggestions
-
----
 
 <Admonition type="note" title="Note">
 
@@ -145,9 +146,6 @@ select suggest('FullName', 'johne')
 
 * Examples in this article demonstrate getting suggestions with a **dynamic-query**.  
   For getting suggestions with an **index-query** see [query for suggestions with index](../../../indexes/querying/suggestions).
-
----
-
 * In this page:
 
     * Overview:
@@ -164,10 +162,7 @@ select suggest('FullName', 'johne')
     * [Syntax](../../../client-api/session/querying/how-to-work-with-suggestions#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="What are terms" id="what-are-terms" href="#what-are-terms">
+## What are terms
 
 * All queries in RavenDB use an index - learn more about that [here](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).  
   Whether making a dynamic query which generates an auto-index or using a static index,  
@@ -178,9 +173,9 @@ select suggest('FullName', 'johne')
 
 * The terms can then be queried to retrieve matching documents that contain them.
 
-</Admonition>
 
-<Admonition type="info" title="When to use suggestions" id="when-to-use-suggestions" href="#when-to-use-suggestions">
+
+## When to use suggestions
 
 Querying for suggestions is useful in the following scenarios:
 
@@ -204,9 +199,9 @@ they will only contain the similar terms.
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - for single term" id="suggest-terms-for-single-term" href="#suggest-terms-for-single-term">
+
+## Suggest terms - for single term
 
 Consider this example:  
 Based on the Northwind sample data, the following query has no resulting documents,  
@@ -325,9 +320,9 @@ foreach (string suggestedTerm in suggestions["Name"].Suggestions)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - for multiple terms" id="suggest-terms-for-multiple-terms" href="#suggest-terms-for-multiple-terms">
+
+## Suggest terms - for multiple terms
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -419,9 +414,9 @@ from "Products" select suggest(Name, $p0)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - for multiple fields" id="suggest-terms-for-multiple-fields" href="#suggest-terms-for-multiple-fields">
+
+## Suggest terms - for multiple fields
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -538,9 +533,9 @@ select suggest(Name, "chop-soy china"), suggest(Contact.Name, "maria larson")
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - customize options and display name" id="suggest-terms-customize-options-and-display-name" href="#suggest-terms-customize-options-and-display-name">
+
+## Suggest terms - customize options and display name
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -680,9 +675,9 @@ foreach (string suggestedTerm in suggestions["SomeCustomName"].Suggestions)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="The auto-index terms in Studio" id="the-auto-index-terms-in-studio" href="#the-auto-index-terms-in-studio">
+
+## The auto-index terms in Studio
 
 Based on the Northwind sample data, these are the terms generated for index `Auto/Products/ByName`:
 
@@ -693,9 +688,9 @@ Based on the Northwind sample data, these are the terms generated for index `Aut
 
 2. **The terms** generated from the data that the Products collection documents have in their `Name` field.
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **Suggest using**:
 
@@ -760,14 +755,11 @@ public SuggestionSortMode SortMode \{ get; set; \}
 | **Accuracy** | `float?`              | &lt;ul&gt;&lt;li&gt;Suggestion accuracy&lt;/li&gt;&lt;li&gt;Default is &lt;strong&gt;0.5f&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;                                                                              |
 | **SortMode** | `SuggestionSortMode`  | &lt;ul&gt;&lt;li&gt;Indicates the order by which results are returned&lt;/li&gt;&lt;li&gt;`None` / `Popularity`&lt;/li&gt;&lt;li&gt;Default is &lt;strong&gt;Popularity&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;            |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Query for Suggestions
-
----
 
 <Admonition type="note" title="Note">
 
@@ -777,9 +769,6 @@ public SuggestionSortMode SortMode \{ get; set; \}
 
 * Examples in this article demonstrate getting suggestions with a **dynamic-query**.  
   For getting suggestions with an **index-query** see [query for suggestions with index](../../../indexes/querying/suggestions).
-
----
-
 * In this page:
 
     * Overview:
@@ -796,10 +785,7 @@ public SuggestionSortMode SortMode \{ get; set; \}
     * [Syntax](../../../client-api/session/querying/how-to-work-with-suggestions#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="What are terms" id="what-are-terms" href="#what-are-terms">
+## What are terms
 
 * All queries in RavenDB use an index - learn more about that [here](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).  
   Whether making a dynamic query which generates an auto-index or using a static index,  
@@ -810,9 +796,9 @@ public SuggestionSortMode SortMode \{ get; set; \}
 
 * The terms can then be queried to retrieve matching documents that contain them.
 
-</Admonition>
 
-<Admonition type="info" title="When to use suggestions" id="when-to-use-suggestions" href="#when-to-use-suggestions">
+
+## When to use suggestions
 
 Querying for suggestions is useful in the following scenarios:
 
@@ -836,9 +822,9 @@ they will only contain the similar terms.
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - for single term" id="suggest-terms-for-single-term" href="#suggest-terms-for-single-term">
+
+## Suggest terms - for single term
 
 Consider this example:  
 Based on the Northwind sample data, the following query has no resulting documents,  
@@ -913,9 +899,9 @@ for suggested_term in suggestions["name"].suggestions:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - for multiple terms" id="suggest-terms-for-multiple-terms" href="#suggest-terms-for-multiple-terms">
+
+## Suggest terms - for multiple terms
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -976,9 +962,9 @@ from "Products" select suggest(Name, $p0)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - for multiple fields" id="suggest-terms-for-multiple-fields" href="#suggest-terms-for-multiple-fields">
+
+## Suggest terms - for multiple fields
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1050,9 +1036,9 @@ select suggest(Name, "chop-soy china"), suggest(Contact.Name, "maria larson")
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - customize options and display name" id="suggest-terms-customize-options-and-display-name" href="#suggest-terms-customize-options-and-display-name">
+
+## Suggest terms - customize options and display name
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1139,9 +1125,9 @@ for suggested_term in suggestions["SomeCustomName"].suggestions:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="The auto-index terms in Studio" id="the-auto-index-terms-in-studio" href="#the-auto-index-terms-in-studio">
+
+## The auto-index terms in Studio
 
 Based on the Northwind sample data, these are the terms generated for index `Auto/Products/ByName`:
 
@@ -1152,9 +1138,9 @@ Based on the Northwind sample data, these are the terms generated for index `Aut
 
 2. **The terms** generated from the data that the Products collection documents have in their `Name` field.
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **Suggest using**:
 
@@ -1232,14 +1218,11 @@ def __init__(
 | **accuracy** | `float` | Suggestion accuracy<br/>Default: **0.5** |
 | **sort_mode** | `SuggestionSortMode ` | Indicates the order by which results are returned (`NONE` / `POPULARITY`)<br/>Default: **POPULARITY** |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Query for Suggestions
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1249,9 +1232,6 @@ def __init__(
 
 * Examples in this article demonstrate getting suggestions with a **dynamic-query**.  
   For getting suggestions with an **index-query** see [query for suggestions with index](../../../indexes/querying/suggestions).
-
----
-
 * In this page:
 
     * Overview:
@@ -1266,10 +1246,7 @@ def __init__(
     * [Syntax](../../../client-api/session/querying/how-to-work-with-suggestions#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="What are terms" id="what-are-terms" href="#what-are-terms">
+## What are terms
 
 * All queries in RavenDB use an index - learn more about that [here](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).  
   Whether making a dynamic query which generates an auto-index or using a static index,  
@@ -1280,9 +1257,9 @@ def __init__(
 
 * The terms can then be queried to retrieve matching documents that contain them.
 
-</Admonition>
 
-<Admonition type="info" title="When to use suggestions" id="when-to-use-suggestions" href="#when-to-use-suggestions">
+
+## When to use suggestions
 
 Querying for suggestions is useful in the following scenarios:
 
@@ -1306,9 +1283,9 @@ they will only contain the similar terms.
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - for a single term" id="suggest-terms-for-a-single-term" href="#suggest-terms-for-a-single-term">
+
+## Suggest terms - for a single term
 
 Consider this example:  
 Based on the Northwind sample data, the following query has no resulting documents,  
@@ -1379,9 +1356,9 @@ select suggest(Name, "chaig")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - for multiple terms" id="suggest-terms-for-multiple-terms" href="#suggest-terms-for-multiple-terms">
+
+## Suggest terms - for multiple terms
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1425,9 +1402,9 @@ from "Products" select suggest(Name, $p0)
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="The auto-index terms in Studio" id="the-auto-index-terms-in-studio" href="#the-auto-index-terms-in-studio">
+
+## The auto-index terms in Studio
 
 Based on the Northwind sample data, these are the terms generated for index `Auto/Products/ByName`:
 
@@ -1438,9 +1415,9 @@ Based on the Northwind sample data, these are the terms generated for index `Aut
 
 2. **The terms** generated from the data that the Products collection documents have in their `Name` field.
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **Suggest using**:
 
@@ -1509,14 +1486,11 @@ function withOptions(?SuggestionOptions $options): SuggestionOperationsInterface
 | **$accuracy** | `float`                | Suggestion accuracy |
 | **$sortMode** | `?SuggestionSortMode`  | Order to return results by |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Query for Suggestions
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1526,9 +1500,6 @@ function withOptions(?SuggestionOptions $options): SuggestionOperationsInterface
 
 * Examples in this article demonstrate getting suggestions with a **dynamic-query**.  
   For getting suggestions with an **index-query** see [query for suggestions with index](../../../indexes/querying/suggestions).
-
----
-
 * In this page:
 
     * Overview:
@@ -1545,10 +1516,7 @@ function withOptions(?SuggestionOptions $options): SuggestionOperationsInterface
     * [Syntax](../../../client-api/session/querying/how-to-work-with-suggestions#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="What are terms" id="what-are-terms" href="#what-are-terms">
+## What are terms
 
 * All queries in RavenDB use an index - learn more about that [here](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).  
   Whether making a dynamic query which generates an auto-index or using a static index,  
@@ -1559,9 +1527,9 @@ function withOptions(?SuggestionOptions $options): SuggestionOperationsInterface
 
 * The terms can then be queried to retrieve matching documents that contain them.
 
-</Admonition>
 
-<Admonition type="info" title="When to use suggestions" id="when-to-use-suggestions" href="#when-to-use-suggestions">
+
+## When to use suggestions
 
 Querying for suggestions is useful in the following scenarios:
 
@@ -1585,9 +1553,9 @@ they will only contain the similar terms.
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - for single term" id="suggest-terms-for-single-term" href="#suggest-terms-for-single-term">
+
+## Suggest terms - for single term
 
 Consider this example:  
 Based on the **Northwind sample data**, the following query has no resulting documents,  
@@ -1655,9 +1623,9 @@ suggestions["Name"].suggestions.forEach(suggestedTerm => \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - for multiple terms" id="suggest-terms-for-multiple-terms" href="#suggest-terms-for-multiple-terms">
+
+## Suggest terms - for multiple terms
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1699,9 +1667,9 @@ from "Products" select suggest(Name, $p0)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - for multiple fields" id="suggest-terms-for-multiple-fields" href="#suggest-terms-for-multiple-fields">
+
+## Suggest terms - for multiple fields
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1752,9 +1720,9 @@ select suggest(Name, "chop-soy china"), suggest(Contact.Name, "maria larson")
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Suggest terms - customize options and display name" id="suggest-terms-customize-options-and-display-name" href="#suggest-terms-customize-options-and-display-name">
+
+## Suggest terms - customize options and display name
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1814,9 +1782,9 @@ suggestions["SomeCustomName"].suggestions.forEach(suggestedTerm => \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="The auto-index terms in Studio" id="the-auto-index-terms-in-studio" href="#the-auto-index-terms-in-studio">
+
+## The auto-index terms in Studio
 
 Based on the Northwind sample data, these are the terms generated for index `Auto/Products/ByName`:
 
@@ -1827,9 +1795,9 @@ Based on the Northwind sample data, these are the terms generated for index `Aut
 
 2. **The terms** generated from the data that the Products collection documents have in their `Name` field.
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **Suggest using**:
 
@@ -1878,7 +1846,7 @@ withOptions(options);
 | **accuracy** | `number ` | &lt;ul&gt;&lt;li&gt;Suggestion accuracy&lt;/li&gt;&lt;li&gt;Default is &lt;strong&gt;0.5&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;                                                                              |
 | **sortMode** | `string`  | &lt;ul&gt;&lt;li&gt;Indicates the order by which results are returned&lt;/li&gt;&lt;li&gt;`None` / `Popularity`&lt;/li&gt;&lt;li&gt;Default is &lt;strong&gt;Popularity&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;            |
 
-</Admonition>
+
 
 
 </LanguageContent>

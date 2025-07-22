@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Time Series and Other Features
+export const supportedLanguages = ["csharp", "nodejs"];
 
----
+
+# Time Series and Other Features
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -31,10 +32,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Revisions](../../document-extensions/timeseries/time-series-and-other-features#revisions)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="General features" id="general-features" href="#general-features">  
+## General features  
 
 * The Document Session [tracks](../../client-api/session/what-is-a-session-and-how-does-it-work#tracking-changes) changes to time series data.  
 * The [Changes API](../../client-api/changes/what-is-changes-api) service is triggered by changes to time series data.  
@@ -42,9 +40,9 @@ import LanguageContent from "@site/src/components/language-content";
 * Learn about how to **query** time series data [here](../../document-extensions/timeseries/querying/overview-and-syntax).  
 * Learn how to **include** time series with `session.Load()` and in queries [here](../../document-extensions/timeseries/client-api/session/include/overview).  
 
-</Admonition>
 
-<Admonition type="info" title="Smuggler" id="smuggler" href="#smuggler">
+
+## Smuggler
 
 [Smuggler](../../client-api/smuggler/what-is-smuggler) is a DocumentStore property that can be used to export selected database items to an external file 
 or import database items from an existing file into the database.  
@@ -59,9 +57,9 @@ add the parameter `DatabaseItemType.TimeSeries` to the `OperateOnTypes` enum pro
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Ongoing tasks" id="ongoing-tasks" href="#ongoing-tasks">
+
+## Ongoing tasks
 
 [Ongoing tasks](../../studio/database/tasks/ongoing-tasks/general-info) are various automatic processes that operate on the database.  
 Some of these apply to time series data, while others do not.
@@ -87,9 +85,9 @@ Support for time series in ETL is planned for one of the next releases.
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions" id="revisions" href="#revisions">
+
+## Revisions
 
 [Revisions](../../document-extensions/revisions/overview) are old versions of a document.  
 They can be created manually or by setting a policy that creates them automatically on selected collections.  
@@ -127,14 +125,11 @@ This is the general JSON format of the time series snapshot:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Time Series and Other Features
-
----
 
 <Admonition type="note" title="Note">
 
@@ -150,10 +145,7 @@ This is the general JSON format of the time series snapshot:
   * [Revisions](../../document-extensions/timeseries/time-series-and-other-features#revisions)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="General features" id="general-features" href="#general-features">  
+## General features  
 
 * The Document Session [tracks](../../client-api/session/what-is-a-session-and-how-does-it-work#tracking-changes) changes to time series data.  
 * The [Changes API](../../client-api/changes/what-is-changes-api) service is triggered by changes to time series data.  
@@ -161,9 +153,9 @@ This is the general JSON format of the time series snapshot:
 * Learn about how to **query** time series data [here](../../document-extensions/timeseries/querying/overview-and-syntax).  
 * Learn how to **include** time series with `session.Load()` and in queries [here](../../document-extensions/timeseries/client-api/session/include/overview).  
 
-</Admonition>
 
-<Admonition type="info" title="Smuggler" id="smuggler" href="#smuggler">
+
+## Smuggler
 
 [Smuggler](../../client-api/smuggler/what-is-smuggler) is a DocumentStore property that can be used to export selected database items to an external file 
 or import database items from an existing file into the database.  
@@ -179,9 +171,9 @@ options.operateOnTypes = ["Documents", "TimeSeries"];
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Ongoing tasks" id="ongoing-tasks" href="#ongoing-tasks">
+
+## Ongoing tasks
 
 [Ongoing tasks](../../studio/database/tasks/ongoing-tasks/general-info) are various automatic processes that operate on the database.  
 Some of these apply to time series data, while others do not.
@@ -207,9 +199,9 @@ Support for time series in ETL is planned for one of the next releases.
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions" id="revisions" href="#revisions">
+
+## Revisions
 
 [Revisions](../../document-extensions/revisions/overview) are old versions of a document.  
 They can be created manually or by setting a policy that creates them automatically on selected collections.  
@@ -247,7 +239,7 @@ This is the general JSON format of the time series snapshot:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

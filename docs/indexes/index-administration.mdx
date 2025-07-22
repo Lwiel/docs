@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Index Administration
----
-
 <Admonition type="note" title="Note">
 
 * Indexes can be easily managed from the [Studio](../studio/database/indexes/indexes-list-view#indexes-list-view)
@@ -33,16 +31,11 @@ import LanguageContent from "@site/src/components/language-content";
   * [Customize indexing configuration](../indexes/index-administration#customize-indexing-configuration)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Index management operations" id="index-management-operations" href="#index-management-operations">
+## Index management operations
 
 <Admonition type="note" title="Note">
 
 ##### Pause & resume index
----
-
 * An index can be paused (and resumed).
  
 * See [pause index](../client-api/operations/maintenance/indexes/stop-index) & [resume index](../client-api/operations/maintenance/indexes/start-index) for detailed information.
@@ -53,8 +46,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 ##### Pause & resume indexing
----
-
 * You can pause (and resume) indexing of ALL indexes.
  
 * See [pause indexing](../client-api/operations/maintenance/indexes/stop-indexing) & [resume indexing](../client-api/operations/maintenance/indexes/start-indexing) for detailed information.
@@ -65,8 +56,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 ##### Disable & enable index
----
-
 * An index can be disabled (and enabled), this is a persistent operation.
  
 * See [disable index](../client-api/operations/maintenance/indexes/disable-index) & [enable index](../client-api/operations/maintenance/indexes/enable-index) for detailed information.
@@ -77,8 +66,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 ##### Disable & enable indexing
----
-
 * Indexing can be disabled (and enabled) for ALL indexes, this is a persistent operation.
  
 * This is done from the [database list view](../studio/database/databases-list-view#more-actions) in the Studio.
@@ -89,8 +76,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 ##### Reset index
----
-
 * Resetting an index will force re-indexing of all documents that match the index definition.  
   An index usually needs to be reset once it reached its error quota and is in an _Error_ state.
   An index usually needs to be reset when it reaches its error quota and enters the _Error_ state.
@@ -103,8 +88,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 ##### Delete index
----
-
 * An index can be deleted from the database.
  
 * See [delete index](../client-api/operations/maintenance/indexes/delete-index) for detailed information.
@@ -115,8 +98,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 ##### Set index lock mode
----
-
 * The lock mode controls whether modifications to the index definition are applied (static indexes only).
  
 * See [set index lock](../client-api/operations/maintenance/indexes/set-index-lock) for detailed information.
@@ -127,8 +108,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 ##### Set index priority
----
-
 * Each index has a dedicated thread that handles all the work for the index.  
   Setting the index priority will affect the thread priority at the operating system level.
  
@@ -137,9 +116,9 @@ import LanguageContent from "@site/src/components/language-content";
 * Operation scope: All database-group nodes.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Index states" id="index-states" href="#index-states">
+
+## Index states
 
 An index can be in one of the following states:
 
@@ -205,9 +184,9 @@ An index can be in one of the following states:
       the server marks the index as _'Faulty'_, indicating that something is wrong with its index data files.
     * Learn more in [Faulty index](../studio/database/indexes/indexes-list-view#indexes-list-view---errors).
 
-</Admonition>
 
-<Admonition type="info" title="Customize indexing configuration" id="customize-indexing-configuration" href="#customize-indexing-configuration">
+
+## Customize indexing configuration
 
 * There are many [indexing configuration](../server/configuration/indexing-configuration) options available.  
 
@@ -224,5 +203,5 @@ An index can be in one of the following states:
 * [Server.IndexingAffinityMask](../server/configuration/server-configuration#server.indexingaffinitymask) - Control the affinity mask of indexing threads
 * [Server.NumberOfUnusedCoresByIndexes](../server/configuration/server-configuration#server.numberofunusedcoresbyindexes) - Set the number of cores that _won't_ be used by indexes
 
-</Admonition>
+
 

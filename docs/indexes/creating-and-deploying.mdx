@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Creating and Deploying Indexes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Creating and Deploying Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -28,9 +30,6 @@ import LanguageContent from "@site/src/components/language-content";
 * Static-indexes can be created:
     * using the Client API, as outlined in this article, or
     * from the [Indexes list view](../studio/database/indexes/indexes-list-view) in the Studio.
-
----
-
 * In this page:
   * [Static-indexes](../indexes/creating-and-deploying#static-indexes)
       * [Define a static-index](../indexes/creating-and-deploying#define-a-static-index)
@@ -48,13 +47,11 @@ import LanguageContent from "@site/src/components/language-content";
 </Admonition>
 
 <a id="static-indexes"/>
-<Admonition type="info" title="Define a static-index" id="define-a-static-index" href="#define-a-static-index">
+## Define a static-index
 
 <Admonition type="note" title="Note">
 
 ##### Static-indexes
----
-
 * Indexes that are explicitly **created by the user** are called `static` indexes.
 * Static-indexes can perform calculations, data conversions, and other processes behind the scenes.  
   This reduces the workload at query time by offloading these costly operations to the indexing phase.
@@ -65,8 +62,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 ##### Define a static-index using a custom class
----
-
 * To define a static-index using a custom class inherit from `AbstractIndexCreationTask`.
 * This method is recommended over the [Creating an index using an operation](../indexes/creating-and-deploying#create-a-static-index---using-an-operation) method  
   for its simplicity and the following advantages:  
@@ -91,8 +86,6 @@ public class Orders_ByTotal : AbstractIndexCreationTask<Order>
 <Admonition type="note" title="Note">
 
 ##### Naming convention
----
-
 * Static-index class names follow a single naming convention:  
   Each `_` in the class name is translated to `/` in the index name on the server.
 * In the above example, the index class name is `Orders_ByTotal`.  
@@ -102,8 +95,6 @@ public class Orders_ByTotal : AbstractIndexCreationTask<Order>
 <Admonition type="note" title="Note">
 
 ##### Customizing configuration
----
-
 * You can set various [indexing configuration](../server/configuration/indexing-configuration) values within the index definition.
 * Setting a configuration value within the index will override the matching indexing configuration values set at the server or database level.
 <TabItem value="something" label="indexes_2">
@@ -122,22 +113,17 @@ public class Orders_ByTotal : AbstractIndexCreationTask<Order>
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Deploy a static-index" id="deploy-a-static-index" href="#deploy-a-static-index">
+
+## Deploy a static-index
 
 * To begin indexing data, the index must be deployed to the server.
 * This section provides options for deploying indexes that inherit from `AbstractIndexCreationTask`.
 * To create and deploy an index using the `IndexDefinition` class via `PutIndexesOperation`,  
   see [Creating a static-index - using an Operation](../indexes/creating-and-deploying#create-a-static-index---using-an-operation).
-
----
-
 <Admonition type="note" title="Note">
 
 ##### Deploy single index
----
-
 * Use `Execute()` or `ExecuteIndex()` to deploy a single index.
 * The following examples deploy index `Ordes/ByTotal` to the default database defined in your _DocumentStore_ object.
   See the [syntax](../indexes/creating-and-deploying#deploy-syntax) section below for all available overloads.
@@ -180,8 +166,6 @@ await store.ExecuteIndexAsync(new Orders_ByTotal());
 <Admonition type="note" title="Note">
 
 ##### Deploy multiple indexes
----
-
 * Use `ExecuteIndexes()` or `IndexCreation.CreateIndexes()` to deploy multiple indexes.
 * The `IndexCreation.CreateIndexes` method attempts to create all indexes in a single request.  
   If it fails, it will repeat the execution by calling the `Execute` method for each index, one by one,  
@@ -246,9 +230,6 @@ await IndexCreation.CreateIndexesAsync(indexesToDeploy, store);
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ###### Deploy ALL indexes from an assembly
 
 * The following overload allows you to deploy ALL indexes from a specified assembly:
@@ -274,8 +255,6 @@ await IndexCreation.CreateIndexesAsync(typeof(Orders_ByTotal).Assembly, store);
 <Admonition type="note" title="Note">
 
 ##### Deploy syntax
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Deploy_methods" label="Deploy_methods">
 <CodeBlock language="csharp">
@@ -333,13 +312,9 @@ Task CreateIndexesAsync(Assembly assemblyToScan, IDocumentStore store,
 <Admonition type="note" title="Note">
 
 ##### Deployment behavior
----
-
 <Admonition type="info" title="Info">
 
 ###### Deployment mode:
----
-
 * When your database spans multiple nodes,  
   you can choose between **Rolling** index deployment or **Parallel** index deployment.
 * Rolling deployment applies the index to one node at a time,  
@@ -351,8 +326,6 @@ Task CreateIndexesAsync(Assembly assemblyToScan, IDocumentStore store,
 <Admonition type="note" title="Note">
 
 ###### When the index you are deploying already exists on the server:
----
-
 * **If the index definition is updated**:
     * RavenDB uses a side-by-side strategy for all index updates.
     * When an existing index definition is modified, RavenDB creates a new index with the updated definition.
@@ -366,9 +339,9 @@ Task CreateIndexesAsync(Assembly assemblyToScan, IDocumentStore store,
 
 </Admonition>
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Create a static-index - Example" id="create-a-static-index-example" href="#create-a-static-index-example">
+
+## Create a static-index - Example
 
 <TabItem value="something" label="indexes_13">
 <CodeBlock language="csharp">
@@ -435,9 +408,9 @@ public static void Main(string[] args)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Create a static-index - using an Operation" id="create-a-static-index-using-an-operation" href="#create-a-static-index-using-an-operation">
+
+## Create a static-index - using an Operation
 
 * An index can also be defined and deployed using the [PutIndexesOperation](../client-api/operations/maintenance/indexes/put-indexes) maintenance operation.  
 
@@ -454,16 +427,14 @@ public static void Main(string[] args)
 
 * For a detailed explanation and examples, refer to the dedicated article: [Put Indexes Operation](../client-api/operations/maintenance/indexes/put-indexes).
 
-</Admonition>
+
 
 <a id="auto-indexes"/>
-<Admonition type="info" title="Creating auto-indexes" id="creating-auto-indexes" href="#creating-auto-indexes">
+## Creating auto-indexes
 
 <Admonition type="note" title="Note">
 
 ##### Auto-indexes creation
----
-
 * Indexes **created by the server** are called `dynamic` or `auto` indexes.
 * Auto-indexes are created when all of the following conditions are met:  
     * A query is issued without specifying an index (a dynamic query).
@@ -481,8 +452,6 @@ public static void Main(string[] args)
 <Admonition type="note" title="Note">
 
 ##### Naming convention
----
-
 * Auto-indexes are easily identified by their names, which start with the `Auto/` prefix.
 * Their name also includes the name of the queried collection and a list of fields used in the query predicate to filter matching results.
 * For example, issuing the following query:
@@ -510,8 +479,6 @@ where FirstName = "Robert" and LastName = "King"
 <Admonition type="note" title="Note">
 
 ##### Auto-index idle state
----
-
 * To reduce server load, an auto-index is marked as `idle` when it hasn't been used for a while.  
   Specifically, if the time difference between the last time the auto-index was queried
   and the last time a query was made on the database (using any index) exceeds the configured threshold (30 minutes by default),
@@ -528,9 +495,9 @@ where FirstName = "Robert" and LastName = "King"
   (72 hours by default).
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Disabling auto-indexes" id="disabling-auto-indexes" href="#disabling-auto-indexes">
+
+## Disabling auto-indexes
 
 **Why disable**:  
 
@@ -549,13 +516,11 @@ where FirstName = "Robert" and LastName = "King"
    * To disable auto-index creation for a specific query made from the patch view, see these [Patch settings](../studio/database/documents/patch-view#patch-settings).
    * Disabling auto-index creation for ALL queries made on a database can be configured in the [Studio configuration view](../studio/database/settings/studio-configuration#disabling-auto-index-creation-on-studio-queries-or-patches).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Creating and Deploying Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -611,7 +576,7 @@ where FirstName = "Robert" and LastName = "King"
 
 </Admonition>
 
-<Admonition type="info" title="Static indexes" id="static-indexes" href="#static-indexes">
+## Static indexes
 
 There are a couple of ways to create a `static index` and send it to the server. We can use [maintenance operations](../indexes/creating-and-deploying#using-maintenance-operations) or create a [custom class](../indexes/creating-and-deploying#using-abstractindexcreationtask). 
 
@@ -810,9 +775,9 @@ Since RavenDB 4.0, **all** index updates are side-by-side by default. The new in
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="**Auto indexes**" id="auto-indexes" href="#auto-indexes">
+
+## **Auto indexes**
 
 Auto-indexes are **created** when queries that do **not specify an index name** are executed and, after in-depth query analysis, **no matching AUTO index is found** on the server-side.
 
@@ -855,9 +820,9 @@ To reduce the server load, if auto-indexes are not queried for a certain amount 
 
 Setting this configuration option to a high value may result in performance degradation due to the possibility of having a high amount of unnecessary work that is all redundant and not needed by indexes to perform. This is _not_ a recommended configuration.
 
-</Admonition>
 
-<Admonition type="info" title="If indexes exhaust system resources" id="if-indexes-exhaust-system-resources" href="#if-indexes-exhaust-system-resources">
+
+## If indexes exhaust system resources
 
 * The indexing process utilizes machine resources to keep the data up-to-date for queries.
 
@@ -873,13 +838,11 @@ Setting this configuration option to a high value may result in performance degr
 * Additionally, refer to the [Common indexing issues](../studio/database/indexes/indexing-performance#common-indexing-issues) section
   for troubleshooting and resolving indexing challenges.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Creating and Deploying Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -893,9 +856,6 @@ Setting this configuration option to a high value may result in performance degr
 * Static-indexes can be created:
     * using the Client API, as outlined in this article, or
     * from the [Indexes list view](../studio/database/indexes/indexes-list-view) in the Studio.
-
----
-
 * In this page:
     * [Static-indexes](../indexes/creating-and-deploying#static-indexes)
         * [Define a static-index](../indexes/creating-and-deploying#define-a-static-index)
@@ -913,13 +873,11 @@ Setting this configuration option to a high value may result in performance degr
 </Admonition>
 
 <a id="static-indexes"/>
-<Admonition type="info" title="Define a static-index" id="define-a-static-index" href="#define-a-static-index">
+## Define a static-index
 
 <Admonition type="note" title="Note">
 
 ##### Static-indexes
----
-
 * Indexes that are explicitly **created by the user** are called `static` indexes.
 * Static-indexes can perform calculations, data conversions, and other processes behind the scenes.  
   This reduces the workload at query time by offloading these costly operations to the indexing phase.
@@ -930,8 +888,6 @@ Setting this configuration option to a high value may result in performance degr
 <Admonition type="note" title="Note">
 
 ##### Define a static-index using a custom class
----
-
 * To define a static-index using a custom class, extend the `AbstractJavaScriptIndexCreationTask` class.
 * This method is recommended over the [Creating an index using an operation](../indexes/creating-and-deploying#create-a-static-index---using-an-operation) method  
   for its simplified index definition, offering a straightforward way to define the index.
@@ -949,8 +905,6 @@ Setting this configuration option to a high value may result in performance degr
 <Admonition type="note" title="Note">
 
 ##### Naming convention
----
-
 * Static-index class names follow a single naming convention:  
   Each `_` in the class name is translated to `/` in the index name on the server.
 * In the above example, the index class name is `Orders_ByTotal`.  
@@ -960,8 +914,6 @@ Setting this configuration option to a high value may result in performance degr
 <Admonition type="note" title="Note">
 
 ##### Customizing configuration
----
-
 * You can set various [indexing configuration](../server/configuration/indexing-configuration) values within the index definition.
 * Setting a configuration value within the index will override the matching indexing configuration values set at the server or database level.
 <TabItem value="something-something" label="indexes_2">
@@ -982,22 +934,17 @@ Setting this configuration option to a high value may result in performance degr
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Deploy a static-index" id="deploy-a-static-index" href="#deploy-a-static-index">
+
+## Deploy a static-index
 
 * To begin indexing data, the index must be deployed to the server.
 * This section provides options for deploying indexes that inherit from `AbstractJavaScriptIndexCreationTask`.
 * To create and deploy an index using the `IndexDefinition` class via `PutIndexesOperation`,  
   see [Creating a static-index - using an Operation](../indexes/creating-and-deploying#create-a-static-index---using-an-operation).
-
----
-
 <Admonition type="note" title="Note">
 
 ##### Deploy single index
----
-
 * Use `execute()` or `executeIndex()` to deploy a single index.
 * The following examples deploy index `Ordes/ByTotal` to the default database defined in your _DocumentStore_ object.
   See the [syntax](../indexes/creating-and-deploying#deploy-syntax) section below for all available overloads.
@@ -1021,8 +968,6 @@ await documentStore.executeIndex(new Orders_ByTotal());
 <Admonition type="note" title="Note">
 
 ##### Deploy multiple indexes
----
-
 * Use `executeIndexes()` or `IndexCreation.createIndexes()` to deploy multiple indexes.
 * The `IndexCreation.createIndexes` method attempts to create all indexes in a single request.  
   If it fails, it will repeat the execution by calling the `execute` method for each index, one by one,  
@@ -1051,8 +996,6 @@ await IndexCreation.createIndexes(indexesToDeploy, documentStore);
 <Admonition type="note" title="Note">
 
 ##### Deploy syntax
----
-
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
 {`// Call this method directly on the index instance
@@ -1085,13 +1028,9 @@ createIndexes(indexes, store, conventions);
 <Admonition type="note" title="Note">
 
 ##### Deployment behavior
----
-
 <Admonition type="info" title="Info">
 
 ###### Deployment mode:
----
-
 * When your database spans multiple nodes,  
   you can choose between **Rolling** index deployment or **Parallel** index deployment.
 * Rolling deployment applies the index to one node at a time,  
@@ -1103,8 +1042,6 @@ createIndexes(indexes, store, conventions);
 <Admonition type="note" title="Note">
 
 ###### When the index you are deploying already exists on the server:
----
-
 * **If the index definition is updated**:
     * RavenDB uses a side-by-side strategy for all index updates.
     * When an existing index definition is modified, RavenDB creates a new index with the updated definition.
@@ -1118,9 +1055,9 @@ createIndexes(indexes, store, conventions);
 
 </Admonition>
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Create a static-index - Example" id="create-a-static-index-example" href="#create-a-static-index-example">
+
+## Create a static-index - Example
 
 <TabItem value="something-something" label="indexes_7">
 <CodeBlock language="nodejs">
@@ -1171,9 +1108,9 @@ async function main() \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Create a static-index - using an Operation" id="create-a-static-index-using-an-operation" href="#create-a-static-index-using-an-operation">
+
+## Create a static-index - using an Operation
 
 * An index can also be defined and deployed using the [PutIndexesOperation](../client-api/operations/maintenance/indexes/put-indexes) maintenance operation.
 
@@ -1189,16 +1126,14 @@ async function main() \{
 
 * For a detailed explanation and examples, refer to the dedicated article: [Put Indexes Operation](../client-api/operations/maintenance/indexes/put-indexes).
 
-</Admonition>
+
 
 <a id="auto-indexes"/>
-<Admonition type="info" title="Creating auto-indexes" id="creating-auto-indexes" href="#creating-auto-indexes">
+## Creating auto-indexes
 
 <Admonition type="note" title="Note">
 
 ##### Auto-indexes creation
----
-
 * Indexes **created by the server** are called `dynamic` or `auto` indexes.
 * Auto-indexes are created when all of the following conditions are met:
     * A query is issued without specifying an index (a dynamic query).
@@ -1216,8 +1151,6 @@ async function main() \{
 <Admonition type="note" title="Note">
 
 ##### Naming convention
----
-
 * Auto-indexes are easily identified by their names, which start with the `Auto/` prefix.
 * Their name also includes the name of the queried collection and a list of fields used in the query predicate to filter matching results.
 * For example, issuing the following query:
@@ -1246,8 +1179,6 @@ where FirstName = "Robert" and LastName = "King"
 <Admonition type="note" title="Note">
 
 ##### Auto-index idle state
----
-
 * To reduce server load, an auto-index is marked as `idle` when it hasn't been used for a while.  
   Specifically, if the time difference between the last time the auto-index was queried
   and the last time a query was made on the database (using any index) exceeds the configured threshold (30 minutes by default),
@@ -1264,9 +1195,9 @@ where FirstName = "Robert" and LastName = "King"
   (72 hours by default).
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Disabling auto-indexes" id="disabling-auto-indexes" href="#disabling-auto-indexes">
+
+## Disabling auto-indexes
 
 **Why disable**:
 
@@ -1285,7 +1216,7 @@ where FirstName = "Robert" and LastName = "King"
     * To disable auto-index creation for a specific query made from the patch view, see these [Patch settings](../studio/database/documents/patch-view#patch-settings).
     * Disabling auto-index creation for ALL queries made on a database can be configured in the [Studio configuration view](../studio/database/settings/studio-configuration#disabling-auto-index-creation-on-studio-queries-or-patches).
 
-</Admonition>
+
 
 
 </LanguageContent>

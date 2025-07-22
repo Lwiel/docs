@@ -13,9 +13,6 @@ import LanguageContent from "@site/src/components/language-content";
 
 
 # Time Series Settings
-
----
-
 <Admonition type="note" title="Note">
 
 * The **Time Series Settings view** allows you to define and manage time series 
@@ -45,10 +42,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Add or Edit Time Series Configuration](../../../studio/database/settings/time-series-settings#add-or-edit-time-series-configuration)  
   * [Rollup Policies for Rollup Time Series](../../../studio/database/settings/time-series-settings#rollup-policies-for-rollup-time-series)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Rationale for Configuring Time Series Policies" id="rationale-for-configuring-time-series-policies" href="#rationale-for-configuring-time-series-policies">
+## Rationale for Configuring Time Series Policies
 
 Many applications continuously store massive amounts of time series data.  
 
@@ -87,9 +81,9 @@ Here are the different levels of resolution that they want to see:
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Time Series Settings View" id="time-series-settings-view" href="#time-series-settings-view">
+
+## Time Series Settings View
 
 !["Time Series Settings View"](./assets/time-series-settings-01_view.png)
 
@@ -126,9 +120,9 @@ Here are the different levels of resolution that they want to see:
 6. **Save**  
    Click to save the time series configurations.  
 
-</Admonition>
 
-<Admonition type="info" title="Defined Time Series Configurations" id="defined-time-series-configurations" href="#defined-time-series-configurations">
+
+## Defined Time Series Configurations
 
 !["Defined Time Series Configurations - Actions"](./assets/time-series-settings-03_per-collection-configuration-actions.png)
 
@@ -143,9 +137,6 @@ Here are the different levels of resolution that they want to see:
    Click to [edit this configuration](../../../studio/database/settings/time-series-settings#add-or-edit-time-series-configuration).  
 4. **Remove**  
   Click to remove this configuration.  
-
----
-
 !["Defined Time Series Configurations - Info"](./assets/time-series-settings-04_per-collection-configuration-info.png)
 
 1. **Collection Name**  
@@ -207,9 +198,9 @@ Here are the different levels of resolution that they want to see:
       Time series entries values, in their consecutive order within 
       the entry (#0, #1..), with the name defined for each value.  
 
-</Admonition>
 
-<Admonition type="info" title="Add or Edit Time Series Configuration" id="add-or-edit-time-series-configuration" href="#add-or-edit-time-series-configuration">
+
+## Add or Edit Time Series Configuration
 
 
 
@@ -271,10 +262,10 @@ Here are the different levels of resolution that they want to see:
 9. **Save**  
    Remember to also **click Save** when you're finished.
 
-</Admonition>
 
 
-<Admonition type="info" title="Rollup Policies for Rollup Time Series" id="rollup-policies-for-rollup-time-series" href="#rollup-policies-for-rollup-time-series">
+
+## Rollup Policies for Rollup Time Series
 
 * Rollup policies can be created both for **Raw time series data**, 
   and for **data aggregated by other rollup time series**.  
@@ -313,7 +304,4 @@ Here are the different levels of resolution that they want to see:
    Every 30 minutes of data from the `ByMinute` rollup time series 
    are aggregated into a single entry of the new `30Mins` rollup time series.  
 
-</Admonition>
-
----
 

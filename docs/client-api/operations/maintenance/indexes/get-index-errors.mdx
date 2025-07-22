@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Get Index Errors Operation
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Get Index Errors Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -31,10 +32,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-index-errors#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get errors for all indexes" id="get-errors-for-all-indexes" href="#get-errors-for-all-indexes">
+## Get errors for all indexes
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -63,9 +61,9 @@ IndexErrors[] indexErrors = await store.Maintenance.SendAsync(getIndexErrorsOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Get errors for specific indexes" id="get-errors-for-specific-indexes" href="#get-errors-for-specific-indexes">
+
+## Get errors for specific indexes
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -96,9 +94,9 @@ IndexErrors[] indexErrors = await store.Maintenance.SendAsync(getIndexErrorsOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -150,12 +148,12 @@ public GetIndexErrorsOperation(string[] indexNames) // Get errors for specific i
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Get Index Errors Operation
+
 
 **GetIndexErrorsOperation** is used to return errors encountered during document indexing. 
 
@@ -276,9 +274,6 @@ IndexErrors[] indexErrors
 
 </LanguageContent>
 <LanguageContent language="python">
-# Get Index Errors Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -294,10 +289,7 @@ IndexErrors[] indexErrors
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-index-errors#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get errors for all indexes" id="get-errors-for-all-indexes" href="#get-errors-for-all-indexes">
+## Get errors for all indexes
 
 <TabItem value="something-something" label="get_errors_all">
 <CodeBlock language="python">
@@ -312,9 +304,9 @@ index_errors = store.maintenance.send(get_index_errors_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get errors for specific indexes" id="get-errors-for-specific-indexes" href="#get-errors-for-specific-indexes">
+
+## Get errors for specific indexes
 
 <TabItem value="something-something" label="get_errors_specific">
 <CodeBlock language="python">
@@ -330,9 +322,9 @@ index_errors = store.maintenance.send(get_index_errors_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="python">
@@ -390,14 +382,11 @@ index_errors = store.maintenance.send(get_index_errors_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Get Index Errors Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -413,10 +402,7 @@ index_errors = store.maintenance.send(get_index_errors_op)
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-index-errors#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get errors for all indexes" id="get-errors-for-all-indexes" href="#get-errors-for-all-indexes">
+## Get errors for all indexes
 
 <TabItem value="something-something" label="get_errors_all">
 <CodeBlock language="php">
@@ -432,9 +418,9 @@ $indexErrors = $store->maintenance()->send($getIndexErrorsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get errors for specific indexes" id="get-errors-for-specific-indexes" href="#get-errors-for-specific-indexes">
+
+## Get errors for specific indexes
 
 <TabItem value="something-something" label="get_errors_specific">
 <CodeBlock language="php">
@@ -451,9 +437,9 @@ $indexErrors = $store->maintenance()->send($getIndexErrorsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -511,14 +497,11 @@ GetIndexErrorsOperation(array $indexNames) // Get errors for specific indexes
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Index Errors Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -534,10 +517,7 @@ GetIndexErrorsOperation(array $indexNames) // Get errors for specific indexes
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-index-errors#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get errors for all indexes" id="get-errors-for-all-indexes" href="#get-errors-for-all-indexes">
+## Get errors for all indexes
 
 <TabItem value="something-something" label="get_errors_all">
 <CodeBlock language="nodejs">
@@ -552,9 +532,9 @@ const indexErrors = await store.maintenance.send(getIndexErrorsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get errors for specific indexes" id="get-errors-for-specific-indexes" href="#get-errors-for-specific-indexes">
+
+## Get errors for specific indexes
 
 <TabItem value="something-something" label="get_errors_specific">
 <CodeBlock language="nodejs">
@@ -570,9 +550,9 @@ const indexErrors = await store.maintenance.send(getIndexErrorsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -625,7 +605,7 @@ const getIndexErrorsOp = new GetIndexErrorsOperation(indexNames); // Get errors 
 </TabItem>
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>

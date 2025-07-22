@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Clean Change Vector
-
----
-
 <Admonition type="note" title="Note">
 
 * A database's [change vector](../../../server/clustering/replication/change-vector) contains entries from each instance of the database 
@@ -28,10 +25,7 @@ removed from the database change vector.
 change vector will not include the obsolete entries.  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -45,9 +39,9 @@ change vector will not include the obsolete entries.
 | **database** | `string` | Name of the database |
 | **unusedDatabaseIds** | `HashSet<string>` | The database IDs to be removed from the change vector |
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 In the 'General Stats' view in the [management studio](../../../studio/overview), you can see your database's current change vector (it's 
 the same as the change vector of the database's most recently updated/created document).  
@@ -91,5 +85,5 @@ Next time a document is modified, you will see that the database change vector h
 
 ![Fig. 2](./assets/clean-change-vector-after.png)
 
-</Admonition>
+
 

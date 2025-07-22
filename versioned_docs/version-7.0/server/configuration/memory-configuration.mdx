@@ -13,7 +13,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Memory Options
 
-<Admonition type="info" title="Memory.LowMemoryLimitInMb" id="memory-lowmemorylimitinmb" href="#memory-lowmemorylimitinmb">
+## Memory.LowMemoryLimitInMb
 
 The minimum amount of available memory RavenDB will attempt to achieve (free memory lower than this value will trigger low memory behavior). Value is in MB.
 
@@ -21,9 +21,9 @@ The minimum amount of available memory RavenDB will attempt to achieve (free mem
 - **Default**: minimum of either `10% of total physical memory` or `2048`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Memory.LowMemoryCommitLimitInMb" id="memory-lowmemorycommitlimitinmb" href="#memory-lowmemorycommitlimitinmb">
+
+## Memory.LowMemoryCommitLimitInMb
 
 The minimum amount of available commited memory RavenDB will attempt to achieve (free commited memory lower than this value will trigger low memory behavior). Value is in MB.
 
@@ -31,9 +31,9 @@ The minimum amount of available commited memory RavenDB will attempt to achieve 
 - **Default**: `512`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Memory.MinimumFreeCommittedMemoryPercentage" id="memory-minimumfreecommittedmemorypercentage" href="#memory-minimumfreecommittedmemorypercentage">
+
+## Memory.MinimumFreeCommittedMemoryPercentage
 
 EXPERT: The minimum amount of committed memory that RavenDB will attempt to ensure remains available. Reducing this value too much may cause RavenDB to fail if there is not enough memory available for the operation system to handle operations.
 
@@ -41,9 +41,9 @@ EXPERT: The minimum amount of committed memory that RavenDB will attempt to ensu
 - **Default**: `0.05f`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Memory.MaxFreeCommittedMemoryToKeepInMb" id="memory-maxfreecommittedmemorytokeepinmb" href="#memory-maxfreecommittedmemorytokeepinmb">
+
+## Memory.MaxFreeCommittedMemoryToKeepInMb
 
 EXPERT: The maximum amount of committed memory that RavenDB will attempt to ensure remains available. Reducing this value too much may cause RavenDB to fail if there is not enough memory available for the operation system to handle operations. Value is in MB.
 
@@ -51,4 +51,4 @@ EXPERT: The maximum amount of committed memory that RavenDB will attempt to ensu
 - **Default**: `128`
 - **Scope**: Server-wide only
 
-</Admonition>
+

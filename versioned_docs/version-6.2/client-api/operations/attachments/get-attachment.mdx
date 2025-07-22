@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Get Attachment Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Get Attachment Operation
+
 
 This operation is used to get an attachment from a document. 
 
@@ -83,7 +87,7 @@ public class AttachmentName
 
 </LanguageContent>
 <LanguageContent language="java">
-# Get Attachment Operation
+
 
 This operation is used to get an attachment from a document. 
 
@@ -204,8 +208,6 @@ public class AttachmentName \{
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Attachment Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -217,10 +219,7 @@ public class AttachmentName \{
   * [Syntax](../../../client-api/operations/attachments/get-attachment#syntax)
    
 </Admonition>
-
----
-
-<Admonition type="info" title="Get attachment example" id="get-attachment-example" href="#get-attachment-example">
+## Get attachment example
 
 <TabItem value="something-something" label="get_attachment">
 <CodeBlock language="nodejs">
@@ -247,9 +246,9 @@ attachmentResult.data
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -301,7 +300,7 @@ attachmentResult.data
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# What is a Session and How Does it Work  
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# What is a Session and How Does it Work  
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">  
 
@@ -37,10 +38,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Retrieving results on demand (Lazy)](../../client-api/session/what-is-a-session-and-how-does-it-work#retrieving-results-on-demand-lazy)
 
 </Admonition>  
-
----
-
-<Admonition type="info" title="Session overview" id="session-overview" href="#session-overview">
+## Session overview
 
 * **What is the session**:  
     
@@ -76,9 +74,9 @@ import LanguageContent from "@site/src/components/language-content";
   It is _not_ an Object–relational mapping (ORM) tool. Although if you're familiar with NHibernate of Entity Framework ORMs you'll recognize that
   the session is equivalent of NHibernate's session and Entity Framework's DataContext which implement UoW pattern as well.
 
-</Admonition>  
+  
 
-<Admonition type="info" title="Unit of work pattern" id="unit-of-work-pattern" href="#unit-of-work-pattern">  
+## Unit of work pattern  
 
 #### Tracking changes
 
@@ -96,9 +94,6 @@ import LanguageContent from "@site/src/components/language-content";
 * Entity tracking can be disabled if needed. See:
     * [Disable entity tracking](../../client-api/session/configuration/how-to-disable-tracking)
     * [Clear session](../../client-api/session/how-to/clear-a-session)
-
----
-
 #### Create document example  
 * The Client API, and the Session in particular, is designed to be as straightforward as possible.  
   Open the session, do some operations, and apply the changes to the RavenDB server.  
@@ -189,9 +184,9 @@ using (IAsyncDocumentSession asyncSession = store.OpenAsyncSession())
 </TabItem>
 </Tabs>
 
-</Admonition>  
+  
 
-<Admonition type="info" title="Identity map pattern" id="identity-map-pattern" href="#identity-map-pattern">  
+## Identity map pattern  
 
 * The session implements the [Identity Map Pattern](https://martinfowler.com/eaaCatalog/identityMap.html).
 * The first `Load()` call goes to the server and fetches the document from the database.  
@@ -232,9 +227,9 @@ Assert.Same(entity1, entity2);
   To override this behavior and force `Load()` to fetch the latest changes from the server see: 
   [Refresh an entity](../../client-api/session/how-to/refresh-entity).  
 
-</Admonition>
 
-<Admonition type="info" title="Batching & Transactions" id="batching-transactions" href="#batching-transactions">
+
+## Batching & Transactions
 
 <Admonition type="note" title="Note">
 
@@ -294,9 +289,9 @@ Assert.Same(entity1, entity2);
 For a detailed description of transactions in RavenDB please refer to the [Transaction support in RavenDB](../../client-api/faq/transaction-support) article. 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Concurrency control" id="concurrency-control" href="#concurrency-control">
+
+## Concurrency control
 
 The typical usage model of the session is:
 
@@ -344,9 +339,9 @@ To address this, the session API offers the concurrency control feature.
 
 * More information about cluster transactions can be found in [Cluster Transaction - Overview](../../client-api/session/cluster-transaction/overview).
 
-</Admonition>
 
-<Admonition type="info" title="Reducing server calls (best practices) for:" id="reducing-server-calls-best-practices-for" href="#reducing-server-calls-best-practices-for">
+
+## Reducing server calls (best practices) for:
 
 #### The select N+1 problem
 * The Select N+1 problem is common 
@@ -366,14 +361,11 @@ To address this, the session API offers the concurrency control feature.
 * Query calls to the server can be delayed and executed on-demand as needed using `Lazily()`
 * See [Perform queries lazily](../../client-api/session/querying/how-to-perform-queries-lazily)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# What is a Session and How Does it Work
-
----
 
 <Admonition type="note" title="Note">
 
@@ -395,10 +387,7 @@ To address this, the session API offers the concurrency control feature.
         * [Retrieving results on demand (Lazy)](../../client-api/session/what-is-a-session-and-how-does-it-work#retrieving-results-on-demand-lazy)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Session overview" id="session-overview" href="#session-overview">
+## Session overview
 
 * **What is the session**:  
 
@@ -434,9 +423,9 @@ To address this, the session API offers the concurrency control feature.
   It is _not_ an Object–relational mapping (ORM) tool. Although if you're familiar with NHibernate of Entity Framework ORMs you'll recognize that
   the session is equivalent of NHibernate's session and Entity Framework's DataContext which implement UoW pattern as well.
 
-</Admonition>
 
-<Admonition type="info" title="Unit of work pattern" id="unit-of-work-pattern" href="#unit-of-work-pattern">
+
+## Unit of work pattern
 
 #### Tracking changes
 
@@ -451,9 +440,6 @@ To address this, the session API offers the concurrency control feature.
 * Entity tracking can be disabled if needed. See:
     * [Disable entity tracking](../../client-api/session/configuration/how-to-disable-tracking)
     * [Clear session](../../client-api/session/how-to/clear-a-session)
-
----
-
 #### Create document example
 * The Client API, and the Session in particular, is designed to be as straightforward as possible.  
   Open the session, do some operations, and apply the changes to the RavenDB server.
@@ -502,9 +488,9 @@ try (IDocumentSession session = store.openSession()) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Identity map pattern" id="identity-map-pattern" href="#identity-map-pattern">
+
+## Identity map pattern
 
 * The session implements the [Identity Map Pattern](https://martinfowler.com/eaaCatalog/identityMap.html).
 * The first `load()` call goes to the server and fetches the document from the database.  
@@ -530,9 +516,9 @@ Assert.assertSame(entity1, entity2);
   To override this behavior and force `load()` to fetch the latest changes from the server see:
   [Refresh an entity](../../client-api/session/how-to/refresh-entity).
 
-</Admonition>
 
-<Admonition type="info" title="Batching & Transactions" id="batching-transactions" href="#batching-transactions">
+
+## Batching & Transactions
 
 <Admonition type="note" title="Note">
 
@@ -592,9 +578,9 @@ Assert.assertSame(entity1, entity2);
 For a detailed description of transactions in RavenDB please refer to the [Transaction support in RavenDB](../../client-api/faq/transaction-support) article.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Concurrency control" id="concurrency-control" href="#concurrency-control">
+
+## Concurrency control
 
 The typical usage model of the session is:
 
@@ -642,9 +628,9 @@ To address this, the session API offers the concurrency control feature.
 
 * More information about cluster transactions can be found in [Cluster Transaction - Overview](../../client-api/session/cluster-transaction/overview).
 
-</Admonition>
 
-<Admonition type="info" title="Reducing server calls (best practices) for:" id="reducing-server-calls-best-practices-for" href="#reducing-server-calls-best-practices-for">
+
+## Reducing server calls (best practices) for:
 
 #### The select N+1 problem
 * The Select N+1 problem is common
@@ -664,14 +650,11 @@ To address this, the session API offers the concurrency control feature.
 * Query calls to the server can be delayed and executed on-demand as needed using `Lazily()`
 * See [Perform queries lazily](../../client-api/session/querying/how-to-perform-queries-lazily)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# What is a Session and How Does it Work  
-
----
 
 <Admonition type="note" title="Note">  
 
@@ -693,10 +676,7 @@ To address this, the session API offers the concurrency control feature.
       * [Retrieving results on demand (Lazy)](../../client-api/session/what-is-a-session-and-how-does-it-work#retrieving-results-on-demand-lazy)
 
 </Admonition>  
-
----
-
-<Admonition type="info" title="Session overview" id="session-overview" href="#session-overview">
+## Session overview
 
 * **What is the session**:  
     
@@ -732,9 +712,9 @@ To address this, the session API offers the concurrency control feature.
   It is _not_ an Object–relational mapping (ORM) tool. Although if you're familiar with NHibernate of Entity Framework ORMs you'll recognize that
   the session is equivalent of NHibernate's session and Entity Framework's DataContext which implement UoW pattern as well.
 
-</Admonition>  
+  
 
-<Admonition type="info" title="Unit of work pattern" id="unit-of-work-pattern" href="#unit-of-work-pattern">  
+## Unit of work pattern  
 
 #### Tracking changes
 
@@ -749,9 +729,6 @@ To address this, the session API offers the concurrency control feature.
 * Entity tracking can be disabled if needed. See:
     * [Disable entity tracking](../../client-api/session/configuration/how-to-disable-tracking)
     * [Clear session](../../client-api/session/how-to/clear-a-session)
-
----
-
 #### Create document example  
 * The Client API, and the Session in particular, is designed to be as straightforward as possible.  
   Open the session, do some operations, and apply the changes to the RavenDB server.  
@@ -795,9 +772,9 @@ with store.open_session() as session:
 </CodeBlock>
 </TabItem>
 
-</Admonition>  
+  
 
-<Admonition type="info" title="Identity map pattern" id="identity-map-pattern" href="#identity-map-pattern">  
+## Identity map pattern  
 
 * The session implements the [Identity Map Pattern](https://martinfowler.com/eaaCatalog/identityMap.html).
 * The first `load()` call goes to the server and fetches the document from the database.  
@@ -823,9 +800,9 @@ self.assertEqual(entity1, entity2)
   To override this behavior and force `load()` to fetch the latest changes from the server see: 
   [Refresh an entity](../../client-api/session/how-to/refresh-entity).  
 
-</Admonition>
 
-<Admonition type="info" title="Batching & Transactions" id="batching-transactions" href="#batching-transactions">
+
+## Batching & Transactions
 
 <Admonition type="note" title="Note">
 
@@ -885,9 +862,9 @@ self.assertEqual(entity1, entity2)
 For a detailed description of transactions in RavenDB please refer to the [Transaction support in RavenDB](../../client-api/faq/transaction-support) article. 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Concurrency control" id="concurrency-control" href="#concurrency-control">
+
+## Concurrency control
 
 The typical usage model of the session is:
 
@@ -935,9 +912,9 @@ To address this, the session API offers the concurrency control feature.
 
 * More information about cluster transactions can be found in [Cluster Transaction - Overview](../../client-api/session/cluster-transaction/overview).
 
-</Admonition>
 
-<Admonition type="info" title="Reducing server calls (best practices) for:" id="reducing-server-calls-best-practices-for" href="#reducing-server-calls-best-practices-for">
+
+## Reducing server calls (best practices) for:
 
 #### The select N+1 problem
 * The Select N+1 problem is common 
@@ -957,14 +934,11 @@ To address this, the session API offers the concurrency control feature.
 * Query calls to the server can be delayed and executed on-demand as needed using `lazily()`
 * See [Perform queries lazily](../../client-api/session/querying/how-to-perform-queries-lazily)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# What is a Session and How Does it Work  
-
----
 
 <Admonition type="note" title="Note">  
 
@@ -986,10 +960,7 @@ To address this, the session API offers the concurrency control feature.
       * [Retrieving results on demand (Lazy)](../../client-api/session/what-is-a-session-and-how-does-it-work#retrieving-results-on-demand-lazy)
 
 </Admonition>  
-
----
-
-<Admonition type="info" title="Session overview" id="session-overview" href="#session-overview">
+## Session overview
 
 * **What is the session**:  
     
@@ -1025,9 +996,9 @@ To address this, the session API offers the concurrency control feature.
   It is _not_ an Object–relational mapping (ORM) tool. Although if you're familiar with NHibernate of Entity Framework ORMs you'll recognize that
   the session is equivalent of NHibernate's session and Entity Framework's DataContext which implement UoW pattern as well.
 
-</Admonition>  
+  
 
-<Admonition type="info" title="Unit of work pattern" id="unit-of-work-pattern" href="#unit-of-work-pattern">  
+## Unit of work pattern  
 
 #### Tracking changes
 
@@ -1042,9 +1013,6 @@ To address this, the session API offers the concurrency control feature.
 * Entity tracking can be disabled if needed. See:
     * [Disable entity tracking](../../client-api/session/configuration/how-to-disable-tracking)
     * [Clear session](../../client-api/session/how-to/clear-a-session)
-
----
-
 #### Create document example  
 * The Client API, and the Session in particular, is designed to be as straightforward as possible.  
   Open the session, do some operations, and apply the changes to the RavenDB server.  
@@ -1098,9 +1066,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>  
+  
 
-<Admonition type="info" title="Identity map pattern" id="identity-map-pattern" href="#identity-map-pattern">  
+## Identity map pattern  
 
 * The session implements the [Identity Map Pattern](https://martinfowler.com/eaaCatalog/identityMap.html).
 * The first `Load()` call goes to the server and fetches the document from the database.  
@@ -1126,9 +1094,9 @@ $this->assertSame($entity1, $entity2);
   To override this behavior and force `Load()` to fetch the latest changes from the server see: 
   [Refresh an entity](../../client-api/session/how-to/refresh-entity).  
 
-</Admonition>
 
-<Admonition type="info" title="Batching & Transactions" id="batching-transactions" href="#batching-transactions">
+
+## Batching & Transactions
 
 <Admonition type="note" title="Note">
 
@@ -1188,9 +1156,9 @@ $this->assertSame($entity1, $entity2);
 For a detailed description of transactions in RavenDB please refer to the [Transaction support in RavenDB](../../client-api/faq/transaction-support) article. 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Concurrency control" id="concurrency-control" href="#concurrency-control">
+
+## Concurrency control
 
 The typical usage model of the session is:
 
@@ -1238,9 +1206,9 @@ To address this, the session API offers the concurrency control feature.
 
 * More information about cluster transactions can be found in [Cluster Transaction - Overview](../../client-api/session/cluster-transaction/overview).
 
-</Admonition>
 
-<Admonition type="info" title="Reducing server calls (best practices) for:" id="reducing-server-calls-best-practices-for" href="#reducing-server-calls-best-practices-for">
+
+## Reducing server calls (best practices) for:
 
 #### The select N+1 problem
 * The Select N+1 problem is common 
@@ -1260,14 +1228,11 @@ To address this, the session API offers the concurrency control feature.
 * Query calls to the server can be delayed and executed on-demand as needed using `Lazily()`
 * See [Perform queries lazily](../../client-api/session/querying/how-to-perform-queries-lazily)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# What is a Session and How Does it Work  
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1289,10 +1254,7 @@ To address this, the session API offers the concurrency control feature.
         * [Retrieving results on demand (Lazy)](../../client-api/session/what-is-a-session-and-how-does-it-work#retrieving-results-on-demand-lazy)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Session overview" id="session-overview" href="#session-overview">
+## Session overview
 
 * **What is the session**:  
 
@@ -1328,9 +1290,9 @@ To address this, the session API offers the concurrency control feature.
   It is _not_ an Object–relational mapping (ORM) tool. Although if you're familiar with NHibernate of Entity Framework ORMs you'll recognize that
   the session is equivalent of NHibernate's session and Entity Framework's DataContext which implement UoW pattern as well.
 
-</Admonition>
 
-<Admonition type="info" title="Unit of work pattern" id="unit-of-work-pattern" href="#unit-of-work-pattern">  
+
+## Unit of work pattern  
 
 #### Tracking changes
 
@@ -1348,9 +1310,6 @@ To address this, the session API offers the concurrency control feature.
 * Entity tracking can be disabled if needed. See:
     * [Disable entity tracking](../../client-api/session/configuration/how-to-disable-tracking)
     * [Clear session](../../client-api/session/how-to/clear-a-session)
-
----
-
 #### Create document example  
 * The Client API, and the session in particular, is designed to be as straightforward as possible.  
   Open the session, do some operations, and apply the changes to the RavenDB server.  
@@ -1455,9 +1414,9 @@ session.load("companies/1-A")
 </TabItem>
 </Tabs>
 
-</Admonition>  
+  
 
-<Admonition type="info" title="Identity map pattern" id="identity-map-pattern" href="#identity-map-pattern">  
+## Identity map pattern  
 
 * The session implements the [Identity Map Pattern](https://martinfowler.com/eaaCatalog/identityMap.html).
 * The first `load()` call goes to the server and fetches the document from the database.  
@@ -1483,9 +1442,9 @@ assert.equal(entity1, entity2);
   To override this behavior and force `load()` to fetch the latest changes from the server see: 
   [Refresh an entity](../../client-api/session/how-to/refresh-entity).  
 
-</Admonition>
 
-<Admonition type="info" title="Batching & Transactions" id="batching-transactions" href="#batching-transactions">
+
+## Batching & Transactions
 
 <Admonition type="note" title="Note">
 
@@ -1545,9 +1504,9 @@ assert.equal(entity1, entity2);
 For a detailed description of transactions in RavenDB please refer to the [Transaction support in RavenDB](../../client-api/faq/transaction-support) article.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Concurrency control" id="concurrency-control" href="#concurrency-control">
+
+## Concurrency control
 
 The typical usage model of the session is:
 
@@ -1595,9 +1554,9 @@ To address this, the session API offers the concurrency control feature.
 
 * More information about cluster transactions can be found in [Cluster Transaction - Overview](../../client-api/session/cluster-transaction/overview).
 
-</Admonition>
 
-<Admonition type="info" title="Reducing server calls (best practices) for:" id="reducing-server-calls-best-practices-for" href="#reducing-server-calls-best-practices-for">
+
+## Reducing server calls (best practices) for:
 
 #### The select N+1 problem
 * The Select N+1 problem is common 
@@ -1617,7 +1576,7 @@ To address this, the session API offers the concurrency control feature.
 * Query calls to the server can be delayed and executed on-demand as needed using `Lazily()`
 * See [Perform queries lazily](../../client-api/session/querying/how-to-perform-queries-lazily)
 
-</Admonition>
+
 
 
 </LanguageContent>

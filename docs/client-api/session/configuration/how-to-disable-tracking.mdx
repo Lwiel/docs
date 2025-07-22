@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
+
+
+# Disable Entity Tracking
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Disable Entity Tracking
----
 
 <Admonition type="note" title="Note">
 
@@ -32,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Using 'Include' in a NoTracking session will throw](../../../client-api/session/configuration/how-to-disable-tracking#using-)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Disable tracking changes for a specific entity" id="disable-tracking-changes-for-a-specific-entity" href="#disable-tracking-changes-for-a-specific-entity">
+## Disable tracking changes for a specific entity
 
 * You can prevent the session from persisting changes made to a specific entity by using `IgnoreChangesFor`.
 * Once changes are ignored for the entity:
@@ -91,9 +90,9 @@ await asyncSession.SaveChangesAsync();
 |------------|----------|------------------------------------------------------|
 | **entity** | `object` | Instance of entity for which changes will be ignored |
 
-</Admonition>
 
-<Admonition type="info" title="Disable tracking all entities in session" id="disable-tracking-all-entities-in-session" href="#disable-tracking-all-entities-in-session">
+
+## Disable tracking all entities in session
 
 * Tracking can be disabled for all entities in the session's options.  
 * When tracking is disabled for the session:  
@@ -143,9 +142,9 @@ await asyncSession.SaveChangesAsync();
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Disable tracking query results" id="disable-tracking-query-results" href="#disable-tracking-query-results">
+
+## Disable tracking query results
 
 * Tracking can be disabled for all entities resulting from a query.
 
@@ -236,9 +235,9 @@ await asyncSession.SaveChangesAsync();
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Customize tracking in conventions" id="customize-tracking-in-conventions" href="#customize-tracking-in-conventions">
+
+## Customize tracking in conventions
 
 * You can further customize and fine-tune which entities will not be tracked  
   by configuring the `ShouldIgnoreEntityChanges` convention method on the document store.
@@ -302,9 +301,9 @@ await asyncSession.SaveChangesAsync();
 |--------------|-------------------------------------------------------------------------|
 | `bool`       | `true` - Entity will Not be tracked<br/>`false` - Entity will be tracked |
 
-</Admonition>
 
-<Admonition type="info" title="Using 'Include' in a NoTracking session will throw" id="using-include-in-a-notracking-session-will-throw" href="#using-include-in-a-notracking-session-will-throw">
+
+## Using 'Include' in a NoTracking session will throw
  
 * Attempting to use `Include` in a `NoTracking` session will throw an exception.
 
@@ -314,9 +313,6 @@ await asyncSession.SaveChangesAsync();
 
 * This applies to all items that can be included -  
   e.g., documents, compare-exchange items, counters, revisions, and time series.
-
----
-
 **Include when loading**:
 
 <Tabs groupId='languageSyntax'>
@@ -429,13 +425,11 @@ await asyncSession.SaveChangesAsync();
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Disable Entity Tracking
----
 
 <Admonition type="note" title="Note">
 
@@ -452,10 +446,7 @@ await asyncSession.SaveChangesAsync();
     * [Customize tracking in conventions](../../../client-api/session/configuration/how-to-disable-tracking#customize-tracking-in-conventions)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Disable tracking changes for a specific entity" id="disable-tracking-changes-for-a-specific-entity" href="#disable-tracking-changes-for-a-specific-entity">
+## Disable tracking changes for a specific entity
 
 * You can prevent the session from persisting changes made to a specific entity by using `ignore_changes_for`.
 * Once changes are ignored for the entity:
@@ -493,9 +484,9 @@ session.save_changes()
 |------------|----------|------------------------------------------------------|
 | **entity** | `object` | Instance of entity for which changes will be ignored |
 
-</Admonition>
 
-<Admonition type="info" title="Disable tracking for all entities in a session" id="disable-tracking-for-all-entities-in-a-session" href="#disable-tracking-for-all-entities-in-a-session">
+
+## Disable tracking for all entities in a session
 
 * Tracking can be disabled for all entities in the session's options.  
 * When tracking is disabled for the session:  
@@ -522,9 +513,9 @@ session.save_changes()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable tracking for query results" id="disable-tracking-for-query-results" href="#disable-tracking-for-query-results">
+
+## Disable tracking for query results
 
 * Tracking can be disabled for all entities resulting from a query.
 
@@ -550,9 +541,9 @@ session.save_changes()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Customize tracking in conventions" id="customize-tracking-in-conventions" href="#customize-tracking-in-conventions">
+
+## Customize tracking in conventions
 
 * You can further customize and fine-tune which entities will not be tracked  
   by configuring the `should_ignore_entity_changes` convention method on the document store.
@@ -626,13 +617,11 @@ class ShouldIgnoreEntityChanges(ABC):
 |---------------|-------------------------------------------------------------------------|
 | `bool`        | `True` - Entity will Not be tracked<br/>`False` - Entity will be tracked |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Disable Entity Tracking
----
 
 <Admonition type="note" title="Note">
 
@@ -649,10 +638,7 @@ class ShouldIgnoreEntityChanges(ABC):
     * [Customize tracking in conventions](../../../client-api/session/configuration/how-to-disable-tracking#customize-tracking-in-conventions)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Disable tracking changes for a specific entity" id="disable-tracking-changes-for-a-specific-entity" href="#disable-tracking-changes-for-a-specific-entity">
+## Disable tracking changes for a specific entity
 
 * You can prevent the session from persisting changes made to a specific entity by using `ignoreChangesFor`.
 * Once changes are ignored for the entity:
@@ -679,9 +665,9 @@ $session->saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable tracking for all entities in a session" id="disable-tracking-for-all-entities-in-a-session" href="#disable-tracking-for-all-entities-in-a-session">
+
+## Disable tracking for all entities in a session
 
 * Tracking can be disabled for all entities in the session's options.  
 * When tracking is disabled for the session:  
@@ -712,9 +698,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable tracking for query results" id="disable-tracking-for-query-results" href="#disable-tracking-for-query-results">
+
+## Disable tracking for query results
 
 * Tracking can be disabled for all entities resulting from a query.
 
@@ -769,9 +755,9 @@ try {
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Customize tracking in conventions" id="customize-tracking-in-conventions" href="#customize-tracking-in-conventions">
+
+## Customize tracking in conventions
 
 * You can further customize and fine-tune which entities will not be tracked  
   by configuring the `ShouldIgnoreEntityChanges` convention method on the document store.
@@ -825,13 +811,11 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Disable Entity Tracking
----
 
 <Admonition type="note" title="Note">
 
@@ -849,10 +833,7 @@ try \{
   * [Using 'Include' in a NoTracking session will throw](../../../client-api/session/configuration/how-to-disable-tracking#using-)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Disable tracking changes for a specific entity" id="disable-tracking-changes-for-a-specific-entity" href="#disable-tracking-changes-for-a-specific-entity">
+## Disable tracking changes for a specific entity
 
 * You can prevent the session from persisting changes made to a specific entity by using `ignoreChangesFor`.
 * Once changes are ignored for the entity:
@@ -893,9 +874,9 @@ await session.saveChanges();
 |------------|----------|------------------------------------------------------|
 | **entity** | `object` | Instance of entity for which changes will be ignored |
 
-</Admonition>
 
-<Admonition type="info" title="Disable tracking all entities in session" id="disable-tracking-all-entities-in-session" href="#disable-tracking-all-entities-in-session">
+
+## Disable tracking all entities in session
 
 * Tracking can be disabled for all entities in the session's options.  
 * When tracking is disabled for the session:  
@@ -924,9 +905,9 @@ await session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable tracking query results" id="disable-tracking-query-results" href="#disable-tracking-query-results">
+
+## Disable tracking query results
 
 * Tracking can be disabled for all entities resulting from a query.
 
@@ -951,9 +932,9 @@ session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Customize tracking in conventions" id="customize-tracking-in-conventions" href="#customize-tracking-in-conventions">
+
+## Customize tracking in conventions
 
 * You can further customize and fine-tune which entities will not be tracked  
   by configuring the `shouldIgnoreEntityChanges` convention method on the document store.
@@ -1019,9 +1000,9 @@ session.saveChanges();         // Only employee2 is persisted
 |---------------|-------------------------------------------------------------------------|
 | `boolean`     | `true` - Entity will Not be tracked<br/>`false` - Entity will be tracked |
 
-</Admonition>
 
-<Admonition type="info" title="Using 'include' in a noTracking session will throw" id="using-include-in-a-notracking-session-will-throw" href="#using-include-in-a-notracking-session-will-throw">
+
+## Using 'include' in a noTracking session will throw
 
 * Attempting to use `include` in a `noTracking` session will throw an exception.
 
@@ -1031,9 +1012,6 @@ session.saveChanges();         // Only employee2 is persisted
 
 * This applies to all items that can be included -  
   e.g., documents, compare-exchange items, counters, revisions, and time series.
-
----
-
 **Include when loading**:
 
 <TabItem value="something-something" label="disable_tracking_5">
@@ -1079,7 +1057,7 @@ catch (error) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

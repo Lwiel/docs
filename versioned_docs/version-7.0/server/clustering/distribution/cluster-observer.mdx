@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Cluster Observer
----
-
 <Admonition type="note" title="Note">
  
 * The primary goal of the **Cluster Observer** is to monitor the health of each database in the cluster  
@@ -26,10 +24,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Interacting with the Cluster Observer](../../../server/clustering/distribution/cluster-observer#interacting-with-the-cluster-observer)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Operation flow" id="operation-flow" href="#operation-flow">
+## Operation flow
 
 * To maintain the Replication Factor, every newly elected [Leader](../../../server/clustering/rachis/cluster-topology#leader) starts measuring the health of each node 
   by creating dedicated maintenance TCP connections to all other nodes in the cluster.  
@@ -71,9 +66,9 @@ import LanguageContent from "@site/src/components/language-content";
 
     </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Interacting with the Cluster Observer" id="interacting-with-the-cluster-observer" href="#interacting-with-the-cluster-observer">
+
+## Interacting with the Cluster Observer
 
 You can interact with the `Cluster Observer` using the following REST API calls:  
 
@@ -83,4 +78,4 @@ You can interact with the `Cluster Observer` using the following REST API calls:
 | `/admin/cluster/observer/decisions` | GET     |                | Fetch the log of the recent decisions made by the cluster observer.                                                                                                  |
 | `/admin/cluster/maintenance-stats`  | GET     |                | Fetch the latest reports of the _Cluster Observer_                                                                                                                   |
 
-</Admonition>
+

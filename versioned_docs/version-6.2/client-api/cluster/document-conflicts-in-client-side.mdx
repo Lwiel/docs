@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java"];
+
+
+# Cluster: Document Conflicts in Client-side
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Cluster: Document Conflicts in Client-side
+
   
 ## What are conflicts?
 When two or more changes of a single document are done concurrently in two separate nodes, 
@@ -117,7 +121,7 @@ In RavenDB we can resolve conflicts either by resolving to the latest or by usin
 
 </LanguageContent>
 <LanguageContent language="java">
-# Cluster: Document Conflicts in Client-side
+
   
 ## What are conflicts?
 When two or more changes of a single document are done concurrently in two separate nodes, 

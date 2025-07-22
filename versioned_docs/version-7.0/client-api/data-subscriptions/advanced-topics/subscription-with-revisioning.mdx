@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Data Subscriptions: Revisions Support
+export const supportedLanguages = ["csharp", "java", "nodejs"];
 
----
+
+# Data Subscriptions: Revisions Support
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -36,16 +37,11 @@ import LanguageContent from "@site/src/components/language-content";
   * [Projecting fields from revisions](../../../client-api/data-subscriptions/advanced-topics/subscription-with-revisioning#projecting-fields-from-revisions)   
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Regular subscription vs Revisions subscription" id="regular-subscription-vs-revisions-subscription" href="#regular-subscription-vs-revisions-subscription">
+## Regular subscription vs Revisions subscription
 
 <Admonition type="note" title="Note">
 
 ##### Regular subscription
----
-
 * **Processed items**:  
   The subscription processes **documents** from the defined collection.  
   Only the latest version of the document is processed, even if the document has revisions.
@@ -59,8 +55,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 ##### Revisions subscription
----
-
 * **Processed items**:   
   The subscription processes all **revisions** of documents from the defined collection,  
   including revisions of deleted documents from the revision bin if they have not been purged.
@@ -70,9 +64,6 @@ import LanguageContent from "@site/src/components/language-content";
   By default, unless the subscription query is [projecting specific fields](../../../client-api/data-subscriptions/advanced-topics/subscription-with-revisioning#projecting-fields-from-revisions),
   each item in the batch sent to the client contains both the processed revision (`Result.Current`) and its preceding revision (`Result.Previous`).
   If the document has just been created, the previous revision will be `null`. 
-
----
-
 <Admonition type="warning" title="Warning">
 
 * In order for the revisions subscription to work,  
@@ -84,9 +75,9 @@ import LanguageContent from "@site/src/components/language-content";
 </Admonition>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Revisions processing order" id="revisions-processing-order" href="#revisions-processing-order">
+
+## Revisions processing order
 
 In the revisions subscription, revisions are processed in pairs of subsequent entries.  
 For example, consider the following User document:  
@@ -115,9 +106,9 @@ within each item in the batch in the following order:
 | item #2    | `{ Name: "James", Age: "21" }` | `{ Name: "James", Age: "22" }` |
 | item #3    | `{ Name: "James", Age: "22" }` | `{ Name: "James", Age: "23" }` |
  
-</Admonition>
 
-<Admonition type="info" title="Simple creation and consumption" id="simple-creation-and-consumption" href="#simple-creation-and-consumption">
+
+## Simple creation and consumption
 
 Here we set up a basic revisions subscription that will deliver pairs of consecutive _Order_ document revisions to the client:
 
@@ -171,9 +162,9 @@ await revisionsWorker.Run((SubscriptionBatch<Revision<Order>> batch) =>
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Filtering revisions" id="filtering-revisions" href="#filtering-revisions">
+
+## Filtering revisions
 
 Here we set up a revisions subscription that will send the client only document revisions in which the order was shipped to Mexico.
 
@@ -229,9 +220,9 @@ await worker.Run(batch =>
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Projecting fields from revisions" id="projecting-fields-from-revisions" href="#projecting-fields-from-revisions">
+
+## Projecting fields from revisions
 
 Here we define a revisions subscription that will filter the revisions and send projected data to the client.
 
@@ -331,14 +322,11 @@ await revenuesComparisonWorker.Run(batch =>
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Data Subscriptions: Revisions Support
-
----
 
 <Admonition type="note" title="Note">
 
@@ -359,10 +347,7 @@ await revenuesComparisonWorker.Run(batch =>
   * [Revisions processing and projection](../../../client-api/data-subscriptions/advanced-topics/subscription-with-revisioning#revisions-processing-and-projection)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Revisions processing order" id="revisions-processing-order" href="#revisions-processing-order">
+## Revisions processing order
 
 The Revisions feature allows the tracking of changes made in a document, by storing the audit trail of its changes over time. 
 An audit trail entry is called a **Document Revision**, and is comprised of a document snapshot.  
@@ -394,9 +379,9 @@ The revisions subscription will be able to function properly only if the revisio
 Please make sure that your revisions configuration doesn't purge revisions before the subscription had the chance to process them.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Simple declaration and usage" id="simple-declaration-and-usage" href="#simple-declaration-and-usage">
+
+## Simple declaration and usage
 
 Here we declare a simple revisions subscription that will send pairs of subsequent document revisions to the client:
 
@@ -436,9 +421,9 @@ revisionWorker.run(x -> \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions processing and projection" id="revisions-processing-and-projection" href="#revisions-processing-and-projection">
+
+## Revisions processing and projection
 
 Here we declare a revisions subscription that will filter and project data from revisions pairs:
 
@@ -482,14 +467,11 @@ revisionWorker.run(x -> \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Data Subscriptions: Revisions Support
-
----
 
 <Admonition type="note" title="Note">
 
@@ -510,16 +492,11 @@ revisionWorker.run(x -> \{
   * [Projecting fields from revisions](../../../client-api/data-subscriptions/advanced-topics/subscription-with-revisioning#projecting-fields-from-revisions)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Regular subscription vs Revisions subscription" id="regular-subscription-vs-revisions-subscription" href="#regular-subscription-vs-revisions-subscription">
+## Regular subscription vs Revisions subscription
 
 <Admonition type="note" title="Note">
 
 ##### Regular subscription
----
-
 * **Processed items**:  
   The subscription processes **documents** from the defined collection.  
   Only the latest version of the document is processed, even if the document has revisions.
@@ -533,8 +510,6 @@ revisionWorker.run(x -> \{
 <Admonition type="note" title="Note">
 
 ##### Revisions subscription
----
-
 * **Processed items**:   
   The subscription processes all **revisions** of documents from the defined collection,  
   including revisions of deleted documents from the revision bin if they have not been purged.
@@ -544,9 +519,6 @@ revisionWorker.run(x -> \{
   By default, unless the subscription query is projecting specific fields,
   each item in the batch sent to the client contains both the processed revision (`result.current`) and its preceding revision (`result.previous`).
   If the document has just been created, the previous revision will be `null`. 
-
----
-
 <Admonition type="warning" title="Warning">
 
 * In order for the revisions subscription to work,  
@@ -558,9 +530,9 @@ revisionWorker.run(x -> \{
 </Admonition>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Revisions processing order" id="revisions-processing-order" href="#revisions-processing-order">
+
+## Revisions processing order
 
 In the revisions subscription, revisions are processed in pairs of subsequent entries.  
 For example, consider the following User document:  
@@ -589,9 +561,9 @@ within each item in the batch in the following order:
 | item #2    | `{ Name: "James", Age: "21" }` | `{ Name: "James", Age: "22" }` |
 | item #3    | `{ Name: "James", Age: "22" }` | `{ Name: "James", Age: "23" }` |
  
-</Admonition>
 
-<Admonition type="info" title="Simple creation and consumption" id="simple-creation-and-consumption" href="#simple-creation-and-consumption">
+
+## Simple creation and consumption
 
 Here we set up a basic revisions subscription that will deliver pairs of consecutive _Order_ document revisions to the client:
 
@@ -637,9 +609,9 @@ worker.on("batch", (batch, callback) => \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Filtering revisions" id="filtering-revisions" href="#filtering-revisions">
+
+## Filtering revisions
 
 Here we set up a revisions subscription that will send the client only document revisions in which the order was shipped to Mexico.
 
@@ -688,9 +660,9 @@ worker.on("batch", (batch, callback) => \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Projecting fields from revisions" id="projecting-fields-from-revisions" href="#projecting-fields-from-revisions">
+
+## Projecting fields from revisions
 
 Here we define a revisions subscription that will filter the revisions and send projected data to the client.
 
@@ -780,7 +752,7 @@ worker.on("batch", (batch, callback) => \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

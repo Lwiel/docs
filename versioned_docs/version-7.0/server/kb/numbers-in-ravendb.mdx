@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Knowledge Base: Numbers in RavenDB
----
-
 <Admonition type="note" title="Note">
 
 * Rational numbers are infinitely big and infinitely small, in computer science we are able to "model" the universe with a limited degree of accuracy and range.
@@ -35,10 +33,7 @@ In this page:
 
 
 </Admonition>
-
----
-
-<Admonition type="info" title="About numbers" id="about-numbers" href="#about-numbers">
+## About numbers
 
 Although real numbers have no limits in size or precision, in computing there are limitations.  
 Simplest type of numbers known to computers are integers. RavenDB fully supports integers of `int` type between [-2,147,483,648 to 2,147,483,647].  
@@ -56,7 +51,7 @@ Please follow the next paragraphs to learn more about those limitations and poss
 Please note that `long`'s max and min numbers are beyond the accuracy range of `double`, therefore, it should be used with care, and it's recommended to avoid using it for global maximum or minimum notations.
 </Admonition>
 
-</Admonition>
+
 
 <Admonition type="info" title="Examples in the page" id="examples-in-the-page" href="#examples-in-the-page">
 Examples in this page are based on the `InterstellarTrip` entity, describing an intergalactic journey of a brave pioneer:  
@@ -80,7 +75,7 @@ Examples in this page are based on the `InterstellarTrip` entity, describing an 
 </TabItem>
 </Admonition>
 
-<Admonition type="info" title="Numbers in documents" id="numbers-in-documents" href="#numbers-in-documents">
+## Numbers in documents
 
 Numbers in documents represented by either:  
 
@@ -88,9 +83,9 @@ Numbers in documents represented by either:
   *  `LazyNumberValue` for all the other numbers, including other integers and floating point numbers. `LazyNumberValue` Wraps a string representation of a number.  
   
 RavenDB server will accept document with numbers in the range of 'double' with any precision.
-</Admonition>
 
-<Admonition type="info" title="Numbers in JavaScript engine" id="numbers-in-javascript-engine" href="#numbers-in-javascript-engine">
+
+## Numbers in JavaScript engine
 
 RavenDB uses JavaScript in many mechanisms: projections in queries, subscriptions, ETL processes and more.  
 The only type of numbers supported by JavaScript is double precision floating point number, and `Jint`, the JavaScript engine RavenDB uses is no exception.  
@@ -111,9 +106,9 @@ Select \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Numbers in indexes and queries" id="numbers-in-indexes-and-queries" href="#numbers-in-indexes-and-queries">  
+
+## Numbers in indexes and queries  
 
 RavenDB's indexes supports either integers in the `long` range, or fractions in the `double` range.  
 Integers outside of the `long` boundaries will be treated as `double` and therefore their precision will be truncated to `double`'s.  
@@ -153,19 +148,19 @@ Select \{
 Note that alphanumeric sorting of string representation of numbers is accurate only with integers. Alphanumeric sorting of fractions and numbers with exponent notations will not analyze the value as a number.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Numbers in management studio" id="numbers-in-management-studio" href="#numbers-in-management-studio">
+
+## Numbers in management studio
 
 The management studio treats documents as JavaScript objects, therefore, it treats it's numbers as a JavaScript number, which is always a `double`.  
 Note that editing documents with numeric data outside of the precision range of double will end up with truncating those numbers to a proper `double` and unintentional modification of those fields.  
-</Admonition>
 
-<Admonition type="info" title="Numbers in client API" id="numbers-in-client-api" href="#numbers-in-client-api">
+
+## Numbers in client API
 
 Numbers in RavenDB clients depend on the limitations of the platforms and the serialization/deserialization mechanisms. See articles in the desired languages:
 
 [Number (de)serialization](../../client-api/configuration/serialization#working-with-numbers)
 
-</Admonition>
+
 

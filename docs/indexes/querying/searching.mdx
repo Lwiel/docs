@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Full-Text Search with Index
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Full-Text Search with Index
----
 
 <Admonition type="note" title="Note">
 
@@ -30,9 +32,6 @@ import LanguageContent from "@site/src/components/language-content";
       
     * You can configure which analyzer will be used to tokenize this field.  
       See [selecting an analyzer](../../indexes/using-analyzers#selecting-an-analyzer-for-a-field).    
-
----
-
 * In this article:
   * [Indexing single field for FTS](../../indexes/querying/searching#indexing-single-field-for-fts)
   * [Indexing multiple fields for FTS](../../indexes/querying/searching#indexing-multiple-fields-for-fts)
@@ -44,10 +43,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [When using the Exact analyzer](../../indexes/querying/searching#when-using-the-exact-analyzer)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing single field for FTS" id="indexing-single-field-for-fts" href="#indexing-single-field-for-fts">
+## Indexing single field for FTS
 
 #### The index:
 
@@ -86,9 +82,6 @@ import LanguageContent from "@site/src/components/language-content";
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query with Search:
 
 * Use `Search` to make a full-text search when querying the index.  
@@ -160,9 +153,9 @@ where search(EmployeeNotes, "French")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing multiple fields for FTS" id="indexing-multiple-fields-for-fts" href="#indexing-multiple-fields-for-fts">
+
+## Indexing multiple fields for FTS
 
 #### The index:
 
@@ -203,9 +196,6 @@ where search(EmployeeNotes, "French")
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Sample query:
 
 <Tabs groupId='languageSyntax'>
@@ -283,9 +273,9 @@ where (search(EmployeeData, "Manager") or search(EmployeeData, "French Spanish",
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing all fields for FTS (using AsJson)" id="indexing-all-fields-for-fts-using-asjson" href="#indexing-all-fields-for-fts-using-asjson">
+
+## Indexing all fields for FTS (using AsJson)
 
 * To search across ALL fields in a document without defining each one explicitly,
   use the `AsJson` method in the _Map_ function to extract all property values and index them in a single searchable field.
@@ -298,9 +288,6 @@ where (search(EmployeeData, "Manager") or search(EmployeeData, "French Spanish",
 * <Admonition type="info" title="Info">
   This indexing method is supported only when using **Lucene** as the indexing engine.
   </Admonition>
-
----
-
 #### The index:
 
 <TabItem value="something" label="index_6">
@@ -345,9 +332,6 @@ where (search(EmployeeData, "Manager") or search(EmployeeData, "French Spanish",
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Sample query:
 
 <Tabs groupId='languageSyntax'>
@@ -408,9 +392,9 @@ where search(AllValues, "tofu")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Boosting search results" id="boosting-search-results" href="#boosting-search-results">
+
+## Boosting search results
 
 * In order to prioritize results, you can provide a boost value to the searched terms.  
   This can be applied by either of the following:
@@ -421,9 +405,9 @@ where search(AllValues, "tofu")
   * Add a boost value to the queried terms **at query time**.  
     Refer to article [Boost search results](../../client-api/session/querying/text-search/boost-search-results).
 
-</Admonition>
 
-<Admonition type="info" title="Searching with wildcards" id="searching-with-wildcards" href="#searching-with-wildcards">
+
+## Searching with wildcards
 
 * When making a full-text search with wildcards in the search terms, 
   the presence of wildcards (`*`) in the terms sent to the search engine is determined by the transformations applied by the
@@ -436,14 +420,9 @@ where search(AllValues, "tofu")
 
 * When using [Corax](../../indexes/search-engine/corax) as the search engine,  
   this behavior will only apply to indexes that are newly created or have been reset.
-
----
-
 <Admonition type="note" title="Note">
 
 ##### When using&nbsp;`RavenStandardAnalyzer`&nbsp;or`StandardAnalyzer`&nbsp;or&nbsp;`NGramAnalyzer`:
----
-
 Usually, the same analyzer used to tokenize field content at **indexing time** is also used to process the terms provided in the **full-text search query**
 before they are sent to the search engine to retrieve matching documents.
 
@@ -589,8 +568,6 @@ include explanations()
 <Admonition type="note" title="Note">
 
 ##### When using a custom analyzer:
----
-
 * When setting a [custom analyzer](../../indexes/using-analyzers#creating-custom-analyzers) in your index to tokenize field content,
   then when querying the index, the search terms in the query will be processed according to the **custom analyzer's logic**.
 
@@ -773,8 +750,6 @@ include explanations()
 <Admonition type="note" title="Note">
 
 ##### When using the Exact analyzer:
----
-
 When using the default Exact analyzer in your index (which is [KeywordAnalyzer](../../indexes/using-analyzers#using-the-default-exact-analyzer)),  
 then when querying the index, the wildcards in your search terms remain untouched.  
 The terms are sent to the search engine exactly as produced by the analyzer.
@@ -893,12 +868,12 @@ include explanations()
 </Tabs>
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Querying: Searching
+
 
 When you need to do a more complex text searching, use the `search` method. This method allows you to pass a few search terms that will be used in the searching process for a particular field. Here is a sample code
 that uses the `search` method to get users with the name *John* or *Adam*:
@@ -1288,8 +1263,6 @@ where search(allValues, "tofu")
 
 </LanguageContent>
 <LanguageContent language="python">
-# Full-Text Search with Index
----
 
 <Admonition type="note" title="Note">
 
@@ -1306,9 +1279,6 @@ where search(allValues, "tofu")
       
     * You can configure which analyzer will be used to tokenize this field.  
       See [selecting an analyzer](../../indexes/using-analyzers#selecting-an-analyzer-for-a-field).    
-
----
-
 * In this article:
   * [Indexing single field for FTS](../../indexes/querying/searching#indexing-single-field-for-fts)
   * [Indexing multiple fields for FTS](../../indexes/querying/searching#indexing-multiple-fields-for-fts)
@@ -1316,10 +1286,7 @@ where search(allValues, "tofu")
   * [Boosting search results](../../indexes/querying/searching#boosting-search-results)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing single field for FTS" id="indexing-single-field-for-fts" href="#indexing-single-field-for-fts">
+## Indexing single field for FTS
 
 #### The index:
 
@@ -1349,9 +1316,6 @@ where search(allValues, "tofu")
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query with Search:
 
 * Use `Search` to make a full-text search when querying the index.  
@@ -1386,9 +1350,9 @@ where search(EmployeeNotes, "French")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing multiple fields for FTS" id="indexing-multiple-fields-for-fts" href="#indexing-multiple-fields-for-fts">
+
+## Indexing multiple fields for FTS
 
 #### The index:
 
@@ -1424,9 +1388,6 @@ where search(EmployeeNotes, "French")
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Sample query:
 
 <Tabs groupId='languageSyntax'>
@@ -1463,9 +1424,9 @@ where (search(EmployeeData, "Manager") or search(EmployeeData, "French Spanish",
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing all fields for FTS (using AsJson)" id="indexing-all-fields-for-fts-using-asjson" href="#indexing-all-fields-for-fts-using-asjson">
+
+## Indexing all fields for FTS (using AsJson)
 
 * To search across ALL fields in a document without defining each one explicitly, use the `AsJson` method,
   which is available in the **C# LINQ string** that is assigned to the `map` property in the Python index class,
@@ -1479,9 +1440,6 @@ where (search(EmployeeData, "Manager") or search(EmployeeData, "French Spanish",
 * <Admonition type="info" title="Info">
   This indexing method is supported only when using **Lucene** as the indexing engine.
   </Admonition>
-
----
-
 #### The index:
 
 <TabItem value="something" label="index_3">
@@ -1513,9 +1471,6 @@ where (search(EmployeeData, "Manager") or search(EmployeeData, "French Spanish",
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Sample query:
 
 <Tabs groupId='languageSyntax'>
@@ -1543,9 +1498,9 @@ where search(all_values, "tofu")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Boosting search results" id="boosting-search-results" href="#boosting-search-results">
+
+## Boosting search results
 
 * In order to prioritize results, you can provide a boost value to the searched terms.  
   This can be applied by either of the following:
@@ -1556,13 +1511,11 @@ where search(all_values, "tofu")
   * Add a boost value to the queried terms **at query time**.  
     Refer to the [Boost search results](../../client-api/session/querying/text-search/boost-search-results) article.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Full-Text Search with Index
----
 
 <Admonition type="note" title="Note">
 
@@ -1579,9 +1532,6 @@ where search(all_values, "tofu")
       
     * You can configure which analyzer will be used to tokenize this field.  
       See [selecting an analyzer](../../indexes/using-analyzers#selecting-an-analyzer-for-a-field).    
-
----
-
 * In this article:
   * [Indexing single field for FTS](../../indexes/querying/searching#indexing-single-field-for-fts)
   * [Indexing multiple fields for FTS](../../indexes/querying/searching#indexing-multiple-fields-for-fts)
@@ -1589,10 +1539,7 @@ where search(all_values, "tofu")
   * [Boosting search results](../../indexes/querying/searching#boosting-search-results)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing single field for FTS" id="indexing-single-field-for-fts" href="#indexing-single-field-for-fts">
+## Indexing single field for FTS
 
 #### The index:
 
@@ -1642,9 +1589,6 @@ class Employees_ByNotes extends AbstractIndexCreationTask
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query with Search:
 
 * Use `search` to make a full-text search when querying the index.  
@@ -1700,9 +1644,9 @@ where search(EmployeeNotes, "French")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing multiple fields for FTS" id="indexing-multiple-fields-for-fts" href="#indexing-multiple-fields-for-fts">
+
+## Indexing multiple fields for FTS
 
 #### The index:
 
@@ -1761,9 +1705,6 @@ class Employees_ByEmployeeData extends AbstractIndexCreationTask
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Sample query:
 
 <Tabs groupId='languageSyntax'>
@@ -1822,9 +1763,9 @@ where (search(EmployeeData, "Manager") or search(EmployeeData, "French Spanish",
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing all fields for FTS (using AsJson)" id="indexing-all-fields-for-fts-using-asjson" href="#indexing-all-fields-for-fts-using-asjson">
+
+## Indexing all fields for FTS (using AsJson)
 
 * To search across ALL fields in a document without defining each one explicitly, use the `AsJson` method,
   which is available in the **C# LINQ string** that is assigned to the `map` property in the PHP index class,
@@ -1838,9 +1779,6 @@ where (search(EmployeeData, "Manager") or search(EmployeeData, "French Spanish",
 * <Admonition type="info" title="Info">
   This indexing method is supported only when using **Lucene** as the indexing engine.
   </Admonition>
-
----
-
 #### The index:
 
 <TabItem value="something" label="index_3">
@@ -1881,9 +1819,6 @@ class Products_ByAllValues extends AbstractIndexCreationTask
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Sample query:
 
 <Tabs groupId='languageSyntax'>
@@ -1910,9 +1845,9 @@ where search(allValues, "tofu")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Boosting search results" id="boosting-search-results" href="#boosting-search-results">
+
+## Boosting search results
 
 * To prioritize results, you can provide a boost value to the searched terms.  
   This can be applied by either of the following:
@@ -1923,13 +1858,11 @@ where search(allValues, "tofu")
   * Add a boost value to the queried terms **at query time**.  
     Refer to the [Boost search results](../../client-api/session/querying/text-search/boost-search-results) article.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Full-Text Search with Index
----
 
 <Admonition type="note" title="Note">
 
@@ -1946,9 +1879,6 @@ where search(allValues, "tofu")
       
     * You can configure which analyzer will be used to tokenize this field.  
       See [selecting an analyzer](../../indexes/using-analyzers#selecting-an-analyzer-for-a-field).
-
----
-
 * In this article:
   * [Indexing single field for FTS](../../indexes/querying/searching#indexing-single-field-for-fts)
   * [Indexing multiple fields for FTS](../../indexes/querying/searching#indexing-multiple-fields-for-fts)
@@ -1960,10 +1890,7 @@ where search(allValues, "tofu")
       * [When using the Exact analyzer](../../indexes/querying/searching#when-using-the-exact-analyzer)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing single field for FTS" id="indexing-single-field-for-fts" href="#indexing-single-field-for-fts">
+## Indexing single field for FTS
 
 #### The index:
 
@@ -1994,9 +1921,6 @@ where search(allValues, "tofu")
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query with Search:
 
 * Using the `search` method has the advantage of using any of its functionalities,  
@@ -2031,9 +1955,9 @@ where search(employeeNotes, "French")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing multiple fields for FTS" id="indexing-multiple-fields-for-fts" href="#indexing-multiple-fields-for-fts">
+
+## Indexing multiple fields for FTS
 
 #### The index:
 
@@ -2062,9 +1986,6 @@ where search(employeeNotes, "French")
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Sample query:
 
 <Tabs groupId='languageSyntax'>
@@ -2099,9 +2020,9 @@ where (search(employeeData, "Manager") or search(employeeData, "French Spanish",
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing all fields for FTS (using AsJson)" id="indexing-all-fields-for-fts-using-asjson" href="#indexing-all-fields-for-fts-using-asjson">
+
+## Indexing all fields for FTS (using AsJson)
 
 * To search across ALL fields in a document without defining each one explicitly, use the `AsJson` method, 
   which is available when using **a C# LINQ string** that is assigned to the `map` property in the Node.js index class,
@@ -2115,9 +2036,6 @@ where (search(employeeData, "Manager") or search(employeeData, "French Spanish",
 * <Admonition type="info" title="Info">
   This indexing method is supported only when using **Lucene** as the indexing engine.
   </Admonition>
-
----
-
 #### The index:
 
 <TabItem value="something" label="index_6">
@@ -2146,9 +2064,6 @@ class Products_ByAllValues extends AbstractCsharpIndexCreationTask \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Sample query:
 
 <Tabs groupId='languageSyntax'>
@@ -2175,9 +2090,9 @@ where search(AllValues, "tofu")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Boosting search results" id="boosting-search-results" href="#boosting-search-results">
+
+## Boosting search results
 
 * In order to prioritize results, you can provide a boost value to the searched terms.  
   This can be applied by either of the following:
@@ -2188,9 +2103,9 @@ where search(AllValues, "tofu")
   * Add a boost value to the queried terms **at query time**.  
     Refer to article [Boost search results](../../client-api/session/querying/text-search/boost-search-results).
 
-</Admonition>
 
-<Admonition type="info" title="Searching with wildcards" id="searching-with-wildcards" href="#searching-with-wildcards">
+
+## Searching with wildcards
 
 * When making a full-text search with wildcards in the search terms,
   the presence of wildcards (`*`) in the terms sent to the search engine is determined by the transformations applied by the
@@ -2203,14 +2118,9 @@ where search(AllValues, "tofu")
 
 * When using [Corax](../../indexes/search-engine/corax) as the search engine,  
   this behavior will only apply to indexes that are newly created or have been reset.
-
----
-
 <Admonition type="note" title="Note">
 
 ##### When using&nbsp;`RavenStandardAnalyzer`&nbsp;or`StandardAnalyzer`&nbsp;or&nbsp;`NGramAnalyzer`:
----
-
 Usually, the same analyzer used to tokenize field content at **indexing time** is also used to process the terms provided in the **full-text search query**
 before they are sent to the search engine to retrieve matching documents.
 
@@ -2295,8 +2205,6 @@ include explanations()
 <Admonition type="note" title="Note">
 
 ##### When using a custom analyzer:
----
-
 * When setting a [custom analyzer](../../indexes/using-analyzers#creating-custom-analyzers) in your index to tokenize field content,
   then when querying the index, the search terms in the query will be processed according to the custom analyzer's logic.
 
@@ -2422,8 +2330,6 @@ include explanations()
 <Admonition type="note" title="Note">
 
 ##### When using the Exact analyzer:
----
-
 When using the default Exact analyzer in your index (which is [KeywordAnalyzer](../../indexes/using-analyzers#using-the-default-exact-analyzer)),  
 then when querying the index, the wildcards in your search terms remain untouched.  
 The terms are sent to the search engine exactly as produced by the analyzer.
@@ -2486,7 +2392,7 @@ include explanations()
 </Tabs>
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Migration: Server Breaking Changes
----
-
 <Admonition type="note" title="Note">
 The features listed on this page were available in former RavenDB versions.  
 In RavenDB `7.0.x`, they are either unavailable or their behavior is inconsistent 
@@ -24,10 +22,7 @@ with their behavior in previous versions.
    * [Removed obsolete properties](../../migration/server/server-breaking-changes#removed-obsolete-properties)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="RavenDB incorporates NLog as its logging system" id="ravendb-incorporates-nlog-as-its-logging-system" href="#ravendb-incorporates-nlog-as-its-logging-system">
+## RavenDB incorporates NLog as its logging system
 RavenDB's logging system has changed; the server now incorporates the 
 NLog logging framework and writes all log data through it.  
 One of the changes that NLog brings to RavenDB is the richer set 
@@ -36,9 +31,9 @@ Read more about Nlog [in the dedicated article](../../server/troubleshooting/log
 If you migrate to RavenDB `7.x` from an earlier version, please 
 read the section related to NLog in the [migration page](../../migration/server/data-migration).  
 
-</Admonition>
 
-<Admonition type="info" title="Removed obsolete properties" id="removed-obsolete-properties" href="#removed-obsolete-properties">
+
+## Removed obsolete properties
 The following properties are no longer in use, and have been removed from RavenDB `7.0`.  
 
 * `ServerOptions`'s `AcceptEula` property is no longer used,  
@@ -70,5 +65,5 @@ c sealed class MemoryUsageLowHigh
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

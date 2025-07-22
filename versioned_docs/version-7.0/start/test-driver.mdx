@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java"];
+
+
+# Getting Started: Writing your Unit Test using TestDriver
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Getting Started: Writing your Unit Test using TestDriver
----
 
 <Admonition type="note" title="Note">
 
@@ -35,7 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="`RavenTestDriver`" id="raventestdriver" href="#raventestdriver">
+## `RavenTestDriver`
 
 Start by creating a class that derives from `RavenTestDriver`.  
 Find below a list of test driver methods, followed by [samples](../start/test-driver#complete-example).  
@@ -152,9 +154,9 @@ Dispose of the server
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
 
-<Admonition type="info" title="Pre-initializing the store: `PreInitialize`" id="pre-initializing-the-store-preinitialize" href="#pre-initializing-the-store-preinitialize">
+
+## Pre-initializing the store: `PreInitialize`
 
 Pre-Initializing the IDocumentStore allows you to mutate the conventions used by the document store.
 
@@ -171,9 +173,9 @@ protected override void PreInitialize(IDocumentStore documentStore)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Configure the server: `ConfigureServer`" id="configure-the-server-configureserver" href="#configure-the-server-configureserver">
+
+## Configure the server: `ConfigureServer`
 
 The `ConfigureServer` method allows you to be more in control of your server.  
 You can use it with `TestServerOptions` to change the path to the Raven server binaries, specify data storage path, adjust .NET framework versions, etc.
@@ -217,9 +219,9 @@ ConfigureServer(testServerOptions);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Unit test" id="unit-test" href="#unit-test">
+
+## Unit test
 
 We use [xunit](https://www.nuget.org/packages/xunit/) for the test framework in the below example.  
 
@@ -272,9 +274,9 @@ public void MyFirstTest()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Complete example" id="complete-example" href="#complete-example">
+
+## Complete example
 
 This is a full unit test using [Xunit](https://www.nuget.org/packages/xunit/).
 
@@ -368,16 +370,16 @@ namespace RavenDBTestDriverFullExample
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Continuous Integration (CI) Servers" id="continuous-integration-ci-servers" href="#continuous-integration-ci-servers">
+
+## Continuous Integration (CI) Servers
 
 Best practice is to use a CI/CD server to help automate the testing and deployment of your new code. 
 Popular CI/CD products are [AppVeyor](https://www.appveyor.com/) or [Visual Studio Team Services (aka. VSTS)](https://visualstudio.microsoft.com/team-services/).
 
-</Admonition>
 
-<Admonition type="info" title="Licensing" id="licensing" href="#licensing">
+
+## Licensing
 
 The embedded server that TestDriver uses while running your tests can only apply the 
 features and access the resources defined by its [license](https://ravendb.net/buy).  
@@ -417,13 +419,11 @@ will be able to use up to 9 cores and run way faster.
 
 
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Getting Started: Writing your Unit Test using TestDriver
----
 
 <Admonition type="note" title="Note">
 
@@ -442,7 +442,7 @@ will be able to use up to 9 cores and run way faster.
 
 </Admonition>
 
-<Admonition type="info" title="RavenTestDriver" id="raventestdriver" href="#raventestdriver">
+## RavenTestDriver
 
 First, please make sure that the Raven TestDriver is added to your project dependencies.  
 
@@ -459,9 +459,6 @@ Then, define a class that derives from the Raven TestDriver.
 
 We can start by reviewing TestDriver methods, and then get into implementation 
 (find a complete Raven TestDriver code sample [below](../start/test-driver#complete-example)).  
-
----
-
 ### Methods
 
 | Signature | Description |
@@ -483,9 +480,9 @@ We can start by reviewing TestDriver methods, and then get into implementation
 | **protected void openBrowser(String url)** | Allows you to open the browser. |
 | **public void close()** | Allows you to dispose of the server. |
 
-</Admonition>
 
-<Admonition type="info" title="PreInitialize" id="preinitialize" href="#preinitialize">
+
+## PreInitialize
 
 Pre-Initializing the IDocumentStore allows you to mutate the conventions used by the document store.
 
@@ -502,9 +499,9 @@ protected void preInitialize(IDocumentStore documentStore) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="UnitTest" id="unittest" href="#unittest">
+
+## UnitTest
 
 We'll be using [JUnit](https://junit.org/) for my test framework in the below example.
 Note that the test itself is meant to show different capabilities of the test driver and is not meant to be the most efficient.
@@ -553,9 +550,9 @@ are deployed (we can remove this line once the test is working).
 Finally we query for a TestDocument whose name contains the word 'hello' and assert that we have only one 
 such document.  
 
-</Admonition>
 
-<Admonition type="info" title="ConfigureServer" id="configureserver" href="#configureserver">
+
+## ConfigureServer
 
 Before RavenDB server can be started, TestDriver extracts binaries to `targetServerLocation` (Default: `.`). Optionally before doing this, target directory can be cleaned up (when `cleanTargetServerLocation` option is turned on (Default: false)). 
 
@@ -591,9 +588,9 @@ testServerOptions.setDataDirectory("PATH_TO_RAVENDB_DATADIR");
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Complete Example" id="complete-example" href="#complete-example">
+
+## Complete Example
 
 <TabItem value="something-something" label="test_full_example">
 <CodeBlock language="java">
@@ -663,7 +660,7 @@ testServerOptions.setDataDirectory("PATH_TO_RAVENDB_DATADIR");
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Security: Common Errors & FAQ
----
-
 <Admonition type="note" title="Note">
 
 * This article explains some of the common security configuration errors and how to handle them.
@@ -26,16 +24,13 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Setup Wizard Issues" id="setup-wizard-issues" href="#setup-wizard-issues">  
+## Setup Wizard Issues  
 
 * [Server cannot bind to the provided private IP address](../../server/security/common-errors-and-faq#server-cannot-bind-to-the-provided-private-ip-address)
 * [Ports are blocked by the firewall](../../server/security/common-errors-and-faq#ports-are-blocked-by-the-firewall)
 * [DNS is cached locally](../../server/security/common-errors-and-faq#dns-is-cached-locally)
 * [Long DNS propagation time](../../server/security/common-errors-and-faq#long-dns-propagation-time)
 * [If I already have the Zip file, can I avoid repeating the setup process?](../../server/security/common-errors-and-faq#if-i-already-have-the-zip-file-can-i-avoid-repeating-the-setup-process)
-
----
-
 ### Server cannot bind to the provided private IP address
 
 If the IP/port is not accessible on your machine, you'll get the following error.
@@ -60,9 +55,6 @@ This can be caused by two different reasons:
 2. You are running behind a firewall (VM, docker...) and accidentally provided the external IP address during setup.
 
 Make sure you provide the private IP address in the "IP Address / Hostname" field as seen in [this example](../../start/installation/setup-wizard#example-iii---behind-a-firewall).
-
----
-
 ### Ports are blocked by the firewall
 
 When configuring a VM in Azure, [AWS](../../start/installation/setup-examples/aws-windows-vm) or any other provider, you should define firewall rules to allow both the **HTTP** and **TCP** ports you have chosen during setup.
@@ -82,9 +74,6 @@ IP addresses: 10.0.1.4:443.
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### DNS is cached locally
 
 Most networks cache DNS records. In some environments you can get an error such as this:
@@ -107,9 +96,6 @@ Another temporary solution is to configure your local network connection to use 
 This error probably means that the DNS is cached. You can wait a few minutes or reset the network DNS cache, 
 but in many cases, the easiest solution is to [temporarily switch your DNS server to 8.8.8.8](https://developers.google.com/speed/public-dns/docs/using) 
 You can click the Try Again button to restart the validation process of the Setup Wizard.
-
----
-
 ### Long DNS propagation time
 
 If you are trying to modify existing DNS records, for example running the Setup Wizard again for the same domain name, you may encounter errors such as this:
@@ -131,9 +117,6 @@ it might take hours to update because of DNS caching. If the issue persists, con
 
 If this happens, there is nothing you can do except wait for DNS propagation. When it's updated on dns.google.com click the `Try Again` button.  
 You can keep track of your RavenDB clusters and their associated DNS records at the [Customer's Portal](https://customers.ravendb.net).
-
----
-
 ### If I already have the Zip file, can I avoid repeating the setup process?
 
 Yes.  
@@ -143,18 +126,15 @@ This will use the existing Zip file and the same configuration and certificate w
 When building a cluster, repeat this step with nodes B, C, and so on.
 
 
-</Admonition>
 
-<Admonition type="info" title="Changing Configurations and Renewals Issues" id="changing-configurations-and-renewals-issues" href="#changing-configurations-and-renewals-issues">
+
+## Changing Configurations and Renewals Issues
 
 * [After installing with Let's Encrypt, can I change the DNS records?](../../server/security/common-errors-and-faq#after-installing-with-lets-encrypt-can-i-change-the-dns-records)
 * [Can I change the (private) IP address RavenDB binds to?](../../server/security/common-errors-and-faq#can-i-change-the-private-ip-address-ravendb-binds-to)
 * [The Let's Encrypt certificate is about to expire but doesn't renew automatically](../../server/security/common-errors-and-faq#the-lets-encrypt-certificate-is-about-to-expire-but-doesnt-renew-automatically)
 * [What should I do when my license expires?](../../server/security/common-errors-and-faq#what-should-i-do-when-my-license-expires)
 * [Let's Encrypt certificate permission errors after renewal](../../server/security/common-errors-and-faq#lets-encrypt-certificate-permission-errors-after-renewal)
-
----
-
 ### After installing with Let's Encrypt, can I change the DNS records?
 
 Yes.  
@@ -164,17 +144,11 @@ Yes.
 
 If you supply different IP addresses then the wizard will update the DNS records of your domain.  
 If you use a new domain or if you add/remove nodes in the new configuration then the wizard will also fetch a new certificate.
-
----
-
 ### Can I change the (private) IP address RavenDB binds to?
 
 Yes.  
 Open the [settings.json](../configuration/configuration-options#json) file located in the RavenDB Server installation folder, 
 change the `ServerUrl` setting and restart the server.
-
----
-
 ### The Let's Encrypt certificate is about to expire but doesn't renew automatically
 
 If you are getting the following error you must update the RavenDB server. 
@@ -229,9 +203,6 @@ Things to check:
   you can contact support.  
   * Make sure to supply the server logs with your ticket. When running in a cluster, please provide the logs from all nodes.
   * If your logs are turned off, open `Manage Server`-&gt;`Admin Logs` in the Studio, and keep them open while you click the `Renew` button in the certificate view.
-
-  ---
-
 ### What should I do when my license expires?
 
 * When your license expires the Studio is blocked.  
@@ -240,9 +211,6 @@ Things to check:
   and doesn't comply with the [EULA terms](https://ravendb.net/terms).
 
 * __Renew your license__ as described in this [Renew License](../../start/licensing/renew-license) tutorial.
-
----
-
 ### Let's Encrypt certificate permission errors after renewal
 
 If you have External Replication or ETL to another cluster,  
@@ -251,9 +219,9 @@ the next certificate renewal may cause permission issues that need to be handled
 
 Learn how to handle this issue [here](../../server/security/authentication/solve-cluster-certificate-renewal-issue).  
 
-</Admonition>
 
-<Admonition type="info" title="Authentication Issues" id="authentication-issues" href="#authentication-issues">
+
+## Authentication Issues
 
 * [Authentication Error Occurred using Edge](../../server/security/common-errors-and-faq#authentication-error-occurred-using-edge)  
 * [Authentication Error Occurred using Chrome](../../server/security/common-errors-and-faq#authentication-error-occurred-using-chrome)  
@@ -265,9 +233,6 @@ Learn how to handle this issue [here](../../server/security/authentication/solve
 * [How to regain access to a server when you have physical access but no client certificate](../../server/security/common-errors-and-faq#how-to-regain-access-to-a-server-when-you-have-physical-access-but-no-client-certificate)  
 * [Certificate is not recognized when setting up on Azure App Services](../../server/security/common-errors-and-faq#certificate-is-not-recognized-when-setting-up-on-azure-app-services)  
 * [Automatic cluster certificate renewal following migration to 4.2](../../server/security/common-errors-and-faq#automatic-cluster-certificate-renewal-following-migration-to-4.2)  
-
----
-
 ### Authentication Error Occurred using Edge
 
 You cannot access Studio using Edge, though during 
@@ -299,9 +264,6 @@ This server requires client certificate for authentication, but none was provide
 4. In case none of the above works, you can use your own certificate and have RavenDB trust it. 
    You can use any client certificate that works under your OS and browser, even if it wasn't generated by RavenDB.  
    See [trusting an existing certificate](../../server/administration/cli#trustclientcert).  
-
----
-
 #### If your browser runs under Windows 7 or Windows Server 2008 or older:  
 
 The first thing to try would be installing the **SERVER** certificate to the OS 
@@ -321,9 +283,6 @@ Value data: 0 (False)
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Authentication Error Occurred using Chrome
 
 You cannot access Studio using Chrome, though during 
@@ -366,9 +325,6 @@ This server requires client certificate for authentication, but none was provide
 4. In case none of the above works, you can use your own certificate and have RavenDB trust it. 
    You can use any client certificate that works under your OS and browser, even if it wasn't generated by RavenDB.  
    See [trusting an existing certificate](../../server/administration/cli#trustclientcert).  
-
----
-
 ### RavenDB is running as a service in Windows and Chrome doesn't use the client certificate from the OS store
 
 Your RavenDB service may run under a certain user, for which the certificate was installed, while you 
@@ -379,9 +335,6 @@ looks for the certificate not at the OS root but at the Chrome root store.
 To solve these issues:
 Using a user that the service is available for, install or import the certificate PFX 
 [as described above](../../server/security/common-errors-and-faq#authentication-error-occurred-using-chrome).  
-
----
-
 ### Authentication Error Occurred in Firefox
 
 You cannot access the Studio using Firefox even though you have finished the setup wizard successfully and you also checked the box saying "Automatically register the admin client certificate in this (local) OS".
@@ -400,9 +353,6 @@ Firefox doesn't use the OS certificate store like Chrome or Edge. Please import 
 Then close **all instances** of the browser and restart it.
 
 ![Figure 3. Firefox Import](./assets/2.png)
-
----
-
 ### Cannot Import the Client Certificate to Firefox
 
 You're trying to import the client certificate received from RavenDB to Firefox but get the following error:
@@ -435,9 +385,6 @@ Some references:
 [Bugzilla: #1049435](https://bugzilla.mozilla.org/show_bug.cgi?id=1049435)  
 [Bugzilla: #458161](https://bugzilla.mozilla.org/show_bug.cgi?id=458161)  
 [mozilla.dev.tech.crypto issue](https://groups.google.com/forum/?fromgroups=#!topic/mozilla.dev.tech.crypto/RiIeY-R5Q4Y)  
-
----
-
 ### Getting the full error using PowerShell
 
 You can use PowerShell to make requests using the REST API.
@@ -465,9 +412,6 @@ catch \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Not using TLS
 
 The RavenDB clients use TLS 1.2 by default. If you want to use other clients please make sure to use the TLS security protocol version 1.2 or 1.3.
@@ -503,9 +447,6 @@ In PowerShell it can be solved like this:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### How to regain access to a server when you have physical access but no client certificate
 
 An admin client certificate can be generated through the [RavenDB CLI](../../server/administration/cli#generateclientcert If RavenDB runs as a console application, the CLI is just there. When running as a service, please use the `rvn admin-channel`.  
@@ -513,9 +454,6 @@ Use either the [generateClientCert](../../server/administration/cli#generateclie
 
 Another way to gain access for an existing certificate is to add the [Security.WellKnownCertificates.Admin](../../server/configuration/security-configuration#security.wellknowncertificates.admin) configuration to `settings.json` with your existing certificate's thumbprint.
 In this case, a server restart is required.
-
----
-
 ### Certificate is not recognized when setting up on Azure App Services
 
 You may have gotten an error message like:
@@ -535,9 +473,6 @@ The credentials supplied to the package were not recognized (The SSL connection 
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Automatic cluster certificate renewal following migration to 4.2
 
 `Security.Certificate.Exec` was deprecated in 4.2 and replaced by `Security.Certificate.Load.Exec`. You can use your old `Security.Certificate.Exec` 
@@ -546,9 +481,9 @@ for automatically persisting the certificate to the whole cluster. If you have y
 you still need to place empty scripts in the `Security.Certificate.Renew.Exec` and `Security.Certificate.Change.Exec` paths or an exception will be 
 thrown.  
 
-</Admonition>
 
-<Admonition type="info" title="Encryption Issues" id="encryption-issues" href="#encryption-issues">
+
+## Encryption Issues
 
 ### Insufficient Memory Exception
 
@@ -579,5 +514,5 @@ In **Linux**, it is the admin's responsibility to configure higher limits manual
 
 To figure out what the new limit should be, look at the exception thrown by RavenDB, which includes this size.
 
-</Admonition>
+
 

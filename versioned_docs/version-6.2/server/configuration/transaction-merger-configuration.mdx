@@ -13,7 +13,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Transaction Merger Options
 
-<Admonition type="info" title="TransactionMerger.MaxTimeToWaitForPreviousTxInMs" id="transactionmerger-maxtimetowaitforprevioustxinms" href="#transactionmerger-maxtimetowaitforprevioustxinms">
+## TransactionMerger.MaxTimeToWaitForPreviousTxInMs
 
 EXPERT: Time to wait (in milliseconds) for the previous async commit before checking for the tx size.
 
@@ -21,9 +21,9 @@ EXPERT: Time to wait (in milliseconds) for the previous async commit before chec
 - **Default**: `0`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="TransactionMerger.MaxTimeToWaitForPreviousTxBeforeRejectingInMs" id="transactionmerger-maxtimetowaitforprevioustxbeforerejectinginms" href="#transactionmerger-maxtimetowaitforprevioustxbeforerejectinginms">
+
+## TransactionMerger.MaxTimeToWaitForPreviousTxBeforeRejectingInMs
 
 EXPERT: Time to wait for the previous async commit transaction before rejecting the request due to long duration IO.
 
@@ -31,9 +31,9 @@ EXPERT: Time to wait for the previous async commit transaction before rejecting 
 - **Default**: `5000`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="TransactionMerger.MaxTxSizeInMb" id="transactionmerger-maxtxsizeinmb" href="#transactionmerger-maxtxsizeinmb">
+
+## TransactionMerger.MaxTxSizeInMb
 
 EXPERT: Maximum size (in MB) for the merged transaction.
 
@@ -41,4 +41,4 @@ EXPERT: Maximum size (in MB) for the merged transaction.
 - **Default**: 4MB for 32-bit or minimum of either `10% of total physical memory` or `512` for 64-bit
 - **Scope**: Server-wide or per database
 
-</Admonition>
+

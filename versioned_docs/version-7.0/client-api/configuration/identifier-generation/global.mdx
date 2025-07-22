@@ -11,11 +11,15 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
 #Global Identifier Generation Conventions
 
-## FindCollectionName and FindCollectionNameForDynamic
+
 
 Documents that have the same `@collection` metadata belong to the same [collection](../../../client-api/faq/what-is-a-collection) on the server side. Collection names are also used to build document identifiers. There are two functions that the client uses to determine a collection name for a given type. The first one is used for standard objects with a well-defined type:
 
@@ -160,18 +164,12 @@ You can overwrite it by using `IdentityPartsSeparator` convention. Its default d
 </CodeBlock>
 </TabItem>
 
-## Related Articles
-
-- [Document identifier generation](../../../server/kb/document-identifier-generation)
-- [Working with document identifiers](../../../client-api/document-identifiers/working-with-document-identifiers)
-- [What is a collection?](../../../client-api/faq/what-is-a-collection)
-- [Type-specific identifier generation](../../../client-api/configuration/identifier-generation/type-specific)
 
 </LanguageContent>
 <LanguageContent language="java">
 #Global Identifier Generation Conventions
 
-## FindCollectionName
+
 
 Documents that have the same `@collection` metadata belong to the same [collection](../../../client-api/faq/what-is-a-collection) on the server side. Collection names are also used to build document identifiers. 
 
@@ -275,18 +273,12 @@ You can overwrite it by using `IdentityPartsSeparator` convention. Its default d
 </CodeBlock>
 </TabItem>
 
-## Related Articles
-
-- [Document identifier generation](../../../server/kb/document-identifier-generation)
-- [Working with document identifiers](../../../client-api/document-identifiers/working-with-document-identifiers)
-- [What is a collection?](../../../client-api/faq/what-is-a-collection)
-- [Type-specific identifier generation](../../../client-api/configuration/identifier-generation/type-specific)
 
 </LanguageContent>
 <LanguageContent language="nodejs">
 #Global Identifier Generation Conventions
 
-## FindCollectionName
+
 
 Documents that have the same `@collection` metadata belong to the same [collection](../../../client-api/faq/what-is-a-collection) on the server side. Collection names are also used to build document identifiers. 
 
@@ -393,11 +385,5 @@ For instance here's mapping of the *category* field to collection name:
 </CodeBlock>
 </TabItem>
 
-## Related Articles
-
-- [Document identifier generation](../../../server/kb/document-identifier-generation)
-- [Working with document identifiers](../../../client-api/document-identifiers/working-with-document-identifiers)
-- [What is a collection?](../../../client-api/faq/what-is-a-collection)
-- [Type-specific identifier generation](../../../client-api/configuration/identifier-generation/type-specific)
 
 </LanguageContent>

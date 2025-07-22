@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Statistical Measures
-
----
-
 <Admonition type="note" title="Note">
 
 * Queries can calculate the **percentile**, **slope**, and **standard deviation** 
@@ -29,10 +26,7 @@ second values in each entry, and so on.
   * [Examples](../../../document-extensions/timeseries/querying/statistics#examples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 ### Percentile  
 
@@ -54,9 +48,6 @@ series or range of time series entries. It takes one `double` value that is grea
 should be smaller than the result.  
 
 See examples [below](../../../document-extensions/timeseries/querying/statistics#examples).  
-
----
-
 ### Slope  
 
 * RQL method: `slope()`  
@@ -73,9 +64,6 @@ The difference in time is measured in milliseconds. Use [scaling](../../../docum
 to adjust the results to your preferred units.  
 
 See examples [below](../../../document-extensions/timeseries/querying/statistics#examples).  
-
----
-
 ### Standard Deviation
 
 * RQL method: `stddev()`  
@@ -85,9 +73,6 @@ These methods return the [standard deviation](https://en.wikipedia.org/wiki/Stan
 of time series values.  
 
 See examples [below](../../../document-extensions/timeseries/querying/statistics#examples).  
-
----
-
 ### Result Format
 
 Queries with these methods return results with the following format:  
@@ -115,9 +100,9 @@ Queries with these methods return results with the following format:
 If the query uses `group by` aggregation, there will be one of 
 these results for each of the aggregates.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 ### Percentile
 
@@ -220,5 +205,5 @@ var query = session.Advanced.RawQuery<TimeSeriesAggregationResult>(@"
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 

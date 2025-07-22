@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Compare Exchange in Cluster-Wide Session
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Compare Exchange in Cluster-Wide Session
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -30,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Get compare-exchange](../../../client-api/session/cluster-transaction/compare-exchange#get-compare-exchange)
     * [Delete compare-exchange](../../../client-api/session/cluster-transaction/compare-exchange#delete-compare-exchange)
 </Admonition>
-
----
-
-<Admonition type="info" title="Create compare-exchange" id="create-compare-exchange" href="#create-compare-exchange">
+## Create compare-exchange
 
 <Admonition type="note" title="Note">
 #### Example
@@ -108,9 +106,9 @@ await session.SaveChangesAsync();
 | **index**    | `long`   | Index for concurrency control                                      |
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Get compare-exchange" id="get-compare-exchange" href="#get-compare-exchange">
+
+## Get compare-exchange
 
 <Admonition type="note" title="Note">
 #### Get single value
@@ -203,9 +201,9 @@ session.Advanced.ClusterTransaction.Lazily.GetCompareExchangeValuesAsync<T>(keys
 | `Lazy<CompareExchangeValue<T>>`| If the key doesn't exist it will return `null` |
 | `Lazy<Dictionary<string, CompareExchangeValue<T>>>` | If a key doesn't exists the associate value will be `null` |
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Delete compare-exchange" id="delete-compare-exchange" href="#delete-compare-exchange">
+
+## Delete compare-exchange
 
 <Admonition type="note" title="Note">
 
@@ -239,14 +237,11 @@ session.Advanced.ClusterTransaction.DeleteCompareExchangeValue<T>(item);
 | **item**   | `CompareExchangeValue<T>` | The compare-exchange item to delete            |
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Compare Exchange in Cluster-Wide Session
-
----
 
 <Admonition type="note" title="Note">
 
@@ -261,10 +256,7 @@ session.Advanced.ClusterTransaction.DeleteCompareExchangeValue<T>(item);
     * [Get compare-exchange](../../../client-api/session/cluster-transaction/compare-exchange#get-compare-exchange)
     * [Delete compare-exchange](../../../client-api/session/cluster-transaction/compare-exchange#delete-compare-exchange)
 </Admonition>
-
----
-
-<Admonition type="info" title="Create compare-exchange" id="create-compare-exchange" href="#create-compare-exchange">
+## Create compare-exchange
 
 <Admonition type="note" title="Note">
 #### Example
@@ -317,9 +309,9 @@ session.save_changes()
 | **index**    | `int`    | Index for concurrency control                                       |
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Get compare-exchange" id="get-compare-exchange" href="#get-compare-exchange">
+
+## Get compare-exchange
 
 <Admonition type="note" title="Note">
 #### Get single value
@@ -384,9 +376,9 @@ session.advanced.cluster_transaction.lazily.get_compare_exchange_values(keys)
 | `Lazy[CompareExchangeValue[T]]`| The requested value<br/>If the key doesn't exist the value associated with it will be `None` |
 | `Lazy[Dict[str, CompareExchangeValue[T]]]` | A dictionary of requested values<br/>If a key doesn't exist the value associated with it will be `None` |
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Delete compare-exchange" id="delete-compare-exchange" href="#delete-compare-exchange">
+
+## Delete compare-exchange
 
 To delete a compare exchange item, use either of the following methods.  
 
@@ -410,14 +402,11 @@ session.advanced.cluster_transaction.delete_compare_exchange_value(item)
 | **item**   | `CompareExchangeValue[T]` | The compare-exchange item to delete             |
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Compare Exchange in Cluster-Wide Session
-
----
 
 <Admonition type="note" title="Note">
 
@@ -432,10 +421,7 @@ session.advanced.cluster_transaction.delete_compare_exchange_value(item)
     * [Get compare-exchange](../../../client-api/session/cluster-transaction/compare-exchange#get-compare-exchange)
     * [Delete compare-exchange](../../../client-api/session/cluster-transaction/compare-exchange#delete-compare-exchange)
 </Admonition>
-
----
-
-<Admonition type="info" title="Create compare-exchange" id="create-compare-exchange" href="#create-compare-exchange">
+## Create compare-exchange
 
 <Admonition type="note" title="Note">
 #### Example
@@ -488,9 +474,9 @@ $session->saveChanges();
 | **index**    | `long`   | Index for concurrency control                                      |
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Get compare-exchange" id="get-compare-exchange" href="#get-compare-exchange">
+
+## Get compare-exchange
 
 <Admonition type="note" title="Note">
 #### Get single value
@@ -555,9 +541,9 @@ $session->advanced()->clusterTransaction()->lazily()->getCompareExchangeValues(n
 | `Lazy<CompareExchangeValue<T>>`| If the key doesn't exist it will return `null` |
 | `Lazy<Dictionary<string, CompareExchangeValue<T>>>` | If a key doesn't exists the associate value will be `null` |
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Delete compare-exchange" id="delete-compare-exchange" href="#delete-compare-exchange">
+
+## Delete compare-exchange
 
 <Admonition type="note" title="Note">
 
@@ -579,14 +565,11 @@ $session->advanced()->clusterTransaction()->deleteCompareExchangeValue($item);
 | **item**   | `CompareExchangeValue<T>` | The compare-exchange item to delete            |
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Compare Exchange in Cluster-Wide Session
-
----
 
 <Admonition type="note" title="Note">
 
@@ -601,10 +584,7 @@ $session->advanced()->clusterTransaction()->deleteCompareExchangeValue($item);
     * [Get compare-exchange](../../../client-api/session/cluster-transaction/compare-exchange#get-compare-exchange)
     * [Delete compare-exchange](../../../client-api/session/cluster-transaction/compare-exchange#delete-compare-exchange)
 </Admonition>
-
----
-
-<Admonition type="info" title="Create compare-exchange" id="create-compare-exchange" href="#create-compare-exchange">
+## Create compare-exchange
 
 <Admonition type="note" title="Note">
 #### Example
@@ -661,9 +641,9 @@ await session.saveChanges();
 | **index**    | `number` | Index for concurrency control                                      |
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Get compare-exchange" id="get-compare-exchange" href="#get-compare-exchange">
+
+## Get compare-exchange
 
 <Admonition type="note" title="Note">
 #### Get single value
@@ -732,9 +712,9 @@ const items = await lazyItems.getValue();
 | `object`                                | For single item:<br/>If the key doesn't exist it will return `null`                 |
 | `Record<string, object>`                | For multiple items:<br/>If a key doesn't exists the associate value will be `null`  |
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Delete compare-exchange" id="delete-compare-exchange" href="#delete-compare-exchange">
+
+## Delete compare-exchange
 
 <Admonition type="note" title="Note">
 
@@ -756,7 +736,7 @@ session.advanced.clusterTransaction.deleteCompareExchangeValue(item);
 | **item**   | `object` | The compare-exchange item to delete            |
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>

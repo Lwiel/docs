@@ -47,7 +47,7 @@ The identity check applies to [Tombstone](../../../glossary/tombstone) as well, 
 3. Try to resolve the conflict by using a script, which is set up by configuring a [Conflict Resolver](../../../server/clustering/replication/replication-conflicts#conflict-resolution-script).  
 4. If all else fails, record conflicting document variants as "Conflicted Documents" which will have to be resolved [Manually](../../../server/clustering/replication/replication-conflicts#manually-resolving-conflicts). 
 
-<Admonition type="info" title="Conflict Resolution Script" id="conflict-resolution-script" href="#conflict-resolution-script"> 
+## Conflict Resolution Script 
 A resolution script is defined per collection and have the following input arguments:
 
 | Name | Type | Description |
@@ -109,9 +109,9 @@ return final;
 On this screenshot, we can see the conflict resolution screen in which we would write the above script.
 ![Conflict Resolution Script in Management Studio](./assets/conflict-resolution-script-in-studio.jpg)  
 
-</Admonition>  
+  
 
-<Admonition type="info" title="Manually Resolving Conflicts" id="manually-resolving-conflicts" href="#manually-resolving-conflicts">
+## Manually Resolving Conflicts
 In case one or more documents are in a "conflicted" state, we need to resolve the conflict manually.  
   
 This can be done in two ways:
@@ -130,4 +130,4 @@ In the example we have in this conflict, once we remove merging tags in the docu
 the resulting document will look like the following:
 
 ![Document after resolved conflict](./assets/resolve-conflicted-document-screen2.jpg)  
-</Admonition>
+

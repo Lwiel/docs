@@ -11,7 +11,11 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
 #Type-Specific Identifier Generation
 
@@ -20,7 +24,7 @@ Now we will show how to override the default ID generation in a more granular wa
 
 To override default document identifier generation algorithms, you can register custom conventions per an entity type. You can include your own identifier generation logic.
 
-## RegisterAsyncIdConvention
+
 
 <TabItem value="something" label="register_id_convention_method_async">
 <CodeBlock language="csharp">
@@ -141,11 +145,6 @@ using (var session = store.OpenSession())
 </CodeBlock>
 </TabItem>
 
-## Related Articles
-
-- [Document identifier generation](../../../server/kb/document-identifier-generation)
-- [Working with document identifiers](../../../client-api/document-identifiers/working-with-document-identifiers)
-- [Global identifier generation conventions](../../../client-api/configuration/identifier-generation/global)
 
 </LanguageContent>
 <LanguageContent language="java">
@@ -156,7 +155,7 @@ Now we will show how to override the default ID generation in a more granular wa
 
 To override default document identifier generation algorithms, you can register custom conventions per an entity type. You can include your own identifier generation logic.
 
-## RegisterIdConvention
+
 
 <TabItem value="something-something" label="register_id_convention_method_async">
 <CodeBlock language="java">
@@ -267,11 +266,6 @@ try (IDocumentSession session = store.openSession()) \{
 </CodeBlock>
 </TabItem>
 
-## Related Articles
-
-- [Document identifier generation](../../../server/kb/document-identifier-generation)
-- [Working with document identifiers](../../../client-api/document-identifiers/working-with-document-identifiers)
-- [Global identifier generation conventions](../../../client-api/configuration/identifier-generation/global)
 
 </LanguageContent>
 <LanguageContent language="nodejs">
@@ -282,7 +276,7 @@ Now we will show how to override the default ID generation in a more granular wa
 
 To override default document identifier generation algorithms, you can register custom conventions per an entity type. You can include your own identifier generation logic.
 
-## RegisterIdConvention
+
 
 <TabItem value="something-something" label="register_id_convention_method_async">
 <CodeBlock language="nodejs">
@@ -362,10 +356,5 @@ store.conventions.registerIdConvention(typeDescriptor,
 </CodeBlock>
 </TabItem>
 
-## Related Articles
-
-- [Document identifier generation](../../../server/kb/document-identifier-generation)
-- [Working with document identifiers](../../../client-api/document-identifiers/working-with-document-identifiers)
-- [Global identifier generation conventions](../../../client-api/configuration/identifier-generation/global)
 
 </LanguageContent>

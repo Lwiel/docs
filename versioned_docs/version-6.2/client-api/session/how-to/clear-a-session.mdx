@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Session: How to Clear a Session
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: How to Clear a Session
+
 
 To clear session state, stop tracking entities, and remove all pending commands, 
 use the `Clear` method from the `Advanced` session operations.
@@ -47,7 +51,7 @@ session.SaveChanges(); // nothing will happen
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Clear a Session
+
 
 To clear session state, stop tracking entities, and remove all pending commands, 
 use the  `clear` method from the `advanced` session operations.
@@ -80,7 +84,7 @@ session.saveChanges(); // nothing will hapen
 
 </LanguageContent>
 <LanguageContent language="python">
-# Session: How to Clear a Session
+
 
 To clear session state, stop tracking entities, and remove all pending commands, 
 use the `clear` method from the `advanced` session operations.
@@ -110,7 +114,7 @@ session.save_changes()  # nothing will happen
 
 </LanguageContent>
 <LanguageContent language="php">
-# Session: How to Clear a Session
+
 
 To clear session state, stop tracking entities, and remove all pending commands, 
 use the `clear` method from the `advanced` session operations.
@@ -143,7 +147,7 @@ $session->saveChanges(); // nothing will hapen
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: How to Clear a Session
+
 
 To clear session state, stop tracking entities, and remove all pending commands, 
 use the `clear()` method from the `advanced` session operations.

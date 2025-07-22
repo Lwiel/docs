@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding: ETL
----
-
 <Admonition type="note" title="Note">
 
 * From a user's point of view, ETL usage on a sharded RavenDB database 
@@ -39,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Retrieving Shard-Specific ETL Task Info](../sharding/etl#retrieving-shard-specific-etl-task-info)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="ETL" id="etl" href="#etl">
+## ETL
 
 ## Sharded and Non-Sharded ETL Tasks
 
@@ -88,9 +83,9 @@ and modifications no matter how large the overall database gets.
   another shard node will be made responsible for the task, 
   and the transfer will continue from the point of failure.  
 
-</Admonition>
 
-<Admonition type="info" title="ETL Queries" id="etl-queries" href="#etl-queries">
+
+## ETL Queries
 
 Queries used by an ETL task's transform script on a sharded 
 database are basically no different than queries executed over 
@@ -104,9 +99,9 @@ differently than their non-sharded equivalents (e.g.
 it is recommended to read the pages dedicated to [indexing](../sharding/indexing) 
 and [querying](../sharding/querying) on a sharded database.  
 
-</Admonition>
 
-<Admonition type="info" title="ETL and Resharding" id="etl-and-resharding" href="#etl-and-resharding">
+
+## ETL and Resharding
 
 It may happen that an ETL task would send the same data more than once.  
 One scenario that would make this happen is resharding: a document can 
@@ -125,9 +120,9 @@ thorough discussion of this [here](../studio/database/tasks/ongoing-tasks/olap-e
 and relevant code samples [here](../server/ongoing-tasks/etl/olap#athena-examples).  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Retrieving Shard-Specific ETL Task Info" id="retrieving-shard-specific-etl-task-info" href="#retrieving-shard-specific-etl-task-info">
+
+## Retrieving Shard-Specific ETL Task Info
 
 * The [GetOngoingTaskInfoOperation](../client-api/operations/maintenance/ongoing-tasks/ongoing-task-operations) 
   store operation can be used on a non-sharded database to retrieve a task's information.  
@@ -169,5 +164,5 @@ if (ongoingTask != null)
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
+
 

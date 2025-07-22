@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # GenAI Integration: Studio
----
-
 <Admonition type="note" title="Note">
 
 * In this article:
@@ -26,10 +24,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Review configuration and Save task](../../ai-integration/gen-ai-integration/gen-ai-studio#review-configuration-and-save-task)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="GenAI Task" id="genai-task" href="#genai-task">
+## GenAI Task
 
 ### What does a GenAI task do?
 A GenAI task is an ongoing task that:  
@@ -38,17 +33,11 @@ A GenAI task is an ongoing task that:
 2. Shapes each retrieved document into an easy-to-handle "context object".  
 3. Sends context objects one by one to an AI model for processing.  
 4. Handles the AI model's output.  
-
----
-
 ### The GenAI Task wizard
 Studio's [AI Tasks](../../ai-integration/ai-tasks-list-view) view includes a GenAI **wizard**.  
 Using this wizard, we can easily **create and configure** our task, as well as **test each step 
 of its creation** in a dedicated "playground".  
 We will go through the task creation and testing sequence below, using the wizard.  
-
----
-
 ### Sample data
 While demonstrating the creation and testing of a GenAI task, we will use the following 
 sample document, illustrating a blog post with an array of comments, of which one is spam.  
@@ -87,9 +76,9 @@ following content.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add a GenAI Task" id="add-a-genai-task" href="#add-a-genai-task">
+
+## Add a GenAI Task
 To add a new GenAI task, open: **AI Hub** &gt; **AI Tasks** &gt; **Add AI Task** &gt; **GenAI**  
 
 ![Add a GenAI Task](./assets/gen-ai_add-GenAI-task.png)
@@ -106,9 +95,9 @@ To add a new GenAI task, open: **AI Hub** &gt; **AI Tasks** &gt; **Add AI Task**
    Click to open a wizard that will guide you through the creation and testing of your GenAI task.  
    The steps of this wizard are explained below, starting with basic GenAI task settings.  
 
-</Admonition>
 
-<Admonition type="info" title="Configure basic settings" id="configure-basic-settings" href="#configure-basic-settings">
+
+## Configure basic settings
 
 ![Configure basic settings](./assets/gen-ai_configure-basic-settings.png)
 
@@ -148,9 +137,9 @@ To add a new GenAI task, open: **AI Hub** &gt; **AI Tasks** &gt; **Add AI Task**
    As you advance through the wizard you'll be able to define and test your settings, 
    and eventually review and save your task.  
 
-</Admonition>
 
-<Admonition type="info" title="Generate context objects" id="generate-context-objects" href="#generate-context-objects">
+
+## Generate context objects
 
 ![Generate context objects](./assets/gen-ai_generate-context-objects.png)
 
@@ -212,9 +201,9 @@ for(const comment of this.Comments)
     * **Next**  
       Click to advance to the next step, [Define prompt & JSON schema](../../ai-integration/gen-ai-integration/gen-ai-studio#define-prompt-and-json-schema).  
 
-</Admonition>
 
-<Admonition type="info" title="Define Prompt and JSON schema" id="define-prompt-and-json-schema" href="#define-prompt-and-json-schema">
+
+## Define Prompt and JSON schema
 
 * The GenAI task will send the AI model each context object (configured in the previous step) 
   on its own connection, along with the prompt and JSON schema you provide in this view.  
@@ -314,9 +303,9 @@ Consider the language, intent, and relevance of the comment to the blog post top
       Click to advance to the next step, [Provide update script](../../ai-integration/gen-ai-integration/gen-ai-studio#provide-update-script).  
 
 
-</Admonition>
 
-<Admonition type="info" title="Provide update script" id="provide-update-script" href="#provide-update-script">
+
+## Provide update script
 
 Now that the AI model returned its output, the Gen AI task needs to know what to do with it.  
 The update script set in this step, determines what actions should be taken on the arrival of the results.  
@@ -367,9 +356,9 @@ if($output.Blocked)
     * **Next**  
       Click to advance to the next step, [Review configuration and Save task](../../ai-integration/gen-ai-integration/gen-ai-studio#review-configuration-and-save-task).  
 
-</Admonition>
 
-<Admonition type="info" title="Review configuration and Save task" id="review-configuration-and-save-task" href="#review-configuration-and-save-task">
+
+## Review configuration and Save task
 
 Use this final step to review your GenAI task configuration before saving and executing it.  
 If your task is enabled, it will start running when you save it.  
@@ -395,5 +384,5 @@ If your task is enabled, it will start running when you save it.
     * **Save**  
       Save your task
 
-</Admonition>
+
 

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Logs Options
----
-
 <Admonition type="note" title="Note">
 
 * The following configuration keys allow you to control logging behavior in a RavenDB server.  
@@ -41,10 +39,7 @@ import LanguageContent from "@site/src/components/language-content";
       [Logs.Internal.Path](../../server/configuration/logs-configuration#logs.internal.path)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Logs.ArchiveAboveSizeInMb" id="logs-archiveabovesizeinmb" href="#logs-archiveabovesizeinmb">
+## Logs.ArchiveAboveSizeInMb
 
 The maximum size (in megabytes) a log file may reach before it is archived and logging is directed to a new file.  
 This setting ensures that logs are stored in multiple smaller files rather than a few large ones.
@@ -54,9 +49,9 @@ This setting ensures that logs are stored in multiple smaller files rather than 
 - **Min Value**: `16`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.ConfigPath" id="logs-configpath" href="#logs-configpath">
+
+## Logs.ConfigPath
 
 The path to an XML file that overrides all logging configuration parameters.  
 Set to `null` to apply the configuration params detailed in this section,  
@@ -66,9 +61,9 @@ or provide a path to an XML configuration file whose content overrides these set
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.EnableArchiveFileCompression" id="logs-enablearchivefilecompression" href="#logs-enablearchivefilecompression">
+
+## Logs.EnableArchiveFileCompression
 
 Determines whether to compress archived log files.
 
@@ -77,9 +72,9 @@ Determines whether to compress archived log files.
 - **Scope**: Server-wide only
 - **Alias:** `Logs.Compress`
 
-</Admonition>
 
-<Admonition type="info" title="Logs.MaxArchiveDays" id="logs-maxarchivedays" href="#logs-maxarchivedays">
+
+## Logs.MaxArchiveDays
 
 The maximum number of days to retain an archived log file.  
 Set this value to the number of days after which log files will be deleted,  
@@ -89,9 +84,9 @@ or set it to `null` to keep log files indefinitely.
 - **Default**: `3`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.MaxArchiveFiles" id="logs-maxarchivefiles" href="#logs-maxarchivefiles">
+
+## Logs.MaxArchiveFiles
 
 The maximum number of archived log files to keep.  
 Set to `null` to keep log files indefinitely.
@@ -101,9 +96,9 @@ Set to `null` to keep log files indefinitely.
 - **Min Value**: `0`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.Microsoft.MinLevel" id="logs-microsoft-minlevel" href="#logs-microsoft-minlevel">
+
+## Logs.Microsoft.MinLevel
 
 The minimum logging level for Microsoft logs.
 
@@ -111,9 +106,9 @@ The minimum logging level for Microsoft logs.
 - **Default**: `LogLevel.Error`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.MinLevel" id="logs-minlevel" href="#logs-minlevel">
+
+## Logs.MinLevel
 
 Determines the minimum logging level.  
 Log entries will be included starting from the specified MinLevel and higher.  
@@ -122,9 +117,9 @@ Log entries will be included starting from the specified MinLevel and higher.
 - **Default**: `LogLevel.Info`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.NuGet.AdditionalPackages" id="logs-nuget-additionalpackages" href="#logs-nuget-additionalpackages">
+
+## Logs.NuGet.AdditionalPackages
 
 A dictionary of additional NuGet packages to load during server startup for additional logging targets.  
 Each key represents the package name, and the corresponding value specifies the package version.
@@ -133,9 +128,9 @@ Each key represents the package name, and the corresponding value specifies the 
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.NuGet.AllowPreReleasePackages" id="logs-nuget-allowprereleasepackages" href="#logs-nuget-allowprereleasepackages">
+
+## Logs.NuGet.AllowPreReleasePackages
 
 Determines whether to allow installation of NuGet pre-release packages.
 
@@ -143,9 +138,9 @@ Determines whether to allow installation of NuGet pre-release packages.
 - **Default**: `false`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.NuGet.PackagesPath" id="logs-nuget-packagespath" href="#logs-nuget-packagespath">
+
+## Logs.NuGet.PackagesPath
 
 The path where NuGet packages required by RavenDB are downloaded.
 
@@ -153,9 +148,9 @@ The path where NuGet packages required by RavenDB are downloaded.
 - **Default**: `Packages/NuGet/Logging`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.NuGet.PackageSourceUrl" id="logs-nuget-packagesourceurl" href="#logs-nuget-packagesourceurl">
+
+## Logs.NuGet.PackageSourceUrl
 
 The default URL for the NuGet package source.
 
@@ -163,9 +158,9 @@ The default URL for the NuGet package source.
 - **Default**: `https://api.nuget.org/v3/index.json`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.Path" id="logs-path" href="#logs-path">
+
+## Logs.Path
 
 The path to the folder where RavenDB server log files are stored.  
 By default, it is the `Logs` folder under the server folder.
@@ -174,9 +169,9 @@ By default, it is the `Logs` folder under the server folder.
 - **Default**: `Logs`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.ThrowConfigExceptions" id="logs-throwconfigexceptions" href="#logs-throwconfigexceptions">
+
+## Logs.ThrowConfigExceptions
 
 Determines whether to throw an exception if NLog detects a logging configuration error.
 
@@ -184,9 +179,9 @@ Determines whether to throw an exception if NLog detects a logging configuration
 - **Default**: `false`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.Internal.Level" id="logs-internal-level" href="#logs-internal-level">
+
+## Logs.Internal.Level
 
 Determines the logging level for NLog's internal logs.
 
@@ -194,9 +189,9 @@ Determines the logging level for NLog's internal logs.
 - **Default**: `LogLevel.Info`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.Internal.LogToStandardError" id="logs-internal-logtostandarderror" href="#logs-internal-logtostandarderror">
+
+## Logs.Internal.LogToStandardError
 
 Determines whether to write NLog's internal logs to the standard error stream.
 
@@ -204,9 +199,9 @@ Determines whether to write NLog's internal logs to the standard error stream.
 - **Default**: `false`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.Internal.LogToStandardOutput" id="logs-internal-logtostandardoutput" href="#logs-internal-logtostandardoutput">
+
+## Logs.Internal.LogToStandardOutput
 
 Determines whether to write NLog's internal logs to the standard output stream.  
 This can be useful when running the server to verify that it operates without issues.
@@ -215,9 +210,9 @@ This can be useful when running the server to verify that it operates without is
 - **Default**: `false`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.Internal.Path" id="logs-internal-path" href="#logs-internal-path">
+
+## Logs.Internal.Path
 
 The path to the folder where NLog's internal logs are written.  
 This is useful for debugging NLog.
@@ -226,4 +221,4 @@ This is useful for debugging NLog.
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
+

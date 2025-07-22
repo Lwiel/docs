@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# What are Operations
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# What are Operations
----
 
 <Admonition type="note" title="Note">
 
@@ -38,10 +40,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Kill operation](../../client-api/operations/what-are-operations#kill-operation)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why use operations" id="why-use-operations" href="#why-use-operations">
+## Why use operations
 
 * Operations provide **management functionality** that is not available in the context of the session, for example:
     * Create/delete a database
@@ -54,9 +53,9 @@ import LanguageContent from "@site/src/components/language-content";
 * There are some client tasks, such as patching documents, that can be carried out either via the Session ([session.Advanced.Patch()](../../client-api/operations/patching/single-document#array-manipulation))
   or via an Operation on the DocumentStore ([PatchOperation](../../client-api/operations/patching/single-document#operations-api)).
 
-</Admonition>
 
-<Admonition type="info" title="How operations work" id="how-operations-work" href="#how-operations-work">
+
+## How operations work
 
 * **Sending the request**:  
   Each Operation is an encapsulation of a `RavenCommand`.  
@@ -75,9 +74,9 @@ import LanguageContent from "@site/src/components/language-content";
   Some operations may take a long time to complete and can be awaited for completion.   
   Learn more [below](../../client-api/operations/what-are-operations#wait-for-completion).
 
-</Admonition>
 
-<Admonition type="info" title="Common operations" id="common-operations" href="#common-operations">
+
+## Common operations
 
 * All common operations implement the `IOperation` interface.  
   The operation is executed within the **database scope**.  
@@ -158,9 +157,6 @@ Task<PatchOperation.Result<TEntity>> SendAsync<TEntity>(PatchOperation<TEntity> 
 <Admonition type="note" title="Note">
 
 &lt;span id="operations-list"&gt; **The following common operations are available:** &lt;/span&gt;
-
----
-
 * **Attachments**:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PutAttachmentOperation](../../client-api/operations/attachments/put-attachment)  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetAttachmentOperation](../../client-api/operations/attachments/get-attachment)  
@@ -194,9 +190,9 @@ Task<PatchOperation.Result<TEntity>> SendAsync<TEntity>(PatchOperation<TEntity> 
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [DeleteCompareExchangeValueOperation](../../client-api/operations/compare-exchange/delete-compare-exchange-value)
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Maintenance operations" id="maintenance-operations" href="#maintenance-operations">
+
+## Maintenance operations
 
 * All maintenance operations implement the `IMaintenanceOperation` interface.  
   The operation is executed within the **database scope**.  
@@ -275,9 +271,6 @@ Task<Operation> SendAsync(IMaintenanceOperation<OperationIdResult> operation,
 <Admonition type="note" title="Note">
 
 &lt;span id="maintenance-list"&gt; **The following maintenance operations are available:** &lt;/span&gt;
-
----
-
 * **Statistics**:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetStatisticsOperation](../../client-api/operations/maintenance/get-stats#get-database-stats)  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetDetailedStatisticsOperation](../../client-api/operations/maintenance/get-stats#get-detailed-database-stats)  
@@ -394,9 +387,9 @@ Task<Operation> SendAsync(IMaintenanceOperation<OperationIdResult> operation,
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateSampleDataOperation  
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Server-maintenance operations" id="server-maintenance-operations" href="#server-maintenance-operations">
+
+## Server-maintenance operations
 
 * All server-maintenance operations implement the `IServerOperation` interface.  
   The operation is executed within the **server scope**.   
@@ -468,9 +461,6 @@ Task<Operation> SendAsync(IServerOperation<OperationIdResult> operation,
 <Admonition type="note" title="Note">
 
 &lt;span id="server-list"&gt; **The following server-maintenance operations are available:** &lt;/span&gt;
-
----
-
 * **Client certificates**:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PutClientCertificateOperation](../../client-api/operations/server-wide/certificates/put-client-certificate)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [CreateClientCertificateOperation](../../client-api/operations/server-wide/certificates/create-client-certificate)   
@@ -543,18 +533,15 @@ Task<Operation> SendAsync(IServerOperation<OperationIdResult> operation,
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OfflineMigrationOperation  
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Manage lengthy operations" id="manage-lengthy-operations" href="#manage-lengthy-operations">
+
+## Manage lengthy operations
 
 * Some operations that run in the server background may take a long time to complete.  
 
 * For Operations that implement an interface with type `OperationIdResult`,  
   executing the operation via the `Send` method will return an `Operation` object,  
   which can be **awaited for completion** or **aborted (killed)**.  
-
----
-
 #### Wait for completion:
 
 <Tabs groupId='languageSyntax'>
@@ -790,12 +777,12 @@ public async Task KillAsync(CancellationToken token = default)
 |-------------|---------------------|----------------------------------------------------------------------|
 | **token**   | `CancellationToken` | Provide a cancellation token if needed to abort the KillAsync method |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# What are Operations
+
 
 The RavenDB client API is built with the notion of layers. At the top, and what you will usually interact with, are the **[DocumentStore](../../client-api/what-is-a-document-store)** and the **[DocumentSession](../../client-api/session/what-is-a-session-and-how-does-it-work)**.
 
@@ -805,7 +792,7 @@ Operations are an encapsulation of a set of low-level commands which are used to
 
 They are available in the DocumentStore under the **operations**, **maintenance**, and **maintenance().server** methods.
 
-<Admonition type="info" title="Common Operations" id="common-operations" href="#common-operations">
+## Common Operations
 
 Common operations include set-based operations for [Patching](../../client-api/operations/patching/set-based) or removal of documents by using queries (more can be read [here](../../client-api/operations/common/delete-by-query)).  
 There is also the ability to handle distributed [Compare Exchange](../../client-api/operations/compare-exchange/overview) operations and manage [Attachments](../../client-api/operations/attachments/get-attachment) and [Counters](../../client-api/operations/counters/counter-batch).
@@ -881,9 +868,9 @@ public Operation sendAsync(IOperation<OperationIdResult> operation, SessionInfo 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Maintenance Operations" id="maintenance-operations" href="#maintenance-operations">
+
+## Maintenance Operations
 
 Maintenance operations include operations for changing the configuration at runtime and for management of index operations.
 
@@ -939,9 +926,9 @@ public <TResult> TResult send(IMaintenanceOperation<TResult> operation)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Server Operations" id="server-operations" href="#server-operations">
+
+## Server Operations
 
 These types of operations contain various administrative and miscellaneous configuration operations.
 
@@ -986,7 +973,7 @@ public <TResult> TResult send(IServerOperation<TResult> operation)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 ## Remarks
 
@@ -997,9 +984,6 @@ By default, operations available in `store.operations` or `store.maintenance` ar
 
 </LanguageContent>
 <LanguageContent language="python">
-# What are Operations
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1023,10 +1007,7 @@ By default, operations available in `store.operations` or `store.maintenance` ar
       * [Kill operation](../../client-api/operations/what-are-operations#kill-operation)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why use operations" id="why-use-operations" href="#why-use-operations">
+## Why use operations
 
 * Operations provide **management functionality** that is not available in the context of the session, for example:
     * Create/delete a database
@@ -1040,9 +1021,9 @@ By default, operations available in `store.operations` or `store.maintenance` ar
   ([session.advanced.patch()](../../client-api/operations/patching/single-document#array-manipulation))
   or via an Operation on the DocumentStore ([PatchOperation](../../client-api/operations/patching/single-document#operations-api)).
 
-</Admonition>
 
-<Admonition type="info" title="How operations work" id="how-operations-work" href="#how-operations-work">
+
+## How operations work
 
 * **Sending the request**:  
   Each Operation is an encapsulation of a `RavenCommand`.  
@@ -1061,9 +1042,9 @@ By default, operations available in `store.operations` or `store.maintenance` ar
   Some operations may take a long time to complete and can be awaited for completion.   
   Learn more [below](../../client-api/operations/what-are-operations#wait-for-completion).
 
-</Admonition>
 
-<Admonition type="info" title="Common operations" id="common-operations" href="#common-operations">
+
+## Common operations
 
 * All common operations implement the `IOperation` interface.  
   The operation is executed within the **database scope**.  
@@ -1113,9 +1094,6 @@ def send_patch_operation_with_entity_class(
 <Admonition type="note" title="Note">
 
 &lt;span id="operations-list"&gt; **The following common operations are available:** &lt;/span&gt;
-
----
-
 * **Attachments**:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PutAttachmentOperation](../../client-api/operations/attachments/put-attachment)  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetAttachmentOperation](../../client-api/operations/attachments/get-attachment)  
@@ -1148,9 +1126,9 @@ def send_patch_operation_with_entity_class(
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [DeleteCompareExchangeValueOperation](../../client-api/operations/compare-exchange/delete-compare-exchange-value)  
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Maintenance operations" id="maintenance-operations" href="#maintenance-operations">
+
+## Maintenance operations
 
 * All maintenance operations implement the `IMaintenanceOperation` interface.  
   The operation is executed within the **database scope**.  
@@ -1198,9 +1176,6 @@ def send_async(self, operation: MaintenanceOperation[OperationIdResult]) -> Oper
 <Admonition type="note" title="Note">
 
 &lt;span id="maintenance-list"&gt; **The following maintenance operations are available:** &lt;/span&gt;
-
----
-
 * **Statistics**:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetStatisticsOperation](../../client-api/operations/maintenance/get-stats#get-database-stats)  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetDetailedStatisticsOperation](../../client-api/operations/maintenance/get-stats#get-detailed-database-stats)  
@@ -1312,9 +1287,9 @@ def send_async(self, operation: MaintenanceOperation[OperationIdResult]) -> Oper
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateSampleDataOperation  
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Server-maintenance operations" id="server-maintenance-operations" href="#server-maintenance-operations">
+
+## Server-maintenance operations
 
 * All server-maintenance operations implement the `IServerOperation` interface.  
   The operation is executed within the **server scope**.   
@@ -1368,9 +1343,6 @@ with self.embedded_server.get_document_store("WhatAreOperations") as store:
 <Admonition type="note" title="Note">
 
 &lt;span id="server-list"&gt; **The following server-maintenance operations are available:** &lt;/span&gt;
-
----
-
 * **Client certificates**:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PutClientCertificateOperation](../../client-api/operations/server-wide/certificates/put-client-certificate)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [CreateClientCertificateOperation](../../client-api/operations/server-wide/certificates/create-client-certificate)   
@@ -1443,14 +1415,11 @@ with self.embedded_server.get_document_store("WhatAreOperations") as store:
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OfflineMigrationOperation  
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# What are Operations
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1473,10 +1442,7 @@ with self.embedded_server.get_document_store("WhatAreOperations") as store:
       * [Wait for completion](../../client-api/operations/what-are-operations#wait-for-completion)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why use operations" id="why-use-operations" href="#why-use-operations">
+## Why use operations
 
 * Operations provide **management functionality** that is not available in the context of the session, for example:
     * Create/delete a database
@@ -1490,9 +1456,9 @@ with self.embedded_server.get_document_store("WhatAreOperations") as store:
   ([session.advanced.patch()](../../client-api/operations/patching/single-document#array-manipulation))
   or via an Operation on the DocumentStore ([PatchOperation](../../client-api/operations/patching/single-document#operations-api)).
 
-</Admonition>
 
-<Admonition type="info" title="How operations work" id="how-operations-work" href="#how-operations-work">
+
+## How operations work
 
 * **Sending the request**:  
   Each Operation is an encapsulation of a `RavenCommand`.  
@@ -1511,9 +1477,9 @@ with self.embedded_server.get_document_store("WhatAreOperations") as store:
   Some operations may take a long time to complete and can be awaited for completion.   
   Learn more [below](../../client-api/operations/what-are-operations#wait-for-completion).
 
-</Admonition>
 
-<Admonition type="info" title="Common operations" id="common-operations" href="#common-operations">
+
+## Common operations
 
 * All common operations implement the `IOperation` interface.  
   The operation is executed within the **database scope**.  
@@ -1564,9 +1530,6 @@ public function send(...$parameters);
 <Admonition type="note" title="Note">
 
 &lt;span id="operations-list"&gt; **The following common operations are available:** &lt;/span&gt;
-
----
-
 * **Attachments**:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PutAttachmentOperation](../../client-api/operations/attachments/put-attachment)  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetAttachmentOperation](../../client-api/operations/attachments/get-attachment)  
@@ -1599,9 +1562,9 @@ public function send(...$parameters);
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [DeleteCompareExchangeValueOperation](../../client-api/operations/compare-exchange/delete-compare-exchange-value)  
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Maintenance operations" id="maintenance-operations" href="#maintenance-operations">
+
+## Maintenance operations
 
 * All maintenance operations implement the `IMaintenanceOperation` interface.  
   The operation is executed within the **database scope**.  
@@ -1648,9 +1611,6 @@ $status = $indexStats->getStatus(); // will be "Paused"
 <Admonition type="note" title="Note">
 
 &lt;span id="maintenance-list"&gt; **The following maintenance operations are available:** &lt;/span&gt;
-
----
-
 * **Statistics**:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetStatisticsOperation](../../client-api/operations/maintenance/get-stats#get-database-stats)  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetDetailedStatisticsOperation](../../client-api/operations/maintenance/get-stats#get-detailed-database-stats)  
@@ -1762,9 +1722,9 @@ $status = $indexStats->getStatus(); // will be "Paused"
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateSampleDataOperation  
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Server-maintenance operations" id="server-maintenance-operations" href="#server-maintenance-operations">
+
+## Server-maintenance operations
 
 * All server-maintenance operations implement the `IServerOperation` interface.  
   The operation is executed within the **server scope**.   
@@ -1805,9 +1765,6 @@ $version = $buildNumberResult->getBuildVersion();
 <Admonition type="note" title="Note">
 
 &lt;span id="server-list"&gt; **The following server-maintenance operations are available:** &lt;/span&gt;
-
----
-
 * **Client certificates**:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PutClientCertificateOperation](../../client-api/operations/server-wide/certificates/put-client-certificate)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [CreateClientCertificateOperation](../../client-api/operations/server-wide/certificates/create-client-certificate)   
@@ -1880,18 +1837,15 @@ $version = $buildNumberResult->getBuildVersion();
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OfflineMigrationOperation  
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Manage lengthy operations" id="manage-lengthy-operations" href="#manage-lengthy-operations">
+
+## Manage lengthy operations
 
 * Some operations that run in the server background may take a long time to complete.  
 
 * For Operations that implement an interface with type `OperationIdResult`,  
   executing the operation via the `Send` method will return an `Operation` object,  
   which can be **awaited for completion**.  
-
----
-
 #### Wait for completion:
 
 <TabItem value="something-something" label="wait_timeout_ex">
@@ -1952,14 +1906,11 @@ public function waitForCompletion(Duration|int|null $duration = null): void;
 |---------------|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **$duration** | `Duration` or `int` | &lt;ul&gt;&lt;li&gt; **When a duration is specified** - <br/>The server will throw a `TimeoutException` if the peration has not completed within the specified time frame.<br/>The operation itself continues to run in the background,<br/>no rollback action takes place.&lt;/li&gt;&lt;li&gt;`null` - <br/>`waitForCompletion` will wait for the operation to complete indefinitely.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# What are Operations
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1983,10 +1934,7 @@ public function waitForCompletion(Duration|int|null $duration = null): void;
       * [Kill operation](../../client-api/operations/what-are-operations#killoperation)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why use operations" id="why-use-operations" href="#why-use-operations">
+## Why use operations
 
 * Operations provide __management functionality__ that is not available in the context of the session, for example:
     * Create/delete a database
@@ -1999,9 +1947,9 @@ public function waitForCompletion(Duration|int|null $duration = null): void;
 * There are some client tasks, such as patching documents, that can be carried out either via the Session ([session.advanced.patch()](../../client-api/operations/patching/single-document#array-manipulation))
   or via an Operation on the DocumentStore ([PatchOperation](../../client-api/operations/patching/single-document#operations-api)).
 
-</Admonition>
 
-<Admonition type="info" title="How operations work" id="how-operations-work" href="#how-operations-work">
+
+## How operations work
 
 * __Sending the request__:  
   Each Operation creates an HTTP request message to be sent to the relevant server endpoint.  
@@ -2019,9 +1967,9 @@ public function waitForCompletion(Duration|int|null $duration = null): void;
   Some operations may take a long time to complete and can be awaited for completion.   
   Learn more [below](../../client-api/operations/what-are-operations#wait-for-completion).
 
-</Admonition>
 
-<Admonition type="info" title="Common operations" id="common-operations" href="#common-operations">
+
+## Common operations
 
 <Admonition type="note" title="Note">
 
@@ -2077,9 +2025,6 @@ await send(patchOperation, sessionInfo, resultType);
 <Admonition type="note" title="Note">
 
 &lt;span id="operations-list"&gt; __The following common operations are available:__ &lt;/span&gt;
-
----
-
 * __Attachments__:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PutAttachmentOperation](../../client-api/operations/attachments/put-attachment)  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetAttachmentOperation](../../client-api/operations/attachments/get-attachment)  
@@ -2112,9 +2057,9 @@ await send(patchOperation, sessionInfo, resultType);
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DeleteCompareExchangeValueOperation  
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Maintenance operations" id="maintenance-operations" href="#maintenance-operations">
+
+## Maintenance operations
 
 <Admonition type="note" title="Note">
 
@@ -2166,9 +2111,6 @@ __Send syntax__:
 <Admonition type="note" title="Note">
 
 &lt;span id="maintenance-list"&gt; __The following maintenance operations are available:__ &lt;/span&gt;
-
----
-
 * __Statistics__:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetStatisticsOperation](../../client-api/operations/maintenance/get-stats#get-database-stats)  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [GetDetailedStatisticsOperation](../../client-api/operations/maintenance/get-stats#get-detailed-database-stats)  
@@ -2280,9 +2222,9 @@ __Send syntax__:
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateSampleDataOperation  
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Server-maintenance operations" id="server-maintenance-operations" href="#server-maintenance-operations">
+
+## Server-maintenance operations
 
 <Admonition type="note" title="Note">
 
@@ -2330,9 +2272,6 @@ __Send syntax__:
 <Admonition type="note" title="Note">
 
 &lt;span id="server-list"&gt; __The following server-maintenance operations are available:__ &lt;/span&gt;
-
----
-
 * __Client certificates__:  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PutClientCertificateOperation](../../client-api/operations/server-wide/certificates/put-client-certificate)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [CreateClientCertificateOperation](../../client-api/operations/server-wide/certificates/create-client-certificate)   
@@ -2405,18 +2344,15 @@ __Send syntax__:
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OfflineMigrationOperation
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Manage lengthy operations" id="manage-lengthy-operations" href="#manage-lengthy-operations">
+
+## Manage lengthy operations
 
 * Some operations that run in the server background may take a long time to complete.
 
 * For Operations that implement an interface with type `OperationIdResult`,  
   executing the operation via the `send` method will return a promise for `OperationCompletionAwaiter` object,  
   which can then be __awaited for completion__ or __aborted (killed)__.
-
----
-
 <Admonition type="note" title="Note">
 
 <a id="wait-for-completion"/> __Wait for completion__:
@@ -2475,7 +2411,7 @@ await kill();
 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>

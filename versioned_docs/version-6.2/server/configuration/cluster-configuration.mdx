@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Cluster
----
-
 <Admonition type="note" title="Note">
 
 * **Avoid using different cluster configurations across nodes:**  
@@ -54,10 +52,7 @@ import LanguageContent from "@site/src/components/language-content";
     [Cluster.MaxClusterTransactionBatchSize](../../server/configuration/cluster-configuration#cluster.maxclustertransactionbatchsize)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Cluster.CompareExchangeExpiredDeleteFrequencyInSec" id="cluster-compareexchangeexpireddeletefrequencyinsec" href="#cluster-compareexchangeexpireddeletefrequencyinsec">
+## Cluster.CompareExchangeExpiredDeleteFrequencyInSec
 
 Time (in seconds) between cleanup of expired compare exchange items.
 
@@ -65,9 +60,9 @@ Time (in seconds) between cleanup of expired compare exchange items.
 - **Default**: `60`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.CompareExchangeTombstonesCleanupIntervalInMin" id="cluster-compareexchangetombstonescleanupintervalinmin" href="#cluster-compareexchangetombstonescleanupintervalinmin">
+
+## Cluster.CompareExchangeTombstonesCleanupIntervalInMin
 
 Time (in minutes) between cleanup of compare exchange tombstones.
 
@@ -75,9 +70,9 @@ Time (in minutes) between cleanup of compare exchange tombstones.
 - **Default**: `10`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.ElectionTimeoutInMs" id="cluster-electiontimeoutinms" href="#cluster-electiontimeoutinms">
+
+## Cluster.ElectionTimeoutInMs
 
 Timeout (in milliseconds) within which the node expects to receive a heartbeat from the leader.
 
@@ -85,9 +80,9 @@ Timeout (in milliseconds) within which the node expects to receive a heartbeat f
 - **Default**: `300`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.HardDeleteOnReplacement" id="cluster-harddeleteonreplacement" href="#cluster-harddeleteonreplacement">
+
+## Cluster.HardDeleteOnReplacement
 
 Set hard/soft delete for a database that was removed by the observer from the cluster topology in order to maintain the replication factor.
 
@@ -95,9 +90,9 @@ Set hard/soft delete for a database that was removed by the observer from the cl
 - **Default**: `true`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.LogHistoryMaxEntries" id="cluster-loghistorymaxentries" href="#cluster-loghistorymaxentries">
+
+## Cluster.LogHistoryMaxEntries
 
 Maximum number of log entries to keep in the history log table.
 
@@ -105,9 +100,9 @@ Maximum number of log entries to keep in the history log table.
 - **Default**: `2048`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.MaxChangeVectorDistance" id="cluster-maxchangevectordistance" href="#cluster-maxchangevectordistance">
+
+## Cluster.MaxChangeVectorDistance
 
 Exceeding the allowed change vector distance between two nodes will move the lagged node to rehab.
 
@@ -115,9 +110,9 @@ Exceeding the allowed change vector distance between two nodes will move the lag
 - **Default**: `65536`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.MaxClusterTransactionCompareExchangeTombstoneCheckIntervalInMin" id="cluster-maxclustertransactioncompareexchangetombstonecheckintervalinmin" href="#cluster-maxclustertransactioncompareexchangetombstonecheckintervalinmin">
+
+## Cluster.MaxClusterTransactionCompareExchangeTombstoneCheckIntervalInMin
 
 The maximum interval (in minutes) between checks for compare exchange tombstones that are performed by the cluster-wide transaction mechanism.
 
@@ -125,9 +120,9 @@ The maximum interval (in minutes) between checks for compare exchange tombstones
 - **Default**: `5`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.MaxSizeOfSingleRaftCommandInMb" id="cluster-maxsizeofsingleraftcommandinmb" href="#cluster-maxsizeofsingleraftcommandinmb">
+
+## Cluster.MaxSizeOfSingleRaftCommandInMb
 
 EXPERT ONLY:  
 The maximum allowed size (in megabytes) for a single raft command.
@@ -137,9 +132,9 @@ The maximum allowed size (in megabytes) for a single raft command.
 - **Default**: `128`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.MaximalAllowedClusterVersion" id="cluster-maximalallowedclusterversion" href="#cluster-maximalallowedclusterversion">
+
+## Cluster.MaximalAllowedClusterVersion
 
 EXPERT ONLY:  
 If exceeded, restrict the cluster to the specified version.
@@ -148,9 +143,9 @@ If exceeded, restrict the cluster to the specified version.
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.OnErrorDelayTimeInMs" id="cluster-onerrordelaytimeinms" href="#cluster-onerrordelaytimeinms">
+
+## Cluster.OnErrorDelayTimeInMs
 
 How long the maintenance supervisor waits (in milliseconds) after receiving an exception from a worker before retrying.
 
@@ -158,9 +153,9 @@ How long the maintenance supervisor waits (in milliseconds) after receiving an e
 - **Default**: `5000`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.OperationTimeoutInSec" id="cluster-operationtimeoutinsec" href="#cluster-operationtimeoutinsec">
+
+## Cluster.OperationTimeoutInSec
 
 As a cluster node, how long (in seconds) to wait before timing out an operation between two cluster nodes.
 
@@ -168,9 +163,9 @@ As a cluster node, how long (in seconds) to wait before timing out an operation 
 - **Default**: `15`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.ReceiveFromWorkerTimeoutInMs" id="cluster-receivefromworkertimeoutinms" href="#cluster-receivefromworkertimeoutinms">
+
+## Cluster.ReceiveFromWorkerTimeoutInMs
 
 How long the maintenance supervisor waits (in milliseconds) for a response from a worker before timing out.
 
@@ -178,9 +173,9 @@ How long the maintenance supervisor waits (in milliseconds) for a response from 
 - **Default**: `5000`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.StatsStabilizationTimeInSec" id="cluster-statsstabilizationtimeinsec" href="#cluster-statsstabilizationtimeinsec">
+
+## Cluster.StatsStabilizationTimeInSec
 
 How long to wait (in seconds) for cluster stats to stabilize after a database topology change.
 
@@ -188,9 +183,9 @@ How long to wait (in seconds) for cluster stats to stabilize after a database to
 - **Default**: `5`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.SupervisorSamplePeriodInMs" id="cluster-supervisorsampleperiodinms" href="#cluster-supervisorsampleperiodinms">
+
+## Cluster.SupervisorSamplePeriodInMs
 
 How long the maintenance supervisor waits (in milliseconds) between sampling the information received from the nodes.
 
@@ -198,9 +193,9 @@ How long the maintenance supervisor waits (in milliseconds) between sampling the
 - **Default**: `1000`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.TcpReceiveBufferSizeInBytes" id="cluster-tcpreceivebuffersizeinbytes" href="#cluster-tcpreceivebuffersizeinbytes">
+
+## Cluster.TcpReceiveBufferSizeInBytes
 
 The size (in bytes) of the TCP connection receive buffer.
 
@@ -208,9 +203,9 @@ The size (in bytes) of the TCP connection receive buffer.
 - **Default**: `32 * 1024`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.TcpSendBufferSizeInBytes" id="cluster-tcpsendbuffersizeinbytes" href="#cluster-tcpsendbuffersizeinbytes">
+
+## Cluster.TcpSendBufferSizeInBytes
 
 The size (in bytes) of the TCP connection send buffer.
 
@@ -218,9 +213,9 @@ The size (in bytes) of the TCP connection send buffer.
 - **Default**: `32 * 1024`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.TcpTimeoutInMs" id="cluster-tcptimeoutinms" href="#cluster-tcptimeoutinms">
+
+## Cluster.TcpTimeoutInMs
 
 TCP connection read/write timeout (in milliseconds).
 
@@ -228,9 +223,9 @@ TCP connection read/write timeout (in milliseconds).
 - **Default**: `15_000`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.TimeBeforeAddingReplicaInSec" id="cluster-timebeforeaddingreplicainsec" href="#cluster-timebeforeaddingreplicainsec">
+
+## Cluster.TimeBeforeAddingReplicaInSec
 
 The time (in seconds) a database instance must be in a good and responsive state before we add a replica to match the replication factor.
 
@@ -238,9 +233,9 @@ The time (in seconds) a database instance must be in a good and responsive state
 - **Default**: `900`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.TimeBeforeMovingToRehabInSec" id="cluster-timebeforemovingtorehabinsec" href="#cluster-timebeforemovingtorehabinsec">
+
+## Cluster.TimeBeforeMovingToRehabInSec
 
 The grace period (in seconds) we give a node before it is moved to rehab.
 
@@ -248,9 +243,9 @@ The grace period (in seconds) we give a node before it is moved to rehab.
 - **Default**: `60`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.TimeBeforeRotatingPreferredNodeInSec" id="cluster-timebeforerotatingpreferrednodeinsec" href="#cluster-timebeforerotatingpreferrednodeinsec">
+
+## Cluster.TimeBeforeRotatingPreferredNodeInSec
 
 The grace period (in seconds) we give the preferred node before moving it to the end of the members list.
 
@@ -258,9 +253,9 @@ The grace period (in seconds) we give the preferred node before moving it to the
 - **Default**: `5`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.WorkerSamplePeriodInMs" id="cluster-workersampleperiodinms" href="#cluster-workersampleperiodinms">
+
+## Cluster.WorkerSamplePeriodInMs
 
 The time (in milliseconds) between sampling database information and sending it to the maintenance supervisor.
 
@@ -268,9 +263,9 @@ The time (in milliseconds) between sampling database information and sending it 
 - **Default**: `500`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.DisableAtomicDocumentWrites" id="cluster-disableatomicdocumentwrites" href="#cluster-disableatomicdocumentwrites">
+
+## Cluster.DisableAtomicDocumentWrites
 
 EXPERT ONLY:  
 Disable automatic atomic writes with cluster write transactions.  
@@ -280,9 +275,9 @@ If set to _true_, will only consider explicitly added compare exchange values to
 - **Default**: `false`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Cluster.MaxClusterTransactionBatchSize" id="cluster-maxclustertransactionbatchsize" href="#cluster-maxclustertransactionbatchsize">
+
+## Cluster.MaxClusterTransactionBatchSize
 
 EXPERT ONLY:  
 Specifies the maximum size of the cluster transaction batch to be executed on the database at once.
@@ -291,4 +286,4 @@ Specifies the maximum size of the cluster transaction batch to be executed on th
 - **Default**: `256`
 - **Scope**: Server-wide or per database
 
-</Admonition>
+

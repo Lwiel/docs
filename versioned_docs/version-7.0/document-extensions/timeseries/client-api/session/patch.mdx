@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Patch Time Series Entries
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Patch Time Series Entries
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -35,10 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Syntax](../../../../document-extensions/timeseries/client-api/session/patch#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Usage" id="usage" href="#usage">
+## Usage
 
 * Open a session
 * Construct a `PatchCommandData` instance and pass it the following:
@@ -50,9 +48,9 @@ import LanguageContent from "@site/src/components/language-content";
 * Call `session.SaveChanges()`.  
   All patch requests added via _Defer_ will be sent to the server for execution when _SaveChanges_ is called.
 
-</Admonition>
 
-<Admonition type="info" title="Patching examples" id="patching-examples" href="#patching-examples">
+
+## Patching examples
 
 #### Append multiple entries:
 
@@ -99,9 +97,6 @@ session.SaveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Delete multiple entries:
 
 In this example, we remove a range of 50 time series entries from a document.  
@@ -130,9 +125,9 @@ session.SaveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **`PatchCommandData`**
 
@@ -145,9 +140,6 @@ session.SaveChanges();
 </TabItem>
 
 Learn more about `PatchCommandData` [here](../../../../client-api/operations/patching/single-document#session-api-using-defer).
-
----
-
 **`PatchRequest`**
 
 <TabItem value="something" label="PatchRequest-definition">
@@ -166,14 +158,11 @@ Learn more about `PatchCommandData` [here](../../../../client-api/operations/pat
 
 Learn more about `PatchRequest` [here](../../../../client-api/operations/patching/single-document#session-api-using-defer).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Patch Time Series Entries
-
----
 
 <Admonition type="note" title="Note">
 
@@ -193,10 +182,7 @@ Learn more about `PatchRequest` [here](../../../../client-api/operations/patchin
    * [Syntax](../../../../document-extensions/timeseries/client-api/session/patch#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Usage" id="usage" href="#usage">
+## Usage
 
 * Open a session
 * Construct a `PatchCommandData` instance and pass it the following:
@@ -208,9 +194,9 @@ Learn more about `PatchRequest` [here](../../../../client-api/operations/patchin
 * Call `session.save_changes`.  
   All patch requests added via _Defer_ will be sent to the server for execution when _SaveChanges_ is called.
 
-</Admonition>
 
-<Admonition type="info" title="Patching examples" id="patching-examples" href="#patching-examples">
+
+## Patching examples
 
 #### Append multiple entries:
 
@@ -259,9 +245,6 @@ session.save_changes()
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Delete multiple entries:
 
 In this example, we remove a range of 50 time series entries from a document.  
@@ -288,9 +271,9 @@ session.advanced.defer(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **`PatchCommandData`**
 
@@ -309,9 +292,6 @@ session.advanced.defer(
 </TabItem>
 
 Learn more about `PatchCommandData` [here](../../../../client-api/operations/patching/single-document#session-api-using-defer).
-
----
-
 **`PatchRequest`**
 
 <TabItem value="something-something" label="PatchRequest-definition">
@@ -324,14 +304,11 @@ Learn more about `PatchCommandData` [here](../../../../client-api/operations/pat
 
 Learn more about `PatchRequest` [here](../../../../client-api/operations/patching/single-document#session-api-using-defer).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Patch Time Series Entries
-
----
 
 <Admonition type="note" title="Note">
 
@@ -351,10 +328,7 @@ Learn more about `PatchRequest` [here](../../../../client-api/operations/patchin
    * [Syntax](../../../../document-extensions/timeseries/client-api/session/patch#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Usage" id="usage" href="#usage">
+## Usage
 
 * Open a session
 * Construct a `PatchCommandData` instance and pass it the following:
@@ -366,9 +340,9 @@ Learn more about `PatchRequest` [here](../../../../client-api/operations/patchin
 * Call `session.saveChanges`.  
   All patch requests added via _Defer_ will be sent to the server for execution when _SaveChanges_ is called.
 
-</Admonition>
 
-<Admonition type="info" title="Patching examples" id="patching-examples" href="#patching-examples">
+
+## Patching examples
 
 #### Append multiple entries:
 
@@ -412,9 +386,6 @@ session->saveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Delete multiple entries:
 
 In this example, we remove a range of 50 time series entries from a document.  
@@ -441,9 +412,9 @@ $session->saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **`PatchCommandData`**
 
@@ -453,9 +424,6 @@ $session->saveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **`PatchRequest`**
 
 <TabItem value="something-something" label="PatchRequest-definition">
@@ -474,14 +442,11 @@ $session->saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Patch Time Series Entries
-
----
 
 <Admonition type="note" title="Note">
 
@@ -501,10 +466,7 @@ $session->saveChanges();
    * [Syntax](../../../../document-extensions/timeseries/client-api/session/patch#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Usage" id="usage" href="#usage">
+## Usage
 
 * Open a session
 * Construct a `PatchCommandData` instance and pass it the following:
@@ -516,9 +478,9 @@ $session->saveChanges();
 * Call `session.saveChanges()`.  
   All patch requests added via _defer_ will be sent to the server for execution when _saveChanges_ is called.
 
-</Admonition>
 
-<Admonition type="info" title="Patching examples" id="patching-examples" href="#patching-examples">
+
+## Patching examples
 
 #### Append multiple entries:
 
@@ -578,9 +540,6 @@ await session.saveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Delete multiple entries:
 
 In this example, we remove a range of 50 time series entries from a document.  
@@ -622,14 +581,14 @@ await session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 A detailed syntax description for `PatchCommandData` & `PatchRequest` can be found in the following section:  
 [Session API using defer syntax](../../../../client-api/operations/patching/single-document#session-api-using-defer-syntax).
 
-</Admonition>
+
 
 
 </LanguageContent>

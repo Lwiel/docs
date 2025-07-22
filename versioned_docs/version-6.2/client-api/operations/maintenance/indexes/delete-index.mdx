@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Delete Index Operation
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Delete Index Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/indexes/delete-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Delete index example" id="delete-index-example" href="#delete-index-example">
+## Delete index example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -56,9 +54,9 @@ await store.Maintenance.SendAsync(deleteIndexOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -71,12 +69,12 @@ await store.Maintenance.SendAsync(deleteIndexOp);
 |---------------|----------|-------------------------|
 | **indexName** | `string` | Name of index to delete |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Delete Index Operation
+
 
 **DeleteIndexOperation** is used to remove an index from a database.
 
@@ -105,9 +103,6 @@ await store.Maintenance.SendAsync(deleteIndexOp);
 
 </LanguageContent>
 <LanguageContent language="python">
-# Delete Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -120,10 +115,7 @@ await store.Maintenance.SendAsync(deleteIndexOp);
     * [Syntax](../../../../client-api/operations/maintenance/indexes/delete-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Delete index example" id="delete-index-example" href="#delete-index-example">
+## Delete index example
 
 <TabItem value="something-something" label="delete_index">
 <CodeBlock language="python">
@@ -136,9 +128,9 @@ store.maintenance.send(delete_index_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -152,14 +144,11 @@ store.maintenance.send(delete_index_op)
 |- | - | - |
 | **index_name** | `str` | Name of index to delete |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Delete Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -172,10 +161,7 @@ store.maintenance.send(delete_index_op)
     * [Syntax](../../../../client-api/operations/maintenance/indexes/delete-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Delete index example" id="delete-index-example" href="#delete-index-example">
+## Delete index example
 
 <TabItem value="something-something" label="delete_index">
 <CodeBlock language="php">
@@ -188,9 +174,9 @@ $store->maintenance()->send($deleteIndexOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -203,14 +189,11 @@ $store->maintenance()->send($deleteIndexOp);
 |- | - | - |
 | **$indexName** | `?string` | Name of index to delete |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Delete Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -223,10 +206,7 @@ $store->maintenance()->send($deleteIndexOp);
     * [Syntax](../../../../client-api/operations/maintenance/indexes/delete-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Delete index example" id="delete-index-example" href="#delete-index-example">
+## Delete index example
 
 <TabItem value="something-something" label="delete_index">
 <CodeBlock language="nodejs">
@@ -239,9 +219,9 @@ await store.maintenance.send(deleteIndexOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -254,7 +234,7 @@ await store.maintenance.send(deleteIndexOp);
 |- | - | - |
 | **indexName** | `string` | Name of index to delete |
 
-</Admonition>
+
 
 
 </LanguageContent>

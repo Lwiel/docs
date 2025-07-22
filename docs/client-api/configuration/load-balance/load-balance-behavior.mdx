@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Load balance behavior
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Load balance behavior
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -25,9 +26,6 @@ import LanguageContent from "@site/src/components/language-content";
 * Sessions that are assigned the **same context** will have all their _Read_ & _Write_ 
   requests routed to the **same node**. Gain load balancing by assigning **different contexts** 
   to **different sessions**.  
-
----
-
 * In this page:
     * [LoadBalanceBehavior options](../../../client-api/configuration/load-balance/load-balance-behavior#loadbalancebehavior-options)
     * [Initialize LoadBalanceBehavior on the client](../../../client-api/configuration/load-balance/load-balance-behavior#initialize-loadbalancebehavior-on-the-client)
@@ -37,10 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [When to use](../../../client-api/configuration/load-balance/load-balance-behavior#when-to-use)
      
 </Admonition>
-
----
-
-<Admonition type="info" title="LoadBalanceBehavior options " id="loadbalancebehavior-options" href="#loadbalancebehavior-options">
+## LoadBalanceBehavior options 
 
 ### `None` (default option)
 
@@ -51,9 +46,6 @@ import LanguageContent from "@site/src/components/language-content";
    * **_Write_** requests:  
      Will be sent to the [preferred node](../../../client-api/configuration/load-balance/overview#the-preferred-node).  
      The data will then be replicated to all the other nodes in the database group.
- 
----
-
 ### `UseSessionContext`
 
 * **Load-balance**
@@ -76,17 +68,14 @@ import LanguageContent from "@site/src/components/language-content";
 
   * In case of a failure, the client will try to access the next node from the topology nodes list.
 
-</Admonition>
 
-<Admonition type="info" title="Initialize LoadBalanceBehavior on the client " id="initialize-loadbalancebehavior-on-the-client" href="#initialize-loadbalancebehavior-on-the-client">
+
+## Initialize LoadBalanceBehavior on the client 
 
 * The `LoadBalanceBehavior` convention can be set **on the client** when initializing the Document Store.  
   This will set the load balance behavior for the default database that is set on the store.
 
 * This setting can be **overriden** by setting 'LoadBalanceBehavior' on the server, see [below](../../../client-api/configuration/load-balance/load-balance-behavior#set-loadbalancebehavior-on-the-server).
-
----
-
 **Initialize conventions**:
 
 <TabItem value="something" label="LoadBalance_1">
@@ -127,9 +116,6 @@ private string GetDefaultContext(string dbName)
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Session usage**:
 
 <TabItem value="something" label="LoadBalance_2">
@@ -160,9 +146,9 @@ using (var session = documentStore.OpenSession())
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set LoadBalanceBehavior on the server " id="set-loadbalancebehavior-on-the-server" href="#set-loadbalancebehavior-on-the-server">
+
+## Set LoadBalanceBehavior on the server 
 
 <Admonition type="note" title="Note">
 
@@ -176,9 +162,6 @@ using (var session = documentStore.OpenSession())
   * or, on the document store, set a default value for - `LoadBalancerPerSessionContextSelector`  
 
 </Admonition>
-
----
-
 #### Set LoadBalanceBehavior on the server - by operation:
 
 * The `LoadBalanceBehavior` configuration can be set **on the server** by sending an [operation](../../../client-api/operations/what-are-operations).
@@ -270,9 +253,6 @@ using (documentStore)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Set LoadBalanceBehavior on the server - from Studio:
 
 * The `LoadBalanceBehavior` configuration can be set from the Studio's [Client Configuration view](../../../studio/database/settings/client-configuration-per-database).  
@@ -281,9 +261,9 @@ using (documentStore)
 * Once configuration on the server has changed, the running client will get updated with the new settings.  
   See [keeping client up-to-date](../../../client-api/configuration/load-balance/overview#keeping-the-client-topology-up-to-date).
 
-</Admonition>
 
-<Admonition type="info" title="When to use " id="when-to-use" href="#when-to-use">
+
+## When to use 
 
 * Distributing _Read & Write_ requests among the cluster nodes can be beneficial  
   when a set of sessions handle a specific set of documents or similar data.  
@@ -296,14 +276,11 @@ using (documentStore)
   in the case when detecting that many or all sessions send requests to the same node,  
   a further level of node randomization can be added by changing the seed.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Load balance behavior
-
----
 
 <Admonition type="note" title="Note">
 
@@ -313,9 +290,6 @@ using (documentStore)
 * Sessions that are assigned the **same context** will have all their _Read_ & _Write_ 
   requests routed to the **same node**. Gain load balancing by assigning **different contexts** 
   to **different sessions**.  
-
----
-
 * In this page:
     * [LoadBalanceBehavior options](../../../client-api/configuration/load-balance/load-balance-behavior#loadbalancebehavior-options)
     * [Initialize LoadBalanceBehavior on the client](../../../client-api/configuration/load-balance/load-balance-behavior#initialize-loadbalancebehavior-on-the-client)
@@ -325,10 +299,7 @@ using (documentStore)
     * [When to use](../../../client-api/configuration/load-balance/load-balance-behavior#when-to-use)
      
 </Admonition>
-
----
-
-<Admonition type="info" title="LoadBalanceBehavior options " id="loadbalancebehavior-options" href="#loadbalancebehavior-options">
+## LoadBalanceBehavior options 
 
 ### `None` (default option)
 
@@ -339,9 +310,6 @@ using (documentStore)
    * **_Write_** requests:  
      Will be sent to the [preferred node](../../../client-api/configuration/load-balance/overview#the-preferred-node).  
      The data will then be replicated to all the other nodes in the database group.
- 
----
-
 ### `UseSessionContext`
 
 * **Load-balance**
@@ -364,17 +332,14 @@ using (documentStore)
 
   * In case of a failure, the client will try to access the next node from the topology nodes list.
 
-</Admonition>
 
-<Admonition type="info" title="Initialize LoadBalanceBehavior on the client " id="initialize-loadbalancebehavior-on-the-client" href="#initialize-loadbalancebehavior-on-the-client">
+
+## Initialize LoadBalanceBehavior on the client 
 
 * The `LoadBalanceBehavior` convention can be set **on the client** when initializing the Document Store.  
   This will set the load balance behavior for the default database that is set on the store.
 
 * This setting can be **overriden** by setting 'LoadBalanceBehavior' on the server, see [below](../../../client-api/configuration/load-balance/load-balance-behavior#set-loadbalancebehavior-on-the-server).
-
----
-
 **Initialize conventions**:
 
 <TabItem value="something-something" label="LoadBalance_1">
@@ -414,9 +379,6 @@ def get_default_context(self, db_name: str) -> str:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Session usage**:
 
 <TabItem value="something-something" label="LoadBalance_2">
@@ -443,9 +405,9 @@ with document_store.open_session() as session:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set LoadBalanceBehavior on the server " id="set-loadbalancebehavior-on-the-server" href="#set-loadbalancebehavior-on-the-server">
+
+## Set LoadBalanceBehavior on the server 
 
 <Admonition type="note" title="Note">
 
@@ -459,9 +421,6 @@ with document_store.open_session() as session:
   * or, on the document store, set a default value for - `load_balancer_per_session_context_selector`  
 
 </Admonition>
-
----
-
 #### Set LoadBalanceBehavior on the server - by operation:
 
 * The `LoadBalanceBehavior` configuration can be set **on the server** by sending an [operation](../../../client-api/operations/what-are-operations).
@@ -544,9 +503,6 @@ with document_store:
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Set LoadBalanceBehavior on the server - from Studio:
 
 * The `LoadBalanceBehavior` configuration can be set from the Studio's [Client Configuration view](../../../studio/database/settings/client-configuration-per-database).  
@@ -555,9 +511,9 @@ with document_store:
 * Once configuration on the server has changed, the running client will get updated with the new settings.  
   See [keeping client up-to-date](../../../client-api/configuration/load-balance/overview#keeping-the-client-topology-up-to-date).
 
-</Admonition>
 
-<Admonition type="info" title="When to use " id="when-to-use" href="#when-to-use">
+
+## When to use 
 
 * Distributing _Read & Write_ requests among the cluster nodes can be beneficial  
   when a set of sessions handle a specific set of documents or similar data.  
@@ -570,14 +526,11 @@ with document_store:
   in the case when detecting that many or all sessions send requests to the same node,  
   a further level of node randomization can be added by changing the seed.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Load balance behavior
-
----
 
 <Admonition type="note" title="Note">
 
@@ -587,9 +540,6 @@ with document_store:
 * Sessions that are assigned the **same context** will have all their _Read_ & _Write_ 
   requests routed to the **same node**. Gain load balancing by assigning **different contexts** 
   to **different sessions**.  
-
----
-
 * In this page:
     * [LoadBalanceBehavior options](../../../client-api/configuration/load-balance/load-balance-behavior#loadbalancebehavior-options)
     * [Initialize LoadBalanceBehavior on the client](../../../client-api/configuration/load-balance/load-balance-behavior#initialize-loadbalancebehavior-on-the-client)
@@ -599,10 +549,7 @@ with document_store:
     * [When to use](../../../client-api/configuration/load-balance/load-balance-behavior#when-to-use)
      
 </Admonition>
-
----
-
-<Admonition type="info" title="LoadBalanceBehavior options " id="loadbalancebehavior-options" href="#loadbalancebehavior-options">
+## LoadBalanceBehavior options 
 
 ### `None` (default option)
 
@@ -613,9 +560,6 @@ with document_store:
    * **_Write_** requests:  
      Will be sent to the [preferred node](../../../client-api/configuration/load-balance/overview#the-preferred-node).  
      The data will then be replicated to all the other nodes in the database group.
- 
----
-
 ### `UseSessionContext`
 
 * **Load-balance**
@@ -638,17 +582,14 @@ with document_store:
 
   * In case of a failure, the client will try to access the next node from the topology nodes list.
 
-</Admonition>
 
-<Admonition type="info" title="Initialize LoadBalanceBehavior on the client " id="initialize-loadbalancebehavior-on-the-client" href="#initialize-loadbalancebehavior-on-the-client">
+
+## Initialize LoadBalanceBehavior on the client 
 
 * The `LoadBalanceBehavior` convention can be set **on the client** when initializing the Document Store.  
   This will set the load balance behavior for the default database that is set on the store.
 
 * This setting can be **overriden** by setting 'LoadBalanceBehavior' on the server, see [below](../../../client-api/configuration/load-balance/load-balance-behavior#set-loadbalancebehavior-on-the-server).
-
----
-
 **Initialize conventions**:
 
 <TabItem value="something-something" label="LoadBalance_1">
@@ -688,9 +629,6 @@ private function GetDefaultContext(string $dbName): string
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Session usage**:
 
 <TabItem value="something-something" label="LoadBalance_2">
@@ -725,9 +663,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set LoadBalanceBehavior on the server " id="set-loadbalancebehavior-on-the-server" href="#set-loadbalancebehavior-on-the-server">
+
+## Set LoadBalanceBehavior on the server 
 
 <Admonition type="note" title="Note">
 
@@ -741,9 +679,6 @@ try \{
   * or, set a default document store value using `setLoadBalancerPerSessionContextSelector`  
 
 </Admonition>
-
----
-
 #### Set LoadBalanceBehavior on the server - by operation:
 
 * The `LoadBalanceBehavior` configuration can be set **on the server** by sending an [operation](../../../client-api/operations/what-are-operations).
@@ -837,9 +772,6 @@ try {
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Set LoadBalanceBehavior on the server - from Studio:
 
 * The `LoadBalanceBehavior` configuration can be set from the Studio's [Client Configuration view](../../../studio/database/settings/client-configuration-per-database).  
@@ -848,9 +780,9 @@ try {
 * Once configuration on the server has changed, the running client will get updated with the new settings.  
   See [keeping client up-to-date](../../../client-api/configuration/load-balance/overview#keeping-the-client-topology-up-to-date).
 
-</Admonition>
 
-<Admonition type="info" title="When to use " id="when-to-use" href="#when-to-use">
+
+## When to use 
 
 * Distributing _Read & Write_ requests among the cluster nodes can be beneficial  
   when a set of sessions handle a specific set of documents or similar data.  
@@ -863,14 +795,11 @@ try {
   in the case when detecting that many or all sessions send requests to the same node,  
   a further level of node randomization can be added by changing the seed.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Load balance behavior
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -880,9 +809,6 @@ try {
 * Sessions that are assigned the **same context** will have all their _Read_ & _Write_ 
   requests routed to the **same node**. Gain load balancing by assigning **different contexts** 
   to **different sessions**.  
-
----
-
 * In this page:
     * [LoadBalanceBehavior options](../../../client-api/configuration/load-balance/load-balance-behavior#loadbalancebehavior-options)
     * [Initialize LoadBalanceBehavior on the client](../../../client-api/configuration/load-balance/load-balance-behavior#initialize-loadbalancebehavior-on-the-client)
@@ -892,10 +818,7 @@ try {
     * [When to use](../../../client-api/configuration/load-balance/load-balance-behavior#when-to-use)
      
 </Admonition>
-
----
-
-<Admonition type="info" title="LoadBalanceBehavior options " id="loadbalancebehavior-options" href="#loadbalancebehavior-options">
+## LoadBalanceBehavior options 
 
 ### `None` (default option)
 
@@ -906,9 +829,6 @@ try {
   * **_Write_** requests:  
     Will be sent to the [preferred node](../../../client-api/configuration/load-balance/overview#the-preferred-node).  
     The data will then be replicated to all the other nodes in the database group.
- 
----
-
 ### `UseSessionContext`
 
 * **Load-balance**
@@ -931,17 +851,14 @@ try {
 
   * In case of a failure, the client will try to access the next node from the topology nodes list.
 
-</Admonition>
 
-<Admonition type="info" title="Initialize loadBalanceBehavior on the client " id="initialize-loadbalancebehavior-on-the-client" href="#initialize-loadbalancebehavior-on-the-client">
+
+## Initialize loadBalanceBehavior on the client 
 
 * The `loadBalanceBehavior` convention can be set **on the client** when initializing the Document Store.  
   This will set the load balance behavior for the default database that is set on the store.
 
 * This setting can be **overriden** by setting 'loadBalanceBehavior' on the server, see [below](../../../client-api/configuration/load-balance/load-balance-behavior#set-loadbalancebehavior-on-the-server).
-
----
-
 **Initialize conventions**:
 
 <TabItem value="something-something" label="loadBalance_1">
@@ -979,9 +896,6 @@ const getDefaultContext = (dbName) => \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Session usage**:
 
 <TabItem value="something-something" label="loadBalance_2">
@@ -1010,9 +924,9 @@ const employee = await session.load("employees/1-A");
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set loadBalanceBehavior on the server " id="set-loadbalancebehavior-on-the-server" href="#set-loadbalancebehavior-on-the-server">
+
+## Set loadBalanceBehavior on the server 
 
 <Admonition type="note" title="Note">
 
@@ -1026,9 +940,6 @@ const employee = await session.load("employees/1-A");
   * or, on the document store, set a default value for - `loadBalancerPerSessionContextSelector`  
 
 </Admonition>
-
----
-
 #### Set LoadBalanceBehavior on the server - by operation:
 
 * The `loadBalanceBehavior` configuration can be set **on the server** by sending an [operation](../../../client-api/operations/what-are-operations).
@@ -1116,9 +1027,6 @@ await documentStore.maintenance.server.send(putConfigurationOp);
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Set LoadBalanceBehavior on the server - from Studio:
 
 * The `loadBalanceBehavior` configuration can be set from the Studio's [Client Configuration view](../../../studio/database/settings/client-configuration-per-database).  
@@ -1127,9 +1035,9 @@ await documentStore.maintenance.server.send(putConfigurationOp);
 * Once configuration on the server has changed, the running client will get updated with the new settings.  
   See [keeping client up-to-date](../../../client-api/configuration/load-balance/overview#keeping-the-client-topology-up-to-date).
 
-</Admonition>
 
-<Admonition type="info" title="When to use " id="when-to-use" href="#when-to-use">
+
+## When to use 
 
 * Distributing _Read & Write_ requests among the cluster nodes can be beneficial  
   when a set of sessions handle a specific set of documents or similar data.  
@@ -1142,7 +1050,7 @@ await documentStore.maintenance.server.send(putConfigurationOp);
   in the case when detecting that many or all sessions send requests to the same node,  
   a further level of node randomization can be added by changing the seed.  
 
-</Admonition>
+
 
 
 </LanguageContent>

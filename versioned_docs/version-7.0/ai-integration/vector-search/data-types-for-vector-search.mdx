@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Data Types for Vector Search
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Data Types for Vector Search
----
 
 <Admonition type="note" title="Note">
 
@@ -31,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [RavenVector](../../ai-integration/vector-search/data-types-for-vector-search#ravenvector)
     
 </Admonition>
-
----
-
-<Admonition type="info" title="Supported data types for vector search" id="supported-data-types-for-vector-search" href="#supported-data-types-for-vector-search">
+## Supported data types for vector search
 
 ### Textual data
 
@@ -44,9 +43,6 @@ import LanguageContent from "@site/src/components/language-content";
 `string[]` - An array of text entries.
 
 </Admonition>
-
----
-
 ### Numerical data
 
 * You can store **pre-generated** embedding vectors in your documents,  
@@ -96,9 +92,9 @@ While arrays (`float[]`) are the most direct representation of numerical embeddi
 you can also use lists (for example, `List<float>` or `List<float[]>`) for dynamic sizing in your application code.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="RavenVector" id="ravenvector" href="#ravenvector">
+
+## RavenVector
 
 RavenVector is RavenDB's dedicated data type for storing and querying **numerical embeddings**.   
 It is highly optimized to minimize storage space and improve the speed of reading arrays from disk,  
@@ -117,9 +113,6 @@ List<RavenVector<byte>>;  // A collection of byte-based vectors.
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 When a class property is stored as a `RavenVector`, the vector's content will appear under the `@vector` field in the JSON document stored in the database.
 For example:
 
@@ -144,7 +137,7 @@ For example:
 
 ![json document](./assets/json-document.png)
 
-</Admonition>
+
 
 
 </LanguageContent>

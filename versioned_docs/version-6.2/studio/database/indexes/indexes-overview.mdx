@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Indexes Overview
----
-
 <Admonition type="note" title="Note">
 
 * RavenDB uses __indexes__ to satisfy queries, allowing for fast query results.  
@@ -45,10 +43,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Indexes in the Cluster](../../../studio/database/indexes/indexes-overview#indexes-in-the-cluster)
    * [Indexing Errors](../../../studio/database/indexes/indexes-overview#indexing-errors)
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexes - The General Concept" id="indexes-the-general-concept" href="#indexes-the-general-concept">
+## Indexes - The General Concept
 
 * Once defined, the index iterates over the documents,  
   and for every document-field that is requested to be indexed,  
@@ -65,15 +60,13 @@ import LanguageContent from "@site/src/components/language-content";
   * Auto Indexes -vs- Static Indexes  
   * Map Indexes -vs- Map-Reduce Indexes  
   * Single-Collection Indexes -vs- Multi-Collection Indexes  
-</Admonition>
 
-<Admonition type="info" title="Indexes - The Moving Parts" id="indexes-the-moving-parts" href="#indexes-the-moving-parts">
+
+## Indexes - The Moving Parts
 
 <Admonition type="note" title="Note">
 
 #### 1. Index Definition
----
-
 * **The index definition** tells RavenDB how to index the data.  
 
 * It specifies which fields to index and defines how they should be indexed,  
@@ -89,8 +82,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 #### 2. Indexing Process
----
-
 * **Indexing** is the process of iterating over the raw documents, indexing their data as defined by the index definition,
   and building a map between the indexed terms and the raw documents that contain them.
 
@@ -122,8 +113,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 #### 3. Indexed Data
----
-
 * The resulting output of the indexing process from 'step 2' above is also referred to as an 'Index'.  
 
 * **Index-Entries**  
@@ -145,17 +134,15 @@ import LanguageContent from "@site/src/components/language-content";
     Upon a query match, we load the document itself from the document storage.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Index Types" id="index-types" href="#index-types">
+
+## Index Types
 
 Indexes in RavenDB are split across the following multiple axes:
 
 <Admonition type="note" title="Note">
 
 #### Auto Indexes -vs- Static Indexes
----
-
 * **Auto Indexes**:  
   * Auto-indexes are created by the server.  
   * When a query that has some filtering condition doesn't specify a specific index to be used,  
@@ -175,8 +162,6 @@ Indexes in RavenDB are split across the following multiple axes:
 <Admonition type="note" title="Note">
 
 #### Map Indexes -vs- Map-Reduce Indexes
----
-
 * **Map Indexes**:  
   [Map indexes](../../../studio/database/indexes/create-map-index) are simple indexes.  
   Contain one or more LINQ-based or JavaScript mapping functions indicating what should be indexed from the document, 
@@ -191,8 +176,6 @@ Indexes in RavenDB are split across the following multiple axes:
 <Admonition type="note" title="Note">
 
 #### Single-Collection Indexes -vs- Multi-Collection Indexes
----
-
 * **Single-Collection Indexes**:  
   Index definition contains only one Map function defined on a specific collection.  
 
@@ -201,9 +184,9 @@ Indexes in RavenDB are split across the following multiple axes:
   The only requirement is that all the Map definitions have the same output shape.  
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Field Configuration Options" id="field-configuration-options" href="#field-configuration-options">
+
+## Field Configuration Options
 
 Additional settings can be specified per field in the index-entry definition, configuring how the terms are indexed inside RavenDB. 
 See [Create Map Index](../../../studio/database/indexes/create-map-index) to learn how to set these options in the Studio.  
@@ -224,9 +207,9 @@ See [Create Map Index](../../../studio/database/indexes/create-map-index) to lea
   Field can be stored within the indexed data.  
   This allows retrieving the value from the indexed data at query time, instead of loading the original document.  
   Learn more in [Storing Data in Index](../../../indexes/storing-data-in-index)
-</Admonition>
 
-<Admonition type="info" title="Modifying Index Definition" id="modifying-index-definition" href="#modifying-index-definition">
+
+## Modifying Index Definition
 
 * Only an index that is not set as 'Locked' can actually be modified.  
 
@@ -243,9 +226,9 @@ See [Create Map Index](../../../studio/database/indexes/create-map-index) to lea
   The number of index revisions kept can be configured in the 
   [Server Configuration Options](../../../server/configuration/configuration-options),  
   or using the [Database Settings view](../../../studio/database/indexes/index-history#view-and-update-number-of-index-revisions) in the Studio.
-</Admonition>
 
-<Admonition type="info" title="Indexes in the Cluster" id="indexes-in-the-cluster" href="#indexes-in-the-cluster">
+
+## Indexes in the Cluster
 
 * Index & Auto-Index creation is a cluster operation. It goes through the [Raft protocol](../../../server/clustering/rachis/what-is-rachis#rachis---ravendbs-raft-implementation).  
   Index creation will fail if the majority of the nodes in the cluster are not reachable.  
@@ -260,9 +243,9 @@ See [Create Map Index](../../../studio/database/indexes/create-map-index) to lea
   (one node at a time if machine resources are limited) 
   or in _Parallel mode_ (simultaneously on all nodes).  
 
-</Admonition>
 
-<Admonition type="info" title="Indexing Errors" id="indexing-errors" href="#indexing-errors">
+
+## Indexing Errors
 
 * An error in indexing a document means that this particular document is not indexed and you will not see it in the query result.  
 
@@ -270,5 +253,5 @@ See [Create Map Index](../../../studio/database/indexes/create-map-index) to lea
   An index in an error state cannot be queried and will return an immediate error.  
 
 * See more in [Index List View - Errors](../../../studio/database/indexes/indexes-list-view#index-list-view---errors).  
-</Admonition>
+
 

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding: Resharding
----
-
 <Admonition type="note" title="Note">
 
 * **Resharding** is the relocation of data stored on one [shard](../sharding/overview#shards) 
@@ -41,10 +39,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Bucket Ownership](../sharding/resharding#bucket-ownership)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Resharding" id="resharding" href="#resharding">
+## Resharding
 
 Over time, data may be distributed unevenly between the database's shards, until 
 some shards may host and handle a much bigger portion of the overall load than others.  
@@ -122,9 +117,9 @@ Upon locating a file in a bucket that is already owned by another shard,
 the documents migrator task immediately initiates a new resharding process 
 for the related bucket.  
 
-</Admonition>
 
-<Admonition type="info" title="Change Vector on a Sharded Database" id="change-vector-on-a-sharded-database" href="#change-vector-on-a-sharded-database">
+
+## Change Vector on a Sharded Database
 
 On a non-sharded database, a document's [change vector](../server/clustering/replication/change-vector) 
 indicates both the document's **version** (so we can tell which version of it 
@@ -149,9 +144,9 @@ that explicitly defines both their version and their order, using this format:
 The change vector is altered this way only for documents that have been resharded.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Resharding and Other Features" id="resharding-and-other-features" href="#resharding-and-other-features">
+
+## Resharding and Other Features
 
 ### Resharding and External Replication
 
@@ -163,27 +158,18 @@ During [external replication](../sharding/external-replication):
 * The **version** (right-hand) part of the document's change vector 
   is checked on the **destination** side, to determine whether this 
   version of the document already resides on it.  
-
----
-
 ### Resharding and ETL
 
 [ETL tasks](../sharding/etl) cannot determine whether a document that 
 was resharded does or doesn't exist on their target.  
 Therefore ETL tasks consider **all** resharded documents (that match the 
 transform script) new/modified and transfer them all to the destination.  
-
----
-
 ### Resharding and Data Subscriptions
 
 Our promise to [data subscription](../sharding/subscriptions) workers is that we 
 send all data **at least once**.  
 As in a non-sharded database, we do our best not to send documents twice, but it 
 is the responsibility of the worker to check whether a document is duplicated or not.  
-
----
-
 ### Resharding and Querying
 
 Since documents are stored in their buckets along with all the data 
@@ -197,23 +183,17 @@ However, if documents stored in this bucket are [queried](../sharding/querying)
 during this time, RavenDB will add them to the retrieved dataset 
 **only once** and prevent results duplication due to resharding.  
 
-</Admonition>
 
-<Admonition type="info" title="Executing Resharding" id="executing-resharding" href="#executing-resharding">
+
+## Executing Resharding
 
 Resharding can currently be initiated only via Studio.  
 To reshard selected buckets, open the **Stats** view.
 
 !["Stats View"](./assets/resharding_stats.png)
-
----
-
 Open the **Buckets Report** view.  
 
 !["Buckets Report"](./assets/resharding_buckets-report.png)
-
----
-
 Selecting a range of buckets will present the selected range.  
 You can reshard a whole range of buckets, or continue increasing the 
 resolution until you present a single bucket and the files it contains.  
@@ -221,24 +201,15 @@ resolution until you present a single bucket and the files it contains.
 !["Range of Buckets"](./assets/resharding_diving-into-bucket-01.png)
 
 !["Single Bucket"](./assets/resharding_diving-into-bucket-05.png)
-
----
-
 Select the shard you want to transfer the bucket/s to and confirm the transfer  
 
 !["Reshard"](./assets/resharding_diving-into-bucket-06.png)
 
 !["Confirm Resharding"](./assets/resharding_confirm-resharding.png)
-
----
-
 Studio will indicate its progress in resharding the requested 
 buckets range using popup messages until the process ends.  
 
 !["Finished Resharding"](./assets/resharding_finished-resharding.png)
-
----
-
 ### Bucket Ownership
 
 For a while, as long as there are still entities to transfer to the new 
@@ -246,12 +217,9 @@ shard's replicas or delete from the old shard, transferred buckets are
 presented as if they reside on both their old and new shards.  
 
 !["Document On Two Shards"](./assets/resharding_over-two-shards.png)
-
----
-
 Eventually, the bucket/s reside on their new shard.  
 
 !["Post Resharding"](./assets/resharding_post-resharding.png)
 
-</Admonition>
+
 

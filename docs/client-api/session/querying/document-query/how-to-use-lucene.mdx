@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Session: Querying: How to use Lucene
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: Querying: How to use Lucene
+
 
 Lucene flavored syntax can be used with the `WhereLucene` method, a part of the filtering methods available in `IDocumentQuery`.
 
@@ -70,7 +74,7 @@ The `fieldName` argument corresponds to Lucene's default field convention. It is
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: Querying: How to use Lucene
+
 
 Lucene flavored syntax can be used with the `whereLucene` method, a part of the filtering methods available in `IDocumentQuery`.
 
@@ -118,7 +122,7 @@ The `fieldName` argument corresponds to Lucene's default field convention. It is
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: Querying: How to use Lucene
+
 
 Lucene flavored syntax can be used with the `whereLucene()` method, a part of the filtering methods available in `IDocumentQuery`.
 

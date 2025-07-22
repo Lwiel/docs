@@ -11,10 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Client API: What is a Document Store
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Client API: What is a Document Store
----
+
 <Admonition type="note" title="Note">
 
 * The **Document Store** is the main Client API object which establishes and manages the communication between your client application and a [RavenDB cluster](../server/clustering/overview). 
@@ -44,7 +47,7 @@ and any configurations & customizations that you may have applied.
 
 </LanguageContent>
 <LanguageContent language="java">
-# Client API: What is a Document Store
+
 
 A document store is our main client API object which establishes and manages the connection channel between an application and a database instance. 
 It acts as the connection manager and also exposes methods to perform all operations which you can run against an associated server instance.
@@ -66,7 +69,7 @@ The document store ensures access to the following client API features:
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Client API: What is a Document Store
+
 
 A document store is our main client API object which establishes and manages the connection channel between an application and a database instance. 
 It acts as the connection manager and also exposes methods to perform all operations which you can run against an associated server instance.

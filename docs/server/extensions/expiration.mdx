@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Document Expiration
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Document Expiration
----
 
 <Admonition type="note" title="Note">
 
@@ -29,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Setting the document expiration time](../../server/extensions/expiration#setting-the-document-expiration-time)  
   * [Eventual consistency considerations](../../server/extensions/expiration#eventual-consistency-considerations)  
  </Admonition>
-
----
-
-<Admonition type="info" title="Expiration feature usages" id="expiration-feature-usages" href="#expiration-feature-usages">
+## Expiration feature usages
 
 Use the Expiration feature when data is needed only for a given time period.  
 E.g., for -  
@@ -42,9 +41,9 @@ E.g., for -
  * A web application login session details  
  * Cache data from an SQL server  
 
-</Admonition>
 
-<Admonition type="info" title="Configuring the expiration feature" id="configuring-the-expiration-feature" href="#configuring-the-expiration-feature">
+
+## Configuring the expiration feature
 
 Documents expiration settings can be changed via Studio or the API.  
 It is possible to:  
@@ -55,15 +54,9 @@ It is possible to:
   Default value: **60 seconds**  
 * Set the maximal number of documents that RavenDB is allowed to delete per interval.  
   Default value: **All expired documents**  
-
----
-
 <Admonition type="info" title="Info">
 [Learn how to configure expiration settings via Studio](../../studio/database/settings/document-expiration)
 </Admonition>
-
----
-
 ### Configure expiration settings using the client API  
 
 Modify the expiration settings using the client API by setting an `ExpirationConfiguration` 
@@ -108,9 +101,9 @@ object and sending it to RavenDB using a `ConfigureExpirationOperation` operatio
 | **DeleteFrequencyInSec** | `long?` | Determines how often (in seconds) the expiration feature looks for expired documents and deletes them.&lt;BR&gt;Default: `60` |
 | **MaxItemsToProcess** | `long?` | Determines the maximal number of documents the feature is allowed to delete in one run. |
 
-</Admonition>
 
-<Admonition type="info" title="Setting the document expiration time" id="setting-the-document-expiration-time" href="#setting-the-document-expiration-time">
+
+## Setting the document expiration time
 
 * To set a document expiration time, add the document's `@metadata` an 
   `@expires` property with the designated expiration time as a value.  
@@ -138,9 +131,9 @@ using (IAsyncDocumentSession session = store.OpenAsyncSession())
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Eventual consistency considerations" id="eventual-consistency-considerations" href="#eventual-consistency-considerations">
+
+## Eventual consistency considerations
 
 * Internally, RavenDB tracks all documents carrying the `@expires` flag even if the 
   expiration feature is disabled. This way, once the expiration feature is enabled expired 
@@ -152,7 +145,7 @@ using (IAsyncDocumentSession session = store.OpenAsyncSession())
 * Expired documents are _not_ filtered out during `load`, `query`, or indexing, so be aware that 
   as long as an expired document hasn't been actually deleted it may still be included in the results.  
 
-</Admonition>
+
 
 
 </LanguageContent>

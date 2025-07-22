@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["java", "csharp", "python", "php", "nodejs"];
+
+
+# Include Query Explanations
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="java">
-# Include Query Explanations
+
 
 `includeExplanations` allows to investigate details related to score assigned for each query result.
 
@@ -23,9 +27,6 @@ import LanguageContent from "@site/src/components/language-content";
 * You can configure which search engine will be used. Learn how in [Selecting the search engine](../../../../indexes/search-engine/corax#selecting-the-search-engine).
 
 </Admonition>
-
----
-
 ## Syntax
 
 
@@ -73,9 +74,6 @@ Sample explanation:
 
 </LanguageContent>
 <LanguageContent language="csharp">
-# Include Query Explanations
-
----
 
 <Admonition type="note" title="Note">
 
@@ -92,9 +90,6 @@ Sample explanation:
     * Including explanations is available only when using **Lucene** as the underlying search engine.  
     * You can configure which search engine will be used. Learn how in [Selecting the search engine](../../../../indexes/search-engine/corax#selecting-the-search-engine).
     </Admonition>
-
----
-
 * This article provides examples of including explanations when making a **dynamic-query**.  
   For including explanations when querying a **static-index** see [Include explanations in index query](../../../../indexes/querying/include-explanations).
 
@@ -103,10 +98,7 @@ Sample explanation:
     * [View explanations](../../../../client-api/session/querying/debugging/include-explanations#view-explanations)  
     * [Syntax](../../../../client-api/session/querying/debugging/include-explanations#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Include explanations in a query" id="include-explanations-in-a-query" href="#include-explanations-in-a-query">
+## Include explanations in a query
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -205,9 +197,9 @@ include explanations()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="View explanations" id="view-explanations" href="#view-explanations">
+
+## View explanations
 
 * The detailed explanations can be viewed from the **Query view** in Studio.  
 
@@ -219,9 +211,9 @@ include explanations()
 
 ![Figure 2. View explanations](./assets/include-explanations-2.png)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -238,13 +230,10 @@ include explanations()
 |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | `string[] GetExplanations(string docId)` | &lt;ul&gt;&lt;li&gt;Pass the resulting document ID for which to get score details.&lt;/li&gt;&lt;li&gt;Returns a list with all explanations.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
+
 
 </LanguageContent>
 <LanguageContent language="python">
-# Include Query Explanations
-
----
 
 <Admonition type="note" title="Note">
 
@@ -260,19 +249,13 @@ include explanations()
     * Including explanations is available only when using **Lucene** as the underlying search engine.
     * You can configure which search engine will be used. Learn how in [Selecting the search engine](../../../../indexes/search-engine/corax#selecting-the-search-engine).
     </Admonition>
-
----
-
 * In this page:
     * [Include explanations in a query](../../../../client-api/session/querying/debugging/include-explanations#include-explanations-in-a-query)  
     * [View explanations](../../../../client-api/session/querying/debugging/include-explanations#view-explanations)  
     * [Syntax](../../../../client-api/session/querying/debugging/include-explanations#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include explanations in a query" id="include-explanations-in-a-query" href="#include-explanations-in-a-query">
+## Include explanations in a query
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -312,9 +295,9 @@ include explanations()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="View explanations" id="view-explanations" href="#view-explanations">
+
+## View explanations
 
 * The detailed explanations can be viewed from the **Query view** in Studio.  
 
@@ -326,9 +309,9 @@ include explanations()
 
 ![Figure 2. View explanations](./assets/include-explanations-2.png)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -350,13 +333,10 @@ include explanations()
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | `Dict[str, List[str]]` | &lt;ul&gt;&lt;li&gt;Pass the resulting document ID for which to get score details.&lt;/li&gt;&lt;li&gt;Returns a list with all explanations.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
+
 
 </LanguageContent>
 <LanguageContent language="php">
-# Include Query Explanations
-
----
 
 <Admonition type="note" title="Note">
 
@@ -372,18 +352,12 @@ include explanations()
     * Including explanations is available only when using **Lucene** as the underlying search engine.
     * You can configure which search engine will be used. Learn how in [Selecting the search engine](../../../../indexes/search-engine/corax#selecting-the-search-engine).
     </Admonition>
-
----
-
 * In this page:
     * [Include explanations in a query](../../../../client-api/session/querying/debugging/include-explanations#include-explanations-in-a-query)  
     * [View explanations](../../../../client-api/session/querying/debugging/include-explanations#view-explanations)  
     * [Syntax](../../../../client-api/session/querying/debugging/include-explanations#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Include explanations in a query" id="include-explanations-in-a-query" href="#include-explanations-in-a-query">
+## Include explanations in a query
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="query" label="query">
@@ -415,9 +389,9 @@ Please note that the First parameter is optional.
 If you intend to use the default options, just paste `null` instead of the options object.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="View explanations" id="view-explanations" href="#view-explanations">
+
+## View explanations
 
 * The detailed explanations can be viewed from the **Query view** in Studio.  
 
@@ -429,9 +403,9 @@ If you intend to use the default options, just paste `null` instead of the optio
 
 ![Figure 2. View explanations](./assets/include-explanations-2.png)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -445,13 +419,10 @@ If you intend to use the default options, just paste `null` instead of the optio
 | **$options**       | `?ExplanationOptions` | This object is optional.<br/>If you intend to use the default options, place `null` here.                                                                                                                                                |
 | **&$explanations** | `Explanations`        | &lt;ul&gt;&lt;li&gt;A callback function (action) that takes `Explanations` as an argument. It will be called by the client with the resulting `Explanations`.&lt;/li&gt; &lt;li&gt;You can interact with resulting Explanations inside your callback.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
+
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Include Query Explanations
-
----
 
 <Admonition type="note" title="Note">
 
@@ -467,9 +438,6 @@ If you intend to use the default options, just paste `null` instead of the optio
     * Including explanations is available only when using **Lucene** as the underlying search engine.
     * You can configure which search engine will be used. Learn how in [Selecting the search engine](../../../../indexes/search-engine/corax#selecting-the-search-engine).
     </Admonition>
-
----
-
 * This article provides examples of including explanations when making a **dynamic-query**.  
   For including explanations when querying a **static-index** see [Include explanations in index query](../../../../indexes/querying/include-explanations).
 
@@ -478,10 +446,7 @@ If you intend to use the default options, just paste `null` instead of the optio
     * [View explanations](../../../../client-api/session/querying/debugging/include-explanations#view-explanations)  
     * [Syntax](../../../../client-api/session/querying/debugging/include-explanations#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Include explanations in a query" id="include-explanations-in-a-query" href="#include-explanations-in-a-query">
+## Include explanations in a query
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -515,9 +480,9 @@ include explanations()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="View explanations" id="view-explanations" href="#view-explanations">
+
+## View explanations
 
 * The detailed explanations can be viewed from the **Query view** in Studio.  
 * Running a query with `include explanations()` will show an additional **Explanations Tab**.
@@ -528,9 +493,9 @@ include explanations()
 
 ![Figure 2. View explanations](./assets/include-explanations-2.png)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -557,6 +522,6 @@ class Explanations \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 </LanguageContent>

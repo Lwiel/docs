@@ -31,12 +31,7 @@ In this page:
   - [Low Memory](../../../studio/database/indexes/indexing-performance#low-memory)
   - [Concurrent Processing of Too Many Indexes](../../../studio/database/indexes/indexing-performance#concurrent-processing-of-too-many-indexes)
   - [LoadDocument Misuse](../../../studio/database/indexes/indexing-performance#loaddocument-misuse)
-
-
-  
----
-
-<Admonition type="info" title="Indexing Performance View " id="indexing-performance-view" href="#indexing-performance-view">
+## Indexing Performance View 
 
 ![Indexing Performance View](./assets/indexing-performance-overview.png)
 
@@ -67,11 +62,8 @@ In this page:
 10. **Vertical line**  
     Each verticle purple line shows that there was a time-lapse in the timeline before a batch process started.  
 
-</Admonition>
 
----
-
-<Admonition type="info" title="Types of Index Tracks" id="types-of-index-tracks" href="#types-of-index-tracks">
+## Types of Index Tracks
 
 ![Index Types](./assets/index-types.png)
 
@@ -110,11 +102,8 @@ Click the following links to learn more about defining indexes via the Studio:
 
 </Admonition>
 
-</Admonition>
 
----
-
-<Admonition type="info" title="Index Statistics View" id="index-statistics-view" href="#index-statistics-view">
+## Index Statistics View
 
 * When expanding index tracks, zoom in on batches to see how long each stage took to process.  
 * Some stages are very short.  Zoom in further with the mouse scroller to see stages that happen quickly.  
@@ -173,11 +162,8 @@ Click the following links to learn more about defining indexes via the Studio:
 
    
 
-</Admonition>
 
----
-
-<Admonition type="info" title="Common Indexing Issues" id="common-indexing-issues" href="#common-indexing-issues">
+## Common Indexing Issues
 
 Indexing can be a taxing operation on CPU resources.  
 
@@ -195,9 +181,6 @@ Batch stops break up processes into smaller batches when
   - [Low memory](../../../studio/database/indexes/indexing-performance#low-memory) resources for indexing process on local machines or burstable cloud instances.  
   - [Too many concurrent index processes](../../../studio/database/indexes/indexing-performance#concurrent-processing-of-too-many-indexes) are exhausting your system resources.  
   - The [LoadDocument](../../../studio/database/indexes/indexing-performance#loaddocument-misuse) method is misused.  
-
----
-
 #### Resource Exhaustion
 
 Some indexes are responsible for a huge dataset and/or have very complex, demanding definitions.  
@@ -210,9 +193,6 @@ You can configure [batch stops](../../../studio/database/indexes/indexing-perfor
     This will only be applied if we pass the last [etag](../../../glossary/etag) in collection that we saw when batch was started.  
 - [Indexing.MapBatchSize](../../../server/configuration/indexing-configuration#indexing.mapbatchsize)  
     Maximum number of documents to be processed by the index per indexing batch.  
-
----
-
 #### Low Memory 
 
 * [Low Memory](../../../server/configuration/memory-configuration#memory.lowmemorylimitinmb) resources can slow down your system and result in [batch stops](../../../studio/database/indexes/indexing-performance#common-indexing-issues). 
@@ -230,18 +210,12 @@ You can configure [batch stops](../../../studio/database/indexes/indexing-perfor
     This causes indexing to seem slow.  
      * On a cloud instance, you can [upgrade](../../../cloud/portal/cloud-portal-products-tab) your instance, [scale](../../../cloud/cloud-scaling), 
       [externally replicate](../../../studio/database/tasks/ongoing-tasks/external-replication-task) to new instances, and/or optimize your indexes.  
-
----
-
 #### Concurrent Processing of Too Many Indexes
 
 - [Limit concurrent index processes](../../../server/configuration/indexing-configuration#indexing.maxnumberofconcurrentlyrunningindexes) - 
   RavenDB can handle multiple index processes at the same time, but if there are too many, it will exhaust the system resources and cause a 
   noticeable slow-down.  The `Indexing.MaxNumberOfConcurrentlyRunningIndexes` method enables you to have many indexes without exhausting resources by allowing you to set
   the number of concurrent index processes.  
-
----
-
 #### LoadDocument Misuse
 
 - [Indexing referenced/related data](https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#indexing-referenced-data)
@@ -260,5 +234,5 @@ You can configure [batch stops](../../../studio/database/indexes/indexing-perfor
 
 
 
-</Admonition>
+
 

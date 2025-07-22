@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Get Documents Command
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Get Documents Command
----
 
 <Admonition type="note" title="Note">
 
@@ -32,23 +34,14 @@ import LanguageContent from "@site/src/components/language-content";
    - [Syntax](../../../client-api/commands/documents/get#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get single document" id="get-single-document" href="#get-single-document">
+## Get single document
 
 * The following examples demonstrate how to retrieve a document using either the _Store's request executor_  
   or the _Session's request executor_.
 * The examples in the rest of the article use the _Store's request executor_, but you can apply the Session's implementation shown here to ALL cases.
-
----
-
 <Admonition type="note" title="Note">
 
 **Get document command - using the Store's request executor**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Get_document" label="Get_document">
 <CodeBlock language="csharp">
@@ -104,9 +97,6 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 <Admonition type="note" title="Note">
 
 **Get document command - using the Session's request executor**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Get_document" label="Get_document">
 <CodeBlock language="csharp">
@@ -162,16 +152,13 @@ using (var asyncSession = store.OpenAsyncSession())
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Get multiple documents" id="get-multiple-documents" href="#get-multiple-documents">
+
+## Get multiple documents
 
 <Admonition type="note" title="Note">
 
 **Get multiple documents**:
-
----
-
 <TabItem value="something" label="get_2_storeContext">
 <CodeBlock language="csharp">
 {`using (var store = new DocumentStore())
@@ -204,9 +191,6 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 <Admonition type="note" title="Note">
 
 **Get multiple documents - missing documents**:
-
----
-
 <TabItem value="something" label="get_3_storeContext">
 <CodeBlock language="csharp">
 {`using (var store = new DocumentStore())
@@ -227,9 +211,9 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Get metadata only" id="get-metadata-only" href="#get-metadata-only">
+
+## Get metadata only
 
 <TabItem value="something" label="get_4_storeContext">
 <CodeBlock language="csharp">
@@ -257,9 +241,9 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get paged documents" id="get-paged-documents" href="#get-paged-documents">
+
+## Get paged documents
 
 * You can retrieve documents in pages by specifying how many documents to skip and how many to fetch.
 * Using this overload, no specific collection is specified, the documents will be fetched from ALL collections.
@@ -283,16 +267,13 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get documents - by ID prefix" id="get-documents-by-id-prefix" href="#get-documents-by-id-prefix">
+
+## Get documents - by ID prefix
 
 <Admonition type="note" title="Note">
 
 **Retrieve documents that match a specified ID prefix**:
-
----
-
 <TabItem value="something" label="get_6_storeContext">
 <CodeBlock language="csharp">
 {`using (var store = new DocumentStore())
@@ -323,9 +304,6 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 <Admonition type="note" title="Note">
 
 **Retrieve documents that match a specified ID prefix - with "matches" pattern**:
-
----
-
 <TabItem value="something" label="get_7_storeContext">
 <CodeBlock language="csharp">
 {`using (var store = new DocumentStore())
@@ -362,9 +340,6 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 <Admonition type="note" title="Note">
 
 **Retrieve documents that match a specified ID prefix - with "exclude" pattern**:
-
----
-
 <TabItem value="something" label="get_8_storeContext">
 <CodeBlock language="csharp">
 {`using (var store = new DocumentStore())
@@ -396,16 +371,13 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Get documents - with includes" id="get-documents-with-includes" href="#get-documents-with-includes">
+
+## Get documents - with includes
 
 <Admonition type="note" title="Note">
 
 **Include related documents**:
-
----
-
 <TabItem value="something" label="get_9_storeContext">
 <CodeBlock language="csharp">
 {`using (var store = new DocumentStore())
@@ -438,9 +410,6 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 <Admonition type="note" title="Note">
 
 **Include counters**:
-
----
-
 <TabItem value="something" label="get_10_storeContext">
 <CodeBlock language="csharp">
 {`using (var store = new DocumentStore())
@@ -476,9 +445,6 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 <Admonition type="note" title="Note">
 
 **Include time series**:
-
----
-
 <TabItem value="something" label="get_11_storeContext">
 <CodeBlock language="csharp">
 {`using (var store = new DocumentStore())
@@ -523,9 +489,6 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 <Admonition type="note" title="Note">
 
 **Include revisions**:
-
----
-
 <TabItem value="something" label="get_12_storeContext">
 <CodeBlock language="csharp">
 {`using (var store = new DocumentStore())
@@ -598,9 +561,6 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 <Admonition type="note" title="Note">
 
 **Include compare-exchange values**:
-
----
-
 <TabItem value="something" label="get_14_storeContext">
 <CodeBlock language="csharp">
 {`using (var store = new DocumentStore())
@@ -644,9 +604,9 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -741,12 +701,12 @@ public class PutResult
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Get Documents Command
+
 
 There are a few methods that allow you to retrieve documents from a database:   
 
@@ -756,7 +716,7 @@ There are a few methods that allow you to retrieve documents from a database:
 - [Get documents by starts with](../../../client-api/commands/documents/get#get-by-starts-with)  
 - [Get metadata only](../../../client-api/commands/documents/get#get-metadata-only)  
 
-<Admonition type="info" title="Get single document" id="get-single-document" href="#get-single-document">
+## Get single document
 
 **GetDocumentsCommand** can be used to retrieve a single document
 
@@ -787,9 +747,9 @@ ObjectNode order = (ObjectNode) command.getResult().getResults().get(0);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get multiple documents" id="get-multiple-documents" href="#get-multiple-documents">
+
+## Get multiple documents
 
 **GetDocumentsCommand** can also be used to retrieve a list of documents.
 
@@ -850,9 +810,9 @@ ArrayNode products = command.getResult().getResults(); // products/1-A, null, pr
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get paged documents" id="get-paged-documents" href="#get-paged-documents">
+
+## Get paged documents
 
 **GetDocumentsCommand** can also be used to retrieve a paged set of documents.
 
@@ -881,9 +841,9 @@ ArrayNode firstDocs = command.getResult().getResults();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get by starts with" id="get-by-starts-with" href="#get-by-starts-with">
+
+## Get by starts with
 
 **GetDocumentsCommand** can be used to retrieve multiple documents for a specified ID prefix.
 
@@ -972,9 +932,9 @@ ArrayNode products = command.getResult().getResults();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get metadata only" id="get-metadata-only" href="#get-metadata-only">
+
+## Get metadata only
 
 **GetDocumentsCommand** can be used to retrieve the metadata of documents.
 
@@ -1000,13 +960,11 @@ while (fieldIterator.hasNext()) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Get Documents Command
----
 
 <Admonition type="note" title="Note">
 
@@ -1019,10 +977,7 @@ while (fieldIterator.hasNext()) \{
    - [Get documents by ID prefix](../../../client-api/commands/documents/get#get-documents-by-id-prefix)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get single document" id="get-single-document" href="#get-single-document">
+## Get single document
 
 **GetDocumentsCommand** can be used to retrieve a single document
 
@@ -1044,9 +999,6 @@ def from_single_id(
 | **key**           | `str`       | ID of the documents to get.                               |
 | **includes**      | `List[str]` | Related documents to fetch along with the document.       |
 | **metadata_only** | `bool`      | Whether to fetch the whole document or just the metadata. |
-
----
-
 #### Example:
 
 <TabItem value="something-something" label="get_sample_single">
@@ -1058,9 +1010,9 @@ order = command.result.results[0]
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get multiple documents" id="get-multiple-documents" href="#get-multiple-documents">
+
+## Get multiple documents
 
 **GetDocumentsCommand** can also be used to retrieve a list of documents.
 
@@ -1088,9 +1040,6 @@ def from_multiple_ids(
 | **keys**          | `List[str]` | IDs of the documents to get.                           |
 | **includes**      | `List[str]` | Related documents to fetch along with the documents.   |
 | **metadata_only** | `bool`      | Whether to fetch whole documents or just the metadata. |
-
----
-
 #### Example I
 
 <TabItem value="something-something" label="get_sample_multiple">
@@ -1128,9 +1077,9 @@ products = command.result.results  # products/1-A, products/3-A
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get paged documents" id="get-paged-documents" href="#get-paged-documents">
+
+## Get paged documents
 
 **GetDocumentsCommand** can also be used to retrieve a paged set of documents.
 
@@ -1149,9 +1098,6 @@ def from_paging(cls, start: int, page_size: int) -> GetDocumentsCommand: ...
 |---------------|-------|-----------------------------------------------------|
 | **start**     | `int` | Number of documents that should be skipped.         |
 | **page_size** | `int` | Maximum number of documents that will be retrieved. |
-
----
-
 #### Example:
 
 <TabItem value="something-something" label="get_sample_paged">
@@ -1163,9 +1109,9 @@ first_docs = command.result.results
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get documents by ID prefix" id="get-documents-by-id-prefix" href="#get-documents-by-id-prefix">
+
+## Get documents by ID prefix
 
 **GetDocumentsCommand** can be used to retrieve multiple documents for a specified ID prefix.
 
@@ -1198,9 +1144,6 @@ def from_starts_with(
 | **start**         | `int`  | Number of documents that should be skipped.                                                                                                            |
 | **page_size**     | `int`  | Maximum number of documents that will be retrieved.                                                                                                    |
 | **metadata_only** | `bool` | Specifies whether or not only document metadata should be returned.                                                                                    |
-
----
-
 #### Example I
 
 <TabItem value="something-something" label="get_sample_startswith">
@@ -1240,12 +1183,12 @@ products = command.result.results
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Commands: Get Documents
+
 
 <Admonition type="note" title="Note">
 
@@ -1258,10 +1201,7 @@ products = command.result.results
    - [Get documents by ID prefix](../../../client-api/commands/documents/get#get-documents-by-id-prefix)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get single document" id="get-single-document" href="#get-single-document">
+## Get single document
 
 **GetDocumentsCommand** can be used to retrieve a single document
 
@@ -1279,9 +1219,6 @@ products = command.result.results
 | **id** | `string` | ID of the documents to get |
 | **includes** | `StringArray` or `array` or `null` | Related documents to fetch along with the document |
 | **metadataOnly** | `bool` | Whether to fetch the whole document or just its metadata. |
-
----
-
 #### Example:
 
 <TabItem value="something-something" label="get_sample_single">
@@ -1296,9 +1233,9 @@ $order = $documentsResult->getResults()[0];
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get multiple documents" id="get-multiple-documents" href="#get-multiple-documents">
+
+## Get multiple documents
 
 **GetDocumentsCommand** can also be used to retrieve a list of documents.
 
@@ -1316,9 +1253,6 @@ $order = $documentsResult->getResults()[0];
 | **ids** | `StringArray` or `array` or `null` | IDs of the documents to get |
 | **includes** | `StringArray` or `array` or `null` | Related documents to fetch along with the documents |
 | **metadataOnly** | `bool` | Whether to fetch whole documents or just the metadata |
-
----
-
 #### Example I
 
 <TabItem value="something-something" label="get_sample_multiple">
@@ -1368,9 +1302,9 @@ $products = $result->getResults(); // products/1-A, null, products/3-A
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get paged documents" id="get-paged-documents" href="#get-paged-documents">
+
+## Get paged documents
 
 **GetDocumentsCommand** can also be used to retrieve a paged set of documents.
 
@@ -1387,9 +1321,6 @@ $products = $result->getResults(); // products/1-A, null, products/3-A
 |------------|------|-------------|
 | **start** | `int` | number of documents that should be skipped  |
 | **pageSize** | `int` | maximum number of documents that will be retrieved |
-
----
-
 #### Example:
 
 <TabItem value="something-something" label="get_sample_paged">
@@ -1404,9 +1335,9 @@ $firstDocs = $result->getResults();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get documents by ID prefix" id="get-documents-by-id-prefix" href="#get-documents-by-id-prefix">
+
+## Get documents by ID prefix
 
 **GetDocumentsCommand** can be used to retrieve multiple documents for a specified ID prefix.
 
@@ -1436,9 +1367,6 @@ $firstDocs = $result->getResults();
 | **start** | `int` | number of documents that should be skipped |
 | **pageSize** | `int` | maximum number of documents that will be retrieved |
 | **metadataOnly** | `bool` | specifies whether or not only document metadata should be returned |
-
----
-
 #### Example I
 
 <TabItem value="something-something" label="get_sample_startswith">
@@ -1509,13 +1437,11 @@ $products = $result->getResults();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Documents Command
----
 
 <Admonition type="note" title="Note">
 
@@ -1533,23 +1459,14 @@ $products = $result->getResults();
     - [Syntax](../../../client-api/commands/documents/get#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get single document" id="get-single-document" href="#get-single-document">
+## Get single document
 
 * The following examples demonstrate how to retrieve a document using either the _Store's request executor_  
   or the _Session's request executor_.
 * The examples in the rest of the article use the _Store's request executor_, but you can apply the Session's implementation shown here to ALL cases.
-
----
-
 <Admonition type="note" title="Note">
 
 **Get document command - using the Store's request executor**:
-
----
-
 <TabItem value="something-something" label="get_1_storeContext">
 <CodeBlock language="nodejs">
 {`// Define the 'GetDocumentsCommand'
@@ -1572,9 +1489,6 @@ const orderedAt = order.OrderedAt;
 <Admonition type="note" title="Note">
 
 **Get document command - using the Session's request executor**:
-
----
-
 <TabItem value="something-something" label="get_1_sessionContext">
 <CodeBlock language="nodejs">
 {`const session = documentStore.openSession();
@@ -1596,16 +1510,13 @@ const orderedAt = order.OrderedAt;
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Get multiple documents" id="get-multiple-documents" href="#get-multiple-documents">
+
+## Get multiple documents
 
 <Admonition type="note" title="Note">
 
 **Get multiple documents**:
-
----
-
 <TabItem value="something-something" label="get_2">
 <CodeBlock language="nodejs">
 {`// Pass a list of document IDs to the get command
@@ -1628,9 +1539,6 @@ const product = command.result.results[2];
 <Admonition type="note" title="Note">
 
 **Get multiple documents - missing documents**:
-
----
-
 <TabItem value="something-something" label="get_3">
 <CodeBlock language="nodejs">
 {`// Assuming that employees/9999-A doesn't exist
@@ -1649,9 +1557,9 @@ assert.equal(results[1], null);
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Get metadata only" id="get-metadata-only" href="#get-metadata-only">
+
+## Get metadata only
 
 <TabItem value="something-something" label="get_4">
 <CodeBlock language="nodejs">
@@ -1676,9 +1584,9 @@ for (const propertyName in metadata) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get paged documents" id="get-paged-documents" href="#get-paged-documents">
+
+## Get paged documents
 
 * You can retrieve documents in pages by specifying how many documents to skip and how many to fetch.
 * Using this overload, no specific collection is specified, the documents will be fetched from ALL collections.
@@ -1702,16 +1610,13 @@ const firstDocs = command.result.results;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get documents - by ID prefix" id="get-documents-by-id-prefix" href="#get-documents-by-id-prefix">
+
+## Get documents - by ID prefix
 
 <Admonition type="note" title="Note">
 
 **Retrieve documents that match a specified ID prefix**:
-
----
-
 <TabItem value="something-something" label="get_6">
 <CodeBlock language="nodejs">
 {`// Return up to 50 documents with ID that starts with 'products/'
@@ -1734,9 +1639,6 @@ const product = command.result.results[0];
 <Admonition type="note" title="Note">
 
 **Retrieve documents that match a specified ID prefix - with "matches" pattern**:
-
----
-
 <TabItem value="something-something" label="get_7">
 <CodeBlock language="nodejs">
 {`// Return up to 50 documents with IDs that start with 'orders/'
@@ -1766,9 +1668,6 @@ assert.ok(orderId.startsWith("orders/23") || /^orders\\/.\{1\}10-A$/.test(orderI
 <Admonition type="note" title="Note">
 
 **Retrieve documents that match a specified ID prefix - with "exclude" pattern**:
-
----
-
 <TabItem value="something-something" label="get_8">
 <CodeBlock language="nodejs">
 {`// Return up to 50 documents with IDs that start with 'orders/'
@@ -1794,16 +1693,13 @@ assert.ok(orderId.startsWith("orders/") && !orderId.endsWith("10-A"));
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Get documents - with includes" id="get-documents-with-includes" href="#get-documents-with-includes">
+
+## Get documents - with includes
 
 <Admonition type="note" title="Note">
 
 **Include related documents**:
-
----
-
 <TabItem value="something-something" label="get_9">
 <CodeBlock language="nodejs">
 {`// Fetch document products/77-A and include its related Supplier document
@@ -1827,9 +1723,6 @@ const supplier = command.result.includes[supplierId];
 <Admonition type="note" title="Note">
 
 **Include counters**:
-
----
-
 <TabItem value="something-something" label="get_10">
 <CodeBlock language="nodejs">
 {`// Fetch document products/77-A and include the specified counters
@@ -1857,9 +1750,6 @@ const counterValue = counter["totalValue"];
 <Admonition type="note" title="Note">
 
 **Include time series**:
-
----
-
 <TabItem value="something-something" label="get_11">
 <CodeBlock language="nodejs">
 {`// Fetch document employees/1-A and include the specified time series
@@ -1892,9 +1782,6 @@ const entryValues = tsEntries[0].values;
 <Admonition type="note" title="Note">
 
 **Include revisions**:
-
----
-
 <TabItem value="something-something" label="get_12">
 <CodeBlock language="nodejs">
 {`// Fetch document orders/826-A and include the specified revisions
@@ -1945,9 +1832,6 @@ const revision = revisionObj.Revision;
 <Admonition type="note" title="Note">
 
 **Include compare-exchange values**:
-
----
-
 <TabItem value="something-something" label="get_14">
 <CodeBlock language="nodejs">
 {`// Fetch document orders/826-A and include the specified compare-exchange
@@ -1979,9 +1863,9 @@ const cmpXchgItemValue = cmpXchgItem[cmpXchgItemKey].value.Object;
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -2046,7 +1930,7 @@ new GetDocumentsCommand(\{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

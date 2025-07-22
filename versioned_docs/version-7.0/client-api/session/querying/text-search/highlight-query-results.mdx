@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["java", "csharp", "python", "php", "nodejs"];
+
+
+# Highlight Search Results
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="java">
-# Highlight Search Results
+
 
 **Highlighting** can be a great feature for increasing search UX. To take leverage of it use `highlight` method.
 
@@ -130,8 +134,6 @@ Default `<b></b>` tags are coloured and colours are returned in following order:
 
 </LanguageContent>
 <LanguageContent language="csharp">
-# Highlight Search Results
----
 
 <Admonition type="note" title="Note">
 
@@ -143,9 +145,6 @@ Default `<b></b>` tags are coloured and colours are returned in following order:
 
 * This article shows highlighting search results when making a **dynamic-query**.  
   For highlighting search results when querying a **static-index** see [highlight index search results](../../../../indexes/querying/highlighting).
-
----
-
 * In this page:
   * [Highlight - basic example](../../../../client-api/session/querying/text-search/highlight-query-results#highlight---basic-example)
       * [Highlight tags](../../../../client-api/session/querying/text-search/highlight-query-results#highlight-tags)
@@ -155,10 +154,7 @@ Default `<b></b>` tags are coloured and colours are returned in following order:
   * [Syntax](../../../../client-api/session/querying/text-search/highlight-query-results#syntax)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="Highlight - basic example" id="highlight-basic-example" href="#highlight-basic-example">
+## Highlight - basic example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -276,9 +272,6 @@ string fragmentsHtml = builder.AppendLine("</ul>").ToString();
 <Admonition type="note" title="Note">
 
 #### Highlight tags
-
----
-
 * By default, the highlighted term is wrapped with the following html:  
   `<b style="background:yellow">term</b>`  
 
@@ -314,9 +307,6 @@ string fragmentsHtml = builder.AppendLine("</ul>").ToString();
 <Admonition type="note" title="Note">
 
 #### Highlight results in Studio
-
----
-
 ![Figure 1. Fragments results](./assets/fragmentsResults.png)
 
 1. **Auto-Index**  
@@ -330,9 +320,9 @@ string fragmentsHtml = builder.AppendLine("</ul>").ToString();
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight - customize tags" id="highlight-customize-tags" href="#highlight-customize-tags">
+
+## Highlight - customize tags
 
 * The html tags that wrap the highlighted terms can be **customized** to any other tags.
 
@@ -429,9 +419,9 @@ include highlight(Notes, 35, 1, $p0), highlight(Title, 35, 1, $p1)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight - projected results" id="highlight-projected-results" href="#highlight-projected-results">
+
+## Highlight - projected results
 
 * Highlighting can also be used when [projecting query results](../../../../client-api/session/querying/how-to-project-query-results).
 
@@ -508,9 +498,9 @@ include highlight(Notes, 35, 2)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -599,13 +589,11 @@ public IEnumerable<string> ResultIndents;
 |------------------|-------------------------------------------------------------------------------------------------------|
 | **GetFragments** | Returns the list of the highlighted text fragments for the passed document ID, or the map-reduce key. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Highlight Search Results
----
 
 <Admonition type="note" title="Note">
 
@@ -617,9 +605,6 @@ public IEnumerable<string> ResultIndents;
 
 * This article shows highlighting search results when making a **dynamic-query**.  
   For highlighting search results when querying a **static-index** see [highlight index search results](../../../../indexes/querying/highlighting).
-
----
-
 * In this page:
   * [Highlight - basic example](../../../../client-api/session/querying/text-search/highlight-query-results#highlight---basic-example)
       * [Highlight tags](../../../../client-api/session/querying/text-search/highlight-query-results#highlight-tags)
@@ -629,10 +614,7 @@ public IEnumerable<string> ResultIndents;
   * [Syntax](../../../../client-api/session/querying/text-search/highlight-query-results#syntax)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="Highlight - basic example" id="highlight-basic-example" href="#highlight-basic-example">
+## Highlight - basic example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -763,9 +745,9 @@ fragments_html = builder.append(f"\{os.linesep\}</ul>")
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight - customize tags" id="highlight-customize-tags" href="#highlight-customize-tags">
+
+## Highlight - customize tags
 
 * The html tags that wrap the highlighted terms can be **customized** to any other tags.
 
@@ -838,9 +820,9 @@ include highlight(Notes, 35, 1, $p0), highlight(Title, 35, 1, $p1)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight - projected results" id="highlight-projected-results" href="#highlight-projected-results">
+
+## Highlight - projected results
 
 * Highlighting can also be used when [projecting query results](../../../../client-api/session/querying/how-to-project-query-results).
 
@@ -900,9 +882,9 @@ include highlight(Notes, 35, 2)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="python">
@@ -978,13 +960,11 @@ def result_indents(self) -> Set[str]: ...
 |-------------------|-------------|------------------------------------------------------------------------------------------------------|
 | **get_fragments** | `List[str]` | Returns the list of the highlighted text fragments for the passed document ID, or the map-reduce key |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Highlight Search Results
----
 
 <Admonition type="note" title="Note">
 
@@ -996,9 +976,6 @@ def result_indents(self) -> Set[str]: ...
 
 * This article shows highlighting search results when making a **dynamic-query**.  
   For highlighting search results when querying a **static-index** see [highlight index search results](../../../../indexes/querying/highlighting).
-
----
-
 * In this page:
   * [Highlight - basic example](../../../../client-api/session/querying/text-search/highlight-query-results#highlight---basic-example)
       * [Highlight tags](../../../../client-api/session/querying/text-search/highlight-query-results#highlight-tags)
@@ -1008,10 +985,7 @@ def result_indents(self) -> Set[str]: ...
   * [Syntax](../../../../client-api/session/querying/text-search/highlight-query-results#syntax)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="Highlight - basic example" id="highlight-basic-example" href="#highlight-basic-example">
+## Highlight - basic example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="query" label="query">
@@ -1144,9 +1118,9 @@ $fragmentsHtml = $builder;
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight - customize tags" id="highlight-customize-tags" href="#highlight-customize-tags">
+
+## Highlight - customize tags
 
 * The html tags that wrap the highlighted terms can be **customized** to any other tags.
 
@@ -1215,9 +1189,9 @@ include highlight(Notes, 35, 1, $p0), highlight(Title, 35, 1, $p1)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight - projected results" id="highlight-projected-results" href="#highlight-projected-results">
+
+## Highlight - projected results
 
 * Highlighting can also be used when [projecting query results](../../../../client-api/session/querying/how-to-project-query-results).
 
@@ -1269,9 +1243,9 @@ include highlight(Notes, 35, 2)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -1343,13 +1317,11 @@ public function getResultIndents(): array;
 |-------------------|-------------|-------------|
 | **getFragments(?string $key)** | function returning an `array` | Returns the list of the highlighted text fragments for the passed document ID, or the map-reduce key |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Highlight Search Results
----
 
 <Admonition type="note" title="Note">
 
@@ -1361,9 +1333,6 @@ public function getResultIndents(): array;
 
 * This article shows highlighting search results when making a __dynamic-query__.  
   For highlighting search results when querying a __static-index__ see [highlight index search results](../../../../indexes/querying/highlighting).
-
----
-
 * In this page:
   * [Highlight - basic example](../../../../client-api/session/querying/text-search/highlight-query-results#highlight---basic-example)
       * [Highlight tags](../../../../client-api/session/querying/text-search/highlight-query-results#highlight-tags)
@@ -1373,10 +1342,7 @@ public function getResultIndents(): array;
   * [Syntax](../../../../client-api/session/querying/text-search/highlight-query-results#syntax)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="Highlight - basic example" id="highlight-basic-example" href="#highlight-basic-example">
+## Highlight - basic example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1457,9 +1423,6 @@ fragmentsHtml += "</ul>";
 <Admonition type="note" title="Note">
 
 #### Highlight tags
-
----
-
 * By default, the highlighted term is wrapped with the following html:  
   `<b style="background:yellow">term</b>`  
 
@@ -1495,9 +1458,6 @@ fragmentsHtml += "</ul>";
 <Admonition type="note" title="Note">
 
 #### Highlight results in Studio
-
----
-
 ![Figure 1. Fragments results](./assets/fragmentsResults.png)
 
 1. __Auto-Index__  
@@ -1511,9 +1471,9 @@ fragmentsHtml += "</ul>";
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight - customize tags" id="highlight-customize-tags" href="#highlight-customize-tags">
+
+## Highlight - customize tags
 
 * The html tags that wrap the highlighted terms can be __customized__ to any other tags.
 
@@ -1581,9 +1541,9 @@ include highlight(Notes, 35, 1, $p0), highlight(Title, 35, 1, $p1)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight - projected results" id="highlight-projected-results" href="#highlight-projected-results">
+
+## Highlight - projected results
 
 * Highlighting can also be used when [projecting query results](../../../../client-api/session/querying/how-to-project-query-results).
 
@@ -1647,9 +1607,9 @@ include highlight(Notes, 35, 2)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -1694,7 +1654,7 @@ __The Highlightings object__:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

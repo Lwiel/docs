@@ -11,15 +11,19 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Attachments: Copy, Move, Rename
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Attachments: Copy, Move, Rename
+
 
 Attachments can be copied, moved, or renamed using built-in session methods.  
 All of those actions are executed when `SaveChanges` is called and take place on the server-side,  
 removing the need to transfer the entire attachment binary data over the network in order to perform the action.
 
-<Admonition type="info" title="Copy attachment" id="copy-attachment" href="#copy-attachment">
+## Copy attachment
 
 Attachment can be copied using one of the `session.Advanced.Attachments.Copy` methods:
 
@@ -69,9 +73,9 @@ await asyncSession.SaveChangesAsync();
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Move attachment" id="move-attachment" href="#move-attachment">
+
+## Move attachment
 
 Attachment can be moved using one of the `session.Advanced.Attachments.Move` methods:
 
@@ -113,9 +117,9 @@ await asyncSession.SaveChangesAsync();
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Rename attachment" id="rename-attachment" href="#rename-attachment">
+
+## Rename attachment
 
 Attachment can be renamed using one of the `session.Advanced.Attachments.Rename` methods:
 
@@ -155,18 +159,18 @@ await asyncSession.SaveChangesAsync();
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Attachments: Copy, Move, Rename
+
 
 Attachments can be copied, moved, or renamed using built-in session methods.  
 All of those actions are executed when `saveChanges` is called and take place on the server-side,  
 removing the need to transfer the entire attachment binary data over the network in order to perform the action.
 
-<Admonition type="info" title="Copy attachment" id="copy-attachment" href="#copy-attachment">
+## Copy attachment
 
 Attachment can be copied using one of the `session.advanced().attachments().copy` methods:
 
@@ -199,9 +203,9 @@ session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Move attachment" id="move-attachment" href="#move-attachment">
+
+## Move attachment
 
 Attachment can be moved using one of the `session.advanced().attachments().move` methods:
 
@@ -234,9 +238,9 @@ session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Rename attachment" id="rename-attachment" href="#rename-attachment">
+
+## Rename attachment
 
 Attachment can be renamed using one of the `session.advanced().attachments().rename` methods:
 
@@ -266,18 +270,18 @@ session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Attachments: Copy, Move, Rename
+
 
 Attachments can be copied, moved, or renamed using built-in session methods.  
 All of those actions are executed when `save_changes` is called and take place on the server-side,  
 removing the need to transfer the entire attachment binary data over the network in order to perform the action.
 
-<Admonition type="info" title="Copy attachment" id="copy-attachment" href="#copy-attachment">
+## Copy attachment
 
 Attachment can be copied using one of the `session.advanced.attachments.copy` methods:
 
@@ -310,9 +314,9 @@ session.save_changes()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Move attachment" id="move-attachment" href="#move-attachment">
+
+## Move attachment
 
 Attachment can be moved using one of the `session.advanced.attachments.move` methods:
 
@@ -345,9 +349,9 @@ session.save_changes()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Rename attachment" id="rename-attachment" href="#rename-attachment">
+
+## Rename attachment
 
 Attachment can be renamed using one of the `session.advanced.attachments.rename` methods:
 
@@ -373,18 +377,18 @@ session.save_changes()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Attachments: Copy, Move, Rename
+
 
 Attachments can be copied, moved, or renamed using built-in session methods.  
 All of those actions are executed when `saveChanges` is called and take place on the server-side,  
 removing the need to transfer the entire attachment binary data over the network in order to perform the action.
 
-<Admonition type="info" title="Copy attachment" id="copy-attachment" href="#copy-attachment">
+## Copy attachment
 
 Attachment can be copied using one of the `session.advanced.attachments.copy` methods:
 
@@ -411,9 +415,9 @@ $session->saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Move attachment" id="move-attachment" href="#move-attachment">
+
+## Move attachment
 
 Attachment can be moved using one of the `session.advanced.attachments.move` methods:
 
@@ -440,9 +444,9 @@ $session->saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Rename attachment" id="rename-attachment" href="#rename-attachment">
+
+## Rename attachment
 
 Attachment can be renamed using one of the `session.advanced.attachments.rename` methods:
 
@@ -468,13 +472,11 @@ $session->saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Attachments: Copy, Move, Rename
----
 
 <Admonition type="note" title="Note">
 
@@ -490,10 +492,7 @@ $session->saveChanges();
   * [Syntax](../../document-extensions/attachments/copying-moving-renaming#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Copy attachment" id="copy-attachment" href="#copy-attachment">
+## Copy attachment
 
 Use `session.advanced.attachments.copy` to copy an attachment from one document to another.
 
@@ -526,9 +525,9 @@ await session.saveChanges();
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Move attachment" id="move-attachment" href="#move-attachment">
+
+## Move attachment
 
 Use `session.advanced.attachments.move` to move an attachment from one document to another.
 
@@ -561,9 +560,9 @@ await session.saveChanges();
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Rename attachment" id="rename-attachment" href="#rename-attachment">
+
+## Rename attachment
 
 Use `session.advanced.attachments.rename` to rename an attachment.
 
@@ -595,9 +594,9 @@ await session.saveChanges();
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_copy">
 <CodeBlock language="nodejs">
@@ -646,7 +645,7 @@ rename(documentId, name, newName);
 | **name**       | string   | Current name of attachment      |
 | **newName**    | string   | The new name for the attachment |
 
-</Admonition>
+
 
 
 </LanguageContent>

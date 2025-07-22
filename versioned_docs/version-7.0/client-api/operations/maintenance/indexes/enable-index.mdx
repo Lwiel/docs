@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Enable Index Operation
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
- ---
+
+# Enable Index Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -31,10 +32,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Syntax](../../../../client-api/operations/maintenance/indexes/enable-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="How to enable an index" id="how-to-enable-an-index" href="#how-to-enable-an-index">
+## How to enable an index
 
 * **From the Client API**:  
   Use `EnableIndexOperation` to enable the index from the Client API.  
@@ -56,9 +54,9 @@ import LanguageContent from "@site/src/components/language-content";
   [disabled via the file system](../../../../client-api/operations/maintenance/indexes/disable-index#disable-index-manually-via-the-file-system), 
   after removing the `disable.marker` file.  
   
-</Admonition>
 
-<Admonition type="info" title="Enable index from the Client API" id="enable-index-from-the-client-api" href="#enable-index-from-the-client-api">
+
+## Enable index from the Client API
 
 #### Enable index - single node:  
 
@@ -98,9 +96,6 @@ await store.Maintenance.SendAsync(enableIndexOp);
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Enable index - cluster wide:  
 
 <Tabs groupId='languageSyntax'>
@@ -133,9 +128,6 @@ await store.Maintenance.SendAsync(enableIndexOp);
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Syntax: 
 
 <TabItem value="something-something" label="syntax">
@@ -152,12 +144,12 @@ public EnableIndexOperation(string indexName, bool clusterWide)
 | **indexName** | `string` | Name of index to enable |
 | **clusterWide** | `bool` | `true` - Enable index on all database-group nodes<br/>`false` - Enable index only on a single node (the preferred node) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Enable Index Operation
+
 
 The **EnableIndexOperation** is used to turn on the indexing for a given index.
 
@@ -187,9 +179,6 @@ The **EnableIndexOperation** is used to turn on the indexing for a given index.
 
 </LanguageContent>
 <LanguageContent language="python">
-# Enable Index Operation
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -205,10 +194,7 @@ The **EnableIndexOperation** is used to turn on the indexing for a given index.
       * [Syntax](../../../../client-api/operations/maintenance/indexes/enable-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="How to enable an index" id="how-to-enable-an-index" href="#how-to-enable-an-index">
+## How to enable an index
 
 * **From the Client API**:  
   Use `EnableIndexOperation` to enable the index from the Client API.  
@@ -230,9 +216,9 @@ The **EnableIndexOperation** is used to turn on the indexing for a given index.
   [disabled via the file system](../../../../client-api/operations/maintenance/indexes/disable-index#disable-index-manually-via-the-file-system), 
   after removing the `disable.marker` file.  
   
-</Admonition>
 
-<Admonition type="info" title="Enable index from the Client API" id="enable-index-from-the-client-api" href="#enable-index-from-the-client-api">
+
+## Enable index from the Client API
 
 #### Enable index - single node:  
 
@@ -256,9 +242,6 @@ store.maintenance.send(enable_index_op)
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Enable index - cluster wide:  
 
 <TabItem value="something-something" label="enable_2">
@@ -275,9 +258,6 @@ store.maintenance.send(enable_index_op)
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax: 
 
 <TabItem value="something-something" label="syntax">
@@ -293,14 +273,11 @@ store.maintenance.send(enable_index_op)
 | **index_name** | `str` | Name of index to enable |
 | **cluster_wide** | `bool` | `True` - Enable index on all database-group nodes<br/>`False` - Enable index only on a single node (the preferred node) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Enable Index Operation
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -316,10 +293,7 @@ store.maintenance.send(enable_index_op)
       * [Syntax](../../../../client-api/operations/maintenance/indexes/enable-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="How to enable an index" id="how-to-enable-an-index" href="#how-to-enable-an-index">
+## How to enable an index
 
 * **From the Client API**:  
   Use `EnableIndexOperation` to enable the index from the Client API.  
@@ -341,9 +315,9 @@ store.maintenance.send(enable_index_op)
   [disabled via the file system](../../../../client-api/operations/maintenance/indexes/disable-index#disable-index-manually-via-the-file-system), 
   after removing the `disable.marker` file.  
   
-</Admonition>
 
-<Admonition type="info" title="Enable index from the Client API" id="enable-index-from-the-client-api" href="#enable-index-from-the-client-api">
+
+## Enable index from the Client API
 
 #### Enable index - single node:  
 
@@ -367,9 +341,6 @@ $store->maintenance()->send($enableIndexOp);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Enable index - cluster wide:  
 
 <TabItem value="something-something" label="enable_2">
@@ -386,9 +357,6 @@ $store->maintenance()->send($enableIndexOp);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax: 
 
 <TabItem value="something-something" label="syntax">
@@ -404,14 +372,11 @@ EnableIndexOperation(?string $indexName, bool clusterWide = false)
 | **$indexName** | `?string` | Name of index to enable |
 | **$clusterWide** | `bool` | `true` - Enable index on all database-group nodes<br/>`false` - Enable index only on a single node (the preferred node) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Enable Index Operation
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -427,10 +392,7 @@ EnableIndexOperation(?string $indexName, bool clusterWide = false)
       * [Syntax](../../../../client-api/operations/maintenance/indexes/enable-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="How to enable an index" id="how-to-enable-an-index" href="#how-to-enable-an-index">
+## How to enable an index
 
 * **From the Client API**:  
   Use `EnableIndexOperation` to enable the index from the Client API.  
@@ -452,9 +414,9 @@ EnableIndexOperation(?string $indexName, bool clusterWide = false)
   [disabled via the file system](../../../../client-api/operations/maintenance/indexes/disable-index#disable-index-manually-via-the-file-system), 
   after removing the `disable.marker` file.  
   
-</Admonition>
 
-<Admonition type="info" title="Enable index from the Client API" id="enable-index-from-the-client-api" href="#enable-index-from-the-client-api">
+
+## Enable index from the Client API
 
 #### Enable index - single node:  
 
@@ -478,9 +440,6 @@ await documentStore.maintenance.send(enableIndexOp);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Enable index - cluster wide:  
 
 <TabItem value="something-something" label="enable_2">
@@ -497,9 +456,6 @@ await documentStore.maintenance.send(enableIndexOp);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax: 
 
 <TabItem value="something-something" label="syntax">
@@ -514,7 +470,7 @@ await documentStore.maintenance.send(enableIndexOp);
 | **indexName** | `string` | Name of index to enable |
 | **clusterWide** | `bool` | `true` - Enable index on all database-group nodes<br/>`false` - Enable index only on a single node (the preferred node) |
 
-</Admonition>
+
 
 
 </LanguageContent>

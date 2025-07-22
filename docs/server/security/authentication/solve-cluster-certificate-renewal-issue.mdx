@@ -47,7 +47,7 @@ as **Studio alerts** and/or **responses to client requests**.
     Alternatively, the admin can register the actual certificate ( 'A632C1DBD145B2102CB70D254B7EC1C813444766') explicitly in the cluster.
     ```
 
-<Admonition type="info" title="Background and Current Situation" id="background-and-current-situation" href="#background-and-current-situation">
+## Background and Current Situation
 
 ### Background
 
@@ -73,9 +73,6 @@ as **Studio alerts** and/or **responses to client requests**.
   an admin has to perform in a multi-cluster topology and gain a system that 
   is set-up once and just keeps working, **as long as you keep using the same 
   private key and issuer**.  
-
----
-
 ### Current Situation
 
 In September 2020, Let's Encrypt changed their certificate issuer to support full ECDSA 
@@ -96,9 +93,9 @@ This is relevant for you -
 2. If you created your own Let's Encrypt **client** certificates, and you renew 
    them using the same private key.  
 
-</Admonition>
 
-<Admonition type="info" title="Solutions" id="solutions" href="#solutions">
+
+## Solutions
 
 ### Solution 1:
 
@@ -121,9 +118,6 @@ there is no downtime.
 
 The disadvantage is that an admin needs to access the machines themselves. They need to edit 
 the settings.json file on all nodes and restart the RavenDB service (node-by-node for no downtime).  
-
----
-
 ### Solution 2:
 
 1. In the case of ETL or External Replication, go to the source cluster and renew the Let's Encrypt 
@@ -146,5 +140,5 @@ certificate. The disadvantage is a short downtime in the service, because you mu
 certificate first and only then you may export it and upload to the destination cluster.  
 This can cause some delay in the ETL or Replication service.  
 
-</Admonition>
+
 

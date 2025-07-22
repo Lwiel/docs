@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Get Index Operation
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Get Index Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -33,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get Index example" id="get-index-example" href="#get-index-example">
+## Get Index example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -73,9 +71,9 @@ var deploymentMode = index.DeploymentMode;
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="get_index_syntax">
 <CodeBlock language="csharp">
@@ -92,12 +90,12 @@ var deploymentMode = index.DeploymentMode;
 |- | - |
 | `IndexDefinition` | An instance of class [IndexDefinition](../../../../client-api/operations/maintenance/indexes/put-indexes#indexdefinition) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Get Index Operation
+
 
 **GetIndexOperation** is used to retrieve an index definition from a database.
 
@@ -132,9 +130,6 @@ var deploymentMode = index.DeploymentMode;
 
 </LanguageContent>
 <LanguageContent language="python">
-# Get Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -152,10 +147,7 @@ var deploymentMode = index.DeploymentMode;
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get Index example" id="get-index-example" href="#get-index-example">
+## Get Index example
 
 <TabItem value="something-something" label="get_index">
 <CodeBlock language="python">
@@ -174,9 +166,9 @@ deployment_mode = index.deployment_mode
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="get_index_syntax">
 <CodeBlock language="python">
@@ -194,14 +186,11 @@ deployment_mode = index.deployment_mode
 |- | - |
 | `IndexDefinition` | An instance of class [IndexDefinition](../../../../client-api/operations/maintenance/indexes/put-indexes#indexdefinition) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Get Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -219,10 +208,7 @@ deployment_mode = index.deployment_mode
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get Index example" id="get-index-example" href="#get-index-example">
+## Get Index example
 
 <TabItem value="something-something" label="get_index">
 <CodeBlock language="php">
@@ -255,14 +241,11 @@ $deploymentMode = $index->getDeploymentMode();
 | - | - | - |
 | **$indexName** | `?string` | Name of index to get |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -280,10 +263,7 @@ $deploymentMode = $index->getDeploymentMode();
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get Index example" id="get-index-example" href="#get-index-example">
+## Get Index example
 
 <TabItem value="something-something" label="get_index">
 <CodeBlock language="nodejs">
@@ -302,9 +282,9 @@ const deploymentMode = indexDefinition.deploymentMode;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="get_index_syntax">
 <CodeBlock language="nodejs">
@@ -321,7 +301,7 @@ const deploymentMode = indexDefinition.deploymentMode;
 |- | - |
 | `IndexDefinition` | An instance of class [IndexDefinition](../../../../client-api/operations/maintenance/indexes/put-indexes#indexdefinition) |
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Adding a Database Node
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Adding a Database Node
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -35,10 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Add database node - specific](../../../client-api/operations/server-wide/add-database-node#add-database-node---specific)
     * [Syntax](../../../client-api/operations/server-wide/add-database-node#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Add database node - random" id="add-database-node-random" href="#add-database-node-random">
+## Add database node - random
 
 * Use `AddDatabaseNodeOperation` to add another database-instance to the database-group.
 * The node added will be a random node from the existing cluster nodes.   
@@ -74,9 +72,9 @@ var numberOfReplicas = result.Topology.AllNodes.Count();
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Add database node - specific" id="add-database-node-specific" href="#add-database-node-specific">
+
+## Add database node - specific
 
 * You can specify the node tag to add.  
 * This node must already exist in the cluster topology.
@@ -106,9 +104,9 @@ DatabasePutResult result = await store.Maintenance.Server.SendAsync(addDatabaseN
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -129,14 +127,11 @@ DatabasePutResult result = await store.Maintenance.Server.SendAsync(addDatabaseN
 | Topology | `DatabaseTopology` | The database topology |
 | NodesAddedTo | `List<string>` | New nodes added to the cluster topology.<br/>Will be 0 for this operation. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Adding a Database Node
-
----
 
 <Admonition type="note" title="Note">
 
@@ -156,10 +151,7 @@ DatabasePutResult result = await store.Maintenance.Server.SendAsync(addDatabaseN
     * [Add database node - specific](../../../client-api/operations/server-wide/add-database-node#add-database-node---specific)
     * [Syntax](../../../client-api/operations/server-wide/add-database-node#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Add database node - random" id="add-database-node-random" href="#add-database-node-random">
+## Add database node - random
 
 * Use `AddDatabaseNodeOperation` to add another database-instance to the database-group.
 * The node added will be a random node from the existing cluster nodes.   
@@ -179,9 +171,9 @@ number_of_replicas = len(result.topology.all_nodes)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add database node - specific" id="add-database-node-specific" href="#add-database-node-specific">
+
+## Add database node - specific
 
 * You can specify the node tag to add.  
 * This node must already exist in the cluster topology.
@@ -198,9 +190,9 @@ result = store.maintenance.server.send(add_database_node_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -222,14 +214,11 @@ result = store.maintenance.server.send(add_database_node_op)
 | topology | `DatabaseTopology` | The database topology |
 | nodes_added_to | `list<str>` | New nodes added to the cluster topology.<br/>Will be 0 for this operation. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Adding a Database Node
-
----
 
 <Admonition type="note" title="Note">
 
@@ -249,10 +238,7 @@ result = store.maintenance.server.send(add_database_node_op)
     * [Add database node - specific](../../../client-api/operations/server-wide/add-database-node#add-database-node---specific)
     * [Syntax](../../../client-api/operations/server-wide/add-database-node#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Add database node - random" id="add-database-node-random" href="#add-database-node-random">
+## Add database node - random
 
 * Use `AddDatabaseNodeOperation` to add another database-instance to the database-group.
 * The node added will be a random node from the existing cluster nodes.   
@@ -273,9 +259,9 @@ $numberOfReplicas = count($result->getTopology()->getMembers());
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add database node - specific" id="add-database-node-specific" href="#add-database-node-specific">
+
+## Add database node - specific
 
 * You can specify the node tag to add.  
 * This node must already exist in the cluster topology.
@@ -293,9 +279,9 @@ $result = $store->maintenance()->server()->send($addDatabaseNodeOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -316,14 +302,11 @@ $result = $store->maintenance()->server()->send($addDatabaseNodeOp);
 | $nodesAddedTo | `StringArray` | New nodes added to the cluster topology.<br/>Will be 0 for this operation. |
 | $raftCommandIndex | `int` | Raft command index |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Adding a Database Node
-
----
 
 <Admonition type="note" title="Note">
 
@@ -343,10 +326,7 @@ $result = $store->maintenance()->server()->send($addDatabaseNodeOp);
     * [Add database node - specific](../../../client-api/operations/server-wide/add-database-node#add-database-node---specific)
     * [Syntax](../../../client-api/operations/server-wide/add-database-node#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Add database node - random" id="add-database-node-random" href="#add-database-node-random">
+## Add database node - random
 
 * Use `AddDatabaseNodeOperation` to add another database-instance to the database-group.
 * The node added will be a random node from the existing cluster nodes.   
@@ -366,9 +346,9 @@ const numberOfReplicas = getAllNodesFromTopology(result.topology).length;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add database node - specific" id="add-database-node-specific" href="#add-database-node-specific">
+
+## Add database node - specific
 
 * You can specify the node tag to add.  
 * This node must already exist in the cluster topology.
@@ -385,9 +365,9 @@ const result = await documentStore.maintenance.server.send(addDatabaseNodeOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -408,7 +388,7 @@ const result = await documentStore.maintenance.server.send(addDatabaseNodeOp);
 | topology | `DatabaseTopology` | The database topology |
 | nodesAddedTo | `string[]` | New nodes added to the cluster topology.<br/>Will be 0 for this operation. |
 
-</Admonition>
+
 
 
 

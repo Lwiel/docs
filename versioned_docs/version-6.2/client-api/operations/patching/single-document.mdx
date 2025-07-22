@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Single Document Patch Operations
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Single Document Patch Operations
+
 
 <Admonition type="note" title="Note">
 
@@ -65,7 +69,7 @@ In this page:
 
 ## API Overview
 
-<Admonition type="info" title="Session API" id="session-api" href="#session-api">
+## Session API
 
 A type-safe session interface that allows performing the most common patch operations.  
 The patch request will be sent to the server only when calling `SaveChanges`.  
@@ -74,9 +78,6 @@ This way it's possible to perform multiple operations in one request to the serv
 <Admonition type="note" title="Note">
 
 ### Increment field value
-
----
-
 `Session.Advanced.Increment`
 <TabItem value="something" label="patch_generic_interface_increment">
 <CodeBlock language="csharp">
@@ -97,9 +98,6 @@ void Increment<T, U>(string id, Expression<Func<T, U>> fieldPath, U delta);
 | **delta** | `U` | Value to be added. |
 
 * Note how numbers are handled with the [JavaScript engine](../../../server/kb/numbers-in-ravendb) in RavenDB.
-
----
-
 `Session.Advanced.AddOrIncrement`
 <TabItem value="something" label="add_or_increment_generic">
 <CodeBlock language="csharp">
@@ -122,9 +120,6 @@ void Increment<T, U>(string id, Expression<Func<T, U>> fieldPath, U delta);
 <Admonition type="note" title="Note">
 
 ### Set field value
-
----
-
 `Session.Advanced.Patch`
 <TabItem value="something" label="patch_generic_interface_set_value">
 <CodeBlock language="csharp">
@@ -143,9 +138,6 @@ void Patch<T, U>(T entity, Expression<Func<T, U>> fieldPath, U value);
 | **entity id** | `string` | Entity ID on which the operation should be performed. |
 | **fieldPath** | `Expression<Func<T, U>>` | Lambda describing the path to the field. |
 | **delta** | `U` | Value to set. |
-
----
-
 `Session.Advanced.AddOrPatch`
 
 <TabItem value="something" label="add_or_patch_generic">
@@ -169,9 +161,6 @@ void Patch<T, U>(T entity, Expression<Func<T, U>> fieldPath, U value);
 <Admonition type="note" title="Note">
 
 ### Array manipulation
-
----
-
 `Session.Advanced.Patch`
 <TabItem value="something" label="patch_generic_interface_array_modification_lambda">
 <CodeBlock language="csharp">
@@ -192,9 +181,6 @@ void Patch<T, U>(string id, Expression<Func<T, IEnumerable<U>>> fieldPath,
 | **entity id**                | `string` | Entity ID on which the operation should be performed. |
 | **fieldPath**                | `Expression<Func<T, U>>` | Lambda describing the path to the field. |
 | **arrayModificationLambda** | `Expression<Func<JavaScriptArray<U>, object>>` | Lambda that modifies the array, see `JavaScriptArray` below. |
-
----
-
 `Session.Advanced.AddOrPatch`
 <TabItem value="something" label="add_or_patch_array_generic">
 <CodeBlock language="csharp">
@@ -229,9 +215,9 @@ void Patch<T, U>(string id, Expression<Func<T, IEnumerable<U>>> fieldPath,
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Session API using Defer" id="session-api-using-defer" href="#session-api-using-defer">
+
+## Session API using Defer
 
 The non-typed Session API for patches uses the `Session.Advanced.Defer` function which allows registering one or more commands.  
 One of the possible commands is the `PatchCommandData`, describing single document patch command.  
@@ -272,9 +258,9 @@ Parameters can be accessed in the script through the `args` object and passed us
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Operations API" id="operations-api" href="#operations-api">
+
+## Operations API
 
 An operations interface that exposes the full functionality and allows performing ad-hoc patch operations without creating a session.  
 
@@ -304,9 +290,9 @@ Task<PatchStatus> SendAsync(PatchOperation operation,
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="List of script methods" id="list-of-script-methods" href="#list-of-script-methods">
+
+## List of script methods
 
 This is a list of a few of the javascript methods that can be used in patch scripts.  
 See the more comprehensive list at [Knowledge Base: JavaScript Engine](../../../server/kb/javascript-engine#predefined-javascript-functions).  
@@ -328,9 +314,9 @@ See the more comprehensive list at [Knowledge Base: JavaScript Engine](../../../
 | **spatial.distance** | Two points by latitude and longitude; spatial units | Find the distance between to points on the earth                                                                                                                                                                                                       |
 | **timeseries**       | Document; the time series' name                     | Returns the specified time series object                                                                                                                                                                                                               |
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 ### Change value of single field
 
@@ -385,9 +371,6 @@ store.Operations.Send(new PatchOperation(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Change values of two fields
 
 <Tabs groupId='languageSyntax'>
@@ -465,9 +448,6 @@ store.Operations.Send(new PatchOperation(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Increment value
 
 <Tabs groupId='languageSyntax'>
@@ -517,9 +497,6 @@ session.SaveChanges();
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Add or increment
 
 `AddOrIncrement` increments an existing field or adds a new one in documents where they didn't exist.
@@ -544,9 +521,6 @@ session.Advanced.AddOrIncrement<User, int>(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Add or patch
 
 `AddOrPatch` adds or edits field(s) in a single document.  
@@ -573,9 +547,6 @@ session.SaveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Add or patch to an existing array
 
 This sample shows how to patch an existing array or add it to documents where it doesn't yet exist.
@@ -606,9 +577,6 @@ session.SaveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Add item to array
 
 <Tabs groupId='languageSyntax'>
@@ -680,9 +648,6 @@ store.Operations.Send(new PatchOperation(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Insert item into specific position in array
 
 Inserting item into specific position is supported only by the non-typed APIs.
@@ -738,9 +703,6 @@ session.SaveChanges();
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Modify item in specific position in array
 
 Inserting item into specific position is supported only by the non-typed APIs.
@@ -797,9 +759,6 @@ store.Operations.Send(new PatchOperation(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Remove items from array
 
 <Tabs groupId='languageSyntax'>
@@ -855,9 +814,6 @@ store.Operations.Send(new PatchOperation(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Loading documents in a script
 
 Loading documents is supported only by the non-typed APIs.
@@ -899,9 +855,6 @@ store.Operations.Send(new PatchOperation(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Remove property
 
 Removing property supported only by the non-typed APIs.
@@ -937,9 +890,6 @@ store.Operations.Send(new PatchOperation(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Rename property
 
 Renaming property supported only by the non-typed APIs.
@@ -999,9 +949,6 @@ session.SaveChanges();
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Add document
 
 Adding a new document is supported only by the non-typed APIs.
@@ -1029,9 +976,6 @@ session.SaveChanges();
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Clone document
 
 In order to clone a document use put method as follows.
@@ -1068,9 +1012,6 @@ Attachments, counters, time series data, and revisions from the source document 
 to the new document automatically.
 
 </Admonition>
-
----
-
 ### Increment counter
 
 In order to increment or create a counter use &lt;code&gt;incrementCounter&lt;/code&gt; method as follows:
@@ -1121,9 +1062,6 @@ session.SaveChanges();
 The method can be called by document ID or by document reference and the value can be negative.
 
 </Admonition>
-
----
-
 ### Delete counter
 
 In order to delete a counter use &lt;code&gt;deleteCounter&lt;/code&gt; method as follows:
@@ -1171,9 +1109,6 @@ session.SaveChanges();
 The method can be called by document ID or by document reference
 
 </Admonition>
-
----
-
 ### Get counter
 
 In order to get a counter while patching use &lt;code&gt;counter&lt;/code&gt; method as follows:
@@ -1223,9 +1158,6 @@ session.SaveChanges();
 The method can be called by document ID or by document reference.
 
 </Admonition>
-
----
-
 ### Patching using inline string compilation
 
 * When using a JavaScript script with the _defer_ or _operations_ syntax,  
@@ -1300,12 +1232,12 @@ store.Operations.Send(new PatchOperation("products/1-A", null, new PatchRequest
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Single Document Patch Operations
+
 
 <Admonition type="note" title="Note">
 The **Patch** operation is used to perform partial document updates without having to load, modify, and save a full document.  
@@ -1324,7 +1256,7 @@ In this page:
 
 ## API overview
 
-<Admonition type="info" title="Session API" id="session-api" href="#session-api">
+## Session API
 
 A session interface that allows performing the most common patch operations.  
 The patch request will be sent to server only when calling `saveChanges`, this way it's possible to perform multiple operations in one request to the server.  
@@ -1400,9 +1332,9 @@ The patch request will be sent to server only when calling `saveChanges`, this w
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Session API using defer" id="session-api-using-defer" href="#session-api-using-defer">
+
+## Session API using defer
 The low level session api for patches uses the `session.advanced().defer` function that allows registering single or several commands.  
 One of the possible commands is the `PatchCommandData`, describing single document patch command.  
 The patch request will be sent to server only when calling `saveChanges`, this way it's possible to perform multiple operations in one request to the server.  
@@ -1437,10 +1369,10 @@ We highly recommend using scripts with parameters. This allows RavenDB to cache 
 
 </Admonition>
 
-</Admonition>
 
 
-<Admonition type="info" title="Operations API" id="operations-api" href="#operations-api">
+
+## Operations API
 An operations interface that exposes the full functionality and allows performing ad-hoc patch operations without creating a session.  
 
 <TabItem value="something-something" label="patch_non_generic_interface_in_store">
@@ -1468,9 +1400,9 @@ PatchStatus send(PatchOperation operation, SessionInfo sessionInfo);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="List of Script Methods" id="list-of-script-methods" href="#list-of-script-methods">
+
+## List of Script Methods
 
 This is a list of a few of the javascript methods that can be used in patch scripts. See the 
 more comprehensive list at [Knowledge Base: JavaScript Engine](../../../server/kb/javascript-engine#predefined-javascript-functions).  
@@ -1490,9 +1422,9 @@ more comprehensive list at [Knowledge Base: JavaScript Engine](../../../server/k
 | **incrementCounter** | Document; counter name | Increases the value of the counter by one |
 | **deleteCounter** | Document; counter name | Deletes the counter |
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 ### Change Field's Value
 
@@ -2074,13 +2006,11 @@ store.operations().send(patchOperation);
 The method can be called by document ID or by document reference
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Single Document Patch Operations
----
 
 <Admonition type="note" title="Note">
 
@@ -2128,19 +2058,13 @@ The method can be called by document ID or by document reference
       * [List of script methods syntax](../../../client-api/operations/patching/single-document#list-of-script-methods-syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="API overview" id="api-overview" href="#api-overview">
+## API overview
 
 Patching can be performed using either of the following interfaces (detailed syntax is provided [below](../../../client-api/operations/patching/single-document#syntax)):
 
 * **Session API**
 * **Session API using defer** 
 * **Operations API**
-
----
-
 <Admonition type="note" title="Note">
 
 #### Session API
@@ -2184,16 +2108,13 @@ Patching can be performed using either of the following interfaces (detailed syn
 * The patch requests constructs the `PatchOperation`, which is sent to the server for execution only when _saveChanges_ is called.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 <Admonition type="note" title="Note">
 
 #### Modify value of single field  
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Session_syntax" label="Session_syntax">
 <CodeBlock language="nodejs">
@@ -2241,9 +2162,6 @@ await documentStore.operations.send(patchOp);
 <Admonition type="note" title="Note">
 
 #### Modify values of two fields
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Session_syntax" label="Session_syntax">
 <CodeBlock language="nodejs">
@@ -2311,9 +2229,6 @@ await documentStore.operations.send(patchOp);
 <Admonition type="note" title="Note">
 
 #### Increment value
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Session_syntax" label="Session_syntax">
 <CodeBlock language="nodejs">
@@ -2365,9 +2280,6 @@ await documentStore.operations.send(patchOp);
 <Admonition type="note" title="Note">
 
 #### Add or increment
-
----
-
 `addOrIncrement` behavior:
 
 * If document exists + has the specified field =&gt;
@@ -2435,9 +2347,6 @@ await session.saveChanges();
 <Admonition type="note" title="Note">
 
 #### Add or patch  
-
----
-
 `addOrPatch` behavior:
 
 * If document exists + has the specified field =&gt;
@@ -2504,9 +2413,6 @@ await session.saveChanges();
 <Admonition type="note" title="Note">
 
 #### Add item to array  
-
----
-
 `patchArray` behavior:
 
 * If document exists + has the specified array =&gt;
@@ -2621,9 +2527,6 @@ class BlogComment {
 <Admonition type="note" title="Note">
 
 #### Add or patch an existing array  
-
----
-
 `addOrPatchArray` behavior:
 
 * If document exists + has the specified array field =&gt;
@@ -2690,9 +2593,6 @@ await session.saveChanges();
 <Admonition type="note" title="Note">
 
 #### Insert item into specific position in array  
-
----
-
 * Inserting an item in a specific position is supported only by the _defer_ or the _operations_ syntax.  
 * No exception is thrown if either the document or the specified array does not exist.
 
@@ -2779,9 +2679,6 @@ class BlogComment {
 <Admonition type="note" title="Note">
 
 #### Modify item in specific position in array  
-
----
-
 * Inserting an item in a specific position is supported only by the _defer_ or the _operations_ syntax.
 * No exception is thrown if either the document or the specified array does not exist.
 
@@ -2868,9 +2765,6 @@ class BlogComment {
 <Admonition type="note" title="Note">
 
 #### Remove items from array  
-
----
-
 * Removing all items that match some predicate from an array is supported only by the _defer_ or the _operations_ syntax.
 * No exception is thrown if either the document or the specified array does not exist.
 
@@ -2953,9 +2847,6 @@ class BlogComment {
 <Admonition type="note" title="Note">
 
 #### Load documents in a script  
-
----
-
 * Loading documents is supported only by the _defer_ or the _operations_ syntax.
 
 <Tabs groupId='languageSyntax'>
@@ -3003,9 +2894,6 @@ await documentStore.operations.send(patchOp);
 <Admonition type="note" title="Note">
 
 #### Remove property  
-
----
-
 * Removing a property is supported only by the _defer_ or the _operations_ syntax.
 
 <Tabs groupId='languageSyntax'>
@@ -3047,9 +2935,6 @@ await documentStore.operations.send(patchOp);
 <Admonition type="note" title="Note">
 
 #### Rename property  
-
----
-
 * Renaming a property is supported only by the _defer_ or the _operations_ syntax.
 
 <Tabs groupId='languageSyntax'>
@@ -3103,9 +2988,6 @@ await documentStore.operations.send(patchOp);
 <Admonition type="note" title="Note">
 
 #### Add document  
-
----
-
 * Adding a new document is supported only by the _defer_ or the _operations_ syntax.
 
 <Tabs groupId='languageSyntax'>
@@ -3161,9 +3043,6 @@ await documentStore.operations.send(patchOp);
 <Admonition type="note" title="Note">
 
 #### Clone document  
-
----
-
 * Cloning a new document is supported only by the _defer_ or the _operations_ syntax.
 
 <Tabs groupId='languageSyntax'>
@@ -3219,9 +3098,6 @@ Attachments, counters, time series data, and revisions from the source document 
 <Admonition type="note" title="Note">
 
 #### Create/Increment counter  
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Session_syntax" label="Session_syntax">
 <CodeBlock language="nodejs">
@@ -3290,9 +3166,6 @@ Learn more about Counters in this [Counters Overview](../../../document-extensio
 <Admonition type="note" title="Note">
 
 #### Delete counter  
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Session_syntax" label="Session_syntax">
 <CodeBlock language="nodejs">
@@ -3352,9 +3225,6 @@ await documentStore.operations.send(patchOp);
 <Admonition type="note" title="Note">
 
 #### Get counter  
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Session_syntax" label="Session_syntax">
 <CodeBlock language="nodejs">
@@ -3419,9 +3289,6 @@ await documentStore.operations.send(patchOp);
 <Admonition type="note" title="Note">
 
 #### Patching using inline string compilation  
-
----
-
 * When using a JavaScript script with the _defer_ or _operations_ syntax,  
   you can apply logic using **inline string compilation**.
 * To enable this, set the [Patching.AllowStringCompilation](../../../server/configuration/patching-configuration#patching.allowstringcompilation) configuration key to _true_.
@@ -3500,12 +3367,9 @@ await documentStore.operations.send(patchOp);
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
 
----
-
+## Syntax
 ### Session API syntax
 
 
@@ -3605,9 +3469,6 @@ patchArray(entity, pathToArray, arrayAdder);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Session API using defer syntax
 
 <TabItem value="something-something" label="defer_syntax">
@@ -3657,9 +3518,6 @@ patchArray(entity, pathToArray, arrayAdder);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Operations API syntax
 
 * Learn more about using operations in this [Operations overview](../../../client-api/operations/what-are-operations).
@@ -3681,15 +3539,12 @@ const patchOperation = new PatchOperation(id, changeVector, patch, patchIfMissin
 | **patch**                            | `PatchRequest` | Patch request to perform on the document.                                                                                                                                                                                                                                            |
 | **patchIfMissing**                   | `PatchRequest` | Patch request to perform if the specified document is not found.<br/>Will run only if no `changeVector` was passed.<br/>Can be null.                                                                                                                                                   |
 | **skipPatchIfChangeVectorMismatch**  | `boolean`      | `true` - do not patch if the document has been modified.<br/>`false` (Default) - execute the patch even if document has been modified.<br/><br/>An exception is thrown if:<br/>this param is `false` + `changeVector` has value + document with that ID and change vector was not found. |
-
----
-
 ### List of script methods syntax
 
 * For a complete list of JavaScript methods available in patch scripts,  
   refer to [Knowledge Base: JavaScript Engine](../../../server/kb/javascript-engine#predefined-javascript-functions).
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Map-Reduce Visualizer
----
-
 <Admonition type="note" title="Note">
 
 * The **MapReduce visualizer** allows inspecting the internal structure of a Map-Reduce index 
@@ -24,18 +22,15 @@ import LanguageContent from "@site/src/components/language-content";
   * [Map-Reduce Visualizer for Big Data](../../../studio/database/indexes/map-reduce-visualizer#map-reduce-visualizer-for-big-data)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Map-Reduce Visualizer Usage Flow" id="map-reduce-visualizer-usage-flow" href="#map-reduce-visualizer-usage-flow">
+## Map-Reduce Visualizer Usage Flow
 
 * **1.** Select a Map-Reduce index and the documents to view
 
 ![Figure 1. Select an Index](./assets/map-reduce-visualizer-1.png)
 
-</Admonition>
 
-<Admonition type="info" title="Info">
+
+
 
 * **2**. View the graphical representation of the documents and their related 'group-by' reduced key field from the index
 
@@ -46,9 +41,9 @@ import LanguageContent from "@site/src/components/language-content";
     i.e. All 3 documents have the value **'companies/85-A'** in their **'Company'** field in the document body.  
 
   * Document `ordes/100-A` has the value `companies/21-A` in its 'Company' field.
-</Admonition>
 
-<Admonition type="info" title="Info">
+
+
 
 * **3**. View the detailed view for the key reduced results
 
@@ -59,9 +54,9 @@ import LanguageContent from "@site/src/components/language-content";
 
   2. A detailed info of these aggregated values showing per document selected.  
      Note: per each document, the OrdesCount is **'1'**, as each company makes one order.  
-</Admonition>
 
-<Admonition type="info" title="Info">
+
+
 
 * **4**. View details of all entries
 
@@ -69,18 +64,18 @@ import LanguageContent from "@site/src/components/language-content";
 
   * A detailed view of **all** the entries in the index that have 'companies/85-A' for their key (the 'Company' field).  
     Only the selected documents are listed explicitly in the Source Document column.    
-</Admonition>
 
-<Admonition type="info" title="Map-Reduce Visualizer for Big Data" id="map-reduce-visualizer-for-big-data" href="#map-reduce-visualizer-for-big-data">
+
+## Map-Reduce Visualizer for Big Data
 
 * **5**. Visualizer results for big data
 
 ![Figure 5. Big Data Tree](./assets/map-reduce-visualizer-5.png)
 
   * Once past a certain size, RavenDB starts processing the Map-Reduce entries in a **treelike** fashion.
-</Admonition>
 
-<Admonition type="info" title="Info">
+
+
 
 * **6**. Visualizer details for big data
 
@@ -93,5 +88,5 @@ import LanguageContent from "@site/src/components/language-content";
     First, the Map function is run on the updated document, giving a Map entry to write to **page #1047**.  
     Then, the Reduce function is run on this page, giving the final tally for page #1047.  
     We'll then recurse upward, toward **page #1391**, where the Reduce is run again.  
-</Admonition>
+
 

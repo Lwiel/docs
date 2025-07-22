@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Counters and Other Features
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Counters and Other Features
----
 
 <Admonition type="note" title="Note">
 
@@ -34,9 +36,6 @@ import LanguageContent from "@site/src/components/language-content";
   * [Counters Bulk-Insert](../../document-extensions/counters/counters-and-other-features#counters-bulk-insert)  
 </Admonition>
 
----
-
-<Admonition type="info" title="Info">
 
 ### Counters and Indexing  
 
@@ -49,9 +48,6 @@ Indexing Counters can speed-up finding them and the documents that contain them.
 * **Indexing Counter Names**  
     Re-indexing due to Counter-name modification is normally rare enough to pause no performance issues.  
     To index a document's Counters by name, use [CounterNamesFor](../../document-extensions/counters/indexing#section-1).  
-
----
-
 ### Counters and Queries  
 
 Create queries **using code**, or send the server **raw queries** for execution.  
@@ -128,9 +124,6 @@ var query = session.Advanced
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 ### Counters and Revisions  
 
 A [document revision](../../document-extensions/revisions/overview) stores all the document Counters' 
@@ -142,9 +135,6 @@ names and values when the revision was created.
 * Revisions-creation can be initiated by **Counter-name modification**.  
    * When the Revisions feature is enabled, the creation or deletion of a Counter initiates the creation of a new document revision.  
    * Counter **value** modifications do **not** cause the creation of new revisions.  
-
----
-
 ### Counters and Smuggler  
 
 [Smuggler](../../client-api/smuggler/what-is-smuggler) is a DocumentStore property, that can be used 
@@ -163,9 +153,6 @@ database items from an existing file into the database.
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Counters and Changes API
 
 [Changes API](../../client-api/changes/what-is-changes-api#changes-api) is a Push service, that can inform you of various changes on the Server, including [changes in Counter values](../../client-api/changes/how-to-subscribe-to-counter-changes#changes-api--how-to-subscribe-to-counter-changes).  
@@ -174,9 +161,6 @@ You can target all Counters, or specify the ones you wish to follow.
 * **Pushed Counter Value**: **Accumulated**  
   `Changes API` methods return a Counter's value as a single sum, without specifying its value on each node.  
 * The service is initiated by **Counter Value Modification**.  
-
----
-
 ### Counters and Ongoing Tasks:
 
 Each [ongoing task](../../studio/database/tasks/ongoing-tasks/general-info) relates to Counters in its own way.  
@@ -245,9 +229,6 @@ and how the various features handle Counter values.
 | [Revision creation](../../document-extensions/counters/counters-and-other-features#counters-and-revisions) | _Document Change_ | _Accumulated_ |
 
 </Admonition>
-
----
-
 ### Including Counters  
 You can [include](../../client-api/how-to/handle-document-relationships#includes) Counters while loading a document.  
 An included Counter is retrieved in the same request as its owner-document and is held by the session, 
@@ -307,9 +288,6 @@ var query = session.Query<Product>()
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 ### Counters Bulk-Insert  
 `store.BulkInsert` is RavenDB's high-performance data insertion operation.  
 Use its `CountersFor` interface's `Increment` method to add or update counters with great speed.  
@@ -379,13 +357,11 @@ using (var bulkInsert = store.BulkInsert())
 </TabItem>  
 
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Counters And Other Features
----
 
 <Admonition type="note" title="Note">
 
@@ -405,9 +381,6 @@ using (var bulkInsert = store.BulkInsert())
   * [Counters Bulk-Insert](../../document-extensions/counters/counters-and-other-features#counters-bulk-insert)  
 </Admonition>
 
----
-
-<Admonition type="info" title="Info">
 
 ### Counters and Indexing  
 
@@ -420,9 +393,6 @@ Indexing Counters can speed-up finding them and the documents that contain them.
 * **Indexing Counter Names**  
     Re-indexing due to Counter-name modification is normally rare enough to pause no performance issues.  
     To index a document's Counters by name, use `counterNamesFor`.  
-
----
-
 ### Counters and Queries  
 
 Create queries **using code**, or send the server **raw queries** for execution.  
@@ -502,9 +472,6 @@ List<CounterResultRaw> query = session
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 ### Counters and Revisions  
 
 A [document revision](../../document-extensions/revisions/overview) stores all the document Counters' 
@@ -516,9 +483,6 @@ names and values when the revision was created.
 * Revisions-creation can be initiated by **Counter-name modification**.  
    * When the Revisions feature is enabled, the creation or deletion of a Counter initiates the creation of a new document revision.  
    * Counter **value** modifications do **not** cause the creation of new revisions.  
-
----
-
 ### Counters and Smuggler  
 
 `Smuggler` is a DocumentStore property, that can be used 
@@ -537,9 +501,6 @@ to **export** chosen database items to an external file or to
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Counters and Changes API
 
 [Changes API](../../client-api/changes/what-is-changes-api#changes-api) is a Push service, that can inform you of various changes on the Server, including [changes in Counter values](../../client-api/changes/how-to-subscribe-to-counter-changes#changes-api--how-to-subscribe-to-counter-changes).  
@@ -548,9 +509,6 @@ You can target all Counters, or specify the ones you wish to follow.
 * **Pushed Counter Value**: **Accumulated**  
   `Changes API` methods return a Counter's value as a single sum, without specifying its value on each node.  
 * The service is initiated by **Counter Value Modification**.  
-
----
-
 ### Counters and Ongoing Tasks:
 
 Each [ongoing task](../../studio/database/tasks/ongoing-tasks/general-info) relates to Counters in its own way.  
@@ -618,9 +576,6 @@ and how the various features handle Counter values.
 | [Revision creation](../../document-extensions/counters/counters-and-other-features#counters-and-revisions) | _Document Change_ | _Accumulated_ |
 
 </Admonition>
-
----
-
 ### Including Counters  
 You can `include` Counters while loading a document.  
 An included Counter is retrieved in the same request as its owner-document and is 
@@ -686,9 +641,6 @@ IDocumentQuery<Product> query = session.query(Product.class)
 </CodeBlock>
 </TabItem>
     </Tabs>
-
-    ---
-
 ### Counters Bulk-Insert  
 `store.bulkInsert` is RavenDB's high-performance data insertion operation.  
 Use its `countersFor` interface's `increment` method to add or update counters with great speed.  
@@ -753,13 +705,11 @@ try (BulkInsertOperation bulkInsert = docStore.bulkInsert()) \{
 </TabItem>  
 
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Counters and Other Features
----
 
 <Admonition type="note" title="Note">
 
@@ -778,9 +728,6 @@ try (BulkInsertOperation bulkInsert = docStore.bulkInsert()) \{
   * [Counters Bulk-Insert](../../document-extensions/counters/counters-and-other-features#counters-bulk-insert)  
 </Admonition>
 
----
-
-<Admonition type="info" title="Info">
 
 ### Counters and Indexing  
 
@@ -793,9 +740,6 @@ Indexing Counters can speed-up finding them and the documents that contain them.
 * **Indexing Counter Names**  
     Re-indexing due to Counter-name modification is normally rare enough to pause no performance issues.  
     To index a document's Counters by name, use [CounterNamesFor](../../document-extensions/counters/indexing#section-1).  
-
----
-
 ### Counters and Queries  
 
 Create queries **using code**, or send the server **raw queries** for execution.  
@@ -855,9 +799,6 @@ query = list(session.advanced.raw_query("from users as u select counterRaw(u, 'd
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 ### Counters and Revisions  
 
 A [document revision](../../document-extensions/revisions/overview) stores all the document Counters' 
@@ -869,9 +810,6 @@ names and values when the revision was created.
 * Revisions-creation can be initiated by **Counter-name modification**.  
    * When the Revisions feature is enabled, the creation or deletion of a Counter initiates the creation of a new document revision.  
    * Counter **value** modifications do **not** cause the creation of new revisions.  
-
----
-
 ### Counters and Changes API
 
 [Changes API](../../client-api/changes/what-is-changes-api#changes-api) is a Push service, that can inform you of various changes on the Server, including [changes in Counter values](../../client-api/changes/how-to-subscribe-to-counter-changes#changes-api--how-to-subscribe-to-counter-changes).  
@@ -880,9 +818,6 @@ You can target all Counters, or specify the ones you wish to follow.
 * **Pushed Counter Value**: **Accumulated**  
   `Changes API` methods return a Counter's value as a single sum, without specifying its value on each node.  
 * The service is initiated by **Counter Value Modification**.  
-
----
-
 ### Counters and Ongoing Tasks:
 
 Each [ongoing task](../../studio/database/tasks/ongoing-tasks/general-info) relates to Counters in its own way.  
@@ -951,9 +886,6 @@ and how the various features handle Counter values.
 | [Revision creation](../../document-extensions/counters/counters-and-other-features#counters-and-revisions) | _Document Change_ | _Accumulated_ |
 
 </Admonition>
-
----
-
 ### Including Counters  
 You can [include](../../client-api/how-to/handle-document-relationships#includes) Counters while loading a document.  
 An included Counter is retrieved in the same request as its owner-document and is held by the session, 
@@ -1016,9 +948,6 @@ query = session.query("Products").include(
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 ### Counters Bulk-Insert  
 `store.bulk_insert` is RavenDB's high-performance data insertion operation.  
 Use its `counters_for` interface's `increment` method to add or update counters with great speed.  
@@ -1078,13 +1007,11 @@ with store.bulk_insert() as bulk_insert:
 </TabItem>  
 
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Counters and Other Features
----
 
 <Admonition type="note" title="Note">
 
@@ -1102,9 +1029,6 @@ with store.bulk_insert() as bulk_insert:
   * [Including Counters](../../document-extensions/counters/counters-and-other-features#including-counters)  
 </Admonition>
 
----
-
-<Admonition type="info" title="Info">
 
 ### Counters and Indexing  
 
@@ -1117,9 +1041,6 @@ Indexing Counters can speed-up finding them and the documents that contain them.
 * **Indexing Counter Names**  
     Re-indexing due to Counter-name modification is normally rare enough to pause no performance issues.  
     To index a document's Counters by name, use [CounterNamesFor](../../document-extensions/counters/indexing#section-1).  
-
----
-
 ### Counters and Queries  
 
 Send the server **raw queries** for execution.  
@@ -1171,9 +1092,6 @@ $query = $session->advanced()
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 ### Counters and Revisions  
 
 A document revision stores all the document Counters' names and values when the revision was created.  
@@ -1184,9 +1102,6 @@ A document revision stores all the document Counters' names and values when the 
 * Revisions-creation can be initiated by **Counter-name modification**.  
    * When the Revisions feature is enabled, the creation or deletion of a Counter initiates the creation of a new document revision.  
    * Counter **value** modifications do **not** cause the creation of new revisions.  
-
----
-
 ### Counters and Changes API
 
 [Changes API](../../client-api/changes/what-is-changes-api#changes-api) is a Push service, that can inform you of various changes on the Server, including [changes in Counter values](../../client-api/changes/how-to-subscribe-to-counter-changes#changes-api--how-to-subscribe-to-counter-changes).  
@@ -1195,9 +1110,6 @@ You can target all Counters, or specify the ones you wish to follow.
 * **Pushed Counter Value**: **Accumulated**  
   `Changes API` methods return a Counter's value as a single sum, without specifying its value on each node.  
 * The service is initiated by **Counter Value Modification**.  
-
----
-
 ### Counters and Ongoing Tasks:
 
 Each [ongoing task](../../studio/database/tasks/ongoing-tasks/general-info) relates to Counters in its own way.  
@@ -1259,9 +1171,6 @@ and how the various features handle Counter values.
 | [Revision creation](../../document-extensions/counters/counters-and-other-features#counters-and-revisions) | _Document Change_ | _Accumulated_ |
 
 </Admonition>
-
----
-
 ### Including Counters  
 You can [include](../../client-api/how-to/handle-document-relationships#includes) Counters while loading a document.  
 An included Counter is retrieved in the same request as its owner-document and is held by the session, 
@@ -1328,13 +1237,11 @@ $query = $session->query(Product::class)
 </TabItem>
     </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Counters and Other Features
----
 
 <Admonition type="note" title="Note">
 
@@ -1354,9 +1261,6 @@ $query = $session->query(Product::class)
   * [Counters Bulk-Insert](../../document-extensions/counters/counters-and-other-features#counters-bulk-insert)  
 </Admonition>
 
----
-
-<Admonition type="info" title="Info">
 
 ### Counters and Indexing  
 
@@ -1369,9 +1273,6 @@ Indexing Counters can speed-up finding them and the documents that contain them.
 * **Indexing Counter Names**  
     Re-indexing due to Counter-name modification is normally rare enough to pause no performance issues.  
     To index a document's Counters by name, use [CounterNamesFor](../../document-extensions/counters/indexing#section-1).  
-
----
-
 ### Counters and Queries  
 
 Create queries **using code**, or send the server **raw queries** for execution.  
@@ -1440,9 +1341,6 @@ const query = session.advanced
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 ### Counters and Revisions  
 
 A [document revision](../../document-extensions/revisions/overview) stores all the document Counters' 
@@ -1454,9 +1352,6 @@ names and values when the revision was created.
 * Revisions-creation can be initiated by **Counter-name modification**.  
    * When the Revisions feature is enabled, the creation or deletion of a Counter initiates the creation of a new document revision.  
    * Counter **value** modifications do **not** cause the creation of new revisions.  
-
----
-
 ### Counters and Smuggler  
 
 [Smuggler](../../client-api/smuggler/what-is-smuggler) is a DocumentStore property, that can be used 
@@ -1487,9 +1382,6 @@ database items from an existing file into the database.
 * `Subscriptions`  
 * `CompareExchangeTombstones`  
 * `TimeSeries`  
-
----
-
 ### Counters and Changes API
 
 [Changes API](../../client-api/changes/what-is-changes-api#changes-api) is a Push service, that can inform you of various changes on the Server, including [changes in Counter values](../../client-api/changes/how-to-subscribe-to-counter-changes#changes-api--how-to-subscribe-to-counter-changes).  
@@ -1498,9 +1390,6 @@ You can target all Counters, or specify the ones you wish to follow.
 * **Pushed Counter Value**: **Accumulated**  
   `Changes API` methods return a Counter's value as a single sum, without specifying its value on each node.  
 * The service is initiated by **Counter Value Modification**.  
-
----
-
 ### Counters and Ongoing Tasks:
 
 Each [ongoing task](../../studio/database/tasks/ongoing-tasks/general-info) relates to Counters in its own way.  
@@ -1569,9 +1458,6 @@ and how the various features handle Counter values.
 | [Revision creation](../../document-extensions/counters/counters-and-other-features#counters-and-revisions) | _Document Change_ | _Accumulated_ |
 
 </Admonition>
-
----
-
 ### Including Counters  
 You can [include](../../client-api/how-to/handle-document-relationships#includes) Counters while loading a document.  
 An included Counter is retrieved in the same request as its owner-document and is held by the session, 
@@ -1631,9 +1517,6 @@ so it can be immediately retrieved when needed with no additional remote calls.
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 ### Counters Bulk-Insert  
 `store.BulkInsert` is RavenDB's high-performance data insertion operation.  
 Use its `CountersFor` interface's `Increment` method to add or update counters with great speed.  
@@ -1697,7 +1580,7 @@ for (let user = 0; user < result.length; user++) \{
 </TabItem>  
 
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -13,7 +13,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Logs Options
 
-<Admonition type="info" title="Logs.Path" id="logs-path" href="#logs-path">
+## Logs.Path
 
 The path to the directory where the RavenDB server logs will be stored.  
 By default, the logs are placed in the 'Logs' directory in the same folder as the server.
@@ -22,9 +22,9 @@ By default, the logs are placed in the 'Logs' directory in the same folder as th
 - **Default**: `Logs`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.Mode" id="logs-mode" href="#logs-mode">
+
+## Logs.Mode
 
 The level of logs that will be written to the log files.  
 Available options:
@@ -32,16 +32,13 @@ Available options:
 - `None` (logging disabled)
 - `Operations` (high level info for operational users)
 - `Information` (low level debug info)
-
----
-
 - **Type**: `string`
 - **Default**: `Operations`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.UseUtcTime" id="logs-useutctime" href="#logs-useutctime">
+
+## Logs.UseUtcTime
 
 Determine whether logs are timestamped in UTC or with server-local time.
 
@@ -53,9 +50,9 @@ Determine whether logs are timestamped in UTC or with server-local time.
 Writing logs in UTC is more performant than using server-local time.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Logs.MaxFileSizeInMb" id="logs-maxfilesizeinmb" href="#logs-maxfilesizeinmb">
+
+## Logs.MaxFileSizeInMb
 
 The maximum log file size in megabytes.
 
@@ -64,9 +61,9 @@ The maximum log file size in megabytes.
 - **Minimum**: `16`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.RetentionTimeInHrs" id="logs-retentiontimeinhrs" href="#logs-retentiontimeinhrs">
+
+## Logs.RetentionTimeInHrs
 
 The number of hours logs are kept before they are deleted.
 
@@ -75,9 +72,9 @@ The number of hours logs are kept before they are deleted.
 - **Minimum**: `24`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.RetentionSizeInMb" id="logs-retentionsizeinmb" href="#logs-retentionsizeinmb">
+
+## Logs.RetentionSizeInMb
 
 The maximum log size after which older files will be deleted.  
 No log files will be deleted if this configuration is not set.
@@ -87,9 +84,9 @@ No log files will be deleted if this configuration is not set.
 - **Minimum**: `256`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.Compress" id="logs-compress" href="#logs-compress">
+
+## Logs.Compress
 
 Determine whether to compress the log files.
 
@@ -97,9 +94,9 @@ Determine whether to compress the log files.
 - **Default**: `false`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.Microsoft.Disable" id="logs-microsoft-disable" href="#logs-microsoft-disable">
+
+## Logs.Microsoft.Disable
 
 Determine whether to disable Microsoft logs.
 
@@ -107,9 +104,9 @@ Determine whether to disable Microsoft logs.
 - **Default**: `true`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Logs.Microsoft.ConfigurationPath" id="logs-microsoft-configurationpath" href="#logs-microsoft-configurationpath">
+
+## Logs.Microsoft.ConfigurationPath
 
 The path to the JSON configuration file for Microsoft logs.
 
@@ -117,4 +114,4 @@ The path to the JSON configuration file for Microsoft logs.
 - **Default**: `settings.logs.microsoft.json`
 - **Scope**: Server-wide only
 
-</Admonition>
+

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # RQL - Raven Query Language
----
-
 <Admonition type="note" title="Note">
 
 * Queries in RavenDB use a SQL-like language called **RQL** (Raven Query Language).
@@ -50,10 +48,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [RQL comments](../../../client-api/session/querying/what-is-rql#rql-comments)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="The query pipeline" id="the-query-pipeline" href="#the-query-pipeline">  
+## The query pipeline  
 
 The query pipeline in RavenDB includes the following main stages:  
 
@@ -105,9 +100,9 @@ The query pipeline in RavenDB includes the following main stages:
 
 6. __Return results__ to the client.
 
-</Admonition>
 
-<Admonition type="info" title="RQL keywords and methods" id="rql-keywords-and-methods" href="#rql-keywords-and-methods">
+
+## RQL keywords and methods
 
 The following keywords and methods are available in RQL:
 
@@ -184,9 +179,9 @@ And the following values:
 - number (long and double) e.g. 17
 - parameter e.g. $param1
 
-</Admonition>
 
-<Admonition type="info" title="`declare`" id="declare" href="#declare">
+
+## `declare`
 
 You can use the `declare` keyword to create a JavaScript function that can then be called from a `select` clause when using a projection. 
 JavaScript functions add flexibility to your queries as they can be used to manipulate and format retrieved results.  
@@ -209,15 +204,12 @@ from Employees as employee select output(employee)
 Values are returned from a declared Javascript function as a set of values rather than in a nested array to ease the projection of retrieved values.
 See an example for this usage [here](../../../document-extensions/timeseries/querying/overview-and-syntax#combine-time-series-and-javascript-functions).  
 
-</Admonition>
 
-<Admonition type="info" title="`from`" id="from" href="#from">
+
+## `from`
 
 The keyword `from` is used to determine the source data that will be used when the query is executed.  
 The following options are available:
-
----
-
 <Admonition type="note" title="Note">
 
 * __Query a specific collection__: &nbsp;&nbsp; `from <collection-name>`
@@ -299,14 +291,11 @@ from index "Employees/ByFirstName" where FirstName = "Laura"
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`where`" id="where" href="#where">
+
+## `where`
 
 Use the `where` keyword with various operators to filter chosen documents from the final result-set.  
-
----
-
 <Admonition type="note" title="Note">
 
 #### Operator: &nbsp;&nbsp; `>=`, `<=`, `<>`, `!=`, `<`, `>`, `=`, `==`
@@ -452,16 +441,16 @@ Subclauses can be used along with binary operators to build even more complex lo
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`group by`" id="group-by" href="#group-by">
+
+## `group by`
 
 The keyword `group by` is used to create an aggregation query.  
 Learn more in [dynamic group by queries](../../../client-api/session/querying/how-to-perform-group-by-query).
 
-</Admonition>
 
-<Admonition type="info" title="`include`" id="include" href="#include">
+
+## `include`
 
 The keyword `include` has been introduced to support:
 
@@ -474,30 +463,30 @@ The keyword `include` has been introduced to support:
 - [get query timings](../../../client-api/session/querying/debugging/query-timings)
 - [get explanations](../../../client-api/session/querying/debugging/include-explanations)
 
-</Admonition>
 
-<Admonition type="info" title="`order by`" id="order-by" href="#order-by">
+
+## `order by`
 
 Use `order by` to perform sorting.  
 Learn more in this [sorting](../../../indexes/querying/sorting) article.  
 
-</Admonition>
 
-<Admonition type="info" title="`select`" id="select" href="#select">
+
+## `select`
 
 Use `select` to have the query return a projection instead of the full document.  
 Learn more in this [projection](../../../indexes/querying/projections) article.
 
-</Admonition>
 
-<Admonition type="info" title="`load`" id="load" href="#load">
+
+## `load`
 
 Use `load`when you need to use data from a related document in projection.  
 See an example in this [projection](../../../indexes/querying/projections#example-viii---projection-using-a-loaded-document) article.
 
-</Admonition>
 
-<Admonition type="info" title="`limit`" id="limit" href="#limit">
+
+## `limit`
 
 Use `limit` to limit the number of results returned by the query.  
 Specify the number of items to __skip__ from the beginning of the result set and the number of items to __take__ (return).  
@@ -517,16 +506,16 @@ from "Products" offset 5          // skip 5, take all the rest
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="`update`" id="update" href="#update">
+
+## `update`
 
 To patch documents on the server-side, use `update` with the desired JavaScript that will be applied to any document matching the query criteria.  
 For more information, please refer to this [patching](../../../client-api/operations/patching/set-based) article.  
 
-</Admonition>
 
-<Admonition type="info" title="RQL comments" id="rql-comments" href="#rql-comments">
+
+## RQL comments
 
 <Admonition type="note" title="Note">
 
@@ -581,5 +570,5 @@ where Name = "The Big Cheese" /* this part is a comment */ OR Name = "Richter Su
 
 </Admonition>
 
-</Admonition>
+
 

@@ -12,17 +12,15 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Cloud: Maintenance & Troubleshooting
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 Our products come equipped with advanced monitoring system that track critical performance metrics to ensure optimal
 operation. Each product may display one or more of the following labels, providing real-time insights into its current
 status.
 
-</Admonition>
 
-<Admonition type="info" title="Labels" id="labels" href="#labels">
+
+## Labels
 
 | Label                         | Description                                                                                                                                                                                                                                                                                                                       |
 |-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,18 +36,15 @@ status.
 | Low uptime - below 12 hours   | Product's uptime has been below 12 hours for at least 24 hours.                                                                                                                                                                                                                                                                   |
 | Low uptime - below 48 hours   | Product's uptime has been below 48 hours for at least 96 hours.                                                                                                                                                                                                                                                                   |
 
-</Admonition>
 
-<Admonition type="info" title="Cluster Health" id="cluster-health" href="#cluster-health">
+
+## Cluster Health
 
 **Cluster Health** helps keep your cluster healthy by providing suggestions and incidents history.  
 This dashboard has two separated sections:
 
 - [Incidents History](cloud-maintenance-troubleshooting#incidents-history)
 - [Suggestions](cloud-maintenance-troubleshooting#suggestions)
-
----
-
 ## Incidents History
 
 The *RavenDB Cloud* monitoring system tracks incidents and cluster performance.  
@@ -69,9 +64,6 @@ Incidents are split into *six* categories. **Description** column contains addit
 | Disk          | Product's available disk space is low.                                                 |
 | IO            | Product is experiencing high input/output operations.                                  |
 | Availability  | Product is currently not responding to input or commands or has been restarted.        |
-
----
-
 ## Suggestions
 
 This section displays suggestions for a selected *cluster node* based on incident trends.
@@ -114,4 +106,4 @@ Below examples of the suggestions with the analyses:
 !["Cluster Health: An example of `Current period above threshold by percents` analyse"](./assets/cluster-health-suggestions-current-month-above-threshold-by-percents.png)
 
 
-</Admonition>
+

@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Get All Documents
-
----
-
 <Admonition type="note" title="Note">  
 
 * Use this endpoint with the **`GET`** method to retrieve all documents from the database:  
@@ -31,10 +28,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [pageSize](../../../client-api/rest-api/document-commands/get-all-documents#pagesize)
       * [metadataOnly](../../../client-api/rest-api/document-commands/get-all-documents#metadataonly)  
 </Admonition>  
-
----
-
-<Admonition type="info" title="Basic Example" id="basic-example" href="#basic-example">
+## Basic Example
 
 This is a cURL request to a database named "Example" on our [playground server](http://live-test.ravendb.net). Paging 
 through all of the documents in the database, the request skips the first 9 documents and retrieves the next 2.  
@@ -107,9 +101,9 @@ Raven-Server-Version: 4.2.4.42
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Request Format" id="request-format" href="#request-format">
+
+## Request Format
 
 This is the general format of a cURL request that uses all query string parameters:  
 
@@ -140,9 +134,9 @@ Linebreaks are added for clarity.
 | - | - | - |
 | **If-None-Match** | This header takes a hash representing the previous results of an **identical** request. The hash is found in the response header `ETag`. If the results were not modified since the previous request, the server responds with http status code `304`, and the requested documents are retrieved from a local cache rather than over the network. | No |
 
-</Admonition>
 
-<Admonition type="info" title="Response Format" id="response-format" href="#response-format">
+
+## Response Format
 
 #### Http Status Codes
 
@@ -187,9 +181,9 @@ This is the general format of the JSON response body:
 </TabItem>
 Linebreaks are added for clarity.  
 
-</Admonition>
 
-<Admonition type="info" title="Query Parameter Examples" id="query-parameter-examples" href="#query-parameter-examples">
+
+## Query Parameter Examples
 
 [About Northwind](../../../start/about-examples), the database used in our examples.
 
@@ -198,9 +192,6 @@ In this section:
 * [start](../../../client-api/rest-api/document-commands/get-all-documents#start)  
 * [pageSize](../../../client-api/rest-api/document-commands/get-all-documents#pagesize)  
 * [metadataOnly](../../../client-api/rest-api/document-commands/get-all-documents#metadataonly)  
-
----
-
 ### start
 
 Skip first 1,057 documents, and retrieve the rest (our version of Northwind contains 1,059 documents).  
@@ -272,9 +263,6 @@ Raven-Server-Version: 4.2.4.42
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### pageSize
 
 Retrieve the first document.  
@@ -355,9 +343,6 @@ Raven-Server-Version: 4.2.4.42
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### metadataOnly
 
 Skip first 123 documents, take the next 5, and retrieve only the metadata of each document.  
@@ -441,5 +426,5 @@ Content-Length: 918
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Stream Query Results
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Stream Query Results
----
 
 <Admonition type="note" title="Note">
 
@@ -42,10 +44,7 @@ import LanguageContent from "@site/src/components/language-content";
         * [By prefix syntax](../../../client-api/session/querying/how-to-stream-query-results#by-prefix-syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Streaming overview" id="streaming-overview" href="#streaming-overview">
+## Streaming overview
 
 * __Immediate processing__:  
   Neither the client nor the server holds the full response in memory.   
@@ -68,9 +67,9 @@ import LanguageContent from "@site/src/components/language-content";
   * Using [Include](../../../client-api/how-to/handle-document-relationships#includes) to load a related document to the session in a streaming query is Not supported.  
     Learn how to __stream related documents__ here [below](../../../client-api/session/querying/how-to-stream-query-results#stream-related-documents).
 
-</Admonition>
 
-<Admonition type="info" title="Stream by query" id="stream-by-query" href="#stream-by-query">
+
+## Stream by query
 
 <Admonition type="note" title="Note">
 #### Stream a dynamic query
@@ -392,9 +391,6 @@ public class Employees_ByFirstName : AbstractIndexCreationTask<Employee>
 
 <Admonition type="note" title="Note">
 #### Stream related documents
-
----
-
 __Why streaming query results does not support 'include'__:
 
 * A document can reference [related documents](../../../indexes/indexing-related-documents#what-are-related-documents).
@@ -508,7 +504,7 @@ public class AllDocsProjection
 
 </Admonition>
 
-</Admonition>
+
 
 <Admonition type="note" title="Note">
 #### By query syntax
@@ -539,13 +535,10 @@ IEnumerator<StreamResult<T>> Stream<T>(IRawDocumentQuery<T> query, out StreamQue
 
 </Admonition>
 
-<Admonition type="info" title="Stream by prefix" id="stream-by-prefix" href="#stream-by-prefix">
+## Stream by prefix
 
 <Admonition type="note" title="Note">
 ####  Stream results by prefix
-
----
-
 * Streamed data can also be filtered by an __ID prefix__ and by other __filtering options__, see syntax below.
 * Note: No auto-index is created when streaming results by a prefix.
 
@@ -623,12 +616,12 @@ IEnumerator<StreamResult<T>> Stream<T>(string startsWith, string matches = null,
 | IEnumerator&lt;[StreamResult&lt;T&gt;](../../../glossary/stream-result)&gt; | Enumerator with resulting entities |
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Stream Query Results
+
 
 RavenDB supports __streaming data__ from the server to the client.  
 Streaming is useful when processing a large number of results.
@@ -636,10 +629,7 @@ Streaming is useful when processing a large number of results.
 The data streamed can be a result of a dynamic query, a static index query, or just filtered by a prefix.
 
 To stream results, use the `stream` method from the `advanced` session operations.
-
----
-
-<Admonition type="info" title="Streaming overview" id="streaming-overview" href="#streaming-overview">
+## Streaming overview
 
 * __Immediate processing__:  
   Neither the client nor the server holds the full response in memory.   
@@ -661,7 +651,7 @@ To stream results, use the `stream` method from the `advanced` session operation
 
     * Using [include](../../../client-api/session/loading-entities#load-with-includes) to load a related document to the session in a streaming query is Not supported.  
 
-</Admonition>
+
 
 ## Syntax
 
@@ -742,9 +732,6 @@ while (results.hasNext()) \{
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Stream Query Results
-
----
 
 <Admonition type="note" title="Note">
 
@@ -772,10 +759,7 @@ while (results.hasNext()) \{
         * [By prefix syntax](../../../client-api/session/querying/how-to-stream-query-results#by-prefix-syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Streaming overview" id="streaming-overview" href="#streaming-overview">
+## Streaming overview
 
 * __Immediate processing__:  
   Neither the client nor the server holds the full response in memory.   
@@ -798,9 +782,9 @@ while (results.hasNext()) \{
     * Using [include](../../../client-api/session/loading-entities#load-with-includes) to load a related document to the session in a streaming query is Not supported.  
       Learn how to __stream related documents__ here [below](../../../client-api/session/querying/how-to-stream-query-results#stream-related-documents).
 
-</Admonition>
 
-<Admonition type="info" title="Stream by query" id="stream-by-query" href="#stream-by-query">
+
+## Stream by query
 
 <Admonition type="note" title="Note">
 #### Stream a dynamic query
@@ -951,9 +935,6 @@ class Employees_ByFirstName extends AbstractJavaScriptIndexCreationTask {
 
 <Admonition type="note" title="Note">
 #### Stream related documents
-
----
-
 __Why streaming query results does not support 'include'__:
 
 * A document can reference [related documents](../../../indexes/indexing-related-documents#what-are-related-documents).
@@ -1042,15 +1023,12 @@ queryStream.on("data", resultItem => \{
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Stream by prefix" id="stream-by-prefix" href="#stream-by-prefix">
+
+## Stream by prefix
 
 <Admonition type="note" title="Note">
 #### Stream results by prefix
-
----
-
 * Streamed data can also be filtered by an __ID prefix__ and by some __filtering options__, see below.
 * Note: No auto-index is created when streaming results by a prefix.
 
@@ -1137,7 +1115,7 @@ await session.advanced.stream(idPrefix, options);
 | __startAfter__ | `string` | Skip fetching documents until this ID is found.<br/>Only return documents after this ID (default: null). |
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>

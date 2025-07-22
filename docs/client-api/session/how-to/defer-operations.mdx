@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# How to Defer Commands
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# How to Defer Commands
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -30,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Commands that can be deferred](../../../client-api/session/how-to/defer-operations#commands-that-can-be-deferred)
     * [Syntax](../../../client-api/session/how-to/defer-operations#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Defer commands example" id="defer-commands-example" href="#defer-commands-example">
+## Defer commands example
 
 <TabItem value="something" label="defer_1">
 <CodeBlock language="csharp">
@@ -72,9 +70,9 @@ session.SaveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Commands that can be deferred" id="commands-that-can-be-deferred" href="#commands-that-can-be-deferred">
+
+## Commands that can be deferred
 
 The following commands implement the `ICommandData` interface and can be deferred:  
 
@@ -93,9 +91,9 @@ The following commands implement the `ICommandData` interface and can be deferre
   - CopyTimeSeriesCommandData
   - TimeSeriesBatchCommandData
   - ForceRevisionCommandData
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -110,12 +108,12 @@ void Defer(ICommandData[] commands);
 | **command** | A command that implements the `ICommandData` interface | The command to be executed |
 | **commands** | `ICommandData[]` | Array of commands to be executed |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Defer Commands
+
 
 Commands can be deferred till `saveChanges` is called by using `defer` method in `advanced` session operations.  
 All of the operations will update teh session state appropriately after `saveChanges` is called.
@@ -182,9 +180,6 @@ session.advanced().defer(putCommand1, putCommand2, command3);
 
 </LanguageContent>
 <LanguageContent language="python">
-# How to Defer Commands
-
----
 
 <Admonition type="note" title="Note">
 
@@ -200,10 +195,7 @@ session.advanced().defer(putCommand1, putCommand2, command3);
     * [Commands that can be deferred](../../../client-api/session/how-to/defer-operations#commands-that-can-be-deferred)
     * [Syntax](../../../client-api/session/how-to/defer-operations#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Defer commands example" id="defer-commands-example" href="#defer-commands-example">
+## Defer commands example
 
 <TabItem value="something-something" label="defer_1">
 <CodeBlock language="python">
@@ -230,9 +222,9 @@ session.save_changes()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Commands that can be deferred" id="commands-that-can-be-deferred" href="#commands-that-can-be-deferred">
+
+## Commands that can be deferred
 
 The following commands implement the `ICommandData` interface and can be deferred:  
 
@@ -251,9 +243,9 @@ The following commands implement the `ICommandData` interface and can be deferre
   - CopyTimeSeriesCommandData
   - TimeSeriesBatchCommandData
   - ForceRevisionCommandData
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -266,14 +258,11 @@ The following commands implement the `ICommandData` interface and can be deferre
 | --------- | ---- | ----------- |
 | **\*commands** | `CommandData` | An array of commands to be executed |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# How to Defer Commands
-
----
 
 <Admonition type="note" title="Note">
 
@@ -289,10 +278,7 @@ The following commands implement the `ICommandData` interface and can be deferre
     * [Commands that can be deferred](../../../client-api/session/how-to/defer-operations#commands-that-can-be-deferred)
     * [Syntax](../../../client-api/session/how-to/defer-operations#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Defer commands example" id="defer-commands-example" href="#defer-commands-example">
+## Defer commands example
 
 <TabItem value="something-something" label="defer_1">
 <CodeBlock language="php">
@@ -335,9 +321,9 @@ $session->saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Commands that can be deferred" id="commands-that-can-be-deferred" href="#commands-that-can-be-deferred">
+
+## Commands that can be deferred
 
 The following commands implement the `CommandDataInterface` interface and can be deferred:  
 
@@ -356,9 +342,9 @@ The following commands implement the `CommandDataInterface` interface and can be
   - copyTimeSeriesCommandData
   - timeSeriesBatchCommandData
   - forceRevisionCommandData
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -388,14 +374,11 @@ public function defer(...$commands): void;
 | **$commands** | `array<CommandDataInterface>` | An array of commands to be executed |
 | **$commands** | `array` | An array of commands to be executed |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# How to Defer Commands
-
----
 
 <Admonition type="note" title="Note">
 
@@ -410,10 +393,7 @@ public function defer(...$commands): void;
     * [Commands that can be deferred](../../../client-api/session/how-to/defer-operations#commands-that-can-be-deferred)
     * [Syntax](../../../client-api/session/how-to/defer-operations#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Defer commands example" id="defer-commands-example" href="#defer-commands-example">
+## Defer commands example
 
 <TabItem value="something-something" label="defer_1">
 <CodeBlock language="nodejs">
@@ -452,9 +432,9 @@ await session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Commands that can be deferred" id="commands-that-can-be-deferred" href="#commands-that-can-be-deferred">
+
+## Commands that can be deferred
 
 The following commands implement the `ICommandData` interface and can be deferred:
 
@@ -473,9 +453,9 @@ The following commands implement the `ICommandData` interface and can be deferre
 - CopyTimeSeriesCommandData
 - TimeSeriesBatchCommandData
 - ForceRevisionCommandData
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -488,7 +468,7 @@ The following commands implement the `ICommandData` interface and can be deferre
 | - |-|-|
 | **commands** | `ICommandData[]` | Commands to be executed |
 
-</Admonition>
+
 
 
 </LanguageContent>

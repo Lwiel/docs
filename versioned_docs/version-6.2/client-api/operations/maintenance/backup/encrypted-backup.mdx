@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Backup Encryption  
-
----
-
 <Admonition type="note" title="Note">
 
 * When a database is **encrypted**, you can generate the following backup types for it:  
@@ -45,10 +42,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [Restoring an encrypted Logical-Backup](../../../../client-api/operations/maintenance/backup/encrypted-backup#restoring-an-encrypted-logical-backup)  
      * [Restoring a Snapshot](../../../../client-api/operations/maintenance/backup/encrypted-backup#restoring-a-snapshot)  
 </Admonition>
-
----
-
-<Admonition type="info" title="RavenDB's Security Approach" id="ravendb-s-security-approach" href="#ravendb-s-security-approach">
+## RavenDB's Security Approach
 
 RavenDB's comprehensive security approach includes -  
 
@@ -58,9 +52,6 @@ RavenDB's comprehensive security approach includes -
   to secure your data while **stored in the database**.  
 * **Backup-Files Encryption**  
   to secure your data while **stored for safe-keeping**.  
-
----
-
 #### Secure Client-Server Communication
 
 To prevent unauthorized access to your data during transfer, apply the following:  
@@ -89,9 +80,6 @@ using (var docStore = new DocumentStore
 `}
 </CodeBlock>
 </TabItem>  
-
----
-
 #### Database Encryption
 
 Secure the data stored on the server by 
@@ -101,9 +89,9 @@ Secure the data stored on the server by
   An encrypted database can only be created when the 
   [client-server communication is secure](../../../../client-api/operations/maintenance/backup/encrypted-backup#secure-client-server-communication).  
 
-</Admonition>
 
-<Admonition type="info" title="Backup-Encryption Overview" id="backup-encryption-overview" href="#backup-encryption-overview">
+
+## Backup-Encryption Overview
 
 #### Prerequisites to Encrypting Backups
 
@@ -120,9 +108,6 @@ Secure the data stored on the server by
   If the database is **encrypted**, its snapshot would also be encrypted using the database encryption key.  
   If you want your snapshot to be encrypted, simply take the snapshot of an 
   [encrypted database](../../../../server/security/encryption/database-encryption#creating-an-encrypted-database-using-the-rest-api-and-the-client-api).  
-
----
-
 #### Choosing Encryption Mode & Key
 
 Use the same [Backup](../../../../client-api/operations/maintenance/backup/backup#backup) and [Restore](../../../../client-api/operations/maintenance/backup/restore) methods that are used to create and restore **un**-encrypted backups.  
@@ -173,14 +158,11 @@ Key = "OI7Vll7DroXdUORtc6Uo64wdAk1W0Db9ExXXgcg5IUs="
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
 
-<Admonition type="info" title="Creating an Encrypted Logical-Backup" id="creating-an-encrypted-logical-backup" href="#creating-an-encrypted-logical-backup">
+
+## Creating an Encrypted Logical-Backup
 
 An encrypted logical-backup can be created for both **encrypted** and **non-encrypted** databases.  
-
----
-
 #### For a Non-Encrypted Database
 
 1. To create a **non-encrypted logical-backup** -  
@@ -196,9 +178,6 @@ Key = "a_key_of_your_choice"
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### For an Encrypted Database
 
 1. To create a non-encrypted logical-backup -  
@@ -240,9 +219,9 @@ Key = "a_key_of_your_choice"
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Creating an Encrypted Snapshot" id="creating-an-encrypted-snapshot" href="#creating-an-encrypted-snapshot">
+
+## Creating an Encrypted Snapshot
 
 An encrypted Snapshot can only be created for an encrypted database.  
 
@@ -279,9 +258,9 @@ var result = await docStore.Maintenance.SendAsync(operation);
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
 
-<Admonition type="info" title="Restoring an Encrypted Backup" id="restoring-an-encrypted-backup" href="#restoring-an-encrypted-backup">
+
+## Restoring an Encrypted Backup
 
 To [restore](../../../../client-api/operations/maintenance/backup/restore#configuration-and-execution) 
 an encrypted backup you must provide the **key** that was used to encrypt it.  
@@ -309,9 +288,6 @@ docStore.Maintenance.Server.Send(restoreBackupTask);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Restoring an encrypted Logical-Backup
 
 A database is [restored](../../../../client-api/operations/maintenance/backup/encrypted-backup#restoring-an-encrypted-backup) from a logical-backup 
@@ -351,9 +327,6 @@ docStore.Maintenance.Server.Send(restoreBackupTask);
 `}
 </CodeBlock>
 </TabItem>  
-
----
-
 #### Restoring a Snapshot
 
 Restore a snapshot as specified in [Restoring an Encrypted Database](../../../../client-api/operations/maintenance/backup/encrypted-backup#restoring-an-encrypted-backup).  
@@ -362,5 +335,5 @@ Restore a snapshot as specified in [Restoring an Encrypted Database](../../../..
 * The database of an encrypted snapshot is restored to its encrypted form.  
   You must provide the database key that was used to encrypt the snapshot.  
 
-</Admonition>
+
 

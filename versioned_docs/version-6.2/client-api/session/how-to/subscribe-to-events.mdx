@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Session: Subscribing to Session Events
+export const supportedLanguages = ["csharp", "java", "nodejs"];
 
----
+
+# Session: Subscribing to Session Events
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -50,7 +51,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="OnBeforeStore" id="onbeforestore" href="#onbeforestore">
+## OnBeforeStore
 
 This event is invoked as a part of `SaveChanges` but before it is actually sent to the server.  
 It should be defined with this signature:  
@@ -123,9 +124,9 @@ session.SaveChanges(); // Here the method is invoked
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnBeforeDelete" id="onbeforedelete" href="#onbeforedelete">
+
+## OnBeforeDelete
 
 This event is invoked by `Delete(id)` or `Delete(entity)`. It is only executed when `SaveChanges()` 
 is called, but before the commands are actually sent to the server.  
@@ -193,9 +194,9 @@ session.SaveChanges(); // NotSupportedException will be thrown
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnAfterSaveChanges" id="onaftersavechanges" href="#onaftersavechanges">
+
+## OnAfterSaveChanges
 
 This event is invoked after the `SaveChanges` is returned.  
 It should be defined with this signature:  
@@ -241,9 +242,9 @@ If we want to log each entity that was saved, we can create a method as follows:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnBeforeQuery" id="onbeforequery" href="#onbeforequery">
+
+## OnBeforeQuery
 
 This event is invoked just before the query is sent to the server. 
 It should be defined with this signature:  
@@ -301,9 +302,9 @@ If you want each query to [wait for non-stale results](../../../indexes/stale-in
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnBeforeConversionToDocument" id="onbeforeconversiontodocument" href="#onbeforeconversiontodocument">
+
+## OnBeforeConversionToDocument
 
 This event is invoked before conversion of an entity to blittable JSON document. E.g. it's called when sending a document to a server.  
 It should be defined with this signature:  
@@ -347,9 +348,9 @@ The class `BeforeConversionToDocumentEventArgs`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnAfterConversionToDocument" id="onafterconversiontodocument" href="#onafterconversiontodocument">
+
+## OnAfterConversionToDocument
 
 This event is invoked after conversion of an entity to blittable JSON document.  
 It should be defined with this signature:  
@@ -401,9 +402,9 @@ The class `AfterConversionToDocumentEventArgs`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnBeforeConversionToEntity" id="onbeforeconversiontoentity" href="#onbeforeconversiontoentity">
+
+## OnBeforeConversionToEntity
 
 This event is invoked before conversion of a JSON document to an entity. E.g. it's called when loading a document.  
 
@@ -425,9 +426,9 @@ It takes the argument `BeforeConversionToEntityEventArgs`, that consists of a JS
 </TabItem>
 
 
-</Admonition>
 
-<Admonition type="info" title="OnAfterConversionToEntity" id="onafterconversiontoentity" href="#onafterconversiontoentity">
+
+## OnAfterConversionToEntity
 
 This event is invoked after conversion of a JSON document to an entity. It takes the argument `AfterConversionToEntityEventArgs`, that consists of a JSON document, its ID, the session instance and a converted entity.  
 
@@ -442,9 +443,9 @@ This event is invoked after conversion of a JSON document to an entity. It takes
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnSessionDisposing" id="onsessiondisposing" href="#onsessiondisposing">
+
+## OnSessionDisposing
 
 This event is invoked by the disposal of a session, **before** the session is disposed of.  
 Keeping track of sessions disposal allows you, among other uses, to verify that sessions 
@@ -474,12 +475,12 @@ The class `SessionDisposingEventArgs`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: Subscribing to Session Events
+
 
 * **Events** allow users to perform custom actions in response to operations made in 
   a `Document Store` or a `Session`.  
@@ -492,7 +493,7 @@ The class `SessionDisposingEventArgs`:
   event in all subsequent sessions.  
   Read more about `DocumentStore` events [here](../../../client-api/how-to/subscribe-to-store-events).  
 
-<Admonition type="info" title="beforeStoreListener" id="beforestorelistener" href="#beforestorelistener">
+## beforeStoreListener
 
 This event is invoked as a part of `saveChanges` but before it is actually sent to the server.  
 It should be defined with this signature:  
@@ -577,9 +578,9 @@ try (IDocumentSession session = store.openSession()) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="beforeDeleteListener" id="beforedeletelistener" href="#beforedeletelistener">
+
+## beforeDeleteListener
 
 This event is invoked by `delete(id)` or `delete(entity)`. It is only executed when `saveChanges()` 
 is called, but before the commands are actually sent to the server.  
@@ -653,9 +654,9 @@ try (IDocumentSession session = store.openSession()) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="afterSaveChangesListener" id="aftersavechangeslistener" href="#aftersavechangeslistener">
+
+## afterSaveChangesListener
 
 This event is invoked after the `saveChanges` is returned.  
 It should be defined with this signature:  
@@ -714,9 +715,9 @@ If we want to log each entity that was saved, we can create a method as follows:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="beforeQueryListener" id="beforequerylistener" href="#beforequerylistener">
+
+## beforeQueryListener
 
 This event is invoked just before the query is sent to the server. 
 It should be defined with this signature:  
@@ -775,9 +776,9 @@ If you want each query to [wait for non-stale results](../../../indexes/stale-in
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="beforeConversionToDocumentListener" id="beforeconversiontodocumentlistener" href="#beforeconversiontodocumentlistener">
+
+## beforeConversionToDocumentListener
 
 This event is invoked before conversion of an entity to blittable JSON document. E.g. it's called when sending a document to a server.  
 It should be defined with this signature:  
@@ -833,9 +834,9 @@ The class `BeforeConversionToDocumentEventArgs`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="afterConversionToDocumentListener" id="afterconversiontodocumentlistener" href="#afterconversiontodocumentlistener">
+
+## afterConversionToDocumentListener
 
 This event is invoked after conversion of an entity to blittable JSON document.  
 It should be defined with this signature:  
@@ -892,9 +893,9 @@ The class `AfterConversionToDocumentEventArgs`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="beforeConversionToEntityListener" id="beforeconversiontoentitylistener" href="#beforeconversiontoentitylistener">
+
+## beforeConversionToEntityListener
 
 This event is invoked before conversion of a JSON document to an entity. E.g. it's called when loading a document.  
 
@@ -943,9 +944,9 @@ public void removeBeforeConversionToEntityListener(EventHandler<BeforeConversion
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="afterConversionToEntityListener" id="afterconversiontoentitylistener" href="#afterconversiontoentitylistener">
+
+## afterConversionToEntityListener
 
 This event is invoked after conversion of a JSON document to an entity. It takes the argument `AfterConversionToEntityEventArgs`, that consists of a JSON document, its ID, the session instance and a converted entity.  
 
@@ -989,12 +990,12 @@ public void removeAfterConversionToEntityListener(EventHandler<AfterConversionTo
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: Subscribing to Session Events
+
 
 * **Events** allow users to perform custom actions in response to operations made in 
   a `Document Store` or a `Session`.  
@@ -1007,7 +1008,7 @@ public void removeAfterConversionToEntityListener(EventHandler<AfterConversionTo
   event in all subsequent sessions.  
   Read more about `DocumentStore` events [here](../../../client-api/how-to/subscribe-to-store-events).  
 
-<Admonition type="info" title="OnBeforeStore" id="onbeforestore" href="#onbeforestore">
+## OnBeforeStore
 
 This event is invoked as a part of `saveChanges()` but before it is actually sent to the server.  
 It should be defined with this signature:  
@@ -1072,9 +1073,9 @@ await session.saveChanges(); // Here the method is invoked
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnBeforeDelete" id="onbeforedelete" href="#onbeforedelete">
+
+## OnBeforeDelete
 
 This event is invoked by `delete(id)` or `delete(entity)`. It is only executed when `saveChanges()` 
 is called, but before the commands are actually sent to the server.  
@@ -1130,9 +1131,9 @@ await session.saveChanges(); // NotSupportedException will be thrown
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnAfterSaveChanges" id="onaftersavechanges" href="#onaftersavechanges">
+
+## OnAfterSaveChanges
 
 This event is invoked after the `saveChanges` is returned.  
 It should be defined with this signature:  
@@ -1168,9 +1169,9 @@ If we want to log each entity that was saved, we can create a method as follows:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnBeforeQuery" id="onbeforequery" href="#onbeforequery">
+
+## OnBeforeQuery
 
 This event is invoked just before the query is sent to the server. 
 It should be defined with this signature:  
@@ -1217,9 +1218,9 @@ If you want each query to [wait for non-stale results](../../../indexes/stale-in
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnBeforeConversionToDocument" id="onbeforeconversiontodocument" href="#onbeforeconversiontodocument">
+
+## OnBeforeConversionToDocument
 
 This event is invoked before conversion of an entity to blittable JSON document. E.g. it's called when sending a document to a server.  
 It should be defined with this signature:  
@@ -1254,9 +1255,9 @@ The usage of `BeforeConversionToDocumentEventArgs`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnAfterConversionToDocument" id="onafterconversiontodocument" href="#onafterconversiontodocument">
+
+## OnAfterConversionToDocument
 
 This event is invoked after conversion of an entity to blittable JSON document.  
 It should be defined with this signature:  
@@ -1294,9 +1295,9 @@ The class `AfterConversionToDocumentEventArgs`:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OnBeforeConversionToEntity" id="onbeforeconversiontoentity" href="#onbeforeconversiontoentity">
+
+## OnBeforeConversionToEntity
 
 This event is invoked before conversion of a JSON document to an entity. E.g. it's called when loading a document.  
 
@@ -1315,9 +1316,9 @@ It takes the argument `BeforeConversionToEntityEventArgs`, that consists of a JS
 </TabItem>
 
 
-</Admonition>
 
-<Admonition type="info" title="OnAfterConversionToEntity" id="onafterconversiontoentity" href="#onafterconversiontoentity">
+
+## OnAfterConversionToEntity
 
 This event is invoked after conversion of a JSON document to an entity. It takes the argument `AfterConversionToEntityEventArgs`, that consists of a JSON document, its ID, the session instance and a converted entity.  
 
@@ -1333,7 +1334,7 @@ This event is invoked after conversion of a JSON document to an entity. It takes
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

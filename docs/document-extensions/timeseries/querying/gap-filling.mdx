@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Data Gap Filling
+export const supportedLanguages = ["csharp", "java", "nodejs"];
 
----
+
+# Data Gap Filling
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -33,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Examples](../../../document-extensions/timeseries/querying/gap-filling#examples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 To add interpolation to a time series query, start by grouping the data by some 
 unit.  
@@ -67,9 +65,9 @@ One data point is added for each aggregated time unit that does not contain any
 values. When time series entries have multiple values, an interpolation will add 
 one data point for each pair of values found on *both* sides of the gap.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="RQL" label="RQL">
@@ -100,14 +98,11 @@ one data point for each pair of values found on *both* sides of the gap.
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Data Gap Filling
-
----
 
 <Admonition type="note" title="Note">
 
@@ -125,10 +120,7 @@ one data point for each pair of values found on *both* sides of the gap.
   * [Examples](../../../document-extensions/timeseries/querying/gap-filling#examples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 To add interpolation to a time series query, start by grouping the data by some 
 unit.  
@@ -158,9 +150,9 @@ One data point is added for each aggregated time unit that does not contain any
 values. When time series entries have multiple values, an interpolation will add 
 one data point for each pair of values found on *both* sides of the gap.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="RQL" label="RQL">
@@ -181,14 +173,11 @@ one data point for each pair of values found on *both* sides of the gap.
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Data Gap Filling
-
----
 
 <Admonition type="note" title="Note">
 
@@ -206,10 +195,7 @@ one data point for each pair of values found on *both* sides of the gap.
   * [Examples](../../../document-extensions/timeseries/querying/gap-filling#examples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 To add interpolation to a time series query, start by grouping the data by some 
 unit.  
@@ -239,9 +225,9 @@ One data point is added for each aggregated time unit that does not contain any
 values. When time series entries have multiple values, an interpolation will add 
 one data point for each pair of values found on *both* sides of the gap.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 <TabItem value="something-something" label="rql_query">
 <CodeBlock language="nodejs">
@@ -257,7 +243,7 @@ one data point for each pair of values found on *both* sides of the gap.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

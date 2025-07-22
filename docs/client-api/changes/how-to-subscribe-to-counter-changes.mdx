@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java"];
+
+
+# Changes API: How to Subscribe to Counter Changes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Changes API: How to Subscribe to Counter Changes
+
 
 Following methods allow you to subscribe to counter changes:
 
@@ -22,7 +26,7 @@ Following methods allow you to subscribe to counter changes:
 - [ForCountersOfDocument](../../client-api/changes/how-to-subscribe-to-counter-changes#forcountersofdocument)
 - [ForAllCounters](../../client-api/changes/how-to-subscribe-to-counter-changes#forallcounters)
 
-<Admonition type="info" title="ForCounter" id="forcounter" href="#forcounter">
+## ForCounter
 
 Counter changes can be observed using `ForCounter` method. This will subscribe changes from all counters with a given name, no matter in what document counter was changed.
 
@@ -64,9 +68,9 @@ Counter changes can be observed using `ForCounter` method. This will subscribe c
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForCounterOfDocument" id="forcounterofdocument" href="#forcounterofdocument">
+
+## ForCounterOfDocument
 
 Specific counter changes of a given document can be observed using `ForCounterOfDocument` method.
 
@@ -109,9 +113,9 @@ Specific counter changes of a given document can be observed using `ForCounterOf
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForCountersOfDocument" id="forcountersofdocument" href="#forcountersofdocument">
+
+## ForCountersOfDocument
 
 Counter changes of a specified document can be observed using `ForCountersOfDocument` method.
 
@@ -153,9 +157,9 @@ Counter changes of a specified document can be observed using `ForCountersOfDocu
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForAllCounters" id="forallcounters" href="#forallcounters">
+
+## ForAllCounters
 
 Changes for all counters can be observed using `ForAllCounters` method.
 
@@ -193,9 +197,9 @@ Changes for all counters can be observed using `ForAllCounters` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="CounterChange" id="counterchange" href="#counterchange">
+
+## CounterChange
 
 | Name | Type | Description |
 | ------------- | ------------- | ----- |
@@ -205,9 +209,9 @@ Changes for all counters can be observed using `ForAllCounters` method.
 | **DocumentId** | string | Counter document identifier |
 | **ChangeVector** | string | Counter's ChangeVector|
 
-</Admonition>
 
-<Admonition type="info" title="CounterChangeTypes" id="counterchangetypes" href="#counterchangetypes">
+
+## CounterChangeTypes
 
 | Name | Value |
 | ---- | ----- |
@@ -216,7 +220,7 @@ Changes for all counters can be observed using `ForAllCounters` method.
 | **Delete** | `2` |
 | **Increment** | `4` |
 
-</Admonition>
+
 
 ## Remarks
 
@@ -228,7 +232,7 @@ To get more method overloads, especially ones supporting **delegates**, please a
 
 </LanguageContent>
 <LanguageContent language="java">
-# Changes API: How to Subscribe to Counter Changes
+
 
 Following methods allow you to subscribe to counter changes:
 
@@ -237,7 +241,7 @@ Following methods allow you to subscribe to counter changes:
 - [ForCountersOfDocument](../../client-api/changes/how-to-subscribe-to-counter-changes#forcountersofdocument)
 - [ForAllCounters](../../client-api/changes/how-to-subscribe-to-counter-changes#forallcounters)
 
-<Admonition type="info" title="ForCounter" id="forcounter" href="#forcounter">
+## ForCounter
 
 Counter changes can be observed using `forCounter` method. This will subscribe changes from all counters with a given name, no matter in what document counter was changed.
 
@@ -276,9 +280,9 @@ Counter changes can be observed using `forCounter` method. This will subscribe c
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForCounterOfDocument" id="forcounterofdocument" href="#forcounterofdocument">
+
+## ForCounterOfDocument
 
 Specific counter changes of a given document can be observed using `forCounterOfDocument` method.
 
@@ -318,9 +322,9 @@ Specific counter changes of a given document can be observed using `forCounterOf
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForCountersOfDocument" id="forcountersofdocument" href="#forcountersofdocument">
+
+## ForCountersOfDocument
 
 Counter changes of a specified document can be observed using `forCountersOfDocument` method.
 
@@ -359,9 +363,9 @@ Counter changes of a specified document can be observed using `forCountersOfDocu
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForAllCounters" id="forallcounters" href="#forallcounters">
+
+## ForAllCounters
 
 Changes for all counters can be observed using `forAllCounters` method.
 
@@ -396,9 +400,9 @@ Changes for all counters can be observed using `forAllCounters` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="CounterChange" id="counterchange" href="#counterchange">
+
+## CounterChange
 
 | Name | Type | Description |
 | ------------- | ------------- | ----- |
@@ -408,9 +412,9 @@ Changes for all counters can be observed using `forAllCounters` method.
 | **DocumentId** | String | Counter document identifier |
 | **ChangeVector** | String | Counter's ChangeVector|
 
-</Admonition>
 
-<Admonition type="info" title="CounterChangeTypes" id="counterchangetypes" href="#counterchangetypes">
+
+## CounterChangeTypes
 
 | Name | Value |
 | ---- | ----- |
@@ -419,7 +423,7 @@ Changes for all counters can be observed using `forAllCounters` method.
 | **DELETE** | `2` |
 | **INCREMENT** | `4` |
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Queue ETL Overview
----
-
 <Admonition type="note" title="Note">
 
 * Message brokers are high-throughput, distributed messaging services that host data they receive  
@@ -40,10 +38,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Task statistics](../../../../server/ongoing-tasks/etl/queue-etl/overview#task-statistics)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Queue ETL tasks" id="queue-etl-tasks" href="#queue-etl-tasks">
+## Queue ETL tasks
 
 RavenDB produces messages to broker queues via the following Queue ETL tasks:
 
@@ -59,9 +54,6 @@ RavenDB produces messages to broker queues via the following Queue ETL tasks:
 * **Amazon SQS ETL Task**  
   You can define an Amazon SQS ETL Task from [Studio](../../../../studio/database/tasks/ongoing-tasks/amazon-sqs-etl) 
   or using the [Client API](../../../../server/ongoing-tasks/etl/queue-etl/amazon-sqs).  
-
----
-
 The above ETL tasks:  
 
 * **Extract** selected data from RavenDB documents from specified collections.  
@@ -69,9 +61,9 @@ The above ETL tasks:
 * Wrap the JSON objects as [CloudEvents messages](https://cloudevents.io)  
   and **Load** them to the designated message broker.  
 
-</Admonition>
 
-<Admonition type="info" title="Data delivery" id="data-delivery" href="#data-delivery">
+
+## Data delivery
 
 #### What is transferred:
 
@@ -103,9 +95,9 @@ The above ETL tasks:
 * Therefore, if processing each message only once is important to the consumer,  
   it is **the consumer's responsibility** to verify the uniqueness of each consumed message.
 
-</Admonition>
 
-<Admonition type="info" title="CloudEvents" id="cloudevents" href="#cloudevents">
+
+## CloudEvents
 
 * After preparing a JSON object that needs to be sent to a message broker,  
   the ETL task wraps it as a CloudEvents message using the [CloudEvents Library](https://cloudevents.io).  
@@ -126,15 +118,15 @@ The above ETL tasks:
     |----------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------|------------------|
     | **partitionkey**     | `string`   | [Events relationship/grouping definition](https://github.com/cloudevents/spec/blob/main/cloudevents/extensions/partitioning.md#partitionkey) | The document ID  |
 
-</Admonition>
 
-<Admonition type="info" title="Task statistics" id="task-statistics" href="#task-statistics">
+
+## Task statistics
 
 Use the Studio [Ongoing tasks stats](../../../../studio/database/stats/ongoing-tasks-stats/overview) view 
 to see various statistics related to data extraction, transformation, and loading to the target broker.  
 
 ![Queue Brokers Stats](./assets/overview_stats.png)
 
-</Admonition>
+
 
 

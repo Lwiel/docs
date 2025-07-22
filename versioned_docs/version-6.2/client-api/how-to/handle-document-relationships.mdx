@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# How to Handle Document Relationships
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# How to Handle Document Relationships
+
 
 One of the design principles that RavenDB adheres to is the idea that documents are independent,
 meaning all data required to process a document is stored within the document itself. 
@@ -27,9 +31,6 @@ this proves to be quite costly in terms of database resources and network traffi
 
 RavenDB offers three elegant approaches to solve this problem. Each scenario will need to use one or more of them.
 When applied correctly, they can drastically improve performance, reduce network bandwidth, and speed up development.
-
----
-
 <Admonition type="note" title="Note">
 
 * In this page:  
@@ -42,10 +43,7 @@ When applied correctly, they can drastically improve performance, reduce network
   * [Combining approaches](../../client-api/how-to/handle-document-relationships#combining-approaches)  
   * [Summary](../../client-api/how-to/handle-document-relationships#summary)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Denormalization" id="denormalization" href="#denormalization">
+## Denormalization
 
 The easiest solution is to denormalize the data within the containing entity,
 forcing it to contain the actual value of the referenced entity in addition to (or instead of) the foreign key.
@@ -143,9 +141,9 @@ The `DenormalizedCustomer` will need to be expanded, possibly to the point that 
 **Denormalization** is a viable solution for rarely changing data or for data that must remain the same despite the underlying referenced data changing over time.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Includes" id="includes" href="#includes">
+
+## Includes
 
 The **Includes** feature addresses the limitations of denormalization.  
 Instead of one object containing copies of the properties from another object, 
@@ -282,9 +280,6 @@ Embedded and builder variants of Include clause are essentially syntax sugar and
 Streaming query results does not support the includes feature.  
 Learn more in [How to Stream Query Results](../../client-api/session/querying/how-to-stream-query-results#stream-related-documents).  
 </Admonition>
- 
----
-
 ### One to many includes
 
 Include can be used with a many to one relationship.
@@ -344,9 +339,6 @@ foreach (Order order in orders.Values)
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Secondary level includes
 
 An Include does not need to work only on the value of a top level property within a document.
@@ -475,9 +467,6 @@ foreach (LineItem lineItem in order.LineItems)
 The `Select()` within the Include tells RavenDB which property of secondary level objects to use as a reference.
 
 <Admonition type="warning" title="Warning">
-
----
-
 ### String path conventions
 
 When using string-based includes like:
@@ -515,9 +504,6 @@ Learning string path rules may be useful when you will want to query database us
 </TabItem>
 
 </Admonition>
-
----
-
 ### Dictionary includes
 
 Dictionary keys and values can also be used when doing includes. Consider following scenario:
@@ -628,9 +614,6 @@ Here, as well, this can be written with fluent builder syntax:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Dictionary includes: complex types
 
 If values in dictionary are more complex, e.g.
@@ -706,9 +689,9 @@ Assert.Equal(1, session.Advanced.NumberOfRequests);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Combining approaches" id="combining-approaches" href="#combining-approaches">
+
+## Combining approaches
 
 It is possible to combine the above techniques.  
 Using the `DenormalizedCustomer` from above and creating an order that uses it:
@@ -756,9 +739,9 @@ This opens up the possibility of implementing Tertiary Includes (i.e. retrieving
 RavenDB can support Tertiary Includes, but before resorting to them you should re-evaluate your document model.
 Needing Tertiary Includes can be an indication that you are designing your documents along "Relational" lines.
 
-</Admonition>
 
-<Admonition type="info" title="Summary" id="summary" href="#summary">
+
+## Summary
 
 There are no strict rules as to when to use which approach, but the general idea is to give it a lot of thought and consider the implications each approach has.
 
@@ -768,12 +751,12 @@ But the customer name and addresses should probably be references rather than de
 
 For most cases where denormalization is not an option, Includes are probably the answer.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# How to Handle Document Relationships
+
 
 One of the design principles that RavenDB adheres to is the idea that documents are independent,
 meaning all data required to process a document is stored within the document itself.
@@ -1622,7 +1605,7 @@ For most cases where denormalization is not an option, Includes are probably the
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# How to Handle Document Relationships
+
 
 One of the design principles that RavenDB adheres to is the idea that documents are independent,
 meaning all data required to process a document is stored within the document itself. 
@@ -1636,9 +1619,6 @@ this proves to be quite costly in terms of database resources and network traffi
 
 RavenDB offers three elegant approaches to solve this problem. Each scenario will need to use one or more of them.
 When applied correctly, they can drastically improve performance, reduce network bandwidth, and speed up development.
-
----
-
 <Admonition type="note" title="Note">
 
 * In this page:  
@@ -1651,10 +1631,7 @@ When applied correctly, they can drastically improve performance, reduce network
   * [Combining approaches](../../client-api/how-to/handle-document-relationships#combining-approaches)  
   * [Summary](../../client-api/how-to/handle-document-relationships#summary)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Denormalization" id="denormalization" href="#denormalization">
+## Denormalization
 
 The easiest solution is to denormalize the data within the containing entity,
 forcing it to contain the actual value of the referenced entity in addition to (or instead of) the foreign key.
@@ -1767,9 +1744,9 @@ The `DenormalizedCustomer` will need to be expanded, possibly to the point that 
 **Denormalization** is a viable solution for rarely changing data or for data that must remain the same despite the underlying referenced data changing over time.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Includes" id="includes" href="#includes">
+
+## Includes
 
 The **Includes** feature addresses the limitations of denormalization.  
 Instead of one object containing copies of the properties from another object, 
@@ -1888,9 +1865,6 @@ Embedded and builder variants of `include` clause are essentially syntax sugar a
 Streaming query results does not support the includes feature.  
 Learn more in [How to Stream Query Results](../../client-api/session/querying/how-to-stream-query-results#stream-related-documents).  
 </Admonition>
- 
----
-
 ### One to many includes
 
 Include can be used with a many to one relationship.
@@ -1951,9 +1925,6 @@ for (let i = 0; i < orderEntities.length; i++) \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Secondary level includes
 
 An Include does not need to work only on the value of a top level property within a document.
@@ -2063,9 +2034,6 @@ for (let i = 0; i < order.lineItems.length; i++) \{
 </TabItem>
 
 <Admonition type="warning" title="Warning">
-
----
-
 ### String path conventions
 
 When using string-based includes like:
@@ -2104,9 +2072,6 @@ Learning string path rules may be useful when you will want to query database us
 </TabItem>
 
 </Admonition>
-
----
-
 ### Dictionary includes
 
 Dictionary keys and values can also be used when doing includes. Consider following scenario:
@@ -2219,9 +2184,6 @@ Here, as well, this can be written with fluent builder syntax:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Dictionary includes: complex types
 
 If values in dictionary are more complex, e.g.
@@ -2307,9 +2269,9 @@ assert.equal(session.advanced.numberOfRequests, 1);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Combining approaches" id="combining-approaches" href="#combining-approaches">
+
+## Combining approaches
 
 It is possible to combine the above techniques.  
 Using the `DenormalizedCustomer` from above and creating an order that uses it:
@@ -2362,9 +2324,9 @@ This opens up the possibility of implementing Tertiary Includes (i.e. retrieving
 RavenDB can support Tertiary Includes, but before resorting to them you should re-evaluate your document model.
 Needing Tertiary Includes can be an indication that you are designing your documents along "Relational" lines.
 
-</Admonition>
 
-<Admonition type="info" title="Summary" id="summary" href="#summary">
+
+## Summary
 
 There are no strict rules as to when to use which approach, but the general idea is to give it a lot of thought and consider the implications each approach has.
 
@@ -2374,7 +2336,7 @@ But the customer name and addresses should probably be references rather than de
 
 For most cases where denormalization is not an option, Includes are probably the answer.
 
-</Admonition>
+
 
 
 </LanguageContent>

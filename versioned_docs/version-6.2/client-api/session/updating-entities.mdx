@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
+
+
+# Update Entities
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Update Entities
----
 
 <Admonition type="note" title="Note">
 
@@ -36,10 +38,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Query for documents & update](../../client-api/session/updating-entities#query-for-documents-&-update)
     
 </Admonition>
-
----
-
-<Admonition type="info" title="Load a document & update" id="load-a-document-update" href="#load-a-document-update">
+## Load a document & update
 
 * In this example we `Load` a company document and update its **PostalCode** property.  
 
@@ -80,9 +79,9 @@ import LanguageContent from "@site/src/components/language-content";
 </TabItem>
 </Tabs> 
 
-</Admonition>
 
-<Admonition type="info" title="Query for documents & update" id="query-for-documents-update" href="#query-for-documents-update">
+
+## Query for documents & update
 
 * In this example we `Query` for company documents whose **PostalCode** property is _12345_,  
   and modify this property for the matching documents.  
@@ -136,13 +135,11 @@ import LanguageContent from "@site/src/components/language-content";
 </TabItem>
 </Tabs> 
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Update Entities
----
 
 <Admonition type="note" title="Note">
 
@@ -164,10 +161,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Query for documents & update](../../client-api/session/updating-entities#query-for-documents-&-update)
     
 </Admonition>
-
----
-
-<Admonition type="info" title="Load a document & update" id="load-a-document-update" href="#load-a-document-update">
+## Load a document & update
 
 * In this example we `load` a company document and update its **PostalCode** property.  
 
@@ -192,9 +186,9 @@ import LanguageContent from "@site/src/components/language-content";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Query for documents & update" id="query-for-documents-update" href="#query-for-documents-update">
+
+## Query for documents & update
 
 * In this example we `query` for company documents whose **PostalCode** property is _12345_,  
   and modify this property for the matching documents.  
@@ -218,13 +212,11 @@ import LanguageContent from "@site/src/components/language-content";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Update Entities
----
 
 <Admonition type="note" title="Note">
 
@@ -247,10 +239,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Query for documents & update](../../client-api/session/updating-entities#query-for-documents-&-update)
     
 </Admonition>
-
----
-
-<Admonition type="info" title="Load a document & update" id="load-a-document-update" href="#load-a-document-update">
+## Load a document & update
 
 * In this example we `load` a company document and update its **PostalCode** property.  
 
@@ -277,9 +266,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Query for documents & update" id="query-for-documents-update" href="#query-for-documents-update">
+
+## Query for documents & update
 
 * In this example we `query` for company documents whose **PostalCode** property is _12345_,  
   and modify this property for the matching documents.  
@@ -311,13 +300,11 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Update Entities
----
 
 <Admonition type="note" title="Note">
 
@@ -339,10 +326,7 @@ try \{
     * [Query for documents & update](../../client-api/session/updating-entities#query-for-documents-&-update)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Load a document & update" id="load-a-document-update" href="#load-a-document-update">
+## Load a document & update
 
 * In this example we `load` a company document and update its **postalCode** property.
 
@@ -382,9 +366,9 @@ await session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Query for documents & update" id="query-for-documents-update" href="#query-for-documents-update">
+
+## Query for documents & update
 
 * In this example we `query` for company documents whose **postalCode** property is _12345_,  
   and modify this property for the matching documents.
@@ -408,7 +392,7 @@ await session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

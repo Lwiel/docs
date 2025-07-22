@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Database Settings Operations
+export const supportedLanguages = ["csharp", "php", "nodejs"];
 
----
+
+# Database Settings Operations
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
   
@@ -37,7 +38,7 @@ Do not modify the database settings unless you are an expert and know what you'r
 
 </Admonition>
 
-<Admonition type="info" title="Put database settings operation" id="put-database-settings-operation" href="#put-database-settings-operation">
+## Put database settings operation
 
 * Use `PutDatabaseSettingsOperation` to modify the default database configuration.
 
@@ -114,9 +115,6 @@ await documentStore.Maintenance.Server.SendAsync(enableDatabaseOp);
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 **Syntax**:
 
 <TabItem value="something" label="syntax_1">
@@ -132,9 +130,9 @@ await documentStore.Maintenance.Server.SendAsync(enableDatabaseOp);
 | configurationSettings | `Dictionary<string, string>` | The configuration settings to set.                 |
 
 
-</Admonition>
 
-<Admonition type="info" title="Get database settings operation" id="get-database-settings-operation" href="#get-database-settings-operation">
+
+## Get database settings operation
 
 * Use `GetDatabaseSettingsOperation` to get the configuration settings that were customized for the database.  
 
@@ -168,9 +166,6 @@ var customizedValue = customizedSettings.Settings["Databases.QueryTimeoutInSec"]
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 **Syntax**:
 
 <TabItem value="something" label="syntax_2">
@@ -197,14 +192,11 @@ public class DatabaseSettings
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Database Settings Operations
-
----
 
 <Admonition type="note" title="Note">
   
@@ -226,7 +218,7 @@ Do not modify the database settings unless you are an expert and know what you'r
 
 </Admonition>
 
-<Admonition type="info" title="Put database settings operation" id="put-database-settings-operation" href="#put-database-settings-operation">
+## Put database settings operation
 
 * Use `PutDatabaseSettingsOperation` to modify the default database configuration.
 
@@ -268,9 +260,6 @@ $documentStore->maintenance()->server()->send($enableDatabaseOp);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something-something" label="syntax_1">
@@ -286,9 +275,9 @@ $documentStore->maintenance()->server()->send($enableDatabaseOp);
 | $configurationSettings | `StringMap`<br/>`array`<br/>`null` | The configuration settings to set.               |
 
 
-</Admonition>
 
-<Admonition type="info" title="Get database settings operation" id="get-database-settings-operation" href="#get-database-settings-operation">
+
+## Get database settings operation
 
 * Use `GetDatabaseSettingsOperation` to get the configuration settings that were customized for the database.  
 
@@ -308,9 +297,6 @@ $customizedValue = $customizedSettings->getSettings()["Databases.QueryTimeoutInS
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something-something" label="syntax_2">
@@ -338,14 +324,11 @@ class DatabaseSettings
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Database Settings Operations
-
----
 
 <Admonition type="note" title="Note">
   
@@ -367,7 +350,7 @@ Do not modify the database settings unless you are an expert and know what you'r
 
 </Admonition>
 
-<Admonition type="info" title="Put database settings operation" id="put-database-settings-operation" href="#put-database-settings-operation">
+## Put database settings operation
 
 * Use `PutDatabaseSettingsOperation` to modify the default database configuration.
 
@@ -409,9 +392,6 @@ await documentStore.maintenance.server.send(enableDatabaseOp);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something-something" label="syntax_1">
@@ -427,9 +407,9 @@ await documentStore.maintenance.server.send(enableDatabaseOp);
 | configurationSettings | `object` | The configuration settings to set.                 |
 
 
-</Admonition>
 
-<Admonition type="info" title="Get database settings operation" id="get-database-settings-operation" href="#get-database-settings-operation">
+
+## Get database settings operation
 
 * Use `GetDatabaseSettingsOperation` to get the configuration settings that were customized for the database.  
 
@@ -448,9 +428,6 @@ const customizedValue = customizedSettings.settings["Databases.QueryTimeoutInSec
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something-something" label="syntax_2">
@@ -475,7 +452,7 @@ const customizedValue = customizedSettings.settings["Databases.QueryTimeoutInSec
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

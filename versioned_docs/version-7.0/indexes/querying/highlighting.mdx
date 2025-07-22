@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Highlight Index Search Results
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Highlight Index Search Results
----
 
 <Admonition type="note" title="Note">
 
@@ -35,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Customize highlight tags](../../indexes/querying/highlighting#customize-highlight-tags)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Highlight results - Map index" id="highlight-results-map-index" href="#highlight-results-map-index">
+## Highlight results - Map index
 
 #### Configure a Map index for highlighting:
 
@@ -81,9 +80,6 @@ public class Employees_ByNotes :
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index with `Search`:
 
 <Tabs groupId='languageSyntax'>
@@ -138,9 +134,6 @@ include highlight(EmployeeNotes, 35, 2)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query the index with `Where`:
 
 <Tabs groupId='languageSyntax'>
@@ -195,9 +188,6 @@ include highlight(EmployeeNotes, 35, 2)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Process results:
 
 <TabItem value="something" label="highlight_7">
@@ -235,9 +225,9 @@ string fragmentsHtml = builder.AppendLine("</ul>").ToString();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight results - Map-Reduce index" id="highlight-results-map-reduce-index" href="#highlight-results-map-reduce-index">
+
+## Highlight results - Map-Reduce index
 
 #### Configure a Map-Reduce index for highlighting:
 
@@ -305,9 +295,6 @@ public class ContactDetailsPerCountry :
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index:
 
 <Tabs groupId='languageSyntax'>
@@ -393,9 +380,6 @@ include highlight(ContactDetails, 35, 2, $p0)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Process results:
 
 <TabItem value="something" label="highlight_11">
@@ -449,9 +433,9 @@ string fragmentsHtml = builder.AppendLine("</ul>").ToString();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Customize highlight tags" id="customize-highlight-tags" href="#customize-highlight-tags">
+
+## Customize highlight tags
 
 * **Default tags**:  
 
@@ -466,12 +450,12 @@ string fragmentsHtml = builder.AppendLine("</ul>").ToString();
   
   * Follow the example in [Highlight - customize tags](../../client-api/session/querying/text-search/highlight-query-results#highlight---customize-tags).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Highlight Search Results
+
 
 Another feature called `Highlighting` has been added to RavenDB to enhance the search UX.
 
@@ -790,8 +774,6 @@ Default `<b></b>` tags are coloured and colours are returned in following order:
 
 </LanguageContent>
 <LanguageContent language="python">
-# Highlight Index Search Results
----
 
 <Admonition type="note" title="Note">
 
@@ -812,10 +794,7 @@ Default `<b></b>` tags are coloured and colours are returned in following order:
   * [Customize highlight tags](../../indexes/querying/highlighting#customize-highlight-tags)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Highlight results - Map index" id="highlight-results-map-index" href="#highlight-results-map-index">
+## Highlight results - Map index
 
 #### Configure a Map index for highlighting:
 
@@ -848,9 +827,6 @@ class Employees_ByNotes(AbstractIndexCreationTask):
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index with `search`:
 
 <Tabs groupId='languageSyntax'>
@@ -885,9 +861,6 @@ include highlight(EmployeeNotes, 35, 2)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query the index with `where_equals`:
 
 <Tabs groupId='languageSyntax'>
@@ -924,9 +897,6 @@ include highlight(EmployeeNotes, 35, 2)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Process results:
 
 <TabItem value="something-something" label="highlight_7">
@@ -959,9 +929,9 @@ fragments_html = "".join(builder)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight results - Map-Reduce index" id="highlight-results-map-reduce-index" href="#highlight-results-map-reduce-index">
+
+## Highlight results - Map-Reduce index
 
 #### Configure a Map-Reduce index for highlighting:
 
@@ -1016,9 +986,6 @@ class ContactDetailsPerCountry(AbstractIndexCreationTask):
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index:
 
 <Tabs groupId='languageSyntax'>
@@ -1064,9 +1031,6 @@ include highlight(ContactDetails, 35, 2, $p0)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Process results:
 
 <TabItem value="something-something" label="highlight_11">
@@ -1117,9 +1081,9 @@ fragments_html = "".join(builder)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Customize highlight tags" id="customize-highlight-tags" href="#customize-highlight-tags">
+
+## Customize highlight tags
 
 * **Default tags**:  
 
@@ -1134,13 +1098,11 @@ fragments_html = "".join(builder)
   
   * Follow the example in [Highlight - customize tags](../../client-api/session/querying/text-search/highlight-query-results#highlight---customize-tags).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Highlight Index Search Results
----
 
 <Admonition type="note" title="Note">
 
@@ -1161,10 +1123,7 @@ fragments_html = "".join(builder)
   * [Customize highlight tags](../../indexes/querying/highlighting#customize-highlight-tags)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Highlight results - Map index" id="highlight-results-map-index" href="#highlight-results-map-index">
+## Highlight results - Map index
 
 #### Configure a Map index for highlighting:
 
@@ -1218,9 +1177,6 @@ class Employees_ByNotes extends AbstractIndexCreationTask
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index with `search`:
 
 <Tabs groupId='languageSyntax'>
@@ -1250,9 +1206,6 @@ include highlight(EmployeeNotes, 35, 2)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query the index with `whereEquals`:
 
 <Tabs groupId='languageSyntax'>
@@ -1282,9 +1235,6 @@ include highlight(EmployeeNotes, 35, 2)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Process results:
 
 <TabItem value="something-something" label="highlight_7">
@@ -1322,9 +1272,9 @@ $fragmentsHtml = $builder . "</ul>";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight results - Map-Reduce index" id="highlight-results-map-reduce-index" href="#highlight-results-map-reduce-index">
+
+## Highlight results - Map-Reduce index
 
 #### Configure a Map-Reduce index for highlighting:
 
@@ -1410,9 +1360,6 @@ class ContactDetailsPerCountry extends AbstractIndexCreationTask
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index:
 
 <Tabs groupId='languageSyntax'>
@@ -1451,9 +1398,6 @@ include highlight(ContactDetails, 35, 2, $p0)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Process results:
 
 <TabItem value="something-something" label="highlight_11">
@@ -1506,9 +1450,9 @@ $fragmentsHtml = $builder . "</ul>";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Customize highlight tags" id="customize-highlight-tags" href="#customize-highlight-tags">
+
+## Customize highlight tags
 
 * **Default tags**:  
 
@@ -1523,13 +1467,11 @@ $fragmentsHtml = $builder . "</ul>";
   
   * Follow the example in [Highlight - customize tags](../../client-api/session/querying/text-search/highlight-query-results#highlight---customize-tags).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Highlight Index Search Results
----
 
 <Admonition type="note" title="Note">
 
@@ -1550,17 +1492,11 @@ $fragmentsHtml = $builder . "</ul>";
   * [Customize highlight tags](../../indexes/querying/highlighting#customize-highlight-tags)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Highlight results - Map index" id="highlight-results-map-index" href="#highlight-results-map-index">
+## Highlight results - Map index
 
 <Admonition type="note" title="Note">
 
 **Configure a Map index for highlighting**:
-
----
-
 To search and get fragments with highlighted terms,  
 the index-field on which you search **must be configured as follows**:
 
@@ -1598,9 +1534,6 @@ class Employees_ByNotes extends AbstractJavaScriptIndexCreationTask \{
 <Admonition type="note" title="Note">
 
 **Query the index with `search`**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
 <CodeBlock language="nodejs">
@@ -1637,9 +1570,6 @@ include highlight(EmployeeNotes, 35, 2)
 <Admonition type="note" title="Note">
 
 **Query the index with `whereEquals`**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
 <CodeBlock language="nodejs">
@@ -1676,9 +1606,6 @@ include highlight(EmployeeNotes, 35, 2)
 <Admonition type="note" title="Note">
 
 **Process results**:
-
----
-
 <TabItem value="something-something" label="highlight_3">
 <CodeBlock language="nodejs">
 {`// 'employeesResults' contains all Employee DOCUMENTS that contain the term 'manager'.
@@ -1716,16 +1643,13 @@ fragmentsHtml += "</ul>";
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Highlight results - Map-Reduce index" id="highlight-results-map-reduce-index" href="#highlight-results-map-reduce-index">
+
+## Highlight results - Map-Reduce index
 
 <Admonition type="note" title="Note">
 
 **Configure a Map-Reduce index for highlighting**:
-
----
-
 In order to search and get fragments with highlighted terms in a Map-Reduce index:  
 
   * The index-field on which you **search** must be configured with:
@@ -1787,9 +1711,6 @@ class ContactDetailsPerCountry extends AbstractJavaScriptIndexCreationTask \{
 <Admonition type="note" title="Note">
 
 **Query the index**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
 <CodeBlock language="nodejs">
@@ -1837,9 +1758,6 @@ include highlight(ContactDetails, 35, 2, $p0)
 <Admonition type="note" title="Note">
 
 **Process results**:
-
----
-
 <TabItem value="something-something" label="highlight_5">
 <CodeBlock language="nodejs">
 {`// 'detailsPerCountry' contains the contacts details grouped per country.
@@ -1892,9 +1810,9 @@ fragmentsHtml += "</ul>";
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Customize highlight tags" id="customize-highlight-tags" href="#customize-highlight-tags">
+
+## Customize highlight tags
 
 * **Default tags**:  
 
@@ -1909,7 +1827,7 @@ fragmentsHtml += "</ul>";
   
   * Follow the example in [Highlight - customize tags](../../client-api/session/querying/text-search/highlight-query-results#highlight---customize-tags).
 
-</Admonition>
+
 
 
 </LanguageContent>

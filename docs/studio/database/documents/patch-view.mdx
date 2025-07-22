@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Patch View
----
-
 <Admonition type="note" title="Note">
 
 * Patching lets you modify existing documents by applying scripted updates directly on the server,  
@@ -24,9 +22,6 @@ import LanguageContent from "@site/src/components/language-content";
 * To perform patching from the Client API, see:
     * [Patching a single document](../../../client-api/operations/patching/single-document)
     * [Set-based patch operations](../../../client-api/operations/patching/set-based)
-
----
-
 * In this article:  
   * [The patch view](../../../studio/database/documents/patch-view#the-patch-view)  
   * [The patch script](../../../studio/database/documents/patch-view#the-patch-script)  
@@ -35,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Apply patch](../../../studio/database/documents/patch-view#apply-patch)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="The patch view" id="the-patch-view" href="#the-patch-view">
+## The patch view
 
 ![Figure 1. Patch View](./assets/patch-view-1.png)
 
@@ -56,9 +48,9 @@ import LanguageContent from "@site/src/components/language-content";
    Click to test your patch without actually applying it to your documents.  
    See [Test patch](../../../studio/database/documents/patch-view#test-patch) below.  
 
-</Admonition>
 
-<Admonition type="info" title="The patch script" id="the-patch-script" href="#the-patch-script">
+
+## The patch script
 
 * The patch script consists of two parts:
  
@@ -94,9 +86,9 @@ update  \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Patch configuration" id="patch-configuration" href="#patch-configuration">
+
+## Patch configuration
 
 ![Figure 2. Patch Configuration](./assets/patch-view-2.png)
 
@@ -138,9 +130,9 @@ update  \{
          Toggle this option ON to set the maximum number of patch operations per second.  
          ![Patch Operations Limit](./assets/patch-view-operations-limit.png)  
 
-</Admonition>
 
-<Admonition type="info" title="Test patch" id="test-patch" href="#test-patch">
+
+## Test patch
 
 * Before applying the patch to your documents, you can **test the patch script**
   and preview its effect on a selected document, without saving any changes made by the script.  
@@ -148,9 +140,6 @@ update  \{
 
 * Only the script under the `update` section is executed during testing - the query is ignored.  
   This means you can test the patch using any document, even if it doesn’t match the query defined in the patch script.
-
----
-
 Click **Test** to open the "test panel":
 
 ![Open Test Dialog](./assets/patch-view-test-dialog.png)  
@@ -176,9 +165,9 @@ The **"test panel"** will be displayed:
 5. **Done**  
    Click 'Done' to close the "test panel" and return to the patch view.  
 
-</Admonition>
 
-<Admonition type="info" title="Apply patch" id="apply-patch" href="#apply-patch">
+
+## Apply patch
 
 While the patch is executing, a runtime dialog is displayed showing the progress of the operation:
 
@@ -206,5 +195,5 @@ While the patch is executing, a runtime dialog is displayed showing the progress
    Any documents already modified before the abort will not be reverted.  
    The operation will stop processing further documents.
 
-</Admonition>
+
 

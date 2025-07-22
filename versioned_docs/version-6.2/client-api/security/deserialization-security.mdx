@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Security: Deserialization
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Security: Deserialization
----
 
 <Admonition type="note" title="Note">
 
@@ -35,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Example](../../client-api/security/deserialization-security#example)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Securing Deserialization" id="securing-deserialization" href="#securing-deserialization">
+## Securing Deserialization
 
 * When a RavenDB client uses the [Newtonsoft library](https://www.newtonsoft.com/json/help/html/SerializingJSON.htm) 
   to deserialize a JSON string to a `.NET` object, the object may include 
@@ -64,9 +63,9 @@ import LanguageContent from "@site/src/components/language-content";
   the list of namespaces and object types for which deserialization is forbidden 
   or allowed.  
 
-</Admonition>  
+  
 
-<Admonition type="info" title="Invoking a Gadget" id="invoking-a-gadget" href="#invoking-a-gadget">
+## Invoking a Gadget
 
 * **Directly-loaded gadgets Cannot be blocked using the default binder**.  
   When a gadget is loaded directly its loading and execution during 
@@ -111,10 +110,10 @@ session.Load<object>("Gadget");
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
 
-<Admonition type="info" title="`DefaultRavenSerializationBinder`" id="defaultravenserializationbinder" href="#defaultravenserializationbinder">
+
+## `DefaultRavenSerializationBinder`
 
 Use the `DefaultRavenSerializationBinder` convention and its methods to 
 block the deserialization of suspicious namespaces and object types or 
@@ -129,9 +128,6 @@ the defined instance as a serialization convention as shown
 Be sure to update the default deserializer list **before** the initialization 
 of the document that you want the list to apply to.  
 </Admonition>
-
----
-
 ### `RegisterForbiddenNamespace`  
 Use `RegisterForbiddenNamespace` to prevent the deserialization of objects loaded from a given namespace.
 
@@ -153,9 +149,6 @@ Use `RegisterForbiddenNamespace` to prevent the deserialization of objects loade
      security reasons. Please customize json deserializer in the conventions and override SerializationBinder 
      with your own logic if you want to allow this type."_
      </Admonition>
-
----
-
 ### `RegisterForbiddenType`  
 Use `RegisterForbiddenType` to prevent the deserialization of a given object type.
 
@@ -178,9 +171,6 @@ Use `RegisterForbiddenType` to prevent the deserialization of a given object typ
      Please customize json deserializer in the conventions and override SerializationBinder 
      with your own logic if you want to allow this type."_
      </Admonition>
-
----
-
 ### `RegisterSafeType`  
 Use `RegisterSafeType` to **allow** the deserialization of a given object type.
 
@@ -223,7 +213,7 @@ var store = new DocumentStore()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

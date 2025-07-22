@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Choosing Time Series Range
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Choosing Time Series Range
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -33,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
        * [`first` and `last`](../../../document-extensions/timeseries/querying/choosing-query-range#and--1)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Choose range in a query" id="choose-range-in-a-query" href="#choose-range-in-a-query">
+## Choose range in a query
 
 #### Specify range:
 
@@ -128,9 +126,6 @@ select timeseries(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Retrieve first or last entries:
 
 * Use `FromFirst()` to specify the time frame from the start of the time series.  
@@ -203,9 +198,9 @@ select timeseries(
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Choose range - RQL syntax" id="choose-range-rql-syntax" href="#choose-range-rql-syntax">
+
+## Choose range - RQL syntax
 
 #### `between` and `and`:
 
@@ -262,9 +257,6 @@ select timeseries(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### `first` and `last`:
 
 * Use `first` to specify the time frame from the start of the time series.  
@@ -306,14 +298,11 @@ select timeseries(
     * **years**    ( years / year / y )
     * Note: **milliseconds** are currently not supported by 'first' and 'last' in a time series query.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Choosing Time Series Range
-
----
 
 <Admonition type="note" title="Note">
 
@@ -331,10 +320,7 @@ select timeseries(
       * [`first` and `last`](../../../document-extensions/timeseries/querying/choosing-query-range#and--1)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Choose range in a query" id="choose-range-in-a-query" href="#choose-range-in-a-query">
+## Choose range in a query
 
 #### Specify range:
 
@@ -359,9 +345,6 @@ select timeseries(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Retrieve first or last entries:
 
 * Use `first` to specify the time frame from the start of the time series.  
@@ -382,9 +365,9 @@ select timeseries(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Choose range - RQL syntax" id="choose-range-rql-syntax" href="#choose-range-rql-syntax">
+
+## Choose range - RQL syntax
 
 #### `between` and `and`:
 
@@ -441,9 +424,6 @@ select timeseries(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### `first` and `last`:
 
 * Use `first` to specify the time frame from the start of the time series.  
@@ -485,14 +465,11 @@ select timeseries(
     * **years**    ( years / year / y )
     * Note: **milliseconds** are currently not supported by 'first' and 'last' in a time series query.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Choosing Time Series Range
-
----
 
 <Admonition type="note" title="Note">
 
@@ -508,10 +485,7 @@ select timeseries(
       * [`first` and `last`](../../../document-extensions/timeseries/querying/choosing-query-range#and--1)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Choose range in a query" id="choose-range-in-a-query" href="#choose-range-in-a-query">
+## Choose range in a query
 
 #### Specify range:
 
@@ -536,9 +510,6 @@ select timeseries(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Retrieve first or last entries:
 
 * Use `first` to specify the time frame from the start of the time series.  
@@ -559,9 +530,9 @@ select timeseries(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Choose range - RQL syntax" id="choose-range-rql-syntax" href="#choose-range-rql-syntax">
+
+## Choose range - RQL syntax
 
 #### `between` and `and`:
 
@@ -618,9 +589,6 @@ select timeseries(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### `first` and `last`:
 
 * Use `first` to specify the time frame from the start of the time series.  
@@ -662,14 +630,11 @@ select timeseries(
     * **years**    ( years / year / y )
     * Note: **milliseconds** are currently not supported by 'first' and 'last' in a time series query.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Choosing Time Series Range
-
----
 
 <Admonition type="note" title="Note">
 
@@ -687,10 +652,7 @@ select timeseries(
        * [`first` and `last`](../../../document-extensions/timeseries/querying/choosing-query-range#and--1)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Choose range in a query" id="choose-range-in-a-query" href="#choose-range-in-a-query">
+## Choose range in a query
 
 #### Specify range:
 
@@ -834,9 +796,6 @@ select timeseries(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Retrieve first or last entries:
 
 * Use `first` to specify the time frame from the start of the time series.  
@@ -892,9 +851,9 @@ select timeseries(
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Choose range - RQL syntax" id="choose-range-rql-syntax" href="#choose-range-rql-syntax">
+
+## Choose range - RQL syntax
 
 #### `between` and `and`:
 
@@ -951,9 +910,6 @@ select timeseries(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### `first` and `last`:
 
 * Use `first` to specify the time frame from the start of the time series.  
@@ -995,7 +951,7 @@ select timeseries(
     * **years**    ( years / year / y )
     * Note: **milliseconds** are currently not supported by 'first' and 'last' in a time series query.
 
-</Admonition>
+
 
 
 </LanguageContent>

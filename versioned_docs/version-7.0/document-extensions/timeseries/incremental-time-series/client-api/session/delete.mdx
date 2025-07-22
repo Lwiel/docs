@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Session: Delete Incremental Time Series
-
----
-
 <Admonition type="note" title="Note">
 
 Delete a range of incremental time series entries using `IncrementalTimeSeriesFor.Delete`.  
@@ -27,10 +24,7 @@ Delete a range of incremental time series entries using `IncrementalTimeSeriesFo
        * [Usage Flow](../../../../../document-extensions/timeseries/incremental-time-series/client-api/session/delete#usage-flow)  
        * [Code Samples](../../../../../document-extensions/timeseries/incremental-time-series/client-api/session/delete#code-samples)  
 </Admonition>
-
----
-
-<Admonition type="info" title="`IncrementalTimeSeriesFor.Delete`" id="incrementaltimeseriesfor-delete" href="#incrementaltimeseriesfor-delete">
+## `IncrementalTimeSeriesFor.Delete`
 
 `IncrementalTimeSeriesFor.Delete` is used for the removal of incremental time series and 
 their entries.  
@@ -41,9 +35,9 @@ their entries.
   generating no exception.  
 
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 * There are two `IncrementalTimeSeriesFor.Delete` methods:  
    * Delete a range of time series entries  
@@ -81,9 +75,9 @@ void Delete(DateTime at);
    * `DocumentDoesNotExistException` is thrown If the document doesn't exist.  
    * Attempting to delete nonexistent entries results in a no-op and does not generate an exception.  
 
-</Admonition>
 
-<Admonition type="info" title="Usage Flow" id="usage-flow" href="#usage-flow">
+
+## Usage Flow
 
 * Open a session  
 * Create an instance of `IncrementalTimeSeriesFor` and pass it:  
@@ -97,9 +91,9 @@ void Delete(DateTime at);
 * Call `IncrementalTimeSeriesFor.Delete`.  
 * Call `session.SaveChanges` for the action to take effect on the server.  
 
-</Admonition>
 
-<Admonition type="info" title="Code Samples" id="code-samples" href="#code-samples">
+
+## Code Samples
 
 * Delete a single entry:  
 <TabItem value="something" label="incremental_delete-single-entry">
@@ -131,5 +125,5 @@ using (var session = store.OpenSession())
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Include Time Series with&nbsp;`Query`
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Include Time Series with&nbsp;`Query`
----
 
 <Admonition type="note" title="Note">
 
@@ -29,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Syntax](../../../../../document-extensions/timeseries/client-api/session/include/with-session-query#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include time series when making a query" id="include-time-series-when-making-a-query" href="#include-time-series-when-making-a-query">
+## Include time series when making a query
 
 In this example, we retrieve a document using `session.Query`  
 and _include_ entries from the document's "HeartRates" time series.
@@ -56,9 +55,9 @@ and _include_ entries from the document's "HeartRates" time series.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **`Include`** builder methods:
 
@@ -75,13 +74,11 @@ and _include_ entries from the document's "HeartRates" time series.
 | **from**  | `DateTime?` | Time series range start (inclusive).<br/>Default: `DateTime.MinValue`. |
 | **to**    | `DateTime?` | Time series range end (inclusive).<br/>Default: `DateTime.MaxValue`.   |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Include Time Series with&nbsp;`query`
----
 
 <Admonition type="note" title="Note">
 
@@ -96,10 +93,7 @@ and _include_ entries from the document's "HeartRates" time series.
    * [Syntax](../../../../../document-extensions/timeseries/client-api/session/include/with-session-query#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include time series when making a query" id="include-time-series-when-making-a-query" href="#include-time-series-when-making-a-query">
+## Include time series when making a query
 
 In this example, we retrieve a document using `session.query`  
 and _include_ entries from the document's "HeartRates" time series.
@@ -141,9 +135,9 @@ limit null, 1
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **`include`** builder methods:
 
@@ -161,7 +155,7 @@ includeTimeSeries(name, from, to);
 | **from**  | `Date`   | Time series range start (inclusive).<br/>Default: minimum date value. |
 | **to**    | `Date`   | Time series range end (inclusive).<br/>Default: maximum date value.   |
 
-</Admonition>
+
 
 
 </LanguageContent>

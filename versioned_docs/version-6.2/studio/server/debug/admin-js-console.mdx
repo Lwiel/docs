@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Admin JS Console
-
----
-
 <Admonition type="note" title="Note">
 
 * The Admin Console lets you run javascript code to execute advanced operations on the server.  
@@ -31,10 +28,7 @@ data, or other irreversible harm.
     * [Operations](../../../studio/server/debug/admin-js-console#operations)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Console view" id="console-view" href="#console-view">
+## Console view
 
 ![NoSQL DB Server Debug - Admin JS Console](./assets/AdminJSConsole.png)  
 
@@ -45,9 +39,9 @@ data, or other irreversible harm.
 respectively.  
 4. The output of the script.  
 
-</Admonition>
 
-<Admonition type="info" title="Operations" id="operations" href="#operations">
+
+## Operations
 
 This is a partial list of operations that can be used from the console. The operations are sorted into endpoints with a common parent path.  
 
@@ -76,4 +70,4 @@ The second parameter is a `string` that will be printed to the log of the term u
 | Endpoint | Type | Description |
 | - | - | - |
 | `RequestSnapshot` | boolean | Set this value to true to make this server request the raft logs from the leader node of its cluster. This will allow the server to resynchronize. |
-</Admonition>
+

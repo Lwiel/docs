@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Exact Match Query
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Exact Match Query
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -33,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/session/querying/text-search/exact-match-query#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query with exact match" id="query-with-exact-match" href="#query-with-exact-match">
+## Query with exact match
 
 <Admonition type="note" title="Note">
 
@@ -101,9 +99,9 @@ where exact(FirstName == "Robert")
     Casing is exactly the same as in the original text, and the text is not tokenized.  
     Making an exact query targets these terms to find matching documents.
 
-</Admonition>
 
-<Admonition type="info" title="Query with exact match - nested object" id="query-with-exact-match-nested-object" href="#query-with-exact-match-nested-object">
+
+## Query with exact match - nested object
 
 <Admonition type="note" title="Note">
 
@@ -158,9 +156,9 @@ where exact(Lines.ProductName == "Teatime Chocolate Biscuits")
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -174,12 +172,12 @@ where exact(Lines.ProductName == "Teatime Chocolate Biscuits")
 | **predicate** | Expression&lt;Func&lt;T, bool&gt;&gt; | Predicate with match condition                                            |
 | **exact**     | bool                      | `false` - search is case-insensitive<br/>`true` - search is case-sensitive |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Exact Match Query
+
 
 By default, the `whereXXX` methods in `query` uses a case-insensitive match.
 
@@ -251,9 +249,6 @@ where exact(Lines[].ProductName == 'Singaporean Hokkien Fried Mee')
 
 </LanguageContent>
 <LanguageContent language="python">
-# Exact Match Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -271,10 +266,7 @@ where exact(Lines[].ProductName == 'Singaporean Hokkien Fried Mee')
     * [Syntax](../../../../client-api/session/querying/text-search/exact-match-query#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query with exact match" id="query-with-exact-match" href="#query-with-exact-match">
+## Query with exact match
 
 <Admonition type="note" title="Note">
 
@@ -316,9 +308,9 @@ where exact(FirstName == "Robert")
     Casing is exactly the same as in the original text, and the text is not tokenized.  
     Making an exact query targets these terms to find matching documents.
 
-</Admonition>
 
-<Admonition type="info" title="Query with exact match - nested object" id="query-with-exact-match-nested-object" href="#query-with-exact-match-nested-object">
+
+## Query with exact match - nested object
 
 <Admonition type="note" title="Note">
 
@@ -351,9 +343,9 @@ where exact(Lines.ProductName == "Teatime Chocolate Biscuits")
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -374,14 +366,11 @@ where exact(Lines.ProductName == "Teatime Chocolate Biscuits")
 | ------------- | ----- |
 | `DocumentQuery[_T]` | `where_equals` query results |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Exact Match Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -400,10 +389,7 @@ where exact(Lines.ProductName == "Teatime Chocolate Biscuits")
     * [Syntax](../../../../client-api/session/querying/text-search/exact-match-query#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query with exact match" id="query-with-exact-match" href="#query-with-exact-match">
+## Query with exact match
 
 <Admonition type="note" title="Note">
 
@@ -444,9 +430,9 @@ where exact(FirstName == "Robert")
     Casing is exactly the same as in the original text, and the text is not tokenized.  
     Making an exact query targets these terms to find matching documents.
 
-</Admonition>
 
-<Admonition type="info" title="Query with exact match - nested object" id="query-with-exact-match-nested-object" href="#query-with-exact-match-nested-object">
+
+## Query with exact match - nested object
 
 <Admonition type="note" title="Note">
 
@@ -474,9 +460,9 @@ where exact(Lines.ProductName == "Teatime Chocolate Biscuits")
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -498,14 +484,11 @@ function whereNotEquals(string $fieldName, $value, bool $exact = false): Documen
 | ------------- | ----- |
 | `DocumentQueryInterface` | Query results |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Exact Match Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -523,10 +506,7 @@ function whereNotEquals(string $fieldName, $value, bool $exact = false): Documen
     * [Syntax](../../../../client-api/session/querying/text-search/exact-match-query#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query with exact match" id="query-with-exact-match" href="#query-with-exact-match">
+## Query with exact match
 
 <Admonition type="note" title="Note">
 
@@ -567,9 +547,9 @@ where exact(FirstName == "Robert")
       Casing is exactly the same as in the original text, and the text is not tokenized.  
       Making an exact query targets these terms to find matching documents.
 
-</Admonition>
 
-<Admonition type="info" title="Query with exact match - nested object" id="query-with-exact-match-nested-object" href="#query-with-exact-match-nested-object">
+
+## Query with exact match - nested object
 
 <Admonition type="note" title="Note">
 
@@ -597,9 +577,9 @@ where exact(Lines.ProductName == "Teatime Chocolate Biscuits")
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -620,7 +600,7 @@ whereNotEquals(fieldName, value, exact);
 | **value**     | any     | The value searched for                                                    |
 | **exact**     | boolean | `false` - search is case-insensitive<br/>`true` - search is case-sensitive |
 
-</Admonition>
+
 
 
 </LanguageContent>

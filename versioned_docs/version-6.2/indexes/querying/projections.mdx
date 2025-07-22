@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Project Index Query Results
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Project Index Query Results
----
 
 <Admonition type="note" title="Note">
 
@@ -32,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [OfType](../../indexes/querying/projections#oftype)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Select" id="select" href="#select">
+## Select
 
 <Admonition type="note" title="Note">
 
@@ -859,9 +858,9 @@ select {
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="ProjectInto" id="projectinto" href="#projectinto">
+
+## ProjectInto
 
 * Instead of `Select`, you can use `ProjectInto` to project all public fields from a generic type.
 
@@ -947,9 +946,9 @@ select ContactName, ContactTitle
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="SelectFields" id="selectfields" href="#selectfields">
+
+## SelectFields
 
 The `SelectFields` method can only be used by a [Document Query](../../client-api/session/querying/document-query/what-is-document-query).  
 It has two overloads:
@@ -1161,9 +1160,9 @@ select ProductName, PricePerUnit
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Projection behavior with a static-index" id="projection-behavior-with-a-static-index" href="#projection-behavior-with-a-static-index">
+
+## Projection behavior with a static-index
 
 * **By default**, when querying a static-index and projecting query results,  
   the server will try to retrieve the fields' values from the fields [stored in the index](../../indexes/storing-data-in-index).  
@@ -1325,9 +1324,9 @@ public enum ProjectionBehavior {
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="OfType" id="oftype" href="#oftype">
+
+## OfType
 
 * When making a projection query, converting the shape of the matching documents to the requested projection is done on the **server-side**.
 
@@ -1514,12 +1513,12 @@ where ContactTitle == "owner"
 </Tabs>
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Querying: Projections
+
 
 There are couple of ways to perform projections in RavenDB:
 
@@ -1553,7 +1552,7 @@ Another consideration to take into account is the cost of running the projection
 
 If a projection function only requires fields that are stored, then the document will not be loaded from storage and all data will come from the index directly. This can increase query performance (by the cost of disk space used) in many situations when whole document is not needed. You can read more about field storing [here](../../indexes/storing-data-in-index).
 
-<Admonition type="info" title="SelectFields" id="selectfields" href="#selectfields">
+## SelectFields
 The most basic projection can be done using `selectFields` method:
 
 ### Example I - Projecting Individual Fields of the Document
@@ -1938,14 +1937,14 @@ select {
 </TabItem>
 </Tabs>
 
-</Admonition>
 
 
-<Admonition type="info" title="OfType" id="oftype" href="#oftype">
+
+## OfType
 
 `OfType` is a client-side projection. You can read more about it [here](../../client-api/session/querying/how-to-project-query-results#oftype-(as)---simple-projection).
 
-</Admonition>
+
 
 ## Projections and the Session
 Because you are working with projections and not directly with documents, they are _not_ tracked by the session. Modifications to a projection will not modify the document when `saveChanges` is called.
@@ -1953,8 +1952,6 @@ Because you are working with projections and not directly with documents, they a
 
 </LanguageContent>
 <LanguageContent language="python">
-# Querying: Projections
----
 
 <Admonition type="note" title="Note">
 
@@ -1975,10 +1972,7 @@ Because you are working with projections and not directly with documents, they a
   * [Syntax](../../indexes/querying/projections#syntax)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="What are Projections and When to Use Them" id="what-are-projections-and-when-to-use-them" href="#what-are-projections-and-when-to-use-them">
+## What are Projections and When to Use Them
 
 When performing a query, we usually pull the full document back from the server.
 
@@ -2017,9 +2011,9 @@ storage and all data will come from the index directly. This can increase query 
 of disk space used) in many situations when whole document is not needed. You can read more about field 
 storing [here](../../indexes/storing-data-in-index).
 
-</Admonition>
 
-<Admonition type="info" title="`select_fields`" id="select_fields" href="#select_fields">
+
+## `select_fields`
 
 Projections can be applied using the `select_fields` and `select_fields_query_data` methods.
 
@@ -2107,9 +2101,9 @@ select Name, Phone
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Example I - Projecting Individual Fields of the Document
 
@@ -2155,9 +2149,6 @@ entry matches our query predicate, then we will try to extract all requested fie
 If all requested fields are available in there, then we do not download it from storage. 
 The index `Employees/ByFirstAndLastName` used in the above query is not storing any fields, 
 so the documents will be fetched from storage.
-
----
-
 #### Example II - Projecting Stored Fields
 
 If we create an index that stores `FirstName` and `LastName` and it requests only those fields in query, 
@@ -2199,9 +2190,6 @@ select FirstName, LastName
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example III - Projecting Arrays and Objects
 
 <Tabs groupId='languageSyntax'>
@@ -2233,9 +2221,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example IV - Projection with Expression
 
 <Tabs groupId='languageSyntax'>
@@ -2276,9 +2261,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example V - Projection with `let`
 
 <Tabs groupId='languageSyntax'>
@@ -2324,9 +2306,6 @@ from index 'Employees/ByFirstAndLastName' as e select output(e)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example VI - Projection with Calculation
 
 <Tabs groupId='languageSyntax'>
@@ -2363,9 +2342,6 @@ select {
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example VII - Projection With a Count() Predicate
 
 <Tabs groupId='languageSyntax'>
@@ -2400,9 +2376,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example VIII - Projection Using a Loaded Document
 
 <Tabs groupId='languageSyntax'>
@@ -2450,9 +2423,6 @@ select {
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example IX - Projection with Dates
 
 <Tabs groupId='languageSyntax'>
@@ -2499,9 +2469,6 @@ select {
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example X - Projection with Raw JavaScript Code
 
 <Tabs groupId='languageSyntax'>
@@ -2547,9 +2514,6 @@ select {
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example XI - Projection with Metadata
 
 <Tabs groupId='languageSyntax'>
@@ -2592,22 +2556,22 @@ select {
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Projection Behavior" id="projection-behavior" href="#projection-behavior">
+
+## Projection Behavior
 The `select_fields` methods can also take a `ProjectionBehavior` parameter, which
 determines whether the query should retrieve indexed data or directly retrieve 
 document data, and what to do when the data can't be retrieved. Learn more 
 [here](../../client-api/session/querying/how-to-customize-query#projection).  
 
-</Admonition>
 
-<Admonition type="info" title="Projections and the Session" id="projections-and-the-session" href="#projections-and-the-session">
+
+## Projections and the Session
 As you work with projections rather than directly with documents, the data is _not_ tracked by the session.  
 Modifications to a projection will not modify the document when `save_changes` is called.
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_select_fields">
 <CodeBlock language="python">
@@ -2645,9 +2609,6 @@ class QueryData:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### `ProjectionBehavior` Syntax:
 
 <TabItem value="something-something" label="ProjectionBehavior_syntax">
@@ -2683,13 +2644,11 @@ class QueryData:
   Retrieve values directly from the documents store.  
   An exception is thrown if the document does not contain the requested field.
  
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Querying: Projections
----
 
 <Admonition type="note" title="Note">
 
@@ -2709,10 +2668,7 @@ class QueryData:
   * [Projections and the Session](../../indexes/querying/projections#projections-and-the-session)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="What are Projections and When to Use Them" id="what-are-projections-and-when-to-use-them" href="#what-are-projections-and-when-to-use-them">
+## What are Projections and When to Use Them
 
 When performing a query, we usually pull the full document back from the server.
 
@@ -2751,9 +2707,9 @@ storage and all data will come from the index directly. This can increase query 
 of disk space used) in many situations when whole document is not needed. You can read more about field 
 storing [here](../../indexes/storing-data-in-index).
 
-</Admonition>
 
-<Admonition type="info" title="`selectFields`" id="selectfields" href="#selectfields">
+
+## `selectFields`
 
 Projections can be applied using the `selectFields` method.
 
@@ -2899,9 +2855,9 @@ select Name, Phone
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Example I - Projecting Individual Fields of the Document
 
@@ -2950,9 +2906,6 @@ entry matches our query predicate, then we will try to extract all requested fie
 If all requested fields are available in there, then we do not download it from storage. 
 The index `Employees/ByFirstAndLastName` used in the above query is not storing any fields, 
 so the documents will be fetched from storage.
-
----
-
 #### Example II - Projecting Stored Fields
 
 If we create an index that stores `FirstName` and `LastName` and it requests only those fields in query, 
@@ -2998,9 +2951,6 @@ select FirstName, LastName
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example III - Projecting Arrays and Objects
 
 <Tabs groupId='languageSyntax'>
@@ -3045,9 +2995,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example IV - Projection with Expression
 
 <Tabs groupId='languageSyntax'>
@@ -3090,9 +3037,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example V - Projection with `let`
 
 <Tabs groupId='languageSyntax'>
@@ -3141,9 +3085,6 @@ from index 'Employees/ByFirstAndLastName' as e select output(e)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example VI - Projection with Calculation
 
 <Tabs groupId='languageSyntax'>
@@ -3189,9 +3130,6 @@ select {
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example VII - Projection With a Count() Predicate
 
 <Tabs groupId='languageSyntax'>
@@ -3230,9 +3168,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example VIII - Projection Using a Loaded Document
 
 <Tabs groupId='languageSyntax'>
@@ -3282,9 +3217,6 @@ select {
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example IX - Projection with Dates
 
 <Tabs groupId='languageSyntax'>
@@ -3334,9 +3266,6 @@ select {
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example X - Projection with Raw JavaScript Code
 
 <Tabs groupId='languageSyntax'>
@@ -3384,9 +3313,6 @@ select {
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example XI - Projection with Metadata
 
 <Tabs groupId='languageSyntax'>
@@ -3435,26 +3361,24 @@ select {
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Projection Behavior" id="projection-behavior" href="#projection-behavior">
+
+## Projection Behavior
 The `selectFields` methods can also take a `ProjectionBehavior` parameter, which
 determines whether the query should retrieve indexed data or directly retrieve 
 document data, and what to do when the data can't be retrieved. Learn more 
 [here](../../client-api/session/querying/how-to-customize-query#projection).  
 
-</Admonition>
 
-<Admonition type="info" title="Projections and the Session" id="projections-and-the-session" href="#projections-and-the-session">
+
+## Projections and the Session
 As you work with projections rather than directly with documents, the data is _not_ tracked by the session.  
 Modifications to a projection will not modify the document when `saveChanges` is called.
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Project Index Query Results
----
 
 <Admonition type="note" title="Note">
 
@@ -3469,10 +3393,7 @@ Modifications to a projection will not modify the document when `saveChanges` is
    * [ofType](../../indexes/querying/projections#oftype)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="SelectFields" id="selectfields" href="#selectfields">
+## SelectFields
 
 <Admonition type="note" title="Note">
 
@@ -3957,9 +3878,9 @@ select {
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Projection behavior with a static-index" id="projection-behavior-with-a-static-index" href="#projection-behavior-with-a-static-index">
+
+## Projection behavior with a static-index
 
 * **By default**, when querying a static-index and projecting query results,  
   the server will try to retrieve the fields' values from the fields [stored in the index](../../indexes/storing-data-in-index).  
@@ -4063,9 +3984,9 @@ The projection behavior in the above example is set to `FromIndexOrThrow` and so
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="ofType" id="oftype" href="#oftype">
+
+## ofType
 
 * `ofType` is a client-side projection that is only used to map the resulting objects to the provided type.
 
@@ -4088,7 +4009,7 @@ const results = await session
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Configuration Overview
-
----
-
 <Admonition type="note" title="Note">
 
 * RavenDB comes with default settings that are configured for best results.  
@@ -28,7 +25,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Environment variables" id="environment-variables" href="#environment-variables">
+## Environment variables
 
 * To set a configuration key as an environment variable:
 
@@ -51,9 +48,9 @@ $Env:RAVEN_Security_Certificate_Path=/config/raven-server.certificate.pfx
 </TabItem>
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="settings.json" id="settings-json" href="#settings-json">
+
+## settings.json
 
 <Admonition type="info" title="Info">
 _settings.json_ configuration values **override** their matching 
@@ -99,9 +96,9 @@ for example, use:
 </TabItem>
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Command line arguments" id="command-line-arguments" href="#command-line-arguments">
+
+## Command line arguments
 
 <Admonition type="info" title="Info">
 Command line arguments configuration values **override** their matching 
@@ -123,9 +120,9 @@ and [settings.json](../../server/configuration/configuration-options#settings.js
 </TabItem>
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Database settings view" id="database-settings-view" href="#database-settings-view">
+
+## Database settings view
 
 * When the server is up and running, you can modify configuration keys that are in the 
   **database scope** from Studio's [Database settings view](../../studio/database/settings/database-settings).  
@@ -134,5 +131,5 @@ and [settings.json](../../server/configuration/configuration-options#settings.js
   [reloaded](../../studio/database/settings/database-settings#how-to-reload-the-database) 
   for the change to take effect.
 
-</Admonition>
+
 

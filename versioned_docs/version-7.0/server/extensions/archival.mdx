@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Data Archival
----
-
 <Admonition type="note" title="Note">
 
 * RavenDB (6.0 and on) offers the ability to archive selected documents.  
@@ -56,10 +54,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [Data Subscriptions Archived Docs Handling](../../server/extensions/archival#section-3)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 * As a database grows very big basic functions like indexation and document 
   distribution may slow down. Archiving documents when they become obsolete, 
@@ -99,9 +94,6 @@ import LanguageContent from "@site/src/components/language-content";
   metadata `@archived: true` property and apply whatever specific logic suits them.  
   A user-defined ETL task, for example, can avoid this way from sending its target 
   archived documents.  
-
----
-
 ### Licensing
 
 <Admonition type="info" title="Info">
@@ -110,9 +102,9 @@ Archival is Available on an **Enterprise** license.
 
 Learn more about licensing [here](../../start/licensing/licensing-overview).  
 
-</Admonition>
 
-<Admonition type="info" title="Scheduling Document Archival" id="scheduling-document-archival" href="#scheduling-document-archival">
+
+## Scheduling Document Archival
 
 A document can be **scheduled for archival** by adding its metadata an 
 `@archive-at` property with the designated archival time (**UTC**) as a value.  
@@ -174,9 +166,9 @@ will be archived:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Archival and Other Features" id="archival-and-other-features" href="#archival-and-other-features">
+
+## Archival and Other Features
 
 #### Archiving and Indexing
 
@@ -277,9 +269,6 @@ store.Maintenance.Send(new PutIndexesOperation(indexDefinition));
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Archiving and Data Subscriptions
 
 Data subscriptions exclusion of archived documents from data batches reduces 
@@ -305,17 +294,11 @@ toward archived documents or override it locally, in the task definition.
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Archiving and Document Extensions
 
 The document extensions of an archived document are **not** archived or affected 
 in any way by the archival status of their parent documents. A time series, for 
 example, **will** be indexed even if the document that owns it is archived.  
-
----
-
 #### Archiving and Smuggler (Import/Export)
 
 [Smuggler](../../client-api/smuggler/what-is-smuggler), used by RavenDB to import and 
@@ -338,9 +321,6 @@ await store.Smuggler.ExportAsync
 <Admonition type="info" title="Info">
 By default, archived documents are **Included** when importing/exporting data.  
 </Admonition>
-
----
-
 #### Archiving and Expiration
 
 Archiving can be used alongside other extensions like [expiration](../../server/extensions/expiration).  
@@ -364,9 +344,6 @@ is allowed to be slower, and have documents that are no longer needed deleted.
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Archiving and ETL
 
 An ETL transform script can check each extracted document's 
@@ -385,15 +362,9 @@ if (isArchived === true) \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Archiving and Backup
 
 Archived documents **Are** included in backups.  
-
----
-
 #### Archiving and Querying
 
 Collection queries **will** retrieve archived documents (since they do not run over 
@@ -405,18 +376,15 @@ when the default configuration excluded archived documents.
 Static indexes will **not** retrieve archived documents, if the indexes were created 
 when the default configuration excluded archived documents or the index definition was 
 edited to exclude them locally.  
-
----
-
 #### Archiving and Replication
 
 Archived documents **Are** included in [Regular](../../server/clustering/replication/replication) 
 replication, [External](../../server/ongoing-tasks/external-replication) replication, 
 and [Hub/Sink](../../server/ongoing-tasks/hub-sink-replication) replication.  
 
-</Admonition>
 
-<Admonition type="info" title="Archiving and Patching" id="archiving-and-patching" href="#archiving-and-patching">
+
+## Archiving and Patching
 
 ## Archive by Patch
 
@@ -516,10 +484,10 @@ Two possible workarounds are:
 </TabItem>
 </Admonition>
 
-</Admonition>
 
 
-<Admonition type="info" title="Enabling Archiving and Setting Scan Frequency" id="enabling-archiving-and-setting-scan-frequency" href="#enabling-archiving-and-setting-scan-frequency">
+
+## Enabling Archiving and Setting Scan Frequency
 
 Archiving is **disabled** by default.  
 To Enable the feature on the database, and to set the Frequency by which RavenDB scans 
@@ -546,16 +514,13 @@ var result = await store.Maintenance.SendAsync(
 | - | - | - |
 | **Disabled** | `bool` | If set to `true`, archival is disabled for the entire database. <br/> Default: `true` |
 | **ArchiveFrequencyInSec** | `long` | Frequency (in sec) in which the server checks for documents that need to be archived. <br/> Default: 60 |
-
----
-
 <Admonition type="note" title="Note">
 Read [here](../../studio/database/settings/document-archival) about setting document archival using Studio.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Default (Server/Database) Configuration Options" id="default-server-database-configuration-options" href="#default-server-database-configuration-options">
+
+## Default (Server/Database) Configuration Options
 
 RavenDB features that currently include built-in support for archived documents are:  
 
@@ -597,18 +562,12 @@ will **not** change the behavior of an existing index or data subscription task.
   definition, overriding the default behavior.  
 * The definition of an index can also read the metadata of a certain document and 
   apply additional logic by its archival status.  
-
----
-
 The following configuration options determine how RavenDB features handle archived documents.  
 <Admonition type="note" title="Note">
 Note that configuring the behavior of a specific [index](../../server/extensions/archival#archiving-and-indexing) 
 or [data subscription task](../../server/extensions/archival#archiving-and-data-subscriptions) 
 when they encounter archived documents will override the default settings presented here.  
 </Admonition>
-
----
-
 #### `Indexing.Auto.ArchivedDataProcessingBehavior`:
 
 Use this option to set the behavior of auto indexes across the database 
@@ -618,9 +577,6 @@ when they encounter archived documents.
 - **Default**: `ArchivedDataProcessingBehavior.ExcludeArchived`
 - **Scope**: [Server-wide](../../server/configuration/configuration-options#settings.json) 
   or [per database](../../studio/database/settings/database-settings#view-database-settings)
-
----
-
 #### `Indexing.Static.ArchivedDataProcessingBehavior`:
 
 Use this option to set the behavior of static indexes across the database 
@@ -630,9 +586,6 @@ when they encounter archived documents.
 - **Default**: `ArchivedDataProcessingBehavior.ExcludeArchived`
 - **Scope**: [Server-wide](../../server/configuration/configuration-options#settings.json) 
   or [per database](../../studio/database/settings/database-settings#view-database-settings)
-
----
-
 #### `Subscriptions.ArchivedDataProcessingBehavior`:
 
 Use this option to set the behavior of data subscription tasks across the database 
@@ -643,5 +596,5 @@ when they encounter archived documents.
 - **Scope**: [Server-wide](../../server/configuration/configuration-options#settings.json) 
   or [per database](../../studio/database/settings/database-settings#view-database-settings)
 
-</Admonition>
+
 

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Put Client Configuration Operation <br/> (for database)
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Put Client Configuration Operation  (for database)
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -26,9 +27,6 @@ import LanguageContent from "@site/src/components/language-content";
   `PutClientConfigurationOperation` operation or via Studio, to gain dynamic control over 
   client-server communication.  
   The client will be updated with the modified configuration the next time it sends a request to the database.  
-
----
-
 * In this page:
   
   * [Client configuration overview and modification](../../../../client-api/operations/maintenance/configuration/put-client-configuration#client-configuration-overview-and-modification)
@@ -37,10 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../client-api/operations/maintenance/configuration/put-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Client configuration overview and modification" id="client-configuration-overview-and-modification" href="#client-configuration-overview-and-modification">
+## Client configuration overview and modification
 
 * **What is the client configuration**:  
   The client configuration is a set of configuration options that apply to the client when communicating with the database.
@@ -70,9 +65,9 @@ import LanguageContent from "@site/src/components/language-content";
 * The client configuration set for the database level **overrides** the 
   [server-wide client configuration](../../../../client-api/operations/server-wide/configuration/put-serverwide-client-configuration).
 
-</Admonition>
 
-<Admonition type="info" title="What can be configured" id="what-can-be-configured" href="#what-can-be-configured">
+
+## What can be configured
 
 The following client configuration options are available:  
 
@@ -91,9 +86,9 @@ The following client configuration options are available:
   Set the Load balance method for Read & Write requests.  
   Learn more in [Load balance behavior](../../../../client-api/configuration/load-balance/load-balance-behavior).
 
-</Admonition>
 
-<Admonition type="info" title="Put client configuration (for database)" id="put-client-configuration-for-database" href="#put-client-configuration-for-database">
+
+## Put client configuration (for database)
 
 <TabItem value="something" label="put_config_1">
 <CodeBlock language="csharp">
@@ -142,9 +137,9 @@ using (documentStore)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -173,12 +168,12 @@ using (documentStore)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Put Client Configuration Operation <br/> (for database)
+
 
 **PutClientConfigurationOperation** is used to save a client configuration on the server. It allows you to override client's settings remotely. 
 
@@ -212,9 +207,6 @@ store.maintenance().send(
 
 </LanguageContent>
 <LanguageContent language="python">
-# Put Client Configuration Operation <br/> (for database)
-
----
 
 <Admonition type="note" title="Note">
 
@@ -225,9 +217,6 @@ store.maintenance().send(
   `PutClientConfigurationOperation` operation or via Studio, to gain dynamic control over 
   client-server communication.  
   The client will be updated with the modified configuration the next time it sends a request to the database.  
-
----
-
 * In this page:
   
   * [Client configuration overview and modification](../../../../client-api/operations/maintenance/configuration/put-client-configuration#client-configuration-overview-and-modification)
@@ -236,10 +225,7 @@ store.maintenance().send(
   * [Syntax](../../../../client-api/operations/maintenance/configuration/put-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Client configuration overview and modification" id="client-configuration-overview-and-modification" href="#client-configuration-overview-and-modification">
+## Client configuration overview and modification
 
 * **What is the client configuration**:  
   The client configuration is a set of configuration options that apply to the client when communicating with the database.
@@ -269,9 +255,9 @@ store.maintenance().send(
 * The client configuration set for the database level **overrides** the 
   [server-wide client configuration](../../../../client-api/operations/server-wide/configuration/put-serverwide-client-configuration).
 
-</Admonition>
 
-<Admonition type="info" title="What can be configured" id="what-can-be-configured" href="#what-can-be-configured">
+
+## What can be configured
 
 The following client configuration options are available:  
 
@@ -290,9 +276,9 @@ The following client configuration options are available:
   Set the Load balance method for Read & Write requests.  
   Learn more in [Load balance behavior](../../../../client-api/configuration/load-balance/load-balance-behavior).
 
-</Admonition>
 
-<Admonition type="info" title="Put client configuration (for database)" id="put-client-configuration-for-database" href="#put-client-configuration-for-database">
+
+## Put client configuration (for database)
 
 <TabItem value="something-something" label="put_config_1">
 <CodeBlock language="python">
@@ -332,9 +318,9 @@ document_store.maintenance.send(put_client_config_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="python">
@@ -363,14 +349,11 @@ document_store.maintenance.send(put_client_config_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Put Client Configuration Operation <br/> (for database)
-
----
 
 <Admonition type="note" title="Note">
 
@@ -381,9 +364,6 @@ document_store.maintenance.send(put_client_config_op)
   `PutClientConfigurationOperation` operation or via Studio, to gain dynamic control over 
   client-server communication.  
   The client will be updated with the modified configuration the next time it sends a request to the database.  
-
----
-
 * In this page:
   
   * [Client configuration overview and modification](../../../../client-api/operations/maintenance/configuration/put-client-configuration#client-configuration-overview-and-modification)
@@ -392,10 +372,7 @@ document_store.maintenance.send(put_client_config_op)
   * [Syntax](../../../../client-api/operations/maintenance/configuration/put-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Client configuration overview and modification" id="client-configuration-overview-and-modification" href="#client-configuration-overview-and-modification">
+## Client configuration overview and modification
 
 * **What is the client configuration**:  
   The client configuration is a set of configuration options that apply to the client when communicating with the database.
@@ -425,9 +402,9 @@ document_store.maintenance.send(put_client_config_op)
 * The client configuration set for the database level **overrides** the 
   [server-wide client configuration](../../../../client-api/operations/server-wide/configuration/put-serverwide-client-configuration).
 
-</Admonition>
 
-<Admonition type="info" title="What can be configured" id="what-can-be-configured" href="#what-can-be-configured">
+
+## What can be configured
 
 The following client configuration options are available:  
 
@@ -446,9 +423,9 @@ The following client configuration options are available:
   Set the Load balance method for Read & Write requests.  
   Learn more in [Load balance behavior](../../../../client-api/configuration/load-balance/load-balance-behavior).
 
-</Admonition>
 
-<Admonition type="info" title="Put client configuration (for database)" id="put-client-configuration-for-database" href="#put-client-configuration-for-database">
+
+## Put client configuration (for database)
 
 <TabItem value="something-something" label="put_config_1">
 <CodeBlock language="php">
@@ -496,9 +473,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -529,14 +506,11 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Put Client Configuration Operation <br/> (for database)
-
----
 
 <Admonition type="note" title="Note">
 
@@ -547,9 +521,6 @@ try \{
   `PutClientConfigurationOperation` operation or via Studio, to gain dynamic control over 
   client-server communication.  
   The client will be updated with the modified configuration the next time it sends a request to the database.  
-
----
-
 * In this page:
   
   * [Client configuration overview and modification](../../../../client-api/operations/maintenance/configuration/put-client-configuration#client-configuration-overview-and-modification)
@@ -558,10 +529,7 @@ try \{
   * [Syntax](../../../../client-api/operations/maintenance/configuration/put-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Client configuration overview and modification" id="client-configuration-overview-and-modification" href="#client-configuration-overview-and-modification">
+## Client configuration overview and modification
 
 * **What is the client configuration**:  
   The client configuration is a set of configuration options that apply to the client when communicating with the database.
@@ -591,9 +559,9 @@ try \{
 * The client configuration set for the database level **overrides** the 
   [server-wide client configuration](../../../../client-api/operations/server-wide/configuration/put-serverwide-client-configuration).
 
-</Admonition>
 
-<Admonition type="info" title="What can be configured" id="what-can-be-configured" href="#what-can-be-configured">
+
+## What can be configured
 
 The following client configuration options are available:  
 
@@ -612,9 +580,9 @@ The following client configuration options are available:
   Set the Load balance method for Read & Write requests.  
   Learn more in [Load balance behavior](../../../../client-api/configuration/load-balance/load-balance-behavior).
 
-</Admonition>
 
-<Admonition type="info" title="Put client-configuration (for-database)" id="put-client-configuration-for-database" href="#put-client-configuration-for-database">
+
+## Put client-configuration (for-database)
 
 <TabItem value="something-something" label="put_config_1">
 <CodeBlock language="nodejs">
@@ -654,9 +622,9 @@ await documentStore.maintenance.send(putClientConfigOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -685,7 +653,7 @@ await documentStore.maintenance.send(putClientConfigOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

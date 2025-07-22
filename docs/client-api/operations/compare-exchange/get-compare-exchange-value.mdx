@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Get Compare Exchange Value Operation
+export const supportedLanguages = ["csharp", "java", "nodejs"];
 
----
+
+# Get Compare Exchange Value Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Example I - Value is 'long'](../../../client-api/operations/compare-exchange/get-compare-exchange-value#example-i---value-is-)  
   * [Example II - Value is a custom object](../../../client-api/operations/compare-exchange/get-compare-exchange-value#example-ii---value-is-a-custom-object)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 **Method**:
 <TabItem value="something" label="get_0">
@@ -66,9 +64,9 @@ at `session.Advanced.ClusterTransaction`.
 This method also exposes methods getting compare exchange [lazily](../../../client-api/session/cluster-transaction/compare-exchange#get-compare-exchange).  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Example I - Value is 'long'" id="example-i-value-is-long" href="#example-i-value-is-long"> 
+
+## Example I - Value is 'long' 
 <TabItem value="something" label="get_1">
 <CodeBlock language="csharp">
 {`CompareExchangeValue<long> readResult =
@@ -78,9 +76,9 @@ long value = readResult.Value;
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
 
-<Admonition type="info" title="Example II - Value is a custom object" id="example-ii-value-is-a-custom-object" href="#example-ii-value-is-a-custom-object"> 
+
+## Example II - Value is a custom object 
 <TabItem value="something" label="get_2">
 <CodeBlock language="csharp">
 {`CompareExchangeValue<User> readResult =
@@ -90,14 +88,11 @@ User admin = readResult.Value;
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Get Compare Exchange Value Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -110,10 +105,7 @@ User admin = readResult.Value;
   * [Example I - Value is 'long'](../../../client-api/operations/compare-exchange/get-compare-exchange-value#example-i---value-is-)  
   * [Example II - Value is a custom object](../../../client-api/operations/compare-exchange/get-compare-exchange-value#example-ii---value-is-a-custom-object)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 **Method**:
 <TabItem value="something-something" label="get_0">
@@ -170,9 +162,9 @@ User admin = readResult.Value;
 | **Value** | `T` | The existing value that _Key_ has |
 | **Index** | long |  The version number of the _Value_ that is stored for the specified _Key_ |
 
-</Admonition>
 
-<Admonition type="info" title="Example I - Value is 'long'" id="example-i-value-is-long" href="#example-i-value-is-long"> 
+
+## Example I - Value is 'long' 
 <TabItem value="something-something" label="get_1">
 <CodeBlock language="java">
 {`CompareExchangeValue<Long> readResult
@@ -182,9 +174,9 @@ Long value = readResult.getValue();
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
 
-<Admonition type="info" title="Example II - Value is a custom object" id="example-ii-value-is-a-custom-object" href="#example-ii-value-is-a-custom-object"> 
+
+## Example II - Value is a custom object 
 <TabItem value="something-something" label="get_2">
 <CodeBlock language="java">
 {`CompareExchangeValue<User> readResult
@@ -195,13 +187,11 @@ User admin = readResult.getValue();
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Compare Exchange Value Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -218,17 +208,11 @@ User admin = readResult.getValue();
   * [Syntax](../../../client-api/operations/compare-exchange/get-compare-exchange-value#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples"> 
+## Examples 
 
 <Admonition type="note" title="Note">
 
 <a id="get-cmpxchg-item-that-has-a-number-and-metadata"/> __Get cmpXchg item that has a number and metadata__:
-
----
-
 <TabItem value="something-something" label="get_1">
 <CodeBlock language="nodejs">
 {`// Put a new compare-exchange item,
@@ -263,9 +247,6 @@ const version = item.index;
 <Admonition type="note" title="Note">
 
 <a id="get-cmpxchg-item-that-has-an-object"/> __Get cmpXchg item that has an object__:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Get_operation" label="Get_operation">
 <CodeBlock language="nodejs">
@@ -326,9 +307,9 @@ const version = item.index;
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -364,7 +345,7 @@ class CompareExchangeValue \{
 | __metadata__ | `object` | The existing `metadata` of the returned cmpXchg item. |
 | __index__    | `number` | The compare-exchange item's version.                  |
 
-</Admonition>
+
 
 
 </LanguageContent>

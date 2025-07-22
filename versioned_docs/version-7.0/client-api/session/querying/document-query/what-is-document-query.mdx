@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# What is a Document Query?
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# What is a Document Query?
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -33,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../client-api/session/querying/document-query/what-is-document-query#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="DocumentQuery examples" id="documentquery-examples" href="#documentquery-examples">
+## DocumentQuery examples
 
 #### Query collection - no filtering
 
@@ -66,9 +64,6 @@ List<Employee> allEmployees = await asyncSession.Advanced
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query collection - by ID
 
 <Tabs groupId='languageSyntax'>
@@ -99,9 +94,6 @@ Employee employee = await asyncSession.Advanced
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query collection - with filtering
 
 <Tabs groupId='languageSyntax'>
@@ -132,9 +124,6 @@ List<Employee> employees = await asyncSession.Advanced
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query collection - with paging
 
 <Tabs groupId='languageSyntax'>
@@ -167,16 +156,13 @@ List<Product> products = await asyncSession.Advanced
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query an index
 
 Please refer to [Querying an index](../../../../indexes/querying/query-index#session.advanced.documentquery) for examples of querying an index using a DocumentQuery.
 
-</Admonition>
 
-<Admonition type="info" title="Convert between DocumentQuery and Query" id="convert-between-documentquery-and-query" href="#convert-between-documentquery-and-query">
+
+## Convert between DocumentQuery and Query
 
 #### DocumentQuery to Query
 
@@ -267,9 +253,6 @@ select {
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query to DocumentQuery
 
 A `Query` can be converted to a `DocumentQuery`.  
@@ -322,9 +305,9 @@ include explanations()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Custom Methods and Extensions" id="custom-methods-and-extensions" href="#custom-methods-and-extensions">
+
+## Custom Methods and Extensions
 
 <Admonition type="note" title="Note">
 
@@ -414,18 +397,18 @@ Available custom methods and extensions:
 - [WhereStartsWith](../../../../client-api/session/querying/text-search/starts-with-query)
 - WithinRadiusOf
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 The available `DocumentQuery` overloads are listed in this [Syntax section](../../../../client-api/session/querying/how-to-query#syntax) in the [Query Overview](../../../../client-api/session/querying/how-to-query).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# What is a Document Query?
+
 
 Querying capabilities can be accessed via the `documentQuery` method in advanced session operations.  
 `DocumentQuery` gives you more flexibility and control over the process of building a query.
@@ -595,9 +578,6 @@ By default, if the `page size` is not specified, all of the matching records wil
 
 </LanguageContent>
 <LanguageContent language="python">
-# What is a Document Query?
-
----
 
 <Admonition type="note" title="Note">
 
@@ -616,10 +596,7 @@ By default, if the `page size` is not specified, all of the matching records wil
   * [Available Custom Methods and Extensions](../../../../client-api/session/querying/document-query/what-is-document-query#convert-between-document_query-and-query)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`document_query` Examples" id="document_query-examples" href="#document_query-examples">
+## `document_query` Examples
 
 #### Query collection - no filtering
 
@@ -637,9 +614,6 @@ By default, if the `page size` is not specified, all of the matching records wil
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query collection - by ID
 
 <Tabs groupId='languageSyntax'>
@@ -661,9 +635,6 @@ employee = (
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query collection - with filtering
 
 <Tabs groupId='languageSyntax'>
@@ -683,9 +654,6 @@ employees = list(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query collection - with paging
 
 <Tabs groupId='languageSyntax'>
@@ -703,16 +671,13 @@ products = list(session.advanced.document_query(object_type=Product).skip(5).tak
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query an index
 
 Please refer to [Querying an index](../../../../indexes/querying/query-index#session.advanced.documentquery) for examples of querying an index using document_query.
 
-</Admonition>
 
-<Admonition type="info" title="Convert between `document_query` and `query`" id="convert-between-document_query-and-query" href="#convert-between-document_query-and-query">
+
+## Convert between `document_query` and `query`
 
 A `document_query` can be converted to a `query`.  
 
@@ -734,9 +699,9 @@ query_results = list(doc_query.where_greater_than("freight", 25))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Available Custom Methods and Extensions" id="available-custom-methods-and-extensions" href="#available-custom-methods-and-extensions">
+
+## Available Custom Methods and Extensions
 
 - add_or_der
 - [query] [after_query_executed](../../../../client-api/session/querying/how-to-customize-query#afterqueryexecuted)
@@ -817,14 +782,11 @@ query_results = list(doc_query.where_greater_than("freight", 25))
 - [where_starts_with](../../../../client-api/session/querying/text-search/starts-with-query)
 - within_radius_of
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# What is a Document Query?
-
----
 
 <Admonition type="note" title="Note">
 
@@ -840,10 +802,7 @@ query_results = list(doc_query.where_greater_than("freight", 25))
   * [Syntax](../../../../client-api/session/querying/document-query/what-is-document-query#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="documentQuery examples" id="documentquery-examples" href="#documentquery-examples">
+## documentQuery examples
 
 #### Query collection - no filtering
 
@@ -865,9 +824,6 @@ $employees = $session
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query collection - with filtering
 
 <Tabs groupId='languageSyntax'>
@@ -890,9 +846,6 @@ $employees = $session
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query an index
 
 * Using a Path string
@@ -929,9 +882,9 @@ $employees = $session
 Please refer to [Querying an index](../../../../indexes/querying/query-index#session.advanced.documentquery) for examples of querying an index using a documentQuery.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Custom Methods" id="custom-methods" href="#custom-methods">
+
+## Custom Methods
 
 <Admonition type="note" title="Note">
 
@@ -1021,21 +974,18 @@ Available custom methods:
 - [whereStartsWith](../../../../client-api/session/querying/text-search/starts-with-query)
 - withinRadiusOf
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 The definition for `documentQuery` is listed in the [Syntax section](../../../../client-api/session/querying/how-to-query#syntax) 
 of the [Query Overview](../../../../client-api/session/querying/how-to-query).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# What is a Document Query?
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1048,8 +998,5 @@ of the [Query Overview](../../../../client-api/session/querying/how-to-query).
 * All available methods for the session's `query` method are listed [here](../../../../client-api/session/querying/how-to-query#query-api).
 
 </Admonition>
-
----
-
 
 </LanguageContent>

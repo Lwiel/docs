@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Migration: Migrating from Docker Image 5.x or lower to 6.0 or higher
----
-
 <Admonition type="note" title="Note">
 
 * Starting from version `6.0` RavenDB for Docker introduces an 
@@ -31,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Migrating To `6.0` And Up](../../migration/server/docker#migrating-to-6.0-and-up)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Changes Made In RavenDB 6.0 And Up" id="changes-made-in-ravendb-6-0-and-up" href="#changes-made-in-ravendb-6-0-and-up">  
+## Changes Made In RavenDB 6.0 And Up  
 
 The **directory structure** used by RavenDB of version `6.0` 
 and above, and the **user** we use to run RavenDB, are different 
@@ -53,9 +48,9 @@ from the directory structure and user used by older versions.
 Learn below how to address these differences when migrating 
 from version `5.x` or lower to version `6.0` or higher.  
 
-</Admonition>
 
-<Admonition type="info" title="Migrating To `6.0` And Up" id="migrating-to-6-0-and-up" href="#migrating-to-6-0-and-up">  
+
+## Migrating To `6.0` And Up  
 
 ## Permit `ravendb` user to access mounted data directory.  
 
@@ -87,4 +82,4 @@ location on the container: `/var/lib/ravendb/data`
 Old data directory (default): `/opt/RavenDB/Server/RavenData`
 New data directory (default): `/var/lib/ravendb/data`
 
-</Admonition>
+

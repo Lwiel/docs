@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Backups
----
-
 <Admonition type="note" title="Note">
 
 * Backups save your data at a specific point in time and allow you to 
@@ -51,10 +49,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Backup Task -vs- Replication Task](../../../studio/database/tasks/backup-task#backup-task--vs--replication-task)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Backups View" id="backups-view" href="#backups-view">
+## Backups View
 
 ![NoSQL Database Studio Backups View](./assets/backup-task-view1.png)
 
@@ -70,9 +65,9 @@ import LanguageContent from "@site/src/components/language-content";
  6. **Database Group Topology**  
     You can see all active server-wide and database-specific periodic backups.  
 
-</Admonition>
 
-<Admonition type="info" title="Periodic Backup Creation" id="periodic-backup-creation" href="#periodic-backup-creation">
+
+## Periodic Backup Creation
 
 ### Periodic Backup Tasks View
 
@@ -87,9 +82,6 @@ import LanguageContent from "@site/src/components/language-content";
  5. **Go to the server-wide backups view** to [back up all databases on the server](../../../studio/server/server-wide-backup).  
  6. **Database Group Topology**  
     This shows all active server-wide and database-specific periodic backups.  
-  
----
-
 ### Creating Periodic Backups
 
 ![Defining Periodic Backup](./assets/periodic-backup-definition.png)
@@ -117,9 +109,6 @@ import LanguageContent from "@site/src/components/language-content";
 
    * Select a preferred mentor node from the [Database Group](../../../studio/database/settings/manage-database-group) to be the responsible node for this Backup Task  
    * If no node is selected, then the cluster will assign a responsible node (see [Members Duties](../../../studio/database/settings/manage-database-group#database-group-topology---members-duties))  
-
----
-
 ### Scheduling Backups
 
 Select the content to back up. Note: Both incremental and full backups can be scheduled at the same time.  
@@ -151,9 +140,6 @@ Select the content to back up. Note: Both incremental and full backups can be sc
   **If downtime while recovering databases is a concern**, you can also set up an [external replica](../../../studio/database/tasks/ongoing-tasks/external-replication-task) and manually fail over to it while you recover the data onto the original cluster.  
 
 </Admonition>  
-  
----
-
 ### Retention Policy
 
 To save storage space, you can set obsolete scheduled backup files to delete automatically after the time period that you define.  
@@ -170,9 +156,6 @@ Old backups are deleted after the defined time period during the next scheduled 
 Some organizations require backups to be stored for as long as 7 years. If this is the case, consider the issue when scheduling and setting the retention policy. 
 
 </Admonition>
-
----
-
 ### Backup Encryption
 
 Backups can be encrypted.  Make sure that you save the encryption key well.  
@@ -189,9 +172,6 @@ Backups can be encrypted.  Make sure that you save the encryption key well.
   1. The new encryption key.  Click the 'refresh' arrow to randomly create a different key.
   2. Options to save the key.
   3. Check the box to acknowledge that you've saved the key.
-
----
-
 ### Destination
 
 Select backup destinations and enter your credentials for each.  
@@ -225,9 +205,6 @@ Make sure to save the destinations and credentials information so that your team
   This strategy is known as [the 3-2-1 Backup Rule](https://en.wikipedia.org/wiki/Backup#3-2-1_rule).  
 
 </Admonition>
-
----
-
 ### Periodic Backup Details
 
 ![Periodic Backup Details](./assets/backup-task-details.png)
@@ -256,9 +233,9 @@ Make sure to save the destinations and credentials information so that your team
 3. **Refresh**:  
    Click to refresh this panel viewed details  
 
-</Admonition>
 
-<Admonition type="info" title="Manually Creating One-Time Backups" id="manually-creating-one-time-backups" href="#manually-creating-one-time-backups">
+
+## Manually Creating One-Time Backups
 
 ### Manual Backup Tasks View
 
@@ -298,9 +275,9 @@ There are also some important differences:
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Delaying a Running Backup Task" id="delaying-a-running-backup-task" href="#delaying-a-running-backup-task">
+
+## Delaying a Running Backup Task
 
 The execution of a running backup task can be **delayed** for a given time period.  
 
@@ -320,9 +297,6 @@ Delaying a running backup operation may be useful when, for example,
 backup creation time turns out to be much longer than anticipated, 
 system resources are currently limited (e.g. on the cloud), or another 
 process currently overuses resources.  
-
----
-
 ### To delay a running backup task:  
 
 1. Open the notifications center, find the notification regarding the 
@@ -347,9 +321,9 @@ process currently overuses resources.
       store operation.  
       </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="When the Cluster or Node is Down" id="when-the-cluster-or-node-is-down" href="#when-the-cluster-or-node-is-down">
+
+## When the Cluster or Node is Down
 
 * **When the cluster is down** (and there is no leader):  
 
@@ -365,9 +339,9 @@ process currently overuses resources.
   * If the responsible node for the Backup Task is down during the scheduled time,  
     then another node from the Database Group will take ownership of the task so that there are no gaps in your backups.  
   
-</Admonition>
+
   
-<Admonition type="info" title="Backup Task -vs- Replication Task" id="backup-task-vs-replication-task" href="#backup-task-vs-replication-task">
+## Backup Task -vs- Replication Task
 
  * RavenDB's [External Replication](../../../studio/database/tasks/ongoing-tasks/external-replication-task) provides you with an off-site live replica/copy of the data 
    ('live' meaning that any changes in the database will be duplicated into the replica immediately).  
@@ -385,5 +359,5 @@ process currently overuses resources.
     * A new database can be [created from a Backup](../../../studio/database/create-new-database/from-backup)  
     * This can be done with both 'Backup' & 'Snapshot' types  
 
-</Admonition>
+
 

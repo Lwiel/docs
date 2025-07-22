@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java"];
+
+
+#  Indexes: Sorting & Collation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-#  Indexes: Sorting & Collation
+
 
 Starting from version 4.0, RavenDB automatically determines sorting based on an indexed value. All values will have a capability to be sorted `lexicographically`. Numerical values will also be sortable by their `double` and `long` value.
 
@@ -91,7 +95,7 @@ In general, you can sort using `Raven.Database.Indexing.Collation.Cultures.<two-
 
 </LanguageContent>
 <LanguageContent language="java">
-#  Indexes: Sorting & Collation
+
 
 Starting from version 4.0, RavenDB automatically determines sorting based on an indexed value. All values will have a capability to be sorted `lexicographically`. Numerical values will also be sortable by their `double` and `long` value.
 

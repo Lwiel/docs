@@ -11,10 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Client API: Creating a Document Store
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Client API: Creating a Document Store
----
+
 <Admonition type="note" title="Note">  
 
 * **Creating a Document Store** is the _first step_ that a RavenDB client application needs to make when working with RavenDB.
@@ -28,9 +31,7 @@ Creating more than one Document Store may be resource intensive, and one instanc
      * [Certificate Disposal](../client-api/creating-document-store#certificate-disposal)  
   * [Creating a Document Store - Example](../client-api/creating-document-store#creating-a-document-store---example)  
 </Admonition>
-
----
-<Admonition type="info" title="Creating a Document Store - Configuration" id="creating-a-document-store-configuration" href="#creating-a-document-store-configuration">
+## Creating a Document Store - Configuration
 
 The following properties can be configured when creating a new Document Store:  
  
@@ -85,9 +86,9 @@ Conventions =
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
 
-<Admonition type="info" title="Creating a Document Store - Example" id="creating-a-document-store-example" href="#creating-a-document-store-example">
+
+## Creating a Document Store - Example
 
 This example demonstrates how to implement the singleton pattern in the initialization of a Document Store, as well as how to set initial 
 default configurations.
@@ -134,12 +135,12 @@ public class DocumentStoreHolder
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Client API: How to Create a Document Store
+
 
 To create an instance of the `DocumentStore` you need to specify a list of URL addresses that point to RavenDB server nodes.
 
@@ -200,7 +201,7 @@ If you use more than one instance of `DocumentStore` you should dispose it after
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Client API: How to Create a Document Store
+
 
 To create an instance of the `DocumentStore` you need to specify a list of URL addresses that point to RavenDB server nodes.
 

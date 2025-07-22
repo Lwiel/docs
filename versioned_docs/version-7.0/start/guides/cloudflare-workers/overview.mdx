@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Guides: Cloudflare Workers
----
-
 <Admonition type="note" title="Note">
 
 * [Cloudflare Workers](https://developers.cloudflare.com/workers/) is a serverless platform that allows 
@@ -41,7 +39,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Before We Get Started" id="before-we-get-started" href="#before-we-get-started">
+## Before We Get Started
 
 You will need the following before continuing:  
 
@@ -50,9 +48,9 @@ You will need the following before continuing:
 - [Git](https://git-scm.org)  
 - [Node.js](https://nodejs.com) version 16 and above with npm  
 
-</Admonition>
 
-<Admonition type="info" title="Create a Cloudflare RavenDB Worker project" id="create-a-cloudflare-ravendb-worker-project" href="#create-a-cloudflare-ravendb-worker-project">
+
+## Create a Cloudflare RavenDB Worker project
 
 There are two primary ways to get started:  
 
@@ -106,9 +104,9 @@ Open the browser by pressing the "B" key (e.g. `http://localhost:7071`) and you 
 
 This means you have successfully connected to your RavenDB database.  
 
-</Admonition>
 
-<Admonition type="info" title="Updating Database Connection Settings" id="updating-database-connection-settings" href="#updating-database-connection-settings">
+
+## Updating Database Connection Settings
 
 The `wrangler.toml` file contains configuration for the worker. Here's an example:  
 
@@ -169,9 +167,9 @@ Variables defined here, including the `DB_CERT` mTLS binding, will be exposed as
 you can access in the worker at runtime. You'll use the mTLS binding when connecting to an authenticated 
 cluster using your client certificate.  
 
-</Admonition>
 
-<Admonition type="info" title="Connecting to an Authenticated RavenDB Cluster" id="connecting-to-an-authenticated-ravendb-cluster" href="#connecting-to-an-authenticated-ravendb-cluster">
+
+## Connecting to an Authenticated RavenDB Cluster
 
 Client certificate authentication is handled through [Cloudflare mTLS authentication for Workers][cf-mtls-worker].  
 You will need to upload your certificate to your Cloudflare account so that it can be accessed and bound to your Worker.  
@@ -275,10 +273,10 @@ Open the browser by pressing the "B" key (e.g. `http://localhost:7071`) and you 
 
 If you see a green check and the correct connection details, this means you have successfully connected to your RavenDB database.  
 
-</Admonition>
 
 
-<Admonition type="info" title="Deploying to Production" id="deploying-to-production" href="#deploying-to-production">
+
+## Deploying to Production
 
 ### Automated Deployment
 
@@ -311,9 +309,9 @@ You can find your Worker URL in the dashboard under "Preview URL" and open it to
 
 If it is not working, verify the Wrangler settings are being applied.  
 
-</Admonition>
 
-<Admonition type="info" title="Using RavenDB in the Worker" id="using-ravendb-in-the-worker" href="#using-ravendb-in-the-worker">
+
+## Using RavenDB in the Worker
 
 The RavenDB Cloudflare template uses the [itty-router package][npm-itty-router] to provide basic routing and middleware support.  
 
@@ -333,14 +331,14 @@ A document session is opened per-request and accessible through `env.db`.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Tutorial Video" id="tutorial-video" href="#tutorial-video">
+
+## Tutorial Video
 
 Watch our _Using Cloudflare Workers with RavenDB_ tutorial:  
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/qMJfgQicjwk?si=Fxk7alyTQ9bDcf5O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
 
-</Admonition>
+
 
 [cloud-signup]: https://cloud.ravendb.net?utm_source=ravendb_docs&utm_medium=web&utm_campaign=howto_template_cloudflare_worker&utm_content=cloud_signup
 [template]: https://github.com/ravendb/template-cloudflare-worker

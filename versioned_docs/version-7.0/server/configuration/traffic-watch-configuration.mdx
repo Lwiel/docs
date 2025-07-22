@@ -13,7 +13,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Traffic Watch Options
 
-<Admonition type="info" title="TrafficWatch.Mode" id="trafficwatch-mode" href="#trafficwatch-mode">
+## TrafficWatch.Mode
 
 Traffic Watch logging mode.
 
@@ -26,9 +26,9 @@ Possible values:
 - `Off`
 - `ToLogFile`
 
-</Admonition>
 
-<Admonition type="info" title="TrafficWatch.Databases" id="trafficwatch-databases" href="#trafficwatch-databases">
+
+## TrafficWatch.Databases
 
 A semicolon-separated list of database names by which the Traffic Watch logging entities will be filtered.  
 If not specified, Traffic Watch entities of all databases will be included.  
@@ -38,9 +38,9 @@ A sample list: `\"test-database;another-database;the-third-database\"`
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="TrafficWatch.StatusCodes" id="trafficwatch-statuscodes" href="#trafficwatch-statuscodes">
+
+## TrafficWatch.StatusCodes
 
 A semicolon-separated list of response status codes by which the Traffic Watch logging entities will be filtered.  
 If not specified, Traffic Watch entities with any response status code will be included.  
@@ -50,9 +50,9 @@ A sample list: `\"200;500;404\"`
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="TrafficWatch.MinimumResponseSizeInBytes" id="trafficwatch-minimumresponsesizeinbytes" href="#trafficwatch-minimumresponsesizeinbytes">
+
+## TrafficWatch.MinimumResponseSizeInBytes
 
 Minimum response size by which the Traffic Watch logging entities will be filtered.
 
@@ -61,9 +61,9 @@ Minimum response size by which the Traffic Watch logging entities will be filter
 - **Minimum**: `0`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="TrafficWatch.MinimumRequestSizeInBytes" id="trafficwatch-minimumrequestsizeinbytes" href="#trafficwatch-minimumrequestsizeinbytes">
+
+## TrafficWatch.MinimumRequestSizeInBytes
 
 Minimum request size by which the Traffic Watch logging entities will be filtered.
 
@@ -72,9 +72,9 @@ Minimum request size by which the Traffic Watch logging entities will be filtere
 - **Minimum**: `0`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="TrafficWatch.MinimumDurationInMs" id="trafficwatch-minimumdurationinms" href="#trafficwatch-minimumdurationinms">
+
+## TrafficWatch.MinimumDurationInMs
 
 Minimum duration by which the Traffic Watch logging entities will be filtered.
 
@@ -82,9 +82,9 @@ Minimum duration by which the Traffic Watch logging entities will be filtered.
 - **Default**: `0`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="TrafficWatch.HttpMethods" id="trafficwatch-httpmethods" href="#trafficwatch-httpmethods">
+
+## TrafficWatch.HttpMethods
 
 A semicolon-separated list of request HTTP methods by which the Traffic Watch logging entities will be filtered.  
 If not specified, Traffic Watch entities with any HTTP request method will be included.  
@@ -94,9 +94,9 @@ A sample list: `\"GET;POST\"`
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="TrafficWatch.ChangeTypes" id="trafficwatch-changetypes" href="#trafficwatch-changetypes">
+
+## TrafficWatch.ChangeTypes
 
 A semicolon-separated list of Traffic Watch change types by which the Traffic Watch logging entities will be filtered.  
 If not specified, Traffic Watch entities with any change type will be included.  
@@ -106,9 +106,9 @@ A sample list: `\"Queries;Documents\"`
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="TrafficWatch.CertificateThumbprints" id="trafficwatch-certificatethumbprints" href="#trafficwatch-certificatethumbprints">
+
+## TrafficWatch.CertificateThumbprints
 
 A semicolon-separated list of specific client certificate thumbprints by which the Traffic Watch logging entities will be filtered.  
 If not specified, Traffic Watch entities with any certificate thumbprint will be included,
@@ -136,4 +136,4 @@ Possible values:
 - `Notifications`
 - `ClusterCommands`
 
-</Admonition>
+

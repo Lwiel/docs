@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Operations: Server: How to Generate a Client Certificate
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Operations: Server: How to Generate a Client Certificate
----
 
 <Admonition type="note" title="Note">
 
@@ -111,8 +113,6 @@ byte[] cert = certificateRawData.RawData;
 
 </LanguageContent>
 <LanguageContent language="java">
-# Operations: Server: How to Generate a Client Certificate
----
 
 <Admonition type="note" title="Note">
 
@@ -206,8 +206,6 @@ byte[] certificateZipped = certificateRawData.getRawData();
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Operations: Server: How to Generate a Client Certificate
----
 
 <Admonition type="note" title="Note">
 

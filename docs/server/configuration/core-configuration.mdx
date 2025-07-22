@@ -20,7 +20,7 @@ RavenDB reads `settings.json` only during startup.
 When you edit the file, restart the server to apply changes.  
 </Admonition>
 
-<Admonition type="info" title="ServerUrl" id="serverurl" href="#serverurl">
+## ServerUrl
 
 The URLs which the server should listen to.
 
@@ -65,9 +65,9 @@ Setting to a non loopback address using the ***HTTP*** protocol will expose the 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ServerUrl.Tcp" id="serverurl-tcp" href="#serverurl-tcp">
+
+## ServerUrl.Tcp
 
 The TCP URLs which the server should listen to.
 
@@ -97,9 +97,9 @@ Same security consideration as in ***ServerUrl*** option should be applied (see 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="PublicServerUrl" id="publicserverurl" href="#publicserverurl">
+
+## PublicServerUrl
 
 The URL under which server is publicly available.
 
@@ -133,9 +133,9 @@ Set the URL to be accessible by clients and other nodes, regardless of which IP 
 In the above example, `example.com` is the external domain/ip provided by the ISP, and `ServerUrl` must be specified when the server is behind a firewall, proxy, or router
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="PublicServerUrl.Tcp" id="publicserverurl-tcp" href="#publicserverurl-tcp">
+
+## PublicServerUrl.Tcp
 
 The TCP URL under which server is publicly listened to.
 
@@ -154,9 +154,9 @@ Set the public TCP address of the server. Used for inter-node communication and 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ServerUrl.Cluster" id="serverurl-cluster" href="#serverurl-cluster">
+
+## ServerUrl.Cluster
 
 When this configuration option is used to expose a server's 
 internal IP address, other servers will try to communicate with 
@@ -197,9 +197,9 @@ https://example.com:8080
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ExternalIp" id="externalip" href="#externalip">
+
+## ExternalIp
 
 External IP address.
 
@@ -207,9 +207,9 @@ External IP address.
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="RunInMemory" id="runinmemory" href="#runinmemory">
+
+## RunInMemory
 
 Set whether the database should run purely in memory.
 
@@ -219,9 +219,9 @@ Set whether the database should run purely in memory.
 
 When running in memory, RavenDB does not write to the disk. If the server is restarted, all data will be lost. This is mostly useful for testing.
 
-</Admonition>
 
-<Admonition type="info" title="DataDir" id="datadir" href="#datadir">
+
+## DataDir
 
 Path to the data directory of RavenDB
 
@@ -240,9 +240,9 @@ Relative paths will be based from the application base directory (where the Rave
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Setup.Mode" id="setup-mode" href="#setup-mode">
+
+## Setup.Mode
 
 Determines what kind of security was chosen during setup, or not to use setup on startup at all (`None`).
 
@@ -258,9 +258,9 @@ Possible values:
 - `Secured`: This value will be set internally by RavenDB
 - `Unsecured`: Run the server in unsecured mode
 
-</Admonition>
 
-<Admonition type="info" title="AcmeUrl" id="acmeurl" href="#acmeurl">
+
+## AcmeUrl
 
 The URLs which the server should contact when requesting certificates from using the ACME protocol.
 
@@ -268,9 +268,9 @@ The URLs which the server should contact when requesting certificates from using
 - **Default**: `https://acme-v01.api.letsencrypt.org/directory`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="ThrowIfAnyIndexCannotBeOpened" id="throwifanyindexcannotbeopened" href="#throwifanyindexcannotbeopened">
+
+## ThrowIfAnyIndexCannotBeOpened
 
  Indicates if we should throw an exception if any index could not be opened.
 
@@ -278,9 +278,9 @@ The URLs which the server should contact when requesting certificates from using
 - **Default**: `false`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Features.Availability" id="features-availability" href="#features-availability">
+
+## Features.Availability
 
 This [settings.json](../../server/configuration/configuration-options#settings.json) variable determines whether to run RavenDB with its standard 
 features set, or add to a set of experimental features.  
@@ -300,4 +300,4 @@ Possible values:
 We'd be grateful for any feedback you send us regarding experimental features.  
 </Admonition>
 
-</Admonition>
+

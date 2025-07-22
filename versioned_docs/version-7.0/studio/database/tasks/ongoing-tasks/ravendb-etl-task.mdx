@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # RavenDB ETL Task
----
-
 <Admonition type="note" title="Note">
 
 * A **RavenDB ETL Task** is an [ETL process](../../../../server/ongoing-tasks/etl/basics#basics) 
@@ -37,10 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [RavenDB ETL Task - Offline Behaviour](../../../../studio/database/tasks/ongoing-tasks/ravendb-etl-task#ravendb-etl-task---offline-behaviour)  
   * [RavenDB ETL Task -vs- External Replication Task](../../../../studio/database/tasks/ongoing-tasks/ravendb-etl-task#ravendb-etl-task--vs--external-replication-task)  
 </Admonition>
-
----
-
-<Admonition type="info" title="RavenDB ETL Task - Definition" id="ravendb-etl-task-definition" href="#ravendb-etl-task-definition">
+## RavenDB ETL Task - Definition
 
 ![Figure 1. RavenDB ETL Task Definition](./assets/ravendb-etl-task-1.png)
 
@@ -56,9 +51,9 @@ import LanguageContent from "@site/src/components/language-content";
    * Select an existing connection string from the list or create a new one  
    * The connection string defines the destination database and its database group server node URLs  
 
-</Admonition>
 
-<Admonition type="info" title="RavenDB ETL Task - Transform Scripts" id="ravendb-etl-task-transform-scripts" href="#ravendb-etl-task-transform-scripts">
+
+## RavenDB ETL Task - Transform Scripts
 
 ![Figure 2. RavenDB ETL Task - Transform Scripts](./assets/ravendb-etl-task-2.png)
 
@@ -77,9 +72,9 @@ import LanguageContent from "@site/src/components/language-content";
    rather than apply the update only to new or updated documents.  
 
 5. Select the collections for the ETL task - **or** - apply the script to all collections  
-</Admonition>
 
-<Admonition type="info" title="Passing Certificate Between Secure Clusters" id="passing-certificate-between-secure-clusters" href="#passing-certificate-between-secure-clusters">
+
+## Passing Certificate Between Secure Clusters
 
 **Pass Certificate from Source Cluster to Destination Cluster**  
   This step must be done if connecting *to another cluster* so that the destination cluster trusts the source.  
@@ -93,9 +88,9 @@ import LanguageContent from "@site/src/components/language-content";
 * Learn the rationale needed to configure client certificates in [The RavenDB Security Authorization Approach](../../../../server/security/authentication/certificate-management#the-ravendb-security-authorization-approach)
 
 
-</Admonition>
 
-<Admonition type="info" title="RavenDB ETL Task - Details in Tasks List View" id="ravendb-etl-task-details-in-tasks-list-view" href="#ravendb-etl-task-details-in-tasks-list-view">
+
+## RavenDB ETL Task - Details in Tasks List View
 
 ![Figure 3. RavenDB ETL Task - Task List View](./assets/ravendb-etl-task-3.png)
 
@@ -109,9 +104,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 2. **Graph view**:  
    Graph view of the responsible node for the External Replication Task  
-</Admonition>
 
-<Admonition type="info" title="RavenDB ETL Task - Offline Behaviour" id="ravendb-etl-task-offline-behaviour" href="#ravendb-etl-task-offline-behaviour">
+
+## RavenDB ETL Task - Offline Behaviour
 
 * **When the source cluster is down** (and there is no leader):  
 
@@ -132,9 +127,9 @@ import LanguageContent from "@site/src/components/language-content";
 
   * If there is a cluster on the other side, and the URL addresses of the destination database group nodes are listed in the connection string, 
     then when the destination node is down, RavenDB ETL will simply start transferring data to one of the other nodes specified.  
-</Admonition>
 
-<Admonition type="info" title="RavenDB ETL Task -vs- External Replication Task" id="ravendb-etl-task-vs-external-replication-task" href="#ravendb-etl-task-vs-external-replication-task">
+
+## RavenDB ETL Task -vs- External Replication Task
 
 1. **Data ownership**:  
 
@@ -165,5 +160,5 @@ import LanguageContent from "@site/src/components/language-content";
     * Refer to section [what is being replicated](../../../../server/ongoing-tasks/external-replication#general-information-about-external-replication-task) 
       for exact details on what is and isn’t replicated in the External Replication Task.
 
-</Admonition>
+
 

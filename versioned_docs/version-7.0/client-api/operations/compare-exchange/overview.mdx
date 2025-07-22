@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php"];
+
+
+# Compare Exchange Overview 
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Compare Exchange Overview 
----
 
 <Admonition type="note" title="Note">
 
@@ -36,10 +38,7 @@ import LanguageContent from "@site/src/components/language-content";
 * [Example III - Ensuring Unique Values without Using Compare Exchange](../../../client-api/operations/compare-exchange/overview#example-iii---ensuring-unique-values-without-using-compare-exchange)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="What Compare Exchange Items Are" id="what-compare-exchange-items-are" href="#what-compare-exchange-items-are">
+## What Compare Exchange Items Are
 
 Compare Exchange items are key/value pairs where the key servers a unique value across your database.
 
@@ -56,9 +55,9 @@ Compare Exchange items are key/value pairs where the key servers a unique value 
 * Creating and modifying a compare-exchange item is an atomic, thread-safe [compare-and-swap](https://en.wikipedia.org/wiki/Compare-and-swap) interlocked 
   compare-exchange operation.
 
-</Admonition>
 
-<Admonition type="info" title="Creating and Managing Compare-Exchange Items" id="creating-and-managing-compare-exchange-items" href="#creating-and-managing-compare-exchange-items">
+
+## Creating and Managing Compare-Exchange Items
   
 Compare exchange items are created and managed with any of the following approaches:
 
@@ -84,9 +83,9 @@ Compare exchange items are created and managed with any of the following approac
 * **Studio**  
   Compare-exchange items can be created from the [Studio](../../../studio/database/documents/compare-exchange-view#the-compare-exchange-view) as well.
 
-</Admonition>
 
-<Admonition type="info" title="Why Compare-Exchange Items are Not Replicated to External Databases " id="why-compare-exchange-items-are-not-replicated-to-external-databases" href="#why-compare-exchange-items-are-not-replicated-to-external-databases">
+
+## Why Compare-Exchange Items are Not Replicated to External Databases 
 
 * Each cluster defines its policies and configurations, and should ideally have sole responsibility for managing its own documents. 
   Read [Consistency in a Globally Distributed System](https://ayende.com/blog/196769-B/data-ownership-in-a-distributed-system) 
@@ -102,9 +101,9 @@ Compare exchange items are created and managed with any of the following approac
 
 * To ensure unique values between two databases without using compare-exchange items see [Example III](../../../client-api/operations/compare-exchange/overview#example-iii---ensuring-unique-values-without-using-compare-exchange).
 
-</Admonition>
 
-<Admonition type="info" title="Example I - Email Address Reservation" id="example-i-email-address-reservation" href="#example-i-email-address-reservation">  
+
+## Example I - Email Address Reservation  
 
 The following example shows how to use compare-exchange to create documents with unique values.  
 The scope is within the database group on a single cluster. 
@@ -178,9 +177,9 @@ using (IDocumentSession session = store.OpenSession())
 </CodeBlock>
 </TabItem>
     </Tabs>
-    </Admonition>
+    
 
-<Admonition type="info" title="Example II - Reserve a Shared Resource" id="example-ii-reserve-a-shared-resource" href="#example-ii-reserve-a-shared-resource">  
+## Example II - Reserve a Shared Resource  
 
 In the following example, we use compare-exchange to reserve a shared resource.  
 The scope is within the database group on a single cluster.
@@ -261,9 +260,9 @@ public void ReleaseResource(IDocumentStore store, string resourceName, long inde
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Example III - Ensuring Unique Values without Using Compare Exchange" id="example-iii-ensuring-unique-values-without-using-compare-exchange" href="#example-iii-ensuring-unique-values-without-using-compare-exchange">  
+
+## Example III - Ensuring Unique Values without Using Compare Exchange  
 
 Unique values can also be ensured without using compare-exchange.
 
@@ -337,13 +336,11 @@ class UniquePhoneReference
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Compare Exchange Overview 
----
 
 <Admonition type="note" title="Note">
 
@@ -372,18 +369,15 @@ Compare exchange entries that are automatically administered by RavenDB are call
   * [Example I - Email Address Reservation](../../../client-api/operations/compare-exchange/overview#example-i---email-address-reservation)  
   * [Example II- Reserve a Shared Resource](../../../client-api/operations/compare-exchange/overview#example-ii---reserve-a-shared-resource)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Compare Exchange Transaction Scope" id="compare-exchange-transaction-scope" href="#compare-exchange-transaction-scope">
+## Compare Exchange Transaction Scope
 
 * Since the compare-exchange operations guarantee atomicity across the entire cluster, 
   the feature is **not** using the transaction associated with a session object, as a session transaction spans only a single node.  
 
 * So if a compare-exchange operation has failed when used inside a session block, it will **not** be rolled back automatically upon a session transaction failure.  
-</Admonition>
 
-<Admonition type="info" title="Creating a Key" id="creating-a-key" href="#creating-a-key">
+
+## Creating a Key
 
 * Provide the following when saving a **key**:
 
@@ -400,9 +394,9 @@ The _Index_ is used for the concurrency control, similar to documents Etags. |
 * The [Put](../../../client-api/operations/compare-exchange/put-compare-exchange-value) operation will succeed only if this key doesn't exist yet.  
 
 * Note: Two different keys _can_ have the same values as long as the keys are unique.  
-</Admonition>
 
-<Admonition type="info" title="Updating a Key" id="updating-a-key" href="#updating-a-key">
+
+## Updating a Key
 
 * Updating a 'Compare Exchange' key can be divided into 2 phases:
 
@@ -411,9 +405,9 @@ The _Index_ is used for the concurrency control, similar to documents Etags. |
   2. The _Index_ obtained from the read operation is provided to the [Put](../../../client-api/operations/compare-exchange/put-compare-exchange-value) operation along with the new _Value_ to be saved.  
      This save will succeed only if the index that is provided to the 'Put' operation is the **same** as the index that was received from the server in the previous 'Get', 
      which means that the _Value_ was not modified by someone else between the read and write operations.
-</Admonition>
 
-<Admonition type="info" title="Example I - Email Address Reservation" id="example-i-email-address-reservation" href="#example-i-email-address-reservation">  
+
+## Example I - Email Address Reservation  
 
 * Compare Exchange can be used to maintain uniqueness across users emails accounts.  
 
@@ -482,9 +476,9 @@ try (IDocumentSession session = store.openSession()) \{
 </CodeBlock>
 </TabItem>
 </Tabs>
-</Admonition>
 
-<Admonition type="info" title="Example II - Reserve a Shared Resource" id="example-ii-reserve-a-shared-resource" href="#example-ii-reserve-a-shared-resource">  
+
+## Example II - Reserve a Shared Resource  
 
 * Use compare exchange for a shared resource reservation.  
 
@@ -561,13 +555,11 @@ public void releaseResource(IDocumentStore store, String resourceName, long inde
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Compare Exchange Overview 
----
 
 <Admonition type="note" title="Note">
 
@@ -589,10 +581,7 @@ public void releaseResource(IDocumentStore store, String resourceName, long inde
 * [Example III - Ensuring Unique Values without Using Compare Exchange](../../../client-api/operations/compare-exchange/overview#example-iii---ensuring-unique-values-without-using-compare-exchange)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="What Compare Exchange Items Are" id="what-compare-exchange-items-are" href="#what-compare-exchange-items-are">
+## What Compare Exchange Items Are
 
 Compare Exchange items are key/value pairs where the key servers a unique value across your database.
 
@@ -609,9 +598,9 @@ Compare Exchange items are key/value pairs where the key servers a unique value 
 * Creating and modifying a compare-exchange item is an atomic, thread-safe [compare-and-swap](https://en.wikipedia.org/wiki/Compare-and-swap) interlocked 
   compare-exchange operation.
 
-</Admonition>
 
-<Admonition type="info" title="Creating and Managing Compare-Exchange Items" id="creating-and-managing-compare-exchange-items" href="#creating-and-managing-compare-exchange-items">
+
+## Creating and Managing Compare-Exchange Items
   
 Compare exchange items are created and managed with any of the following approaches:
 
@@ -637,9 +626,9 @@ Compare exchange items are created and managed with any of the following approac
 * **Studio**  
   Compare-exchange items can be created from the [Studio](../../../studio/database/documents/compare-exchange-view#the-compare-exchange-view) as well.
 
-</Admonition>
 
-<Admonition type="info" title="Why Compare-Exchange Items are Not Replicated to External Databases " id="why-compare-exchange-items-are-not-replicated-to-external-databases" href="#why-compare-exchange-items-are-not-replicated-to-external-databases">
+
+## Why Compare-Exchange Items are Not Replicated to External Databases 
 
 * Each cluster defines its policies and configurations, and should ideally have sole responsibility for managing its own documents. 
   Read [Consistency in a Globally Distributed System](https://ayende.com/blog/196769-B/data-ownership-in-a-distributed-system) 
@@ -655,9 +644,9 @@ Compare exchange items are created and managed with any of the following approac
 
 * To ensure unique values between two databases without using compare-exchange items see [Example III](../../../client-api/operations/compare-exchange/overview#example-iii---ensuring-unique-values-without-using-compare-exchange).
 
-</Admonition>
 
-<Admonition type="info" title="Example I - Email Address Reservation" id="example-i-email-address-reservation" href="#example-i-email-address-reservation">  
+
+## Example I - Email Address Reservation  
 
 The following example shows how to use compare-exchange to create documents with unique values.  
 The scope is within the database group on a single cluster. 
@@ -714,9 +703,9 @@ with store.open_session() as sesion:
 </CodeBlock>
 </TabItem>
     </Tabs>
-    </Admonition>
+    
 
-<Admonition type="info" title="Example II - Reserve a Shared Resource" id="example-ii-reserve-a-shared-resource" href="#example-ii-reserve-a-shared-resource">  
+## Example II - Reserve a Shared Resource  
 
 In the following example, we use compare-exchange to reserve a shared resource.  
 The scope is within the database group on a single cluster.
@@ -776,9 +765,9 @@ def release_resource(store: DocumentStore, resource_name: str, index: int) -> No
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Example III - Ensuring Unique Values without Using Compare Exchange" id="example-iii-ensuring-unique-values-without-using-compare-exchange" href="#example-iii-ensuring-unique-values-without-using-compare-exchange">  
+
+## Example III - Ensuring Unique Values without Using Compare Exchange  
 
 Unique values can also be ensured without using compare-exchange.
 
@@ -838,13 +827,11 @@ class UniquePhoneReference:
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Compare Exchange Overview 
----
 
 <Admonition type="note" title="Note">
 
@@ -866,10 +853,7 @@ class UniquePhoneReference:
 * [Example III - Ensuring Unique Values without Using Compare Exchange](../../../client-api/operations/compare-exchange/overview#example-iii---ensuring-unique-values-without-using-compare-exchange)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="What Compare Exchange Items Are" id="what-compare-exchange-items-are" href="#what-compare-exchange-items-are">
+## What Compare Exchange Items Are
 
 Compare Exchange items are key/value pairs where the key servers a unique value across your database.
 
@@ -886,9 +870,9 @@ Compare Exchange items are key/value pairs where the key servers a unique value 
 * Creating and modifying a compare-exchange item is an atomic, thread-safe [compare-and-swap](https://en.wikipedia.org/wiki/Compare-and-swap) interlocked 
   compare-exchange operation.
 
-</Admonition>
 
-<Admonition type="info" title="Creating and Managing Compare-Exchange Items" id="creating-and-managing-compare-exchange-items" href="#creating-and-managing-compare-exchange-items">
+
+## Creating and Managing Compare-Exchange Items
   
 Compare exchange items are created and managed with any of the following approaches:
 
@@ -914,9 +898,9 @@ Compare exchange items are created and managed with any of the following approac
 * **Studio**  
   Compare-exchange items can be created from the [Studio](../../../studio/database/documents/compare-exchange-view#the-compare-exchange-view) as well.
 
-</Admonition>
 
-<Admonition type="info" title="Why Compare-Exchange Items are Not Replicated to External Databases " id="why-compare-exchange-items-are-not-replicated-to-external-databases" href="#why-compare-exchange-items-are-not-replicated-to-external-databases">
+
+## Why Compare-Exchange Items are Not Replicated to External Databases 
 
 * Each cluster defines its policies and configurations, and should ideally have sole responsibility for managing its own documents. 
   Read [Consistency in a Globally Distributed System](https://ayende.com/blog/196769-B/data-ownership-in-a-distributed-system) 
@@ -932,9 +916,9 @@ Compare exchange items are created and managed with any of the following approac
 
 * To ensure unique values between two databases without using compare-exchange items see [Example III](../../../client-api/operations/compare-exchange/overview#example-iii---ensuring-unique-values-without-using-compare-exchange).
 
-</Admonition>
 
-<Admonition type="info" title="Example I - Email Address Reservation" id="example-i-email-address-reservation" href="#example-i-email-address-reservation">  
+
+## Example I - Email Address Reservation  
 
 The following example shows how to use compare-exchange to create documents with unique values.  
 The scope is within the database group on a single cluster. 
@@ -1010,9 +994,9 @@ try \{
 </CodeBlock>
 </TabItem>
     </Tabs>
-    </Admonition>
+    
 
-<Admonition type="info" title="Example II - Reserve a Shared Resource" id="example-ii-reserve-a-shared-resource" href="#example-ii-reserve-a-shared-resource">  
+## Example II - Reserve a Shared Resource  
 
 In the following example, we use compare-exchange to reserve a shared resource.  
 The scope is within the database group on a single cluster.
@@ -1103,9 +1087,9 @@ class CompareExchangeSharedResource
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Example III - Ensuring Unique Values without Using Compare Exchange" id="example-iii-ensuring-unique-values-without-using-compare-exchange" href="#example-iii-ensuring-unique-values-without-using-compare-exchange">  
+
+## Example III - Ensuring Unique Values without Using Compare Exchange  
 
 Unique values can also be ensured without using compare-exchange.
 
@@ -1207,7 +1191,7 @@ class UniquePhoneReference
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
+
 
 
 </LanguageContent>

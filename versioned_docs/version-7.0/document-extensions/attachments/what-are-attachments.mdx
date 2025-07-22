@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# What are Attachments
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# What are Attachments
+
 
 In RavenDB, attachments are binary streams which can be bound to an existing document. 
 Each attachment has a name, and you can specify the content type (`image/png` or `application/pdf` for example).
@@ -100,7 +104,7 @@ as there will be a change to the document's metadata, as shown in example #2.
 
 </LanguageContent>
 <LanguageContent language="java">
-# What are Attachments
+
 
 In RavenDB, attachments are binary streams which can be bound to an existing document. 
 Each attachment has a name, and you can specify the content type (`image/png` or `application/pdf` for example).
@@ -187,7 +191,7 @@ as there will be a change to the document's metadata, as shown in example #2.
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# What are Attachments
+
 
 In RavenDB, attachments are binary streams which can be bound to an existing document. 
 Each attachment has a name, and you can specify the content type (`image/png` or `application/pdf` for example).

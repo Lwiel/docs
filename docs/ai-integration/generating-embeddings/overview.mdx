@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Generating Embeddings - Overview
----
-
 <Admonition type="note" title="Note">
 
 * RavenDB can serve as a vector database, see [Why choose RavenDB as your vector database](../../ai-integration/vector-search/ravendb-as-vector-database#why-choose-ravendb-as-your-vector-database).
@@ -23,9 +21,6 @@ import LanguageContent from "@site/src/components/language-content";
    * Pre-made embeddings that you created yourself and stored using these [Data types](../../ai-integration/vector-search/data-types-for-vector-search#numerical-data).  
    * Pre-made embeddings that are automatically generated from your document content by RavenDB's tasks  
      using external service providers, as explained below.
-
----
-
 * In this article:
   * [Embeddings generation - overview](../../ai-integration/generating-embeddings/overview#embeddings-generation---overview)
      * [Embeddings generation - process flow](../../ai-integration/generating-embeddings/overview#embeddings-generation---process-flow)
@@ -34,16 +29,11 @@ import LanguageContent from "@site/src/components/language-content";
   * [Monitoring the tasks](../../ai-integration/generating-embeddings/overview#monitoring-the-tasks)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Embeddings generation - overview" id="embeddings-generation-overview" href="#embeddings-generation-overview">
+## Embeddings generation - overview
 
 <Admonition type="note" title="Note">
 
 #### Embeddings generation - process flow
----
-
 * **Define an Embeddings Generation Task**:  
   Specify a [connection string](../../ai-integration/connection-strings/connection-strings-overview) that defines the AI provider and model for generating embeddings.  
   Define the source content - what parts of the documents will be used to create the embeddings.  
@@ -88,8 +78,6 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="note" title="Note">
 
 #### Supported providers
----
-
 * The following service providers are supported for auto-generating embeddings using tasks:
 
     * [OpenAI & OpenAI-compatible providers](../../ai-integration/connection-strings/open-ai)
@@ -106,16 +94,13 @@ import LanguageContent from "@site/src/components/language-content";
 
 ![flow chart](./assets/vector-search-flow.png)
 
-</Admonition>
 
-<Admonition type="info" title="Creating an embeddings generation task" id="creating-an-embeddings-generation-task" href="#creating-an-embeddings-generation-task">
+
+## Creating an embeddings generation task
 
 * An embeddings generation tasks can be created from:
     * The **AI Tasks view in the Studio**, where you can create, edit, and delete tasks. Learn more in [AI Tasks - list view](../../ai-integration/ai-tasks-list-view).
     * The **Client API** - see [Configuring an embeddings generation task - from the Client API](../../ai-integration/generating-embeddings/embeddings-generation-task#configuring-an-embeddings-generation-task---from-the-client-api)
-
----
-
 * From the Studio:  
 
      ![Add ai task 1](./assets/add-ai-task-1.png)
@@ -128,9 +113,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 * See the complete details of the task configuration in the [Embeddings generation task](../../ai-integration/generating-embeddings/embeddings-generation-task) article.
 
-</Admonition>
 
-<Admonition type="info" title="Monitoring the tasks" id="monitoring-the-tasks" href="#monitoring-the-tasks">
+
+## Monitoring the tasks
 
 * The status and state of each embeddings generation task are visible in the [AI Tasks - list view](../../ai-integration/ai-tasks-list-view).
 
@@ -143,5 +128,5 @@ import LanguageContent from "@site/src/components/language-content";
   * [5.1.11.25](../../server/administration/snmp/snmp#5.1.11.25) – Total number of enabled embeddings generation tasks.
   * [5.1.11.26](../../server/administration/snmp/snmp#5.1.11.26) – Total number of active embeddings generation tasks.
 
-</Admonition>
+
 

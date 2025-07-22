@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "nodejs"];
+
+
+# Subscription Consumption Examples
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Subscription Consumption Examples
----
 
 <Admonition type="note" title="Note">
 
@@ -30,11 +32,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Primary and secondary workers](../../../client-api/data-subscriptions/consumption/examples#primary-and-secondary-workers)
 
 </Admonition>
-
----
-
-
-<Admonition type="info" title="Client with full exception handling and processing retries" id="client-with-full-exception-handling-and-processing-retries" href="#client-with-full-exception-handling-and-processing-retries">
+## Client with full exception handling and processing retries
 
 Here we implement a client that handles exceptions thrown by the worker.  
 If the exception is recoverable, the client retries creating the worker.
@@ -137,9 +135,9 @@ If the exception is recoverable, the client retries creating the worker.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker with a specified batch size" id="worker-with-a-specified-batch-size" href="#worker-with-a-specified-batch-size">
+
+## Worker with a specified batch size
 
 Here we create a worker and specify the maximum number of documents the server will send to the worker in each batch.
 
@@ -159,9 +157,9 @@ _ = workerWBatch.Run(x =>
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker that operates with a session" id="worker-that-operates-with-a-session" href="#worker-that-operates-with-a-session">
+
+## Worker that operates with a session
 
 Here we create a subscription that sends _Order_ documents that do not have a shipping date.  
 The worker receiving these documents will update the `ShippedAt` field value and save the document back to the server via the session.
@@ -204,9 +202,9 @@ _ = subscriptionWorker.Run(batch =>
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker that processes dynamic objects" id="worker-that-processes-dynamic-objects" href="#worker-that-processes-dynamic-objects">
+
+## Worker that processes dynamic objects
 
 Here we define a subscription that projects the _Order_ documents into a dynamic format.  
 The worker processes the dynamic objects it receives.
@@ -243,9 +241,9 @@ _ = subscriptionWorker.Run(batch =>
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker that processes a blittable object" id="worker-that-processes-a-blittable-object" href="#worker-that-processes-a-blittable-object">
+
+## Worker that processes a blittable object
 
 Create a worker that processes documents as low level blittable objects.  
 This can be useful in extreme high-performance scenarios, but may be dangerous due to the direct usage of unmanaged memory.
@@ -284,9 +282,9 @@ _ = subscriptionWorker.Run(batch =>
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription that ends when no documents are left" id="subscription-that-ends-when-no-documents-are-left" href="#subscription-that-ends-when-no-documents-are-left">
+
+## Subscription that ends when no documents are left
 
 Here we create a subscription client that runs until there are no more new documents to process.  
 This is useful for ad-hoc, single-use processing where the user needs to ensure that all documents are fully processed.
@@ -334,9 +332,9 @@ catch (SubscriptionClosedException)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription that uses included documents" id="subscription-that-uses-included-documents" href="#subscription-that-uses-included-documents">
+
+## Subscription that uses included documents
 
 Here we create a subscription that, in addition to sending all the _Order_ documents to the worker,  
 will include all the referenced _Product_ documents in the batch sent to the worker.
@@ -381,9 +379,9 @@ _ = subscriptionWorker.Run(batch =>
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription workers with failover on other nodes" id="subscription-workers-with-failover-on-other-nodes" href="#subscription-workers-with-failover-on-other-nodes">
+
+## Subscription workers with failover on other nodes
 
 In this configuration, any available node will create a worker.  
 If the worker fails, another available node will take over.
@@ -399,9 +397,9 @@ If the worker fails, another available node will take over.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Primary and secondary workers" id="primary-and-secondary-workers" href="#primary-and-secondary-workers">
+
+## Primary and secondary workers
 
 Here we create two workers:  
 
@@ -462,13 +460,11 @@ while (true)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Subscription Consumption Examples
----
 
 <Admonition type="note" title="Note">
 
@@ -482,10 +478,7 @@ while (true)
    * [Primary and secondary workers](../../../client-api/data-subscriptions/consumption/examples#primary-and-secondary-workers)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Worker with a specified batch size" id="worker-with-a-specified-batch-size" href="#worker-with-a-specified-batch-size">
+## Worker with a specified batch size
 
 Here we create a worker and specify the maximum number of documents the server will send to the worker in each batch.
 
@@ -499,9 +492,9 @@ workerWBatch.run(x -> \{ /* custom logic */\});
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Client with full exception handling and processing retries" id="client-with-full-exception-handling-and-processing-retries" href="#client-with-full-exception-handling-and-processing-retries">
+
+## Client with full exception handling and processing retries
 
 Here we implement a client that handles exceptions thrown by a worker.  
 If the exception is recoverable, the client retries creating the worker.
@@ -580,9 +573,9 @@ If the exception is recoverable, the client retries creating the worker.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription that ends when no documents left" id="subscription-that-ends-when-no-documents-left" href="#subscription-that-ends-when-no-documents-left">
+
+## Subscription that ends when no documents left
 
 Here we create a subscription client that runs only up to the point there are no more new documents left to process.  
 
@@ -611,9 +604,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker that processes raw objects" id="worker-that-processes-raw-objects" href="#worker-that-processes-raw-objects">
+
+## Worker that processes raw objects
 
 Here we create a worker that processes received data as ObjectNode objects.
 
@@ -639,9 +632,9 @@ worker.run(x -> \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker that operates with a session" id="worker-that-operates-with-a-session" href="#worker-that-operates-with-a-session">
+
+## Worker that operates with a session
 
 Here we create a subscription that sends Order documents that do not have a shipping date.  
 The worker receiving these documents will update the `ShippedAt` field value and save the document back to the server via the session.
@@ -670,9 +663,9 @@ subscriptionWorker.run(batch -> \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription that uses included documents" id="subscription-that-uses-included-documents" href="#subscription-that-uses-included-documents">
+
+## Subscription that uses included documents
 
 Here we create a subscription that, in addition to sending all the _Order_ documents to the worker,  
 will include all the referenced _Product_ documents in the batch sent to the worker.
@@ -705,9 +698,9 @@ subscriptionWorker.run(batch -> \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Primary and secondary workers" id="primary-and-secondary-workers" href="#primary-and-secondary-workers">
+
+## Primary and secondary workers
 
 Here we create two workers:  
 
@@ -759,13 +752,11 @@ while (true) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Subscription Consumption Examples
----
 
 <Admonition type="note" title="Note">
 
@@ -780,10 +771,7 @@ while (true) \{
   * [Primary and secondary workers](../../../client-api/data-subscriptions/consumption/examples#primary-and-secondary-workers)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Client with full exception handling and processing retries" id="client-with-full-exception-handling-and-processing-retries" href="#client-with-full-exception-handling-and-processing-retries">
+## Client with full exception handling and processing retries
 
 Here we implement a client that handles exceptions thrown by a worker.  
 If the exception is recoverable, the client retries creating the worker.
@@ -858,9 +846,9 @@ If the exception is recoverable, the client retries creating the worker.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker with a specified batch size" id="worker-with-a-specified-batch-size" href="#worker-with-a-specified-batch-size">
+
+## Worker with a specified batch size
 
 Here we create a worker and specify the maximum number of documents the server will send to the worker in each batch.
 
@@ -877,9 +865,9 @@ _ = worker_w_batch.run(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker that operates with a session" id="worker-that-operates-with-a-session" href="#worker-that-operates-with-a-session">
+
+## Worker that operates with a session
 
 Here we create a subscription that sends _Order_ documents that do not have a shipping date.  
 The worker receiving these documents will update the `ShippedAt` field value and save the document back to the server via the session.
@@ -907,9 +895,9 @@ _ = subscription_worker.run(_transfer_order_callback)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker that processes dynamic objects" id="worker-that-processes-dynamic-objects" href="#worker-that-processes-dynamic-objects">
+
+## Worker that processes dynamic objects
 
 Here we define a subscription that projects the _Order_ documents into a dynamic format.  
 The worker processes the dynamic objects it receives.
@@ -942,9 +930,9 @@ _ = subscription_worker.run(_raise_notification_callback)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription that ends when no documents are left" id="subscription-that-ends-when-no-documents-are-left" href="#subscription-that-ends-when-no-documents-are-left">
+
+## Subscription that ends when no documents are left
 
 Here we create a subscription client that runs only up to the point there are no more new documents left to process.  
 
@@ -976,9 +964,9 @@ except SubscriptionClosedException:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription that uses included documents" id="subscription-that-uses-included-documents" href="#subscription-that-uses-included-documents">
+
+## Subscription that uses included documents
 
 Here we create a subscription that, in addition to sending all the _Order_ documents to the worker,  
 will include all the referenced _Product_ documents in the batch sent to the worker.
@@ -1023,9 +1011,9 @@ _ = subscriptionWorker.Run(batch =>
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription workers with failover on other nodes" id="subscription-workers-with-failover-on-other-nodes" href="#subscription-workers-with-failover-on-other-nodes">
+
+## Subscription workers with failover on other nodes
 
 In this configuration, any available node will create a worker.  
 If the worker fails, another available node will take over.
@@ -1039,9 +1027,9 @@ If the worker fails, another available node will take over.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Primary and secondary workers" id="primary-and-secondary-workers" href="#primary-and-secondary-workers">
+
+## Primary and secondary workers
 
 Here we create two workers:  
 
@@ -1076,13 +1064,11 @@ while True:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Subscription Consumption Examples
----
 
 <Admonition type="note" title="Note">
 
@@ -1096,10 +1082,7 @@ while True:
   * [Primary and secondary workers](../../../client-api/data-subscriptions/consumption/examples#primary-and-secondary-workers)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Client with full exception handling and processing retries" id="client-with-full-exception-handling-and-processing-retries" href="#client-with-full-exception-handling-and-processing-retries">
+## Client with full exception handling and processing retries
 
 Here we implement a client that handles exceptions thrown by the worker.  
 If the exception is recoverable, the client retries creating the worker.
@@ -1232,9 +1215,9 @@ async function setupReconnectingWorker(subscriptionName) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker with a specified batch size" id="worker-with-a-specified-batch-size" href="#worker-with-a-specified-batch-size">
+
+## Worker with a specified batch size
 
 Here we create a worker and specify the maximum number of documents the server will send to the worker in each batch.
 
@@ -1275,9 +1258,9 @@ worker.on("batch", (batch, callback) => \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker that operates with a session" id="worker-that-operates-with-a-session" href="#worker-that-operates-with-a-session">
+
+## Worker that operates with a session
 
 Here we create a subscription that sends _Order_ documents that do not have a shipping date.  
 The worker receiving these documents will update the `ShippedAt` field value and save the document back to the server via the session.
@@ -1327,9 +1310,9 @@ worker.on("batch", async (batch, callback)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Worker that processes dynamic objects" id="worker-that-processes-dynamic-objects" href="#worker-that-processes-dynamic-objects">
+
+## Worker that processes dynamic objects
 
 Here we define a subscription that projects the _Order_ documents into a dynamic format.  
 The worker processes the dynamic objects it receives.
@@ -1369,9 +1352,9 @@ worker.on("batch", (batch, callback) => \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription that ends when no documents are left" id="subscription-that-ends-when-no-documents-are-left" href="#subscription-that-ends-when-no-documents-are-left">
+
+## Subscription that ends when no documents are left
 
 Here we create a subscription client that runs until there are no more new documents to process.  
 This is useful for ad-hoc, single-use processing where the user needs to ensure that all documents are fully processed.
@@ -1427,9 +1410,9 @@ highValueOrdersWorker.on("error", err => \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription that uses included documents" id="subscription-that-uses-included-documents" href="#subscription-that-uses-included-documents">
+
+## Subscription that uses included documents
 
 Here we create a subscription that, in addition to sending all the _Order_ documents to the worker,  
 will include all the referenced _Product_ documents in the batch sent to the worker.
@@ -1478,9 +1461,9 @@ worker.on("batch", async (batch, callback) => \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Primary and secondary workers" id="primary-and-secondary-workers" href="#primary-and-secondary-workers">
+
+## Primary and secondary workers
 
 Here we create two workers:
 
@@ -1535,7 +1518,7 @@ worker2.on("error", err => \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -15,7 +15,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 The following configuration options allow you configure [the storage engine](../../server/storage/storage-engine).
 
-<Admonition type="info" title="Storage.TempPath" id="storage-temppath" href="#storage-temppath">
+## Storage.TempPath
 
 * Use this configuration option to customize the path for the temporary files of the following [directories](../../server/storage/directory-structure):
   * `System`
@@ -33,16 +33,13 @@ The following configuration options allow you configure [the storage engine](../
 * To specify a different path for the indexes temporary files go to [Indexing.TempPath](../../server/configuration/indexing-configuration#indexing.temppath).  
 
 * Learn more about RavenDB directory structure [here](../../server/storage/directory-structure).  
-
----
-
 - **Type**: `string`
 - **Default**: `null`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Storage.MaxConcurrentFlushes" id="storage-maxconcurrentflushes" href="#storage-maxconcurrentflushes">
+
+## Storage.MaxConcurrentFlushes
 
 Maximum concurrent flushes.
 
@@ -50,9 +47,9 @@ Maximum concurrent flushes.
 - **Default**: `10`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Storage.TimeToSyncAfterFlushInSec" id="storage-timetosyncafterflushinsec" href="#storage-timetosyncafterflushinsec">
+
+## Storage.TimeToSyncAfterFlushInSec
 
 Time to sync after flush in seconds
 
@@ -60,9 +57,9 @@ Time to sync after flush in seconds
 - **Default**: `30`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Storage.NumberOfConcurrentSyncsPerPhysicalDrive" id="storage-numberofconcurrentsyncsperphysicaldrive" href="#storage-numberofconcurrentsyncsperphysicaldrive">
+
+## Storage.NumberOfConcurrentSyncsPerPhysicalDrive
 
 Number of concurrent syncs per physical drive.
 
@@ -70,9 +67,9 @@ Number of concurrent syncs per physical drive.
 - **Default**: `3`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Storage.CompressTxAboveSizeInKb" id="storage-compresstxabovesizeinkb" href="#storage-compresstxabovesizeinkb">
+
+## Storage.CompressTxAboveSizeInKb
 
 Compress transactions above size (value in KB)
 
@@ -80,9 +77,9 @@ Compress transactions above size (value in KB)
 - **Default**: `512`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Storage.ForceUsing32BitsPager" id="storage-forceusing32bitspager" href="#storage-forceusing32bitspager">
+
+## Storage.ForceUsing32BitsPager
 
 Use the 32 bits memory mapped pager even when running on 64 bits.
 
@@ -90,9 +87,9 @@ Use the 32 bits memory mapped pager even when running on 64 bits.
 - **Default**: `false`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Storage.MaxScratchBufferSizeInMb" id="storage-maxscratchbuffersizeinmb" href="#storage-maxscratchbuffersizeinmb">
+
+## Storage.MaxScratchBufferSizeInMb
 
 Maximum size of `.buffers` files
 
@@ -100,10 +97,10 @@ Maximum size of `.buffers` files
 - **Default**: `256` when running on 64 bits, `32` when running on 32 bits or `Storage.ForceUsing32BitsPager` is set to `true`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
 
-<Admonition type="info" title="Storage.PrefetchBatchSizeInKb" id="storage-prefetchbatchsizeinkb" href="#storage-prefetchbatchsizeinkb">
+
+## Storage.PrefetchBatchSizeInKb
 
 Size of the batch in kilobytes that will be requested to the OS from disk when prefetching (value in powers of 2). Some OSs may not honor certain values. Experts only.
 
@@ -111,9 +108,9 @@ Size of the batch in kilobytes that will be requested to the OS from disk when p
 - **Default**: `1024`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Storage.PrefetchResetThresholdInGb" id="storage-prefetchresetthresholdingb" href="#storage-prefetchresetthresholdingb">
+
+## Storage.PrefetchResetThresholdInGb
 
 How many gigabytes of memory should be prefetched before restarting the prefetch tracker table. Experts only.
 
@@ -121,9 +118,9 @@ How many gigabytes of memory should be prefetched before restarting the prefetch
 - **Default**: `8`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Storage.OnDirectoryInitialize.Exec" id="storage-ondirectoryinitialize-exec" href="#storage-ondirectoryinitialize-exec">
+
+## Storage.OnDirectoryInitialize.Exec
 
 A command or executable to run when creating/opening a directory (storage environment). Experts only.  
 RavenDB will execute:  
@@ -138,9 +135,9 @@ RavenDB will execute:
 - **Default**: `null`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Storage.OnDirectoryInitialize.Exec.Arguments" id="storage-ondirectoryinitialize-exec-arguments" href="#storage-ondirectoryinitialize-exec-arguments">
+
+## Storage.OnDirectoryInitialize.Exec.Arguments
 
 The optional user arguments for the 'Storage.OnDirectoryInitialize.Exec' command or executable. The arguments must be escaped for the command line. Experts only.  
 
@@ -148,9 +145,9 @@ The optional user arguments for the 'Storage.OnDirectoryInitialize.Exec' command
 - **Default**: `null`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Storage.OnDirectoryInitialize.Exec.TimeoutInSec" id="storage-ondirectoryinitialize-exec-timeoutinsec" href="#storage-ondirectoryinitialize-exec-timeoutinsec">
+
+## Storage.OnDirectoryInitialize.Exec.TimeoutInSec
 
 The number of seconds to wait for the OnDirectoryInitialize executable to exit. Default: 30 seconds. Experts only.  
 
@@ -158,9 +155,9 @@ The number of seconds to wait for the OnDirectoryInitialize executable to exit. 
 - **Default**: `30`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Storage.EnablePrefetching" id="storage-enableprefetching" href="#storage-enableprefetching">
+
+## Storage.EnablePrefetching
 
 Enables memory prefetching mechanism if OS supports it.  
 
@@ -168,5 +165,5 @@ Enables memory prefetching mechanism if OS supports it.
 - **Default**: `true`
 - **Scope**: Server-wide only
 
-</Admonition>
+
 

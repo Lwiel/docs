@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java"];
+
+
+# Operations: Server: How to delete a database?
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Operations: Server: How to delete a database?
+
 
 This operation is used to delete databases from a server, with a possibility to remove all the data from hard drive.
 
@@ -106,7 +110,7 @@ In order to delete just one database from a server, you can also use this simpli
 
 </LanguageContent>
 <LanguageContent language="java">
-# Operations: Server: How to delete a database?
+
 
 This operation is used to delete databases from a server, with a possibility to remove all the data from hard drive.
 

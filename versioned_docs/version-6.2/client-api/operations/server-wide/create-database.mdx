@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java"];
+
+
+# Create Database Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Create Database Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -32,16 +34,11 @@ import LanguageContent from "@site/src/components/language-content";
    * [Syntax](../../../client-api/operations/server-wide/create-database#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Create new database" id="create-new-database" href="#create-new-database">
+## Create new database
 
 <Admonition type="note" title="Note">
 
 ##### Example I - Create non-sharded database
----
-
 * The following simple example creates a non-sharded database with the default replication factor of 1.
 
 <Tabs groupId='languageSyntax'>
@@ -95,8 +92,6 @@ await store.Maintenance.Server.SendAsync(createDatabaseOp);
 <Admonition type="note" title="Note">
 
 ##### Example II - Create sharded database
----
-
 * The following example creates a sharded database with 3 shards, each with a replication factor of 2.
 * In addition, it enables: 
    * revisions
@@ -280,8 +275,6 @@ await store.Maintenance.Server.SendAsync(createDatabaseOp);
 <Admonition type="note" title="Note">
 
 ##### Example III - Ensure database does not exist before creating
----
-
 * To ensure the database does not already exist before creating it, follow this example:
 
 <Tabs groupId='languageSyntax'>
@@ -344,9 +337,9 @@ catch (DatabaseDoesNotExistException)
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="create_database_operation_syntax">
 <CodeBlock language="csharp">
@@ -364,9 +357,6 @@ public CreateDatabaseOperation(Action<IDatabaseRecordBuilderInitializer> builder
 | **databaseRecord**    | Instance of `DatabaseRecord` containing database configuration.<br/>See [The Database Record](../../../client-api/operations/server-wide/create-database#the-database-record) below.                                                                                                                                      |
 | **replicationFactor** | Number of nodes the database should be replicated to.<br/><br/>If not specified, the value is taken from `databaseRecord.Topology.ReplicationFactor`,<br/>or defaults to **`1`** if that is not set.<br/><br/>If `Topology` is provided, the `replicationFactor` is ignored.                                                  |
 | **builder**           | Callback used to initialize and fluently configure a new DatabaseRecord.<br/>Receives an `IDatabaseRecordBuilderInitializer` on which you invoke builder methods to construct the record. See [The Database Record Builder](../../../client-api/operations/server-wide/create-database#the-database-record-builder) below. |
-
----
-
 ### The Database Record:
 
 The `DatabaseRecord` is a collection of database configurations:  
@@ -418,9 +408,6 @@ The `DatabaseRecord` is a collection of database configurations:
 | **TimeSeries**                     | `TimeSeriesConfiguration`                           | [Time series](../../../studio/database/settings/time-series-settings) configuration for the database.                                                                                                                                                                       |
 | **Topology**                       | `DatabaseTopology`                                  | Optional topology configuration.<br/><br/>Defaults to `null`, in which case the server will determine which nodes to place the database on, based on the specified `ReplicationFactor`.                                                                                       |
 | **UnusedDatabaseIds**              | `HashSet<string>`                                   | Set database IDs that will be excluded when creating new change vectors.                                                                                                                                                                                                    |
-
----
-
 ### The Database Record Builder:
 
 <TabItem value="something-something" label="builder_syntax">
@@ -474,13 +461,11 @@ public interface IDatabaseRecordBuilderBase
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Create Database Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -497,16 +482,11 @@ public interface IDatabaseRecordBuilderBase
     * [Syntax](../../../client-api/operations/server-wide/create-database#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Create new database" id="create-new-database" href="#create-new-database">
+## Create new database
 
 <Admonition type="note" title="Note">
 
 ##### Example I - Create database
----
-
 * The following simple example creates a non-sharded database with the default replication factor of 1.
 
 <TabItem value="something-something" label="CreateDatabase">
@@ -522,8 +502,6 @@ store.maintenance().server().send(new CreateDatabaseOperation(databaseRecord));
 <Admonition type="note" title="Note">
 
 ##### Example II - Ensure database does not exist before creating
----
-
 * To ensure the database does not already exist before creating it, follow this example:
 
 <TabItem value="something-something" label="EnsureDatabaseExists">
@@ -556,9 +534,9 @@ store.maintenance().server().send(new CreateDatabaseOperation(databaseRecord));
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="create_database_syntax">
 <CodeBlock language="java">
@@ -624,7 +602,7 @@ public CreateDatabaseOperation(DatabaseRecord databaseRecord, int replicationFac
 | **topology**                       | `DatabaseTopology`                           | Optional topology configuration.<br/><br/>Defaults to `null`, in which case the server will determine which nodes to place the database on, based on the specified `ReplicationFactor`.                                                                                       |
 | **unusedDatabaseIds**              | `Set<String>`                                | Set database IDs that will be excluded when creating new change vectors.                                                                                                                                                                                                    |
 
-</Admonition>
+
 
 
 </LanguageContent>

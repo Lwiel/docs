@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Set Index Priority Operation
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Set Index Priority Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -40,10 +41,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/indexes/set-index-priority#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Index priority" id="index-priority" href="#index-priority">
+## Index priority
 
 Setting the priority will affect the indexing thread priority at the operating system level:  
 
@@ -53,9 +51,9 @@ Setting the priority will affect the indexing thread priority at the operating s
 | **Normal** (default) | Below normal | &lt;ul&gt;&lt;li&gt;Requests to the database are still preferred over the indexing process.&lt;/li&gt;&lt;li&gt;The indexing thread priority at the OS level is `Below normal`<br/>while Requests processes have a `Normal` priority.&lt;/li&gt;&lt;/ul&gt; |
 | **High** | Normal | &lt;ul&gt;&lt;li&gt;Requests and Indexing will have the same priority at the OS level.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
 
-<Admonition type="info" title="Set priority - single index" id="set-priority-single-index" href="#set-priority-single-index">
+
+## Set priority - single index
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -84,9 +82,9 @@ await store.Maintenance.SendAsync(setPriorityOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Set priority - multiple indexes" id="set-priority-multiple-indexes" href="#set-priority-multiple-indexes">
+
+## Set priority - multiple indexes
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -127,9 +125,9 @@ await store.Maintenance.SendAsync(setPriorityOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -169,12 +167,12 @@ public SetIndexesPriorityOperation(Parameters parameters);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Set Index Priority Operation
+
 
 **SetIndexesPriorityOperation**  allows you to change an index priority for a given index or indexes.  
 
@@ -265,9 +263,6 @@ store.maintenance().send(new SetIndexesPriorityOperation(parameters));
 
 </LanguageContent>
 <LanguageContent language="python">
-# Set Index Priority Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -292,10 +287,7 @@ store.maintenance().send(new SetIndexesPriorityOperation(parameters));
     * [Syntax](../../../../client-api/operations/maintenance/indexes/set-index-priority#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Index priority" id="index-priority" href="#index-priority">
+## Index priority
 
 Setting the priority will affect the indexing thread priority at the operating system level:  
 
@@ -305,9 +297,9 @@ Setting the priority will affect the indexing thread priority at the operating s
 | **NORMAL** (default) | Below normal | &lt;ul&gt;&lt;li&gt;Requests to the database are still preferred over the indexing process.&lt;/li&gt;&lt;li&gt;The indexing thread priority at the OS level is `Below normal`<br/>while Requests processes have a `Normal` priority.&lt;/li&gt;&lt;/ul&gt; |
 | **HIGH** | Normal | &lt;ul&gt;&lt;li&gt;Requests and Indexing will have the same priority at the OS level.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
 
-<Admonition type="info" title="Set priority - single index" id="set-priority-single-index" href="#set-priority-single-index">
+
+## Set priority - single index
 
 <TabItem value="something-something" label="set_priority_single">
 <CodeBlock language="python">
@@ -322,9 +314,9 @@ store.maintenance.send(set_priority_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set priority - multiple indexes" id="set-priority-multiple-indexes" href="#set-priority-multiple-indexes">
+
+## Set priority - multiple indexes
 
 <TabItem value="something-something" label="set_priority_multiple">
 <CodeBlock language="python">
@@ -338,9 +330,9 @@ store.maintenance.send(set_priority_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="python">
@@ -365,14 +357,11 @@ store.maintenance.send(set_priority_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Set Index Priority Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -397,10 +386,7 @@ store.maintenance.send(set_priority_op)
     * [Syntax](../../../../client-api/operations/maintenance/indexes/set-index-priority#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Index priority" id="index-priority" href="#index-priority">
+## Index priority
 
 Setting the priority will affect the indexing thread priority at the operating system level:  
 
@@ -410,9 +396,9 @@ Setting the priority will affect the indexing thread priority at the operating s
 | set using `normal()` (default) | Below normal | &lt;ul&gt;&lt;li&gt;Requests to the database are still preferred over the indexing process.&lt;/li&gt;&lt;li&gt;The indexing thread priority at the OS level is `Below normal`<br/>while Requests processes have a `Normal` priority.&lt;/li&gt;&lt;/ul&gt; |
 | set using `high()` | Normal | &lt;ul&gt;&lt;li&gt;Requests and Indexing will have the same priority at the OS level.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
 
-<Admonition type="info" title="Set priority - single index" id="set-priority-single-index" href="#set-priority-single-index">
+
+## Set priority - single index
 
 <TabItem value="something-something" label="set_priority_single">
 <CodeBlock language="php">
@@ -427,9 +413,9 @@ $store->maintenance()->send($setPriorityOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set priority - multiple indexes" id="set-priority-multiple-indexes" href="#set-priority-multiple-indexes">
+
+## Set priority - multiple indexes
 
 <TabItem value="something-something" label="set_priority_multiple">
 <CodeBlock language="php">
@@ -448,9 +434,9 @@ $store->maintenance()->send($setPriorityOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -483,14 +469,11 @@ SetIndexesPriorityOperation(?Parameters $parameters);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Set Index Priority Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -515,10 +498,7 @@ SetIndexesPriorityOperation(?Parameters $parameters);
     * [Syntax](../../../../client-api/operations/maintenance/indexes/set-index-priority#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Index priority" id="index-priority" href="#index-priority">
+## Index priority
 
 Setting the priority will affect the indexing thread priority at the operating system level:  
 
@@ -528,9 +508,9 @@ Setting the priority will affect the indexing thread priority at the operating s
 | **Normal** (default) | Below normal | &lt;ul&gt;&lt;li&gt;Requests to the database are still preferred over the indexing process.&lt;/li&gt;&lt;li&gt;The indexing thread priority at the OS level is `Below normal`<br/>while Requests processes have a `Normal` priority.&lt;/li&gt;&lt;/ul&gt; |
 | **High** | Normal | &lt;ul&gt;&lt;li&gt;Requests and Indexing will have the same priority at the OS level.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
 
-<Admonition type="info" title="Set priority - single index" id="set-priority-single-index" href="#set-priority-single-index">
+
+## Set priority - single index
 
 <TabItem value="something-something" label="set_priority_single">
 <CodeBlock language="nodejs">
@@ -545,9 +525,9 @@ await store.maintenance.send(setPriorityOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set priority - multiple indexes" id="set-priority-multiple-indexes" href="#set-priority-multiple-indexes">
+
+## Set priority - multiple indexes
 
 <TabItem value="something-something" label="set_priority_multiple">
 <CodeBlock language="nodejs">
@@ -567,9 +547,9 @@ await store.maintenance.send(setPriorityOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -597,7 +577,7 @@ const setPriorityOp = new SetIndexesPriorityOperation(parameters);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

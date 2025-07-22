@@ -11,11 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Indexing Polymorphic Data
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Indexing Polymorphic Data
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
+
 <Admonition type="note" title="Note">
 
 * By default, RavenDB indexes are defined on a specific entity type, referred to as a `Collection`,  
@@ -27,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Other Options](../indexes/indexing-polymorphic-data#other-options)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Polymorphic Data" id="polymorphic-data" href="#polymorphic-data">
+## Polymorphic Data
 
 Let's assume, for example, that we have the following inheritance hierarchy:
 
@@ -178,14 +177,12 @@ select new \{ animal.Name \}
 
 It will generate an index that matches both Cats and Dogs.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Indexing Polymorphic Data
 
----
 <Admonition type="note" title="Note">
 
 * By default, RavenDB indexes are defined on a specific entity type, referred to as a `Collection`,  
@@ -197,10 +194,7 @@ It will generate an index that matches both Cats and Dogs.
       * [Other Options](../indexes/indexing-polymorphic-data#other-options)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Polymorphic Data" id="polymorphic-data" href="#polymorphic-data">
+## Polymorphic Data
 
 Let's assume, for example, that we have the following inheritance hierarchy:
 
@@ -329,14 +323,12 @@ select new \{ animal.Name \}
 
 It will generate an index that matches both Cats and Dogs.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Indexing Polymorphic Data
 
----
 <Admonition type="note" title="Note">
 
 * By default, RavenDB indexes are defined on a specific entity type, referred to as a `Collection`,  
@@ -348,10 +340,7 @@ It will generate an index that matches both Cats and Dogs.
       * [Other Options](../indexes/indexing-polymorphic-data#other-options)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Polymorphic Data" id="polymorphic-data" href="#polymorphic-data">
+## Polymorphic Data
 
 Let's assume, for example, that we have the following inheritance hierarchy:
 
@@ -474,14 +463,12 @@ select new \{ animal.Name \}
 
 It will generate an index that matches both Cats and Dogs.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Indexing Polymorphic Data
 
----
 <Admonition type="note" title="Note">
 
 * By default, RavenDB indexes are defined on a specific entity type, referred to as a `Collection`,  
@@ -493,10 +480,7 @@ It will generate an index that matches both Cats and Dogs.
       * [Other Options](../indexes/indexing-polymorphic-data#other-options)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Polymorphic Data" id="polymorphic-data" href="#polymorphic-data">
+## Polymorphic Data
 
 Let's assume, for example, that we have the following inheritance hierarchy:
 
@@ -635,13 +619,11 @@ select new \{ animal.Name \}
 
 It will generate an index that matches both Cats and Dogs.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexing Polymorphic Data
----
 
 <Admonition type="note" title="Note">
 
@@ -656,10 +638,7 @@ It will generate an index that matches both Cats and Dogs.
         * [Customize collection](../indexes/indexing-polymorphic-data#customize-collection)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="The challenge" id="the-challenge" href="#the-challenge">
+## The challenge
 
 Let's assume, for example, that we have the following inheritance hierarchy:
 
@@ -742,16 +721,13 @@ class Dog extends Animal { }
 Querying each index results in documents only from the specific collection the index was defined for.  
 However, what if we need to query across ALL animal collections?
 
-</Admonition>
 
-<Admonition type="info" title="Possible solutions" id="possible-solutions" href="#possible-solutions">
+
+## Possible solutions
 
 <Admonition type="note" title="Note">
 
 <a id="multi-map-index"/> **Multi-Map Index**:
-
----
-
 Writing a [Multi-map index](../indexes/multi-map-indexes) enables getting results from all collections the index was defined for.
 
 <Tabs groupId='languageSyntax'>
@@ -810,9 +786,6 @@ where name == "Mitzy"
 <Admonition type="note" title="Note">
 
 <a id="polymorphic-index"/> **Polymorphic index**:
-
----
-
 Another option is to create a polymorphic-index.
 
 Use method `WhereEntityIs` within your index definition to index documents from all collections  
@@ -866,9 +839,6 @@ where name == "Mitzy"
 <Admonition type="note" title="Note">
 
 <a id="customize-collection"/> **Customize collection**:
-
----
-
 This option involves customizing the collection name that is assigned to documents created from  
 subclasses of the _Animal_ class.
 
@@ -944,7 +914,7 @@ where name == "Mitzy"
 </Tabs>
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>

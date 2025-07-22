@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Backup
-
----
-
 <Admonition type="note" title="Note">
 
 * Configuration options for backups (both on premise and RavenDB Cloud).  
@@ -31,10 +28,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Backup.LowMemoryBackupDelayInMin](../../server/configuration/backup-configuration#backup.lowmemorybackupdelayinmin)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Backup.TempPath" id="backup-temppath" href="#backup-temppath">
+## Backup.TempPath
 
 Use this setting to specify a different path to the temporary backup files.  
 By default, backup temporary files are written under the Database directory or under [Storage.TempPath](../../server/configuration/storage-configuration) if defined.  
@@ -44,9 +38,9 @@ Learn more about RavenDB directory structure [here](../../server/storage/directo
 - **Default**: `null`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Backup.LocalRootPath" id="backup-localrootpath" href="#backup-localrootpath">
+
+## Backup.LocalRootPath
 
 Local backups can only be created under this root path.  
 
@@ -54,9 +48,9 @@ Local backups can only be created under this root path.
 - **Default**: `null`  
 - **Scope**: Server-wide only  
 
-</Admonition>
 
-<Admonition type="info" title="Backup.AllowedDestinations" id="backup-alloweddestinations" href="#backup-alloweddestinations">
+
+## Backup.AllowedDestinations
 
 Semicolon separated list of allowed backup destinations. If not specified, all destinations are allowed.   
 
@@ -73,9 +67,9 @@ Possible values:
 - `AmazonS3`  
 - `FTP`  
 
-</Admonition>
 
-<Admonition type="info" title="Backup.AllowedAwsRegions" id="backup-allowedawsregions" href="#backup-allowedawsregions">
+
+## Backup.AllowedAwsRegions
 
 Semicolon separated list of allowed AWS regions. If not specified, all regions are allowed.  
 
@@ -83,9 +77,9 @@ Semicolon separated list of allowed AWS regions. If not specified, all regions a
 - **Default**: `null`  
 - **Scope**: Server-wide only  
 
-</Admonition>
 
-<Admonition type="info" title="Backup.MaxNumberOfConcurrentBackups" id="backup-maxnumberofconcurrentbackups" href="#backup-maxnumberofconcurrentbackups">
+
+## Backup.MaxNumberOfConcurrentBackups
 
 Maximum number of concurrent backup tasks.  
 
@@ -94,9 +88,9 @@ Maximum number of concurrent backup tasks.
   (By default a server with 1, 2, or 3 CPU cores can perform 1 backup at a time. A server with 4 or 5 cores can perform 2 backups at a time, 6 or 7 cores can perform 3, and so on)
 - **Scope**: Server-wide only  
 
-</Admonition>
 
-<Admonition type="info" title="Backup.ConcurrentBackupsDelayInSec" id="backup-concurrentbackupsdelayinsec" href="#backup-concurrentbackupsdelayinsec">
+
+## Backup.ConcurrentBackupsDelayInSec
 
 Number of seconds to delay the backup after hitting the maximum number of concurrent backups limit (see `MaxNumberOfConcurrentBackups` above).  
 
@@ -105,9 +99,9 @@ Number of seconds to delay the backup after hitting the maximum number of concur
 - **Default**: `30`  
 - **Scope**: Server-wide only  
 
-</Admonition>
 
-<Admonition type="info" title="Backup.LowMemoryBackupDelayInMin" id="backup-lowmemorybackupdelayinmin" href="#backup-lowmemorybackupdelayinmin">
+
+## Backup.LowMemoryBackupDelayInMin
 
 Number of minutes to delay the backup if the server enters a low memory state.  
 
@@ -116,5 +110,5 @@ Number of minutes to delay the backup if the server enters a low memory state.
 - **Default**: `10`  
 - **Scope**: Server-wide only  
 
-</Admonition>
+
 

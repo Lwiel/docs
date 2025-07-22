@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Anchoring Documents to a Bucket
----
-
 <Admonition type="note" title="Note">
 
 * By default, RavenDB selects the bucket for storing a document based on a [hash code](../../sharding/overview#buckets-population) derived from the entire document ID.
@@ -31,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Examples](../../sharding/administration/anchoring-documents#examples)  
   
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 * Anchoring documents to a bucket is done by appending a suffix to the document ID.  
   You cannot explicitly select a bucket by number; instead, the bucket is determined based on the suffix used.  
@@ -50,9 +45,9 @@ Avoid anchoring too many documents to the same bucket to prevent creating an ove
 that cannot be split and resharded if needed to balance the database.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Anchor multiple documents to the same bucket as a specific document" id="anchor-multiple-documents-to-the-same-bucket-as-a-specific-document" href="#anchor-multiple-documents-to-the-same-bucket-as-a-specific-document">
+
+## Anchor multiple documents to the same bucket as a specific document
 
 * To store a document in the same bucket as another specific document,  
   use the following format for the new document's ID:  
@@ -72,18 +67,18 @@ that cannot be split and resharded if needed to balance the database.
   E.g., naming three documents `Users/70$Users/4`, `Users/71$Users/4`, and `Users/72$Users/4`  
   will make the database store these documents in the same bucket as `Users/4`.
 
-</Admonition>
 
-<Admonition type="info" title="Anchor multiple documents using a common suffix" id="anchor-multiple-documents-using-a-common-suffix" href="#anchor-multiple-documents-using-a-common-suffix">
+
+## Anchor multiple documents using a common suffix
 
 * It is possible to anchor multiple documents to the same bucket using an arbitrary suffix that does not correspond  
   to an existing document.  
 
 * E.g., `Users/1$foo` and `Users/2$foo` will be stored in the same bucket.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Example 1
 
@@ -98,9 +93,6 @@ session.SaveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Example 2
 
 Define and use a naming convention for invoices.  
@@ -144,5 +136,5 @@ using (var store = new DocumentStore()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

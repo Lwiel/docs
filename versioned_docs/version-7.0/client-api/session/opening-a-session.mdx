@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Open a Session
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Open a Session
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -35,10 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Session options](../../client-api/session/opening-a-session#session-options)  
   * [Open session example](../../client-api/session/opening-a-session#open-session-example)
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 * Use `OpenSession()` / `OpenAsyncSession()` to open a session from the Document Store.  
 * The following overloads are available:  
@@ -81,9 +79,9 @@ IAsyncDocumentSession OpenAsyncSession(SessionOptions options);
 |----------------------------------------------|-------------------------------|
 | `IDocumentSession` / `IAsyncDocumentSession` | Instance of a Session object  |
 
-</Admonition>
 
-<Admonition type="info" title="Session options" id="session-options" href="#session-options">
+
+## Session options
 
 * The `SessionOptions` object contains various options to configure the Session's behavior.
 
@@ -101,9 +99,9 @@ IAsyncDocumentSession OpenAsyncSession(SessionOptions options);
 |--------------------------------------------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | **DisableAtomicDocumentWrites-<br/>InClusterWideTransaction** | `bool?`               | ( _Experts only_ ) <br/>`true` - Disable Atomic-Guards in cluster-wide sessions.<br/>`false` - Automatic atomic writes in cluster-wide sessions are enabled.<br/>Learn more in [Atomic-Guards](../../client-api/session/cluster-transaction/atomic-guards) | `false`       |
 
-</Admonition>
 
-<Admonition type="info" title="Open session example" id="open-session-example" href="#open-session-example">
+
+## Open session example
 
 * The following example opens a **cluster-wide Session**:
 
@@ -172,12 +170,12 @@ IAsyncDocumentSession OpenAsyncSession(SessionOptions options);
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Open a Session
+
 
 To open session use the `openSession` method from `DocumentStore`.
 
@@ -288,9 +286,6 @@ try (IDocumentSession session = store.openSession()) \{
 
 </LanguageContent>
 <LanguageContent language="python">
-# Open a Session
-
----
 
 <Admonition type="note" title="Note">
 
@@ -308,10 +303,7 @@ try (IDocumentSession session = store.openSession()) \{
   * [Session options](../../client-api/session/opening-a-session#session-options)  
   * [Open session example](../../client-api/session/opening-a-session#open-session-example)
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 Use `open_session()` to open a session from the Document Store.  
 
@@ -336,9 +328,9 @@ def open_session(
 |----------------------------------------------|-------------------------------|
 | `IDocumentSession` | Instance of a Session object  |
 
-</Admonition>
 
-<Admonition type="info" title="Session options" id="session-options" href="#session-options">
+
+## Session options
 
 * The `SessionOptions` object contains various options to configure the Session's behavior.
 
@@ -356,9 +348,9 @@ def open_session(
 |--------------------------------------------------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | **disable_atomic_document_writes_in_cluster_wide_transaction**     | `bool`                | **Experts only**<br/>`True` - Disable Atomic-Guards in cluster-wide sessions.<br/>`False` - Automatic atomic writes in cluster-wide sessions are enabled.<br/>Learn more in [Atomic-Guards](../../client-api/session/cluster-transaction/atomic-guards) | `False`       |
 
-</Admonition>
 
-<Admonition type="info" title="Open session example" id="open-session-example" href="#open-session-example">
+
+## Open session example
 
 * The following example opens a **cluster-wide Session**:
 
@@ -377,14 +369,11 @@ def open_session(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Open a Session
-
----
 
 <Admonition type="note" title="Note">
 
@@ -403,10 +392,7 @@ def open_session(
   * [Session options](../../client-api/session/opening-a-session#session-options)  
   * [Open session examples](../../client-api/session/opening-a-session#open-session-examples)
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 * Use `openSession()` to open a session from the Document Store.  
 * The following overloads are available:  
@@ -433,9 +419,9 @@ public function openSession(SessionOptions $sessionOptions): DocumentSessionInte
 |----------------------------|----------------------------|
 | `DocumentSessionInterface` | Document session interface |
 
-</Admonition>
 
-<Admonition type="info" title="Session options" id="session-options" href="#session-options">
+
+## Session options
 
 * The `sessionOptions` object contains various options to configure the Session's behavior.
 
@@ -453,9 +439,9 @@ public function openSession(SessionOptions $sessionOptions): DocumentSessionInte
 |--------------------------------------------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | **DisableAtomicDocumentWrites-<br/>InClusterWideTransaction** | `bool?`               | ( _Experts only_ ) <br/>`true` - Disable Atomic-Guards in cluster-wide sessions.<br/>`false` - Automatic atomic writes in cluster-wide sessions are enabled.<br/>Learn more in [Atomic-Guards](../../client-api/session/cluster-transaction/atomic-guards) | `false`       |
 
-</Admonition>
 
-<Admonition type="info" title="Open session examples" id="open-session-examples" href="#open-session-examples">
+
+## Open session examples
 
 #### Example 1
 <TabItem value="something-something" label="open_session_2">
@@ -527,14 +513,11 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Open a Session
-
----
 
 <Admonition type="note" title="Note">
 
@@ -552,10 +535,7 @@ try \{
   * [Session options](../../client-api/session/opening-a-session#session-options)  
   * [Open session example](../../client-api/session/opening-a-session#open-session-example)
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 * Use `openSession()` to open a session from the document store.  
 * The following overloads are available:
@@ -580,9 +560,9 @@ openSession(sessionOptions);
 |---------------------|--------------------------------|
 | `IDocumentSession`  | Instance of a session object   |
 
-</Admonition>
 
-<Admonition type="info" title="Session options" id="session-options" href="#session-options">
+
+## Session options
 
 * The `SessionOptions` object contains various options to configure the Session's behavior.
 
@@ -600,9 +580,9 @@ openSession(sessionOptions);
 |----------------------------------------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | **disableAtomicDocumentWrites-<br/>InClusterWideTransaction**   | boolean  | ( _Experts only_ ) <br/>`true` - Disable Atomic-Guards in cluster-wide sessions.<br/>`false` - Automatic atomic writes in cluster-wide sessions are enabled.<br/>Learn more in [Atomic-Guards](../../client-api/session/cluster-transaction/atomic-guards) | `false`       |
 
-</Admonition>
 
-<Admonition type="info" title="Open session example" id="open-session-example" href="#open-session-example">
+
+## Open session example
 
 * The following example opens a **cluster-wide Session**:
 
@@ -668,7 +648,7 @@ session.load("companies/1-A")
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>

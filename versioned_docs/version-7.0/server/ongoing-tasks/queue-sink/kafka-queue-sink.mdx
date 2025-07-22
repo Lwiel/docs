@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Queue Sink: Apache Kafka
----
-
 <Admonition type="note" title="Note">
 
 * **Apache Kafka** is a distributed, high-performance, transactional messaging 
@@ -35,18 +33,12 @@ import LanguageContent from "@site/src/components/language-content";
      * [Add a Kafka Sink Task](../../../server/ongoing-tasks/queue-sink/kafka-queue-sink#add-a-kafka-sink-task)  
      * [Configuration Options](../../../server/ongoing-tasks/queue-sink/kafka-queue-sink#configuration-options)  
 </Admonition>
-
----
-
-<Admonition type="info" title="The Queue Sink Task" id="the-queue-sink-task" href="#the-queue-sink-task">
+## The Queue Sink Task
 
 Users of RavenDB 6.0 and on can create an ongoing Sink task that connects 
 a Kafka broker, retrieves enqueued messages from selected Kafka topics, 
 runs a user-defined script to manipulate data and construct documents, and 
 potentially stores the created documents in RavenDB collections.  
-
----
-
 #### Connecting a Kafka broker
 
 In the message broker architecture, RavenDB sinks take the role of data consumers.  
@@ -70,17 +62,11 @@ e.g. from node `A` to node `B` as a result of node `A` down time:
   other changes).  
 
 </Admonition>
-
----
-
 #### Retrieving enqueued messages from selected Kafka topics
 
 When a message is sent to a Kafka broker by a producer, it is pushed to 
 the tail of a topic. As preceding messages are pulled, the message advances 
 up the queue until it reaches its head and can be consumed by RavenDB's sink.  
-
----
-
 #### Running user-defined scripts
 
 A sink task's script is a JavaScript segment. Its basic role is to retrieve 
@@ -142,9 +128,6 @@ The script can also apply various other JavaScript commands, including
 includes data from the retrieved message and complementing data from 
 existing RavenDB documents), `del` to remove existing RavenDB documents, 
 and [many others](../../../server/kb/javascript-engine#predefined-javascript-functions).  
-
----
-
 #### Storing documents in RavenDB collections
 
 The sink task consumes batches of queued messages and stores them in RavenDB 
@@ -174,9 +157,9 @@ command will overwrite a previous document with the same Id and only
 one copy of it will remain.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Client API" id="client-api" href="#client-api">
+
+## Client API
 
 #### Add a Kafka Connection String
 
@@ -223,9 +206,6 @@ var res = store.Maintenance.Send(
     | **Name** | `string` | Connection string name |
     | **BrokerType** | `QueueBrokerType` | Set to `QueueBrokerType.Kafka` for a Kafka connection string |
     | **KafkaConnectionSettings** | `KafkaConnectionSettings[]` | A list of comma-separated host:port URLs to Kafka brokers |
-
----
-
 #### Add a Kafka Sink Task
 
 To create the Sink task:  
@@ -316,9 +296,9 @@ AddQueueSinkOperationResult addQueueSinkOperationResult =
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Configuration Options" id="configuration-options" href="#configuration-options">
+
+## Configuration Options
 
 Use these configuration options to gain more control over queue sink tasks.  
 
@@ -328,6 +308,6 @@ Use these configuration options to gain more control over queue sink tasks.
   The maximum number of seconds the Queue Sink process will be in a fallback 
   mode (i.e. suspending the process) after a connection failure.  
 
-</Admonition>
+
 
 

@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Operations: Server: How to reoder database members?
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Operations: Server: How to reoder database members?
+
 
 **ReorderDatabaseMembersOperation** allows you to change the order of nodes in the [Database Group Topology](../../../studio/database/settings/manage-database-group).
 

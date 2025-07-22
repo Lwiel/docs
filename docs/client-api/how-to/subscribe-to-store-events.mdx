@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Client API: Subscribing to Store Events
-
----
-
 <Admonition type="note" title="Note">
 
 * **Events** allow users to perform custom actions in response to operations made in 
@@ -49,10 +46,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Store/Session Events](../../client-api/how-to/subscribe-to-store-events#store/session-events)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Store Events" id="store-events" href="#store-events">
+## Store Events
 
 You can subscribe to the following events only at the store level, not within a session.  
 
@@ -406,9 +400,9 @@ store.OnTopologyUpdated += OnTopologyUpdatedEvent;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Store/Session Events" id="store-session-events" href="#store-session-events">
+
+## Store/Session Events
 You can subscribe to the following events both at the store level and in a session.  
 
 <Admonition type="note" title="Note">
@@ -429,5 +423,5 @@ You can subscribe to the following events both at the store level and in a sessi
 * [OnAfterConversionToEntity](../../client-api/session/how-to/subscribe-to-events#onafterconversiontoentity)  
 * [OnSessionDisposing](../../client-api/session/how-to/subscribe-to-events#onsessiondisposing)  
   
-</Admonition>
+
 

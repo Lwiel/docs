@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # PostgreSQL Protocol: Power BI
----
-
 <Admonition type="note" title="Note">
 
 * The [Power BI](https://en.wikipedia.org/wiki/Microsoft_Power_BI) Desktop and 
@@ -33,27 +31,15 @@ import LanguageContent from "@site/src/components/language-content";
       * [Query RavenDB Using RQL](../../integrations/postgresql-protocol/power-bi#query-ravendb-using-rql)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Using RavenDB From Power BI Desktop" id="using-ravendb-from-power-bi-desktop" href="#using-ravendb-from-power-bi-desktop">
-
----
-
+## Using RavenDB From Power BI Desktop
 ### Connect to RavenDB
 
 !["Get Data"](./assets/get-data-button.png)
 
 * Click "Get Data" from Power BI Desktop's startup wizard or menu option.  
-
----
-
 !["Select PostgreSQL database"](./assets/select-postgresql-database.png)
 
 * Select the **PostgreSQL database** option and click **Connect**.  
-
----
-
 !["Connection Details"](./assets/connection-details.png)
 
 * **Server**  
@@ -66,16 +52,10 @@ import LanguageContent from "@site/src/components/language-content";
   Enter the name of the RavenDB database you want to retrieve data from.  
 * **Data Connectivity mode**  
   Select the **Import** data connectivity mode.  
-
----
-
 !["Credentials"](./assets/credentials.png)
 
 * Provide the [credentials](../../studio/database/settings/integrations) (user name & password) 
   required by RavenDB to authenticate your Power BI client, and click **Connect**.  
-
----
-
 ### Retrieve Collections Data
 
 The database's collections & documents will show once RavenDB is connected.  
@@ -83,15 +63,9 @@ The database's collections & documents will show once RavenDB is connected.
 !["Collections"](./assets/collections.png)
 
 * Select the collection/s whose data you want to retrieve, and click **Load** or **Transform**.  
-
----
-
 !["Retrieved Collection Data"](./assets/retrieved-collection-data.png)
 
 * Your data is loaded, and you can play with it as you wish.  
-
----
-
 ### Query RavenDB Using RQL
 
 Instead of loading collections in their entirety, you can run [RQL](../../client-api/session/querying/what-is-rql) queries 
@@ -130,9 +104,6 @@ to import into Power BI just the data you're looking for.
      </Admonition>  
       
       * Click **OK**.  
-
----
-
 !["RQL Query Results"](./assets/rql-query-results.png)
 
 * Only the fields resulting from the RQL query will be imported to Power BI.  
@@ -140,5 +111,5 @@ to import into Power BI just the data you're looking for.
   it there for irregular data items, should there be ones, that 
   don't fit into one of the otherwise regular JSON arrays.  
 
-</Admonition>
+
 

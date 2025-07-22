@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Cloud: Security
----
-
 <Admonition type="note" title="Note">
 
 RavenDB cloud products use several layers of security.  
@@ -36,34 +34,22 @@ RavenDB cloud products use several layers of security.
     * [Enable MFA](../cloud/cloud-security#enable-mfa)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Using The Initial Client Certificate" id="using-the-initial-client-certificate" href="#using-the-initial-client-certificate">
+## Using The Initial Client Certificate
 
 A client certificate is automatically generated during the creation of your RavenDB cloud product.  
 You will need to import this certificate to your browser in order to access your cloud instances.  
-
----
-
 #### Download Certificate  
 
 Go to the [Products tab](../cloud/portal/cloud-portal-products-tab) in the cloud [portal](../cloud/portal/cloud-portal) 
 and click the **Download Certificate** button.  
 
 !["Download Certificate"](./assets/security-001-download-certificate.png)  
-
----
-
 #### Install the certificate  
 
 Extract the certificate package, open the extracted files' folder, and double-click the **.pfx** file that requires no password.  
 When the certificate import wizard is launched, click "Next" all the way through the wizard.  
 
 !["Certificate Import Wizard"](./assets/security-002-wizard.png)  
-
----
-
 #### Access your product  
 
 To access your product your IP address must be added to the `Allowed IPs` list.
@@ -101,9 +87,9 @@ Once the certificate is imported, click your cloud instance's URL.
 Your browser will prompt you to select a certificate. When you select the client certificate, your product's 
 [management studio](../studio/overview) will launch.  
 
-</Admonition>
 
-<Admonition type="info" title="Using Additional Certificates" id="using-additional-certificates" href="#using-additional-certificates">
+
+## Using Additional Certificates
 
 Your initial [operator-level](../server/security/authorization/security-clearance-and-permissions#operator) 
 certificate allows you to perform operations like creating and deleting databases, managing access to the cluster, and inspecting the cluster's state.  
@@ -128,9 +114,9 @@ We therefore recommend that you generate your certificates off-cloud and import 
 * Click **Generate client certificate**  
   !["Generate Client Certificate"](./assets/security-003-generate-client-certificate.png)  
 
-</Admonition>
 
-<Admonition type="info" title="Enable MFA" id="enable-mfa" href="#enable-mfa">
+
+## Enable MFA
 
 Multi-Factor Authentication (MFA) enhances account security by requiring multiple forms of verification.
 MFA significantly reduces the risk of unauthorized access, even if email account credentials are compromised.
@@ -166,21 +152,5 @@ After verifying, you will be provided with recovery codes. Save them in a secure
 
 MFA is now enabled on your account.
 
-</Admonition>
 
-## Related Articles
 
-**Cloud**  
-[Overview](../cloud/cloud-overview)  
-[Pricing, Payment and Billing](../cloud/cloud-pricing-payment-billing)  
-[Backup And Restore](../cloud/cloud-backup-and-restore)  
-[Migration](../cloud/cloud-migration)  
-
-  
-[Portal](../cloud/portal/cloud-portal)  
-  
-[RavenDB on Burstable Instances](https://ayende.com/blog/187681-B/running-ravendb-on-burstable-cloud-instances)  
-[AWS CPU Credits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html)  
-
-**Server**  
-[Security Overview](../server/security/overview)  

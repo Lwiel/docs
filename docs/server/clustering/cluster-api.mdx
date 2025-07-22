@@ -31,7 +31,7 @@ In the first example we will show how to make a secure call using PowerShell, cU
 If authentication is turned on, a client certificate with either `Cluster Admin` or `Operator` [Security Clearance](../../server/security/authorization/security-clearance-and-permissions) must be supplied, depending on the endpoint.
 </Admonition>
 
-<Admonition type="info" title="Add node to the cluster" id="add-node-to-the-cluster" href="#add-node-to-the-cluster">
+## Add node to the cluster
 
 Adding a node to the cluster can be done using an HTTP PUT request to the `/admin/cluster/node` endpoint with the following arguments:
 
@@ -75,9 +75,9 @@ Invoke-WebRequest -Method Put -URI "https://<server-url>/admin/cluster/node?url=
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Delete node from the cluster" id="delete-node-from-the-cluster" href="#delete-node-from-the-cluster">
+
+## Delete node from the cluster
 
 Deleting a node from the cluster can be done using an HTTP DELETE request to the `/admin/cluster/node` endpoint with the following argument:
 
@@ -96,9 +96,9 @@ SecurityClearance: `Cluster Admin`
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Promote a Node" id="promote-a-node" href="#promote-a-node">
+
+## Promote a Node
 
 Promoting a node can be done using an HTTP POST request to the `/admin/cluster/promote` 
 endpoint with the following argument:
@@ -120,9 +120,9 @@ SecurityClearance: `ClusterAdmin`
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Demote a Node" id="demote-a-node" href="#demote-a-node">
+
+## Demote a Node
 
 Demoting a node can be done using an HTTP POST request to the `/admin/cluster/demote` endpoint with the following argument:
 
@@ -143,9 +143,9 @@ SecurityClearance: `ClusterAdmin`
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Force Elections" id="force-elections" href="#force-elections">
+
+## Force Elections
 
 Forcing an election can be done using an empty HTTP POST request to the `/admin/cluster/reelect` endpoint:
 
@@ -160,9 +160,9 @@ SecurityClearance: `Operator`
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Force Timeout" id="force-timeout" href="#force-timeout">
+
+## Force Timeout
 
 Forcing a timeout can be done using an empty HTTP POST request to the `/admin/cluster/timeout` endpoint:
 
@@ -177,9 +177,9 @@ SecurityClearance: `Operator`
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Bootstrap Cluster" id="bootstrap-cluster" href="#bootstrap-cluster">
+
+## Bootstrap Cluster
 
 Bootstrapping the cluster can be done using an empty HTTP POST request to the `/admin/cluster/bootstrap` endpoint:
 Note: This option is only available when the server is in the Passive state. 
@@ -195,4 +195,4 @@ SecurityClearance: `Cluster Admin`
 </CodeBlock>
 </TabItem>
 
- </Admonition>
+ 

@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# How to Enable Optimistic Concurrency
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# How to Enable Optimistic Concurrency
----
 
 <Admonition type="note" title="Note">
 
@@ -61,10 +63,7 @@ A detailed description of transactions and concurrency control in RavenDB is ava
 </Admonition>
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Enable for specific session" id="enable-for-specific-session" href="#enable-for-specific-session">
+## Enable for specific session
 
 <TabItem value="something" label="optimistic_concurrency_1">
 <CodeBlock language="csharp">
@@ -104,9 +103,9 @@ A detailed description of transactions and concurrency control in RavenDB is ava
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Enable globally" id="enable-globally" href="#enable-globally">
+
+## Enable globally
 
 * Optimistic concurrency can also be _enabled_ for all sessions that are opened under a document store.
 
@@ -125,9 +124,9 @@ using (IDocumentSession session = store.OpenSession())
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable for specific document (when enabled on session)" id="disable-for-specific-document-when-enabled-on-session" href="#disable-for-specific-document-when-enabled-on-session">
+
+## Disable for specific document (when enabled on session)
 
 * Optimistic concurrency can be _disabled when **storing** a specific document,  
   even when it is _enabled_ for an entire session (or globally).
@@ -159,9 +158,9 @@ using (IDocumentSession session = store.OpenSession())
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Enable for specific document (when disabled on session)" id="enable-for-specific-document-when-disabled-on-session" href="#enable-for-specific-document-when-disabled-on-session">
+
+## Enable for specific document (when disabled on session)
 
 * Optimistic concurrency can be _enabled_ when **storing** a specific document,  
   even when it is _disabled_ for an entire session (or globally).
@@ -199,12 +198,12 @@ using (IDocumentSession session = store.OpenSession())
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Enable Optimistic Concurrency
+
 
 By default, optimistic concurrency checks are **disabled**. Changes made outside our session object will be overwritten. Concurrent changes to the same document will use
 the Last Write Wins strategy so a lost update anomaly is possible with the default configuration of the [session](../../../client-api/session/what-is-a-session-and-how-does-it-work).
@@ -346,8 +345,6 @@ try (IDocumentSession session = store.openSession()) \{
 
 </LanguageContent>
 <LanguageContent language="python">
-# How to Enable Optimistic Concurrency
----
 
 <Admonition type="note" title="Note">
 
@@ -394,10 +391,7 @@ A detailed description of transactions and concurrency control in RavenDB is ava
 </Admonition>
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Enable for specific session" id="enable-for-specific-session" href="#enable-for-specific-session">
+## Enable for specific session
 
 <TabItem value="something-something" label="optimistic_concurrency_1">
 <CodeBlock language="python">
@@ -439,9 +433,9 @@ is_session_using_optimistic_concurrency = session.advanced.use_optimistic_concur
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Enable globally" id="enable-globally" href="#enable-globally">
+
+## Enable globally
 
 * Optimistic concurrency can also be enabled for all sessions that are opened under a document store.
 
@@ -457,9 +451,9 @@ with store.open_session() as session:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable for specific document (when enabled on session)" id="disable-for-specific-document-when-enabled-on-session" href="#disable-for-specific-document-when-enabled-on-session">
+
+## Disable for specific document (when enabled on session)
 
 * Optimistic concurrency can be _disabled_ when **storing** a specific document,  
   even when it is _enabled_ for an entire session (or globally).
@@ -487,9 +481,9 @@ with store.open_session() as session:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Enable for specific document (when disabled on session)" id="enable-for-specific-document-when-disabled-on-session" href="#enable-for-specific-document-when-disabled-on-session">
+
+## Enable for specific document (when disabled on session)
 
 * Optimistic concurrency can be _enabled_ when **storing** a specific document,  
   even when it is _disabled_ for an entire session (or globally).
@@ -523,13 +517,11 @@ with store.open_session() as session:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# How to Enable Optimistic Concurrency
----
 
 <Admonition type="note" title="Note">
 
@@ -576,10 +568,7 @@ A detailed description of transactions and concurrency control in RavenDB is ava
 </Admonition>
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Enable for specific session" id="enable-for-specific-session" href="#enable-for-specific-session">
+## Enable for specific session
 
 Enable optimistic concurrency for a session using the advanced session `setUseOptimisticConcurrency` method.
 
@@ -627,9 +616,9 @@ try \{
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Enable globally" id="enable-globally" href="#enable-globally">
+
+## Enable globally
 
 * Optimistic concurrency can also be enabled for all sessions that are opened under a document store.
 
@@ -649,9 +638,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable for specific document (when enabled on session)" id="disable-for-specific-document-when-enabled-on-session" href="#disable-for-specific-document-when-enabled-on-session">
+
+## Disable for specific document (when enabled on session)
 
 * Optimistic concurrency can be _disabled_ when **storing** a specific document,  
   even when it is _enabled_ for an entire session (or globally).
@@ -687,9 +676,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Enable for specific document (when disabled on session)" id="enable-for-specific-document-when-disabled-on-session" href="#enable-for-specific-document-when-disabled-on-session">
+
+## Enable for specific document (when disabled on session)
 
 * Optimistic concurrency can be _enabled_ when **storing** a specific document,  
   even when it is _disabled_ for an entire session (or globally).
@@ -730,13 +719,11 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# How to Enable Optimistic Concurrency
----
 
 <Admonition type="note" title="Note">
 
@@ -783,10 +770,7 @@ A detailed description of transactions and concurrency control in RavenDB is ava
 </Admonition>
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Enable for specific session" id="enable-for-specific-session" href="#enable-for-specific-session">
+## Enable for specific session
 
 <TabItem value="something-something" label="optimistic_concurrency_1">
 <CodeBlock language="nodejs">
@@ -827,9 +811,9 @@ await session.saveChanges(); // This will throw a ConcurrencyException
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Enable globally" id="enable-globally" href="#enable-globally">
+
+## Enable globally
 
 * Optimistic concurrency can also be _enabled_ for all sessions that are opened under a document store.
 
@@ -849,9 +833,9 @@ store.conventions.useOptimisticConcurrency = true;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable for specific document (when enabled on session)" id="disable-for-specific-document-when-enabled-on-session" href="#disable-for-specific-document-when-enabled-on-session">
+
+## Disable for specific document (when enabled on session)
 
 * Optimistic concurrency can be _disabled_ when **storing** a specific document,  
   even when it is _enabled_ for an entire session (or globally).
@@ -890,9 +874,9 @@ store.conventions.useOptimisticConcurrency = true;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Enable for specific document (when disabled on session)" id="enable-for-specific-document-when-disabled-on-session" href="#enable-for-specific-document-when-disabled-on-session">
+
+## Enable for specific document (when disabled on session)
 
 * Optimistic concurrency can be _enabled_ when **storing** a specific document,  
   even when it is _disabled_ for an entire session (or globally).
@@ -937,7 +921,7 @@ store.conventions.useOptimisticConcurrency = true;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

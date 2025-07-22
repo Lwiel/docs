@@ -1,6 +1,6 @@
 ---
 title: "Document Archival"
-sidebar_label: Document Archival
+sidebar_label: Data Archival
 sidebar_position: 8
 ---
 
@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Document Archival
----
-
 <Admonition type="note" title="Note">
 
 * RavenDB documents can be [archived](../../../server/extensions/archival); 
@@ -29,10 +27,7 @@ import LanguageContent from "@site/src/components/language-content";
 * In this page, we explain how to configure document archival using Studio.  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Archival View: Enable Archival" id="archival-view-enable-archival" href="#archival-view-enable-archival">
+## Archival View: Enable Archival
 
 ![Figure 1. Data Archival View](./assets/data-archival-01.png)
 
@@ -54,9 +49,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 7. Click for Licensing info.  
 
-</Admonition>
 
-<Admonition type="info" title="Document View: Archiving Properties" id="document-view-archiving-properties" href="#document-view-archiving-properties">
+
+## Document View: Archiving Properties
 
 To schedule a document's archival time open the document view and edit the 
 document you want to archive.  
@@ -66,9 +61,6 @@ document you want to archive.
 1. Add this property to the document's metadata.  
 2. Provide the archival time (`UTC` time) as a value (see an example [here](../../../server/extensions/archival#scheduling-document-archival)).  
 3. After adding the `@archive-at` property, the time that remains until the document is archived is displayed here.  
-
----
-
 ![Figure 3. Document View: @archived Property](./assets/data-archival_archived-property.png)
 
 1. The document is archived.  
@@ -76,16 +68,13 @@ document you want to archive.
    indicating that the document is now archived.  
 
 2. Studio recognizes that the document is archived.  
-
----
-
 ![Figure 4. Documents List: Archived Icon](./assets/data-archival_documents-list-archived-icon.png)
 
 An icon was added to the icons list so archived documents can be recognized at a glance.  
 
-</Admonition>
 
-<Admonition type="info" title="Database Settings: Archival Configuration Options" id="database-settings-archival-configuration-options" href="#database-settings-archival-configuration-options">
+
+## Database Settings: Archival Configuration Options
 
 Open the [Database Settings](../../../studio/database/settings/database-settings) 
 view to set feature-specific archiving settings.  
@@ -105,9 +94,6 @@ are taught how to handle archived documents.
    <Admonition type="note" title="Note">
    Please edit configuration options only if you're sure you understand them.  
    </Admonition>
-
----
-
 ![Figure 6. Database Settings: Edit Configuration](./assets/data-archival_database-settings-02.png)
 
 1. Click a feature-specific configuration option to edit its settings.  
@@ -121,9 +107,9 @@ are taught how to handle archived documents.
       Process ONLY archived documents  
 4. Save your configuration.
 
-</Admonition>
 
-<Admonition type="info" title="Index-Specific Archival Configuration" id="index-specific-archival-configuration" href="#index-specific-archival-configuration">
+
+## Index-Specific Archival Configuration
 
 To set the way a specific index handles archived documents (overriding default 
 server/database configuration), open the [Index List view](../../../studio/database/indexes/indexes-list-view) 
@@ -143,9 +129,9 @@ properties and open the **Archived Data** tab.
       **Include Archived** - Process archived documents.  
       **Archived Only** - Process **only** archived documents.  
 
-</Admonition>
 
-<Admonition type="info" title="Subscription-Specific Archival Configuration" id="subscription-specific-archival-configuration" href="#subscription-specific-archival-configuration">
+
+## Subscription-Specific Archival Configuration
 
 To set the way a specific data subscription task handles archived documents (overriding default 
 server/database configuration), open the [Subscription Task view](../../../studio/database/indexes/indexes-list-view) 
@@ -162,24 +148,21 @@ and create a new subscription.
       **Include Archived** - Process archived documents.  
       **Archived Only** - Process **only** archived documents.  
 
-</Admonition>
 
-<Admonition type="info" title="Data Export/Import Archival Configuration" id="data-export-import-archival-configuration" href="#data-export-import-archival-configuration">
+
+## Data Export/Import Archival Configuration
 
 To determine whether a data-export task would export archived documents, 
 enter the task's configuration (by creating a new task or editing an existing 
 one) and toggle the **Include Archived Documents** option as preferred.  
 
 ![Figure 9. Data Export Option](./assets/data-archival_export-task-option.png)
-
----
-
 To determine whether a data-import task would import archived documents, 
 enter the task's configuration (by creating a new task or editing an existing 
 one) and toggle the **Include Archived Documents** option as you prefer.  
 
 ![Figure 10. Data Import Option](./assets/data-archival_import-task-option.png)
 
-</Admonition>
+
 
 

@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "php", "nodejs"];
+
+
+# Disable Caching per Session
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Disable Caching per Session
+
 
 To reduce the overhead of sending the documents over the network, 
 client library is caching the HTTP responses and sends only ETags to Server. 
@@ -56,7 +60,7 @@ but can also be changed per session using the `SessionOptions.NoCaching` propert
 
 </LanguageContent>
 <LanguageContent language="java">
-# Disable Caching per Session
+
 
 To reduce the overhead of sending the documents over the network, 
 client library is caching the HTTP responses and sends only ETags to Server. 
@@ -83,7 +87,7 @@ try (IDocumentSession session = store.openSession(sessionOptions)) \{
 
 </LanguageContent>
 <LanguageContent language="php">
-# Disable Caching per Session
+
 
 To reduce the overhead of sending the documents over the network, 
 client library is caching the HTTP responses and sends only ETags to Server. 
@@ -114,7 +118,7 @@ try \{
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Disable Caching per Session
+
 
 To reduce the overhead of sending the documents over the network, 
 client library is caching the HTTP responses and sends only ETags to Server. 

@@ -11,14 +11,18 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# What is Smuggler
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# What is Smuggler
+
 
 Smuggler gives you the ability to export or import data from or to a database using JSON format.  
 It is exposed via the `DocumentStore.Smuggler` property.
 
-<Admonition type="info" title="ForDatabase" id="fordatabase" href="#fordatabase">
+## ForDatabase
 
 By default, the `DocumentStore.Smuggler` works on the default document store database from the `DocumentStore.Database` property. 
 
@@ -33,9 +37,9 @@ In order to switch it to a different database use the `.ForDatabase` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Export" id="export" href="#export">
+
+## Export
 
 ### Syntax
 
@@ -100,9 +104,9 @@ await exportOperation.WaitForCompletionAsync();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Import" id="import" href="#import">
+
+## Import
 
 ### Syntax
 
@@ -167,9 +171,9 @@ await importOperation.WaitForCompletionAsync();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="TransformScript" id="transformscript" href="#transformscript">
+
+## TransformScript
 
 `TransformScript` exposes the ability to modify or even filter-out the document during the import and export process using the provided JavaScript. 
 
@@ -186,17 +190,17 @@ this.Freight = 15.3;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# What is Smuggler
+
 
 Smuggler gives you the ability to export or import data from or to a database using JSON format.  
 It is exposed via the `DocumentStore.smuggler()`.
 
-<Admonition type="info" title="ForDatabase" id="fordatabase" href="#fordatabase">
+## ForDatabase
 
 By default, the `IDocumentStore.smuggler` works on the default document store database from the `IDocumentStore.database` property. 
 
@@ -209,9 +213,9 @@ In order to switch it to a different database use the `.forDatabase` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Export" id="export" href="#export">
+
+## Export
 
 ### Syntax
 
@@ -257,9 +261,9 @@ Operation exportOperation = store.smuggler().exportAsync(exportOptions, "C:\\\\r
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Import" id="import" href="#import">
+
+## Import
 
 ### Syntax
 
@@ -303,9 +307,9 @@ public Operation importAsync(DatabaseSmugglerImportOptions options, InputStream 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="TransformScript" id="transformscript" href="#transformscript">
+
+## TransformScript
 
 `TransformScript` exposes the ability to modify or even filter-out the document during the import and export process using the provided JavaScript. 
 
@@ -322,17 +326,17 @@ this.Freight = 15.3;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# What is Smuggler
+
 
 Smuggler gives you the ability to export or import data from or to a database using JSON format.  
 It is exposed via the `DocumentStore.smuggler`.
 
-<Admonition type="info" title="ForDatabase" id="fordatabase" href="#fordatabase">
+## ForDatabase
 
 By default, the `DocumentStore.smuggler` works on the default document store database from the `DocumentStore.database` . 
 
@@ -347,9 +351,9 @@ In order to switch it to a different database use the `.forDatabase` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Export" id="export" href="#export">
+
+## Export
 
 ### Usage
 
@@ -401,9 +405,9 @@ await operation.waitForCompletion();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Import" id="import" href="#import">
+
+## Import
 
 ### Usage
 
@@ -452,9 +456,9 @@ await operation.waitForCompletion();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="TransformScript" id="transformscript" href="#transformscript">
+
+## TransformScript
 
 `TransformScript` exposes the ability to modify or even filter-out the document during the import and export process using the provided JavaScript. 
 
@@ -471,7 +475,7 @@ this.Freight = 15.3;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

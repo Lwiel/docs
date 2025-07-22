@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Queue ETL: Azure Queue Storage
----
-
 <Admonition type="note" title="Note">
 
 * Azure Queue Storage is a Microsoft Azure service that allows for the storage and retrieval of large numbers of messages, 
@@ -34,9 +32,6 @@ import LanguageContent from "@site/src/components/language-content";
   The message visibility period and life span in the Queue can be customized through these [ETL configuration options](../../../../server/configuration/etl-configuration#etl.queue.azurequeuestorage.timetoliveinsec).
 
 * Read more about Azure Queue Storage in the platform's [official documentation](https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction).
-
----
-
 * This article focuses on how to create an Azure Queue Storage ETL task using the Client API.  
   To define an Azure Queue Storage ETL task from the Studio, see [Studio: Azure Queue Storage ETL Task](../../../../studio/database/tasks/ongoing-tasks/azure-queue-storage-etl).  
   For an **overview of Queue ETL tasks**, see [Queue ETL tasks overview](../../../../server/ongoing-tasks/etl/queue-etl/overview).
@@ -54,16 +49,10 @@ import LanguageContent from "@site/src/components/language-content";
       * [The loadTo method](../../../../server/ongoing-tasks/etl/queue-etl/azure-queue#the-loadto-method)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Add an Azure Queue Storage connection string" id="add-an-azure-queue-storage-connection-string" href="#add-an-azure-queue-storage-connection-string">
+## Add an Azure Queue Storage connection string
 
 Prior to setting up the ETL task, define a connection string that the task will use to access your Azure account.  
 The connection string includes the authorization credentials required to connect.
-
----
-
 #### Authentication methods:  
 There are three authentication methods available:
 
@@ -82,9 +71,6 @@ There are three authentication methods available:
 * **Passwordless**
     * This authorization method requires the machine to be pre-authorized and can only be used in self-hosted mode.
     * Passwordless authorization works only when the account on the machine is assigned the Storage Account Queue Data Contributor role; the Contributor role alone is inadequate.
-
----
-
 #### Example:
 
 <TabItem value="something" label="add_azure_connection_string">
@@ -116,9 +102,6 @@ var res = store.Maintenance.Send(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax:
 
 <TabItem value="something" label="queue_connection_string">
@@ -178,16 +161,13 @@ public class Passwordless
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add an Azure Queue Storage ETL task" id="add-an-azure-queue-storage-etl-task" href="#add-an-azure-queue-storage-etl-task">
+
+## Add an Azure Queue Storage ETL task
 
 <Admonition type="note" title="Note">
 
 <a id="example-basic"/> **Example**:
-
----
-
 * In this example, the Azure Queue Storage ETL Task will -  
   * Extract source documents from the "Orders" collection in RavenDB.  
   * Process each "Order" document using a defined script that creates a new `orderData` object.  
@@ -257,9 +237,6 @@ store.Maintenance.Send(new AddEtlOperation<QueueConnectionString>(etlTask));
 <Admonition type="note" title="Note">
 
 <a id="delete-processed-documents"/> **Delete processed documents**:
-
----
-
 * You have the option to delete documents from your RavenDB database once they have been processed by the Queue ETL task.
 
 * Set the optional `Queues` property in your ETL configuration with the list of Azure queues for which processed documents should be deleted.
@@ -297,9 +274,6 @@ store.Maintenance.Send(new AddEtlOperation<QueueConnectionString>(etlTask));
 </TabItem>
 
 </Admonition>
-
----
-
 #### Syntax
 
 <TabItem value="something" label="etl_configuration">
@@ -343,16 +317,13 @@ public class EtlQueue
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="The transformation script" id="the-transformation-script" href="#the-transformation-script">
+
+## The transformation script
 
 The [basic characteristics](../../../../server/ongoing-tasks/etl/basics) of an Azure Queue Storage ETL script are similar to those of other ETL types.  
 The script defines what data to **extract** from the source document, how to **transform** this data,  
 and which Azure Queue to **load** it to.
-
----
-
 #### The loadTo method
 
 To specify which Azure queue to load the data into, use either of the following methods in your script.  
@@ -378,9 +349,6 @@ For example, the following two calls, which load data to "OrdersQueue", are equi
 
 * `loadToOrdersQueue(obj, {attributes})`
 * `loadTo('OrdersQueue', obj, {attributes})`
-
----
-
 The following is a sample script that processes documents from the Orders collection:
 
 <TabItem value="something" label="javascript">
@@ -420,5 +388,5 @@ The queue name defined in the transform script must follow the set of rules outl
 
 </Admonition>
 
-</Admonition>
+
 

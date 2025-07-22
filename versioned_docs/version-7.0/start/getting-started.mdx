@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Getting Started
----
-
 <Admonition type="note" title="Note">
 
 Welcome to RavenDB! 
@@ -33,7 +31,7 @@ This article will get you started and guide you through all the aspects of Raven
 
 </Admonition>
 
-<Admonition type="info" title="Server" id="server" href="#server">
+## Server
 
 Let's start by installing and configuring the server. To do that, first we need to download the server package 
 from the [downloads](https://ravendb.net/downloads) page.
@@ -45,9 +43,6 @@ RavenDB is cross-platform with support for the following operating systems:
 - Docker 
 - MacOS
 - Raspberry Pi
-
----
-
 ### Prerequisites
 
 RavenDB is written in `.NET` so it requires the same set of prerequisites as `.NET`.
@@ -76,9 +71,6 @@ in this [Microsoft article](https://learn.microsoft.com/en-us/dotnet/core/instal
 launching the RavenDB Server.
 
 </Admonition>
-
----
-
 ### Installation & Setup
 
 <Admonition type="note" title="Highly Available Clusters" id="highly-available-clusters" href="#highly-available-clusters">
@@ -151,9 +143,6 @@ appearing:
 `<Studio URL>#dashboard?disableAnalytics=true`
 
 </Admonition>
-
----
-
 ### Configuration
 
 The RavenDB server uses a [settings.json](../server/configuration/configuration-options#settings.json) file in each node `Server` folder to store the server-wide configuration options.  
@@ -207,9 +196,6 @@ RavenDB requires write permissions to the following locations:
 If you intend to run as a service, the write permissions should be granted to the user running the service (e.g. "Local Service").
 
 </Admonition>
-
----
-
 ### Studio
 
 <Admonition type="note" title="Free" id="free" href="#free">
@@ -224,9 +210,6 @@ Our GUI, the RavenDB Management Studio, comes **free** with **every license type
 
 After installation and setup, the Studio can be accessed via the browser using the `ServerUrl` or the `ServerPublicUrl` value e.g. `http://localhost:8080`.  
 Whenever you run the server folder script `run.ps1` the Studio opens automatically in your browser.  
-
----
-
 ### Security Concerns
 
 **We recommend using the 'Setup Wizard' to easily install RavenDB securely from the very start** to prevent potential future vulnerability.  
@@ -247,9 +230,9 @@ access control to prevent unauthorized access to your data or to explicitly allo
 
 Read more about security and how to [enable authentication here](../server/security/overview).
 
-</Admonition>
 
-<Admonition type="info" title="Client" id="client" href="#client">
+
+## Client
 
 After your server is up and running, to write an application you need to acquire one of the `Client` access libraries:
 
@@ -568,5 +551,5 @@ select Name
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 

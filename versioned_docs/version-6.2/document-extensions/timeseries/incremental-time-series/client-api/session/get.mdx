@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Session: Get Incremental Time Series Entries 
-
----
-
 <Admonition type="note" title="Note">
 
 * To get a range of incremental time series entries, use one of the `IncrementalTimeSeriesFor.Get` methods.  
@@ -38,10 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Code Samples](../../../../../document-extensions/timeseries/client-api/session/get/get-entries#code-samples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`IncrementalTimeSeriesFor.Get`" id="incrementaltimeseriesfor-get" href="#incrementaltimeseriesfor-get">
+## `IncrementalTimeSeriesFor.Get`
 
 `IncrementalTimeSeriesFor.Get` retrieves a range of entries from a single time series.  
      
@@ -51,9 +45,9 @@ import LanguageContent from "@site/src/components/language-content";
 * Retrieved data can be sliced to **pages** to get time series entries 
   gradually, one custom-size page at a time.  
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 * `IncrementalTimeSeriesFor.Get` method:  
 <TabItem value="something" label="incremental_declaration_session-get-time-series">
@@ -76,9 +70,9 @@ TimeSeriesEntry[] Get(DateTime? from = null, DateTime? to = null, int start = 0,
 * **Return Values**  
    * **`TimeSeriesEntry[]`** - an array of time series entry classes.
 
-</Admonition>
 
-<Admonition type="info" title="Usage Flow" id="usage-flow" href="#usage-flow">
+
+## Usage Flow
 
 * Open a session  
 * Create an instance of `IncrementalTimeSeriesFor` and pass it:  
@@ -91,9 +85,9 @@ TimeSeriesEntry[] Get(DateTime? from = null, DateTime? to = null, int start = 0,
       The name **must** begin with "INC:" (can be upper or lower case) to identify the time series as incremental.  
 * Call `IncrementalTimeSeriesFor.Get`.  
 
-</Admonition>
 
-<Admonition type="info" title="Code Samples" id="code-samples" href="#code-samples">
+
+## Code Samples
 
 * In this sample we retrieve all the entries of a time series.  
 <TabItem value="something" label="incremental_get-time-series">
@@ -107,5 +101,5 @@ TimeSeriesEntry[] val = session.IncrementalTimeSeriesFor("companies/webstore", "
 
 * Find additional samples [here](../../../../../document-extensions/timeseries/client-api/session/get/get-entries).  
 
-</Admonition>
+
 

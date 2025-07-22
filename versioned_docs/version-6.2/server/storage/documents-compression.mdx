@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Documents Compression
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Documents Compression
----
 
 <Admonition type="note" title="Note">
 
@@ -43,10 +45,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../server/storage/documents-compression#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 * As a document database, RavenDB's schema-less nature presents many advantages,  
   however, it requires us to manage the data structure on a per-document basis.  
@@ -68,9 +67,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 * Detailed information about the database's physical storage is visible in the [Storage Report view](../../studio/database/stats/storage-report).
 
-</Admonition>
 
-<Admonition type="info" title="Compression -vs- Compaction" id="compression-vs-compaction" href="#compression-vs-compaction">
+
+## Compression -vs- Compaction
 
 * The following table summarizes the differences between Compression and Compaction:
 
@@ -88,9 +87,9 @@ import LanguageContent from "@site/src/components/language-content";
 | Triggered by: | Client API code |
 | Triggered when: | Explicitly calling [compact database operation](../../client-api/operations/server-wide/compact-database) |
 
-</Admonition>
 
-<Admonition type="info" title="Set compression for all collections" id="set-compression-for-all-collections" href="#set-compression-for-all-collections">
+
+## Set compression for all collections
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -125,9 +124,9 @@ await store.Maintenance.Server.SendAsync(new UpdateDatabaseOperation(dbrecord, d
 </TabItem>  
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Set compression for selected collections" id="set-compression-for-selected-collections" href="#set-compression-for-selected-collections">
+
+## Set compression for selected collections
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -164,9 +163,9 @@ await store.Maintenance.Server.SendAsync(new UpdateDatabaseOperation(dbrecord, d
 </TabItem>  
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 * Documents compression is configured using the `DocumentsCompressionConfiguration` class in the database record.  
 
@@ -182,13 +181,11 @@ await store.Maintenance.Server.SendAsync(new UpdateDatabaseOperation(dbrecord, d
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Documents Compression
----
 
 <Admonition type="note" title="Note">
 
@@ -217,10 +214,7 @@ await store.Maintenance.Server.SendAsync(new UpdateDatabaseOperation(dbrecord, d
   * [Syntax](../../server/storage/documents-compression#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 * As a document database, RavenDB's schema-less nature presents many advantages,  
   however, it requires us to manage the data structure on a per-document basis.  
@@ -242,9 +236,9 @@ await store.Maintenance.Server.SendAsync(new UpdateDatabaseOperation(dbrecord, d
 
 * Detailed information about the database's physical storage is visible in the [Storage Report view](../../studio/database/stats/storage-report).
 
-</Admonition>
 
-<Admonition type="info" title="Compression -vs- Compaction" id="compression-vs-compaction" href="#compression-vs-compaction">
+
+## Compression -vs- Compaction
 
 * The following table summarizes the differences between Compression and Compaction:
 
@@ -262,9 +256,9 @@ await store.Maintenance.Server.SendAsync(new UpdateDatabaseOperation(dbrecord, d
 | Triggered by: | Client API code |
 | Triggered when: | Explicitly calling [compact database operation](../../client-api/operations/server-wide/compact-database) |
 
-</Admonition>
 
-<Admonition type="info" title="Set compression for all collections" id="set-compression-for-all-collections" href="#set-compression-for-all-collections">
+
+## Set compression for all collections
 
 <TabItem value="something-something" label="compress_all">
 <CodeBlock language="nodejs">
@@ -282,9 +276,9 @@ await store.maintenance.server.send(new UpdateDatabaseOperation(dbrecord, dbreco
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set compression for selected collections" id="set-compression-for-selected-collections" href="#set-compression-for-selected-collections">
+
+## Set compression for selected collections
 
 <TabItem value="something-something" label="compress_specific">
 <CodeBlock language="nodejs">
@@ -304,9 +298,9 @@ store.maintenance.server.send(new UpdateDatabaseOperation(dbrecord, dbrecord.eta
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 * Documents compression is configured using the following object in the database record:  
 
@@ -322,7 +316,7 @@ store.maintenance.server.send(new UpdateDatabaseOperation(dbrecord, dbrecord.eta
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
+
 
 
 </LanguageContent>

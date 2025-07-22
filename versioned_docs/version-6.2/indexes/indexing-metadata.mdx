@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Indexing Metadata
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Indexing Metadata
----
 
 <Admonition type="note" title="Note">
 
@@ -30,18 +32,12 @@ import LanguageContent from "@site/src/components/language-content";
 * Content from metadata properties can be extracted and **indexed** within a static index, alongside content from the document fields.
   This allows you to query for documents based on values stored in the metadata.  
   See the examples below.
-
----
-
 * In this article:  
    * [Indexing metadata properties](../indexes/indexing-metadata#indexing-metadata-properties)  
    * [Metadata properties that can be indexed](../indexes/indexing-metadata#metadata-properties-that-can-be-indexed)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing metadata properties" id="indexing-metadata-properties" href="#indexing-metadata-properties">
+## Indexing metadata properties
 
 * Use the `MetadataFor` method to access a document's metadata within the index definition,  
   as shown in the example below.
@@ -54,9 +50,6 @@ import LanguageContent from "@site/src/components/language-content";
     * **Indexer syntax**  
       Use `metadata["key"]` to retrieve the raw object.  
       You can cast it manually if needed.  
-
----
-
 * The following index definition indexes content from the `@last-modified` and `@counters` metadata properties.
 
 <Tabs groupId='languageSyntax'>
@@ -200,9 +193,9 @@ order by LastModified desc
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Metadata properties that can be indexed" id="metadata-properties-that-can-be-indexed" href="#metadata-properties-that-can-be-indexed">
+
+## Metadata properties that can be indexed
 
 * The table below lists **predefined metadata properties that can be indexed**.
 
@@ -236,13 +229,11 @@ Note:
   Learn more in [Corax: Handling complex JSON objects](../indexes/search-engine/corax#handling-of-complex-json-objects).
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Indexing Metadata
----
 
 <Admonition type="note" title="Note">
 
@@ -258,17 +249,11 @@ Note:
 * Content from metadata properties can be extracted and **indexed** within a static index, alongside content from the document fields.
   This allows you to query for documents based on values stored in the metadata.  
   See the examples below.
-
----
-
 * In this article:  
    * [Indexing metadata properties](../indexes/indexing-metadata#indexing-metadata-properties)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing metadata properties" id="indexing-metadata-properties" href="#indexing-metadata-properties">
+## Indexing metadata properties
 
 <TabItem value="something-something" label="index_1">
 <CodeBlock language="java">
@@ -309,13 +294,11 @@ Note:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Indexing Metadata
----
 
 <Admonition type="note" title="Note">
 
@@ -331,18 +314,12 @@ Note:
 * Content from metadata properties can be extracted and **indexed** within a static index, alongside content from the document fields.
   This allows you to query for documents based on values stored in the metadata.  
   See the examples below.
-
----
-
 * In this article:
     * [Indexing metadata properties](../indexes/indexing-metadata#indexing-metadata-properties)
     * [Metadata properties that can be indexed](../indexes/indexing-metadata#metadata-properties-that-can-be-indexed)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing metadata properties" id="indexing-metadata-properties" href="#indexing-metadata-properties">
+## Indexing metadata properties
 
 * To access a document's metadata, use the `MetadataFor` method, which is available in the **C# LINQ string**
   that is assigned to the `map` property in the PHP index class, as shown in the example below.
@@ -355,9 +332,6 @@ Note:
   * **Indexer syntax**  
     Use `metadata["key"]` to retrieve the raw object.  
     You can cast it manually if needed.  
-
----
-
 * The following index definition indexes content from the `@last-modified` and `@counters` metadata properties.
 
 <Tabs groupId='languageSyntax'>
@@ -434,9 +408,9 @@ order by last_modified desc
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Metadata properties that can be indexed" id="metadata-properties-that-can-be-indexed" href="#metadata-properties-that-can-be-indexed">
+
+## Metadata properties that can be indexed
 
 * The following are the **predefined metadata properties that can be indexed**:  
    * `@archive-at`  
@@ -454,9 +428,6 @@ order by last_modified desc
 
 * You can add custom metadata properties to any document as needed.  
   These custom properties can be indexed just like the predefined ones.
-
----
-
 <Admonition type="warning" title="Warning">
 
 Note:
@@ -466,13 +437,11 @@ Note:
   Learn more in [Corax: Handling complex JSON objects](../indexes/search-engine/corax#handling-of-complex-json-objects).
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Indexing Metadata
----
 
 <Admonition type="note" title="Note">
 
@@ -488,18 +457,12 @@ Note:
 * Content from metadata properties can be extracted and **indexed** within a static index, alongside content from the document fields.
   This allows you to query for documents based on values stored in the metadata.  
   See the examples below.
-
----
-
 * In this article:
     * [Indexing metadata properties](../indexes/indexing-metadata#indexing-metadata-properties)
     * [Metadata properties that can be indexed](../indexes/indexing-metadata#metadata-properties-that-can-be-indexed)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing metadata properties" id="indexing-metadata-properties" href="#indexing-metadata-properties">
+## Indexing metadata properties
 
 * To access a document's metadata, use the `MetadataFor` method, which is available in the **C# LINQ string**
   that is assigned to the `map` property in the PHP index class, as shown in the example below.
@@ -512,9 +475,6 @@ Note:
     * **Indexer syntax**  
       Use `metadata["key"]` to retrieve the raw object.  
       You can cast it manually if needed.
-
----
-
 * The following index definition indexes content from the `@last-modified` and `@counters` metadata properties.
 
 <Tabs groupId='languageSyntax'>
@@ -631,9 +591,9 @@ order by lastModified desc
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Metadata properties that can be indexed" id="metadata-properties-that-can-be-indexed" href="#metadata-properties-that-can-be-indexed">
+
+## Metadata properties that can be indexed
 
 * The following are the **predefined metadata properties that can be indexed**:
     * `@archive-at`
@@ -651,9 +611,6 @@ order by lastModified desc
 
 * You can add custom metadata properties to any document as needed.  
   These custom properties can be indexed just like the predefined ones.
-
----
-
 <Admonition type="warning" title="Warning">
 
 Note:
@@ -663,13 +620,11 @@ Note:
   Learn more in [Corax: Handling complex JSON objects](../indexes/search-engine/corax#handling-of-complex-json-objects).
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexing Metadata
----
 
 <Admonition type="note" title="Note">
 
@@ -685,18 +640,12 @@ Note:
 * Content from metadata properties can be extracted and **indexed** within a static index, alongside content from the document fields.
   This allows you to query for documents based on values stored in the metadata.  
   See the examples below.
-
----
-
 * In this article:
     * [Indexing metadata properties](../indexes/indexing-metadata#indexing-metadata-properties)
     * [Metadata properties that can be indexed](../indexes/indexing-metadata#metadata-properties-that-can-be-indexed)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing metadata properties" id="indexing-metadata-properties" href="#indexing-metadata-properties">
+## Indexing metadata properties
 
 * Use the `getMetadata` method to access a document’s metadata, as shown in the example below.
 
@@ -750,9 +699,9 @@ order by LastModified desc
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Metadata properties that can be indexed" id="metadata-properties-that-can-be-indexed" href="#metadata-properties-that-can-be-indexed">
+
+## Metadata properties that can be indexed
 
 * The following are the **predefined metadata properties that can be indexed**:
     * `@archive-at`
@@ -770,9 +719,6 @@ order by LastModified desc
 
 * You can add custom metadata properties to any document as needed.  
   These custom properties can be indexed just like the predefined ones.
-
----
-
 <Admonition type="warning" title="Warning">
 
 Note:
@@ -782,7 +728,7 @@ Note:
   Learn more in [Corax: Handling complex JSON objects](../indexes/search-engine/corax#handling-of-complex-json-objects).
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>

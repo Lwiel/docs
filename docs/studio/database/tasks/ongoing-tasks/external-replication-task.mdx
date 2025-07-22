@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # External Replication Task
----
-
 <Admonition type="note" title="Note">
 
 * Schedule an **External Replication Task** in order to have a _live_ replica of your data in another database:  
@@ -44,10 +42,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Offline Behavior](../../../../studio/database/tasks/ongoing-tasks/external-replication-task#offline-behavior)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="General Information about External Replication Task" id="general-information-about-external-replication-task" href="#general-information-about-external-replication-task">
+## General Information about External Replication Task
 
 **What is being replicated:**  
 
@@ -56,9 +51,6 @@ import LanguageContent from "@site/src/components/language-content";
     * [Revisions](../../../../document-extensions/revisions/overview)  
     * [Counters](../../../../document-extensions/counters/overview)
     * [Time Series](../../../../document-extensions/timeseries/overview)
-
----
-
 **What is _not_ being replicated:**  
 
   * Server and cluster level features:  
@@ -85,18 +77,15 @@ import LanguageContent from "@site/src/components/language-content";
         To explore this concept further, refer to the [Data Ownership in a Distributed System](https://ayende.com/blog/196769-B/data-ownership-in-a-distributed-system) blog post.
 
         </Admonition>
-
----
-
 **Conflicts:**  
 
   * Two databases that have an External Replication task defined between them will detect and resolve document 
     [conflicts](../../../../server/clustering/replication/replication-conflicts) according to each database conflict resolution policy.  
   * It is recommended to have the same [conflict resolution policy configuration](../../../../server/clustering/replication/replication-conflicts#configuring-conflict-resolution-using-the-client) on both the source and the target databases.  
 
-</Admonition>
 
-<Admonition type="info" title="Step-by-Step Guide" id="step-by-step-guide" href="#step-by-step-guide">
+
+## Step-by-Step Guide
 
 1. **Pass Certificate from Source Server to Destination Server**  
   This step must be done if replicating *to a separate secure cluster* so that the destination cluster trusts the source.  
@@ -131,9 +120,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 
 
-</Admonition>
 
-<Admonition type="info" title="Definition" id="definition" href="#definition">
+
+## Definition
 
 To access the External Replication Task Studio interface:  
 
@@ -185,9 +174,9 @@ f. Click **External Replication** to access the following interface.
     If you define only one node's connection string, RavenDB will wait until that node is online and will then update any missing information.  
     </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Details in Tasks List View" id="details-in-tasks-list-view" href="#details-in-tasks-list-view">
+
+## Details in Tasks List View
 
 ![Figure 2. External Replication Task - Task List View](./assets/external-replication-2.png)
 
@@ -201,9 +190,9 @@ f. Click **External Replication** to access the following interface.
 
 2. **Database Group Topology**:  
    Visual representation showing the responsible node for the External Replication Task  
-</Admonition>
 
-<Admonition type="info" title="Offline Behavior" id="offline-behavior" href="#offline-behavior">
+
+## Offline Behavior
 
 * **When the source cluster is down** (and there is no leader):  
 
@@ -224,7 +213,7 @@ f. Click **External Replication** to access the following interface.
 
   * If there is a cluster on the other side, and the URL addresses of the destination database group nodes are listed in the connection string, 
     then when the destination node is down, the replication task will simply start transferring data to one of the other nodes specified.  
-</Admonition>
+
 
 
 

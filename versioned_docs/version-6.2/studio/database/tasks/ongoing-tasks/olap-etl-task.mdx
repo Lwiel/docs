@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # OLAP ETL Task
----
-
 <Admonition type="note" title="Note">
 
 * The **OLAP ETL task** is an [ETL](../../../../server/ongoing-tasks/etl/basics) process that converts RavenDB data to the 
@@ -41,10 +39,7 @@ see [Ongoing Tasks: OLAP ETL](../../../../server/ongoing-tasks/etl/olap).
       * [Override ID column](../../../../studio/database/tasks/ongoing-tasks/olap-etl-task#override-id-column)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Create an OLAP ETL Task" id="create-an-olap-etl-task" href="#create-an-olap-etl-task">
+## Create an OLAP ETL Task
 
 To begin creating your OLAP ETL task:  
 
@@ -52,9 +47,9 @@ To begin creating your OLAP ETL task:
 
 !["Task selection view"](./assets/olap-etl-task-selection-view.png)
 
-</Admonition>
 
-<Admonition type="info" title="Define an OLAP ETL Task" id="define-an-olap-etl-task" href="#define-an-olap-etl-task">
+
+## Define an OLAP ETL Task
 
 !["New OLAP ETL task"](./assets/olap-etl-5.png)
 
@@ -79,9 +74,6 @@ using the same connection string in multiple OLAP ETL tasks.
   `{RemoteFolderName}/{CollectionName}/{customPartitionName=$customPartitionValue}`  
 * Learn more in [Ongoing Tasks: OLAP ETL](../../../../server/ongoing-tasks/etl/olap#the-custom-partition-value).  
 
----
-
-
 
 ### Run Frequency
 
@@ -94,9 +86,6 @@ using the same connection string in multiple OLAP ETL tasks.
    Select 'custom' from the dropdown menu to schedule the task using your own customized 
 [cron expression](https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm).  
 
----
-
-
 
 ### OLAP Connection String
 
@@ -108,9 +97,6 @@ using the same connection string in multiple OLAP ETL tasks.
   Toggle on to create and define a new OLAP connection string for this ETL task  
   * If you choose to create a new connection string you can enter its name and destination here.  
   * Multiple destinations can be defined.  
-
----
-
 
 
 ### OLAP ETL Destinations
@@ -127,10 +113,6 @@ fields and configuration options for each destination.
      Toggle to provide a custom server URL.  
    * b- **Force path style**  
      Toggle to change the default S3 bucket [path convention](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/) on your custom Amazon S3 host.  
-
-
----
-
 
 
 ### Transform Scripts
@@ -194,5 +176,5 @@ in a parquet file. The default ID column name is `_id`.
 5. Click to edit this setting.  
 
 
-</Admonition>
+
 

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Query a Spatial Index
+export const supportedLanguages = ["csharp", "python", "php", "nodejs", "java"];
 
----
+
+# Query a Spatial Index
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -40,10 +41,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Sort results](../../indexes/querying/spatial#sort-results)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Search by radius" id="search-by-radius" href="#search-by-radius">
+## Search by radius
 
 * Query the spatial index:
 
@@ -138,9 +136,9 @@ where spatial.within(
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Search by shape" id="search-by-shape" href="#search-by-shape">
+
+## Search by shape
 
 * Query the spatial index:  
   Use the `RelatesToShape` method to search for all documents containing spatial data that is located  
@@ -270,9 +268,9 @@ where spatial.within(
   The index in the above example indexes a WKT string in the spatial index-field.  
   However, you can query by shape also on spatial data that is indexed as lat/lng coordinates.  
 
-</Admonition>
 
-<Admonition type="info" title="Sort results" id="sort-results" href="#sort-results">
+
+## Sort results
 
 * Query the spatial index:  
   Use `OrderByDistance` or `OrderByDistanceDescending` to sort the results by distance from a given point.
@@ -388,14 +386,11 @@ order by spatial.distance(
 
 * To get the **distance** for each resulting entity see [get resulting distance](../../client-api/session/querying/how-to-make-a-spatial-query#getresultingdistance).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Query a Spatial Index
-
----
 
 <Admonition type="note" title="Note">
 
@@ -420,10 +415,7 @@ order by spatial.distance(
     * [Sort results](../../indexes/querying/spatial#sort-results)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Search by radius" id="search-by-radius" href="#search-by-radius">
+## Search by radius
 
 * Query the spatial index:
 
@@ -495,9 +487,9 @@ where spatial.within(
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Search by shape" id="search-by-shape" href="#search-by-shape">
+
+## Search by shape
 
 * Query the spatial index:  
   Use the `relates_to_shape` method to search for all documents containing spatial data that is located  
@@ -585,9 +577,9 @@ where spatial.within(
   The index in the above example indexes a WKT string in the spatial index-field.  
   However, you can query by shape also on spatial data that is indexed as lat/lng coordinates.  
 
-</Admonition>
 
-<Admonition type="info" title="Sort results" id="sort-results" href="#sort-results">
+
+## Sort results
 
 * Query the spatial index:  
   Use `order_by_distance` or `order_by_distance_descending` to sort the results by distance from a given point.
@@ -673,14 +665,11 @@ order by spatial.distance(
 
 * To get the **distance** for each resulting entity see [get resulting distance](../../client-api/session/querying/how-to-make-a-spatial-query#getresultingdistance).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Query a Spatial Index
-
----
 
 <Admonition type="note" title="Note">
 
@@ -705,10 +694,7 @@ order by spatial.distance(
     * [Sort results](../../indexes/querying/spatial#sort-results)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Search by radius" id="search-by-radius" href="#search-by-radius">
+## Search by radius
 
 * Query the spatial index:
 
@@ -838,9 +824,9 @@ where spatial.within(
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Search by shape" id="search-by-shape" href="#search-by-shape">
+
+## Search by shape
 
 * Query the spatial index:  
   Use the `RelatesToShape` method to search for all documents containing spatial data that is located  
@@ -995,9 +981,9 @@ where spatial.within(
   The index in the above example indexes a WKT string in the spatial index-field.  
   However, you can query by shape also on spatial data that is indexed as lat/lng coordinates.  
 
-</Admonition>
 
-<Admonition type="info" title="Sort results" id="sort-results" href="#sort-results">
+
+## Sort results
 
 * Query the spatial index:  
   Use `OrderByDistance` to sort the results by distance from a given point.
@@ -1149,9 +1135,9 @@ order by spatial.distance(
 
 * To get the **distance** for each resulting entity see [get resulting distance](../../client-api/session/querying/how-to-make-a-spatial-query#getresultingdistance).
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="spatial_syntax_1">
 <CodeBlock language="php">
@@ -1216,15 +1202,12 @@ class SpatialBounds
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Query a Spatial Index
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1249,10 +1232,7 @@ class SpatialBounds
     * [Sort results](../../indexes/querying/spatial#sort-results)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Search by radius" id="search-by-radius" href="#search-by-radius">
+## Search by radius
 
 * Query the spatial index:
 
@@ -1332,9 +1312,9 @@ where spatial.within(
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Search by shape" id="search-by-shape" href="#search-by-shape">
+
+## Search by shape
 
 * Query the spatial index:  
   Use the `relatesToShape` method to search for all documents containing spatial data that is located  
@@ -1437,9 +1417,9 @@ where spatial.within(
   The index in the above example indexes a WKT string in the spatial index-field.  
   However, you can query by shape also on spatial data that is indexed as lat/lng coordinates.
 
-</Admonition>
 
-<Admonition type="info" title="Sort results" id="sort-results" href="#sort-results">
+
+## Sort results
 
 * Query the spatial index:  
   Use `orderByDistance` or `orderByDistanceDescending` to sort the results by distance from a given point.
@@ -1535,12 +1515,12 @@ order by spatial.distance(
 
 * To get the **distance** for each resulting entity see [get resulting distance](../../client-api/session/querying/how-to-make-a-spatial-query#getresultingdistance).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Query a Spatial Index
+
 
 To perform a spatial search, you can use the `spatial` method which contains a full spectrum of spatial capabilities. 
 You can check the detailed Client API reference for this method [here](../../client-api/session/querying/how-to-make-a-spatial-query).

@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Import data from .ravendbdump file
-
----
-
 <Admonition type="note" title="Note">
 
 * `.ravendbdump` is RavenDB's format for [exportation of data](../export-database) 
@@ -38,9 +35,6 @@ In this page:
 
 </Admonition>
 
----
-
-<Admonition type="info" title="Info">
 
 ## Import data to destination server from file
   
@@ -68,9 +62,9 @@ If you have already [exported a database](../export-database), follow these step
 8. **Import Database**  
    Click after configuring the new database to finalize the import task.  
 
-</Admonition>
 
-<Admonition type="info" title="Info">
+
+
 
 ## Import options 
 
@@ -107,9 +101,9 @@ Here you can filter the data you want to import, select configuration and apply 
 If any of the options is set but the source database doesn't contain any items of that type, the item will be skipped.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Info">
+
+
 
 ## Advanced import options
 
@@ -136,9 +130,6 @@ In the Studio, select **database** &gt; click **Task** tab &gt; select **Import*
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Customize Configuration and Ongoing Tasks
 
 This **advanced** option enables you to choose whether to import various ongoing tasks, connection strings and advanced configurations.
@@ -170,9 +161,6 @@ If a task is included but doesn't exist in your source database, it will be skip
 **Connection Strings:**
 
 - [Connection Strings](../../../../client-api/operations/maintenance/connection-strings/add-connection-string) used by ETL tasks to authenticate and connect to external databases will be imported.
-
----
-
 ### Copy command as PowerShell
 
 In the Studio, select **database** &gt; click **Task** tab &gt; select **Import** &gt; select **From file (.ravendbdump)** &gt; click the **Advanced** button at the bottom.  
@@ -181,5 +169,5 @@ In the Studio, select **database** &gt; click **Task** tab &gt; select **Import*
 
 - Generates the commands to run the importing logic from PowerShell based on your configurations above.  
 
-</Admonition>
+
 

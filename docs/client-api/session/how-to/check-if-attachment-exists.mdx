@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# How to Check if an Attachment Exists
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# How to Check if an Attachment Exists
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -29,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Check if attachment exists](../../../client-api/session/how-to/check-if-attachment-exists#check-if-attachment-exists)  
   * [Syntax](../../../client-api/session/how-to/check-if-attachment-exists#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Check if attachment exists" id="check-if-attachment-exists" href="#check-if-attachment-exists">
+## Check if attachment exists
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -65,9 +63,9 @@ if (exists)
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -93,14 +91,11 @@ if (exists)
 | - | - |
 | `bool` | `true` - The specified attachment exists on the document<br/>`false` - The attachment does not exist on the document |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# How to Check if an Attachment Exists
-
----
 
 <Admonition type="note" title="Note">
 
@@ -114,10 +109,7 @@ from the server, and it does not cause the session to track the document.
   * [Syntax](../../../client-api/session/how-to/check-if-attachment-exists#syntax)  
   * [Example](../../../client-api/session/how-to/check-if-attachment-exists#example)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 <TabItem value="something-something" label="exists_1">
 <CodeBlock language="java">
@@ -135,9 +127,9 @@ from the server, and it does not cause the session to track the document.
 | - | - |
 | `boolean` | Indicates if a document with the specified ID exists in the database |
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something-something" label="exists_2">
 <CodeBlock language="java">
@@ -153,14 +145,11 @@ if (exists) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# How to Check if an Attachment Exists
-
----
 
 <Admonition type="note" title="Note">
 
@@ -174,10 +163,7 @@ if (exists) \{
   * [Check if attachment exists](../../../client-api/session/how-to/check-if-attachment-exists#check-if-attachment-exists)  
   * [Syntax](../../../client-api/session/how-to/check-if-attachment-exists#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Check if attachment exists" id="check-if-attachment-exists" href="#check-if-attachment-exists">
+## Check if attachment exists
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Python" label="Python">
@@ -190,9 +176,9 @@ if exists:
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Python" label="Python">
@@ -212,14 +198,11 @@ if exists:
 | - | - |
 | `bool` | `True` - The specified attachment exists for this document<br/>`False` - The attachment doesn't exist for the document |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# How to Check if an Attachment Exists
-
----
 
 <Admonition type="note" title="Note">
 
@@ -233,10 +216,7 @@ if exists:
   * [Check if attachment exists](../../../client-api/session/how-to/check-if-attachment-exists#check-if-attachment-exists)  
   * [Syntax](../../../client-api/session/how-to/check-if-attachment-exists#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Check if attachment exists" id="check-if-attachment-exists" href="#check-if-attachment-exists">
+## Check if attachment exists
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Php" label="Php">
@@ -255,9 +235,9 @@ if exists:
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Php" label="Php">
@@ -277,14 +257,11 @@ if exists:
 | - | - |
 | `bool` | `true` - The specified attachment exists for this document<br/>`false` - The attachment doesn't exist for the document |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# How to Check if an Attachment Exists
-
----
 
 <Admonition type="note" title="Note">
 
@@ -298,10 +275,7 @@ if exists:
   * [Check if attachment exists](../../../client-api/session/how-to/check-if-attachment-exists#check-if-attachment-exists)  
   * [Syntax](../../../client-api/session/how-to/check-if-attachment-exists#syntax)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Check if attachment exists" id="check-if-attachment-exists" href="#check-if-attachment-exists">
+## Check if attachment exists
 
 <TabItem value="something-something" label="exists">
 <CodeBlock language="nodejs">
@@ -317,9 +291,9 @@ if (exists) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -337,7 +311,7 @@ if (exists) \{
 | - | - |
 | `Promise<boolean>` | `true` - The specified attachment exists on the document<br/>`false` - The attachment does not exist on the document |
 
-</Admonition>
+
 
 
 </LanguageContent>

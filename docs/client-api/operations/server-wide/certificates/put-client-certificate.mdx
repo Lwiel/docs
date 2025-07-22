@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Put Client Certificate Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Put Client Certificate Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -28,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../client-api/operations/server-wide/certificates/put-client-certificate#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Put client certificate example" id="put-client-certificate-example" href="#put-client-certificate-example">
+## Put client certificate example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -68,9 +67,9 @@ await store.Maintenance.Server.SendAsync(putClientCertificateOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="put_syntax">
 <CodeBlock language="csharp">
@@ -116,13 +115,11 @@ public enum DatabaseAccess
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Put Client Certificate Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -136,10 +133,7 @@ public enum DatabaseAccess
     * [Syntax](../../../../client-api/operations/server-wide/certificates/put-client-certificate#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Put client certificate example" id="put-client-certificate-example" href="#put-client-certificate-example">
+## Put client certificate example
 
 <TabItem value="something-something" label="cert_put_2">
 <CodeBlock language="java">
@@ -156,9 +150,9 @@ store.maintenance().server().send(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="cert_put_1">
 <CodeBlock language="java">
@@ -199,13 +193,11 @@ store.maintenance().server().send(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Put Client Certificate Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -219,10 +211,7 @@ store.maintenance().server().send(
     * [Syntax](../../../../client-api/operations/server-wide/certificates/put-client-certificate#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Put client certificate example" id="put-client-certificate-example" href="#put-client-certificate-example">
+## Put client certificate example
 
 <TabItem value="something-something" label="cert_put_2">
 <CodeBlock language="nodejs">
@@ -240,9 +229,9 @@ await store.maintenance.server.send(putClientCertificateOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -270,7 +259,7 @@ await store.maintenance.server.send(putClientCertificateOp);
   * `ReadWrite`  
   * `Admin`
 
-</Admonition>
+
 
 
 </LanguageContent>

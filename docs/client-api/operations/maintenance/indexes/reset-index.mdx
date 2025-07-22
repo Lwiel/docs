@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Reset Index Operation
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Reset Index Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -41,10 +42,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/indexes/set-index-priority#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Reset index" id="reset-index" href="#reset-index">
+## Reset index
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -71,9 +69,9 @@ await store.Maintenance.SendAsync(resetIndexOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -86,12 +84,12 @@ await store.Maintenance.SendAsync(resetIndexOp);
 | - | - | - |
 | **indexName** | `string` | Name of an index to reset |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Reset Index Operation
+
 
 **ResetIndexOperation** will remove all indexing data from a server for a given index so the indexation can start from scratch for that index.
 
@@ -122,9 +120,6 @@ await store.Maintenance.SendAsync(resetIndexOp);
 
 </LanguageContent>
 <LanguageContent language="python">
-# Reset Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -150,10 +145,7 @@ await store.Maintenance.SendAsync(resetIndexOp);
     * [Syntax](../../../../client-api/operations/maintenance/indexes/set-index-priority#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Reset index" id="reset-index" href="#reset-index">
+## Reset index
 
 <TabItem value="something-something" label="reset">
 <CodeBlock language="python">
@@ -167,9 +159,9 @@ store.operations.send(reset_index_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -183,14 +175,11 @@ store.operations.send(reset_index_op)
 | - | - | - |
 | **index_name** | `str` | Name of an index to reset |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Reset Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -216,10 +205,7 @@ store.operations.send(reset_index_op)
     * [Syntax](../../../../client-api/operations/maintenance/indexes/reset-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Reset index" id="reset-index" href="#reset-index">
+## Reset index
 
 <TabItem value="something-something" label="reset">
 <CodeBlock language="php">
@@ -233,9 +219,9 @@ $store->maintenance()->send($resetIndexOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -248,14 +234,11 @@ $store->maintenance()->send($resetIndexOp);
 | - | - | - |
 | **$indexName** | `?string` | Name of an index to reset |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Reset Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -281,10 +264,7 @@ $store->maintenance()->send($resetIndexOp);
     * [Syntax](../../../../client-api/operations/maintenance/indexes/set-index-priority#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Reset index" id="reset-index" href="#reset-index">
+## Reset index
 
 <TabItem value="something-something" label="reset">
 <CodeBlock language="nodejs">
@@ -298,9 +278,9 @@ await store.maintenance.send(resetIndexOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -313,7 +293,7 @@ await store.maintenance.send(resetIndexOp);
 | - | - | - |
 | **indexName** | `string` | Name of an index to reset |
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Installation: DEB Package
-
----
-
 <Admonition type="note" title="Note">
 
 * RavenDB can be installed on **Debian** and **Ubuntu** systems using a **RavenDB DEB package**.  
@@ -41,10 +38,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [RavenDB Service Definitions](../../../start/installation/gnu-linux/deb#ravendb-service-definitions)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Downloading and Installing RavenDB" id="downloading-and-installing-ravendb" href="#downloading-and-installing-ravendb">
+## Downloading and Installing RavenDB
 
 ### 1. Download DEB Package
 
@@ -52,10 +46,6 @@ First, download the RavenDB DEB package for the version you want to install.
 Find it here: [https://ravendb.net/download](https://ravendb.net/download)  
 
 !["Download DEB Package"](./assets/download-deb-package.png)
-
-
----
-
 ### 2. Install RavenDB
 
 * Open a terminal, navigate to the folder you downloaded the RavenDB DEB package to, 
@@ -97,9 +87,6 @@ Find it here: [https://ravendb.net/download](https://ravendb.net/download)
          This will allow you to open the RavenDB Setup Wizard on http://localhost:8080 
          and proceed with the setup process.  
     </Admonition>
-
----
-
 ### 3. Complete the setup
 
 Connecting the RavenDB service will invoke the setup wizard.  
@@ -114,9 +101,6 @@ Connecting the RavenDB service will invoke the setup wizard.
         
 * [Find Here](../../../start/installation/setup-wizard) a **step by step guide** 
   to the rest of the setup process.  
-
----
-
 ### 4. Entering RavenDB Studio When Setup is Complete
 
 RavenDB can be managed using the **RavenDB Studio** management GUI.  
@@ -137,10 +121,10 @@ is temporary, and will change when the process is done.
 Learn more about Studio [here](../../../studio/overview).  
 </Admonition>
 
-</Admonition>
 
 
-<Admonition type="info" title="Upgrading RavenDB" id="upgrading-ravendb" href="#upgrading-ravendb">
+
+## Upgrading RavenDB
 
 To upgrade RavenDB:  
 
@@ -159,9 +143,9 @@ To upgrade RavenDB:
   time it will upgrade the installed database without harming its settings and 
   the data stored in it.  
 
-</Admonition>
 
-<Admonition type="info" title="Removing RavenDB" id="removing-ravendb" href="#removing-ravendb">
+
+## Removing RavenDB
 
 To remove the installed RavenDB package, you need its name.  
 It is `ravendb`, you can use `dpkg --list` to confirm it.  
@@ -169,9 +153,6 @@ It is `ravendb`, you can use `dpkg --list` to confirm it.
 !["RavenDB Service"](./assets/dpkg--list.png)
 
 RavenDB can be removed **with** or **without** purging the data stored in it and its settings.  
-
----
-
 ### Remove RavenDB and Leave its Data and Settings Intact
 
 To remove RavenDB and **leave its settings and data intact**, use: `sudo apt-get remove <package name>`  
@@ -186,9 +167,6 @@ To remove RavenDB and **leave its settings and data intact**, use: `sudo apt-get
 
 [Reinstalling](../../../start/installation/gnu-linux/deb#upgrading-ravendb) 
 RavenDB after removing it this way will **restore** its data and settings.  
-
----
-
 ### Remove RavenDB Completely
 
 To **remove RavenDB completely**, purging its data and settings, use: `sudo dpkg -P <package name>`  
@@ -205,9 +183,9 @@ To **remove RavenDB completely**, purging its data and settings, use: `sudo dpkg
 Running this command requires no confirmation, and **will remove your data and settings irrevocably**.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="File System Locations" id="file-system-locations" href="#file-system-locations">
+
+## File System Locations
 
 Once installed, these are the locations used by RavenDB.  
 
@@ -228,9 +206,9 @@ Once installed, these are the locations used by RavenDB.
 * **`systemd` unit file**  
   `/lib/systemd/ravendb.service`  
 
-</Admonition>
 
-<Admonition type="info" title="Default Settings" id="default-settings" href="#default-settings">
+
+## Default Settings
 
 The database settings are located in: `/etc/ravendb/settings.json`  
 Their default values are:  
@@ -262,9 +240,9 @@ Learn more about configuration variables [here](../../../server/configuration/co
 and in pages that describe specific configuration options (e.g. 
 [Security Configuration](../../../server/configuration/security-configuration)).  
 
-</Admonition>
 
-<Admonition type="info" title="RavenDB Service Definitions" id="ravendb-service-definitions" href="#ravendb-service-definitions">
+
+## RavenDB Service Definitions
 
 The RavenDB service is defined here: `/lib/systemd/ravendb.service`  
 Its default values are:  
@@ -315,5 +293,5 @@ WantedBy=multi-user.target
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

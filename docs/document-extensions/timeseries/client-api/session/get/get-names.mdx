@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
+
+
+# Get Time Series Names
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Get Time Series Names
----
 
 <Admonition type="note" title="Note">
 
@@ -26,10 +28,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../../document-extensions/timeseries/client-api/session/get/get-names#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`GetTimeSeriesFor` usage" id="gettimeseriesfor-usage" href="#gettimeseriesfor-usage">
+## `GetTimeSeriesFor` usage
 
 **Flow**:  
 
@@ -43,9 +42,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 * If the entity is Not tracked by the session, an `ArgumentException` exception is thrown.
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something" label="timeseries_region_Retrieve-TimeSeries-Names">
 <CodeBlock language="csharp">
@@ -64,9 +63,9 @@ using (var session = store.OpenSession())
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="json">
 <CodeBlock language="json">
@@ -83,13 +82,11 @@ using (var session = store.OpenSession())
 |----------------|-------------------------------------------------------------------------------------------------------|
 | `List<string>` | A list of names of all the time series associated with the entity, sorted alphabetically by the name. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Get Time Series Names
----
 
 <Admonition type="note" title="Note">
 
@@ -101,10 +98,7 @@ using (var session = store.OpenSession())
   * [Syntax](../../../../../document-extensions/timeseries/client-api/session/get/get-names#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`get_time_series_for` usage" id="get_time_series_for-usage" href="#get_time_series_for-usage">
+## `get_time_series_for` usage
 
 **Flow**:  
 
@@ -118,9 +112,9 @@ using (var session = store.OpenSession())
 
 * If the entity is Not tracked by the session, an `ArgumentException` exception is thrown.
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something-something" label="timeseries_region_Retrieve-TimeSeries-Names">
 <CodeBlock language="python">
@@ -137,9 +131,9 @@ with store.open_session() as session:
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="python">
 <CodeBlock language="python">
@@ -157,13 +151,11 @@ with store.open_session() as session:
 |----------------|---------------------------------------------------------------------------------------------------|
 | `List[str]` | A list of names of all the time series associated with the entity, sorted alphabetically by the name |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Get Time Series Names
----
 
 <Admonition type="note" title="Note">
 
@@ -175,10 +167,7 @@ with store.open_session() as session:
   * [Syntax](../../../../../document-extensions/timeseries/client-api/session/get/get-names#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`getTimeSeriesFor` usage" id="gettimeseriesfor-usage" href="#gettimeseriesfor-usage">
+## `getTimeSeriesFor` usage
 
 **Flow**:  
 
@@ -192,9 +181,9 @@ with store.open_session() as session:
 
 * If the entity is Not tracked by the session, an `ArgumentException` exception is thrown.
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something-something" label="timeseries_region_Retrieve-TimeSeries-Names">
 <CodeBlock language="php">
@@ -215,9 +204,9 @@ try \{
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="php">
 <CodeBlock language="php">
@@ -235,13 +224,11 @@ try \{
 |----------------|---------------------------------------------------------------------------------------------------|
 | `List[str]` | A list of names of all the time series associated with the entity, sorted alphabetically by the name |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Time Series Names
----
 
 <Admonition type="note" title="Note">
 
@@ -253,10 +240,7 @@ try \{
   * [Syntax](../../../../../document-extensions/timeseries/client-api/session/get/get-names#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`getTimeSeriesFor` usage" id="gettimeseriesfor-usage" href="#gettimeseriesfor-usage">
+## `getTimeSeriesFor` usage
 
 **Flow**:  
 
@@ -270,9 +254,9 @@ try \{
 
 * If the entity is Not tracked by the session, an `ArgumentException` exception is thrown.
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something-something" label="get_names">
 <CodeBlock language="nodejs">
@@ -290,9 +274,9 @@ const tsNames = session.advanced.getTimeSeriesFor(user);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -309,7 +293,7 @@ const tsNames = session.advanced.getTimeSeriesFor(user);
 |--------------|-------------------------------------------------------------------------------------------------------|
 | `string[]`   | A list of names of all the time series associated with the entity, sorted alphabetically by the name. |
 
-</Admonition>
+
 
 
 </LanguageContent>

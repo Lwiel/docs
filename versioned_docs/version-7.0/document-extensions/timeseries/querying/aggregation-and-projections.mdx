@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Aggregating Time Series Values
+export const supportedLanguages = ["csharp", "php", "nodejs"];
 
----
+
+# Aggregating Time Series Values
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -38,10 +39,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../document-extensions/timeseries/querying/aggregation-and-projections#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Grouping and aggregation options" id="grouping-and-aggregation-options" href="#grouping-and-aggregation-options">
+## Grouping and aggregation options
 
 * **Group entries by time frame**:  
   First, you can group the time series entries based on the specified time frame.  
@@ -94,9 +92,9 @@ When selecting aggregation functions WITHOUT first grouping the time series entr
 the aggregation calculations will be executed over the entire set of time series entries instead of per group of entries.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Aggregate entries with single value:
 
@@ -143,9 +141,6 @@ List<TimeSeriesAggregationResult> results = query.ToList();
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 #### Aggregate entries with multiple values:  
 
 * Each entry in the "StockPrices" time series within the Companies collection holds five values:  
@@ -221,9 +216,6 @@ where c.Address.Country = 'USA'
 * Since each entry holds 5 values, the query will project:  
   * 5 `Max` values for each group (the highest Values[0], highest Values[1], etc.) and
   * 5 `Min` values for each group (the lowest Values[0], lowest Values[1], etc.)
-
----
-
 #### Aggregate entries without grouping by time frame:  
 
 * This example is similar to the one above, except that time series entries are Not grouped by a time frame.
@@ -270,9 +262,6 @@ select SP(c)
 
 * Since no grouping is done, results wil include the highest and lowest Open, Close, High, Low, and Volume values 
   for ALL entries in the time series that match the query criteria.
-
----
-
 #### Aggregate entries filtered by referenced document:
 
 * The tag in each entry in the "StockPrices" series contains an Employee document ID.
@@ -323,9 +312,6 @@ select timeseries(
   
 * Only entries that reference an employee with title 'Sales Representative' will be grouped by 1 month,  
   and the results will include the highest and lowest values for each group.
-
----
-
 #### Secondary grouping by tag:
 
 * In this example, we perform secondary grouping by the entries' tags.
@@ -371,9 +357,6 @@ select timeseries (
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 #### Group by dynamic criteria:
 
 Starting in version 5.2, the LINQ method `GroupBy()` can take a switch statement or a method as an argument.
@@ -484,9 +467,6 @@ select timeseries (
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 #### Project document data in addition to aggregated data:
 
 * In addition to projecting the aggregated time series data, you can project data from the parent document that contains the time series.
@@ -551,9 +531,9 @@ c.Name as CompanyName // Project property 'Name' from the company document
 </TabItem>
     </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -620,14 +600,11 @@ c.Name as CompanyName // Project property 'Name' from the company document
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Aggregating Time Series Values
-
----
 
 <Admonition type="note" title="Note">
 
@@ -646,10 +623,7 @@ c.Name as CompanyName // Project property 'Name' from the company document
       * [Project document data in addition to aggregated data](../../../document-extensions/timeseries/querying/aggregation-and-projections#project-document-data-in-addition-to-aggregated-data)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Grouping and aggregation options" id="grouping-and-aggregation-options" href="#grouping-and-aggregation-options">
+## Grouping and aggregation options
 
 * **Group entries by time frame**:  
   First, you can group the time series entries based on the specified time frame.  
@@ -702,9 +676,9 @@ When selecting aggregation functions WITHOUT first grouping the time series entr
 the aggregation calculations will be executed over the entire set of time series entries instead of per group of entries.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Aggregate entries with single value
 
@@ -750,9 +724,6 @@ $results = $query->toList();
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 #### Aggregate entries with multiple values:
 
 * Each entry in the "StockPrices" time series within the Companies collection holds five values:  
@@ -825,9 +796,6 @@ where c.Address.Country = 'USA'
 * Since each entry holds 5 values, the query will project:  
   * 5 `Max` values for each group (the highest Values[0], highest Values[1], etc.) and
   * 5 `Min` values for each group (the lowest Values[0], lowest Values[1], etc.)
-
----
-
 #### Aggregate entries without grouping by time frame:
 
 * This example is similar to the one above, except that time series entries are Not grouped by a time frame.
@@ -871,9 +839,6 @@ select SP(c)
 
 * Since no grouping is done, results wil include the highest and lowest Open, Close, High, Low, and Volume values 
   for ALL entries in the time series that match the query criteria.
-
----
-
 #### Aggregate entries filtered by referenced document:
 
 * The tag in each entry in the "StockPrices" series contains an Employee document ID.
@@ -921,9 +886,6 @@ select timeseries(
   
 * Only entries that reference an employee with title 'Sales Representative' will be grouped by 1 month,  
   and the results will include the highest and lowest values for each group.
-
----
-
 #### Secondary grouping by tag:
 
 * In this example, we perform secondary grouping by the entries' tags.
@@ -965,9 +927,6 @@ select timeseries (
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 #### Project document data in addition to aggregated data:
 
 * In addition to projecting the aggregated time series data, you can project data from the parent document that contains the time series.
@@ -1007,14 +966,11 @@ c.Name as CompanyName // Project property 'Name' from the company document
 </TabItem>
     </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Aggregating Time Series Values
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1035,10 +991,7 @@ c.Name as CompanyName // Project property 'Name' from the company document
       * [Project document data in addition to aggregated data](../../../document-extensions/timeseries/querying/aggregation-and-projections#project-document-data-in-addition-to-aggregated-data)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Grouping and aggregation options" id="grouping-and-aggregation-options" href="#grouping-and-aggregation-options">
+## Grouping and aggregation options
 
 * **Group entries by time frame**:  
   First, you can group the time series entries based on the specified time frame.  
@@ -1091,9 +1044,9 @@ When selecting aggregation functions WITHOUT first grouping the time series entr
 the aggregation calculations will be executed over the entire set of time series entries instead of per group of entries.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Aggregate entries with single value
 
@@ -1139,9 +1092,6 @@ const results = await query.all();
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 #### Aggregate entries with multiple values:
 
 * Each entry in the "StockPrices" time series within the Companies collection holds five values:  
@@ -1212,9 +1162,6 @@ where c.Address.Country = 'USA'
 * Since each entry holds 5 values, the query will project:  
   * 5 `Max` values for each group (the highest Values[0], highest Values[1], etc.) and
   * 5 `Min` values for each group (the lowest Values[0], lowest Values[1], etc.)
-
----
-
 #### Aggregate entries without grouping by time frame:
 
 * This example is similar to the one above, except that time series entries are Not grouped by a time frame.
@@ -1256,9 +1203,6 @@ select SP(c)
 
 * Since no grouping is done, results wil include the highest and lowest Open, Close, High, Low, and Volume values 
   for ALL entries in the time series that match the query criteria.
-
----
-
 #### Aggregate entries filtered by referenced document:
 
 * The tag in each entry in the "StockPrices" series contains an Employee document ID.
@@ -1304,9 +1248,6 @@ select timeseries(
   
 * Only entries that reference an employee with title 'Sales Representative' will be grouped by 1 month,  
   and the results will include the highest and lowest values for each group.
-
----
-
 #### Secondary grouping by tag:
 
 * In this example, we perform secondary grouping by the entries' tags.
@@ -1346,9 +1287,6 @@ select timeseries (
 </CodeBlock>
 </TabItem>
     </Tabs>
-
----
-
 #### Project document data in addition to aggregated data:
 
 * In addition to projecting the aggregated time series data, you can project data from the parent document that contains the time series.
@@ -1388,7 +1326,7 @@ c.Name as CompanyName // Project property 'Name' from the company document
 </TabItem>
     </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>

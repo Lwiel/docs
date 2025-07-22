@@ -15,9 +15,6 @@ import LanguageContent from "@site/src/components/language-content";
 
 ## Usage
 RavenDB offers official images based on Ubuntu and Windows NanoServer.
-
----
-
 First, let's describe basic development usage of our images.
 We'll **focus on basics**, not going *too deep* into security, networking and storage.
 For detailed instructions on how to spin up your production, you can read our guides for specific container/orchestration platforms - search through our [articles](https://ravendb.net/articles), or go *deep* with our  that also addresses containerized RavenDB [production requirements](./requirements/compute).
@@ -112,7 +109,7 @@ To learn about statefullness and storing RavenDB data in a containers, or if you
 #### **Advanced Networking**
 To read more on RavenDB networking containerized environment, go to [Containers &gt; Requirements &gt; Networking](./requirements/networking).
 
-<Admonition type="info" title="FAQ" id="faq" href="#faq">
+## FAQ
 
 **Q: I use Docker Compose or automated installation. How do I disable the setup wizard?**
 A: Set the `Setup.Mode` configuration option to `None` like so:
@@ -185,6 +182,4 @@ A: Besides using the RavenDB Studio, you can connect to the RavenDB administrati
 
 This will connect you to the RavenDB admin console, where you can manage the server interactively.
 
-</Admonition>
 
----

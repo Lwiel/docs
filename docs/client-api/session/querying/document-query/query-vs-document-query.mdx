@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Query vs DocumentQuery
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Query vs DocumentQuery
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -32,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Default query operator](../../../../client-api/session/querying/document-query/query-vs-document-query#default-query-operator)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="API support" id="api-support" href="#api-support">
+## API support
 
 **Query**:
 
@@ -47,9 +45,6 @@ import LanguageContent from "@site/src/components/language-content";
   which then builds into an RQL that is sent to the server.
 
 * The available _Query_ methods and extensions are listed [here](../../../../client-api/session/querying/how-to-query#custom-methods-and-extensions-for-linq).
-
----
-
 **DocumentQuery**:
 
 * `DocumentQuery` does Not support LINQ.
@@ -59,9 +54,6 @@ import LanguageContent from "@site/src/components/language-content";
 * When using _DocumentQuery_, the query is translated into an RQL that is sent to the server.
 
 * The available _DocumentQuery_ methods and extensions are listed [here](../../../../client-api/session/querying/document-query/what-is-document-query#custom-methods-and-extensions).
-
----
-
 <Admonition type="note" title="Note">
 
 **Note**:
@@ -72,15 +64,12 @@ See [Convert between DocumentQuery and Query](../../../../client-api/session/que
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Immutability" id="immutability" href="#immutability">
+
+## Immutability
 
 * `Query` is **immutable** while `DocumentQuery` is **mutable**.  
   You might get different results if you try to *reuse* a query.
-
----
-
 * The usage of the `Query` method in the following example:
 
 <TabItem value="something" label="immutable_query">
@@ -105,9 +94,6 @@ IRavenQueryable<User> eyeQuery = query
     `ageQuery: from Users where startsWith(Name, 'A') and Age > 21`
 
     `eyeQuery: from Users where startsWith(Name, 'A') and EyeColor = 'blue'`
-
----
-
 * A similar usage with `DocumentQuery`:
 
 <TabItem value="something" label="mutable_query">
@@ -141,9 +127,9 @@ IDocumentQuery<User> eyeDocumentQuery = documentQuery
     All created Lucene queries are the same query (actually the same instance).  
     This is an important hint to be aware of if you are going to reuse `DocumentQuery`.
 
-</Admonition>
 
-<Admonition type="info" title="Default Query Operator" id="default-query-operator" href="#default-query-operator">
+
+## Default Query Operator
 
 * Starting from version 4.0, both `Query` and `DocumentQuery` use `AND` as the default operator.  
   (Previously, `Query` used `AND` and `DocumentQuery` used `OR`).
@@ -160,12 +146,12 @@ IDocumentQuery<User> eyeDocumentQuery = documentQuery
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Query vs DocumentQuery
+
 
 Unlike .NET client, Java client offers single API for querying documents. 
 
@@ -248,9 +234,6 @@ is equivalent to:
 
 </LanguageContent>
 <LanguageContent language="python">
-# query vs document_query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -272,18 +255,15 @@ is equivalent to:
   * [Default query operator](../../../../client-api/session/querying/document-query/query-vs-document-query#default-query-operator)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="API support" id="api-support" href="#api-support">
+## API support
 
 * `query` and `document_query` queries are translated to RQL and sent to the server.  
 * Available _query_ methods are listed [here](../../../../client-api/session/querying/how-to-query#custom-methods).  
 * Available _document_query_ methods and extensions are listed [here](../../../../client-api/session/querying/document-query/what-is-document-query#custom-methods-and-extensions).  
 
-</Admonition>
 
-<Admonition type="info" title="Mutability" id="mutability" href="#mutability">
+
+## Mutability
 
 * All Python queries (`query` and `document_query`) are **mutable**.  
   You may get different results if you try to *reuse* a query.
@@ -308,9 +288,6 @@ eye_query = query.where_equals("eye_color", "blue")
     `ageQuery: from Users where startsWith(name, 'A') and age > 21`
 
     `eyeQuery: from Users where startsWith(name, 'A') and eye_color = 'blue'`
-
----
-
 * A similar usage with `document_query`:
 
 <TabItem value="something-something" label="mutable_query">
@@ -339,9 +316,9 @@ eye_document_query = document_query.where_equals("eye_color", "blue")
     All created Lucene queries are the same query (actually the same instance).  
     This is an important hint to be aware of if you are going to reuse `document_query`.
 
-</Admonition>
 
-<Admonition type="info" title="Default Query Operator" id="default-query-operator" href="#default-query-operator">
+
+## Default Query Operator
 
 * Queries use `AND` as the default operator.  
 
@@ -354,14 +331,11 @@ eye_document_query = document_query.where_equals("eye_color", "blue")
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Query vs DocumentQuery
-
----
 
 <Admonition type="note" title="Note">
 
@@ -382,18 +356,15 @@ eye_document_query = document_query.where_equals("eye_color", "blue")
    * [`query `and `documentQuery` equivalents](../../../../client-api/session/querying/document-query/query-vs-document-query#queryand-documentquery-equivalents)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="API support" id="api-support" href="#api-support">
+## API support
 
 * `query` and `documentQquery` queries are translated to RQL and sent to the server.  
 * Available _query_ methods are listed [here](../../../../client-api/session/querying/how-to-query#custom-methods).  
 * Available _documentQuery_ methods and extensions are listed [here](../../../../client-api/session/querying/document-query/what-is-document-query#custom-methods-and-extensions).  
 
-</Admonition>
 
-<Admonition type="info" title="`query `and `documentQuery` equivalents" id="query-and-documentquery-equivalents" href="#query-and-documentquery-equivalents">
+
+## `query `and `documentQuery` equivalents
 
 #### 1. 
 
@@ -412,9 +383,6 @@ is equivalent to:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### 2. 
 
 <TabItem value="something-something" label="query_2a">
@@ -432,9 +400,6 @@ is equivalent to:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### 3. 
 
 <TabItem value="something-something" label="query_3a">
@@ -452,9 +417,6 @@ is equivalent to:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### 4. 
 
 <TabItem value="something-something" label="query_4a">
@@ -473,14 +435,11 @@ is equivalent to:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Query vs DocumentQuery
-
----
 
 <Admonition type="note" title="Note">
 
@@ -492,9 +451,6 @@ is equivalent to:
 
 
 </Admonition>
-
----
-
 <TabItem value="something-something" label="query_1">
 <CodeBlock language="nodejs">
 {`// This collection query:

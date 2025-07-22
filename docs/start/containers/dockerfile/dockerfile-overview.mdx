@@ -127,9 +127,6 @@ This section installs RavenDB:
 
 1. The `COPY` command transfers the `.deb` package (RavenDB’s installation file) into the container at `/opt/ravendb.deb`.
 2. The `RUN` command installs the package using `apt`, cleans up unnecessary files to reduce the image size - removes cached OS package lists (`/var/lib/apt/lists/*`).
-
----
-
 ##### Adding Scripts and Configuration
 <TabItem value="something" label="bash">
 <CodeBlock language="bash">
@@ -141,9 +138,6 @@ COPY --chown=root:$\{RAVEN_USER_ID\} --chmod=660 settings.json /etc/ravendb
 
 - Several utility scripts (`server-utils.sh`, `cert-utils.sh`, etc.) are copied into the container. These scripts manage server initialization, health checks, and certificates.
 - `settings.json`, a configuration file, is copied into `/etc/ravendb` with specific ownership (`root:${RAVEN_USER_ID}`) and permissions (`660`) for security.
-
----
-
 ##### Setting the User and Health Check
 <TabItem value="something" label="bash">
 <CodeBlock language="bash">
@@ -156,9 +150,6 @@ HEALTHCHECK --start-period=60s CMD /usr/lib/ravendb/scripts/healthcheck.sh
 
 1. `USER`: Switches the container to run as the `ravendb` user instead of `root`, improving security.
 2. `HEALTHCHECK`: Defines a command to verify RavenDB's health. The script (`healthcheck.sh`) is run after a 60-second delay to allow the server to initialize.
-
----
-
 ##### Declaring Volumes
 <TabItem value="something" label="bash">
 <CodeBlock language="bash">
@@ -173,9 +164,6 @@ HEALTHCHECK --start-period=60s CMD /usr/lib/ravendb/scripts/healthcheck.sh
 - `/etc/ravendb`: For configuration and security-related files.
 
 Ensures that data persists outside the container lifecycle, using volumes.
-
----
-
 ##### Setting the Working Directory and Entry Command
 <TabItem value="something" label="bash">
 <CodeBlock language="bash">
@@ -188,5 +176,3 @@ CMD [ "/bin/bash", "/usr/lib/ravendb/scripts/run-raven.sh" ]
 
 - `WORKDIR`: Sets the default working directory inside the container, simplifying subsequent commands.
 - `CMD`: Specifies the command to run when the container starts. Here, it launches a Bash shell to execute the `run-raven.sh` script, which handles server initialization and starts RavenDB.
-
----

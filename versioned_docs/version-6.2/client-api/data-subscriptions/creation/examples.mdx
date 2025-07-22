@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "python", "nodejs"];
+
+
+# Data Subscription Creation Examples
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Data Subscription Creation Examples
----
 
 <Admonition type="note" title="Note">
 
@@ -35,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Update existing subscription](../../../client-api/data-subscriptions/creation/examples#update-existing-subscription)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Create subscription - for all documents in a collection" id="create-subscription-for-all-documents-in-a-collection" href="#create-subscription-for-all-documents-in-a-collection">
+## Create subscription - for all documents in a collection
 
 Here we create a plain subscription on the _Orders_ collection without any constraints or transformations.  
 The server will send ALL documents from the _Orders_ collection to a client that connects to this subscription.
@@ -66,9 +65,9 @@ The server will send ALL documents from the _Orders_ collection to a client that
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - filter documents" id="create-subscription-filter-documents" href="#create-subscription-filter-documents">
+
+## Create subscription - filter documents
 
 Here we create a subscription for documents from the _Orders_ collection where the total order revenue is greater than 100. 
 Only documents that match this condition will be sent from the server to a client connected to this subscription.
@@ -102,9 +101,9 @@ Only documents that match this condition will be sent from the server to a clien
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - filter and project fields" id="create-subscription-filter-and-project-fields" href="#create-subscription-filter-and-project-fields">
+
+## Create subscription - filter and project fields
 
 Here, again, we create a subscription for documents from the _Orders_ collection where the total order revenue is greater than 100.
 However, this time we only project the document ID and the Total Revenue properties in each object sent to the client.
@@ -155,9 +154,9 @@ However, this time we only project the document ID and the Total Revenue propert
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - project data from a related document" id="create-subscription-project-data-from-a-related-document" href="#create-subscription-project-data-from-a-related-document"> 
+
+## Create subscription - project data from a related document 
 
 In this subscription, in addition to projecting the document fields,  
 we also project data from a [related document](../../../indexes/indexing-related-documents#what-are-related-documents) that is loaded using the `Load` method.
@@ -217,9 +216,9 @@ we also project data from a [related document](../../../indexes/indexing-related
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - include documents" id="create-subscription-include-documents" href="#create-subscription-include-documents">
+
+## Create subscription - include documents
 
 Here we create a subscription on the _Orders_ collection, which will send all the _Order_ documents.  
 
@@ -307,9 +306,9 @@ If you include documents when making a [projection](../../../client-api/data-sub
 the include will search for the specified paths in the projected fields rather than in the original document.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Create subscription - include counters" id="create-subscription-include-counters" href="#create-subscription-include-counters">
+
+## Create subscription - include counters
 
 Here we create a subscription on the _Orders_ collection, which will send all the _Order_ documents.  
 In addition, values for the specified counters will be **included** in the batch.
@@ -378,9 +377,9 @@ For example, the following subscription includes multiple counters and documents
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - subscribe to revisions" id="create-subscription-subscribe-to-revisions" href="#create-subscription-subscribe-to-revisions">
+
+## Create subscription - subscribe to revisions
 
 Here we create a simple revisions subscription on the _Orders_ collection that will send pairs of subsequent document revisions to the client.
 
@@ -408,9 +407,9 @@ Here we create a simple revisions subscription on the _Orders_ collection that w
 
 Learn more about subscribing to document revisions in [subscriptions: revisions support](../../../client-api/data-subscriptions/advanced-topics/subscription-with-revisioning).
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - via update" id="create-subscription-via-update" href="#create-subscription-via-update">
+
+## Create subscription - via update
 
 When attempting to update a subscription that does Not exist,  
 you can request a new subscription to be created by setting `CreateNew` to `true`.  
@@ -431,9 +430,9 @@ In such a case, a new subscription will be created with the provided query.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Update existing subscription" id="update-existing-subscription" href="#update-existing-subscription">
+
+## Update existing subscription
 
 **Update subscription by name**:  
 The subscription definition can be updated after it has been created.  
@@ -452,9 +451,6 @@ In this example we update the filtering **query** of an existing subscription na
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Update subscription by id**:  
 In addition to the subscription name, each subscription is assigned a subscription ID when it is created by the server.
 This ID can be used instead of the name when updating the subscription.  
@@ -493,13 +489,11 @@ subscriptionName = store.Subscriptions.Update(new SubscriptionUpdateOptions()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Data Subscription Creation Examples
----
 
 <Admonition type="note" title="Note">
 
@@ -518,10 +512,7 @@ subscriptionName = store.Subscriptions.Update(new SubscriptionUpdateOptions()
     * [Update existing subscription](../../../client-api/data-subscriptions/creation/examples#update-existing-subscription)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Create subscription - for all documents in a collection" id="create-subscription-for-all-documents-in-a-collection" href="#create-subscription-for-all-documents-in-a-collection">
+## Create subscription - for all documents in a collection
 
 Here we create a plain subscription on the _Orders_ collection without any constraints or transformations.  
 The server will send ALL documents from the _Orders_ collection to a client that connects to this subscription.
@@ -543,9 +534,9 @@ The server will send ALL documents from the _Orders_ collection to a client that
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - filter documents" id="create-subscription-filter-documents" href="#create-subscription-filter-documents">
+
+## Create subscription - filter documents
 
 Here we create a subscription for documents from the _Orders_ collection where the total order revenue is greater than 100.
 Only documents that match this condition will be sent from the server to a client connected to this subscription.
@@ -571,9 +562,9 @@ Only documents that match this condition will be sent from the server to a clien
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - filter and project fields" id="create-subscription-filter-and-project-fields" href="#create-subscription-filter-and-project-fields">
+
+## Create subscription - filter and project fields
 
 Here, again, we create a subscription for documents from the _Orders_ collection where the total order revenue is greater than 100.
 However, this time we only project the document ID and the Total Revenue properties in each object sent to the client.
@@ -608,9 +599,9 @@ However, this time we only project the document ID and the Total Revenue propert
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - project data from a related document" id="create-subscription-project-data-from-a-related-document" href="#create-subscription-project-data-from-a-related-document">
+
+## Create subscription - project data from a related document
 
 In this subscription, in addition to projecting the document fields,  
 we also project data from a [related document](../../../indexes/indexing-related-documents#what-are-related-documents) that is loaded using the `load` method.
@@ -648,9 +639,9 @@ we also project data from a [related document](../../../indexes/indexing-related
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - include documents" id="create-subscription-include-documents" href="#create-subscription-include-documents">
+
+## Create subscription - include documents
 
 Here we create a subscription on the _Orders_ collection, which will send all the _Order_ documents.
 
@@ -738,9 +729,9 @@ the include will search for the specified paths in the projected fields rather t
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - include counters" id="create-subscription-include-counters" href="#create-subscription-include-counters">
+
+## Create subscription - include counters
 
 `SubscriptionIncludeBuilder` has three methods for including counters:  
 
@@ -781,9 +772,9 @@ demonstrates how the methods can be chained.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Update existing subscription" id="update-existing-subscription" href="#update-existing-subscription">
+
+## Update existing subscription
 
 The subscription definition can be updated after it has been created.  
 In this example we update the filtering query of an existing subscription named "my subscription".
@@ -795,9 +786,6 @@ In this example we update the filtering query of an existing subscription named 
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 <Admonition type="note" title="Note">
 
 **Modifying the subscription's name**:
@@ -821,13 +809,11 @@ store.subscriptions.update(SubscriptionUpdateOptions(key=subscription_id, name="
 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Data Subscription Creation Examples
----
 
 <Admonition type="note" title="Note">
 
@@ -848,10 +834,7 @@ store.subscriptions.update(SubscriptionUpdateOptions(key=subscription_id, name="
    * [Update existing subscription](../../../client-api/data-subscriptions/creation/examples#update-existing-subscription)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Create subscription - for all documents in a collection" id="create-subscription-for-all-documents-in-a-collection" href="#create-subscription-for-all-documents-in-a-collection">
+## Create subscription - for all documents in a collection
 
 Here we create a plain subscription on the _Orders_ collection without any constraints or transformations.  
 The server will send ALL documents from the _Orders_ collection to a client that connects to this subscription.
@@ -888,9 +871,9 @@ const subscriptionName = await documentStore.subscriptions.create(Order);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - filter documents" id="create-subscription-filter-documents" href="#create-subscription-filter-documents">
+
+## Create subscription - filter documents
 
 Here we create a subscription for documents from the _Orders_ collection where the total order revenue is greater than 100. 
 Only documents that match this condition will be sent from the server to a client connected to this subscription.
@@ -919,9 +902,9 @@ const subscriptionName = await documentStore.subscriptions.create(\{ query \});
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - filter and project fields" id="create-subscription-filter-and-project-fields" href="#create-subscription-filter-and-project-fields">
+
+## Create subscription - filter and project fields
 
 Here, again, we create a subscription for documents from the _Orders_ collection where the total order revenue is greater than 100.
 However, this time we only project the document ID and the Total Revenue properties in each object sent to the client.
@@ -953,9 +936,9 @@ const subscriptionName = await documentStore.subscriptions.create(\{ query \});
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - project data from a related document" id="create-subscription-project-data-from-a-related-document" href="#create-subscription-project-data-from-a-related-document"> 
+
+## Create subscription - project data from a related document 
 
 In this subscription, in addition to projecting the document fields,  
 we also project data from a [related document](../../../indexes/indexing-related-documents#what-are-related-documents) that is loaded using the `load` method.
@@ -990,9 +973,9 @@ const subscriptionName = await documentStore.subscriptions.create(\{ query \});
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - include documents" id="create-subscription-include-documents" href="#create-subscription-include-documents">
+
+## Create subscription - include documents
 
 Here we create a subscription on the _Orders_ collection, which will send all the _Order_ documents.  
 
@@ -1081,9 +1064,9 @@ If you include documents when making a [projection](../../../client-api/data-sub
 the include will search for the specified paths in the projected fields rather than in the original document.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Create subscription - include counters" id="create-subscription-include-counters" href="#create-subscription-include-counters">
+
+## Create subscription - include counters
 
 Here we create a subscription on the _Orders_ collection, which will send all the _Order_ documents.  
 In addition, values for the specified counters will be **included** in the batch.
@@ -1136,9 +1119,9 @@ const subscriptionName = await documentStore.subscriptions.create(options);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - subscribe to revisions" id="create-subscription-subscribe-to-revisions" href="#create-subscription-subscribe-to-revisions">
+
+## Create subscription - subscribe to revisions
 
 Here we create a simple revisions subscription on the _Orders_ collection that will send pairs of subsequent document revisions to the client.
 
@@ -1163,9 +1146,9 @@ Here we create a simple revisions subscription on the _Orders_ collection that w
 
 Learn more about subscribing to document revisions in [subscriptions: revisions support](../../../client-api/data-subscriptions/advanced-topics/subscription-with-revisioning).
 
-</Admonition>
 
-<Admonition type="info" title="Create subscription - via update" id="create-subscription-via-update" href="#create-subscription-via-update">
+
+## Create subscription - via update
 
 When attempting to update a subscription that does Not exist,  
 you can request a new subscription to be created by setting `createNew` to `true`.  
@@ -1185,9 +1168,9 @@ In such a case, a new subscription will be created with the provided query.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Update existing subscription" id="update-existing-subscription" href="#update-existing-subscription">
+
+## Update existing subscription
 
 **Update subscription by name**:  
 The subscription definition can be updated after it has been created.  
@@ -1205,9 +1188,6 @@ In this example we update the filtering **query** of an existing subscription na
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Update subscription by id**:  
 In addition to the subscription name, each subscription is assigned a subscription ID when it is created by the server.
 This ID can be used instead of the name when updating the subscription.
@@ -1244,7 +1224,7 @@ const subscriptionName = await documentStore.subscriptions.update(\{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

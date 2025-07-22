@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Delete Revisions Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Delete Revisions Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -39,10 +41,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/delete-revisions#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Delete all revisions - single document" id="delete-all-revisions-single-document" href="#delete-all-revisions-single-document">
+## Delete all revisions - single document
 
 In this example, we delete ALL revisions of a document.  
 Both types of revisions, those resulting from the [revisions settings](../../../../studio/database/settings/document-revisions) and those generated manually via  
@@ -85,9 +84,9 @@ Assert.Equal(29, numberOfRevisionsDeleted.TotalDeletes);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Delete revisions - multiple documents" id="delete-revisions-multiple-documents" href="#delete-revisions-multiple-documents">
+
+## Delete revisions - multiple documents
 
 You can specify multiple documents from which to delete revisions.
 
@@ -124,9 +123,9 @@ Assert.Equal(19, numberOfRevisionsDeleted.TotalDeletes);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Delete revisions by time frame" id="delete-revisions-by-time-frame" href="#delete-revisions-by-time-frame">
+
+## Delete revisions by time frame
 
 You can specify a time frame from which to delete revisions.  
 Only revisions that were created within that time frame (inclusive) will be deleted.  
@@ -161,9 +160,9 @@ var numberOfRevisionsDeleted = await store.Maintenance.SendAsync(deleteRevisions
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Delete revisions by change vectors" id="delete-revisions-by-change-vectors" href="#delete-revisions-by-change-vectors">
+
+## Delete revisions by change vectors
 
 Each revision has its own unique [change vector](../../../../document-extensions/revisions/client-api/session/loading#get-revisions-by-change-vector).  
 You can specify which revisions to delete by providing their corresponding change vectors.  
@@ -228,9 +227,9 @@ Consider the following scenario:
    As a result, you will no longer have access to these revisions via the Revisions Bin.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -263,7 +262,7 @@ public DeleteRevisionsOperation(string documentId,
 | **to**                          | `DateTime`     | The end of the date range for the revisions to delete (inclusive).                                                                                                                    |
 | **revisionsChangeVectors**      | `List<string>` | A list of change vectors corresponding to the revisions that you want to delete.                                                                                                      |
 
-</Admonition>
+
 
 
 </LanguageContent>

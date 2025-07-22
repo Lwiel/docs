@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Session: Storing Entities
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: Storing Entities
+
 
 To store entities inside the **session** object, use one of the three `Store` methods.
 
@@ -73,7 +77,7 @@ session.SaveChanges();
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: Storing Entities
+
 
 To store entities inside the **session** object, use one of the three `store` methods.
 
@@ -133,7 +137,7 @@ session.saveChanges();
 
 </LanguageContent>
 <LanguageContent language="python">
-# Session: Storing Entities
+
 
 To store entities inside the **session** object, use the `store` method.
 
@@ -170,7 +174,7 @@ session.save_changes()
 
 </LanguageContent>
 <LanguageContent language="php">
-# Session: Storing Entities
+
 
 To store entities inside the **session** object, use one of the three `store` methods.
 
@@ -230,7 +234,7 @@ $session->saveChanges();
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: Storing Entities
+
 
 To store entities inside the **session** object, use `store()` method.
 

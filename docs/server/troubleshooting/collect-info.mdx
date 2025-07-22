@@ -31,7 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Provide incident description" id="provide-incident-description" href="#provide-incident-description">
+## Provide incident description
 
 * __Description__:  
   * Provide a detailed description of the incident you are experiencing.  
@@ -45,9 +45,9 @@ import LanguageContent from "@site/src/components/language-content";
 * __Versions__:  
   * Specify the RavenDB Server, Studio, and the client __versions__ that you are using.  
 
-</Admonition>
 
-<Admonition type="info" title="Create debug package" id="create-debug-package" href="#create-debug-package">
+
+## Create debug package
 
 ![Create Debug Package](./assets/create-debug-package.png)
 
@@ -91,10 +91,10 @@ __Before sending the debug package zip file__, perform the following checks:
 
 </Admonition>
 
-</Admonition>
 
 
-<Admonition type="info" title="Enable logs for ongoing issues" id="enable-logs-for-ongoing-issues" href="#enable-logs-for-ongoing-issues">
+
+## Enable logs for ongoing issues
 
 If the issue you encounter is still **ongoing**, enable the following logs on disk (if they are not already enabled)  
 before downloading the existing log files, as described below.
@@ -107,24 +107,12 @@ before downloading the existing log files, as described below.
    The following Settings dialog will open:
 
 ![Settings logs on disk](./assets/settings-logs-on-disk.png)
-
----
-
 ### Server logs:
   ![Server logs](./assets/server-logs.png)
-
----
-
 ### Microsoft logs:
   ![Microsoft logs](./assets/microsoft-logs.png)
-
----
-
 ### Traffic watch logs:
   ![Traffic watch logs 1](./assets/traffic-watch-logs.png)
-
----
-
 <Admonition type="warning" title="Warning">
 
 Be aware that all log settings will reset to their default values after a server restart.  
@@ -140,9 +128,9 @@ To preserve your settings after a restart, you can either:
     * For **Traffic watch logs**: set the [TrafficWatch.Mode](../../server/configuration/traffic-watch-configuration#trafficwatch.mode) configuration key.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Download logs" id="download-logs" href="#download-logs">
+
+## Download logs
 
 Perform the following for each node in your cluster:
 
@@ -191,21 +179,21 @@ __Before sending the log files__, perform the following checks:
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Reproduce scenario" id="reproduce-scenario" href="#reproduce-scenario">
+
+## Reproduce scenario
 
 * If the incident is over and you can reproduce it, then first verify logging level is set to 'Information'.  
 
 * See how to enable the logs in [Enable logs](../../server/troubleshooting/collect-info#enable-logs-for-ongoing-issues).
 
-</Admonition>
 
-<Admonition type="info" title="Create failing test" id="create-failing-test" href="#create-failing-test">
+
+## Create failing test
 
 * If possible, it is advised to create a unit test that showcases the failure in your client code.
 
 * Refer to [Writing your unit test](../../start/test-driver) to learn how to use __RavenDB's TestDriver__.
 
-</Admonition>
+
 

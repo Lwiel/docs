@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Indexes: Storing Data in Index
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Indexes: Storing Data in Index
----
 
 <Admonition type="note" title="Note">
 
@@ -30,7 +32,7 @@ Lucene allows you to store the original field text (before it is analyzed) as we
 
 </Admonition>
 
-<Admonition type="info" title="Storing Data in Index" id="storing-data-in-index" href="#storing-data-in-index">
+## Storing Data in Index
 
 Lucene's original field text storage feature is exposed in the index definition object as 
 the `Storage` property of the `IndexFieldOptions`.  
@@ -106,13 +108,11 @@ not be loaded from the storage and the query results will be retrieved directly 
 This can increase query performance at the cost of disk space used.  
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Indexes: Storing Data in Index
----
 
 <Admonition type="note" title="Note">
 
@@ -128,7 +128,7 @@ Lucene allows you to store the original field text (before it is analyzed) as we
 
 </Admonition>
 
-<Admonition type="info" title="Storing Data in Index" id="storing-data-in-index" href="#storing-data-in-index">
+## Storing Data in Index
 
 Lucene's original field text storage feature is exposed in the index definition object as 
 the `Storage` property of the `IndexFieldOptions`.  
@@ -192,13 +192,11 @@ not be loaded from the storage and the query results will be retrieved directly 
 This can increase query performance at the cost of disk space used.  
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Indexes: Storing Data in Index
----
 
 <Admonition type="note" title="Note">
 
@@ -214,7 +212,7 @@ Lucene allows you to store the original field text (before it is analyzed) as we
 
 </Admonition>
 
-<Admonition type="info" title="Storing Data in Index" id="storing-data-in-index" href="#storing-data-in-index">
+## Storing Data in Index
 
 Lucene's original field text storage feature is exposed in the index definition object as 
 the `storage` property of the `IndexFieldOptions`.  
@@ -273,13 +271,11 @@ not be loaded from the storage and the query results will be retrieved directly 
 This can increase query performance at the cost of disk space used.  
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Indexes: Storing Data in Index
----
 
 <Admonition type="note" title="Note">
 
@@ -295,7 +291,7 @@ Lucene allows you to store the original field text (before it is analyzed) as we
 
 </Admonition>
 
-<Admonition type="info" title="Storing Data in Index" id="storing-data-in-index" href="#storing-data-in-index">
+## Storing Data in Index
 
 Lucene's original field text storage feature is exposed in the index definition object as 
 the `storage` property of the `IndexFieldOptions`.  
@@ -364,13 +360,11 @@ not be loaded from the storage and the query results will be retrieved directly 
 This can increase query performance at the cost of disk space used.  
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexes: Storing Data in Index
----
 
 <Admonition type="note" title="Note">
 
@@ -386,7 +380,7 @@ Lucene allows you to store the original field text (before it is analyzed) as we
 
 </Admonition>
 
-<Admonition type="info" title="Storing Data in Index" id="storing-data-in-index" href="#storing-data-in-index">
+## Storing Data in Index
 
 Lucene's original field text storage feature is exposed in the index definition object as 
 the `Storage` property of the `IndexFieldOptions`.  
@@ -445,7 +439,7 @@ not be loaded from the storage and the query results will be retrieved directly 
 This can increase query performance at the cost of disk space used.  
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>

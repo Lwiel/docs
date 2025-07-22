@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding: Document Extensions
----
-
 <Admonition type="note" title="Note">
 
 * [Document extensions](../document-extensions/overview-extensions) are 
@@ -41,10 +39,7 @@ import LanguageContent from "@site/src/components/language-content";
        * [Recommendations](../sharding/document-extensions#recommendations)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Document Extensions and Resharding" id="document-extensions-and-resharding" href="#document-extensions-and-resharding">
+## Document Extensions and Resharding
 
 When RavenDB runs resharding to balance the data load between shards, it copies 
 documents from one shard to another and then removes their original copy.  
@@ -58,9 +53,9 @@ data is relocated as well.
 In all other respects, we handle the original document as if it had already moved, 
 including reading from and writing to only the new document in its new bucket and shard.
 
-</Admonition>
 
-<Admonition type="info" title="Precautions and Recommendations" id="precautions-and-recommendations" href="#precautions-and-recommendations">
+
+## Precautions and Recommendations
 
 ## Precautions
 
@@ -111,5 +106,5 @@ The following points relate to this issue.
   store related documents [in the same bucket](../sharding/administration/anchoring-documents) 
   in advance.  
 
-</Admonition>
+
 

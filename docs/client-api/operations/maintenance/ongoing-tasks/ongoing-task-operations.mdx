@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Ongoing Task Operations
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Ongoing Task Operations
----
 
 <Admonition type="note" title="Note">
 
@@ -31,7 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Get ongoing task info" id="get-ongoing-task-info" href="#get-ongoing-task-info">
+## Get ongoing task info
 
 For the examples in this article, let's create a simple external replication ongoing task:
 
@@ -53,9 +55,6 @@ var taskId = sendResult.TaskId;
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 Use `GetOngoingTaskInfoOperation` to get information about an ongoing task.
 
 <Tabs groupId='languageSyntax'>
@@ -91,9 +90,9 @@ var destinationUrls= taskInfo.TopologyDiscoveryUrls;
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Delete ongoing task" id="delete-ongoing-task" href="#delete-ongoing-task">
+
+## Delete ongoing task
 
 Use `DeleteOngoingTaskOperation` to remove an ongoing task from the list of tasks assigned to the database.
 
@@ -119,9 +118,9 @@ await store.Maintenance.SendAsync(deleteTaskOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Toggle ongoing task state" id="toggle-ongoing-task-state" href="#toggle-ongoing-task-state">
+
+## Toggle ongoing task state
 
 Use `ToggleOngoingTaskStateOperation` to enable/disable the task state.
 
@@ -148,9 +147,9 @@ await store.Maintenance.SendAsync(toggleTaskOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -225,6 +224,6 @@ public ToggleOngoingTaskStateOperation(long taskId, OngoingTaskType type, bool d
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 </LanguageContent>

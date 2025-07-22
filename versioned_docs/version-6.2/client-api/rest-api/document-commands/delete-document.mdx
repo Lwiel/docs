@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Delete a Document
-
----
-
 <Admonition type="note" title="Note">  
 
 * Use this endpoint with the `**DELETE**` method to delete one document from the database:  
@@ -26,10 +23,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Response Format](../../../client-api/rest-api/document-commands/delete-document#response-format)  
 
 </Admonition>  
-
----
-
-<Admonition type="info" title="Example" id="example" href="#example">
+## Example
 
 This is a cURL request to delete the document "employees/1-A" from a database named "Example" on our 
 [playground server](http://live-test.ravendb.net):  
@@ -55,9 +49,9 @@ Raven-Server-Version: 4.2.3.42
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Request Format" id="request-format" href="#request-format">
+
+## Request Format
 
 This is the general format of the cURL request:  
 
@@ -77,9 +71,9 @@ This is the general format of the cURL request:
 | - | - | - |
 | **If-Match** | Expected [change vector](../../../server/clustering/replication/change-vector). If it matches the server-side change vector the document is deleted, if they don't match a concurrency exception is thrown. | No |
 
-</Admonition>
 
-<Admonition type="info" title="Response Format" id="response-format" href="#response-format">
+
+## Response Format
 
 | Header | Description |
 | - | - |
@@ -91,5 +85,5 @@ This is the general format of the cURL request:
 | `204` | The document was successfully deleted, _or_ no document with the specified ID exists. |
 | `409` | The change vector submitted did not match the server-side change vector. A concurrency exception is thrown. |
 
-</Admonition>
+
 

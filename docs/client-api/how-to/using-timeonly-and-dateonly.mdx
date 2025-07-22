@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Client API: How to Use TimeOnly and DateOnly Types
----
-
 <Admonition type="note" title="Note">
 
 * To save storage space and streamline your process when you only need to know the date or the time, you can store and query 
@@ -36,7 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="About DateOnly and TimeOnly" id="about-dateonly-and-timeonly" href="#about-dateonly-and-timeonly">
+## About DateOnly and TimeOnly
 
 These two new C# types are available from .NET 6.0+ (RavenDB 5.3+).  
 
@@ -52,9 +50,9 @@ These two new C# types are available from .NET 6.0+ (RavenDB 5.3+).
   or the times that a business opens and closes each day of the week.
   * See [their usage examples here.](https://devblogs.microsoft.com/dotnet/date-time-and-time-zone-enhancements-in-net-6/#the-timeonly-type)
 
-</Admonition>
 
-<Admonition type="info" title="Convert and Use Date/TimeOnly Without Affecting Your Existing Data" id="convert-and-use-date-timeonly-without-affecting-your-existing-data" href="#convert-and-use-date-timeonly-without-affecting-your-existing-data">
+
+## Convert and Use Date/TimeOnly Without Affecting Your Existing Data
 
 RavenDB offers conversion of types in static indexes with the methods [AsDateOnly or AsTimeOnly](../../client-api/how-to/using-timeonly-and-dateonly#use--or--in-a-static-index-to-convert-strings-or-datetime).
 
@@ -157,9 +155,6 @@ using (var session = store.OpenSession())
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Converting `DateTime` with minimal cost
 
 The following generic sample is a map index that converts `DateTime` into `DateOnly` and saves the values in the index.
@@ -229,9 +224,9 @@ using (var session = store.OpenSession())
 </TabItem>
 
 
-</Admonition>
 
-<Admonition type="info" title="Using already existing DateOnly or TimeOnly fields " id="using-already-existing-dateonly-or-timeonly-fields" href="#using-already-existing-dateonly-or-timeonly-fields">
+
+## Using already existing DateOnly or TimeOnly fields 
 
 RavenDB doesn't look for DateOnly or TimeOnly as default types during indexing 
 so the index must have a field that declares the type as DateOnly or TimeOnly. 
@@ -279,11 +274,11 @@ var result = session
 **Querying on Ticks**  
 Strings are automatically converted to ticks with [`AsDateOnly` and `AsTimeOnly`](../../client-api/how-to/using-timeonly-and-dateonly#use--or--in-a-static-index-to-convert-strings-or-datetime).  
 
-</Admonition>
 
 
-<Admonition type="info" title="Info">
 
-</Admonition>
+
+
+
 
 

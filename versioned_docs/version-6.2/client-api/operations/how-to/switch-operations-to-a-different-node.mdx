@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Switch Operations to a Different Node
+export const supportedLanguages = ["csharp", "php", "nodejs"];
 
----
+
+# Switch Operations to a Different Node
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -29,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
 * In this page:
     * [Server-maintenance operations - ForNode](../../../client-api/operations/how-to/switch-operations-to-a-different-node#server-maintenance-operations---fornode)
 </Admonition>
-
----
-
-<Admonition type="info" title="Server maintenance operations - ForNode" id="server-maintenance-operations-fornode" href="#server-maintenance-operations-fornode">
+## Server maintenance operations - ForNode
 
 * For reference, all server maintenance operations are listed [here](../../../client-api/operations/what-are-operations#server-maintenance-operations).
 
@@ -81,14 +79,11 @@ using (documentStore)
 | - | - |
 | `ServerOperationExecutor` | New instance of Server Operation Executor that is scoped to the requested node |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Switch Operations to a Different Node
-
----
 
 <Admonition type="note" title="Note">
 
@@ -102,10 +97,7 @@ using (documentStore)
 * In this page:
     * [Server-maintenance operations - ForNode](../../../client-api/operations/how-to/switch-operations-to-a-different-node#server-maintenance-operations---fornode)
 </Admonition>
-
----
-
-<Admonition type="info" title="Server maintenance operations - ForNode" id="server-maintenance-operations-fornode" href="#server-maintenance-operations-fornode">
+## Server maintenance operations - ForNode
 
 * For reference, all server maintenance operations are listed [here](../../../client-api/operations/what-are-operations#server-maintenance-operations).
 
@@ -157,14 +149,11 @@ try \{
 | - | - |
 | `ServerOperationExecutor` | New instance of Server Operation Executor that is scoped to the requested node |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Switch Operations to a Different Node
-
----
 
 <Admonition type="note" title="Note">
 
@@ -178,10 +167,7 @@ try \{
 * In this page:
     * [Server maintenance operations - forNode](../../../client-api/operations/how-to/switch-operations-to-a-different-node#server-maintenance-operations---fornode)
 </Admonition>
-
----
-
-<Admonition type="info" title="Server maintenance operations - forNode" id="server-maintenance-operations-fornode" href="#server-maintenance-operations-fornode">
+## Server maintenance operations - forNode
 
 * For reference, all server maintenance operations are listed [here](../../../client-api/operations/what-are-operations#server-maintenance-operations).
 
@@ -224,7 +210,7 @@ const dbNames = await serverOpExecutor.send(new GetDatabaseNamesOperation(0, 25)
 | - | - |
 | `Promise<ServerOperationExecutor>` | A promise that returns a new instance of Server Operation Executor<br/>scoped to the requested node |
 
-</Admonition>
+
 
 
 </LanguageContent>

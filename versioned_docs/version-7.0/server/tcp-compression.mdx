@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # TCP Compression
----
-
 <Admonition type="note" title="Note">
 
 * With **TCP Compression** enabled, internal cluster data transfers 
@@ -34,10 +32,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Disabling TCP Compression](../server/tcp-compression#disabling-tcp-compression)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="TCP Compression" id="tcp-compression" href="#tcp-compression">
+## TCP Compression
 
 RavenDB offers a variety of compression tools, including the compression 
 of [stored documents](../server/storage/documents-compression) and 
@@ -73,9 +68,6 @@ TCP compression, among other features, is activated.
 No additional configuration is needed to enable this feature.  
 
 ![License (Studio View)](./assets/tcp-compression-license.png)
-
----
-
 ### Disabling TCP Compression
 
 * TCP Compression can be disabled by a client, using the client API 
@@ -98,5 +90,5 @@ No additional configuration is needed to enable this feature.
   server [Server.Tcp.Compression.Disable](../server/configuration/server-configuration#server.tcp.compression.disable) configuration.  
   Learn how to change database settings using Studio [here](../studio/database/settings/database-settings).  
 
-</Admonition>
+
 

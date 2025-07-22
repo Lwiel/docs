@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # What Affects Vector Search Results
----
-
 <Admonition type="note" title="Note">
 
 * This article explains why vector search results might not always return what you expect, even when relevant documents exist.
@@ -30,9 +28,6 @@ import LanguageContent from "@site/src/components/language-content";
 
 * If full accuracy is required, RavenDB also provides [Exact vector search](../../ai-integration/vector-search/what-affects-vector-search-results#using-exact-search),  
   which performs a full scan of all indexed vectors to guarantee the closest matches.
-
----
-
 * In this article:
   * [The approximate nature of HNSW](../../ai-integration/vector-search/what-affects-vector-search-results#the-approximate-nature-of-hnsw)
   * [Indexing-time parameters](../../ai-integration/vector-search/what-affects-vector-search-results#indexing-time-parameters)
@@ -40,10 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Using exact search](../../ai-integration/vector-search/what-affects-vector-search-results#using-exact-search)
     
 </Admonition>
-
----
-
-<Admonition type="info" title="The approximate nature of HNSW" id="the-approximate-nature-of-hnsw" href="#the-approximate-nature-of-hnsw">
+## The approximate nature of HNSW
 
 * **Graph structure**:  
 
@@ -79,9 +71,9 @@ import LanguageContent from "@site/src/components/language-content";
     This behavior is expected in all ANN algorithms, not just HNSW.  
     If full accuracy is critical, consider using [Exact search](../../ai-integration/vector-search/what-affects-vector-search-results#using-exact-search) instead.
 
-</Admonition>
 
-<Admonition type="info" title="Indexing-time parameters" id="indexing-time-parameters" href="#indexing-time-parameters">
+
+## Indexing-time parameters
 
 The structure of the HNSW graph is determined at indexing time. 
 RavenDB provides the following configuration parameters that control how the graph is built.
@@ -117,15 +109,12 @@ They help keep memory usage and indexing time under control, but may also limit 
     This param can be set directly in the index definition. For example, see this [index definition](../../ai-integration/vector-search/vector-search-using-static-index#indexing-raw-text).  
     If not explicitly set, or when using **dynamic queries** -  
     the value is taken from the [Indexing.Corax.VectorSearch.DefaultNumberOfCandidatesForIndexing](../../server/configuration/indexing-configuration#indexing.corax.vectorsearch.defaultnumberofcandidatesforindexing) configuration key.
-
----
-
 For all parameters that can be defined at indexing time (including the ones above),  
 see [Parameters defined at index definition](../../ai-integration/vector-search/vector-search-using-static-index#parameters-defined-at-index-definition).
 
-</Admonition>
 
-<Admonition type="info" title="Query-time parameters" id="query-time-parameters" href="#query-time-parameters">
+
+## Query-time parameters
 
 Once the index is built, the following query-time parameters influence the vector search - controlling how the HNSW graph is traversed and how results are selected.
 These parameters directly affect how many results are found, how similar they are to the input vector, and how they are ranked.
@@ -161,16 +150,13 @@ These parameters directly affect how many results are found, how similar they ar
     * **Exact search**:  
       Performs a full comparison against all indexed vectors to guarantee the closest matches.  
       Learn more in [Using exact search](../../ai-integration/vector-search/what-affects-vector-search-results#using-exact-search) below.
-
----
-
 For all parameters that can be defined at query time, see:  
 Dynamic queries - [The dynamic query parameters](../../ai-integration/vector-search/vector-search-using-dynamic-query#the-dynamic-query-parameters).  
 Static index queries - [Parameters used at query time](../../ai-integration/vector-search/vector-search-using-static-index#parameters-used-at-query-time).   
 
-</Admonition>
 
-<Admonition type="info" title="Using exact search" id="using-exact-search" href="#using-exact-search">
+
+## Using exact search
 
 * If you need precise control over results and want to avoid the approximations of HNSW,  
   you can perform an exact search instead.
@@ -186,5 +172,5 @@ Static index queries - [Parameters used at query time](../../ai-integration/vect
 * Exact search can be used with both static index queries and dynamic queries.  
   For example, see [Dynamic vector search - exact search](../../ai-integration/vector-search/vector-search-using-dynamic-query#dynamic-vector-search---exact-search).
 
-</Admonition>
+
 

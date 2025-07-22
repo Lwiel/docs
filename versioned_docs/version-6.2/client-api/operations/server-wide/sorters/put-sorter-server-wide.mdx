@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Put Custom Sorter (Server-Wide) Operation  
+export const supportedLanguages = ["csharp", "nodejs"];
 
- ---
+
+# Put Custom Sorter (Server-Wide) Operation  
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -35,10 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/server-wide/sorters/put-sorter-server-wide#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Put custom sorter server-wide" id="put-custom-sorter-server-wide" href="#put-custom-sorter-server-wide">
+## Put custom sorter server-wide
 
 * First, create your own sorter class that inherits from the Lucene class [Lucene.Net.Search.FieldComparator](https://lucenenet.apache.org/docs/3.0.3/df/d91/class_lucene_1_1_net_1_1_search_1_1_field_comparator.html).
 
@@ -100,9 +98,9 @@ A query example is available [here](../../../../client-api/session/querying/sort
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -127,14 +125,11 @@ A query example is available [here](../../../../client-api/session/querying/sort
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Put Custom Sorter (Server-Wide) Operation  
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -154,10 +149,7 @@ A query example is available [here](../../../../client-api/session/querying/sort
     * [Syntax](../../../../client-api/operations/server-wide/sorters/put-sorter-server-wide#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Put custom sorter server-wide" id="put-custom-sorter-server-wide" href="#put-custom-sorter-server-wide">
+## Put custom sorter server-wide
 
 * First, create your own sorter class that inherits from the Lucene class [Lucene.Net.Search.FieldComparator](https://lucenenet.apache.org/docs/3.0.3/df/d91/class_lucene_1_1_net_1_1_search_1_1_field_comparator.html).
 
@@ -189,9 +181,9 @@ A query example is available [here](../../../../client-api/session/querying/sort
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -216,7 +208,7 @@ A query example is available [here](../../../../client-api/session/querying/sort
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

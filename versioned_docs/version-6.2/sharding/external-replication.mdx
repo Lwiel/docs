@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding: External Replication
----
-
 <Admonition type="note" title="Note">
 
 * [External Replication](../server/ongoing-tasks/external-replication) is an 
@@ -33,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Performance Considerations](../sharding/external-replication#performance-considerations)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Supported Versions" id="supported-versions" href="#supported-versions">
+## Supported Versions
 
 * A sharded database and a non-sharded database **can** replicate data to each 
   other, providing their versions are 6.0 or higher.  
@@ -46,9 +41,9 @@ import LanguageContent from "@site/src/components/language-content";
   their version. E.g., a non-sharded 6.0 database can replicate data to a 5.2 
   database and vice versa.  
 
-</Admonition>
 
-<Admonition type="info" title="External Replication Types" id="external-replication-types" href="#external-replication-types">
+
+## External Replication Types
 
 <Admonition type="info" title="Internal -vs- External Replication" id="internal-vs-external-replication" href="#internal-vs-external-replication">
 
@@ -125,9 +120,9 @@ The image below depicts a non-sharded database replicating data to a 5-shard dat
    Shard replies to replicated data and replication attempts are similar 
    to replies made by non-sharded databases.  
 
-</Admonition>
 
-<Admonition type="info" title="Performance Considerations" id="performance-considerations" href="#performance-considerations">
+
+## Performance Considerations
 
 When external replication tasks are defined in two different sharded databases, 
 so they replicate their data to each other, each data item sent from one of the 
@@ -138,5 +133,5 @@ already stored locally, ignore it, and end the cycle.
 In this specific case, of two external databases replicating data to each other, 
 please consider this overhead in your performance considerations and tests.  
 
-</Admonition>
+
 

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Indexing Nested data
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Indexing Nested data
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -41,10 +42,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Paging](../indexes/indexing-nested-data#paging)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Sample data" id="sample-data" href="#sample-data">
+## Sample data
 
 * The examples in this article are based on the following **Classes** and **Sample Data**:
 
@@ -113,9 +111,9 @@ using (var session = store.OpenSession())
 </TabItem>
      </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Simple index - Single index-entry per document" id="simple-index-single-index-entry-per-document" href="#simple-index-single-index-entry-per-document">
+
+## Simple index - Single index-entry per document
 
 * <a id="theIndex"/> **The index**:
 <TabItem value="something" label="simple_index">
@@ -246,9 +244,9 @@ var GreenAndLarge = session
 
    * To address this, you must use a **Fanout index** - as described below.
 
-</Admonition>
 
-<Admonition type="info" title="Fanout index - Multiple index-entries per document" id="fanout-index-multiple-index-entries-per-document" href="#fanout-index-multiple-index-entries-per-document">
+
+## Fanout index - Multiple index-entries per document
 
 * <a id="whatIsFanoutIndex"/> **What is a Fanout index**:
 
@@ -591,12 +589,12 @@ where Color == "black"
 
      * Please refer to [paging through tampered results](../indexes/querying/paging#paging-through-tampered-results) for further explanation and examples. 
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Fanout Indexes
+
 
 The fanout index is the index that outputs multiple index entries per each document. Here is an example of such one:
 
@@ -726,9 +724,6 @@ is a bit more complex. Please read the dedicated article about [paging through t
 
 </LanguageContent>
 <LanguageContent language="python">
-# Indexing Nested data
-
----
 
 <Admonition type="note" title="Note">
 
@@ -754,10 +749,7 @@ is a bit more complex. Please read the dedicated article about [paging through t
       * [Paging](../indexes/indexing-nested-data#paging)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Sample data" id="sample-data" href="#sample-data">
+## Sample data
 
 * The examples in this article are based on the following **Classes** and **Sample Data**:
 
@@ -848,9 +840,9 @@ with store.open_session() as session:
 </TabItem>
      </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Simple index - Single index-entry per document" id="simple-index-single-index-entry-per-document" href="#simple-index-single-index-entry-per-document">
+
+## Simple index - Single index-entry per document
 
 * <a id="theIndex"/> **The index**:
 <TabItem value="something-something" label="simple_index">
@@ -955,9 +947,9 @@ green_and_large = list(
 
    * To address this, you must use a **Fanout index** - as described below.
 
-</Admonition>
 
-<Admonition type="info" title="Fanout index - Multiple index-entries per document" id="fanout-index-multiple-index-entries-per-document" href="#fanout-index-multiple-index-entries-per-document">
+
+## Fanout index - Multiple index-entries per document
 
 * <a id="whatIsFanoutIndex"/> **What is a Fanout index**:
 
@@ -1169,14 +1161,11 @@ where Color == "black"
 
      * Please refer to [paging through tampered results](../indexes/querying/paging#paging-through-tampered-results) for further explanation and examples. 
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Indexing Nested data
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1202,10 +1191,7 @@ where Color == "black"
       * [Paging](../indexes/indexing-nested-data#paging)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Sample data" id="sample-data" href="#sample-data">
+## Sample data
 
 * The examples in this article are based on the following **Classes** and **Sample Data**:
 
@@ -1401,9 +1387,9 @@ try {
 </TabItem>
      </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Simple index - Single index-entry per document" id="simple-index-single-index-entry-per-document" href="#simple-index-single-index-entry-per-document">
+
+## Simple index - Single index-entry per document
 
 * <a id="theIndex"/> **The index**:
 <TabItem value="something-something" label="simple_index">
@@ -1497,9 +1483,9 @@ $greenAndLarge = $session
 
    * To address this, you must use a **Fanout index** - as described below.
 
-</Admonition>
 
-<Admonition type="info" title="Fanout index - Multiple index-entries per document" id="fanout-index-multiple-index-entries-per-document" href="#fanout-index-multiple-index-entries-per-document">
+
+## Fanout index - Multiple index-entries per document
 
 * <a id="whatIsFanoutIndex"/> **What is a Fanout index**:
 
@@ -1797,14 +1783,11 @@ where Color == "black"
 
      * Please refer to [paging through tampered results](../indexes/querying/paging#paging-through-tampered-results) for further explanation and examples. 
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexing Nested data
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1830,10 +1813,7 @@ where Color == "black"
       * [Paging](../indexes/indexing-nested-data#paging)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Sample data" id="sample-data" href="#sample-data">
+## Sample data
 
 * The examples in this article are based on the following **Classes** and **Sample Data**:
 
@@ -1902,9 +1882,9 @@ await bulkInsert.finish();
 </TabItem>
      </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Simple index - Single index-entry per document" id="simple-index-single-index-entry-per-document" href="#simple-index-single-index-entry-per-document">
+
+## Simple index - Single index-entry per document
 
 * <a id="theIndex"/> **The index**:
 <TabItem value="something-something" label="simple_index">
@@ -1927,9 +1907,6 @@ await bulkInsert.finish();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 * <a id="theIndexEntries"/> **The index-entries**:
 
      ![Simple - index-entries](./assets/indexing-nested-data-1.png)
@@ -2006,9 +1983,9 @@ const greenAndLarge = await session
 
      * To address this, you must use a **Fanout index** - as described below.
 
-</Admonition>
 
-<Admonition type="info" title="Fanout index - Multiple index-entries per document" id="fanout-index-multiple-index-entries-per-document" href="#fanout-index-multiple-index-entries-per-document">
+
+## Fanout index - Multiple index-entries per document
 
 * <a id="whatIsFanoutIndex"/> **What is a Fanout index**:
 
@@ -2203,7 +2180,7 @@ where color == "black"
 
      * Please refer to [paging through tampered results](../indexes/querying/paging#paging-through-tampered-results) for further explanation and examples. 
 
-</Admonition>
+
 
 
 </LanguageContent>

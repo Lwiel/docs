@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Put Indexes Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Put Indexes Operation
- ---
 
 <Admonition type="note" title="Note">
 
@@ -30,10 +32,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/indexes/put-indexes#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Ways to deploy indexes - short summary " id="ways-to-deploy-indexes-short-summary" href="#ways-to-deploy-indexes-short-summary">
+## Ways to deploy indexes - short summary 
 
 <Admonition type="note" title="Note">
 
@@ -57,9 +56,9 @@ There are a few ways to deploy a static-index from the Client API:
     Learn more in [Creating auto indexes](../../../../indexes/creating-and-deploying#auto-indexes).
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Put indexes operation with IndexDefinition " id="put-indexes-operation-with-indexdefinition" href="#put-indexes-operation-with-indexdefinition">
+
+## Put indexes operation with IndexDefinition 
 
 Using `PutIndexesOperation` with **IndexDefinition** allows you to:
 
@@ -211,9 +210,9 @@ store.Maintenance.Send(putIndexesOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Put indexes operation with IndexDefinitionBuilder " id="put-indexes-operation-with-indexdefinitionbuilder" href="#put-indexes-operation-with-indexdefinitionbuilder">
+
+## Put indexes operation with IndexDefinitionBuilder 
 
 Using `PutIndexesOperation` with an IndexDefinition created from an **IndexDefinitionBuilder** allows:  
 
@@ -308,9 +307,9 @@ await store.Maintenance.SendAsync(putIndexesOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax " id="syntax" href="#syntax">
+
+## Syntax 
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -352,12 +351,12 @@ await store.Maintenance.SendAsync(putIndexesOp);
 | Index                       | `string` | Name of the index that was added        |
 | RaftCommandIndex            | `long`   | Index of raft command that was executed |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Put Indexes Operation
+
 
 **PutIndexesOperation** is used to insert indexes into a database.
 
@@ -415,9 +414,6 @@ store.maintenance()
 
 </LanguageContent>
 <LanguageContent language="python">
-# Put Indexes Operation
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -433,10 +429,7 @@ store.maintenance()
     * [Syntax](../../../../client-api/operations/maintenance/indexes/put-indexes#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Ways to deploy indexes - short summary " id="ways-to-deploy-indexes-short-summary" href="#ways-to-deploy-indexes-short-summary">
+## Ways to deploy indexes - short summary 
 
 #### Static index:
 
@@ -452,9 +445,9 @@ There are a few ways to deploy a static-index from the Client API:
   * An auto-index is created by the server when making a filtering query that doesn't specify which index to use
   * Learn more in [auto indexes](../../../../indexes/creating-and-deploying#auto-indexes)
 
-</Admonition>
 
-<Admonition type="info" title="Put indexes operation with IndexDefinition " id="put-indexes-operation-with-indexdefinition" href="#put-indexes-operation-with-indexdefinition">
+
+## Put indexes operation with IndexDefinition 
 
 Using `PutIndexesOperation` with **IndexDefinition** allows the following:  
 
@@ -543,9 +536,9 @@ store.maintenance.send(put_indexes_op)
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Put indexes operation with IndexDefinitionBuilder " id="put-indexes-operation-with-indexdefinitionbuilder" href="#put-indexes-operation-with-indexdefinitionbuilder">
+
+## Put indexes operation with IndexDefinitionBuilder 
 
 * Using `PutIndexesOperation` with an IndexDefinition created from an **IndexDefinitionBuilder** 
   allows setting low-level properties available in _IndexDefinitionBuilder_.  
@@ -593,9 +586,9 @@ store.maintenance.send(put_indexes_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax " id="syntax" href="#syntax">
+
+## Syntax 
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -638,14 +631,11 @@ store.maintenance.send(put_indexes_op)
 | **index** | `str` | Name of the index that was added |
 | **raft_command_index** | `int` | Index of raft command that was executed |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Put Indexes Operation
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -661,10 +651,7 @@ store.maintenance.send(put_indexes_op)
     * [Syntax](../../../../client-api/operations/maintenance/indexes/put-indexes#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Ways to deploy indexes - short summary " id="ways-to-deploy-indexes-short-summary" href="#ways-to-deploy-indexes-short-summary">
+## Ways to deploy indexes - short summary 
 
 #### Static index:
 
@@ -680,9 +667,9 @@ There are a few ways to deploy a static-index from the Client API:
   * An auto-index is created by the server when making a filtering query that doesn't specify which index to use
   * Learn more in [auto indexes](../../../../indexes/creating-and-deploying#auto-indexes)
 
-</Admonition>
 
-<Admonition type="info" title="Put indexes operation with IndexDefinition " id="put-indexes-operation-with-indexdefinition" href="#put-indexes-operation-with-indexdefinition">
+
+## Put indexes operation with IndexDefinition 
 
 Using `PutIndexesOperation` with **IndexDefinition** allows the following:  
 
@@ -781,9 +768,9 @@ $store->maintenance()->send($putIndexesOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Put indexes operation with IndexDefinitionBuilder " id="put-indexes-operation-with-indexdefinitionbuilder" href="#put-indexes-operation-with-indexdefinitionbuilder">
+
+## Put indexes operation with IndexDefinitionBuilder 
 
 * Using `PutIndexesOperation` with an IndexDefinition created from an **IndexDefinitionBuilder** 
   allows setting low-level properties available in _IndexDefinitionBuilder_.  
@@ -831,9 +818,9 @@ $store->maintenance()->send($putIndexesOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax " id="syntax" href="#syntax">
+
+## Syntax 
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -868,14 +855,11 @@ $store->maintenance()->send($putIndexesOp);
 | **$sourceType** | `?IndexSourceType` | Index source type<br/>(`None`, `Documents`, `TimeSeries`, `Counters`) |
 | **$type** | `?IndexType` | Index type<br/>(`None`, `AutoMap`, `AutoMapReduce`, `Map`, `MapReduce`, `Faulty`, `JavaScriptMap`, `JavaScriptMapReduce`) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Put Indexes Operation
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -890,10 +874,7 @@ $store->maintenance()->send($putIndexesOp);
     * [Syntax](../../../../client-api/operations/maintenance/indexes/put-indexes#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Ways to deploy indexes - short summary " id="ways-to-deploy-indexes-short-summary" href="#ways-to-deploy-indexes-short-summary">
+## Ways to deploy indexes - short summary 
 
 <Admonition type="note" title="Note">
 
@@ -917,9 +898,9 @@ There are a few ways to deploy a static-index from the Client API:
   Learn more in [Creating auto indexes](../../../../indexes/creating-and-deploying#auto-indexes).
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Put indexes operation with IndexDefinition " id="put-indexes-operation-with-indexdefinition" href="#put-indexes-operation-with-indexdefinition">
+
+## Put indexes operation with IndexDefinition 
 
 Using `PutIndexesOperation` with **IndexDefinition** allows you to:
 
@@ -1016,9 +997,9 @@ await documentStore.maintenance.send(putIndexesOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax " id="syntax" href="#syntax">
+
+## Syntax 
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -1060,7 +1041,7 @@ await documentStore.maintenance.send(putIndexesOp);
 | index                       | `string` | Name of the index that was added        |
 | raftCommandIndex            | `long`   | Index of raft command that was executed |
 
-</Admonition>
+
 
 
 </LanguageContent>

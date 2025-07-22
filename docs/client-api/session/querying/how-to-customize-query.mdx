@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Customize Query
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Customize Query
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -43,10 +44,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 
 </Admonition>
-
----
-
-<Admonition type="info" title="BeforeQueryExecuted" id="beforequeryexecuted" href="#beforequeryexecuted">
+## BeforeQueryExecuted
 
 * Use `BeforeQueryExecuted` to customize the query just before it is executed.
 
@@ -143,9 +141,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="AfterQueryExecuted" id="afterqueryexecuted" href="#afterqueryexecuted">
+
+## AfterQueryExecuted
 
 * Use `AfterQueryExecuted` to access the raw query result after it is executed.
 
@@ -239,9 +237,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="AfterStreamExecuted" id="afterstreamexecuted" href="#afterstreamexecuted">
+
+## AfterStreamExecuted
 
 * Use `AfterStreamExecuted` to retrieve a raw (blittable) result of the streaming query.
 
@@ -341,9 +339,9 @@ var streamResults = session.Advanced.Stream(query);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="NoCaching" id="nocaching" href="#nocaching">
+
+## NoCaching
 
 * By default, query results are cached. 
 
@@ -416,9 +414,9 @@ var streamResults = session.Advanced.Stream(query);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="NoTracking" id="notracking" href="#notracking">
+
+## NoTracking
 
 * By default, the [Session](../../../client-api/session/what-is-a-session-and-how-does-it-work) tracks all changes made to all entities that it has either loaded, stored, or queried for.
 
@@ -491,9 +489,9 @@ var streamResults = session.Advanced.Stream(query);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Projection" id="projection" href="#projection">
+
+## Projection
 
 * By default, when [querying an index](../../../indexes/querying/query-index) and projecting query results,  
   the server will try to retrieve field values from the fields [stored in the index](../../../indexes/storing-data-in-index).  
@@ -640,9 +638,9 @@ public enum ProjectionBehavior \{
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="RandomOrdering" id="randomordering" href="#randomordering">
+
+## RandomOrdering
 
 * Use `RandomOrdering` to order the query results randomly.  
 
@@ -714,9 +712,9 @@ IDocumentQueryCustomization RandomOrdering(string seed);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Timings" id="timings" href="#timings">
+
+## Timings
 
 * Use `Timings` to get detailed stats of the time spent by the server on each part of the query.
 
@@ -797,9 +795,9 @@ IDocumentQueryCustomization RandomOrdering(string seed);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="WaitForNonStaleResults" id="waitfornonstaleresults" href="#waitfornonstaleresults">
+
+## WaitForNonStaleResults
 
 * All queries in RavenDB provide results using an index, even when you don't specify one.  
   See detailed explanation in [Queries always provide results using an index](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
@@ -883,9 +881,9 @@ IDocumentQueryCustomization RandomOrdering(string seed);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Methods return value" id="methods-return-value" href="#methods-return-value">
+
+## Methods return value
 
 All of the above customization methods return the following:
 
@@ -897,14 +895,11 @@ All of the above customization methods return the following:
 |---------------------------------| ----- |
 | IQueryBase | Returns self for easier method chaining. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Customize Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -920,10 +915,7 @@ The following query customization options are available in the `IDocumentQueryCu
 - [WaitForNonStaleResults](../../../client-api/session/querying/how-to-customize-query#waitfornonstaleresults)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="BeforeQueryExecuted" id="beforequeryexecuted" href="#beforequeryexecuted">
+## BeforeQueryExecuted
 
 Allows you to modify the index query just before it's executed.
 
@@ -957,9 +949,9 @@ session.query(Employee.class).toList();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="AfterQueryExecuted" id="afterqueryexecuted" href="#afterqueryexecuted">
+
+## AfterQueryExecuted
 
 Allows you to retrieve a raw query result after it's executed.
 
@@ -994,9 +986,9 @@ session.query(Employee.class)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="AfterStreamExecuted" id="afterstreamexecuted" href="#afterstreamexecuted">
+
+## AfterStreamExecuted
 
 Allows you to retrieve a raw result of the streaming query.
 
@@ -1031,9 +1023,9 @@ session.query(Employee.class)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="NoCaching" id="nocaching" href="#nocaching">
+
+## NoCaching
 
 By default, queries are cached. To disable query caching use the `noCaching` customization.
 
@@ -1062,9 +1054,9 @@ List<Employee> results = session.query(Employee.class)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="NoTracking" id="notracking" href="#notracking">
+
+## NoTracking
 
 To disable entity tracking by `session` use `noTracking`. Usage of this option will prevent holding the query results in memory.
 
@@ -1093,9 +1085,9 @@ List<Employee> results = session.query(Employee.class)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ProjectionBehavior" id="projectionbehavior" href="#projectionbehavior">
+
+## ProjectionBehavior
 
 By default, queries are satisfied with the values stored in the index. If the index 
 doesn't contain the requested values, they are retrieved from the documents 
@@ -1144,9 +1136,9 @@ List<Employee> results = session.query(Employee.class)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="RandomOrdering" id="randomordering" href="#randomordering">
+
+## RandomOrdering
 
 To order results randomly, use the `randomOrdering` method.
 
@@ -1182,9 +1174,9 @@ List<Employee> results = session.query(Employee.class)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="WaitForNonStaleResults" id="waitfornonstaleresults" href="#waitfornonstaleresults">
+
+## WaitForNonStaleResults
 
 Queries can be 'instructed' to wait for non-stale results for a specified amount of time using the `waitForNonStaleResults` method. If the query won't be able to return 
 non-stale results within the specified (or default) timeout, then a `TimeoutException` is thrown.
@@ -1232,14 +1224,11 @@ List<Employee> results = session.query(Employee.class)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Customize Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1266,10 +1255,7 @@ List<Employee> results = session.query(Employee.class)
 
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`before_query_executed`" id="before_query_executed" href="#before_query_executed">
+## `before_query_executed`
 
 * Use `before_query_executed` to customize the query just before it is executed.
 
@@ -1333,9 +1319,9 @@ results = list(
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`after_query_executed`" id="after_query_executed" href="#after_query_executed">
+
+## `after_query_executed`
 
 * Use `after_query_executed` to access the raw query result after it is executed.
 
@@ -1397,9 +1383,9 @@ result = list(
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`after_stream_executed`" id="after_stream_executed" href="#after_stream_executed">
+
+## `after_stream_executed`
 
 * Use `after_stream_executed` to retrieve a raw (blittable) result of the streaming query.
 
@@ -1422,9 +1408,9 @@ result = list(
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`no_caching`" id="no_caching" href="#no_caching">
+
+## `no_caching`
 
 * By default, query results are cached. 
 
@@ -1474,9 +1460,9 @@ result = list(
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`no_tracking`" id="no_tracking" href="#no_tracking">
+
+## `no_tracking`
 
 * By default, the [Session](../../../client-api/session/what-is-a-session-and-how-does-it-work) tracks all changes made to all entities that it has either loaded, stored, or queried for.
 
@@ -1526,9 +1512,9 @@ result = list(
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`projection`" id="projection" href="#projection">
+
+## `projection`
 
 * By default, when [querying an index](../../../indexes/querying/query-index) and projecting query results,  
   the server will try to retrieve field values from the fields [stored in the index](../../../indexes/storing-data-in-index).  
@@ -1645,9 +1631,9 @@ class ProjectionBehavior(Enum):
 </Admonition>
 -->
 
-</Admonition>
 
-<Admonition type="info" title="`random_ordering`" id="random_ordering" href="#random_ordering">
+
+## `random_ordering`
 
 * Use `random_ordering` to order the query results randomly.  
 
@@ -1699,9 +1685,9 @@ class ProjectionBehavior(Enum):
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`timings`" id="timings" href="#timings">
+
+## `timings`
 
 * When executing a query, you can retrieve query statistics that include the time spent by the server on each part of the query.  
 
@@ -1766,9 +1752,9 @@ results = list(
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`wait_for_non_stale_results`" id="wait_for_non_stale_results" href="#wait_for_non_stale_results">
+
+## `wait_for_non_stale_results`
 
 * All RavenDB queries provide results using an index, even when an index is not specified.  
   See detailed explanation in [Queries always provide results using an index](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
@@ -1829,9 +1815,9 @@ results = list(
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`Methods return value`" id="methods-return-value" href="#methods-return-value">
+
+## `Methods return value`
 
 All of the above customization methods return the following:
 
@@ -1839,14 +1825,11 @@ All of the above customization methods return the following:
 |-------------------------------| ----- |
 | `DocumentQuery[_T]` | Returns self for easier method chaining |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Customize Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1868,10 +1851,7 @@ All of the above customization methods return the following:
 
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`addBeforeQueryExecutedListener` and `removeBeforeQueryExecutedListener`" id="addbeforequeryexecutedlistener-and-removebeforequeryexecutedlistener" href="#addbeforequeryexecutedlistener-and-removebeforequeryexecutedlistener">
+## `addBeforeQueryExecutedListener` and `removeBeforeQueryExecutedListener`
 
 * Use these methods to customize the query just before it is executed.
 
@@ -1910,9 +1890,9 @@ public function removeBeforeQueryExecutedListener(Closure $action): DocumentQuer
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`addAfterQueryExecutedListener` and `removeAfterQueryExecutedListener`" id="addafterqueryexecutedlistener-and-removeafterqueryexecutedlistener" href="#addafterqueryexecutedlistener-and-removeafterqueryexecutedlistener">
+
+## `addAfterQueryExecutedListener` and `removeAfterQueryExecutedListener`
 
 * Use these methods to access the raw query result after it is executed.
 
@@ -1949,9 +1929,9 @@ public function removeAfterQueryExecutedListener(Closure $action): DocumentQuery
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`noCaching`" id="nocaching" href="#nocaching">
+
+## `noCaching`
 
 * By default, query results are cached. 
 
@@ -1984,9 +1964,9 @@ $results = $session->query(Employee::class)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="`noTracking`" id="notracking" href="#notracking">
+
+## `noTracking`
 
 * By default, the [session](../../../client-api/session/what-is-a-session-and-how-does-it-work) tracks all changes made to all entities that it has either loaded, stored, or queried for.
 
@@ -2019,9 +1999,9 @@ $results = $session->query(Employee::class)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Projection" id="projection" href="#projection">
+
+## Projection
 
 * By default, when [querying an index](../../../indexes/querying/query-index) and projecting query results,  
   the server will try to retrieve field values from the fields [stored in the index](../../../indexes/storing-data-in-index).  
@@ -2091,9 +2071,9 @@ class ProjectionBehavior
   Retrieve values directly from the documents store.  
   An exception is thrown if the document does not contain the requested field.  
 
-</Admonition>
 
-<Admonition type="info" title="`randomOrdering`" id="randomordering" href="#randomordering">
+
+## `randomOrdering`
 
 * Use `randomOrdering` to order the query results randomly.  
 
@@ -2130,9 +2110,9 @@ public function randomOrdering(?string $seed): DocumentQueryCustomizationInterfa
 |------------| ------------- |---------------------------------------------------------------------------------------------------|
 | **$seed**   | `?string` | Order the search results randomly using this seed.<br/>Useful when executing repeated random queries. |
 
-</Admonition>
 
-<Admonition type="info" title="`waitForNonStaleResults`" id="waitfornonstaleresults" href="#waitfornonstaleresults">
+
+## `waitForNonStaleResults`
 
 * All queries in RavenDB provide results using an index, even when you don't specify one.  
   See detailed explanation in [Queries always provide results using an index](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
@@ -2182,9 +2162,9 @@ public function waitForNonStaleResults(Duration $waitTimeout): DocumentQueryCust
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Methods return value" id="methods-return-value" href="#methods-return-value">
+
+## Methods return value
 
 All of the above customization methods return the following:
 
@@ -2192,14 +2172,11 @@ All of the above customization methods return the following:
 |-----------------------------| ----- |
 | `DocumentQueryCustomizationInterface` | Returns self for easier method chaining |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Customize Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -2223,10 +2200,7 @@ All of the above customization methods return the following:
   - [waitForNonStaleResults](../../../client-api/session/querying/how-to-customize-query#waitfornonstaleresults)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="on (beforeQueryExecuted)" id="on-beforequeryexecuted" href="#on-beforequeryexecuted">
+## on (beforeQueryExecuted)
 
 * Use `on("beforeQueryExecuted")` to customize the query just before it is executed.
 
@@ -2314,9 +2288,9 @@ class TagResult {
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="on (afterQueryExecuted)" id="on-afterqueryexecuted" href="#on-afterqueryexecuted">
+
+## on (afterQueryExecuted)
 
 * Use `on("afterQueryExecuted")` to access the raw query result after it is executed.
 
@@ -2361,9 +2335,9 @@ const results = await session
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="noCaching" id="nocaching" href="#nocaching">
+
+## noCaching
  
 * By default, query results are cached.
 
@@ -2400,9 +2374,9 @@ const results = await session
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="noTracking" id="notracking" href="#notracking">
+
+## noTracking
 
 * By default, the [Session](../../../client-api/session/what-is-a-session-and-how-does-it-work) tracks all changes made to all entities that it has either loaded, stored, or queried for.
 
@@ -2441,9 +2415,9 @@ const results = await session
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="projectionBehavior" id="projectionbehavior" href="#projectionbehavior">
+
+## projectionBehavior
 
 * By default, when [querying an index](../../../indexes/querying/query-index), and projecting query results  
   (projecting means the query returns only specific document fields instead of the full document)  
@@ -2551,9 +2525,9 @@ const query = session
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="randomOrdering" id="randomordering" href="#randomordering">
+
+## randomOrdering
 
 * Use `RandomOrdering` to order the query results randomly.
 
@@ -2594,9 +2568,9 @@ randomOrdering(seed);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="timings" id="timings" href="#timings">
+
+## timings
 
 * Use `Timings` to get detailed stats of the time spent by the server on each part of the query.
 
@@ -2647,9 +2621,9 @@ const results = await session.query(\{ collection: "Products" \})
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="waitForNonStaleResults" id="waitfornonstaleresults" href="#waitfornonstaleresults">
+
+## waitForNonStaleResults
 
 * All queries in RavenDB provide results using an index, even when you don't specify one.  
   See detailed explanation in [Queries always provide results using an index](../../../client-api/session/querying/how-to-query#queries-always-provide-results-using-an-index).
@@ -2700,7 +2674,7 @@ waitForNonStaleResults(waitTimeout);
 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>

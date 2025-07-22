@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Monitoring: Prometheus
-
----
-
 <Admonition type="note" title="Note">
 
 * Prometheus is a popular monitoring tool designated to help in the inspection and 
@@ -34,19 +31,16 @@ import LanguageContent from "@site/src/components/language-content";
        * [Fetching Additional RavenDB Information](../../../server/administration/monitoring/prometheus#fetching-additional-ravendb-information)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Prometheus" id="prometheus" href="#prometheus">
+## Prometheus
 
 Prometheus is commonly used in conjunction with services that expose numeric data via HTTP endpoints.  
 A Prometheus server can be used (either manually or by an application using a dedicated library) to 
 scrape the data off an endpoint, monitor and store it, and put it to use in additional ways like raising 
 alerts related to it or forwarding it to analysis services.  
 
-</Admonition>
 
-<Admonition type="info" title="RavenDB Prometheus Endpoint" id="ravendb-prometheus-endpoint" href="#ravendb-prometheus-endpoint">
+
+## RavenDB Prometheus Endpoint
 
 The path to the Prometheus endpoint of a RavenDB instance is: `/admin/monitoring/v1/prometheus`  
 To inspect the endpoint's output using a browser, add the endpoint path to the RavenDB server's URL.  
@@ -179,9 +173,9 @@ Here is the list of metrics made available by the `/admin/monitoring/v1/promethe
 | server_storage_write_throughput_bytes | Disk Write Throughput |
 | server_uptime_seconds | Server up-time |
 
-</Admonition>
 
-<Admonition type="info" title="Using the RavenDB Endpoint by a Prometheus Server" id="using-the-ravendb-endpoint-by-a-prometheus-server" href="#using-the-ravendb-endpoint-by-a-prometheus-server">
+
+## Using the RavenDB Endpoint by a Prometheus Server
 
 To direct a Prometheus server to the Prometheus endpoint of a RavenDB instance 
 [add an entry](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) 
@@ -240,5 +234,5 @@ HTTP and TCP URLs, and other details, pass Prometheus: `ravendb_server_info`
 
 ![Additional Information](./assets/additional-info.png)
 
-</Admonition>
+
 

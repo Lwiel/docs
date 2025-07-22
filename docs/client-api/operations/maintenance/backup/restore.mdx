@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Restore
----
-
 <Admonition type="note" title="Note">
 
 * A backed-up database can be restored to a new database, either 
@@ -33,16 +31,10 @@ import LanguageContent from "@site/src/components/language-content";
   * [Recommended Precautions](../../../../client-api/operations/maintenance/backup/restore#recommended-precautions)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Restoring a Database: Configuration and Execution" id="restoring-a-database-configuration-and-execution" href="#restoring-a-database-configuration-and-execution">
+## Restoring a Database: Configuration and Execution
 
 To restore a database, set a `RestoreBackupConfiguration` instance and pass 
 it to `RestoreBackupOperation` for execution.  
-
----
-
 ### `RestoreBackupOperation`
 <TabItem value="something" label="restore_restorebackupoperation">
 <CodeBlock language="csharp">
@@ -50,9 +42,6 @@ it to `RestoreBackupOperation` for execution.
 `}
 </CodeBlock>
 </TabItem>  
-
----
-
 ### `RestoreBackupConfiguration`
 <TabItem value="something" label="restore_restorebackupconfiguration">
 <CodeBlock language="csharp">
@@ -87,9 +76,9 @@ it to `RestoreBackupOperation` for execution.
     * Make sure your server has permissions to read from `BackupLocation` and write to `DataDirectory`.
     </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Optional Settings" id="optional-settings" href="#optional-settings">
+
+## Optional Settings
 
 ### `LastFileNameToRestore`
 Restore incremental backup files up to (including) the selected file, and stop restoring there.  
@@ -110,9 +99,6 @@ restoreConfiguration.LastFileNameToRestore = @"2018-12-26-12-00.ravendb-incremen
 </TabItem>  
    * The full-backup and 12:00 incremental-backup files **will** be restored.  
      The 15:00 and 18:00 files will **not** be restored.  
-
----
-
 ### `DataDirectory`
 
 Specify the directory into which the database will be restored.
@@ -124,9 +110,6 @@ restoreConfiguration.DataDirectory = dataPath;
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### `EncryptionKey`
 
 This is where you need to provide your encryption key if your backup is encrypted.  
@@ -136,9 +119,6 @@ This is where you need to provide your encryption key if your backup is encrypte
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### `DisableOngoingTasks`
 
 set **DisableOngoingTasks** to **true** to disable the execution of ongoing tasks after restoration.  
@@ -152,10 +132,10 @@ restoreConfiguration.DisableOngoingTasks = true;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
 
-<Admonition type="info" title="Restore Database to a Single Node" id="restore-database-to-a-single-node" href="#restore-database-to-a-single-node">
+
+## Restore Database to a Single Node
 
 *  **Configuration**  
      * Set `DatabaseName` with the **new database name**.  
@@ -183,9 +163,9 @@ docStore.Maintenance.Server.Send(restoreBackupTask);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Restore Database to Multiple Nodes" id="restore-database-to-multiple-nodes" href="#restore-database-to-multiple-nodes">
+
+## Restore Database to Multiple Nodes
 
 ### Restore Database to a Single Node & Replicate it to Other Nodes  
 
@@ -196,9 +176,6 @@ database to a single server and then expand the database group to additional nod
 * Manage the database-group topology.  
   Add a node to the database-group using the [Studio](../../../../studio/database/settings/manage-database-group) 
   or from your [code](../../../../client-api/operations/server-wide/add-database-node), to replicate the database to the other nodes.
-
----
-
 ### Restore Database to Multiple Nodes Simultaneously  
 
 You can create the cluster in advance, and restore the database to multiple nodes simultaneously.  
@@ -225,9 +202,9 @@ You can create the cluster in advance, and restore the database to multiple node
 * Rename the database folder on all nodes to the original database name.  
 * [Expand](../../../../server/clustering/rachis/cluster-topology#modifying-the-topology) the database group to all relevant nodes.  
 
-</Admonition>
 
-<Admonition type="info" title="Recommended Precautions" id="recommended-precautions" href="#recommended-precautions">
+
+## Recommended Precautions
 <Admonition type="warning" title="Warning">
 
 When restoring a backed-up database, you may be interested only in the restored data 
@@ -248,5 +225,5 @@ restoreConfiguration.DisableOngoingTasks = true;
 </TabItem>
 
 </Admonition>
-</Admonition>
+
 

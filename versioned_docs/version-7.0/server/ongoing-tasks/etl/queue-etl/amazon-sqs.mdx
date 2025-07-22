@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Queue ETL: Amazon SQS
----
-
 <Admonition type="note" title="Note">
 
 * Amazon **SQS** (**S**imple **Q**ueue **S**ervice) is a distributed Message 
@@ -52,10 +50,7 @@ For an **overview of Queue ETL tasks**, see [Queue ETL tasks overview](../../../
       * [The loadTo method](../../../../server/ongoing-tasks/etl/queue-etl/amazon-sqs#the-loadto-method)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="RavenDB ETL and Amazon SQS" id="ravendb-etl-and-amazon-sqs" href="#ravendb-etl-and-amazon-sqs">
+## RavenDB ETL and Amazon SQS
 
 * Utilizing SQS ETL tasks allows RavenDB to take the role of an event producer in an Amazon SQS 
   architecture, leveraging RavenDB's feature set and SQS` powerful message distribution capabilities.  
@@ -72,16 +67,13 @@ For an **overview of Queue ETL tasks**, see [Queue ETL tasks overview](../../../
 Read more about Amazon SQS in the platform's [official documentation](https://docs.aws.amazon.com/sqs/).
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Queue methods" id="queue-methods" href="#queue-methods">
+
+## Queue methods
 
 The data that ETL tasks handle is carefully selected and tailored for specific user needs.  
 Selecting which Queue Type Amazon SQS would use should also take into account the specific 
 nature of the transferred data.  
-
----
-
 #### Standard queueing
 
 Standard queueing offers an extremely high transfer rate but lacks the ability to ensure 
@@ -91,9 +83,6 @@ that messages would arrive in the same order they were sent or prevent their dup
 Use standard queueing when quick delivery takes precedence over messages order and 
 distinctness or the recepient can make up for them.  
 </Admonition>
-
----
-
 #### FIFO queueing
 
 FIFO queueing controls delivery order using a First-In-First-Out queue and ensures 
@@ -145,9 +134,6 @@ transformation script's [loadTo method](../../../../server/ongoing-tasks/etl/que
    Use this method when throughput is not as important as the order and uniqueness of 
    arriving messages.  
   </Admonition>
-
----
-
 #### Caution: ETL message size -vs- Queue message size
 
 <Admonition type="warning" title="Warning">
@@ -157,15 +143,12 @@ The significance of this difference is that when a maximum-size ETL message arri
 at its destination queue it may be charged for not 1 but 4 queue messages.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Add an Amazon SQS connection string" id="add-an-amazon-sqs-connection-string" href="#add-an-amazon-sqs-connection-string">
+
+## Add an Amazon SQS connection string
 
 Prior to setting up the ETL task, define a connection string that the task will use to access your SQS destination.  
 The connection string includes the authorization credentials required to connect.
-
----
-
 #### Authentication methods
 The authorization method that the ETL task uses to access the SQS target is determined 
 by properties of the connection string it uses, as shown in the example below.  
@@ -219,9 +202,6 @@ var res = store.Maintenance.Send(
    * `AccessKey`  
    * `SecretKey`  
    * `RegionName`  
-
----
-
 #### Syntax
 
 <TabItem value="something" label="amazon_sqs_con_str_settings">
@@ -276,9 +256,9 @@ public class Basic
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add an Amazon SQS ETL task" id="add-an-amazon-sqs-etl-task" href="#add-an-amazon-sqs-etl-task">
+
+## Add an Amazon SQS ETL task
 
 #### Example: Add SQS ETL task
 
@@ -346,9 +326,6 @@ store.Maintenance.Send(new AddEtlOperation<QueueConnectionString>(etlTask));
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Delete processed documents
 
 * It is possible to **delete** documents from a RavenDB database once they have been processed by the Queue ETL task.
@@ -386,9 +363,6 @@ store.Maintenance.Send(new AddEtlOperation<QueueConnectionString>(etlTask));
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax
 
 <TabItem value="something" label="etl_configuration">
@@ -432,17 +406,14 @@ public class EtlQueue
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="The transformation script" id="the-transformation-script" href="#the-transformation-script">
+
+## The transformation script
 
 The [basic characteristics](../../../../server/ongoing-tasks/etl/basics) of an Amazon SQS ETL script 
 are similar to those of other ETL types.  
 The script defines what data to **extract** from the source document, how to **transform** this data,  
 and which SQS Queue to **load** the data to.
-
----
-
 #### The loadTo method
 
 To specify which SQS queue to load the data to, use either of the following methods in your script.  
@@ -493,9 +464,6 @@ For example, the following two calls, which load data to "OrdersQueue", are equi
 
 * `loadToOrdersQueue(obj, {attributes})`
 * `loadTo('OrdersQueue', obj, {attributes})`
-
----
-
 The following is a sample script that processes documents from the Orders collection:
 
 <TabItem value="something" label="javascript">
@@ -527,5 +495,5 @@ loadToOrdersQueue(orderData, \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Get Index Terms Operation
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Get Index Terms Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -26,10 +27,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-terms#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get Terms example" id="get-terms-example" href="#get-terms-example">
+## Get Terms example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -60,9 +58,9 @@ string[] fieldTerms = await store.Maintenance.SendAsync(getTermsOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="get_index_terms_syntax">
 <CodeBlock language="csharp">
@@ -82,12 +80,12 @@ string[] fieldTerms = await store.Maintenance.SendAsync(getTermsOp);
 | - |- |
 | string[] | List of terms for the requested index-field. <br/> Alphabetically ordered. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Get Index Terms Operation
+
 
 The **GetTermsOperation** will retrieve stored terms for a field of an index.
 
@@ -129,9 +127,6 @@ public GetTermsOperation(String indexName, String field, String fromValue, Integ
 
 </LanguageContent>
 <LanguageContent language="python">
-# Get Index Terms Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -142,10 +137,7 @@ public GetTermsOperation(String indexName, String field, String fromValue, Integ
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-terms#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get Terms example" id="get-terms-example" href="#get-terms-example">
+## Get Terms example
 
 <TabItem value="something-something" label="get_index_terms">
 <CodeBlock language="python">
@@ -161,9 +153,9 @@ field_terms = store.maintenance.send(get_terms_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="get_index_terms_syntax">
 <CodeBlock language="python">
@@ -184,14 +176,11 @@ field_terms = store.maintenance.send(get_terms_op)
 | - |- |
 | `List[str]` | List of terms for the requested index-field. <br/> Alphabetically ordered. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Get Index Terms Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -202,10 +191,7 @@ field_terms = store.maintenance.send(get_terms_op)
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-terms#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get Terms example" id="get-terms-example" href="#get-terms-example">
+## Get Terms example
 
 <TabItem value="something-something" label="get_index_terms">
 <CodeBlock language="php">
@@ -222,9 +208,9 @@ $fieldTerms = $store->maintenance()->send($getTermsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="get_index_terms_syntax">
 <CodeBlock language="php">
@@ -240,14 +226,11 @@ $fieldTerms = $store->maintenance()->send($getTermsOp);
 | **$fromValue** | `?string` | The starting term to return results from.<br/>This term is not included in the results.<br/>`None` - start from first term. |
 | **$pageSize** | `?int` | Number of terms to get.<br/>`None` - return all terms.  |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Index Terms Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -258,10 +241,7 @@ $fieldTerms = $store->maintenance()->send($getTermsOp);
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-terms#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get Terms example" id="get-terms-example" href="#get-terms-example">
+## Get Terms example
 
 <TabItem value="something-something" label="get_index_terms">
 <CodeBlock language="nodejs">
@@ -277,9 +257,9 @@ const fieldTerms = await store.maintenance.send(getTermsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="get_index_terms_syntax">
 <CodeBlock language="nodejs">
@@ -301,7 +281,7 @@ const getTermsOp = new GetTermsOperation(indexName, field, fromValue, pageSize);
 | - |- |
 | `string[]` | List of terms for the requested index-field. <br/> Alphabetically ordered. |
 
-</Admonition>
+
 
 
 </LanguageContent>

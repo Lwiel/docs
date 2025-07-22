@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# The Embeddings Generation Task
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# The Embeddings Generation Task
----
 
 <Admonition type="note" title="Note">
 
@@ -35,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../ai-integration/generating-embeddings/embeddings-generation-task#syntax)
     
 </Admonition>
-
----
-
-<Admonition type="info" title="Configuring an embeddings generation task - from the Studio" id="configuring-an-embeddings-generation-task-from-the-studio" href="#configuring-an-embeddings-generation-task-from-the-studio">
+## Configuring an embeddings generation task - from the Studio
 
 * **Define the general task settings**:
 
@@ -81,9 +80,6 @@ import LanguageContent from "@site/src/components/language-content";
      Enabling document expiration ensures that embeddings in the `@embeddings-cache` collection are automatically deleted when they expire.
   8. **Save**  
      Click _Save_ to store the task definition or _Cancel_.
-
----
-
 * **Define the embeddings source - using PATHS**:
   
     ![Create embeddings generation task - source by paths](./assets/add-ai-task-4.png)
@@ -101,9 +97,6 @@ import LanguageContent from "@site/src/components/language-content";
      Enter the maximum number of tokens allowed per chunk (this depends on the service provider).
   6. **Add path configuration**  
      Click to add the specified to the list.
-
----
-
 * **Define the embeddings source - using SCRIPT**:
   
     ![Create embeddings generation task - source by script](./assets/add-ai-task-4-script.png)
@@ -117,9 +110,6 @@ import LanguageContent from "@site/src/components/language-content";
      e.g., when the script contains: `Name: this.Name`.
   4. **Max tokens per chunk**:  
      Enter the default value to use when no specific value is set for the chunking method in the script.
-
----
-
 * **Define quantization and expiration -  
   for the generated embeddings from the source documents**:
 
@@ -139,9 +129,6 @@ import LanguageContent from "@site/src/components/language-content";
   3. **Regenerate embeddings**  
      This toggle is visible only when editing an existing task.  
      Toggle ON to regenerate embeddings for all documents in the collection, as specified by the _Paths_ or _Script_.
-
----
-
 * **Define chunking method & expiration -  
   for the embedding generated from a search term in a vector search query**:
 
@@ -160,16 +147,13 @@ import LanguageContent from "@site/src/components/language-content";
      These documents contain embeddings generated from the search terms, serving as a cache for these embeddings.  
      The default period is `14` days. Learn more in [The embeddings cache collection](../../ai-integration/generating-embeddings/embedding-collections#the-embeddings-cache-collection).
 
-</Admonition>
 
-<Admonition type="info" title="Configuring an embeddings generation task - from the Client API" id="configuring-an-embeddings-generation-task-from-the-client-api" href="#configuring-an-embeddings-generation-task-from-the-client-api">
+
+## Configuring an embeddings generation task - from the Client API
 
 <Admonition type="note" title="Note">
 
 #### Configure an embeddings generation task - define source using PATHS:
-
----
-
 <TabItem value="something-something" label="create_embeddings_task_1">
 <CodeBlock language="csharp">
 {`// Define a connection string that will be used in the task definition:
@@ -256,9 +240,6 @@ var addAiIntegrationTaskResult = store.Maintenance.Send(addEmbeddingsGenerationT
 <Admonition type="note" title="Note">
 
 #### Configure an embeddings generation task - define source using SCRIPT:
-
----
-
 * To configure the source content using a script -  
   use the `EmbeddingsTransformation` object instead of the `EmbeddingsPathConfigurations` object.
 
@@ -326,9 +307,9 @@ EmbeddingsTransformation = new EmbeddingsTransformation()
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Chunking methods and tokens" id="chunking-methods-and-tokens" href="#chunking-methods-and-tokens">
+
+## Chunking methods and tokens
 
 **Tokens and processing limits**:  
 
@@ -346,9 +327,6 @@ EmbeddingsTransformation = new EmbeddingsTransformation()
 
 * The AI provider generates a single embedding for each chunk.  
   Depending on the maximum tokens per chunk setting, a single input text may result in multiple embeddings.
-
----
-
 **Available chunking methods**:  
 RavenDB offers several chunking methods that can be applied per source type.  
 These methods determine how input text is split before being sent to the provider.  
@@ -412,9 +390,6 @@ These methods determine how input text is split before being sent to the provide
      A list of text chunks derived from the stripped content, ensuring each chunk remains within the token limit.
 
 </Admonition>
-
----
-
 **Chunking method syntax for the JavaScript scripts**:  
 
 <TabItem value="something" label="javascript">
@@ -444,9 +419,9 @@ html.strip(htmlText, maxTokensPerChunk);
 | **htmlText**          | `string`   | A string containing HTML content to process. |
 | **maxTokensPerChunk** | `number`   | The maximum tokens allowed per chunk.        |
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 #### The embeddings generation task configuration:
 
@@ -522,9 +497,6 @@ public enum VectorEmbeddingType
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Deploying the embeddings generation task:
 
 <TabItem value="something-something" label="syntax_3">
@@ -534,7 +506,7 @@ public enum VectorEmbeddingType
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

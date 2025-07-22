@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Migration: Server Breaking Changes
----
-
 <Admonition type="note" title="Note">
 The features listed on this page were available in former RavenDB versions.  
 In RavenDB `6.2.x`, they are either unavailable or their behavior is inconsistent 
@@ -25,10 +23,7 @@ with their behavior in previous versions.
    * [Customizable identifier parts separator](../../migration/server/server-breaking-changes#customizable-identifier-parts-separator)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="MSSQL connection string requires an Encrypt property" id="mssql-connection-string-requires-an-encrypt-property" href="#mssql-connection-string-requires-an-encrypt-property">
+## MSSQL connection string requires an Encrypt property
 
 To establish a connection with an MSSQL server via ETL, RavenDB is required 
 by the `Microsoft.Data.SqlClient` package it utilizes (which replaces the 
@@ -56,9 +51,9 @@ or via Studio:
 
 ![SQL ETL task](./assets/breaking-changes_SQL-ETL-task.png)
 
-</Admonition>
 
-<Admonition type="info" title="Corax handling of complex JSON objects in static indexes is configurable" id="corax-handling-of-complex-json-objects-in-static-indexes-is-configurable" href="#corax-handling-of-complex-json-objects-in-static-indexes-is-configurable">
+
+## Corax handling of complex JSON objects in static indexes is configurable
 
 The behavior of RavenDB's [Corax](../../indexes/search-engine/corax) search engine while 
 handling [complex JSON objects](../../indexes/search-engine/corax#handling-of-complex-json-objects) 
@@ -87,9 +82,9 @@ remains unchanged).
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Customizable identifier parts separator" id="customizable-identifier-parts-separator" href="#customizable-identifier-parts-separator">
+
+## Customizable identifier parts separator
 
 Picking an [identifier parts separator](../../server/kb/document-identifier-generation#id-generation-by-server) 
 allows you to choose which character would be placed as a separator between ID parts 
@@ -112,5 +107,5 @@ will apply your new separator.
 
 ![New separator](./assets/breaking-changes_new-separator.png)
 
-</Admonition>
+
 

@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Session: Loading Entities
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: Loading Entities
----
 
 <Admonition type="note" title="Note">
 
@@ -33,10 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
 * For loading entities lazily see [perform requests lazily](../../client-api/session/how-to/perform-operations-lazily).
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Load" id="load" href="#load">
+## Load
 
 The most basic way to load a single entity is to use one of the `Load` methods.
 
@@ -84,9 +83,9 @@ The most basic way to load a single entity is to use one of the `Load` methods.
 From RavenDB version 4.x onwards, only string identifiers are supported. If you are upgrading from 3.x, this is a major change, because in 3.x non-string identifiers are supported.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Load with Includes" id="load-with-includes" href="#load-with-includes">
+
+## Load with Includes
 
 When there is a 'relationship' between documents, those documents can be loaded in a 
 single request call using the `Include + Load` methods. Learn more in 
@@ -184,9 +183,9 @@ Supplier supplier = await asyncSession.LoadAsync<Supplier>(product.Supplier); //
 </TabItem>
 </Tabs> 
 
-</Admonition>
 
-<Admonition type="info" title="Load - multiple entities" id="load-multiple-entities" href="#load-multiple-entities">
+
+## Load - multiple entities
 
 To load multiple entities at once, use one of the following `Load` overloads.
 
@@ -237,9 +236,9 @@ To load multiple entities at once, use one of the following `Load` overloads.
 </TabItem>
 </Tabs> 
 
-</Admonition>
 
-<Admonition type="info" title="LoadStartingWith" id="loadstartingwith" href="#loadstartingwith">
+
+## LoadStartingWith
 
 To load multiple entities that contain a common prefix, use the `LoadStartingWith` method from the `Advanced` session operations.
 
@@ -352,9 +351,9 @@ Employee[] result = (await asyncSession
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="ConditionalLoad" id="conditionalload" href="#conditionalload">
+
+## ConditionalLoad
 
 This method can be used to check whether a document has been modified 
 since the last time its change vector was recorded, so that the cost of loading it 
@@ -469,9 +468,9 @@ using (var session = store.OpenAsyncSession())
 </TabItem>
 </Tabs> 
 
-</Admonition>
 
-<Admonition type="info" title="Stream" id="stream" href="#stream">
+
+## Stream
 
 Entities can be streamed from the server using one of the following `Stream` methods from the `Advanced` session operations.
 
@@ -598,9 +597,9 @@ Fetch documents for a ID prefix directly into a stream:
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="IsLoaded" id="isloaded" href="#isloaded">
+
+## IsLoaded
 
 Use the `IsLoaded` method from the `Advanced` session operations
 To check if an entity is attached to a session (e.g. because it's been 
@@ -652,13 +651,11 @@ isLoaded = asyncSession.Advanced.IsLoaded("employees/1"); // true
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: Loading Entities
----
 
 <Admonition type="note" title="Note">
 
@@ -675,10 +672,7 @@ methods:
 - [IsLoaded](../../client-api/session/loading-entities#isloaded)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Load" id="load" href="#load">
+## Load
 
 The most basic way to load a single entity is to use one of the `load` methods.
 
@@ -710,9 +704,9 @@ The most basic way to load a single entity is to use one of the `load` methods.
 From RavenDB version 4.x onwards, only string identifiers are supported. If you are upgrading from 3.x, this is a major change, because in 3.x non-string identifiers are supported.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Load with Includes" id="load-with-includes" href="#load-with-includes">
+
+## Load with Includes
 
 When there is a 'relationship' between documents, those documents can be loaded in a 
 single request call using the `include + load` methods. Learn more in 
@@ -759,9 +753,9 @@ Supplier supplier = session.load(Supplier.class, product.getSupplier()); // this
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Load - multiple entities" id="load-multiple-entities" href="#load-multiple-entities">
+
+## Load - multiple entities
 
 To load multiple entities at once, use one of the following `load` overloads.
 
@@ -791,9 +785,9 @@ To load multiple entities at once, use one of the following `load` overloads.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="LoadStartingWith" id="loadstartingwith" href="#loadstartingwith">
+
+## LoadStartingWith
 
 To load multiple entities that contain a common prefix, use the `loadStartingWith` method from the `advanced` session operations.
 
@@ -852,9 +846,9 @@ Employee[] result = session
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ConditionalLoad" id="conditionalload" href="#conditionalload">
+
+## ConditionalLoad
 
 The `conditionalLoad` method takes a document's [change vector](../../server/clustering/replication/change-vector). 
 If the entity is tracked by the session, this method returns the entity. If the entity 
@@ -928,9 +922,9 @@ try (IDocumentSession session = store.openSession()) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Stream" id="stream" href="#stream">
+
+## Stream
 
 Entities can be streamed from the server using one of the following `stream` methods from the `advanced` session operations.
 
@@ -1008,9 +1002,9 @@ session
 Entities loaded using `stream` will be transient (not attached to session).
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="IsLoaded" id="isloaded" href="#isloaded">
+
+## IsLoaded
 
 Use the `isLoaded` method from the `advanced` session operations
 To check if an entity is attached to a session (e.g. because it's been 
@@ -1052,14 +1046,12 @@ isLoaded = session.advanced().isLoaded("employees/1"); // true
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Session: Loading Entities
----
 
 <Admonition type="note" title="Note">
 
@@ -1083,9 +1075,7 @@ If you are upgrading from 3.x, this is a major change, because in 3.x non-string
 </Admonition>
 
 </Admonition>
----
-
-<Admonition type="info" title="load" id="load" href="#load">
+## load
 
 Use the `load` method to load **an entity** or **multiple entities**.  
 
@@ -1131,9 +1121,9 @@ Use the `load` method to load **an entity** or **multiple entities**.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="load with includes" id="load-with-includes" href="#load-with-includes">
+
+## load with includes
 
 When there is a 'relationship' between documents, those documents can be loaded in a 
 single request call using the `include + load` methods. Learn more in 
@@ -1193,9 +1183,9 @@ supplier = session.load(product.supplier, Supplier)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="load_starting_with" id="load_starting_with" href="#load_starting_with">
+
+## load_starting_with
 
 To load multiple entities with a common prefix, use the `advanced` session operation `load_starting_with`.  
 <TabItem value="something-something" label="load_starting_with">
@@ -1249,9 +1239,9 @@ result = session.advanced.load_starting_with("employees/", Employee, "1*|2*", 0,
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="load_starting_with_into_stream" id="load_starting_with_into_stream" href="#load_starting_with_into_stream">
+
+## load_starting_with_into_stream
 
 To output multiple entities with a common prefix into a stream, use the `advanced` session operation `load_starting_with_into_stream`.  
 <TabItem value="something-something" label="load_starting_with_into_stream">
@@ -1292,9 +1282,9 @@ To stream entities from the `employees` collection, use:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="conditional_load" id="conditional_load" href="#conditional_load">
+
+## conditional_load
 
 This method can be used to check whether a document has been modified 
 since the last time its change vector was recorded, so that the cost of loading it 
@@ -1361,10 +1351,10 @@ with store.open_session() as session:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 &lt;!-- 
-<Admonition type="info" title="stream" id="stream" href="#stream">
+## stream
 
 Entities can be streamed from the server using one of the following `stream` methods from the `advanced` session operations.
 
@@ -1419,10 +1409,10 @@ Fetch documents for a ID prefix directly into a stream:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 --&gt;
 
-<Admonition type="info" title="is_loaded" id="is_loaded" href="#is_loaded">
+## is_loaded
 
 Use the `is_loaded` method from the `advanced` session operations
 To check if an entity is attached to a session (e.g. because it's been 
@@ -1464,13 +1454,11 @@ is_loaded = session.advanced.is_loaded("employees/1")  # True
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Session: Loading Entities
----
 
 <Admonition type="note" title="Note">
 
@@ -1488,10 +1476,7 @@ is_loaded = session.advanced.is_loaded("employees/1")  # True
 * For loading entities lazily see [perform requests lazily](../../client-api/session/how-to/perform-operations-lazily).
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`load`" id="load" href="#load">
+## `load`
 
 The most basic way to load a single entity is to use the `load` method.
 
@@ -1527,9 +1512,9 @@ If you are upgrading from 3.x, this is a major change since in `3.x`` non-string
 identifiers were supported. 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`load` with `include`" id="load-with-include" href="#load-with-include">
+
+## `load` with `include`
 
 When there is a 'relationship' between documents, those documents can be loaded in a 
 single request call using the `include + load` methods. Learn more in 
@@ -1604,9 +1589,9 @@ $supplier = $session->load(Supplier::class, $product->getSupplier()); // this wi
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="`load` - multiple entities" id="load-multiple-entities" href="#load-multiple-entities">
+
+## `load` - multiple entities
 
 To load multiple entities at once, use one of the following `load` overloads.
 
@@ -1634,9 +1619,9 @@ public function load(string $className, StringArray $ids): ObjectArray;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="`loadStartingWith`" id="loadstartingwith" href="#loadstartingwith">
+
+## `loadStartingWith`
 
 To load multiple entities that contain a common prefix, use the `loadStartingWith` method from the `advanced` session operations.
 
@@ -1694,9 +1679,9 @@ $result = $session
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="`conditionalLoad`" id="conditionalload" href="#conditionalload">
+
+## `conditionalLoad`
 
 This method can be used to check whether a document has been modified 
 since the last time its change vector was recorded, so that the cost of loading it 
@@ -1773,9 +1758,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="isLoaded" id="isloaded" href="#isloaded">
+
+## isLoaded
 
 Use the `isLoaded` method from the `advanced` session operations
 To check if an entity is attached to a session (e.g. because it's been 
@@ -1817,13 +1802,11 @@ $isLoaded = $session->advanced()->isLoaded("employees/1"); // true
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: Loading Entities
----
 
 <Admonition type="note" title="Note">
 
@@ -1842,10 +1825,7 @@ $isLoaded = $session->advanced()->isLoaded("employees/1"); // true
 * For loading entities lazily see [perform requests lazily](../../client-api/session/how-to/perform-operations-lazily).
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Load" id="load" href="#load">
+## Load
 
 The most basic way to load a single entity is to use session's `load()` method.
 
@@ -1878,9 +1858,9 @@ The most basic way to load a single entity is to use session's `load()` method.
 In 4.x RavenDB, only string identifiers are supported. If you are upgrading from 3.x, this is a major change, because in 3.x non-string identifiers are supported.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Load with Includes" id="load-with-includes" href="#load-with-includes">
+
+## Load with Includes
 
 When there is a *relationship* between documents, those documents can be loaded in a single request call using the `include()` and `load()` methods.
 
@@ -1916,9 +1896,9 @@ const supplier = await session.load(product.supplier); // this will *not* make a
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Load - multiple entities" id="load-multiple-entities" href="#load-multiple-entities">
+
+## Load - multiple entities
 
 To load multiple entities at once, use one of the following ways to call `load()`.
 
@@ -1955,9 +1935,9 @@ await session.load(idsArray, [options]);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="LoadStartingWith" id="loadstartingwith" href="#loadstartingwith">
+
+## LoadStartingWith
 
 To load multiple entities that contain a common prefix, use the `loadStartingWith()` method from the `advanced` session operations.
 
@@ -2017,9 +1997,9 @@ const result = await session
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ConditionalLoad" id="conditionalload" href="#conditionalload">
+
+## ConditionalLoad
 
 This method can be used to check whether a document has been modified 
 since the last time its change vector was recorded, so that the cost of loading it 
@@ -2083,9 +2063,9 @@ const changeVector = session.advanced.getChangeVectorFor(user);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Stream" id="stream" href="#stream">
+
+## Stream
 
 Entities can be streamed from the server using the `stream()` method from the `advanced` session operations.
 
@@ -2159,9 +2139,9 @@ await session.advanced.loadStartingWithIntoStream("employees/", employeesFile);
 Entities loaded using `stream()` will be transient (not attached to session).
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="IsLoaded" id="isloaded" href="#isloaded">
+
+## IsLoaded
 
 Use the `isLoaded` method from the `advanced` session operations
 To check if an entity is attached to a session (e.g. because it's been 
@@ -2203,7 +2183,7 @@ session.advanced.isLoaded("employees/1"); // true
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 ### On entities loading, JS classes and the **documentType** parameter
 

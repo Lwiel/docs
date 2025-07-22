@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Pause Indexing Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Pause Indexing Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -28,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../client-api/operations/maintenance/indexes/stop-indexing#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 #### Which node is indexing paused for?
 
@@ -40,9 +39,6 @@ import LanguageContent from "@site/src/components/language-content";
 
 * When pausing indexing from the **Studio** [database list](../../../../studio/database/databases-list-view#more-actions) view:  
   Indexing will be paused on the local node the browser is opened on, even if it is Not the preferred node.
-
----
-
 #### What happens when indexing is paused for a node?
 
 * No indexing takes place on a node that indexing is paused for.  
@@ -58,9 +54,6 @@ import LanguageContent from "@site/src/components/language-content";
 * When [resetting](../../../../client-api/operations/maintenance/indexes/reset-index) indexes 
   or editing index definitions, re-indexing on a node that indexing has been paused for will 
   only be triggered when indexing is resumed on that node.
-
----
-
 #### Resuming indexing:
 
 * Learn to resume indexing for all indexes by a client, here: [resume indexing](../../../../client-api/operations/maintenance/indexes/start-indexing)  
@@ -74,9 +67,9 @@ import LanguageContent from "@site/src/components/language-content";
       Toggling the database state can be done using the **Studio** [database list](../../../../studio/database/databases-list-view#database-actions) view,  
       or using [ToggleDatabasesStateOperation](../../../../client-api/operations/server-wide/toggle-databases-state) by the client.
 
-</Admonition>
 
-<Admonition type="info" title="Pause indexing example" id="pause-indexing-example" href="#pause-indexing-example">
+
+## Pause indexing example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -115,9 +108,9 @@ Assert.Equal(IndexRunningStatus.Paused, indexingStatus.Status);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -127,12 +120,12 @@ public StopIndexingOperation()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Pause Indexing Operation
+
 
 **StopIndexingOperation** is used to pause indexing for the entire database.
 
@@ -163,8 +156,6 @@ Indexing will be resumed automatically after a server restart or after using [st
 
 </LanguageContent>
 <LanguageContent language="python">
-# Pause Indexing Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -178,10 +169,7 @@ Indexing will be resumed automatically after a server restart or after using [st
   * [Syntax](../../../../client-api/operations/maintenance/indexes/stop-indexing#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 #### Which node is indexing paused for?
 
@@ -190,9 +178,6 @@ Indexing will be resumed automatically after a server restart or after using [st
 
 * When pausing indexing from the **Studio** [database list](../../../../studio/database/databases-list-view#more-actions) view:  
   Indexing will be paused on the local node the browser is opened on, even if it is Not the preferred node.
-
----
-
 #### What happens when indexing is paused for a node?
 
 * No indexing takes place on a node that indexing is paused for.  
@@ -208,9 +193,6 @@ Indexing will be resumed automatically after a server restart or after using [st
 * When [resetting](../../../../client-api/operations/maintenance/indexes/reset-index) indexes 
   or editing index definitions, re-indexing on a node that indexing has been paused for will 
   only be triggered when indexing is resumed on that node.
-
----
-
 #### Resuming indexing:
 
 * Learn to resume indexing for all indexes by a client, here: [resume indexing](../../../../client-api/operations/maintenance/indexes/start-indexing)  
@@ -224,9 +206,9 @@ Indexing will be resumed automatically after a server restart or after using [st
       Toggling the database state can be done using the **Studio** [database list](../../../../studio/database/databases-list-view#database-actions) view,  
       or using [ToggleDatabasesStateOperation](../../../../client-api/operations/server-wide/toggle-databases-state) by the client.
 
-</Admonition>
 
-<Admonition type="info" title="Pause indexing example" id="pause-indexing-example" href="#pause-indexing-example">
+
+## Pause indexing example
 
 <TabItem value="something-something" label="pause_indexing">
 <CodeBlock language="python">
@@ -246,9 +228,9 @@ self.assertEqual(indexing_status.status, IndexRunningStatus.PAUSED)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -259,13 +241,11 @@ class StopIndexingOperation(VoidMaintenanceOperation):
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Pause Indexing Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -279,10 +259,7 @@ class StopIndexingOperation(VoidMaintenanceOperation):
   * [Syntax](../../../../client-api/operations/maintenance/indexes/stop-indexing#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 #### Which node is indexing paused for?
 
@@ -291,9 +268,6 @@ class StopIndexingOperation(VoidMaintenanceOperation):
 
 * When pausing indexing from the **Studio** [database list](../../../../studio/database/databases-list-view#more-actions) view:  
   Indexing will be paused on the local node the browser is opened on, even if it is Not the preferred node.
-
----
-
 #### What happens when indexing is paused for a node?
 
 * No indexing takes place on a node that indexing is paused for.  
@@ -309,9 +283,6 @@ class StopIndexingOperation(VoidMaintenanceOperation):
 * When [resetting](../../../../client-api/operations/maintenance/indexes/reset-index) indexes 
   or editing index definitions, re-indexing on a node that indexing has been paused for will 
   only be triggered when indexing is resumed on that node.
-
----
-
 #### Resuming indexing:
 
 * Learn to resume indexing for all indexes by a client, here: [resume indexing](../../../../client-api/operations/maintenance/indexes/start-indexing)  
@@ -325,9 +296,9 @@ class StopIndexingOperation(VoidMaintenanceOperation):
       Toggling the database state can be done using the **Studio** [database list](../../../../studio/database/databases-list-view#database-actions) view,  
       or using [ToggleDatabasesStateOperation](../../../../client-api/operations/server-wide/toggle-databases-state) by the client.
 
-</Admonition>
 
-<Admonition type="info" title="Pause indexing example" id="pause-indexing-example" href="#pause-indexing-example">
+
+## Pause indexing example
 
 <TabItem value="something-something" label="pause_indexing">
 <CodeBlock language="php">
@@ -348,9 +319,9 @@ $this->assertTrue($indexingStatus->getStatus()->isPaused());
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -360,13 +331,11 @@ StopIndexingOperation()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Pause Indexing Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -380,10 +349,7 @@ StopIndexingOperation()
   * [Syntax](../../../../client-api/operations/maintenance/indexes/stop-indexing#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 #### Which node is indexing paused for?
 
@@ -392,9 +358,6 @@ StopIndexingOperation()
 
 * When pausing indexing from the **Studio** [database list](../../../../studio/database/databases-list-view#more-actions) view:  
   Indexing will be paused on the local node the browser is opened on, even if it is Not the preferred node.
-
----
-
 #### What happens when indexing is paused for a node?
 
 * No indexing takes place on a node that indexing is paused for.  
@@ -410,9 +373,6 @@ StopIndexingOperation()
 * When [resetting](../../../../client-api/operations/maintenance/indexes/reset-index) indexes 
   or editing index definitions, re-indexing on a node that indexing has been paused for will 
   only be triggered when indexing is resumed on that node.
-
----
-
 #### Resuming indexing:
 
 * Learn to resume indexing for all indexes by a client, here: [resume indexing](../../../../client-api/operations/maintenance/indexes/start-indexing)  
@@ -426,9 +386,9 @@ StopIndexingOperation()
       Toggling the database state can be done using the **Studio** [database list](../../../../studio/database/databases-list-view#database-actions) view,  
       or using [ToggleDatabasesStateOperation](../../../../client-api/operations/server-wide/toggle-databases-state) by the client.
 
-</Admonition>
 
-<Admonition type="info" title="Pause indexing example" id="pause-indexing-example" href="#pause-indexing-example">
+
+## Pause indexing example
 
 <TabItem value="something-something" label="pause_indexing">
 <CodeBlock language="nodejs">
@@ -448,9 +408,9 @@ assert.strictEqual(indexingStatus.status, "Paused");
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -460,7 +420,7 @@ const pauseIndexingOp = new StopIndexingOperation();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

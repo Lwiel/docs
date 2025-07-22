@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "python", "nodejs"];
+
+
+# Document Revisions Overview
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Document Revisions Overview
----
 
 <Admonition type="note" title="Note">
 
@@ -26,9 +28,6 @@ import LanguageContent from "@site/src/components/language-content";
       For example, tracking document revisions allows you to check how an employee's contract has changed over time,
       restore a single corrupted document without requiring a backup file, or conduct a full-scale audit of your data.  
       </Admonition>
-
----
-
 * Managed via the Client API or from the Studio, revisions can be created **automatically** or **manually**:
 
     * **Automatic revisions creation**:  
@@ -39,9 +38,6 @@ import LanguageContent from "@site/src/components/language-content";
     * **Manual revisions creation**:  
       When revisions settings are disabled, you can still create revisions manually.  
       See [Force revision creation](../../document-extensions/revisions/overview#force-revision-creation) below.
-
----
-
 * In this page:
     * [Revisions configuration](../../document-extensions/revisions/overview#revisions-configuration)
         * [Defining a revisions configuration](../../document-extensions/revisions/overview#defining-a-revisions-configuration)
@@ -54,10 +50,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Force revision creation](../../document-extensions/revisions/overview#force-revision-creation)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Revisions configuration" id="revisions-configuration" href="#revisions-configuration">
+## Revisions configuration
 
 * The revisions configuration enables or disables the creation and purging of revisions for documents,  
   and optionally limits the number of revisions retained per document.
@@ -79,9 +72,6 @@ import LanguageContent from "@site/src/components/language-content";
       [Editing the Conflicting Document Defaults](../../studio/database/settings/document-revisions#editing-the-conflicting-document-defaults)
    
     </Admonition>
-
----
-
 #### Defining a revisions configuration
 
 You can apply a revisions configuration using the Studio or the Client API:
@@ -91,9 +81,6 @@ You can apply a revisions configuration using the Studio or the Client API:
     * Inspect existing revisions and manually create a new revision in the [Revisions tab](../../studio/database/document-extensions/revisions/revisions#revisions-tab) in the Studio's Document View.
 * Via Client API:
     * Use the [ConfigureRevisionsOperation](../../document-extensions/revisions/client-api/operations/configure-revisions) _Store_ operation to define and apply a revisions configuration.
-
----
-
 #### Default settings and collection-specific configurations
 
 The revisions configuration consists of default settings and/or collection-specific configurations:
@@ -107,9 +94,6 @@ The revisions configuration consists of default settings and/or collection-speci
   <Admonition type="note" title="Note">
   If no default settings are applied, revisions will be **disabled** for any collection where a collection-specific configuration is not defined.
   </Admonition>
-
----
-
 #### Revisions configuration options
 
 A revisions configuration defines -
@@ -125,9 +109,6 @@ A revisions configuration defines -
   RavenDB will only purge revisions if they exceed the limits you set.
 
 * Learn more about the available configuration options in [Configure revisions operations](../../document-extensions/revisions/client-api/operations/configure-revisions).
-
----
-
 #### Revisions configuration execution
 
 Creating a revisions configuration does **not** immediately trigger its execution.  
@@ -148,9 +129,6 @@ Default and collection-specific configurations are executed when -
     * Revisions that were created over time but to which no configuration currently applies will be deleted.  
       Make sure that your configuration includes the default settings and collection-specific configurations needed to retain the revisions you want to keep.  
    </Admonition>
-
----
-
 #### Enabling and disabling revisions for existing documents
 
 * When revisions creation is **Enabled** for a populated collection:
@@ -161,9 +139,9 @@ Default and collection-specific configurations are executed when -
     * The creation of new revisions and the purging of existing revisions will stop.
     * Existing revisions will remain intact.
 
-</Admonition>
 
-<Admonition type="info" title="How it works" id="how-it-works" href="#how-it-works">
+
+## How it works
 
 Let's play with revisions a little to get a taste of its advantages.
 
@@ -222,17 +200,14 @@ Let's play with revisions a little to get a taste of its advantages.
   
      ![Restored Revisions](./assets/revisions-7.png)
 
-</Admonition>
 
-<Admonition type="info" title="Revisions storage" id="revisions-storage" href="#revisions-storage">
+
+## Revisions storage
 
 ##### Revisions storage
 
 When a document revision is created, a full version of the modified document is stored in the revisions storage,
 using the same blittable JSON document format as regular documents.
-
----
-
 ##### Revisions Compression
 
 * By default, revisions are compressed.  
@@ -242,18 +217,15 @@ using the same blittable JSON document format as regular documents.
 * Individual fields are compressed as they are compressed in regular documents:  
   any text field exceeding 128 bytes is compressed.  
   Learn more about documents compression in [Documents Compression](../../server/storage/documents-compression).
-
----
-
 ##### Storage of document extensions in revisions
 
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-time-series) about revisions and **time series**.  
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-counters) about revisions and **counters**.  
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-attachments) about revisions and **attachments**.
 
-</Admonition>
 
-<Admonition type="info" title="Force revision creation" id="force-revision-creation" href="#force-revision-creation">
+
+## Force revision creation
 
 So far we've discussed the automatic creation of revisions when the feature is enabled.  
 However, you can also **force the creation** of a document revision, whether the feature is enabled or not.
@@ -269,18 +241,12 @@ e.g. take a snapshot of the document as a precaution before editing it.
 * Similar to revisions created automatically due to the revisions configuration,  
   deleting a document with a manually created revision will move the revision to the [Revisions Bin](../../studio/database/document-extensions/revisions/revisions-bin),  
   and a "Delete Revision" will be created.
-
----
-
 ##### Force revision creation via the Studio
 
 To create a revision manually via the Studio,  
 click the **Create Revision** button in the Revisions Tab in the document view.
 
 ![Create a revision manually](./assets/revisions-8.png)
-
----
-
 ##### Force revision creation via the Client API
 
 To create a revision manually via the Client API, use the advanced session `ForceRevisionCreationFor` method,  
@@ -371,13 +337,11 @@ void ForceRevisionCreationFor(string id,
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Document Revisions Overview
----
 
 <Admonition type="note" title="Note">
 
@@ -389,9 +353,6 @@ void ForceRevisionCreationFor(string id,
       For example, tracking document revisions allows you to check how an employee's contract has changed over time,
       restore a single corrupted document without requiring a backup file, or conduct a full-scale audit of your data.  
       </Admonition>
-
----
-
 * Managed via the Client API or from the Studio, revisions can be created **automatically** or **manually**:
 
     * **Automatic revisions creation**:  
@@ -402,9 +363,6 @@ void ForceRevisionCreationFor(string id,
     * **Manual revisions creation**:  
       When revisions settings are disabled, you can still create revisions manually.  
       See [Force revision creation](../../document-extensions/revisions/overview#force-revision-creation) below.
-
----
-
 * In this page:
     * [Revisions configuration](../../document-extensions/revisions/overview#revisions-configuration)
         * [Defining a revisions configuration](../../document-extensions/revisions/overview#defining-a-revisions-configuration)
@@ -417,10 +375,7 @@ void ForceRevisionCreationFor(string id,
     * [Force revision creation](../../document-extensions/revisions/overview#force-revision-creation)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Revisions configuration" id="revisions-configuration" href="#revisions-configuration">
+## Revisions configuration
 
 * The revisions configuration enables or disables the creation and purging of revisions for documents,  
   and optionally limits the number of revisions retained per document.
@@ -442,9 +397,6 @@ void ForceRevisionCreationFor(string id,
       [Editing the Conflicting Document Defaults](../../studio/database/settings/document-revisions#editing-the-conflicting-document-defaults)
     
     </Admonition>
-
----
-
 #### Defining a revisions configuration
 
 You can apply a revisions configuration using the Studio or the Client API:
@@ -454,9 +406,6 @@ You can apply a revisions configuration using the Studio or the Client API:
     * Inspect existing revisions and manually create a new revision in the [Revisions tab](../../studio/database/document-extensions/revisions/revisions#revisions-tab) in the Studio's Document View.
 * Via Client API:
     * Use the [ConfigureRevisionsOperation](../../document-extensions/revisions/client-api/operations/configure-revisions) _Store_ operation to define and apply a revisions configuration.
-
----
-
 #### Default settings and collection-specific configurations
 
 The revisions configuration consists of default settings and/or collection-specific configurations:
@@ -470,9 +419,6 @@ The revisions configuration consists of default settings and/or collection-speci
   <Admonition type="note" title="Note">
   If no default settings are applied, revisions will be **disabled** for any collection where a collection-specific configuration is not defined.
   </Admonition>
-
----
-
 #### Revisions configuration options
 
 A revisions configuration defines -
@@ -488,9 +434,6 @@ A revisions configuration defines -
   RavenDB will only purge revisions if they exceed the limits you set.
 
 * Learn more about the available configuration options in [Configure revisions operations](../../document-extensions/revisions/client-api/operations/configure-revisions).
-
----
-
 #### Revisions configuration execution
 
 Creating a revisions configuration does **not** immediately trigger its execution.  
@@ -511,9 +454,6 @@ Default and collection-specific configurations are executed when -
     * Revisions that were created over time but to which no configuration currently applies will be deleted.  
       Make sure that your configuration includes the default settings and collection-specific configurations needed to retain the revisions you want to keep.  
    </Admonition>
-
----
-
 #### Enabling and disabling revisions for existing documents
 
 * When revisions creation is **Enabled** for a populated collection:
@@ -524,9 +464,9 @@ Default and collection-specific configurations are executed when -
     * The creation of new revisions and the purging of existing revisions will stop.
     * Existing revisions will remain intact.
 
-</Admonition>
 
-<Admonition type="info" title="How it works" id="how-it-works" href="#how-it-works">
+
+## How it works
 
 Let's play with revisions a little to get a taste of its advantages.
 
@@ -585,17 +525,14 @@ Let's play with revisions a little to get a taste of its advantages.
   
      ![Restored Revisions](./assets/revisions-7.png)
 
-</Admonition>
 
-<Admonition type="info" title="Revisions storage" id="revisions-storage" href="#revisions-storage">
+
+## Revisions storage
 
 ##### Revisions storage
 
 When a document revision is created, a full version of the modified document is stored in the revisions storage,
 using the same blittable JSON document format as regular documents.
-
----
-
 ##### Revisions Compression
 
 * By default, revisions are compressed.  
@@ -605,24 +542,19 @@ using the same blittable JSON document format as regular documents.
 * Individual fields are compressed as they are compressed in regular documents:  
   any text field exceeding 128 bytes is compressed.  
   Learn more about documents compression in [Documents Compression](../../server/storage/documents-compression).
-
----
-
 ##### Storage of document extensions in revisions
 
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-time-series) about revisions and **time series**.  
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-counters) about revisions and **counters**.  
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-attachments) about revisions and **attachments**.
 
-</Admonition>
 
-<Admonition type="info" title="Revisions storage" id="revisions-storage" href="#revisions-storage">
+
+## Revisions storage
 
 <Admonition type="note" title="Note">
 
 ##### Revisions documents storage
----
-
 * The creation of a document revision stores a full version of the modified document in the revisions storage,
   in the same **blittable JSON document** format as that of regular documents.
 
@@ -638,16 +570,14 @@ Read [here](../../document-extensions/revisions/revisions-and-other-features#rev
 <Admonition type="note" title="Note">
 
 ##### Revisions document extensions storage
----
-
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-time-series) about revisions and **time series**.  
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-counters) about revisions and **counters**.  
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-attachments) about revisions and **attachments**.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Force revision creation" id="force-revision-creation" href="#force-revision-creation">
+
+## Force revision creation
 
 So far we've discussed the automatic creation of revisions when the feature is enabled.  
 However, you can also **force the creation** of a document revision, whether the feature is enabled or not.
@@ -663,18 +593,12 @@ e.g. take a snapshot of the document as a precaution before editing it.
 * Similar to revisions created automatically due to the revisions configuration,  
   deleting a document with a manually created revision will move the revision to the [Revisions Bin](../../studio/database/document-extensions/revisions/revisions-bin),  
   and a "Delete Revision" will be created.
-
----
-
 ##### Force revision creation via the Studio
 
 To create a revision manually via the Studio,  
 click the **Create Revision** button in the Revisions Tab in the document view.
 
 ![Create a revision manually](./assets/revisions-8.png)
-
----
-
 ##### Force revision creation via the Client API
 
 To create a revision manually via the API, use the advanced session `force_revision_creation_for` method.
@@ -698,13 +622,11 @@ To create a revision manually via the API, use the advanced session `force_revis
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Document Revisions Overview
----
 
 <Admonition type="note" title="Note">
 
@@ -716,9 +638,6 @@ To create a revision manually via the API, use the advanced session `force_revis
       For example, tracking document revisions allows you to check how an employee's contract has changed over time,
       restore a single corrupted document without requiring a backup file, or conduct a full-scale audit of your data.  
       </Admonition>
-
----
-
 * Managed via the Client API or from the Studio, revisions can be created **automatically** or **manually**:
 
     * **Automatic revisions creation**:  
@@ -729,9 +648,6 @@ To create a revision manually via the API, use the advanced session `force_revis
     * **Manual revisions creation**:  
       When revisions settings are disabled, you can still create revisions manually.  
       See [Force revision creation](../../document-extensions/revisions/overview#force-revision-creation) below.
-
----
-
 * In this page:
     * [Revisions configuration](../../document-extensions/revisions/overview#revisions-configuration)
         * [Defining a revisions configuration](../../document-extensions/revisions/overview#defining-a-revisions-configuration)
@@ -744,10 +660,7 @@ To create a revision manually via the API, use the advanced session `force_revis
     * [Force revision creation](../../document-extensions/revisions/overview#force-revision-creation)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Revisions configuration" id="revisions-configuration" href="#revisions-configuration">
+## Revisions configuration
 
 * The revisions configuration enables or disables the creation and purging of revisions for documents,  
   and optionally limits the number of revisions retained per document.
@@ -769,9 +682,6 @@ To create a revision manually via the API, use the advanced session `force_revis
       [Editing the Conflicting Document Defaults](../../studio/database/settings/document-revisions#editing-the-conflicting-document-defaults)
     
     </Admonition>
-
----
-
 #### Defining a revisions configuration
 
 You can apply a revisions configuration using the Studio or the Client API:
@@ -781,9 +691,6 @@ You can apply a revisions configuration using the Studio or the Client API:
     * Inspect existing revisions and manually create a new revision in the [Revisions tab](../../studio/database/document-extensions/revisions/revisions#revisions-tab) in the Studio's Document View.
 * Via Client API:
     * Use the [ConfigureRevisionsOperation](../../document-extensions/revisions/client-api/operations/configure-revisions) _Store_ operation to define and apply a revisions configuration.
-
----
-
 #### Default settings and collection-specific configurations
 
 The revisions configuration consists of default settings and/or collection-specific configurations:
@@ -797,9 +704,6 @@ The revisions configuration consists of default settings and/or collection-speci
   <Admonition type="note" title="Note">
   If no default settings are applied, revisions will be **disabled** for any collection where a collection-specific configuration is not defined.
   </Admonition>
-
----
-
 #### Revisions configuration options
 
 A revisions configuration defines -
@@ -815,9 +719,6 @@ A revisions configuration defines -
   RavenDB will only purge revisions if they exceed the limits you set.
 
 * Learn more about the available configuration options in [Configure revisions operations](../../document-extensions/revisions/client-api/operations/configure-revisions).
-
----
-
 #### Revisions configuration execution
 
 Creating a revisions configuration does **not** immediately trigger its execution.  
@@ -838,9 +739,6 @@ Default and collection-specific configurations are executed when -
     * Revisions that were created over time but to which no configuration currently applies will be deleted.  
       Make sure that your configuration includes the default settings and collection-specific configurations needed to retain the revisions you want to keep.  
    </Admonition>
-
----
-
 #### Enabling and disabling revisions for existing documents
 
 * When revisions creation is **Enabled** for a populated collection:
@@ -851,9 +749,9 @@ Default and collection-specific configurations are executed when -
     * The creation of new revisions and the purging of existing revisions will stop.
     * Existing revisions will remain intact.
 
-</Admonition>
 
-<Admonition type="info" title="How it works" id="how-it-works" href="#how-it-works">
+
+## How it works
 
 Let's play with revisions a little to get a taste of its advantages.
 
@@ -912,17 +810,14 @@ Let's play with revisions a little to get a taste of its advantages.
 
       ![Restored Revisions](./assets/revisions-7.png)
 
-</Admonition>
 
-<Admonition type="info" title="Revisions storage" id="revisions-storage" href="#revisions-storage">
+
+## Revisions storage
 
 ##### Revisions storage
 
 When a document revision is created, a full version of the modified document is stored in the revisions storage,
 using the same blittable JSON document format as regular documents.
-
----
-
 ##### Revisions Compression
 
 * By default, revisions are compressed.  
@@ -932,18 +827,15 @@ using the same blittable JSON document format as regular documents.
 * Individual fields are compressed as they are compressed in regular documents:  
   any text field exceeding 128 bytes is compressed.  
   Learn more about documents compression in [Documents Compression](../../server/storage/documents-compression).
-
----
-
 ##### Storage of document extensions in revisions
 
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-time-series) about revisions and **time series**.  
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-counters) about revisions and **counters**.  
 Read [here](../../document-extensions/revisions/revisions-and-other-features#revisions-and-attachments) about revisions and **attachments**.
 
-</Admonition>
 
-<Admonition type="info" title="Force revision creation" id="force-revision-creation" href="#force-revision-creation">
+
+## Force revision creation
 
 So far we've discussed the automatic creation of revisions when the feature is enabled.  
 However, you can also **force the creation** of a document revision, whether the feature is enabled or not.
@@ -959,18 +851,12 @@ e.g. take a snapshot of the document as a precaution before editing it.
 * Similar to revisions created automatically due to the revisions configuration,  
   deleting a document with a manually created revision will move the revision to the [Revisions Bin](../../studio/database/document-extensions/revisions/revisions-bin),  
   and a "Delete Revision" will be created.
-
----
-
 ##### Force revision creation via the Studio
 
 To create a revision manually via the Studio,  
 click the **Create Revision** button in the Revisions Tab in the document view.
 
 ![Create a revision manually](./assets/revisions-8.png)
-
----
-
 ##### Force revision creation via the Client API
 
 To create a revision manually via the Client API, use the advanced session `forceRevisionCreationFor` method,  
@@ -1058,7 +944,7 @@ Do not force a revision
 Create a forced revision from the document currently in store BEFORE applying any changes made by the user. 
 The only exception is for a new document, where a revision will be created AFTER the update.
 
-</Admonition>
+
 
 
 </LanguageContent>

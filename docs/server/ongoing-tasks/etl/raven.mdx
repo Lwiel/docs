@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Ongoing Tasks: RavenDB ETL  
----
-
 <Admonition type="note" title="Note">
 
 * **RavenDB ETL Task** creates an [ETL](../../../server/ongoing-tasks/etl/basics) 
@@ -41,12 +39,9 @@ import LanguageContent from "@site/src/components/language-content";
   * [Deletions](../../../server/ongoing-tasks/etl/raven#deletions)  
 
 </Admonition>
-
----
-
 ![Figure 1. Configure RavenDB ETL task](./assets/raven-etl-setup.png)
 
-<Admonition type="info" title="Transformation Script Options" id="transformation-script-options" href="#transformation-script-options">
+## Transformation Script Options
 
 * [Loading Documents](../../../server/ongoing-tasks/etl/raven#loading-documents)
 * [Alternative Syntax](../../../server/ongoing-tasks/etl/raven#alternative-syntax)
@@ -55,9 +50,6 @@ import LanguageContent from "@site/src/components/language-content";
 * [Loading Data from Other Documents](../../../server/ongoing-tasks/etl/raven#loading-data-from-other-documents)
 * [Accessing Metadata](../../../server/ongoing-tasks/etl/raven#accessing-metadata)
 * [Creating Multiple Documents from a Single Document](../../../server/ongoing-tasks/etl/raven#creating-multiple-documents-from-a-single-document)
-
----
-
 ### Loading Documents
 
 * To load data to the destination database you must call the `loadTo<CollectionName>()` method and pass a JS object.  
@@ -125,9 +117,6 @@ loadToEmployees(\{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 <Admonition type="note" title="Note">
 ### Alternative Syntax
 
@@ -148,9 +137,6 @@ using this syntax: `loadTo('Target', obj)`
    used because including special characters in the name of a JS function turns it invalid.  
 </Admonition>
 </Admonition>
-
----
-
 ### Documents Identifiers
 
 The documents generated in the destination database are given an ID according to the collection name specified in the `loadTo` method.  
@@ -189,9 +175,6 @@ loadToPeople(\{ ... \});
 
 * In addition, ETL appends the symbol `/` to the requested id so that the target database will [generate identifiers on its side](../../../client-api/document-identifiers/working-with-document-identifiers#server-side-generated-ids). 
   As a result, documents in the `People` collection in the target database will have identifiers such as: `employees/1-A/people/00000000000000000024-A`.
-
----
-
 ### Filtering
 
 Documents can be filtered from the ETL by calling the `loadTo` method only for documents that match some condition:
@@ -205,9 +188,6 @@ Documents can be filtered from the ETL by calling the `loadTo` method only for d
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Loading Data from Other Documents
 
 The `load` method loads a document with the specified ID into the script context so it can be transformed.  
@@ -219,9 +199,6 @@ var manager = load(this.ReportsTo);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Accessing Metadata
 
 The metadata can be accessed in the following way:
@@ -232,9 +209,6 @@ The metadata can be accessed in the following way:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Creating Multiple Documents from a Single Document
 
 The `loadTo` method can be called multiple times in a single script.  
@@ -257,31 +231,25 @@ loadToEmployees(this);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Empty Script" id="empty-script" href="#empty-script">
+
+## Empty Script
 
 * An ETL task can be created with an empty script.  
 * The documents will be transferred _without_ any modifications to the _same_ collection as the source document.  
-</Admonition>
 
-<Admonition type="info" title="Attachments" id="attachments" href="#attachments">
+
+## Attachments
 
 * Attachments are sent automatically when you send a _full_ collection to the destination using an _empty_ script.  
 * If you use a script you can indicate that an attachment should also be sent by using dedicated functions:
 
    - `loadAttachment(name)` returns a reference to an attachment that is meant be passed to `addAttachment()`
    - `<doc>.addAttachment([name,] attachmentRef)` adds an attachment to a document that will be sent in the process, `<doc>` is a reference returned by `loadTo<CollectionName>()`
-
----
-
 * [Sending attachments together with documents](../../../server/ongoing-tasks/etl/raven#sending-attachments-together-with-documents)
 * [Changing attachment name](../../../server/ongoing-tasks/etl/raven#changing-attachment-name)
 * [Loading non-existent attachment](../../../server/ongoing-tasks/etl/raven#loading-non-existent-attachment)
 * [Accessing attachments from metadata](../../../server/ongoing-tasks/etl/raven#accessing-attachments-from-metadata)
-
----
-
 ### Sending attachments together with documents
 
 * Attachment is sent along with a transformed document if it's explicitly defined in the script by using `addAttachment()` method. By default, the attachment name is preserved.
@@ -299,9 +267,6 @@ for (var i = 0; i < attachments.length; i++) \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Changing attachment name
 
 * If `addAttachment()` is called with two arguments, the first one can indicate a new name for an attachment. In the below example attachment `photo`
@@ -319,16 +284,9 @@ if (hasAttachment('photo')) \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Loading non-existent attachment
 
 Function `loadAttachment()` returns `null` if a document doesn't have an attachment with a given name. Passing such reference to `addAttachment()` will be no-op and no error will be thrown.
-
-
----
-
 ### Accessing attachments from metadata
 
 The collection of attachments of the currently transformed document can be accessed either by `getAttachments()` helper function or directly from document metadata:
@@ -340,9 +298,9 @@ The collection of attachments of the currently transformed document can be acces
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Counters" id="counters" href="#counters">
+
+## Counters
 
 * Counters are sent automatically when you send a _full_ collection to the destination using an _empty_ script.
 * If a script is defined RavenDB doesn't send counters by default.
@@ -351,15 +309,8 @@ The collection of attachments of the currently transformed document can be acces
 * The reason that counters require special functions is that incrementing a counter _doesn't_ modify the change vector of a related document so the document _isn't_ processed
   by ETL on a change in the counter.
 * Another option of sending a counter is to explicitly add it in a script to a loaded document.
-
-
----
-
 * [Counter behavior function](../../../server/ongoing-tasks/etl/raven#counter-behavior-function)
 * [Adding counter explicitly in a script](../../../server/ongoing-tasks/etl/raven#adding-counter-explicitly-in-a-script)
-
----
-
 ### Counter behavior function
 
 * Every time a counter of a document from a collection that ETL script is defined on is modified then the behavior function is called to check
@@ -414,9 +365,6 @@ function loadCountersOfProductsBehavior(docId, counterName) \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Adding counter explicitly in a script
 
 Counter behavior functions typically handle counters of documents 
@@ -455,18 +403,15 @@ but it **sets the value using a** `put` command.
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Time Series" id="time-series" href="#time-series">
+
+## Time Series
 
 * If the transformation script is empty, time series are transferred along with their 
 documents by default.  
 * When the script is not empty, ETL can be set for time series via:  
   * [Time Series Load Behavior Function](../../../server/ongoing-tasks/etl/raven#time-series-load-behavior-function) 
   * [Adding Time Series to Documents](../../../server/ongoing-tasks/etl/raven#adding-time-series-to-documents)
-
----
-
 ### Time Series Load Behavior Function
 
 * The time-series behavior function is defined in the script to set the conditions under 
@@ -525,9 +470,6 @@ function loadTimeSeriesOfCompaniesBehavior(docId, timeSeriesName) \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Adding Time Series to Documents
 
 * Time series can be loaded into the script context using `loadTimeSeries()`.  
@@ -555,9 +497,6 @@ Since the transformation script is run on document update, time series added to
 documents using `addTimeSeries()` will be loaded _only_ when the document they 
 extend has changed.  
 </Admonition>
-
----
-
 #### Filtering by start and end date
 
 Both the behavior function and `loadTimeSeries()` accept a start and end date as 
@@ -584,16 +523,16 @@ time span is loaded to the destination database.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions" id="revisions" href="#revisions">
+
+## Revisions
 
 Revisions are _not_ sent by the ETL process.  
 
 But, if revisions are configured on the destination database, then when the target document is overwritten by the ETL process a revision will be created as expected.  
-</Admonition>
 
-<Admonition type="info" title="Deletions" id="deletions" href="#deletions">
+
+## Deletions
 
 Upon source document modifications, ETL is set to delete and replace the destination documents by default.  
 
@@ -651,9 +590,6 @@ You can then choose if you want to delete the old version in the destination by 
 then the ID is preserved and no special approach is needed. Deletion in the source results in 
 sending a single delete command in the destination for a given ID.  
 If documents are updated and not deleted in the source, they will simply be updated in the destination with no change to the destination document ID. 
-
----
-
 Deletions can be controlled by defining deletion behavior functions in the ETL script.
 
 * See a [sample ETL script with deletion behavior defined](../../../server/ongoing-tasks/etl/raven#deletions-example-etl-script-with-deletion-behavior-defined).
@@ -881,7 +817,7 @@ function deleteDocumentsBehavior(docId, collection, deleted) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 

@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Using MoreLikeThis
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Using MoreLikeThis
+
 
 `MoreLikeThis` is available through query extension methods and will return similar documents according to the provided criteria and options.
 
@@ -206,7 +210,7 @@ Do not forget to add the following **using** statement which contains necessary 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Using MoreLikeThis
+
 
 `MoreLikeThis` is available through query methods and will return similar documents according to the provided criteria and options.
 
@@ -344,7 +348,7 @@ where morelikethis(id() = 'articles/1', '{ "Fields" : [ "body" ] }') and categor
 
 </LanguageContent>
 <LanguageContent language="python">
-# Using MoreLikeThis
+
 
 `more_like_this` is available through query methods, and will return similar documents according 
 to the provided criteria and options.
@@ -483,7 +487,7 @@ where morelikethis(id() = 'articles/1', '{ "Fields" : [ "Body" ] }') and Categor
 
 </LanguageContent>
 <LanguageContent language="php">
-# Using &nbsp; `moreLikeThis`
+
 
 `moreLikeThis` is available through query extension methods and will return similar documents according to the provided criteria and options.
 
@@ -654,7 +658,7 @@ where morelikethis(id() = 'articles/1', '{ "Fields" : [ "Body" ] }') and Categor
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Using MoreLikeThis
+
 
 `MoreLikeThis` is available through query methods and will return similar documents according to the provided criteria and options.
 

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Studio Configuration 
----
-
 <Admonition type="note" title="Note">
 
 * The Studio Configuration view enables configuration of studio-related operations and interfaces.  
@@ -41,14 +39,14 @@ In this page:
 
 ## Studio Configuration - Single Database
 
-<Admonition type="info" title="Database Studio Configuration View" id="database-studio-configuration-view" href="#database-studio-configuration-view">
+## Database Studio Configuration View
 
 !["Studio Configuration View"](./assets/studio-configuration-view.png)
 
-</Admonition>
 
 
-<Admonition type="info" title="Disabling Auto-Index Creation on Studio Queries or Patches" id="disabling-auto-index-creation-on-studio-queries-or-patches" href="#disabling-auto-index-creation-on-studio-queries-or-patches">
+
+## Disabling Auto-Index Creation on Studio Queries or Patches
 
 * To prevent accidentally deploying resource-consuming Auto-Indexes as a result of one-time, ad-hoc queries,
   toggle **Disable auto-index-creation** to `true` in the Studio Configuration view.  
@@ -71,9 +69,9 @@ In this page:
 2. **Save**  
    Click to save new configuration settings. 
 
-</Admonition>
 
-<Admonition type="info" title="About Auto-Indexes and the Studio" id="about-auto-indexes-and-the-studio" href="#about-auto-indexes-and-the-studio">
+
+## About Auto-Indexes and the Studio
 
 **What are Auto-Indexes**  
 
@@ -101,10 +99,10 @@ Some people use the Studio for one-time, ad-hoc queries and don't want a new ind
 In a playground database, it may be worth keeping auto-indexing active, even for random queries, because you want to be able to experiment. 
 On the other hand, disabling it in production can prevent expensive indexes from being created and running in the background.
 
-</Admonition>
 
 
-<Admonition type="info" title="If Disabled, Temporarily Enable Auto-Index Creation" id="if-disabled-temporarily-enable-auto-index-creation" href="#if-disabled-temporarily-enable-auto-index-creation">
+
+## If Disabled, Temporarily Enable Auto-Index Creation
 
 If you disabled Auto-Indexing in the Studio Database Configuration page, and  
 you want a one-time Auto-Index set up to satisfy a Query or Patch,  
@@ -117,11 +115,11 @@ Note: These settings only affect Auto-Indexing as a result of Queries or Patches
 They do not affect API-based Queries or Patches.  
 To configure API-based Auto-Indexing, see [Indexing.DisableQueryOptimizerGeneratedIndexes](../../../server/configuration/indexing-configuration#indexing.disablequeryoptimizergeneratedindexes)
 
-</Admonition>
+
 
 ## Studio Configuration - Server-wide
 
-<Admonition type="info" title="Server Studio Configuration View" id="server-studio-configuration-view" href="#server-studio-configuration-view">
+## Server Studio Configuration View
 
 !["Server Studio Configuration View"](./assets/server-wide-studio-configuration.png)
 
@@ -142,5 +140,5 @@ To configure API-based Auto-Indexing, see [Indexing.DisableQueryOptimizerGenerat
 7. **Save**  
    Click to save configurations.  
 
-</Admonition>
+
 

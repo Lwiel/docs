@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Querying Time Series Indexes
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Querying Time Series Indexes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -51,10 +52,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../document-extensions/timeseries/querying/using-indexes#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Sample Index" id="sample-index" href="#sample-index">
+## Sample Index
 
 * The following is a time series map-index that will be used in the query examples throughout this article.
 
@@ -109,9 +107,9 @@ import LanguageContent from "@site/src/components/language-content";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Querying the index" id="querying-the-index" href="#querying-the-index"> 
+
+## Querying the index 
  
 #### Query all time series entries:
 
@@ -184,9 +182,6 @@ Results will include ALL entries from time series "HeartRates".
 </CodeBlock>
 </TabItem> 
 </Tabs>
-
----
-
 #### Filter query results:
 
 In this example, time series entries are filtered by the query.  
@@ -257,9 +252,6 @@ where EmployeeName == "Robert King" and BPM > 85.0
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Order query results:
 
 Results can be ordered by any of the index-fields.
@@ -335,9 +327,6 @@ order by Date desc
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Project results:
 
 * Instead of returning the entire `TsIndex.IndexEntry` object for each result item,  
@@ -438,9 +427,9 @@ select distinct EmployeeID
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
    
 * `session.Query`  
 
@@ -467,14 +456,11 @@ select distinct EmployeeID
 | **T**              | The results class  |
 | **TIndexCreator**  | Index              |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Querying Time Series Indexes
-
----
 
 <Admonition type="note" title="Note">
 
@@ -510,10 +496,7 @@ select distinct EmployeeID
     * [Syntax](../../../document-extensions/timeseries/querying/using-indexes#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Sample Index" id="sample-index" href="#sample-index">
+## Sample Index
 
 * The following is a time series map-index that will be used in the query examples throughout this article.
 
@@ -568,9 +551,9 @@ select distinct EmployeeID
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Querying the index" id="querying-the-index" href="#querying-the-index"> 
+
+## Querying the index 
  
 #### Query all time series entries:
 
@@ -604,9 +587,6 @@ Results will include ALL entries from time series "HeartRates".
 </CodeBlock>
 </TabItem> 
 </Tabs>
-
----
-
 #### Filter query results:
 
 In this example, time series entries are filtered by the query.  
@@ -645,9 +625,6 @@ where EmployeeName == "Robert King" and BPM > 85.0
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Order query results:
 
 Results can be ordered by any of the index-fields.
@@ -685,9 +662,6 @@ order by Date desc
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Project results:
 
 * Instead of returning the entire `TsIndex.IndexEntry` object for each result item,  
@@ -741,9 +715,9 @@ select distinct EmployeeID
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
    
 * [query](../../../client-api/session/querying/how-to-query#query-overview)  
 <TabItem value="something" label="json">
@@ -771,14 +745,11 @@ is_map_reduce: bool = False,
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Querying Time Series Indexes
-
----
 
 <Admonition type="note" title="Note">
 
@@ -813,10 +784,7 @@ is_map_reduce: bool = False,
         * [Project results](../../../document-extensions/timeseries/querying/using-indexes#project-results)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Sample Index" id="sample-index" href="#sample-index">
+## Sample Index
 
 * The following is a time series map-index that will be used in the query examples throughout this article.
 
@@ -871,9 +839,9 @@ is_map_reduce: bool = False,
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Querying the index" id="querying-the-index" href="#querying-the-index"> 
+
+## Querying the index 
  
 #### Query all time series entries:
 
@@ -933,9 +901,6 @@ Results will include ALL entries from time series "HeartRates".
 </CodeBlock>
 </TabItem> 
 </Tabs>
-
----
-
 #### Filter query results:
 
 In this example, time series entries are filtered by the query.  
@@ -993,9 +958,6 @@ where EmployeeName == "Robert King" and BPM > 85.0
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Order query results:
 
 Results can be ordered by any of the index-fields.
@@ -1056,9 +1018,6 @@ order by Date desc
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Project results:
 
 * Instead of returning the entire `TsIndex.IndexEntry` object for each result item,  
@@ -1143,14 +1102,11 @@ select distinct EmployeeID
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Querying Time Series Indexes
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1185,10 +1141,7 @@ select distinct EmployeeID
         * [Project results](../../../document-extensions/timeseries/querying/using-indexes#project-results)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Sample Index" id="sample-index" href="#sample-index">
+## Sample Index
 
 * The following is a time series map-index that will be used in the query examples throughout this article.
 
@@ -1230,9 +1183,9 @@ select distinct EmployeeID
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Querying the index" id="querying-the-index" href="#querying-the-index"> 
+
+## Querying the index 
  
 #### Query all time series entries:
 
@@ -1272,9 +1225,6 @@ const bpm = entryResult.bpm;
 </CodeBlock>
 </TabItem> 
 </Tabs>
-
----
-
 #### Filter query results:
 
 In this example, time series entries are filtered by the query.  
@@ -1312,9 +1262,6 @@ where employeeName == "Robert King" and bpm >= 85
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Order query results:
 
 Results can be ordered by any of the index-fields.
@@ -1354,9 +1301,6 @@ order by date desc
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Project results:
 
 * Instead of returning the entire index entry object for each result item,  
@@ -1404,7 +1348,7 @@ select distinct employeeID
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>

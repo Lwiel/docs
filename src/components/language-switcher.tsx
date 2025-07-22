@@ -10,12 +10,16 @@ const languages = [
   { label: "Node.JS", value: "nodejs" },
 ];
 
-export default function LanguageSwitcher() {
+type LanguageSwitcherProps = {
+  supportedLanguages: string[];
+};
+
+export default function LanguageSwitcher({ supportedLanguages }: LanguageSwitcherProps) {
   const { language, setLanguage } = useLanguage();
 
   return (
     <div className="flex flex-wrap gap-2 mb-4">
-      {languages.map((lang) => (
+      {languages.filter(lang => supportedLanguages.includes(lang.value)).map((lang) => (
         <button
           key={lang.value}
           type="button"

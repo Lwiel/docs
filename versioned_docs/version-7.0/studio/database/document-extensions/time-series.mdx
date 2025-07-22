@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Document Extensions: Time Series
----
-
 <Admonition type="note" title="Note">
 
 * **Time series** are sets of numeric data items, associated with timestamps and ordered 
@@ -39,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
   
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Document View" id="document-view" href="#document-view">
+## Document View
 
 ![Time Series - Document View](./assets/document-time-series.png)
 
@@ -69,9 +64,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>  
 
-</Admonition>
 
-<Admonition type="info" title="Time Series View" id="time-series-view" href="#time-series-view">
+
+## Time Series View
 
 ![Time Series View](./assets/time-series-view.png)
 
@@ -92,9 +87,6 @@ import LanguageContent from "@site/src/components/language-content";
     * Optional tag `string`
 
 </Admonition>  
-
----
-
 ### Create new Time Series (by Creating its First Entry)
 
 * A time series is created upon the creation of its first entry (and deleted 
@@ -105,9 +97,6 @@ import LanguageContent from "@site/src/components/language-content";
   to create the time series' first entry.  
 
 ![Add Time Series](./assets/new-time-series.png)
-
----
-
 ![Add Time Series Entry](./assets/new-entry.png)
 
 <Admonition type="warning" title="Warning">
@@ -129,9 +118,6 @@ import LanguageContent from "@site/src/components/language-content";
       To set entry values' names, use Studio's [Time Series Settings View](../../../studio/database/settings/time-series-settings#add-or-edit-time-series-configuration).  
 
 </Admonition>
-
----
-
 ### Editing an Entry
 
 * Click the **Edit Item** button from the 
@@ -139,9 +125,6 @@ import LanguageContent from "@site/src/components/language-content";
   to edit a time series' entry.  
 
 ![Edit Time Series](./assets/edit-time-series.png)
-
----
-
 ![Edit Time Series Entry](./assets/edit-time-series-entry.png)
 
 <Admonition type="warning" title="Warning">
@@ -152,9 +135,6 @@ import LanguageContent from "@site/src/components/language-content";
 4. Add an additional value (up to 32 values).  
 
 </Admonition>
-
----
-
 ### Deleting a Range of Entries
 
 * Click the **Delete Range** button from the 
@@ -162,9 +142,6 @@ import LanguageContent from "@site/src/components/language-content";
   to delete a range of time series entries.  
 
 ![Delete Range Button](./assets/delete-range-button.png)
-
----
-
 ![Delete Range](./assets/delete-range.png)
 
 <Admonition type="warning" title="Warning">
@@ -175,9 +152,6 @@ To specify a range of time series entries:
    Check **Use minimum** to use the first entry's timestamp as the start of the range,  
 2. **End Date**  
    Check **Use maximum** to use the last entry's timestamp as the end of the range.  
-
----
-
 * For either option, you can click the input bar and specify some other date in the 
   date & time dialog shown below.  
 
@@ -185,9 +159,9 @@ To specify a range of time series entries:
 
 ![Delete Range - Pick Date and Time](./assets/delete-range-2.png)
 
-</Admonition>
 
-<Admonition type="info" title="Querying Time Series" id="querying-time-series" href="#querying-time-series">
+
+## Querying Time Series
 
 ![Time Series Query](./assets/time-series-query.png)
 
@@ -214,10 +188,6 @@ To specify a range of time series entries:
     * Number of entries and time range.  
 
 </Admonition>  
-
-
----
-
 ![Time Series Query - Actions](./assets/time-series-query-actions.png)
 
 <Admonition type="warning" title="Warning">
@@ -232,9 +202,6 @@ To specify a range of time series entries:
       ![Unified Graph](./assets/unified-graph.png)
 
 </Admonition>
-
----
-
 ### Results in Graph View
 
 ![Time series results in a graph](./assets/time-series-graph-info.png)
@@ -248,9 +215,6 @@ To specify a range of time series entries:
    The entry values names are set in Studio's **Settings &gt; Time Series** view.  
 
 </Admonition>
-
----
-
 ![Time series results in a graph - Actions](./assets/time-series-graph-actions.png)
 
 <Admonition type="warning" title="Warning">
@@ -264,9 +228,9 @@ To specify a range of time series entries:
 
 </Admonition>  
 
-</Admonition>
 
-<Admonition type="info" title="Incremental Time Series" id="incremental-time-series" href="#incremental-time-series">
+
+## Incremental Time Series
 
 * **Incremental Time Series** are time series whose values 
   behave as [counters](../../../document-extensions/counters/overview).  
@@ -283,9 +247,6 @@ To specify a range of time series entries:
   is intended to replace the existing value's contents on all other nodes.  
 
 * learn more in [Incremental Time Series -vs- Non-incremental Time Series](../../../document-extensions/timeseries/incremental-time-series/overview#incremental-time-series--vs--non-incremental-time-series).  
-
----
-
 ### Creating a new Incremental Time Series (by Creating its First Entry)
 
 * An incremental time series is created upon the creation of its first entry (and deleted 
@@ -296,9 +257,6 @@ To specify a range of time series entries:
   to create the incremental time series' first entry.  
 
 ![Add Time Series](./assets/new-time-series.png)
-
----
-
 ![Add Incremental Time Series Entry](./assets/new-incremental-entry.png)
 
 <Admonition type="warning" title="Warning">
@@ -318,9 +276,6 @@ To specify a range of time series entries:
       To set entry values' names, use Studio's [Time Series Settings View](../../../studio/database/settings/time-series-settings#add-or-edit-time-series-configuration).  
 
 </Admonition>
-
----
-
 ### Editing an Incremental Time Series Entry
 
 * Click the **Edit Item** button from the 
@@ -328,9 +283,6 @@ To specify a range of time series entries:
   to edit a time series' entry.  
 
 ![Edit Time Series](./assets/edit-incremental-time-series.png)
-
----
-
 ![Incrementall Time Series Entry Accumulated Value](./assets/edit-incremental-time-series-entry-unified.png)
 
 <Admonition type="warning" title="Warning">
@@ -352,9 +304,6 @@ To specify a range of time series entries:
    Click to save your changes.  
 
 </Admonition>
-
----
-
 ![Incrementall Time Series Entry Node Values](./assets/edit-incremental-time-series-entry-values.png)
 
 <Admonition type="warning" title="Warning">
@@ -378,6 +327,6 @@ To specify a range of time series entries:
 
 </Admonition>
 
-</Admonition>
+
 
 

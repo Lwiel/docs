@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Delete Counter  
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Delete Counter  
----
 
 <Admonition type="note" title="Note">
 
@@ -30,10 +32,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../document-extensions/counters/delete#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`Delete ` usage" id="delete-usage" href="#delete-usage">
+## `Delete ` usage
 
 **Flow**:  
 
@@ -51,9 +50,9 @@ import LanguageContent from "@site/src/components/language-content";
 * `Delete` will **not** generate an error if the Counter doesn't exist.
 * Deleting a document deletes all its Counters as well.
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something" label="counters_region_Delete">
 <CodeBlock language="csharp">
@@ -73,9 +72,9 @@ using (var session = docStore.OpenSession())
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="Delete-definition">
 <CodeBlock language="csharp">
@@ -88,13 +87,11 @@ using (var session = docStore.OpenSession())
 |---------------|--------|----------------|
 | `counterName` | string | Counter's name |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Delete Counter
----
 
 <Admonition type="note" title="Note">
 
@@ -110,10 +107,7 @@ using (var session = docStore.OpenSession())
     * [Syntax](../../document-extensions/counters/delete#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`delete ` usage" id="delete-usage" href="#delete-usage">
+## `delete ` usage
 
 **Flow**:
 
@@ -130,9 +124,9 @@ using (var session = docStore.OpenSession())
 * `delete` will **not** generate an error if the Counter doesn't exist.
 * Deleting a document deletes all its Counters as well.
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something-something" label="counters_region_Delete">
 <CodeBlock language="java">
@@ -151,9 +145,9 @@ try (IDocumentSession session = docStore.openSession()) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="Delete-definition">
 <CodeBlock language="java">
@@ -166,13 +160,11 @@ try (IDocumentSession session = docStore.openSession()) \{
 |---------------|--------|-----------------|
 | `counterName` | String | Counter's name  |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Delete Counter  
----
 
 <Admonition type="note" title="Note">
 
@@ -188,10 +180,7 @@ try (IDocumentSession session = docStore.openSession()) \{
     * [Syntax](../../document-extensions/counters/delete#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`delete ` usage" id="delete-usage" href="#delete-usage">
+## `delete ` usage
 
 **Flow**:  
 
@@ -209,9 +198,9 @@ try (IDocumentSession session = docStore.openSession()) \{
 * `delete` will **not** generate an error if the Counter doesn't exist.
 * Deleting a document deletes all its Counters as well.
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="Delete-definition">
 <CodeBlock language="python">
@@ -224,13 +213,11 @@ try (IDocumentSession session = docStore.openSession()) \{
 |---------------|--------|----------------|
 | **counter** | `str` | Counter name ([see example](../../document-extensions/counters/overview#managing-counters)) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Delete Counter  
----
 
 <Admonition type="note" title="Note">
 
@@ -246,10 +233,7 @@ try (IDocumentSession session = docStore.openSession()) \{
     * [Syntax](../../document-extensions/counters/delete#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`delete` usage" id="delete-usage" href="#delete-usage">
+## `delete` usage
 
 **Flow**:  
 
@@ -267,9 +251,9 @@ try (IDocumentSession session = docStore.openSession()) \{
 * `delete` will **not** generate an error if the Counter doesn't exist.
 * Deleting a document deletes all its Counters as well.
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="Delete-definition">
 <CodeBlock language="php">
@@ -282,13 +266,11 @@ try (IDocumentSession session = docStore.openSession()) \{
 |---------------|--------|----------------|
 | **counter** | `string` | Counter name ([see example](../../document-extensions/counters/overview#managing-counters)) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Delete Counter  
----
 
 <Admonition type="note" title="Note">
 
@@ -304,10 +286,7 @@ try (IDocumentSession session = docStore.openSession()) \{
     * [Syntax](../../document-extensions/counters/delete#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`delete ` usage" id="delete-usage" href="#delete-usage">
+## `delete ` usage
 
 **Flow**:  
 
@@ -325,9 +304,9 @@ try (IDocumentSession session = docStore.openSession()) \{
 * `delete` will **not** generate an error if the Counter doesn't exist.
 * Deleting a document deletes all its Counters as well.
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something-something" label="delete">
 <CodeBlock language="nodejs">
@@ -346,9 +325,9 @@ await session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -361,7 +340,7 @@ await session.saveChanges();
 |----------------|--------|----------------|
 | `counter`      | string | Counter's name |
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Get Counter Values  
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Get Counter Values  
----
 
 <Admonition type="note" title="Note">
 
@@ -36,10 +38,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [GetAll Syntax](../../document-extensions/counters/retrieve-counter-values#getall-syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get a single Counter's value" id="get-a-single-counter-s-value" href="#get-a-single-counter-s-value">
+## Get a single Counter's value
 
 #### Get usage:  
 
@@ -49,9 +48,6 @@ import LanguageContent from "@site/src/components/language-content";
     * Pass it an [entity tracked by the session](../../client-api/session/loading-entities), 
       e.g. a document object returned from [session.Query](../../client-api/session/querying/how-to-query) or from [session.Load](../../client-api/session/loading-entities#load).
 * Call `CountersFor.Get` to retrieve the current value of a single Counter.
-
----
-
 #### Get example:  
 
 <TabItem value="something" label="counters_region_Get">
@@ -69,9 +65,6 @@ using (var session = docStore.OpenSession())
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Get syntax:  
 
 <TabItem value="something" label="Get-definition">
@@ -89,12 +82,9 @@ using (var session = docStore.OpenSession())
 |--------------|-------------------------|
 | `long`       | Counter's current value |
 
-</Admonition>
 
-<Admonition type="info" title="Get all Counters of a document" id="get-all-counters-of-a-document" href="#get-all-counters-of-a-document">
 
----
-
+## Get all Counters of a document
 #### GetAll usage: 
 
 * Open a session.  
@@ -103,9 +93,6 @@ using (var session = docStore.OpenSession())
     * Pass it an [entity tracked by the session](../../client-api/session/loading-entities), 
       e.g. a document object returned from [session.Query](../../client-api/session/querying/how-to-query) or from [session.Load](../../client-api/session/loading-entities#load).
 * Call `CountersFor.GetAll` to retrieve the names and values of all counters associated with the document.
-
----
-
 #### GetAll example:  
 
 <TabItem value="something" label="counters_region_GetAll">
@@ -128,9 +115,6 @@ using (var session = docStore.OpenSession())
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### GetAll syntax:  
 
 <TabItem value="something" label="GetAll-definition">
@@ -144,13 +128,11 @@ using (var session = docStore.OpenSession())
 |--------------------------|---------------------------------|
 | Dictionary&lt;string, long&gt; | Map of Counter names and values |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Get Counter Values  
----
 
 <Admonition type="note" title="Note">
 
@@ -172,13 +154,7 @@ using (var session = docStore.OpenSession())
        * [GetAll Syntax](../../document-extensions/counters/retrieve-counter-values#getall-syntax)  
       
 </Admonition>
-
----
-
-<Admonition type="info" title="Get a single Counter's value" id="get-a-single-counter-s-value" href="#get-a-single-counter-s-value">
-
----
-
+## Get a single Counter's value
 #### Get usage:  
 
 * Open a session
@@ -186,9 +162,6 @@ using (var session = docStore.OpenSession())
     * Either pass `countersFor` an explicit document ID, -or-
     * Pass it an entity tracked by the session, e.g. a document object returned from `session.query` or from `session.load`.
 * Call `countersFor.get` to retrieve the current value of a single Counter.
-
----
-
 #### Get example:  
 
 <TabItem value="something-something" label="counters_region_Get">
@@ -205,9 +178,6 @@ try (IDocumentSession session = docStore.openSession()) \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Get syntax:  
 
 <TabItem value="something" label="Get-definition">
@@ -225,12 +195,9 @@ try (IDocumentSession session = docStore.openSession()) \{
 |--------------|-------------------------|
 | `long`       | Counter's current value |
 
-</Admonition>
 
-<Admonition type="info" title="Get all Counters of a document" id="get-all-counters-of-a-document" href="#get-all-counters-of-a-document">
 
----
-
+## Get all Counters of a document
 #### GetAll usage: 
 
 * Open a session.
@@ -238,9 +205,6 @@ try (IDocumentSession session = docStore.openSession()) \{
     * Either pass `countersFor` an explicit document ID, -or-
     * Pass it an entity tracked by the session, e.g. a document object returned from session.query or from session.load.
 * Call `countersFor.getAll` to retrieve the names and values of all counters associated with the document.
-
----
-
 #### GetAll example:  
 
 <TabItem value="something-something" label="counters_region_GetAll">
@@ -261,9 +225,6 @@ try (IDocumentSession session = docStore.openSession()) \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### GetAll syntax:  
 
 <TabItem value="something-something" label="getAll-definition">
@@ -277,13 +238,11 @@ try (IDocumentSession session = docStore.openSession()) \{
 |-------------------|---------------------------------|
 | Map&lt;String, Long&gt; | Map of Counter names and values |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Get Counter Values  
----
 
 <Admonition type="note" title="Note">
 
@@ -305,10 +264,7 @@ try (IDocumentSession session = docStore.openSession()) \{
      * [`get_all` Syntax](../../document-extensions/counters/retrieve-counter-values#syntax-1)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get a single Counter's value" id="get-a-single-counter-s-value" href="#get-a-single-counter-s-value">
+## Get a single Counter's value
 
 #### `get` usage:  
 
@@ -318,9 +274,6 @@ try (IDocumentSession session = docStore.openSession()) \{
     * Pass it an [entity tracked by the session](../../client-api/session/loading-entities), 
       e.g. a document object returned from [session.query](../../client-api/session/querying/how-to-query) or from [session.load](../../client-api/session/loading-entities#load).
 * Call `counters_for.get` to retrieve the current value of a single Counter.
-
----
-
 #### `get` example:  
 
 <TabItem value="something-something" label="counters_region_Get">
@@ -336,9 +289,6 @@ with store.open_session() as session:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### `get` syntax:  
 
 <TabItem value="something-something" label="Get-definition">
@@ -356,12 +306,9 @@ with store.open_session() as session:
 |--------------|-------------------------|
 | `int`        | Counter's current value |
 
-</Admonition>
 
-<Admonition type="info" title="Get all Counters of a document" id="get-all-counters-of-a-document" href="#get-all-counters-of-a-document">
 
----
-
+## Get all Counters of a document
 #### `get_all` usage: 
 
 * Open a session.  
@@ -370,9 +317,6 @@ with store.open_session() as session:
     * Pass it an [entity tracked by the session](../../client-api/session/loading-entities), 
       e.g. a document object returned from [session.query](../../client-api/session/querying/how-to-query) or from [session.load](../../client-api/session/loading-entities#load).
 * Call `counters_for.get_all` to retrieve the names and values of all counters associated with the document.
-
----
-
 #### `get_all` example:  
 
 <TabItem value="something-something" label="counters_region_GetAll">
@@ -391,9 +335,6 @@ with store.open_session() as session:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### `get_all` syntax:  
 
 <TabItem value="something-something" label="GetAll-definition">
@@ -407,13 +348,11 @@ with store.open_session() as session:
 |------------------|---------------------------------|
 | `Dict[str, int]` | Map of Counter names and values |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Get Counter Values  
----
 
 <Admonition type="note" title="Note">
 
@@ -435,10 +374,7 @@ with store.open_session() as session:
      * [`getAll` Syntax](../../document-extensions/counters/retrieve-counter-values#syntax-1)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get values of specific counters" id="get-values-of-specific-counters" href="#get-values-of-specific-counters">
+## Get values of specific counters
 
 #### `get` usage:  
 
@@ -451,9 +387,6 @@ with store.open_session() as session:
    * `get("CounterName")` will return a single `int` value for the specified counter.  
    * `get(["counter1", "counter2"]` will return an array with values for all listed counters.  
       E.g., `[ "counter1" => 1, "counter2" => 5 ]`
-
----
-
 #### `get` example:  
 
 <TabItem value="something-something" label="counters_region_Get">
@@ -474,9 +407,6 @@ try \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### `get` syntax:  
 
 <TabItem value="something-something" label="Get-definition">
@@ -494,12 +424,9 @@ try \{
 |--------------|-------------------------|
 | `int`        | Counter's current value |
 
-</Admonition>
 
-<Admonition type="info" title="Get all Counters of a document" id="get-all-counters-of-a-document" href="#get-all-counters-of-a-document">
 
----
-
+## Get all Counters of a document
 #### `getAll` usage: 
 
 * Open a session.  
@@ -508,9 +435,6 @@ try \{
     * Pass it an [entity tracked by the session](../../client-api/session/loading-entities), 
       e.g. a document object returned from [session.query](../../client-api/session/querying/how-to-query) or from [session.load](../../client-api/session/loading-entities#load).
 * Call `countersFor.getAll` to retrieve the names and values of all counters associated with the document.
-
----
-
 #### `getAll` example:  
 
 <TabItem value="something-something" label="counters_region_GetAll">
@@ -536,9 +460,6 @@ try \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### `getAll` syntax:  
 
 <TabItem value="something-something" label="GetAll-definition">
@@ -552,13 +473,11 @@ try \{
 |------------------|-----------------------------|
 | `array` | An array of Counter names and values |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Counter Values  
----
 
 <Admonition type="note" title="Note">
 
@@ -580,10 +499,7 @@ try \{
      * [GetAll Syntax](../../document-extensions/counters/retrieve-counter-values#getall-syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get a single Counter's value" id="get-a-single-counter-s-value" href="#get-a-single-counter-s-value">
+## Get a single Counter's value
 
 <Admonition type="note" title="Note">
 
@@ -638,9 +554,9 @@ console.log("Days Left For Sale: " + daysLeft);
 | `Promise<number>`              | A `Promise` resolving to the Counter's current value, or to `null` if counter doesn't exist. |
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Get all Counters of a document" id="get-all-counters-of-a-document" href="#get-all-counters-of-a-document">
+
+## Get all Counters of a document
 
 <Admonition type="note" title="Note">
 
@@ -693,7 +609,7 @@ for (var counter in allCounters) \{
 | `Promise<object>` | A `Promise` resolving to a dictionary of counter values by counter names |
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>

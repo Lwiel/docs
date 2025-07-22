@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Filter by Field Presence  
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Filter by Field Presence  
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -30,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../client-api/session/querying/how-to-filter-by-field#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Filter by field name " id="filter-by-field-name" href="#filter-by-field-name">
+## Filter by field name 
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -73,9 +71,9 @@ where exists("FirstName")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filter by field path " id="filter-by-field-path" href="#filter-by-field-path">
+
+## Filter by field path 
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -115,9 +113,9 @@ where exists("Address.Location.Latitude")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="whereExists_syntax">
 <CodeBlock language="csharp">
@@ -133,14 +131,11 @@ IDocumentQuery<T> WhereExists<TValue>(Expression<Func<T, TValue>> propertySelect
 | **fieldName**        | `string`                     | The name / path of the document field to filter by                    |
 | **propertySelector** | `Expression<Func<T,TValue>>` | Lambda expression with name / path of the document field to filter by |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Filter by Field Presence  
-
----
 
 <Admonition type="note" title="Note">
 
@@ -154,10 +149,7 @@ from the [Document Query](../../../client-api/session/querying/document-query/wh
   * [Examples](../../../client-api/session/querying/how-to-filter-by-field#examples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 <TabItem value="something-something" label="whereexists_1">
 <CodeBlock language="java">
@@ -170,9 +162,9 @@ from the [Document Query](../../../client-api/session/querying/document-query/wh
 | - | - | - |
 | **fieldName** | `String` | The name or path to the field you want to filter by |
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Filter by Field Name  
 
@@ -219,14 +211,11 @@ where exists("Address.Location.Latitude")
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Filter by Field Presence  
-
----
 
 <Admonition type="note" title="Note">
 
@@ -241,16 +230,10 @@ where exists("Address.Location.Latitude")
    * [Examples](../../../client-api/session/querying/how-to-filter-by-field#examples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Filter by Field Name or Path" id="filter-by-field-name-or-path" href="#filter-by-field-name-or-path">
+## Filter by Field Name or Path
 
 To search for documents that contain a specific field by the field's **name** or **path**, 
 pass the name or the path to `where_exists` as demonstrated below.  
-
----
-
 ### Syntax 
 
 <TabItem value="something-something" label="whereExists_syntax">
@@ -263,9 +246,6 @@ pass the name or the path to `where_exists` as demonstrated below.
 | Parameters           | Type        | Description                               |
 |----------------------|-------------|-------------------------------------------|
 | **field_name**       | `str`       | Field Name or Path to filter documents by |
-
----
-
 ### Examples
 
 Pass `where_exists` a string containing the field name or path.  
@@ -311,14 +291,11 @@ where exists("Address.Location.Latitude")
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Filter by Field Presence  
-
----
 
 <Admonition type="note" title="Note">
 
@@ -332,10 +309,7 @@ where exists("Address.Location.Latitude")
   * [Syntax](../../../client-api/session/querying/how-to-filter-by-field#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Filter by field name " id="filter-by-field-name" href="#filter-by-field-name">
+## Filter by field name 
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="whereExists" label="whereExists">
@@ -360,9 +334,9 @@ where exists("FirstName")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filter by field path " id="filter-by-field-path" href="#filter-by-field-path">
+
+## Filter by field path 
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="whereExists" label="whereExists">
@@ -386,9 +360,9 @@ where exists("Address.Location.Latitude")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="whereexists_1">
 <CodeBlock language="php">
@@ -401,14 +375,11 @@ where exists("Address.Location.Latitude")
 |----------------|-----------|----------------------------------------------------|
 | **$fieldName** | `?string` | The name / path of the document field to filter by |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Filter by Field Presence  
-
----
 
 <Admonition type="note" title="Note">
 
@@ -422,10 +393,7 @@ where exists("Address.Location.Latitude")
   * [Syntax](../../../client-api/session/querying/how-to-filter-by-field#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Filter by field name " id="filter-by-field-name" href="#filter-by-field-name">
+## Filter by field name 
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -449,9 +417,9 @@ where exists("firstName")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filter by field path " id="filter-by-field-path" href="#filter-by-field-path">
+
+## Filter by field path 
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -475,9 +443,9 @@ where exists("address.location.latitude")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="whereExists_syntax">
 <CodeBlock language="nodejs">
@@ -490,7 +458,7 @@ where exists("address.location.latitude")
 |----------------------|------------------------------|----------------------------------------------------|
 | **fieldName**        | `string`                     | The name / path of the document field to filter by |
 
-</Admonition>
+
 
 
 </LanguageContent>

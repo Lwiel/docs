@@ -11,16 +11,20 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Changes API: How to Subscribe to Index Changes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Changes API: How to Subscribe to Index Changes
+
 
 Following methods allow you to subscribe to index changes:
 
 - [ForIndex](../../client-api/changes/how-to-subscribe-to-index-changes#forindex)
 - [ForAllIndexes](../../client-api/changes/how-to-subscribe-to-index-changes#forallindexes)
 
-<Admonition type="info" title="ForIndex" id="forindex" href="#forindex">
+## ForIndex
 
 Index changes for one index can be observed using `ForIndex` method.
 
@@ -97,9 +101,9 @@ Index changes for one index can be observed using `ForIndex` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForAllIndexes" id="forallindexes" href="#forallindexes">
+
+## ForAllIndexes
 
 Index changes for all indexex can be observed using `ForAllIndexes` method.
 
@@ -128,9 +132,9 @@ Index changes for all indexex can be observed using `ForAllIndexes` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="IndexChange" id="indexchange" href="#indexchange">
+
+## IndexChange
 
 ### Properties
 
@@ -140,9 +144,9 @@ Index changes for all indexex can be observed using `ForAllIndexes` method.
 | **Name** | string | Index name |
 | **Etag** | long? | Index Etag |
 
-</Admonition>
 
-<Admonition type="info" title="IndexChangeTypes" id="indexchangetypes" href="#indexchangetypes">
+
+## IndexChangeTypes
 
 | Name | Value |
 | ---- | ----- |
@@ -159,7 +163,7 @@ Index changes for all indexex can be observed using `ForAllIndexes` method.
 | **LockModeChanged** | `8192` |
 | **PriorityChanged** | `16384` |
 
-</Admonition>
+
 
 ## Remarks
 
@@ -171,14 +175,14 @@ To get more method overloads, especially ones supporting **delegates**, please a
 
 </LanguageContent>
 <LanguageContent language="java">
-# Changes API: How to Subscribe to Index Changes
+
 
 Following methods allow you to subscribe to index changes:
 
 - [forIndex](../../client-api/changes/how-to-subscribe-to-index-changes#forindex)
 - [forAllIndexes](../../client-api/changes/how-to-subscribe-to-index-changes#forallindexes)
 
-<Admonition type="info" title="forIndex" id="forindex" href="#forindex">
+## forIndex
 
 Index changes for one index can be observed using `forIndex` method.
 
@@ -255,9 +259,9 @@ Index changes for one index can be observed using `forIndex` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="forAllIndexes" id="forallindexes" href="#forallindexes">
+
+## forAllIndexes
 
 Index changes for all indexex can be observed using `forAllIndexes` method.
 
@@ -288,9 +292,9 @@ Index changes for all indexex can be observed using `forAllIndexes` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="IndexChange" id="indexchange" href="#indexchange">
+
+## IndexChange
 
 ### Properties
 
@@ -300,9 +304,9 @@ Index changes for all indexex can be observed using `forAllIndexes` method.
 | **Name** | String | Index name |
 | **Etag** | Long | Index Etag |
 
-</Admonition>
 
-<Admonition type="info" title="IndexChangeTypes" id="indexchangetypes" href="#indexchangetypes">
+
+## IndexChangeTypes
 
 | Name |
 | ---- |
@@ -320,19 +324,19 @@ Index changes for all indexex can be observed using `forAllIndexes` method.
 | **LOCK_MODE_CHANGED** |
 | **PRIORITY_CHANGED** |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Changes API: How to Subscribe to Index Changes
+
 
 Following methods allow you to subscribe to index changes:
 
 - [forIndex()](../../client-api/changes/how-to-subscribe-to-index-changes#forindex)
 - [forAllIndexes()](../../client-api/changes/how-to-subscribe-to-index-changes#forallindexes)
 
-<Admonition type="info" title="forIndex" id="forindex" href="#forindex">
+## forIndex
 
 Index changes for one index can be observed using `forIndex()` method.
 
@@ -407,9 +411,9 @@ Index changes for one index can be observed using `forIndex()` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="forAllIndexes" id="forallindexes" href="#forallindexes">
+
+## forAllIndexes
 
 Index changes for all indexex can be observed using `forAllIndexes()` method.
 
@@ -438,9 +442,9 @@ Index changes for all indexex can be observed using `forAllIndexes()` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="IndexChange" id="indexchange" href="#indexchange">
+
+## IndexChange
 
 ### Properties
 
@@ -450,9 +454,9 @@ Index changes for all indexex can be observed using `forAllIndexes()` method.
 | **name** | string | Index name |
 | **etag** | number | Index Etag |
 
-</Admonition>
 
-<Admonition type="info" title="IndexChangeTypes" id="indexchangetypes" href="#indexchangetypes">
+
+## IndexChangeTypes
 
 | Name |
 | ---- |
@@ -470,7 +474,7 @@ Index changes for all indexex can be observed using `forAllIndexes()` method.
 | **LockModeChanged** |
 | **PriorityChanged** |
 
-</Admonition>
+
 
 
 </LanguageContent>

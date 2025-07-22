@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Attachments: Deleting Attachments
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Attachments: Deleting Attachments
+
 
 **Delete** from `session.Advanced.Attachments` is used to remove an attachment from a document.
 
@@ -61,7 +65,7 @@ void Delete(object entity, string name);
 
 </LanguageContent>
 <LanguageContent language="java">
-# Attachments: Deleting Attachments
+
 
 **Delete** from `session.advanced().attachments()` is used to remove an attachment from a document.
 
@@ -94,7 +98,7 @@ void delete(Object entity, String name);
 
 </LanguageContent>
 <LanguageContent language="python">
-# Attachments: Deleting Attachments
+
 
 **Delete** from `session.advanced.attachments` is used to remove an attachment from a document.
 
@@ -124,7 +128,7 @@ void delete(Object entity, String name);
 
 </LanguageContent>
 <LanguageContent language="php">
-# Attachments: Deleting Attachments
+
 
 **Delete** from `session.advanced.attachments` is used to remove an attachment from a document.
 
@@ -162,7 +166,7 @@ try \{
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Attachments: Deleting Attachments
+
 
 The method `session.advanced.attachments.delete()` is used to remove an attachment from a document.
 

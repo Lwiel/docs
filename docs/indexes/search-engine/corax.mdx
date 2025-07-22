@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Search Engine: Corax
----
-
 <Admonition type="note" title="Note">
 
 * **Corax** is RavenDB's native search engine, introduced in RavenDB 
@@ -47,10 +45,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Configuration options](../../indexes/search-engine/corax#configuration-options)  
    * [Index training: Compression dictionaries](../../indexes/search-engine/corax#index-training:-compression-dictionaries)
 </Admonition>
-
----
-
-<Admonition type="info" title="Selecting the search engine" id="selecting-the-search-engine" href="#selecting-the-search-engine">
+## Selecting the search engine
 
 * You can select your preferred search engine in several scopes:  
    * [Server-wide](../../indexes/search-engine/corax#select-search-engine-server-wide), 
@@ -74,9 +69,6 @@ import LanguageContent from "@site/src/components/language-content";
      Use this option to select the search engine (either `Lucene` or `Corax`) for **static** indexes.  
      The search engine can be selected **server-wide**, **per database**, or **per index**.  
    * Read about additional Corax configuration options [here](../../indexes/search-engine/corax#configuration-options).  
-
----
-
 ### Select search engine: Server wide
 
 Select the search engine for all the databases hosted by a server 
@@ -108,10 +100,6 @@ After selecting a new search engine using the above options, change the search
 engine used by an existing index by [resetting](../../client-api/operations/maintenance/indexes/reset-index) 
 the index.  
 </Admonition>
-
-
----
-
 ### Select search engine: Per database
 
 To select the search engine that the database would use, modify the 
@@ -130,9 +118,6 @@ relevant Database Record settings. You can easily do this via Studio:
 * To apply the new settings either **disable and re-enable the database** or **restart the server**.  
 
      ![Default Search Engine](./assets/corax-06_database-settings_03.png)
-
----
-
 ### Select search engine: Per index 
 
 You can also select the search engine that would be used by a specific index, 
@@ -152,9 +137,6 @@ overriding any per-database and per-server settings.
 * The indexes list view will show the changed configuration.  
 
     ![Search Engine Changed](./assets/corax-01_search-engine-changed.png)
-
----
-
 #### Select index search engine using code
 
 While defining an index using the API, use the `SearchEngineType` 
@@ -192,9 +174,9 @@ new Product_ByAvailability(SearchEngineType.Corax).Execute(store);
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
 
-<Admonition type="info" title="Unsupported features" id="unsupported-features" href="#unsupported-features">
+
+## Unsupported features
 
 The below features are currently not supported by Corax.
 
@@ -221,9 +203,6 @@ Read more about this [below](../../indexes/search-engine/corax#handling-of-compl
 
 * [lucene()](../../client-api/session/querying/document-query/how-to-use-lucene)  
 * [intersect()](../../indexes/querying/intersection)  
-
----
-
 ### Unimplemented methods
 
 Trying to use Corax with an unimplemented method (see 
@@ -247,9 +226,9 @@ exception and the search will stop.
   ![Method Not Implemented Exception](./assets/corax-07_exception-method-not-implemented.png)
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Handling of complex JSON objects" id="handling-of-complex-json-objects" href="#handling-of-complex-json-objects">
+
+## Handling of complex JSON objects
 
 To avoid unnecessary resource usage, the content of complex JSON properties is not indexed by RavenDB.  
 [See below](../../indexes/search-engine/corax#if-corax-encounters-a-complex-property-while-indexing) 
@@ -302,16 +281,10 @@ select new
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### 2. Index the document using lucene
 
 As long as Corax doesn't index complex JSON objects, you can always 
 select Lucene as your search engine when you need to index nested properties.  
-
----
-
 #### 3. Revise index definition and fields usage
 
 As [shown above](../../indexes/search-engine/corax#index-a-simple-property-contained-in-the-complex-field), 
@@ -365,9 +338,6 @@ its retrieval at the expense of indexes storage space.
 `}
 </CodeBlock>
 </TabItem>  
-
----
-
 #### 4. Turn the complex property into a string
 
 You can handle the complex property as a string.  
@@ -404,9 +374,6 @@ to produce a string that **doesn't** make a good feed for analyzers and is not
 commonly used for searches.  
 It does, however, make sense in some cases to **project** such a string.  
 </Admonition>
-
----
-
 #### If Corax encounters a complex property while indexing:  
 Auto and Static indexes handle complex fields differently.  
 New and Old static indexes also handle complex fields differently.  
@@ -461,9 +428,9 @@ Read more at: https://ravendb.net/l/OB9XW4/6.2
      As disabling indexing for this field will prevent additional attempts to index its values,  
      the exception will be thrown just once.  
 
-</Admonition>
 
-<Admonition type="info" title="Compound fields" id="compound-fields" href="#compound-fields">
+
+## Compound fields
 
 <Admonition type="info" title="Info">
 This feature should be applied to very large datasets and specific queries.  
@@ -531,9 +498,9 @@ order by Location
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Limits" id="limits" href="#limits">
+
+## Limits
 
 * Corax can create and use indexes of more than `int.MaxValue` (2,147,483,647) documents.  
   To match this capacity, queries over Corax indexes can 
@@ -545,9 +512,9 @@ order by Location
 * The maximum number of documents that can be **projected** by a query 
   (using either Corax or Lucene) is `int.MaxValue` (2,147,483,647).  
 
-</Admonition>
 
-<Admonition type="info" title="Configuration options" id="configuration-options" href="#configuration-options">
+
+## Configuration options
 
 Corax configuration options include:  
 
@@ -587,9 +554,9 @@ Corax configuration options include:
   Choose [how to react](../../indexes/search-engine/corax#if-corax-encounters-a-complex-property-while-indexing) 
   when a static Corax index is requested to index a complex JSON object.  
   
-</Admonition>
 
-<Admonition type="info" title="Index training: Compression dictionaries" id="index-training-compression-dictionaries" href="#index-training-compression-dictionaries">
+
+## Index training: Compression dictionaries
 
 When creating Corax indexes, RavenDB analyzes index contents and trains 
 [compression dictionaries](https://en.wikibooks.org/wiki/Data_Compression/Dictionary_compression) 
@@ -624,15 +591,12 @@ Here are some additional things to keep in mind about Corax indexes compression 
   manner: existing indexes would continue running until the new ones are created, 
   to avoid any interruption to existing queries.  
   </Admonition>
-
----
-
 ### Corax and the Test Index Interface
 Corax indexes will **not** train compression dictionaries if they are created in the 
 [Test Index](../../studio/database/indexes/create-map-index#test-index) interface, 
 because the testing interface is designed for indexing prototyping and the training 
 process will add unnecessary overhead.
 
-</Admonition>
+
 
 

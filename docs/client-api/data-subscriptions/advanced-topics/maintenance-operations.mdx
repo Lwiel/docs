@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Data Subscriptions: Maintenance Operations
+export const supportedLanguages = ["csharp", "java", "nodejs"];
 
----
+
+# Data Subscriptions: Maintenance Operations
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -31,10 +32,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Get subscription state](../../../client-api/data-subscriptions/advanced-topics/maintenance-operations#get-subscription-state)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="DocumentSubscriptions class" id="documentsubscriptions-class" href="#documentsubscriptions-class">
+## DocumentSubscriptions class
 
 The `DocumentSubscriptions` class is the class that manages all interaction with the data subscriptions.  
 The class is available through `DocumentStore`'s `Subscriptions` property.
@@ -66,9 +64,9 @@ The class is available through `DocumentStore`'s `Subscriptions` property.
 | **Update(SubscriptionUpdateOptions options, string database = null)**                                         | `string`                        | Update an existing data subscription.                                                                                                               |
 | **UpdateAsync(SubscriptionUpdateOptions options, string database = null, CancellationToken token = default)** | `Task<string>`                  | Update an existing data subscription.                                                                                                               |
 
-</Admonition>
 
-<Admonition type="info" title="Delete subscription" id="delete-subscription" href="#delete-subscription">
+
+## Delete subscription
 
 Subscriptions can be entirely deleted from the system.  
 
@@ -91,9 +89,9 @@ usage:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable subscription" id="disable-subscription" href="#disable-subscription">
+
+## Disable subscription
 
 Existing subscription tasks can be disabled from the client.
 
@@ -114,9 +112,9 @@ usage:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Enable subscription" id="enable-subscription" href="#enable-subscription">
+
+## Enable subscription
 
 Existing subscription tasks can be enabled from the client.  
 This operation can be useful for already disabled subscriptions.
@@ -138,9 +136,9 @@ usage:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Update subscription" id="update-subscription" href="#update-subscription">
+
+## Update subscription
 
 See [examples](../../../client-api/data-subscriptions/creation/examples#update-existing-subscription) 
 and [API description](../../../client-api/data-subscriptions/creation/api-overview#update-subscription).  
@@ -155,9 +153,9 @@ Task<string> UpdateAsync(SubscriptionUpdateOptions options, string database = nu
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Drop connection" id="drop-connection" href="#drop-connection">
+
+## Drop connection
 
 Active subscription connections established by workers can be dropped remotely from the client.  
 Once dropped, the worker will not attempt to reconnect to the server.
@@ -179,9 +177,9 @@ usage:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get subscription state" id="get-subscription-state" href="#get-subscription-state">
+
+## Get subscription state
 
 <TabItem value="something" label="interface_subscription_state">
 <CodeBlock language="csharp">
@@ -218,14 +216,11 @@ usage:
 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Data Subscriptions: Maintenance Operations
-
----
 
 <Admonition type="note" title="Note">
 
@@ -237,10 +232,7 @@ usage:
    * [Getting subscription status](../../../client-api/data-subscriptions/advanced-topics/maintenance-operations#getting-subscription-status)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Deleting subscription" id="deleting-subscription" href="#deleting-subscription">
+## Deleting subscription
 
 Subscriptions can be entirely deleted from the system.  
 
@@ -264,9 +256,9 @@ usage:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
     
-<Admonition type="info" title="Dropping connection" id="dropping-connection" href="#dropping-connection">
+## Dropping connection
 
 Subscription connections with workers can be dropped remotely.  
 A dropped worker will not try to reconnect to the server.
@@ -289,25 +281,25 @@ usage:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disabling subscription" id="disabling-subscription" href="#disabling-subscription">
 
-<Admonition type="info" title="Info">
-This operation can only be performed through the management studio
-</Admonition>
-
-</Admonition>
-
-<Admonition type="info" title="Updating subscription" id="updating-subscription" href="#updating-subscription">
+## Disabling subscription
 
 <Admonition type="info" title="Info">
 This operation can only be performed through the management studio
 </Admonition>
 
+
+
+## Updating subscription
+
+<Admonition type="info" title="Info">
+This operation can only be performed through the management studio
 </Admonition>
 
-<Admonition type="info" title="Getting subscription status" id="getting-subscription-status" href="#getting-subscription-status">
+
+
+## Getting subscription status
 
 <TabItem value="something-something" label="interface_subscription_state">
 <CodeBlock language="java">
@@ -343,9 +335,9 @@ usage:
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="DocumentSubscriptions class" id="documentsubscriptions-class" href="#documentsubscriptions-class">
+
+## DocumentSubscriptions class
 
 The `DocumentSubscriptions` class is the class that manages all interaction with the data subscriptions.  
 The class is available through `DocumentStore`'s `subscriptions()` method.
@@ -382,13 +374,11 @@ The class is available through `DocumentStore`'s `subscriptions()` method.
 | **getSubscriptionWorkerForRevisions&lt;T&gt;(Class&lt;T&gt; clazz, SubscriptionWorkerOptions options)** | `SubscriptionWorker<T>` | Generates a subscription worker, using provided configuration, that processes documents deserialized to `T` type . |
 | **getSubscriptionWorkerForRevisions&lt;T&gt;(Class&lt;T&gt; clazz, SubscriptionWorkerOptions options, String database)** | `SubscriptionWorker<T>` | Generates a subscription worker, using provided configuration, that processes documents deserialized to `T` type . |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Data Subscriptions: Maintenance Operations
----
 
 <Admonition type="note" title="Note">
 
@@ -405,10 +395,7 @@ The class is available through `DocumentStore`'s `subscriptions()` method.
    * [DocumentSubscriptions class](../../../client-api/data-subscriptions/advanced-topics/maintenance-operations#documentsubscriptions-class)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Delete subscription" id="delete-subscription" href="#delete-subscription">
+## Delete subscription
 
 Subscription tasks can be entirely deleted from the system.  
 
@@ -427,9 +414,9 @@ delete(name, database);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable subscription" id="disable-subscription" href="#disable-subscription">
+
+## Disable subscription
 
 Existing subscription tasks can be disabled from the client.
 
@@ -448,9 +435,9 @@ disable(name, database);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Enable subscription" id="enable-subscription" href="#enable-subscription">
+
+## Enable subscription
 
 Existing subscription tasks can be enabled from the client.  
 This operation can be useful for already disabled subscriptions.
@@ -470,9 +457,9 @@ enable(name, database);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Update subscription" id="update-subscription" href="#update-subscription">
+
+## Update subscription
 
 See [examples](../../../client-api/data-subscriptions/creation/examples#update-existing-subscription) 
 and [API description](../../../client-api/data-subscriptions/creation/api-overview#update-subscription).  
@@ -497,9 +484,9 @@ update(options, database);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Drop connection" id="drop-connection" href="#drop-connection">
+
+## Drop connection
 
 Active subscription connections established by workers can be dropped remotely from the client.  
 Once dropped, the worker will not attempt to reconnect to the server.
@@ -541,9 +528,9 @@ dropSubscriptionWorker(worker, database);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get subscriptions" id="get-subscriptions" href="#get-subscriptions">
+
+## Get subscriptions
 
 Get a list of all existing subscription tasks in the database.
 
@@ -562,9 +549,9 @@ getSubscriptions(start, take, database);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get subscription state" id="get-subscription-state" href="#get-subscription-state">
+
+## Get subscription state
 
 <TabItem value="something-something" label="get_state">
 <CodeBlock language="nodejs">
@@ -600,9 +587,9 @@ getSubscriptionState(subscriptionName, database);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="DocumentSubscriptions class" id="documentsubscriptions-class" href="#documentsubscriptions-class">
+
+## DocumentSubscriptions class
 
 The `DocumentSubscriptions` class manages all interaction with the data subscriptions.  
 The class is available through the `subscriptions` property in the `documentStore`.
@@ -637,7 +624,7 @@ The class is available through the `subscriptions` property in the `documentStor
 | **getSubscriptionWorkerForRevisions(options)**           | `SubscriptionWorker`           | Generate a subscription worker for a revisions subscription. |
 | **getSubscriptionWorkerForRevisions(options, database)** | `SubscriptionWorker`           | Generate a subscription worker for a revisions subscription. |
 
-</Admonition>
+
 
 
 </LanguageContent>

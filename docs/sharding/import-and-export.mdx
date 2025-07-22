@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding: Import and Export
----
-
 <Admonition type="note" title="Note">
 
 * Smuggler is a RavenDB interface with which data can be 
@@ -41,10 +39,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Export and Import Options Summary](../sharding/import-and-export#export-and-import-options-summary)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Export" id="export" href="#export">
+## Export
 
 When smuggler is called to 
 [export](../client-api/smuggler/what-is-smuggler#export) 
@@ -67,9 +62,9 @@ in a `ShardedSmugglerResult` type. This type is specific to a sharded database,
 and casting it using a non-sharded type [will fail](../migration/client-api/client-breaking-changes#casting-smuggler-results).  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Import" id="import" href="#import">
+
+## Import
 
 Smuggler can be used to [import](../client-api/smuggler/what-is-smuggler#import) 
 data into a database from either a [.ravendbdump](../sharding/import-and-export#export) 
@@ -129,9 +124,9 @@ contain only the changes that have been made in the database since the last full
 Import the full backup first, and then the incremental backups that complement it.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Export and Import Options Summary" id="export-and-import-options-summary" href="#export-and-import-options-summary">
+
+## Export and Import Options Summary
 
 | Option | Available on a Sharded Database | Comment |
 | -------------------- | --------------- | --------------------- |
@@ -145,6 +140,6 @@ Import the full backup first, and then the incremental backups that complement i
 | Import from **Full backup files** | **Yes** |  |
 | Import from **Incremental backup files** | **Yes** |  |
 
-</Admonition>
+
 
 

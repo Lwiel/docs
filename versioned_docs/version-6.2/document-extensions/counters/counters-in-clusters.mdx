@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Counters in Clusters
----
-
 <Admonition type="note" title="Note">
 
 * This section describes Counter behaviors in a Cluster.
@@ -32,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [In a single-server system](../../document-extensions/counters/counters-in-clusters#in-a-single-server-system)  
      * [In a multi-node cluster](../../document-extensions/counters/counters-in-clusters#in-a-multi-node-cluster)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Counter-Value Modification" id="counter-value-modification" href="#counter-value-modification">
+## Counter-Value Modification
 
 #### Value Modification Flow
 Each node **manages its own portion** of a Counter's total value, independently from other nodes.  
@@ -62,9 +57,6 @@ When a client modifies a Counter's value, only the portion of the Counter's valu
   &gt; | ProductLikes | A | 42 |
   &gt; | ProductLikes | **B** | **33** |
   &gt; | ProductLikes | C | 10 |
-
----
-
 #### Value Replication Flow
 After modifying the Counter's value locally, a node [replicates](../../document-extensions/counters/counters-in-clusters#value-modification-and-replication) the new value to all other nodes.  
 This way each node is always kept updated with the values set for each Counter **by all nodes**.  
@@ -84,9 +76,6 @@ This way each node is always kept updated with the values set for each Counter *
   &gt; Note that **only the Counter's value** is replicated.  
   &gt; The document itself hasn't been modified and needs no replication.  
   &gt; </Admonition>
-
----
-
 #### Server Reply to Client Request  
 When a client requests a Counter's value, it gets a single accumulated sum.  
 
@@ -98,9 +87,9 @@ When a client requests a Counter's value, it gets a single accumulated sum.
   &gt; | ProductLikes | B | **33** |
   &gt; | ProductLikes | C | **10** |
   &gt; | | | **Total Value: 42+33+10 = 85** |
-</Admonition>
 
-<Admonition type="info" title="Counter Name modification" id="counter-name-modification" href="#counter-name-modification">
+
+## Counter Name modification
 
 **Replication due to a Counter Name modification**:
 
@@ -109,9 +98,9 @@ When a client requests a Counter's value, it gets a single accumulated sum.
   Existing Counters aren't replicated, since they already exist on the other nodes and their values haven't changed.  
 
 
-</Admonition>
 
-<Admonition type="info" title="Concurrent Modification" id="concurrent-modification" href="#concurrent-modification">
+
+## Concurrent Modification
 
 **The same Counter can be concurrently modified by multiple clients**.  
 
@@ -123,9 +112,9 @@ As a result:
 * Concurrent value modification cannot cause conflicts.
    * Find more about Counters and conflicts in the [Overview](../../document-extensions/counters/overview#overview) section.  
 
-</Admonition>
 
-<Admonition type="info" title="Concurrent `Delete` and `Increment`" id="concurrent-delete-and-increment" href="#concurrent-delete-and-increment">
+
+## Concurrent `Delete` and `Increment`
 
 A sequence of Counter actions is [cumulative](../../document-extensions/counters/overview#overview), as long as it doesn't [Delete](../../document-extensions/counters/delete) the Counter.  
 When Delete **is** executed, the order of execution **does** matter.  
@@ -136,9 +125,6 @@ When Delete **is** executed, the order of execution **does** matter.
   We can identify this behavior in two different scenarios:  
    * In a single-server system  
    * In a multi-node cluster  
-
----
-
 #### In a Single-Server System
 
 Different ***clients*** may simultaneously request to Delete and Increment the same Counter.  
@@ -146,9 +132,6 @@ Different ***clients*** may simultaneously request to Delete and Increment the s
 * The result depends upon the server's **order of execution**.  
    * If Delete is executed _last_, the Counter will be permanently deleted.  
    * If Delete is executed _before_ Increment, the Counter will be deleted but then re-created with the value of the Increment action as its initial value.  
-
----
-
 #### In a Multi-Node Cluster
 
 Different ***nodes*** may concurrently Delete and Increment the same Counter.  
@@ -157,5 +140,5 @@ Different ***nodes*** may concurrently Delete and Increment the same Counter.
 * The incrementing node will simply ignore the delete action.  
 * The deleting node will delete the Counter, but re-insert it upon the incoming replication.  
 
-</Admonition>
+
 

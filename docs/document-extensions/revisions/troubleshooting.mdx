@@ -12,18 +12,13 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Revisions Troubleshooting
----
-
 <Admonition type="note" title="Note">
 
 * In this page:  
   * [`ThrowRevisionKeyTooBig` exception](../../document-extensions/revisions/troubleshooting#throwrevisionkeytoobig-exception)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`ThrowRevisionKeyTooBig` exception" id="throwrevisionkeytoobig-exception" href="#throwrevisionkeytoobig-exception">
+## `ThrowRevisionKeyTooBig` exception
 
 RavenDB allows **document revisions** and their **tombstones** to have IDs of up to **1,536 bytes**.  
 A `ThrowRevisionKeyTooBig` exception will be thrown when an attempt is made to store a revision or a revision tombstone 
@@ -84,9 +79,6 @@ whose ID length exceeds this limit.
      Find these IDs using the Studio &gt; Settings &gt; **Database Record** view.  
 
          ![Database Record](./assets/troubleshooting_rev_db-record.png)
-
----
-
 #### When is this check Enabled:
 
 * **New databases only**  
@@ -110,5 +102,5 @@ whose ID length exceeds this limit.
 * **Receiving a revision via replication**  
   The check is not performed when receiving a revision or a revision tombstone via replication.  
 
-</Admonition>
+
 

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Configure Conflict Revisions Operation
+export const supportedLanguages = ["csharp", "php", "nodejs"];
 
----
+
+# Configure Conflict Revisions Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -38,10 +39,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/conflict-revisions-configuration#syntax)
   * [Storage consideration](../../../../document-extensions/revisions/client-api/operations/conflict-revisions-configuration#storage-consideration)
 </Admonition>
-
----
-
-<Admonition type="info" title="Configure revisions for conflicts - Example" id="configure-revisions-for-conflicts-example" href="#configure-revisions-for-conflicts-example">
+## Configure revisions for conflicts - Example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -96,9 +94,9 @@ await documentStore.Maintenance.Server.SendAsync(configureConflictRevisionsOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax"> 
+
+## Syntax 
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -128,7 +126,7 @@ await documentStore.Maintenance.Server.SendAsync(configureConflictRevisionsOp);
 
 * See properties explanation and default values [here](../../../../document-extensions/revisions/client-api/operations/configure-revisions#revisions-collection-configuration-object).
 
-</Admonition>
+
 
 <Admonition type="info" title="Info">
 
@@ -148,9 +146,6 @@ However, it can also lead to a significant increase in the database size if many
 
 </LanguageContent>
 <LanguageContent language="php">
-# Configure Conflict Revisions Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -173,10 +168,7 @@ However, it can also lead to a significant increase in the database size if many
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/conflict-revisions-configuration#syntax)
   * [Storage consideration](../../../../document-extensions/revisions/client-api/operations/conflict-revisions-configuration#storage-consideration)
 </Admonition>
-
----
-
-<Admonition type="info" title="Configure revisions for conflicts - Example" id="configure-revisions-for-conflicts-example" href="#configure-revisions-for-conflicts-example">
+## Configure revisions for conflicts - Example
 
 <TabItem value="something-something" label="conflict_revisions_configuration">
 <CodeBlock language="php">
@@ -202,9 +194,9 @@ $documentStore->maintenance()->server()->send($configureConflictRevisionsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax"> 
+
+## Syntax 
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -236,7 +228,7 @@ $documentStore->maintenance()->server()->send($configureConflictRevisionsOp);
 
 * See properties explanation and default values [here](../../../../document-extensions/revisions/client-api/operations/configure-revisions#revisions-collection-configuration-object).
 
-</Admonition>
+
 
 <Admonition type="info" title="Info">
 
@@ -256,9 +248,6 @@ However, it can also lead to a significant increase in the database size if many
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Configure Conflict Revisions Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -281,10 +270,7 @@ However, it can also lead to a significant increase in the database size if many
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/conflict-revisions-configuration#syntax)
   * [Storage consideration](../../../../document-extensions/revisions/client-api/operations/conflict-revisions-configuration#storage-consideration)
 </Admonition>
-
----
-
-<Admonition type="info" title="Configure revisions for conflicts - Example" id="configure-revisions-for-conflicts-example" href="#configure-revisions-for-conflicts-example">
+## Configure revisions for conflicts - Example
 
 <TabItem value="something-something" label="conflict_revisions_configuration">
 <CodeBlock language="nodejs">
@@ -310,9 +296,9 @@ await documentStore.maintenance.server.send(configureConflictRevisionsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax"> 
+
+## Syntax 
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -342,7 +328,7 @@ await documentStore.maintenance.server.send(configureConflictRevisionsOp);
 
 * See properties explanation and default values [here](../../../../document-extensions/revisions/client-api/operations/configure-revisions#revisions-collection-configuration-object).
 
-</Admonition>
+
 
 <Admonition type="info" title="Info">
 

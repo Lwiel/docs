@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Patch Time Series Operations  
+export const supportedLanguages = ["csharp", "nodejs"];
 
----
+
+# Patch Time Series Operations  
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
    
@@ -37,13 +38,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [Syntax](../../../../document-extensions/timeseries/client-api/operations/patch#syntax-1)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Patch time series data - single document" id="patch-time-series-data-single-document" href="#patch-time-series-data-single-document">
-
----
-
+## Patch time series data - single document
 ### Usage
 
 * Create a `PatchRequest` instance:
@@ -60,9 +55,6 @@ import LanguageContent from "@site/src/components/language-content";
   * The server treats timestamps passed in the patch request script as **UTC**, no conversion is applied by the client to local time.
   * Appending entries to a time series that doesn't yet exist yet will create the time series.
   * No exception is thrown if the specified document does not exist.
-
----
-
 ### Examples
 
 * In this example, we **append** a single entry to time series "HeartRates" on the specified document.
@@ -151,9 +143,6 @@ store.Operations.Send(patchOp);
 `}
 </CodeBlock>
 </TabItem>  
-
----
-
 ### Syntax
 
 * The detailed syntax of `PatchOperation` is listed under this [syntax section](../../../../client-api/operations/patching/single-document#operations-api).
@@ -162,12 +151,9 @@ store.Operations.Send(patchOp);
 
 * The available JavaScript API methods are detailed in the [time series JavaScript support](../../../../document-extensions/timeseries/client-api/javascript-support) article.
 
-</Admonition>
 
-<Admonition type="info" title="Patch time series data - multiple documents" id="patch-time-series-data-multiple-documents" href="#patch-time-series-data-multiple-documents">
 
----
-
+## Patch time series data - multiple documents
 ### Usage
 
 * In order to patch time series data on multiple documents, you need to:
@@ -188,9 +174,6 @@ store.Operations.Send(patchOp);
 * NOTE:
     * The server treats timestamps passed in the patch request script as **UTC**, no conversion is applied.
     * No exception is thrown if any of the documents no longer exist during patching.
-
----
-
 ### Examples
 
 * In this example, we **append** an entry to time series "HeartRates" on ALL documents in the "Users" collection.
@@ -297,23 +280,17 @@ var result = store.Operations.Send(patchNumOfUniqueTags).WaitForCompletion();
 `}
 </CodeBlock>
 </TabItem>  
-
----
-
 ### Syntax
 
 * The detailed syntax of `PatchByQueryOperation` is listed under this [syntax section](../../../../client-api/operations/patching/set-based#syntax-overview).
 
 * The available JavaScript API methods are detailed in the [time series JavaScript support](../../../../document-extensions/timeseries/client-api/javascript-support) article.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Patch Time Series Operations  
-
----
 
 <Admonition type="note" title="Note">
    
@@ -335,13 +312,7 @@ var result = store.Operations.Send(patchNumOfUniqueTags).WaitForCompletion();
      * [Syntax](../../../../document-extensions/timeseries/client-api/operations/patch#syntax-1)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Patch time series data - single document" id="patch-time-series-data-single-document" href="#patch-time-series-data-single-document">
-
----
-
+## Patch time series data - single document
 ### Usage
 
 * Create a `PatchRequest` instance:
@@ -358,9 +329,6 @@ var result = store.Operations.Send(patchNumOfUniqueTags).WaitForCompletion();
     * The server treats timestamps passed in the patch request script as **UTC**, no conversion is applied by the client to local time.
     * Appending entries to a time series that doesn't yet exist yet will create the time series.
     * No exception is thrown if the specified document does not exist.
-
----
-
 ### Examples
 
 * In this example, we **append** a single entry to time series "HeartRates" on the specified document.
@@ -451,9 +419,6 @@ await documentStore.operations.send(patchOp);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Syntax
 
 * The detailed syntax of `PatchOperation` is listed under this [syntax section](../../../../client-api/operations/patching/single-document#operations-api-syntax).
@@ -462,12 +427,9 @@ await documentStore.operations.send(patchOp);
 
 * The available JavaScript API methods are detailed in the [time series JavaScript support](../../../../document-extensions/timeseries/client-api/javascript-support) article.
 
-</Admonition>
 
-<Admonition type="info" title="Patch time series data - multiple documents" id="patch-time-series-data-multiple-documents" href="#patch-time-series-data-multiple-documents">
 
----
-
+## Patch time series data - multiple documents
 ### Usage
 
 * In order to patch time series data on multiple documents, you need to:
@@ -488,9 +450,6 @@ await documentStore.operations.send(patchOp);
 * NOTE:
     * The server treats timestamps passed in the patch request script as **UTC**, no conversion is applied.
     * No exception is thrown if any of the documents no longer exist during patching.
-
----
-
 ### Examples
 
 * In this example, we **append** an entry to time series "HeartRates" on ALL documents in the "Users" collection.
@@ -590,16 +549,13 @@ await asyncOp.waitForCompletion();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Syntax
 
 * The detailed syntax of `PatchByQueryOperation` is listed under this [syntax section](../../../../client-api/operations/patching/set-based#patchbyqueryoperation-syntax).
 
 * The available JavaScript API methods are detailed in the [time series JavaScript support](../../../../document-extensions/timeseries/client-api/javascript-support) article.
 
-</Admonition>
+
 
 
 </LanguageContent>

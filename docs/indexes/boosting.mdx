@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "php", "nodejs"];
+
+
+# Indexes: Boosting
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Indexes: Boosting
----
 
 <Admonition type="note" title="Note">
 
@@ -41,16 +43,9 @@ import LanguageContent from "@site/src/components/language-content";
     * [Corax vs Lucene: boosting differences](../indexes/boosting#automatic-score-based-ordering)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Assign a boost factor to an index-field" id="assign-a-boost-factor-to-an-index-field" href="#assign-a-boost-factor-to-an-index-field">
+## Assign a boost factor to an index-field
 
 Applying a boost value to an index-field allows prioritization of matching documents based on an index-field.
-
----
-
-
 ##### The index:
 
 <Tabs groupId='languageSyntax'>
@@ -167,14 +162,11 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Assign a boost factor to the index-entry" id="assign-a-boost-factor-to-the-index-entry" href="#assign-a-boost-factor-to-the-index-entry">
+
+## Assign a boost factor to the index-entry
 
 Applying a boost value to the whole index-entry allows prioritization of matching documents by content from the document.
-
----
-
 ##### The index:
 
 <Tabs groupId='languageSyntax'>
@@ -287,9 +279,9 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Automatic score-based ordering" id="automatic-score-based-ordering" href="#automatic-score-based-ordering">
+
+## Automatic score-based ordering
 
 * By default, whenever boosting is applied, either via dynamic querying or when querying an index 
   that has a boosting factor in its definition, the results will be automatically ordered by the score.  
@@ -300,9 +292,9 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
 * Refer to the [Get resulting score](../client-api/session/querying/sort-query-results#get-resulting-score) 
   section to learn how to retrieve the calculated score of each result.  
 
-</Admonition>
 
-<Admonition type="info" title="Corax vs Lucene: boosting differences" id="corax-vs-lucene-boosting-differences" href="#corax-vs-lucene-boosting-differences">
+
+## Corax vs Lucene: boosting differences
 
 * **Boosting features available:**  
 
@@ -316,12 +308,12 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
   Corax ranks search results using the [BM25 algorithm](https://en.wikipedia.org/wiki/Okapi_BM25).  
   Other search engines, e.g. Lucene, may use a different ranking algorithm and return different search results.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Indexes: Boosting
+
 
 When querying with some filtering conditions,  
 a basic score is calculated for each document in the results by the underlying engine.
@@ -414,8 +406,6 @@ When using [Corax](../indexes/search-engine/corax) as the search engine:
 
 </LanguageContent>
 <LanguageContent language="php">
-# Indexes: Boosting
----
 
 <Admonition type="note" title="Note">
 
@@ -442,16 +432,9 @@ When using [Corax](../indexes/search-engine/corax) as the search engine:
     * [Corax vs Lucene: boosting differences](../indexes/boosting#automatic-score-based-ordering)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Assign a boost factor to an index-field" id="assign-a-boost-factor-to-an-index-field" href="#assign-a-boost-factor-to-an-index-field">
+## Assign a boost factor to an index-field
 
 Applying a boost value to an index-field allows prioritization of matching documents based on an index-field.
-
----
-
-
 ##### The index:
 
 <Tabs groupId='languageSyntax'>
@@ -571,14 +554,11 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Assign a boost factor to the index-entry" id="assign-a-boost-factor-to-the-index-entry" href="#assign-a-boost-factor-to-the-index-entry">
+
+## Assign a boost factor to the index-entry
 
 Applying a boost value to the whole index-entry allows prioritization of matching documents by content from the document.
-
----
-
 ##### The index:
 
 <Tabs groupId='languageSyntax'>
@@ -698,9 +678,9 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Automatic score-based ordering" id="automatic-score-based-ordering" href="#automatic-score-based-ordering">
+
+## Automatic score-based ordering
 
 * By default, whenever boosting is applied, either via dynamic querying or when querying an index 
   that has a boosting factor in its definition, the results will be automatically ordered by the score.  
@@ -711,9 +691,9 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
 * Refer to the [Get resulting score](../client-api/session/querying/sort-query-results#get-resulting-score) 
   section to learn how to retrieve the calculated score of each result.  
 
-</Admonition>
 
-<Admonition type="info" title="Corax vs Lucene: boosting differences" id="corax-vs-lucene-boosting-differences" href="#corax-vs-lucene-boosting-differences">
+
+## Corax vs Lucene: boosting differences
 
 * **Boosting features available:**  
 
@@ -727,13 +707,11 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
   Corax ranks search results using the [BM25 algorithm](https://en.wikipedia.org/wiki/Okapi_BM25).  
   Other search engines, e.g. Lucene, may use a different ranking algorithm and return different search results.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexes: Boosting
----
 
 <Admonition type="note" title="Note">
 
@@ -760,16 +738,9 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
     * [Corax vs Lucene: boosting differences](../indexes/boosting#automatic-score-based-ordering)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Assign a boost factor to an index-field" id="assign-a-boost-factor-to-an-index-field" href="#assign-a-boost-factor-to-an-index-field">
+## Assign a boost factor to an index-field
 
 Applying a boost value to an index-field allows prioritization of matching documents based on an index-field.
-
----
-
-
 ##### The index:
 
 <TabItem value="something-something" label="index_1">
@@ -822,14 +793,11 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Assign a boost factor to the index-entry" id="assign-a-boost-factor-to-the-index-entry" href="#assign-a-boost-factor-to-the-index-entry">
+
+## Assign a boost factor to the index-entry
 
 Applying a boost value to the whole index-entry allows prioritization of matching documents by content from the document.
-
----
-
 ##### The index:
 
 <TabItem value="something-something" label="index_2">
@@ -883,9 +851,9 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Automatic score-based ordering" id="automatic-score-based-ordering" href="#automatic-score-based-ordering">
+
+## Automatic score-based ordering
 
 * By default, whenever boosting is applied, either via dynamic querying or when querying an index 
   that has a boosting factor in its definition, the results will be automatically ordered by the score.  
@@ -896,9 +864,9 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
 * Refer to the [Get resulting score](../client-api/session/querying/sort-query-results#get-resulting-score) 
   section to learn how to retrieve the calculated score of each result.  
 
-</Admonition>
 
-<Admonition type="info" title="Corax vs Lucene: boosting differences" id="corax-vs-lucene-boosting-differences" href="#corax-vs-lucene-boosting-differences">
+
+## Corax vs Lucene: boosting differences
 
 * **Boosting features available:**
 
@@ -911,7 +879,7 @@ where ShipToCountry == "poland" or CompanyCountry == "portugal"
   Corax ranks search results using the [BM25 algorithm](https://en.wikipedia.org/wiki/Okapi_BM25).   
   Other search engines, e.g. Lucene, may use a different ranking algorithm and return different search results.
 
-</Admonition>
+
 
 
 </LanguageContent>

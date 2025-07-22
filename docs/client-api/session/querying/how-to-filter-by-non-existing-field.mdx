@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Filter by Non-Existing Field  
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Filter by Non-Existing Field  
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -29,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
 ----
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query the collection (dynamic query)" id="query-the-collection-dynamic-query" href="#query-the-collection-dynamic-query">
+## Query the collection (dynamic query)
 
 To run a dynamic query over a collection and find which documents are missing a specified field,  
 use the `Not` and `WhereExists` extension methods, accessible from the [DocumentQuery](../../../client-api/session/querying/document-query/what-is-document-query) API, 
@@ -84,9 +82,9 @@ where true and not exists("Freight")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Query a static index" id="query-a-static-index" href="#query-a-static-index">
+
+## Query a static index
 
 Documents with missing fields can be searched by querying a static index.  
 
@@ -180,9 +178,9 @@ where true and not exists("Freight")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Use Studio to Run an RQL Query" id="use-studio-to-run-an-rql-query" href="#use-studio-to-run-an-rql-query">
+
+## Use Studio to Run an RQL Query
 
 * Documents can be searched by missing fields using Studio's [Query view](../../../studio/database/queries/query-view).  
 
@@ -216,14 +214,11 @@ where exists("Company") and not exists("Freight")
        This is the list of documents that do not contain the specified 'Freight' field.  
        (the "Freight" Field was removed from these Northwind documents for this example.)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Filter by Non-Existing Field  
-
----
 
 <Admonition type="note" title="Note">
 
@@ -237,10 +232,7 @@ where exists("Company") and not exists("Freight")
 ----
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query the collection (dynamic query)" id="query-the-collection-dynamic-query" href="#query-the-collection-dynamic-query">
+## Query the collection (dynamic query)
 
 To run a dynamic query over a collection and find which documents are missing a specified field,  
 use the `not_` and `where_exists` methods, accessible from the [document_query](../../../client-api/session/querying/document-query/what-is-document-query) 
@@ -276,9 +268,9 @@ where true and not exists("Freight")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Query a static index" id="query-a-static-index" href="#query-a-static-index">
+
+## Query a static index
 
 Documents with missing fields can be searched by querying a static index.  
 
@@ -341,9 +333,9 @@ where true and not exists("Freight")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Use Studio to Run an RQL Query" id="use-studio-to-run-an-rql-query" href="#use-studio-to-run-an-rql-query">
+
+## Use Studio to Run an RQL Query
 
 * Documents can be searched by missing fields using Studio's [Query view](../../../studio/database/queries/query-view).  
 
@@ -377,14 +369,11 @@ where exists("Company") and not exists("Freight")
        This is the list of documents that do not contain the specified 'Freight' field.  
        (the "Freight" Field was removed from these Northwind documents for this example.)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Filter by Non-Existing Field  
-
----
 
 <Admonition type="note" title="Note">
 
@@ -397,10 +386,7 @@ where exists("Company") and not exists("Freight")
 ----
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query the collection (dynamic query)" id="query-the-collection-dynamic-query" href="#query-the-collection-dynamic-query">
+## Query the collection (dynamic query)
 
 To run a dynamic query over a collection and find which documents are missing a specified field,  
 use the `not` and `whereExists` extension methods, accessible from the [documentQuery](../../../client-api/session/querying/document-query/what-is-document-query) API, 
@@ -439,9 +425,9 @@ where true and not exists("Freight")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Query a static index" id="query-a-static-index" href="#query-a-static-index">
+
+## Query a static index
 
 Documents with missing fields can be searched by querying a static index.  
 
@@ -535,9 +521,9 @@ where true and not exists("Freight")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Use Studio to Run an RQL Query" id="use-studio-to-run-an-rql-query" href="#use-studio-to-run-an-rql-query">
+
+## Use Studio to Run an RQL Query
 
 * Documents can be searched by missing fields using Studio's [Query view](../../../studio/database/queries/query-view).  
 
@@ -571,14 +557,11 @@ where exists("Company") and not exists("Freight")
        This is the list of documents that do not contain the specified 'Freight' field.  
        (the "Freight" Field was removed from these Northwind documents for this example.)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Filter by Non-Existing Field  
-
----
 
 <Admonition type="note" title="Note">
 
@@ -592,10 +575,7 @@ where exists("Company") and not exists("Freight")
 ----
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query the collection (dynamic query)" id="query-the-collection-dynamic-query" href="#query-the-collection-dynamic-query">
+## Query the collection (dynamic query)
 
 To run a dynamic query over a collection and find which documents are missing a specified field,  
 use the `not` and `whereExists` extension methods, accessible from the [query](../../../client-api/session/querying/how-to-query) API, 
@@ -632,9 +612,9 @@ where true and not exists("freight")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Query a static index" id="query-a-static-index" href="#query-a-static-index">
+
+## Query a static index
 
 Documents with missing fields can be searched by querying a static index.  
 
@@ -698,9 +678,9 @@ where true and not exists("freight")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Use Studio to Run an RQL Query" id="use-studio-to-run-an-rql-query" href="#use-studio-to-run-an-rql-query">
+
+## Use Studio to Run an RQL Query
 
 * Documents can be searched by missing fields using Studio's [Query view](../../../studio/database/queries/query-view).  
 
@@ -734,7 +714,7 @@ where exists("Company") and not exists("Freight")
        This is the list of documents that do not contain the specified 'Freight' field.  
        (the "Freight" Field was removed from these Northwind documents for this example.)
 
-</Admonition>
+
 
 
 </LanguageContent>

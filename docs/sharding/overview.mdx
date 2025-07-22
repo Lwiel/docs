@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding Overview
----
-
 <Admonition type="note" title="Note">
 
 * Sharding, supported by RavenDB from version 6.0 onward, is the distribution of a database's content among autonomous **Shards**,
@@ -43,10 +41,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Creating a sharded database](../sharding/overview#creating-a-sharded-database)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Sharding" id="sharding" href="#sharding">
+## Sharding
 
 As a database grows [very large](https://en.wikipedia.org/wiki/Very_large_database), storing and managing it may become too demanding for any single node.  
 System performance may suffer as resources like RAM, CPU, and storage are exhausted, routine chores like indexing and backup become massive tasks, 
@@ -56,9 +51,6 @@ With sharding, as the volume of stored data grows, the database can be scaled ou
 This allows the database to be managed by multiple nodes and effectively removes most limits on its growth.  
 In this manner, the size of the overall database, comprised of all shards, can reach dozens of terabytes and more,  
 while keeping the resources of each shard in check and maintaining high performance and throughput.  
-
----
-
 #### Licensing
 
 <Admonition type="info" title="Info">
@@ -68,9 +60,6 @@ Sharding is fully available with the **Enterprise** license.
 * On a **Developer** license, the replication factor is restricted to 1.
 * On **Community** and **Professional** licenses, all shards must be on the same node.  
 * Learn more about licensing [here](../start/licensing/licensing-overview).  
-
----
-
 #### Client compatibility
 
 Sharding is managed by the RavenDB server;  
@@ -82,9 +71,6 @@ clients require no special adaptation when accessing a sharded database:
 
 Specific modifications to RavenDB features in a sharded environment are documented in detail  
 in feature-specific articles.
-
----
-
 #### Client-Server communication
 
 When a client connects to a sharded database, it is appointed a RavenDB server that functions as an **orchestrator**,  
@@ -93,9 +79,6 @@ The client remains unaware of this process and uses the same API used by non-sha
 
 Note that this additional communication between the client and the orchestrator, as well as between the orchestrator and the shards,
 introduces some overhead compared to using a non-sharded database.  
-
----
-
 #### When should sharding be used?
 
 While sharding solves many issues related to the storage and management of high-volume databases,  
@@ -118,9 +101,9 @@ is in the vicinity of 250 GB, so the transition is already well established when
   and then replicate or export the data into it.
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Shards" id="shards" href="#shards">
+
+## Shards
 
 While each cluster node of a non-sharded database handles a full replica of the entire database,  
 each **shard** is assigned a **subset** of the entire database content.  
@@ -147,9 +130,6 @@ a client can, for example, track the shard where a document is stored and query 
 Studio can be used to relocate ([reshard](../sharding/resharding)) documents from one shard to another.  
 
 !["Studio Document View"](./assets/overview_document-view.png)
-
----
-
 #### Shard replication 
 
 Similar to non-sharded databases, shards can be **replicated** across cluster nodes to ensure the continuous availability
@@ -164,16 +144,13 @@ The number of nodes a shard is replicated to is determined by the **Shard Replic
 
 * The Shard Replication Factor is set to 2, maintaining two replicas of each shard.  
 
-</Admonition>
 
-<Admonition type="info" title="How documents are distributed among shards" id="how-documents-are-distributed-among-shards" href="#how-documents-are-distributed-among-shards">
+
+## How documents are distributed among shards
 
 #### Buckets
 Documents in a sharded database are stored within virtual containers called **buckets**.  
 The number of documents and the amount of data stored in each bucket may vary.  
-
----
-
 #### Buckets allocation
 
 Upon creating a sharded database, the cluster reserves **1,048,576** (1024 x 1024) buckets for the entire database.  
@@ -181,9 +158,6 @@ Each shard is assigned a range of buckets from this overall set, where documents
 (Note: This default reservation method differs when using prefixed sharding. Learn more in [Bucket management](../sharding/administration/sharding-by-prefix#bucket-management)).
 
 !["Buckets Allocation"](./assets/overview_buckets-allocation.png)
-
----
-
 #### Buckets population
 
 The cluster automatically populates the buckets with documents in the following way:
@@ -210,17 +184,14 @@ the bucket number assigned to a document also determines which shard the documen
   Learn more in [Sharding by prefix](../sharding/administration/sharding-by-prefix).
 
 </Admonition>
-
----
-
 #### Document extensions storage
 
 Document extensions (i.e. Attachments, Time series, Counters, and Revisions) are stored in the same bucket as the document they belong to.
 To achieve this, the bucket number (hash code) for these extensions is calculated using the ID of the document that owns them.
 
-</Admonition>
 
-<Admonition type="info" title="Resharding" id="resharding" href="#resharding">
+
+## Resharding
 
 [Resharding](../sharding/resharding) is the relocation of data from one shard to another to maintain a balanced database,  
 where all shards handle approximately the same volume of data.
@@ -240,9 +211,9 @@ For example:
       * From now on, any data added to this bucket will be stored in shard **2**.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Paging" id="paging" href="#paging">
+
+## Paging
 
 From the client's perspective, [paging](../indexes/querying/paging) is conducted similarly in both sharded and non-sharded databases,  
 using the same API.  
@@ -252,9 +223,9 @@ and sort the retrieved results before handing the selected page to the client.
 
 Read more about paging [here](../sharding/querying#paging).  
 
-</Admonition>
 
-<Admonition type="info" title="Using local IP addresses" id="using-local-ip-addresses" href="#using-local-ip-addresses">
+
+## Using local IP addresses
 
 The local IP address of a cluster node can be exposed, allowing other cluster nodes to prioritize it over the public IP address when accessing the node.
 Using a node's local IP address for inter-cluster communications can speed up the service and offer substantial cost savings over time.
@@ -264,9 +235,9 @@ that may need to communicate with all other shards to process the request and it
 
 Use [this configuration option](../server/configuration/core-configuration#serverurl.cluster) to expose a node's local IP address to other nodes.  
 
-</Admonition>
 
-<Admonition type="info" title="Creating a sharded database" id="creating-a-sharded-database" href="#creating-a-sharded-database">
+
+## Creating a sharded database
 
 * When a database is created, the user can choose whether it will be sharded or not.  
   RavenDB (version 6.0 and later) provides this option by default, with no further steps required to enable the feature.
@@ -275,5 +246,5 @@ Use [this configuration option](../server/configuration/core-configuration#serve
 
 * A RavenDB cluster can run both sharded and non-sharded databases in parallel.  
 
-</Admonition>
+
 

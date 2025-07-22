@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Filter Query Results
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Filter Query Results
----
 
 <Admonition type="note" title="Note">
 
@@ -43,7 +45,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Where" id="where" href="#where">
+## Where
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -93,9 +95,9 @@ where FirstName = 'Robert' and LastName = 'King'
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - Numeric Property" id="where-numeric-property" href="#where-numeric-property">
+
+## Where - Numeric Property
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -142,9 +144,9 @@ where UnitsInStock > 50
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - Nested Property" id="where-nested-property" href="#where-nested-property">
+
+## Where - Nested Property
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -222,9 +224,9 @@ where Lines.Count > 50
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where + Any" id="where-any" href="#where-any">
+
+## Where + Any
 
 `Any` is useful when you have a collection of items (e.g. `Order` contains `OrderLines`) and you want to filter out based on values from this collection. For example, let's retrieve all orders that contain an `OrderLine` with a given product.
 
@@ -273,9 +275,9 @@ where Lines_ProductName = 'Teatime Chocolate Biscuits'
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where + In" id="where-in" href="#where-in">
+
+## Where + In
 
 When you want to check a single value against multiple values, the `In` operator can become handy. To retrieve all employees where `FirstName` is either `Robert` or `Nancy`, we can issue the following query:
 
@@ -329,9 +331,9 @@ where FirstName IN ('Robert', 'Nancy')
 Remember to add the `Raven.Client.Documents.Linq` namespace to usings if you want to use `In` extension method.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Where + ContainsAny" id="where-containsany" href="#where-containsany">
+
+## Where + ContainsAny
 
 To check if enumeration contains **any** of the values from a specified collection, you can use the `ContainsAny` method.
 
@@ -386,9 +388,9 @@ where Tags IN ('Development', 'Research')
 Remember to add the `Raven.Client.Documents.Linq` namespace to usings if you want to use the `ContainsAny` extension method.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Where + ContainsAll" id="where-containsall" href="#where-containsall">
+
+## Where + ContainsAll
 
 To check if an enumeration contains **all** of the values from a specified collection, you can use the `ContainsAll` method.
 
@@ -443,9 +445,9 @@ where Tags ALL IN ('Development', 'Research')
 Remember to add the `Raven.Client.Documents.Linq` namespace to usings if you want to use the `ContainsAll` extension method.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Where - StartsWith" id="where-startswith" href="#where-startswith">
+
+## Where - StartsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -478,9 +480,9 @@ where startsWith(Name, 'ch')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - EndsWith" id="where-endswith" href="#where-endswith">
+
+## Where - EndsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -513,9 +515,9 @@ where endsWith(Name, 'ra')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - Identifier Property" id="where-identifier-property" href="#where-identifier-property">
+
+## Where - Identifier Property
 
 Once a property used in the `Where` clause is recognized as an identity property of a given entity type 
 (according to [`FindIdentityProperty` convention](../../client-api/configuration/identifier-generation/global#findidentityproperty))
@@ -584,29 +586,29 @@ where startsWith(id(), 'orders/1')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - Exists" id="where-exists" href="#where-exists">
+
+## Where - Exists
 
 To find all documents in a collection that have a specified field, see [How to Filter by Field Presence](../../client-api/session/querying/how-to-filter-by-field).  
 
 To find all documents in a collection that don't have a specified field, see [How to Filter by Non-Existing Field](../../client-api/session/querying/how-to-filter-by-non-existing-field).
 
-</Admonition>
 
-<Admonition type="info" title="Remarks" id="remarks" href="#remarks">
+
+## Remarks
 
 <Admonition type="info" title="Info">
 `Query` and `DocumentQuery` are converting predicates to the `IndexQuery` class 
 so they can issue a query from a **low-level operation method**.
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Filter Query Results
+
 
 One of the most basic functionalities of querying is the ability to filter out data and return records that match a given condition. There are couple of ways to do this. 
 
@@ -933,8 +935,6 @@ Underneath, `Query` is converting predicates to the `IndexQuery` class so they c
 
 </LanguageContent>
 <LanguageContent language="python">
-# Filter Query Results
----
 
 <Admonition type="note" title="Note">
 
@@ -960,7 +960,7 @@ Underneath, `Query` is converting predicates to the `IndexQuery` class so they c
 
 </Admonition>
 
-<Admonition type="info" title="`where_equals` - Where equals " id="where_equals-where-equals" href="#where_equals-where-equals">
+## `where_equals` - Where equals 
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -994,9 +994,9 @@ where FirstName = 'Robert' and LastName = 'King'
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`where_greater_than` - Numeric property" id="where_greater_than-numeric-property" href="#where_greater_than-numeric-property">
+
+## `where_greater_than` - Numeric property
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1029,9 +1029,9 @@ where UnitsInStock > 50
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`where_greater_than` - Nested property" id="where_greater_than-nested-property" href="#where_greater_than-nested-property">
+
+## `where_greater_than` - Nested property
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1081,9 +1081,9 @@ where Lines.Count > 50
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`where_in` - Single -vs- Multiple values" id="where_in-single-vs-multiple-values" href="#where_in-single-vs-multiple-values">
+
+## `where_in` - Single -vs- Multiple values
 
 When you want to check a single value against multiple values, `where_in` can become handy.  
 To retrieve all employees where `FirstName` is either `Robert` or `Nancy`, we can issue the following query:
@@ -1119,9 +1119,9 @@ where FirstName IN ('Robert', 'Nancy')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`contains_any` - Any value from specified collection" id="contains_any-any-value-from-specified-collection" href="#contains_any-any-value-from-specified-collection">
+
+## `contains_any` - Any value from specified collection
 
 To check if enumeration contains **any** of the values from a specified collection, 
 use the `contains_any` method.
@@ -1157,9 +1157,9 @@ where Tags IN ('Development', 'Research')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`contains_all` - All values from specified collection" id="contains_all-all-values-from-specified-collection" href="#contains_all-all-values-from-specified-collection">
+
+## `contains_all` - All values from specified collection
 
 To check if an enumeration contains **all** of the values from a specified collection, 
 use the `contains_all` method.
@@ -1195,9 +1195,9 @@ where Tags ALL IN ('Development', 'Research')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`where_starts_with` - All records with given prefix" id="where_starts_with-all-records-with-given-prefix" href="#where_starts_with-all-records-with-given-prefix">
+
+## `where_starts_with` - All records with given prefix
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1216,9 +1216,9 @@ where startsWith(Name, 'ch')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`where_ends_with` - All records with given suffix" id="where_ends_with-all-records-with-given-suffix" href="#where_ends_with-all-records-with-given-suffix">
+
+## `where_ends_with` - All records with given suffix
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1236,9 +1236,9 @@ where endsWith(Name, 'ra')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - Identifier Property" id="where-identifier-property" href="#where-identifier-property">
+
+## Where - Identifier Property
 
 Once a property used in the `where_equals` clause is recognized as an identity property of a given entity type 
 (according to [`FindIdentityProperty` convention](../../client-api/configuration/identifier-generation/global#findidentityproperty))
@@ -1281,21 +1281,19 @@ where startsWith(id(), 'orders/1')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`where_exists` - Where exists or doesn't exist" id="where_exists-where-exists-or-doesn-t-exist" href="#where_exists-where-exists-or-doesn-t-exist">
+
+## `where_exists` - Where exists or doesn't exist
 
 To find all documents in a collection that have a specified field, see [How to Filter by Field Presence](../../client-api/session/querying/how-to-filter-by-field).  
 
 To find all documents in a collection that don't have a specified field, see [How to Filter by Non-Existing Field](../../client-api/session/querying/how-to-filter-by-non-existing-field).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Filter Query Results
----
 
 <Admonition type="note" title="Note">
 
@@ -1321,7 +1319,7 @@ To find all documents in a collection that don't have a specified field, see [Ho
 
 </Admonition>
 
-<Admonition type="info" title="`whereEquals` - Where equals " id="whereequals-where-equals" href="#whereequals-where-equals">
+## `whereEquals` - Where equals 
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1375,9 +1373,9 @@ where FirstName = 'Robert' and LastName = 'King'
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`whereGreaterThan` - Numeric property" id="wheregreaterthan-numeric-property" href="#wheregreaterthan-numeric-property">
+
+## `whereGreaterThan` - Numeric property
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1426,9 +1424,9 @@ where UnitsInStock > 50
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`whereGreaterThan` - Nested property" id="wheregreaterthan-nested-property" href="#wheregreaterthan-nested-property">
+
+## `whereGreaterThan` - Nested property
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1509,9 +1507,9 @@ where Lines.Count > 50
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`whereIn` - Single -vs- Multiple values" id="wherein-single-vs-multiple-values" href="#wherein-single-vs-multiple-values">
+
+## `whereIn` - Single -vs- Multiple values
 
 When you want to check a single value against multiple values, `whereIn` can become handy.  
 To retrieve all employees where `FirstName` is either `Robert` or `Nancy`, we can issue the following query:
@@ -1564,9 +1562,9 @@ where FirstName IN ('Robert', 'Nancy')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`containsAny` - Any value from specified collection" id="containsany-any-value-from-specified-collection" href="#containsany-any-value-from-specified-collection">
+
+## `containsAny` - Any value from specified collection
 
 To check if enumeration contains **any** of the values from a specified collection, 
 use the `containsAny` method.
@@ -1620,9 +1618,9 @@ where Tags IN ('Development', 'Research')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`containsAll` - All values from specified collection" id="containsall-all-values-from-specified-collection" href="#containsall-all-values-from-specified-collection">
+
+## `containsAll` - All values from specified collection
 
 To check if an enumeration contains **all** of the values from a specified collection, 
 use the `containsAll` method.
@@ -1676,9 +1674,9 @@ where Tags ALL IN ('Development', 'Research')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`whereStartsWith` - All records with given prefix" id="wherestartswith-all-records-with-given-prefix" href="#wherestartswith-all-records-with-given-prefix">
+
+## `whereStartsWith` - All records with given prefix
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1713,9 +1711,9 @@ where startsWith(Name, 'ch')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`whereEndsWith` - All records with given suffix" id="whereendswith-all-records-with-given-suffix" href="#whereendswith-all-records-with-given-suffix">
+
+## `whereEndsWith` - All records with given suffix
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1750,9 +1748,9 @@ where endsWith(Name, 'ra')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - Identifier Property" id="where-identifier-property" href="#where-identifier-property">
+
+## Where - Identifier Property
 
 Once a property used in the `whereEquals` clause is recognized as an identity property of a given entity type 
 (according to [`FindIdentityProperty` convention](../../client-api/configuration/identifier-generation/global#findidentityproperty))
@@ -1825,21 +1823,19 @@ where startsWith(id(), 'orders/1')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`whereExists` - Where exists or doesn't exist" id="whereexists-where-exists-or-doesn-t-exist" href="#whereexists-where-exists-or-doesn-t-exist">
+
+## `whereExists` - Where exists or doesn't exist
 
 To find all documents in a collection that have a specified field, see [How to Filter by Field Presence](../../client-api/session/querying/how-to-filter-by-field).  
 
 To find all documents in a collection that don't have a specified field, see [How to Filter by Non-Existing Field](../../client-api/session/querying/how-to-filter-by-non-existing-field).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Filter Query Results
----
 
 <Admonition type="note" title="Note">
 
@@ -1859,10 +1855,7 @@ To find all documents in a collection that don't have a specified field, see [Ho
   * [Where - filter by ID](../../indexes/querying/filtering#where---filter-by-id)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Where - equals" id="where-equals" href="#where-equals">
+## Where - equals
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1911,9 +1904,9 @@ where FirstName == "Robert" and LastName == "King"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - numeric Property" id="where-numeric-property" href="#where-numeric-property">
+
+## Where - numeric Property
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -1999,9 +1992,9 @@ where UnitsInStock < 20
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - nested property" id="where-nested-property" href="#where-nested-property">
+
+## Where - nested property
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -2030,9 +2023,9 @@ where ShipTo.City == "Albuquerque"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - multiple values" id="where-multiple-values" href="#where-multiple-values">
+
+## Where - multiple values
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -2077,9 +2070,9 @@ where ProductNames == "Teatime Chocolate Biscuits"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - in" id="where-in" href="#where-in">
+
+## Where - in
 
 Use `whereIn` when you want to filter by a single value out of multiple given values.  
 
@@ -2126,9 +2119,9 @@ where FirstName in ("Robert", "Nancy")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - containsAny" id="where-containsany" href="#where-containsany">
+
+## Where - containsAny
 
 Use `containsAny` to check if an enumeration contains any of the values from the specified list.
 
@@ -2175,9 +2168,9 @@ where ProductNames in ("ravioli", "coffee")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - containsAll" id="where-containsall" href="#where-containsall">
+
+## Where - containsAll
 
 Use `containsAll` to check if an enumeration contains all of the values from the specified list.
 
@@ -2224,9 +2217,9 @@ where ProductNames all in ("ravioli", "pepper")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - startsWith" id="where-startswith" href="#where-startswith">
+
+## Where - startsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -2255,9 +2248,9 @@ where startsWith(Name, "ch")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - endsWith" id="where-endswith" href="#where-endswith">
+
+## Where - endsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -2286,9 +2279,9 @@ where endsWith(Name, 'ra')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Where - exists" id="where-exists" href="#where-exists">
+
+## Where - exists
 
 * To find all documents in a collection that have a specified field,  
   see [How to Filter by Field Presence](../../client-api/session/querying/how-to-filter-by-field).
@@ -2296,9 +2289,9 @@ where endsWith(Name, 'ra')
 * To find all documents in a collection that don't have a specified field,  
   see [How to Filter by Non-Existing Field](../../client-api/session/querying/how-to-filter-by-non-existing-field).
 
-</Admonition>
 
-<Admonition type="info" title="Where - filter by ID" id="where-filter-by-id" href="#where-filter-by-id">
+
+## Where - filter by ID
 
 * Once the property used in the `whereEquals` clause is recognized as an identity property of a given entity type,  
   and there aren't any other fields involved in the query predicate, then this query is considered a "Collection Query".
@@ -2362,7 +2355,7 @@ where startsWith(id(), "orders/1")
 </CodeBlock>
 </TabItem>
 </Tabs>
-</Admonition>
+
 
 
 </LanguageContent>

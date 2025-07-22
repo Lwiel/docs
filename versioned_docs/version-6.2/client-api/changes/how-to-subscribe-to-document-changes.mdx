@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Changes API: How to Subscribe to Document Changes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Changes API: How to Subscribe to Document Changes
+
 
 Following methods allow you to subscribe to document changes:
 
@@ -22,7 +26,7 @@ Following methods allow you to subscribe to document changes:
 - [ForDocumentsStartingWith](../../client-api/changes/how-to-subscribe-to-document-changes#fordocumentsstartingwith)
 - [ForAllDocuments](../../client-api/changes/how-to-subscribe-to-document-changes#foralldocuments)
 
-<Admonition type="info" title="ForDocument" id="fordocument" href="#fordocument">
+## ForDocument
 
 Single document changes can be observed using `ForDocument` method.
 
@@ -67,9 +71,9 @@ Single document changes can be observed using `ForDocument` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForDocumentsInCollection" id="fordocumentsincollection" href="#fordocumentsincollection">
+
+## ForDocumentsInCollection
 
 To observe all document changes in particular collection use `ForDocumentInCollection` method. This method filters documents by `@collection` metadata property value.
 
@@ -121,9 +125,9 @@ IDisposable subscription = store
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForDocumentsStartingWith" id="fordocumentsstartingwith" href="#fordocumentsstartingwith">
+
+## ForDocumentsStartingWith
 
 To observe all document changes for documents with ID that contains given prefix use `ForDocumentsStartingWith` method.
 
@@ -156,9 +160,9 @@ To observe all document changes for documents with ID that contains given prefix
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForAllDocuments" id="foralldocuments" href="#foralldocuments">
+
+## ForAllDocuments
 
 To observe all document changes use `ForAllDocuments` method.
 
@@ -187,9 +191,9 @@ To observe all document changes use `ForAllDocuments` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="DocumentChange" id="documentchange" href="#documentchange">
+
+## DocumentChange
 
 | Name | Type | Description |
 | ------------- | ------------- | ----- |
@@ -199,9 +203,9 @@ To observe all document changes use `ForAllDocuments` method.
 | **TypeName** | string | Type name |
 | **ChangeVector** | string | Document's ChangeVector|
 
-</Admonition>
 
-<Admonition type="info" title="DocumentChangeTypes" id="documentchangetypes" href="#documentchangetypes">
+
+## DocumentChangeTypes
 
 | Name | Value |
 | ---- | ----- |
@@ -215,7 +219,7 @@ To observe all document changes use `ForAllDocuments` method.
 | **Conflict** | `64` |
 | **Common** | `Put & Delete` |
 
-</Admonition>
+
 
 ## Remarks
 
@@ -227,7 +231,7 @@ To get more method overloads, especially ones supporting **delegates**, please a
 
 </LanguageContent>
 <LanguageContent language="java">
-# Changes API: How to Subscribe to Document Changes
+
 
 Following methods allow you to subscribe to document changes:
 
@@ -236,7 +240,7 @@ Following methods allow you to subscribe to document changes:
 - [forDocumentsStartingWith](../../client-api/changes/how-to-subscribe-to-document-changes#fordocumentsstartingwith)
 - [forAllDocuments](../../client-api/changes/how-to-subscribe-to-document-changes#foralldocuments)
 
-<Admonition type="info" title="forDocument" id="fordocument" href="#fordocument">
+## forDocument
 
 Single document changes can be observed using `forDocument` method.
 
@@ -277,9 +281,9 @@ Single document changes can be observed using `forDocument` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="forDocumentsInCollection" id="fordocumentsincollection" href="#fordocumentsincollection">
+
+## forDocumentsInCollection
 
 To observe all document changes in particular collection use `forDocumentInCollection` method. This method filters documents by `@collection` metadata property value.
 
@@ -335,9 +339,9 @@ CleanCloseable subscription = store
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="forDocumentsStartingWith" id="fordocumentsstartingwith" href="#fordocumentsstartingwith">
+
+## forDocumentsStartingWith
 
 To observe all document changes for documents with ID that contains given prefix use `forDocumentsStartingWith` method.
 
@@ -372,9 +376,9 @@ To observe all document changes for documents with ID that contains given prefix
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="forAllDocuments" id="foralldocuments" href="#foralldocuments">
+
+## forAllDocuments
 
 To observe all document changes use `forAllDocuments` method.
 
@@ -405,9 +409,9 @@ To observe all document changes use `forAllDocuments` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="DocumentChange" id="documentchange" href="#documentchange">
+
+## DocumentChange
 
 | Name | Type | Description |
 | ------------- | ------------- | ----- |
@@ -417,9 +421,9 @@ To observe all document changes use `forAllDocuments` method.
 | **TypeName** | String | Type name |
 | **ChangeVector** | String | Document's ChangeVector|
 
-</Admonition>
 
-<Admonition type="info" title="DocumentChangeTypes" id="documentchangetypes" href="#documentchangetypes">
+
+## DocumentChangeTypes
 
 | Name |
 | ---- |
@@ -433,12 +437,12 @@ To observe all document changes use `forAllDocuments` method.
 | **CONFLICT** |
 | **COMMON** |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Changes API: How to Subscribe to Document Changes
+
 
 Following methods allow you to subscribe to document changes:
 
@@ -447,7 +451,7 @@ Following methods allow you to subscribe to document changes:
 - [forDocumentsStartingWith()](../../client-api/changes/how-to-subscribe-to-document-changes#fordocumentsstartingwith)
 - [forAllDocuments()](../../client-api/changes/how-to-subscribe-to-document-changes#foralldocuments)
 
-<Admonition type="info" title="forDocument" id="fordocument" href="#fordocument">
+## forDocument
 
 Single document changes can be observed using `forDocument()` method.
 
@@ -490,9 +494,9 @@ Single document changes can be observed using `forDocument()` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="forDocumentsInCollection" id="fordocumentsincollection" href="#fordocumentsincollection">
+
+## forDocumentsInCollection
 
 To observe all document changes in particular collection use `forDocumentInCollection()` method. This method filters documents by `@collection` metadata property value.
 
@@ -544,9 +548,9 @@ store.changes()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="forDocumentsStartingWith" id="fordocumentsstartingwith" href="#fordocumentsstartingwith">
+
+## forDocumentsStartingWith
 
 To observe all document changes for documents with ID that contains given prefix use `forDocumentsStartingWith()` method.
 
@@ -580,9 +584,9 @@ To observe all document changes for documents with ID that contains given prefix
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="forAllDocuments" id="foralldocuments" href="#foralldocuments">
+
+## forAllDocuments
 
 To observe all document changes use `forAllDocuments()` method.
 
@@ -611,9 +615,9 @@ To observe all document changes use `forAllDocuments()` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="DocumentChange" id="documentchange" href="#documentchange">
+
+## DocumentChange
 
 | Name | Type | Description |
 | ------------- | ------------- | ----- |
@@ -623,9 +627,9 @@ To observe all document changes use `forAllDocuments()` method.
 | **typeName** | string | Type name |
 | **changeVector** | string | Document's ChangeVector|
 
-</Admonition>
 
-<Admonition type="info" title="DocumentChangeTypes" id="documentchangetypes" href="#documentchangetypes">
+
+## DocumentChangeTypes
 
 | Name |
 | ---- |
@@ -639,7 +643,7 @@ To observe all document changes use `forAllDocuments()` method.
 | **Conflict** |
 | **Common** |
 
-</Admonition>
+
 
 
 </LanguageContent>

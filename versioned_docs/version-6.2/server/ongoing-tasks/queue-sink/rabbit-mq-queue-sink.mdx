@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Queue Sink: RabbitMQ
----
-
 <Admonition type="note" title="Note">
 
 * **RabbitMQ** brokers are designed to disperse data to multiple queues, 
@@ -35,18 +33,12 @@ import LanguageContent from "@site/src/components/language-content";
      * [Add a RabbitMQ Sink Task](../../../server/ongoing-tasks/queue-sink/rabbit-mq-queue-sink#add-a-rabbitmq-sink-task)  
      * [Configuration Options](../../../server/ongoing-tasks/queue-sink/rabbit-mq-queue-sink#configuration-options) 
 </Admonition>
-
----
-
-<Admonition type="info" title="The RabbitMQ Sink Task" id="the-rabbitmq-sink-task" href="#the-rabbitmq-sink-task">
+## The RabbitMQ Sink Task
 
 Users of RavenDB 6.0 and on can create an ongoing Sink task that connects 
 a RabbitMQ broker, retrieves messages from selected queues, runs a user-defined 
 script to manipulate data and construct documents, and potentially stores the 
 created documents in RavenDB collections.  
-
----
-
 #### Connecting a RabbitMQ broker
 
 In the message broker architecture, RavenDB sinks take the role of data consumers.  
@@ -57,17 +49,11 @@ Read [below](../../../server/ongoing-tasks/queue-sink/rabbit-mq-queue-sink#add-a
 about adding a connection string via API.  
 Read [here](../../../studio/database/tasks/ongoing-tasks/rabbitmq-queue-sink#define-a-rabbitmq-sink-task) 
 about adding a connection string using Studio.  
-
----
-
 #### Retrieving messages from RabbitMQ queues
 
 When a message is sent to a RabbitMQ broker by a producer, it is pushed to 
 the tail of a queue. As preceding messages are pulled, the message advances 
 up the queue until it reaches its head and can be consumed by RavenDB's sink.  
-
----
-
 #### Running user-defined scripts
 
 A sink task's script is a JavaScript segment. Its basic role is to retrieve 
@@ -129,9 +115,6 @@ The script can also apply various other JavaScript commands, including
 includes data from the retrieved message and complementing data from 
 existing RavenDB documents), `del` to remove existing RavenDB documents, 
 and [many others](../../../server/kb/javascript-engine#predefined-javascript-functions).  
-
----
-
 #### Storing documents in RavenDB collections
 
 The sink task consumes batches of queued messages and stores them in RavenDB 
@@ -161,9 +144,9 @@ will overwrite a previous document with the same Id and only one copy of
 it will remain.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Client API" id="client-api" href="#client-api">
+
+## Client API
 
 #### Add a RabbitMQ Connection String
 
@@ -210,9 +193,6 @@ var res = store.Maintenance.Send(
     | **Name** | `string` | Connection string name |
     | **BrokerType** | `QueueBrokerType` | Set to `QueueBrokerType.RabbitMq` for a RabbitMQ connection string |
     | **RabbitMqConnectionSettings** | `RabbitMqConnectionSettings[]` | A list of strings indicating RabbitMQ brokers connection details |
-
----
-
 #### Add a RabbitMQ Sink Task
 
 To create the Sink task:  
@@ -303,9 +283,9 @@ AddQueueSinkOperationResult addQueueSinkOperationResult =
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Configuration Options" id="configuration-options" href="#configuration-options">
+
+## Configuration Options
 
 Use these configuration options to gain more control over queue sink tasks.  
 
@@ -315,6 +295,6 @@ Use these configuration options to gain more control over queue sink tasks.
   The maximum number of seconds the Queue Sink process will be in a fallback 
   mode (i.e. suspending the process) after a connection failure.  
 
-</Admonition>
+
 
 

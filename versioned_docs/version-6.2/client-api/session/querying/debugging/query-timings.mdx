@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Include Query Timings
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Include Query Timings
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -36,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Timings in a sharded database](../../../../client-api/session/querying/debugging/query-timings#timings-in-a-sharded-database)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include timings in a query" id="include-timings-in-a-query" href="#include-timings-in-a-query">
+## Include timings in a query
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query-sync" label="Query-sync">
@@ -150,9 +148,9 @@ include timings()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="View timings" id="view-timings" href="#view-timings">
+
+## View timings
 
 * The detailed timings can be viewed from the [Query view](../../../../studio/database/queries/query-view) in the Studio.
 
@@ -161,9 +159,9 @@ include timings()
 
 ![Figure 1. Include timings graphical results](./assets/include-timings.png)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -181,21 +179,18 @@ include timings()
 | __DurationInMs__ | `long`                              | Total duration                                    |
 | __Timings__      | `IDictionary<string, QueryTimings>` | Dictionary with `QueryTimings` info per time part |
 
-</Admonition>
 
-<Admonition type="info" title="Timings in a sharded database" id="timings-in-a-sharded-database" href="#timings-in-a-sharded-database">
+
+## Timings in a sharded database
 
 * In a sharded database, timings for each part are provided __per shard__.
 
 * Learn more in [timings in a sharded database](../../../../sharding/querying#timing-queries).
 
-</Admonition>
+
 
 </LanguageContent>
 <LanguageContent language="java">
-# Include Query Timings
-
----
 
 <Admonition type="note" title="Note">
 
@@ -216,10 +211,7 @@ include timings()
     * [Timings in a sharded database](../../../../client-api/session/querying/debugging/query-timings#timings-in-a-sharded-database)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include timings in a query" id="include-timings-in-a-query" href="#include-timings-in-a-query">
+## Include timings in a query
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -244,9 +236,9 @@ include timings()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="View timings" id="view-timings" href="#view-timings">
+
+## View timings
 
 * The detailed timings can be viewed from the [Query view](../../../../studio/database/queries/query-view) in the Studio.
 
@@ -255,9 +247,9 @@ include timings()
 
 ![Figure 1. Include timings graphical results](./assets/include-timings.png)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="timing_1">
 <CodeBlock language="java">
@@ -273,21 +265,18 @@ The `QueryTimings` object will be filled with the timings when the query returns
 | __durationInMs__ | `long`                   | Total duration                                    |
 | __timings__      | `Map<String, QueryTimings>` | Dictionary with `QueryTimings` info per time part |
 
-</Admonition>
 
-<Admonition type="info" title="Timings in a sharded database" id="timings-in-a-sharded-database" href="#timings-in-a-sharded-database">
+
+## Timings in a sharded database
 
 * In a sharded database, timings for each part are provided __per shard__.
 
 * Learn more in [timings in a sharded database](../../../../sharding/querying#timing-queries).
 
-</Admonition>
+
 
 </LanguageContent>
 <LanguageContent language="python">
-# Include Query Timings
-
----
 
 <Admonition type="note" title="Note">
 
@@ -308,10 +297,7 @@ The `QueryTimings` object will be filled with the timings when the query returns
     * [Timings in a sharded database](../../../../client-api/session/querying/debugging/query-timings#timings-in-a-sharded-database)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include timings in a query" id="include-timings-in-a-query" href="#include-timings-in-a-query">
+## Include timings in a query
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -354,9 +340,9 @@ include timings()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="View timings" id="view-timings" href="#view-timings">
+
+## View timings
 
 * The detailed timings can be viewed from the [Query view](../../../../studio/database/queries/query-view) in the Studio.
 
@@ -365,9 +351,9 @@ include timings()
 
 ![Figure 1. Include timings graphical results](./assets/include-timings.png)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -395,21 +381,18 @@ include timings()
 | **duration_in_ms** | `int` | Total duration |
 | **timings**      | `Dict[str, QueryTimings]` | Dictionary with `QueryTimings` info per time part |
 
-</Admonition>
 
-<Admonition type="info" title="Timings in a sharded database" id="timings-in-a-sharded-database" href="#timings-in-a-sharded-database">
+
+## Timings in a sharded database
 
 * In a sharded database, timings for each part are provided **per shard**.
 
 * Learn more in [timings in a sharded database](../../../../sharding/querying#timing-queries).
 
-</Admonition>
+
 
 </LanguageContent>
 <LanguageContent language="php">
-# Include Query Timings
-
----
 
 <Admonition type="note" title="Note">
 
@@ -430,10 +413,7 @@ include timings()
     * [Timings in a sharded database](../../../../client-api/session/querying/debugging/query-timings#timings-in-a-sharded-database)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include timings in a query" id="include-timings-in-a-query" href="#include-timings-in-a-query">
+## Include timings in a query
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="query" label="query">
@@ -461,9 +441,9 @@ include timings()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="View timings" id="view-timings" href="#view-timings">
+
+## View timings
 
 * The detailed timings can be viewed from Studio's [Query view](../../../../studio/database/queries/query-view).
 
@@ -472,9 +452,9 @@ include timings()
 
 ![Figure 1. Include timings graphical results](./assets/include-timings.png)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -487,21 +467,18 @@ include timings()
 |-------------|----------------|---------------|
 | **&$timings** | `QueryTimings` | A callback function (action) that takes `QueryTimings` as an argument. It will be called by the client with the resulting `QueryTimings`. You can interact with the resulting `QueryTimings` inside your callback. |
 
-</Admonition>
 
-<Admonition type="info" title="Timings in a sharded database" id="timings-in-a-sharded-database" href="#timings-in-a-sharded-database">
+
+## Timings in a sharded database
 
 * In a sharded database, timings for each part are provided **per shard**.
 
 * Learn more in [timings in a sharded database](../../../../sharding/querying#timing-queries).
 
-</Admonition>
+
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Include Query Timings
-
----
 
 <Admonition type="note" title="Note">
 
@@ -522,10 +499,7 @@ include timings()
     * [Timings in a sharded database](../../../../client-api/session/querying/debugging/query-timings#timings-in-a-sharded-database)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include timings in a query" id="include-timings-in-a-query" href="#include-timings-in-a-query">
+## Include timings in a query
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -566,9 +540,9 @@ include timings()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="View timings" id="view-timings" href="#view-timings">
+
+## View timings
 
 * The detailed timings can be viewed from the [Query view](../../../../studio/database/queries/query-view) in the Studio.
 
@@ -577,9 +551,9 @@ include timings()
 
 ![Figure 1. Include timings graphical results](./assets/include-timings.png)
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -597,14 +571,14 @@ include timings()
 | __durationInMs__ | `number`                       | Total duration                                    |
 | __timings__      | `Record<string, QueryTimings>` | Dictionary with `QueryTimings` info per time part |
 
-</Admonition>
 
-<Admonition type="info" title="Timings in a sharded database" id="timings-in-a-sharded-database" href="#timings-in-a-sharded-database">
+
+## Timings in a sharded database
 
 * In a sharded database, timings for each part are provided __per shard__.
 
 * Learn more in [timings in a sharded database](../../../../sharding/querying#timing-queries).
 
-</Admonition>
+
 
 </LanguageContent>

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Authentication: Certificate Management
----
-
 <Admonition type="note" title="Note">
 
 * Once authentication is set up, it's the administrator's responsibility to issue and manage client certificates.  
@@ -41,10 +39,7 @@ In this page:
   * [Client Certificate Chain of Trust](../../../server/security/authentication/certificate-management#client-certificate-chain-of-trust)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Studio Certificates Management View" id="studio-certificates-management-view" href="#studio-certificates-management-view">
+## Studio Certificates Management View
 
 ![Figure 1. Studio Certificates Management View](./assets/studio-certificates-overview.png)
 
@@ -74,9 +69,9 @@ Client certificates are managed by RavenDB directly and not by any [Public Key I
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="The RavenDB Security Authorization Approach" id="the-ravendb-security-authorization-approach" href="#the-ravendb-security-authorization-approach">
+
+## The RavenDB Security Authorization Approach
 
 In general, RavenDB assumes that an application will implement its own logic and business rules, limiting 
 itself to protect the data from unauthorized access. Applications operate on behalf of developers, and as such, they are in a better position than RavenDB to determine what is
@@ -116,18 +111,12 @@ but not to development-oriented data, whereas developers might have read/write o
 Meanwhile, customers likely have read/write certification to their user account, but read-only access to the catalog.  
 
 Thus, RavenDB is designed so that **each client certificate has specific and customizable permissions for various databases as well as configurable authorization levels**.  
-
----
-
 ### Full Access to Database
 RavenDB expects the applications and systems using it to utilize the security infrastructure it provides to prevent unauthorized access, such as a different
 application trying to access the HR database. However, once access is granted, the access is complete.  
 
 RavenDB security infrastructure operates at the level of the entire database. If you are granted access to a database, you can access 
 any and all documents in that database unless protection is explicitly configured.  
-
----
-
 ### Partial Access to Database
 
 There are two approaches to giving partial access to a database:
@@ -184,11 +173,11 @@ It enables developers to control access levels by configuring client certificate
 * To learn how to configure client certificates via CLI, see [Authentication: Client Certificate Usage](../../../server/security/authentication/client-certificate-usage#authentication-client-certificate-usage)
 
 
-</Admonition>
 
 
 
-<Admonition type="info" title="Create and Configure Certificates" id="create-and-configure-certificates" href="#create-and-configure-certificates">
+
+## Create and Configure Certificates
 
 ### List of Registered Certificates 
 
@@ -217,9 +206,6 @@ Each client certificate contains the following:
 6. **Edit Certificate**  
    Configure which databases it can access (applicable for User-level) and its authorization clearance level.  
 7. **Delete Certificate**  
-
----
-
 ### Generate Client Certificate 
 
 Using this view, you can generate client certificates directly via RavenDB.  
@@ -255,9 +241,6 @@ This information is used by RavenDB internally and is not stored in the certific
 Expiration for client certificates is set to 5 years by default.
 
 </Admonition>
-
----
-
 ### Edit Certificate
 
 To edit existing certificates:
@@ -291,9 +274,9 @@ Expiration for client certificates is set to 5 years by default.
 </Admonition>
 
 
-</Admonition>
 
-<Admonition type="info" title="Enabling Communication Between Servers: Importing and Exporting Certificates" id="enabling-communication-between-servers-importing-and-exporting-certificates" href="#enabling-communication-between-servers-importing-and-exporting-certificates">
+
+## Enabling Communication Between Servers: Importing and Exporting Certificates
 
 There are various situations where developers need to create a database with partial access to another server.  
 For example, a source server may contain sensitive information that should not be exposed to the public, but also contain databases that need to be exposed with limited access.  
@@ -322,18 +305,12 @@ b. **Upload** ([import](../../../server/security/authentication/certificate-mana
    * **Upload client certificate**  
      [Import a client certificate](../../../server/security/authentication/certificate-management#upload-an-existing-certificate) 
      that was exported from another server so that the two can communicate.  
-
----
-
 ### Export Server Certificates
 
 ![Figure 6. Export Server Certificates](./assets/export-server-certificates.png)
 
 This option allows you to export the server certificate as a .pfx file. In the case of a cluster which contains several different server certificates, 
 a .pfx [collection](../../../server/security/authentication/certificate-management#certificate-collections) will be exported.
-
----
-
 ### Upload an Existing Certificate
 
 Click the **Client certificate** button, select **Upload client certificate** and you will see the following window.  
@@ -367,19 +344,12 @@ This information is used by RavenDB internally and is not stored in the certific
 Expiration for client certificates is set to 5 years by default.
 
 </Admonition>
-
----
-
 ### Certificate Collections
 
 `.pfx` files may contain a single certificate or a collection of certificates.
 
 When uploading a `.pfx` file with multiple certificates, RavenDB will add all of the certificates to the list of registered certificates as one entry 
 and will allow access to all these certificates explicitly by their thumbprint.
-
-
----
-
 ### Generating Client Certificates Via Command Line Interface
 
 * RavenDB provides an intuitive certificates management GUI in the Studio.  
@@ -388,9 +358,6 @@ and will allow access to all these certificates explicitly by their thumbprint.
   - Be sure to configure the `SecurityClearance` for each client certificate because the default is [cluster admin](../../../server/security/authorization/security-clearance-and-permissions#cluster-admin) which has full access.
   - There are CLI-based means to [generate](../../../server/security/authentication/client-certificate-usage#example-i---using-the-ravendb-cli) and [configure client certificates in Windows](../../../server/security/authentication/client-certificate-usage#example-ii---using-powershell-and-wget-in-windows).  
   - [Linux](../../../server/security/authentication/client-certificate-usage#example-iii--using-curl-in-linux) developers can use this cURL command sample.  
-
----
-
 ### Private Keys
 
 It's important to note that RavenDB does _not_ keep track of the certificate's private key. Whether you generate a client certificate
@@ -402,9 +369,6 @@ If two different RavenDB clusters are communicating securely, and the source clu
 still trust this new certificate - provided that the new certificate is signed with the same private key as the original, and was issued by the 
 same certificate authority. This is accomplished using a [public key pinning hash](../../../server/security/authentication/certificate-renewal-and-rotation#implicit-trust-by-public-key-pinning-hash).  
 </Admonition>
-
----
-
 ### Client Certificate Chain of Trust
 
 As mentioned above, RavenDB generates client certificates by signing them using the server certificate. 
@@ -424,5 +388,5 @@ Because client certificates are managed by RavenDB directly and not through any 
 Authenticating a client certificate is done explicitly by looking for the thumbprint in the registered certificates list in the server 
 and not by validating the chain of trust. 
 
-</Admonition>
+
 

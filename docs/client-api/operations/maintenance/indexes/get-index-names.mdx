@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Get Index Names Operation
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Get Index Names Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -26,10 +27,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-index-names#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get index names example" id="get-index-names-example" href="#get-index-names-example">
+## Get index names example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -60,9 +58,9 @@ string[] indexNames = await store.Maintenance.SendAsync(getIndexNamesOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="get_index_names_syntax">
 <CodeBlock language="csharp">
@@ -80,12 +78,12 @@ string[] indexNames = await store.Maintenance.SendAsync(getIndexNamesOp);
 | - | - |
 | `string[]` | A list of index names.<br/>Alphabetically ordered. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Get Index Names Operation
+
 
 **GetIndexNamesOperation** is used to retrieve multiple index names from a database.
 
@@ -122,9 +120,6 @@ string[] indexNames = await store.Maintenance.SendAsync(getIndexNamesOp);
 
 </LanguageContent>
 <LanguageContent language="python">
-# Get Index Names Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -135,10 +130,7 @@ string[] indexNames = await store.Maintenance.SendAsync(getIndexNamesOp);
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-index-names#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get index names example" id="get-index-names-example" href="#get-index-names-example">
+## Get index names example
 
 <TabItem value="something-something" label="get_index_names">
 <CodeBlock language="python">
@@ -154,9 +146,9 @@ index_names = store.maintenance.send(get_index_names_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="get_index_names_syntax">
 <CodeBlock language="python">
@@ -175,14 +167,11 @@ index_names = store.maintenance.send(get_index_names_op)
 | - | - |
 | `str[]` | A list of index names.<br/> Alphabetically ordered. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Get Index Names Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -192,10 +181,7 @@ index_names = store.maintenance.send(get_index_names_op)
     * [Get index names example](../../../../client-api/operations/maintenance/indexes/get-index-names#get-index-names-example)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get index names example" id="get-index-names-example" href="#get-index-names-example">
+## Get index names example
 
 <TabItem value="something-something" label="get_index_names">
 <CodeBlock language="php">
@@ -212,14 +198,11 @@ $indexNames = $store->maintenance()->send($getIndexNamesOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Index Names Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -230,10 +213,7 @@ $indexNames = $store->maintenance()->send($getIndexNamesOp);
     * [Syntax](../../../../client-api/operations/maintenance/indexes/get-index-names#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get index names example" id="get-index-names-example" href="#get-index-names-example">
+## Get index names example
 
 <TabItem value="something-something" label="get_index_names">
 <CodeBlock language="nodejs">
@@ -249,9 +229,9 @@ const indexNames = await store.maintenance.send(getIndexNamesOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="get_index_names_syntax">
 <CodeBlock language="nodejs">
@@ -269,7 +249,7 @@ const indexNames = await store.maintenance.send(getIndexNamesOp);
 | - | - |
 | `string[]` | A list of index names.<br/>Alphabetically ordered. |
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Indexes: Index Throttling
----
-
 <Admonition type="note" title="Note">
 
 * **Index Throttling** delays indexing operations by a time interval of your choice.  
@@ -35,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [Per-Index](../indexes/index-throttling#index-throttling-in-an-index-definition)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why Use Index Throttling?" id="why-use-index-throttling" href="#why-use-index-throttling">
+## Why Use Index Throttling?
 
 Indexing a rapidly modified group of items (e.g. a time series, a group of counters, 
 or a patched collection) can preoccupy RavenDB with lengthy consecutive indexing of 
@@ -57,9 +52,9 @@ as long as their procession is incomplete.
 They are therefore expected to remain stale longer than indexes that are processed sequentially.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Throttling and Batches" id="throttling-and-batches" href="#throttling-and-batches">
+
+## Throttling and Batches
 
 The delay in index procession increases the size of Item [batches](../server/configuration/indexing-configuration#indexing.mapbatchsize) 
 that are processed during indexing intervals.  
@@ -71,12 +66,9 @@ In special cases, throttled indexes' batches are processed without delay.
 * Accumulated data (collected due to batch size configuration, for example) whose procession 
   requires multiple batches, will be processed with no delay between batches.  
 
-</Admonition>
 
-<Admonition type="info" title="Setting Index Throttling" id="setting-index-throttling" href="#setting-index-throttling">
 
----
-
+## Setting Index Throttling
 ### Server-Wide Index Throttling
 
  Index Throttling can be set server-wide using a designated [configuration option](../server/configuration/configuration-options#settings.json).  
@@ -84,9 +76,6 @@ In special cases, throttled indexes' batches are processed without delay.
 
 * Set the index throttling time interval in Milliseconds using the `Indexing.Throttling.TimeIntervalInMs` configuration option, e.g.:  
   `"Indexing.Throttling.TimeIntervalInMs": "5000"`  
-
----
-
 ### Index Throttling Per-Database 
 
 Enable or disable index throttling for a specific database using the designated database configuration key.  
@@ -115,9 +104,6 @@ Setting this property overrides the
          <Admonition type="warning" title="Warning">
          An edited configuration key's value will become effective only after the database is reloaded.  
          </Admonition>
-
----
-
 ### Index Throttling in an Index Definition
 
 Setting throttling in an index definition overrides [server-wide](../indexes/index-throttling#server-wide-index-throttling) 
@@ -165,5 +151,5 @@ and [database](../indexes/index-throttling#index-throttling-per-database) settin
       4. **Value** - Type the throttling time interval in Milliseconds.  
 
 
-</Admonition>
+
 

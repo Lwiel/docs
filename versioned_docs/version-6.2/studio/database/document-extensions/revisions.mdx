@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Document Extensions: Revisions
----
-
 <Admonition type="note" title="Note">
 
 * **Document Revisions** are snapshots of documents that can be created manually or automatically when a document is created, modified, or deleted.
@@ -27,9 +25,6 @@ import LanguageContent from "@site/src/components/language-content";
   * Viewing revisions
   * Comparing revisions
   * Viewing revisions for deleted documents (Revisions Bin)
-
----
-
 * In this page:
   * [Revisions Tab](../../../studio/database/document-extensions/revisions#revisions-tab)  
   * [Revision inspection](../../../studio/database/document-extensions/revisions#revision-inspection)  
@@ -38,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [Restoring revisions](../../../studio/database/document-extensions/revisions#restoring-revisions)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Revisions Tab" id="revisions-tab" href="#revisions-tab">
+## Revisions Tab
 
 * Located within the Document View,  
   the Revisions Tab displays the full trail of all revisions created for the document.
@@ -63,16 +55,13 @@ import LanguageContent from "@site/src/components/language-content";
 4. **Compare revision**  
    Click to compare this revision with the current live version of the document and with other revisions.  
 
-</Admonition>
 
-<Admonition type="info" title="Revision inspection" id="revision-inspection" href="#revision-inspection">
+
+## Revision inspection
 
 Click the revision timestamp to inspect the revision's contents:
 
 ![Click to Inspect](./assets/click-revision.png)
-
----
-
 The revision will be visible in the Document View,  
 but file editing will Not be available since revisions cannot be modified.
 
@@ -93,17 +82,14 @@ but file editing will Not be available since revisions cannot be modified.
 4. **Revision contents**  
    The content of the revision is displayed in read-only mode.
 
-</Admonition>
 
 
-<Admonition type="info" title="Revisions comparison" id="revisions-comparison" href="#revisions-comparison">
+
+## Revisions comparison
 
 Click the revision's comparison button to compare it with other revisions:
 
 ![Click to Compare](./assets/click-to-compare.png)
-
----
-
 ![Revision Comparison](./assets/revision-comparison.png)
 
 1. **Exit revisions compare mode**  
@@ -118,9 +104,9 @@ Click the revision's comparison button to compare it with other revisions:
 5. **Summary line**  
   This line summarizes the differences found between the two revisions.  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions Bin" id="revisions-bin" href="#revisions-bin">
+
+## Revisions Bin
 
 * This view displays the revisions of deleted documents.
 
@@ -150,9 +136,6 @@ Click the revision's comparison button to compare it with other revisions:
    The change vector of the revision that was created for the document when it was deleted.  
 6. **Deletion date**  
    The date/time when the document was deleted.  
-
----
-
 ### Restoring revisions
 
 Giving a **new document** the ID of a deleted document whose revisions are kept in the Revisions Bin,  
@@ -163,5 +146,5 @@ including the delete-revision created when the old document was deleted and the 
 
 ![Restored Revisions](./assets/restored-revisions.png)
 
-</Admonition>
+
 

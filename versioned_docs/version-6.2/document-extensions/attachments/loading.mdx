@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Attachments: Loading Attachments
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Attachments: Loading Attachments
----
 
 <Admonition type="note" title="Note">
 Learn in this page how to load a part of an attachment, an entire attachment, 
@@ -25,10 +27,7 @@ or multiple attachments.
    * [Load a part of an attachment](../../document-extensions/attachments/loading#load-a-part-of-an-attachment)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Load attachments" id="load-attachments" href="#load-attachments">
+## Load attachments
 
 * Use these methods to load attachments from the database.  
    * **session.Advanced.Attachments.Get**  
@@ -202,9 +201,9 @@ while (attachmentsEnumerator.MoveNext())
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Load a part of an attachment" id="load-a-part-of-an-attachment" href="#load-a-part-of-an-attachment">
+
+## Load a part of an attachment
 
 Use `GetRange` to load a part of an attachment by document ID and the attachment name.  
 
@@ -242,12 +241,12 @@ AttachmentResult file1 = await asyncSession.Advanced.Attachments.GetRangeAsync(
 </TabItem>  
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Attachments: Loading Attachments
+
 
 There are a few methods that allow you to download attachments from a database:   
 
@@ -315,7 +314,7 @@ CloseableAttachmentResult getRevision(String documentId, String name, String cha
 
 </LanguageContent>
 <LanguageContent language="python">
-# Attachments: Loading Attachments
+
 
 Several methods allow you to download attachments from a database:   
 
@@ -386,7 +385,7 @@ def exists(self, document_id: str, name: str) -> bool: ...
 
 </LanguageContent>
 <LanguageContent language="php">
-# Attachments: Loading Attachments
+
 
 Several methods allow you to download attachments from a database:   
 
@@ -449,7 +448,7 @@ try \{
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Attachments: Loading Attachments
+
 
 There are a few methods that allow you to download attachments from a database:   
 

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Stream Time Series Data
+export const supportedLanguages = ["csharp", "java"];
 
----
+
+# Stream Time Series Data
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Examples](../../../document-extensions/timeseries/querying/stream-timeseries#examples)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 ### Stream a time series directly:  
 
@@ -93,9 +91,9 @@ IEnumerator<TimeSeriesStreamResult<T>> Stream(
 | - | - |
 | IEnumerator&lt;[StreamResult](../../../glossary/stream-result)&gt; | Enumerator with entities. |
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 ### Example I
 
@@ -191,14 +189,11 @@ await using (var docStream = await session.Advanced.StreamAsync(query))
 </CodeBlock>
 </TabItem>
 </Tabs>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Stream Time Series Data
-
----
 
 <Admonition type="note" title="Note">
 
@@ -211,10 +206,7 @@ await using (var docStream = await session.Advanced.StreamAsync(query))
   * [Examples](../../../document-extensions/timeseries/querying/stream-timeseries#examples)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 ### Stream a time series directly:  
 
@@ -257,9 +249,9 @@ found [here](../../../client-api/session/querying/how-to-stream-query-results).
 | ------------- | ----- |
 | CloseableIterator&lt;StreamResult&gt; | Iterator with entities. |
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 [comment]: &lt;
 ### Example I
@@ -294,7 +286,7 @@ CloseableIterator<StreamResult<Employee>> results = session.advanced().stream(qu
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

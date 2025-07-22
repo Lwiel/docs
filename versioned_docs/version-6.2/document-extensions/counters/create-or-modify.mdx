@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Create or Modify Counters
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Create or Modify Counters
----
 
 <Admonition type="note" title="Note">
 
@@ -31,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
   - [Syntax](../../document-extensions/counters/create-or-modify#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`Increment` usage" id="increment-usage" href="#increment-usage">
+## `Increment` usage
 
  **Flow**:  
 
@@ -51,9 +50,9 @@ import LanguageContent from "@site/src/components/language-content";
 * Modifying a Counter using `Increment` only takes effect when `session.SaveChanges()` is executed.  
 * To **decrease** a Counter's value, pass the method a negative number to the `Increment` method.  
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something" label="counters_region_Increment">
 <CodeBlock language="csharp">
@@ -76,9 +75,9 @@ using (var session = docStore.OpenSession())
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="Increment-definition">
 <CodeBlock language="csharp">
@@ -92,13 +91,11 @@ using (var session = docStore.OpenSession())
 | `counterName` | string  | Counter's name                                                                                                   |
 | `delta`       | long    | Increase Counter by this value.<br/>Default value is 1.<br/>For a new Counter, this number will be its initial value. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Create or Modify Counters
----
 
 <Admonition type="note" title="Note">
 
@@ -115,10 +112,7 @@ using (var session = docStore.OpenSession())
   - [Syntax](../../document-extensions/counters/create-or-modify#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`increment` usage" id="increment-usage" href="#increment-usage">
+## `increment` usage
 
 **Flow**:  
 
@@ -134,9 +128,9 @@ using (var session = docStore.OpenSession())
 * Modifying a Counter using `increment` only takes effect when `session.saveChanges()` is executed.  
 * To **decrease** a Counter's value, pass the method a negative number to the `increment` method.  
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something-something" label="counters_region_Increment">
 <CodeBlock language="java">
@@ -158,9 +152,9 @@ try (IDocumentSession session = docStore.openSession()) \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="Increment-definition">
 <CodeBlock language="java">
@@ -176,13 +170,11 @@ void increment(String id, String name, long delta);
 | `counterName`    | String | Counter's name                                                                                                   |
 | `incrementValue` | Long   | Increase Counter by this value.<br/>Default value is 1.<br/>For a new Counter, this number will be its initial value. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Create or Modify Counters
----
 
 <Admonition type="note" title="Note">
 
@@ -199,10 +191,7 @@ void increment(String id, String name, long delta);
   - [Syntax](../../document-extensions/counters/create-or-modify#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`increment` usage" id="increment-usage" href="#increment-usage">
+## `increment` usage
 
  **Flow**:  
 
@@ -219,9 +208,9 @@ void increment(String id, String name, long delta);
 * Modifying a Counter using `increment` only takes effect when `session.aave_changes()` is executed.  
 * To **decrease** a Counter's value, pass the method a negative number to the `increment` method.  
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something-something" label="counters_region_Increment">
 <CodeBlock language="python">
@@ -248,9 +237,9 @@ with store.open_session() as session:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="Increment-definition">
 <CodeBlock language="python">
@@ -264,13 +253,11 @@ with store.open_session() as session:
 | **counter_name** | `str` | Counter's name  |
 | **delta**        | `int` | Increase Counter by this value.<br/>Default value is 1.<br/>For a new Counter, this number will be its initial value. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Create or Modify Counters
----
 
 <Admonition type="note" title="Note">
 
@@ -287,10 +274,7 @@ with store.open_session() as session:
   - [Syntax](../../document-extensions/counters/create-or-modify#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`increment` usage" id="increment-usage" href="#increment-usage">
+## `increment` usage
 
  **Flow**:  
 
@@ -307,9 +291,9 @@ with store.open_session() as session:
 * Modifying a Counter using `increment` only takes effect when `session.aaveChanges()` is executed.  
 * To **decrease** a Counter's value, pass the method a negative number to the `increment` method.  
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something-something" label="counters_region_Increment">
 <CodeBlock language="php">
@@ -340,9 +324,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="CountersFor-definition">
 <CodeBlock language="php">
@@ -354,9 +338,6 @@ try \{
 | Parameter        | Type  | Description     |
 |------------------|-------|-----------------|
 | **idOrEntity** | `string` or `object`| The object to create or modify counters for |
-
----
-
 <TabItem value="something-something" label="Increment-definition">
 <CodeBlock language="php">
 {`public function increment(?string $counter, int $delta = 1): void;
@@ -369,13 +350,11 @@ try \{
 | **counter** | `string` | Counter name  |
 | **delta** | `int` | Increase Counter by this value.<br/>Default value is 1.<br/>For a new Counter, this number will be its initial value. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Create or Modify Counters
----
 
 <Admonition type="note" title="Note">
 
@@ -392,10 +371,7 @@ try \{
   - [Syntax](../../document-extensions/counters/create-or-modify#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`Increment` usage" id="increment-usage" href="#increment-usage">
+## `Increment` usage
 
  **Flow**:  
 
@@ -412,9 +388,9 @@ try \{
 * Modifying a Counter using `increment` only takes effect when `session.saveChanges()` is executed.  
 * To **decrease** a Counter's value, pass the method a negative number to the `increment` method.  
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 <TabItem value="something-something" label="create_or_modify">
 <CodeBlock language="nodejs">
@@ -442,9 +418,9 @@ await session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -459,7 +435,7 @@ increment(counter, delta);
 | `counter`     | string  | The counter's name                                                                                                   |
 | `delta`       | long    | Increase Counter by this value.<br/>Default value is 1.<br/>For a new Counter, this number will be its initial value. |
 
-</Admonition>
+
 
 
 </LanguageContent>

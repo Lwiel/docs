@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Session: How to Get Entity Last Modified 
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: How to Get Entity Last Modified 
+
 
 When a document is downloaded from the server it contains various metadata information, including the last modified date of the document.  
 
@@ -50,7 +54,7 @@ DateTime? lastModified = session.Advanced.GetLastModifiedFor(employee);
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Get Entity Last Modified 
+
 
 When a document is downloaded from the server it contains various metadata information, including the last modified date of the document.  
 
@@ -87,7 +91,7 @@ Date lastModified = session.advanced().getLastModifiedFor(employee);
 
 </LanguageContent>
 <LanguageContent language="python">
-# Session: How to Get Entity Last Modified 
+
 
 When a document is downloaded from the server it contains various metadata details, 
 including the last modified date of the document.  
@@ -125,7 +129,7 @@ last_modified = session.advanced.get_last_modified_for(employee)
 
 </LanguageContent>
 <LanguageContent language="php">
-# Session: How to Get Entity Last Modified 
+
 
 When a document is downloaded from the server it contains various metadata details, 
 including the last modified date of the document.  
@@ -163,7 +167,7 @@ $lastModified = $session->advanced()->getLastModifiedFor($employee);
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: How to Get Entity Last Modified 
+
 
 When a document is downloaded from the server it contains various metadata information, including the last modified date of the document.  
 

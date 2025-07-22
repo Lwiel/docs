@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Cloud: Scaling
----
-
 <Admonition type="note" title="Note">
 
 After a RavenDB [Cloud instance](../cloud/cloud-instances) has been set up, you can **scale it** up and down to modify the 
@@ -34,10 +32,7 @@ two RavenDB instances using:
      - [Adding a node to a database group](#additional-product-nodes---adding-a-node-to-a-database-group)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Scaling Up/Down - General" id="scaling-up-down-general" href="#scaling-up-down-general">
+## Scaling Up/Down - General
 
 To scale a RavenDB Cloud instance, open your [portal](../cloud/portal/cloud-portal)'s [Products tab](../cloud/portal/cloud-portal-products-tab) 
 and click the **Manage** button for the product you want to change.
@@ -73,8 +68,8 @@ In the figure above, the **Disk Throughput** parameter is lower than the **Insta
 To avoid IO throttling by the instance type, make sure to use an instance type able to fully utilize your disk capabilities.
 </Admonition>
 
-</Admonition>
-<Admonition type="info" title="Scaling - Change Instance Type" id="scaling-change-instance-type" href="#scaling-change-instance-type">
+
+## Scaling - Change Instance Type
 
 Use the **CPU Priority** and **Cluster Size** slide bars to compose a configuration 
 that would allow your product to properly handle its expected workload.  
@@ -85,16 +80,13 @@ You can upscale or downscale only within the current Product Tier. The *Developm
 for example, can upscale to **Dev50**, but not to the Production Tier **PB10** configuration.  
 Your databases and data will be automatically migrated into your new configuration.
 
-</Admonition>
-<Admonition type="info" title="Scaling - Change Storage" id="scaling-change-storage" href="#scaling-change-storage"> 
+
+## Scaling - Change Storage 
 
 There are two types of storage: **Standard** and **Premium**. They differ significantly in capabilities and customization options 
 depending on the cloud provider in question. Pick either to change your current storage capacity.  
 
 ![Figure 5 - Scaling storage](./assets/portal-product-details-edit-storage.png)
-
----
-
 ### AWS Disks
 
 #### AWS Standard & Premium - Default Performance
@@ -103,9 +95,6 @@ The performance of **Standard** Disks is always the same, regardless of Disk siz
 The parameters are **3000 IOPS** and **125 MB/s** of **Throughput**.
 
 For **Premium** Disks, the **IOPS** parameter is set to **500** by default. The **Throughput** parameter is based on the number of IOPS you have with the maximum of 4000MB/s.
-
----
-
 #### AWS Premium - IOPS customization
 
 The **Premium** Disk type on **AWS** lets you choose the number of **IOPS** (Input/Output Operations Per Second) that the instance can handle.
@@ -115,9 +104,6 @@ The **Premium** Disk type on **AWS** lets you choose the number of **IOPS** (Inp
 <Admonition type="info" title="Info">
 The cost per IOPS is dependent on the selected region.
 </Admonition>
-
----
-
 ### Azure Disks
 
 #### Azure Standard & Premium - Default Performance
@@ -128,9 +114,6 @@ The parameters are **500 IOPS** and **60 MB/s** of **Throughput**.
 The performance of **Premium** Disks increases with their size.
 
 For more details please visit the [Pricing page](https://cloud.ravendb.net/pricing).
-
----
-
 #### Azure Premium - Azure Performance Tier customization
 
 To handle events that temporarily require higher 
@@ -145,18 +128,15 @@ The cost of running on a higher *Performance Tier* is the same as
 running on a Disk of size for which a given *Performance Tier* is the
 default one.
 </Admonition>
-
----
-
 ### GCP Disks
 
 <Admonition type="info" title="Info">
 **GCP** offers only **Premium** Disk type.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Additional product nodes - General" id="additional-product-nodes-general" href="#additional-product-nodes-general">
+
+## Additional product nodes - General
 The *Production Tier* products can be expanded by adding *additional nodes* to the cluster.
 
 ![Figure 8 - Cluster view with additional product nodes](./assets/studio-cluster-view-with-additional-nodes.png)
@@ -170,26 +150,13 @@ Nodes *A*, *B*, *C* **cannot be removed**.
 <Admonition type="warning" title="Warning">
 The process of adding a new node **does not guarantee** that the node will be distributed in separated *Availability Zone*.
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Additional product nodes - Adding a node to a database group" id="additional-product-nodes-adding-a-node-to-a-database-group" href="#additional-product-nodes-adding-a-node-to-a-database-group">
+
+## Additional product nodes - Adding a node to a database group
 The new product node **does not belong to any database group**. The User should do this *manually* by adding the new node to the database group.  
 This operation is described [here](https://ravendb.net/docs/article-page/latest/csharp/studio/database/settings/manage-database-group#database-group-topology---add-new-node).
 
 ![Figure 9 - Add a new node to the database group](./assets/studio-add-new-node-to-database-group.png)
 
-</Admonition>
 
-## Related Articles
 
-**Cloud**  
-[Overview](cloud-overview)  
-[Tiers and Instances](cloud-instances)  
-[Pricing, Payment and Billing](cloud-pricing-payment-billing)  
-[Migration](cloud-migration)
-
-  
-[Portal](../cloud/portal/cloud-portal)  
-  
-[RavenDB on Burstable Instances](https://ayende.com/blog/187681-B/running-ravendb-on-burstable-cloud-instances)  
-[AWS CPU Credits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html)  

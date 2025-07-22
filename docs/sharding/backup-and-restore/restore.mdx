@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding: Restore
----
-
 <Admonition type="note" title="Note">
 
 * A sharded database's backup is a set of backup files that were 
@@ -52,10 +50,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Restore Options Summary](../../sharding/backup-and-restore/restore#restore-options-summary)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Restore" id="restore" href="#restore">
+## Restore
 
 To restore a sharded database, we need to:  
 
@@ -135,9 +130,6 @@ a **configuration object**.
     | `RestoreFromS3Configuration` | AWS S3 Bucket | `S3Settings` (see S3 [example](../../sharding/backup-and-restore/restore#examples)) |
     | `RestoreFromAzureConfiguration` | MS Azure Blob | `AzureSettings` (see Azure [example](../../sharding/backup-and-restore/restore#examples)) |
     | `RestoreFromGoogleCloudConfiguration` | Google Cloud Bucket | `GoogleCloudSettings` (see Google Cloud [example](../../sharding/backup-and-restore/restore#examples)) |
-
----
-
 ### `RestoreBackupConfigurationBase`
 `RestoreBackupConfigurationBase` is a parent class to all the configuration types 
 mentioned above, allowing you to set backups **encryption settings** among other options.  
@@ -439,9 +431,9 @@ var operation = await docStore.Maintenance.Server.SendAsync(restoreBackupOperati
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Restoring to a Selected Restore Point" id="restoring-to-a-selected-restore-point" href="#restoring-to-a-selected-restore-point">
+
+## Restoring to a Selected Restore Point
 
 ### The default procedure
 When a **full backup** is created, (for either a non sharded database or for 
@@ -625,9 +617,9 @@ var operation = await docStore.Maintenance.Server.SendAsync(restoreBackupOperati
 </TabItem>
   </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Restore Options Summary" id="restore-options-summary" href="#restore-options-summary">
+
+## Restore Options Summary
 
 | Option | Supported on a Sharded Database | Comment |
 | -------------------- | --------------- | --------------------- |
@@ -642,5 +634,5 @@ var operation = await docStore.Maintenance.Server.SendAsync(restoreBackupOperati
 | Restore a **Snapshot** database backup | **No** | A snapshot backup CANNOT be restored by a sharded database. |
 | Restore backed-up shards in a different order than the original | **No** | Always restore the shards in their original order. |
 
-</Admonition>
+
 

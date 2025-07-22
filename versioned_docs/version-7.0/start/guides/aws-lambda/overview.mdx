@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Guides: AWS Lambda (.NET C#)
----
-
 <Admonition type="note" title="Note">
 
 * **AWS Lambda** is a serverless platform that supports multiple languages and frameworks 
@@ -39,7 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Before We Get Started" id="before-we-get-started" href="#before-we-get-started">
+## Before We Get Started
 
 You will need the following before continuing:  
 
@@ -54,9 +52,9 @@ You will need the following before continuing:
 If you are new to AWS Lambda local development, see the [AWS Lambda Developer Guide][aws-lambda] 
 for how to get up and running with your toolchain of choice.  
 
-</Admonition>
 
-<Admonition type="info" title="Create a Local Lambda Function" id="create-a-local-lambda-function" href="#create-a-local-lambda-function">
+
+## Create a Local Lambda Function
 
 The [RavenDB AWS Lambda C# template][template] is a template repository on GitHub which means 
 you can either create a new repository derived from the template or clone and push it to a new repository.  
@@ -169,10 +167,10 @@ One is your AWS credentials, stored in  `~/.aws/credentials` and the other is th
 
 Learn more about [setting up AWS credentials or the default AWS region][aws-dotnet-project-setup].  
 
-</Admonition>
 
 
-<Admonition type="info" title="Configuring Local Connection to RavenDB" id="configuring-local-connection-to-ravendb" href="#configuring-local-connection-to-ravendb">
+
+## Configuring Local Connection to RavenDB
 
 To configure the local version of your AWS Lambda function to connect to RavenDB, 
 you will need to update the `appsettings.json` file with the `RavenSettings.Urls` 
@@ -261,9 +259,9 @@ a large team and help you better manage the lifecycle of your certificates.
 
 The configuration will be loaded from AWS Secrets Manager if it exists, otherwise `appsettings.json` will be used.  
 
-</Admonition>
 
-<Admonition type="info" title="Deploying to AWS" id="deploying-to-aws" href="#deploying-to-aws">
+
+## Deploying to AWS
 
 At this point, the local Lambda app is ready to be deployed.  
 There are 4 main ways to deploy your new AWS Lambda function:  
@@ -363,9 +361,9 @@ Once deployed, using the default settings, the Function will connect to the Live
 By default, configuration will be loaded from `appsettings.json` but it is likely you may have 
 different configuration needed once the Lambda function is deployed.  
 
-</Admonition>
 
-<Admonition type="info" title="Configuring Production Connection to RavenDB" id="configuring-production-connection-to-ravendb" href="#configuring-production-connection-to-ravendb">
+
+## Configuring Production Connection to RavenDB
 
 To configure the production version of your AWS Lambda function to connect to RavenDB, you will 
 need to override your app settings through environment variables or, optionally, using AWS Secrets Manager.  
@@ -438,9 +436,9 @@ relying on production environment variables.
 
 [Learn more about configuring AWS Secrets Manager](secrets-manager "Learn more about configuring AWS Secrets Manager")
 
-</Admonition>
 
-<Admonition type="info" title="Verify the Connection Works" id="verify-the-connection-works" href="#verify-the-connection-works">
+
+## Verify the Connection Works
 
 Once the environment variables are set up correctly, your Lambda function should authenticate 
 successfully to your cluster.  
@@ -451,9 +449,9 @@ You should see a welcome screen like this with the connection information:
 
 This means your Lambda function is correctly configured and ready to work with RavenDB.  
 
-</Admonition>
 
-<Admonition type="info" title="Using RavenDB in the Lambda Function" id="using-ravendb-in-the-lambda-function" href="#using-ravendb-in-the-lambda-function">
+
+## Using RavenDB in the Lambda Function
 
 The template sets up a singleton `DocumentStore` and dependency injection for the 
 `IAsyncDocumentStore` per handler invocation which you can inject into Function classes.  
@@ -561,22 +559,22 @@ public class Functions
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Next Steps" id="next-steps" href="#next-steps">
+
+## Next Steps
 
 * For more robust certificate handling, [configure AWS Secrets Manager support][docs-lambda-secrets]  
 * Learn more about [deployment considerations](deployment) for RavenDB and AWS Lambda  
 * Learn more about [using the RavenDB .NET client SDK][ravendb-dotnet]  
 
-</Admonition>
 
-<Admonition type="info" title="Tutorial Video" id="tutorial-video" href="#tutorial-video">
+
+## Tutorial Video
 
 Watch our _How To Use AWS Lambda with RavenDB .NET_ tutorial:  
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/T2r9sqrTrYE?si=mLHnncOBhcSbcJh5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
 
-</Admonition>
+
 
 [download-dotnet]: https://dotnet.microsoft.com/en-us/download/dotnet/6.0
 [aws-lambda]: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html

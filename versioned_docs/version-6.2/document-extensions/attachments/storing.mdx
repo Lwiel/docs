@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Attachments: Storing Attachments
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Attachments: Storing Attachments
+
 
 In order to store an attachment in RavenDB you need to create a document. Then you can attach an attachment to the document using the `session.Advanced.Attachments.Store` method.
 
@@ -91,7 +95,7 @@ using (var file4 = File.Open("004.mp4", FileMode.Open))
 
 </LanguageContent>
 <LanguageContent language="java">
-# Attachments: Storing Attachments
+
 
 In order to store an attachment in RavenDB you need to create a document. Then you can attach an attachment to the document using the `session.advanced().attachments().store` method.
 
@@ -150,7 +154,7 @@ void store(Object entity, String name, InputStream stream, String contentType);
 
 </LanguageContent>
 <LanguageContent language="python">
-# Attachments: Storing Attachments
+
 
 To store an attachment in RavenDB, you need to first create a document.  
 Then, you can attach an attachment to the document using the `session.advanced.attachments.store` method.  
@@ -206,7 +210,7 @@ Attachments can be stored using `session.advanced.attachments.store`:
 
 </LanguageContent>
 <LanguageContent language="php">
-# Attachments: Storing Attachments
+
 
 To store an attachment in RavenDB, you need to first create a document.  
 Then, you can attach an attachment to the document using `session.advanced.attachments.store` 
@@ -263,7 +267,7 @@ try \{
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Attachments: Storing Attachments
+
 
 In order to store an attachment in RavenDB you need to create a document. Then you can attach an attachment to the document using the `session.advanced.attachments.store()` method.
 

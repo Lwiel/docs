@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Querying: MoreLikeThis
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Querying: MoreLikeThis
----
 
 <Admonition type="note" title="Note">
 
@@ -32,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Remarks](../../indexes/querying/morelikethis#remarks)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Setup" id="setup" href="#setup">
+## Setup
 
 To be able to work, `MoreLikeThis` requires access to the index text.  
 The queried index needs, therefore, to [store](../../indexes/storing-data-in-index) 
@@ -68,9 +67,9 @@ public class Articles_ByArticleBody : AbstractIndexCreationTask<Article>
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Basic Usage" id="basic-usage" href="#basic-usage">
+
+## Basic Usage
 
 Many `MoreLikeThis` options are set by default.  
 The simplest mode will satisfy most usage scenarios.  
@@ -146,9 +145,9 @@ where morelikethis(id() = 'articles/1', '{ "Fields" : [ "ArticleBody" ] }')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Options" id="options" href="#options">
+
+## Options
 
 Default parameters can be changed by manipulating `MoreLikeThisOptions` properties and passing them 
 to `MoreLikeThis`.
@@ -168,9 +167,9 @@ to `MoreLikeThis`.
 | **StopWordsDocumentId** | `string` | Document ID containing custom stop words |
 | **Fields** | `string[]` | Fields to compare |
 
-</Admonition>
 
-<Admonition type="info" title="Stop Words" id="stop-words" href="#stop-words">
+
+## Stop Words
 
 Some Lucene analyzers have a built-in list of common English words that are usually not useful 
 for searching, like "a", "as", "the", etc.  
@@ -192,9 +191,9 @@ A document with a list of stop words can be stored in RavenDB by storing the `Mo
 
 The document ID will then be set in the `MoreLikeThisOptions`.
 
-</Admonition>
 
-<Admonition type="info" title="Remarks" id="remarks" href="#remarks">
+
+## Remarks
 
 <Admonition type="info" title="Info">
 Please note that default values for settings, like `MinimumDocumentFrequency`, `MinimumTermFrequency`, 
@@ -202,13 +201,11 @@ and `MinimumWordLength`, may result in filtering out related articles, especiall
 (e.g. during development). 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Querying: MoreLikeThis
----
 
 <Admonition type="note" title="Note">
 
@@ -226,10 +223,7 @@ and `MinimumWordLength`, may result in filtering out related articles, especiall
     * [Remarks](../../indexes/querying/morelikethis#remarks)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Setup" id="setup" href="#setup">
+## Setup
 
 To be able to work, `MoreLikeThis` requires access to the index text.  
 The queried index needs, therefore, to [store](../../indexes/storing-data-in-index) 
@@ -282,9 +276,9 @@ public class Articles_ByArticleBody extends AbstractIndexCreationTask \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Basic Usage" id="basic-usage" href="#basic-usage">
+
+## Basic Usage
 
 Many `MoreLikeThis` options are set by default.  
 The simplest mode will satisfy most usage scenarios.  
@@ -334,9 +328,9 @@ where morelikethis(id() = 'articles/1', '{ "Fields" : [ "articleBody" ] }')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Options" id="options" href="#options">
+
+## Options
 
 Default parameters can be changed by manipulating `MoreLikeThisOptions` properties and passing them 
 to `MoreLikeThis`.
@@ -356,9 +350,9 @@ to `MoreLikeThis`.
 | **StopWordsDocumentId** | `String` | Document ID containing custom stop words |
 | **Fields** | `String[]` | Fields to compare |
 
-</Admonition>
 
-<Admonition type="info" title="Stop Words" id="stop-words" href="#stop-words">
+
+## Stop Words
 
 Some Lucene analyzers have a built-in list of common English words that are usually not useful 
 for searching, like "a", "as", "the", etc.  
@@ -378,9 +372,9 @@ session.store(stopWords, "Config/Stopwords");
 
 The document ID will then be set in the `MoreLikeThisOptions`.
 
-</Admonition>
 
-<Admonition type="info" title="Remarks" id="remarks" href="#remarks">
+
+## Remarks
 
 <Admonition type="info" title="Info">
 Please note that default values for settings, like `MinimumDocumentFrequency`, `MinimumTermFrequency`, 
@@ -388,13 +382,11 @@ and `MinimumWordLength`, may result in filtering out related articles, especiall
 (e.g. during development). 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Querying: More Like This
----
 
 <Admonition type="note" title="Note">
 
@@ -412,10 +404,7 @@ and `MinimumWordLength`, may result in filtering out related articles, especiall
     * [Remarks](../../indexes/querying/morelikethis#remarks)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Setup" id="setup" href="#setup">
+## Setup
 
 To be able to work, `more_like_this` requires access to the index text.  
 The queried index needs, therefore, to [store](../../indexes/storing-data-in-index) 
@@ -447,9 +436,9 @@ class Articles_ByArticleBody(AbstractIndexCreationTask):
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Basic Usage" id="basic-usage" href="#basic-usage">
+
+## Basic Usage
 
 Many `more_like_this` options are set by default.  
 The simplest mode will satisfy most usage scenarios.  
@@ -500,9 +489,9 @@ where morelikethis(id() = 'articles/1', '{ "Fields" : [ "ArticleBody" ] }')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Options" id="options" href="#options">
+
+## Options
 
 Default parameters can be changed by manipulating `MoreLikeThisOptions` properties and passing them 
 to `more_like_this`.
@@ -522,9 +511,9 @@ to `more_like_this`.
 | **stop_words_document_id** | `str` | Document ID containing custom stop words |
 | **fields** | `List[str]` | Fields to compare |
 
-</Admonition>
 
-<Admonition type="info" title="Stop Words" id="stop-words" href="#stop-words">
+
+## Stop Words
 
 Some Lucene analyzers have a built-in list of common English words that are usually not useful 
 for searching, like "a", "as", "the", etc.  
@@ -543,9 +532,9 @@ session.store(stop_words, "Config/Stopwords")
 
 The document ID will then be set in the `MoreLikeThisOptions`.
 
-</Admonition>
 
-<Admonition type="info" title="Remarks" id="remarks" href="#remarks">
+
+## Remarks
 
 <Admonition type="info" title="Info">
 Please note that default values for settings, like `MinimumDocumentFrequency`, `MinimumTermFrequency`, 
@@ -553,13 +542,11 @@ and `MinimumWordLength`, may result in filtering out related articles, especiall
 (e.g. during development). 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Querying: More Like This
----
 
 <Admonition type="note" title="Note">
 
@@ -577,10 +564,7 @@ and `MinimumWordLength`, may result in filtering out related articles, especiall
     * [Remarks](../../indexes/querying/morelikethis#remarks)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Setup" id="setup" href="#setup">
+## Setup
 
 To be able to work, `moreLikeThis` requires access to the index text.  
 The queried index needs, therefore, to [store](../../indexes/storing-data-in-index) 
@@ -641,9 +625,9 @@ class Articles_ByArticleBody extends AbstractIndexCreationTask
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Basic Usage" id="basic-usage" href="#basic-usage">
+
+## Basic Usage
 
 Many `moreLikeThis` options are set by default.  
 The simplest mode will satisfy most usage scenarios.  
@@ -739,9 +723,9 @@ where morelikethis(id() = 'articles/1', '{ "Fields" : [ "ArticleBody" ] }')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Options" id="options" href="#options">
+
+## Options
 
 Default parameters can be changed by manipulating `MoreLikeThisOptions` properties and passing them 
 to `moreLikeThis`.
@@ -764,9 +748,9 @@ to `moreLikeThis`.
 
 
 
-</Admonition>
 
-<Admonition type="info" title="Stop Words" id="stop-words" href="#stop-words">
+
+## Stop Words
 
 Some Lucene analyzers have a built-in list of common English words that are usually not useful 
 for searching, like "a", "as", "the", etc.  
@@ -787,9 +771,9 @@ $session->store($mlt);
 
 The document ID will then be set in the `MoreLikeThisOptions`.
 
-</Admonition>
 
-<Admonition type="info" title="Remarks" id="remarks" href="#remarks">
+
+## Remarks
 
 <Admonition type="info" title="Info">
 Please note that default values for settings, like `MinimumDocumentFrequency`, `MinimumTermFrequency`, 
@@ -797,13 +781,11 @@ and `MinimumWordLength`, may result in filtering out related articles, especiall
 (e.g. during development). 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Querying: moreLikeThis
----
 
 <Admonition type="note" title="Note">
 
@@ -821,10 +803,7 @@ and `MinimumWordLength`, may result in filtering out related articles, especiall
     * [Remarks](../../indexes/querying/morelikethis#remarks)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Setup" id="setup" href="#setup">
+## Setup
 
 To be able to work, `MoreLikeThis` requires access to the index text.  
 The queried index needs, therefore, to [store](../../indexes/storing-data-in-index) 
@@ -856,9 +835,9 @@ class Articles_ByArticleBody extends AbstractIndexCreationTask \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Basic Usage" id="basic-usage" href="#basic-usage">
+
+## Basic Usage
 
 Many `MoreLikeThis` options are set by default.  
 The simplest mode will satisfy most usage scenarios.  
@@ -911,9 +890,9 @@ where morelikethis(id() = 'articles/1', '{ "Fields" : [ "articleBody" ] }')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Options" id="options" href="#options">
+
+## Options
 
 Default parameters can be changed by manipulating `MoreLikeThisOptions` properties and passing them 
 to `MoreLikeThis`.
@@ -933,9 +912,9 @@ to `MoreLikeThis`.
 | **stopWordsDocumentId** | `string` | Document ID containing custom stop words |
 | **fields** | `string[]` | Fields to compare |
 
-</Admonition>
 
-<Admonition type="info" title="Stop Words" id="stop-words" href="#stop-words">
+
+## Stop Words
 
 Some Lucene analyzers have a built-in list of common English words that are usually not useful 
 for searching, like "a", "as", "the", etc.  
@@ -955,7 +934,7 @@ await session.store(stopWords, "Config/Stopwords");
 
 The document ID will then be set in the `MoreLikeThisOptions`.
 
-<Admonition type="info" title="Remarks" id="remarks" href="#remarks">
+## Remarks
 
 <Admonition type="info" title="Info">
 Please note that default values for settings, like `minimumDocumentFrequency`, `minimumTermFrequency`, 
@@ -963,8 +942,8 @@ and `minimumWordLength`, may result in filtering out related articles, especiall
 (e.g. during development). 
 </Admonition>
 
-</Admonition>
-</Admonition>
+
+
 
 
 </LanguageContent>

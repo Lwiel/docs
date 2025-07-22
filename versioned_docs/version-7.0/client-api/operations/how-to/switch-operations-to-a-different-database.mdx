@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Switch Operations to a Different Database
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Switch Operations to a Different Database
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Common operation: `Operations.ForDatabase`](../../../client-api/operations/how-to/switch-operations-to-a-different-database#common-operation:-operations.fordatabase)
     * [Maintenance operation: `Maintenance.ForDatabase`](../../../client-api/operations/how-to/switch-operations-to-a-different-database#maintenance-operation:-maintenance.fordatabase)
 </Admonition>
-
----
-
-<Admonition type="info" title="Common operation: `Operations.ForDatabase`" id="common-operation-operations-fordatabase" href="#common-operation-operations-fordatabase">
+## Common operation: `Operations.ForDatabase`
 
 * For reference, all common operations are listed [here](../../../client-api/operations/what-are-operations#common-operations).
 
@@ -60,9 +58,6 @@ using (documentStore)
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something" label="syntax_1">
@@ -80,9 +75,9 @@ using (documentStore)
 | - | - |
 | `OperationExecutor` | New instance of Operation Executor that is scoped to the requested database |
 
-</Admonition>
 
-<Admonition type="info" title="Maintenance operation: `Maintenance.ForDatabase`" id="maintenance-operation-maintenance-fordatabase" href="#maintenance-operation-maintenance-fordatabase">
+
+## Maintenance operation: `Maintenance.ForDatabase`
 
 * For reference, all maintenance operations are listed [here](../../../client-api/operations/what-are-operations#maintenance-operations).
 
@@ -111,9 +106,6 @@ using (documentStore = new DocumentStore())
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something" label="syntax_2">
@@ -131,16 +123,16 @@ using (documentStore = new DocumentStore())
 | - | - |
 | `MaintenanceOperationExecutor` | New instance of Maintenance Operation Executor that is scoped to the requested database |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Switch Operations to a Different Database
+
 
 By default, the operations available directly in store are working on a default database that was setup for that store. To switch operations to a different database that is available on that server use the **forDatabase** method.
 
-<Admonition type="info" title="Operations.forDatabase" id="operations-fordatabase" href="#operations-fordatabase">
+## Operations.forDatabase
 
 <TabItem value="something-something" label="for_database_1">
 <CodeBlock language="java">
@@ -166,13 +158,13 @@ By default, the operations available directly in store are working on a default 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 ## How to Switch Maintenance Operations to a Different Database
 
 As with `operations`, by default the `maintenance` operations available directly in store are working on a default database that was setup for that store. To switch maintenance operations to a different database use the **forDatabase** method.
 
-<Admonition type="info" title="Maintenance.forDatabase" id="maintenance-fordatabase" href="#maintenance-fordatabase">
+## Maintenance.forDatabase
 
 <TabItem value="something-something" label="for_database_2">
 <CodeBlock language="java">
@@ -198,14 +190,11 @@ As with `operations`, by default the `maintenance` operations available directly
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Switch Operations to a Different Database
-
----
 
 <Admonition type="note" title="Note">
 
@@ -218,10 +207,7 @@ As with `operations`, by default the `maintenance` operations available directly
     * [Common operation: `operations.for_database`](../../../client-api/operations/how-to/switch-operations-to-a-different-database#common-operation:-operations.for_database)
     * [Maintenance operation: `maintenance.for_database`](../../../client-api/operations/how-to/switch-operations-to-a-different-database#maintenance-operation:-maintenance.for_database)
 </Admonition>
-
----
-
-<Admonition type="info" title="Common operation: `operations.for_database`" id="common-operation-operations-for_database" href="#common-operation-operations-for_database">
+## Common operation: `operations.for_database`
 
 * For reference, all common operations are listed [here](../../../client-api/operations/what-are-operations#common-operations).
 
@@ -243,9 +229,6 @@ with document_store:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something-something" label="syntax_1">
@@ -263,9 +246,9 @@ with document_store:
 | - | - |
 | `OperationExecutor` | New instance of Operation Executor that is scoped to the requested database |
 
-</Admonition>
 
-<Admonition type="info" title="Maintenance operation: `maintenance.for_database`" id="maintenance-operation-maintenance-for_database" href="#maintenance-operation-maintenance-for_database">
+
+## Maintenance operation: `maintenance.for_database`
 
 * For reference, all maintenance operations are listed [here](../../../client-api/operations/what-are-operations#maintenance-operations).
 
@@ -285,9 +268,6 @@ with DocumentStore() as document_store:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something-something" label="syntax_2">
@@ -305,14 +285,11 @@ with DocumentStore() as document_store:
 | - | - |
 | `MaintenanceOperationExecutor` | New instance of Maintenance Operation Executor that is scoped to the requested database |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Switch Operations to a Different Database
-
----
 
 <Admonition type="note" title="Note">
 
@@ -325,10 +302,7 @@ with DocumentStore() as document_store:
     * [Common operation: `forDatabase`](../../../client-api/operations/how-to/switch-operations-to-a-different-database#common-operation:-fordatabase)
     * [Maintenance operation: `maintenance.for_database`](../../../client-api/operations/how-to/switch-operations-to-a-different-database#maintenance-operation:-maintenance.for_database)
 </Admonition>
-
----
-
-<Admonition type="info" title="Common operation: `forDatabase`" id="common-operation-fordatabase" href="#common-operation-fordatabase">
+## Common operation: `forDatabase`
 
 * For reference, all common operations are listed [here](../../../client-api/operations/what-are-operations#common-operations).
 
@@ -357,9 +331,6 @@ try \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something-something" label="syntax_1">
@@ -377,9 +348,9 @@ try \{
 | - | - |
 | `OperationExecutor` | New instance of Operation Executor that is scoped to the requested database |
 
-</Admonition>
 
-<Admonition type="info" title="Maintenance operation: `maintenance.for_database`" id="maintenance-operation-maintenance-for_database" href="#maintenance-operation-maintenance-for_database">
+
+## Maintenance operation: `maintenance.for_database`
 
 * For reference, all maintenance operations are listed [here](../../../client-api/operations/what-are-operations#maintenance-operations).
 
@@ -408,9 +379,6 @@ try \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something-something" label="syntax_2">
@@ -428,14 +396,11 @@ try \{
 | - | - |
 | `MaintenanceOperationExecutor` | New instance of Maintenance Operation Executor that is scoped to the requested database |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Switch Operations to a Different Database
-
----
 
 <Admonition type="note" title="Note">
 
@@ -448,10 +413,7 @@ try \{
     * [Common operation: `operations.forDatabase`](../../../client-api/operations/how-to/switch-operations-to-a-different-database#common-operation:-operations.fordatabase)
     * [Maintenance operation: `maintenance.forDatabase`](../../../client-api/operations/how-to/switch-operations-to-a-different-database#maintenance-operation:-maintenance.fordatabase)
 </Admonition>
-
----
-
-<Admonition type="info" title="Common operation: `operations.forDatabase`" id="common-operation-operations-fordatabase" href="#common-operation-operations-fordatabase">
+## Common operation: `operations.forDatabase`
 
 * For reference, all common operations are listed [here](../../../client-api/operations/what-are-operations#common-operations).
 
@@ -474,9 +436,6 @@ const revisionsInDefaultDB =
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something-something" label="syntax_1">
@@ -494,9 +453,9 @@ const revisionsInDefaultDB =
 | - | - |
 | `OperationExecutor` | New instance of Operation Executor that is scoped to the requested database |
 
-</Admonition>
 
-<Admonition type="info" title="Maintenance operation: `maintenance.forDatabase`" id="maintenance-operation-maintenance-fordatabase" href="#maintenance-operation-maintenance-fordatabase">
+
+## Maintenance operation: `maintenance.forDatabase`
 
 * For reference, all maintenance operations are listed [here](../../../client-api/operations/what-are-operations#maintenance-operations).
 
@@ -519,9 +478,6 @@ const statsForDefaultDB =
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **Syntax**:
 
 <TabItem value="something-something" label="syntax_2">
@@ -539,7 +495,7 @@ const statsForDefaultDB =
 | - | - |
 | `MaintenanceOperationExecutor` | New instance of Maintenance Operation Executor that is scoped to the requested database |
 
-</Admonition>
+
 
 
 </LanguageContent>

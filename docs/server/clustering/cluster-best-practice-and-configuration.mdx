@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Cluster: Best Practices
-
----
-
 <Admonition type="note" title="Note">
 
 * In this page:
@@ -23,9 +20,6 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
----
-
-<Admonition type="info" title="Info">
 
 ### Clusters should have an odd number of at least 3 nodes
 
@@ -45,9 +39,9 @@ command will be created, although any database on the surviving node will still 
 For ACID guarantees, a majority of the nodes must agree on every [cluster-wide transaction](../../server/clustering/cluster-transactions), 
 so having an odd number of nodes makes achieving the majority easier.
 
-</Admonition>
 
-<Admonition type="info" title="Info">
+
+
 
 ### Avoid different cluster configurations among the cluster's nodes
 
@@ -55,5 +49,5 @@ Configuration mismatches tend to cause interaction problems between nodes.
 
 If you must set [cluster configurations](../../server/configuration/cluster-configuration) differently in separate nodes,  
 **we recommend first testing it** in a development environment to see that each node interacts properly with the others.
-</Admonition>
+
 

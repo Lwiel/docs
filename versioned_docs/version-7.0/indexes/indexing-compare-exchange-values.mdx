@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Indexes: Indexing Compare Exchange Values
+export const supportedLanguages = ["csharp", "java", "nodejs"];
 
----
+
+# Indexes: Indexing Compare Exchange Values
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -30,10 +31,7 @@ as when documents are modified in the indexed collection(s).
   * [Querying the Index](../indexes/indexing-compare-exchange-values#querying-the-index)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 When creating an index using `AbstractIndexCreationTask`, use the method 
 `LoadCompareExchangeValue()` to load a compare exchange value by its key.  
@@ -110,9 +108,9 @@ representing the guests in those rooms.
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Querying the Index" id="querying-the-index" href="#querying-the-index">
+
+## Querying the Index
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -151,14 +149,11 @@ List<HotelRoom> VIPRooms = session
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Indexes: Indexing Compare Exchange Values
-
----
 
 <Admonition type="note" title="Note">
 
@@ -173,10 +168,7 @@ as when documents are modified in the indexed collection(s).
   * [Querying the Index](../indexes/indexing-compare-exchange-values#querying-the-index)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="How to use " id="how-to-use" href="#how-to-use">
+## How to use 
 
 When creating an index using `AbstractIndexCreationTask`, use javaScript 
 to load a compare exchange value by its key.  
@@ -212,9 +204,9 @@ representing the guests in those rooms.
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Querying the Index" id="querying-the-index" href="#querying-the-index">
+
+## Querying the Index
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="RawQuery" label="RawQuery">
@@ -227,14 +219,11 @@ representing the guests in those rooms.
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexes: Indexing Compare Exchange Values
-
----
 
 <Admonition type="note" title="Note">
 
@@ -249,10 +238,7 @@ as when documents are modified in the indexed collection(s).
   * [Querying the Index](../indexes/indexing-compare-exchange-values#querying-the-index)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 For javascript indexes, use the method `cmpxchg(<key>)`.
 
 | Parameter | Type | Description |
@@ -281,9 +267,9 @@ representing the guests in those rooms.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Querying the Index" id="querying-the-index" href="#querying-the-index">
+
+## Querying the Index
 
 <TabItem value="something-something" label="query_2">
 <CodeBlock language="nodejs">
@@ -296,7 +282,7 @@ representing the guests in those rooms.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

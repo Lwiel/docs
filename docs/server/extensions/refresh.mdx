@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Document Refresh
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Document Refresh
----
 
 <Admonition type="note" title="Note">
 
@@ -31,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 * To set a document refresh time, add the document's `@metadata` a 
   `@refresh` property with the designated refresh time as a value.  
@@ -68,9 +67,9 @@ import LanguageContent from "@site/src/components/language-content";
      and [ETL](../../server/ongoing-tasks/etl/basics) triggering  
    - Creation of a [document revision](../../document-extensions/revisions/overview)  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Example I  
 
@@ -110,15 +109,12 @@ How to set a document to refresh 1 hour from now:
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 To activate and/or configure document refreshing, send the server a 
 `RefreshConfiguration` object using the `ConfigureRefreshOperation` operation.  
-
----
-
 #### `RefreshConfiguration`
 
 <TabItem value="something" label="refresh_config">
@@ -144,15 +140,15 @@ To activate and/or configure document refreshing, send the server a
 | **RefreshFrequencyInSec** | `long?` | Determines how often (in seconds) the server processes documents that need to be refreshed.&lt;BR&gt;Default: `60` |
 | **MaxItemsToProcess** | `long?` | Determines the maximal number of documents the feature is allowed to refresh in one run. |
 
-</Admonition>
 
-<Admonition type="info" title="Configure from Studio" id="configure-from-studio" href="#configure-from-studio">
+
+## Configure from Studio
 
 Alternatively, document refreshing can also be configured via Studio, under **Settings &gt; Document Refresh**.
 
 ![NoSQL DB Server - Document Refresh](./assets/StudioRefresh.png)
 
-</Admonition>
+
 
 
 </LanguageContent>

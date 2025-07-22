@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Add Connection String Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Add Connection String Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -31,15 +33,9 @@ import LanguageContent from "@site/src/components/language-content";
     * [The PutConnectionStringOperation method](../../../../client-api/operations/maintenance/connection-strings/add-connection-string#the%c2%a0putconnectionstringoperation%c2%a0method)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Add a RavenDB connection string" id="add-a-ravendb-connection-string" href="#add-a-ravendb-connection-string">
+## Add a RavenDB connection string
 
 The RavenDB connection string is used by RavenDB's [RavenDB ETL Task](../../../../server/ongoing-tasks/etl/raven).
-
----
-
 Example:
 <TabItem value="something" label="add_raven_connection_string">
 <CodeBlock language="csharp">
@@ -59,9 +55,6 @@ PutConnectionStringResult connectionStringResult = store.Maintenance.Send(PutCon
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 Syntax:
 <TabItem value="something-something" label="raven_connection_string">
 <CodeBlock language="csharp">
@@ -89,14 +82,11 @@ This can be done from the [Certificates view](../../../../server/security/authen
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Add an SQL connection string" id="add-an-sql-connection-string" href="#add-an-sql-connection-string">
+
+## Add an SQL connection string
 
 The SQL connection string is used by RavenDB's [SQL ETL Task](../../../../server/ongoing-tasks/etl/sql).
-
----
-
 Example:
 <TabItem value="something" label="add_sql_connection_string">
 <CodeBlock language="csharp">
@@ -122,9 +112,6 @@ PutConnectionStringResult connectionStringResult = store.Maintenance.Send(PutCon
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 Syntax:
 <TabItem value="something" label="sql_connection_string">
 <CodeBlock language="csharp">
@@ -139,14 +126,11 @@ Syntax:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add an OLAP connection string" id="add-an-olap-connection-string" href="#add-an-olap-connection-string">
+
+## Add an OLAP connection string
 
 The OLAP connection string is used by RavenDB's [OLAP ETL Task](../../../../server/ongoing-tasks/etl/olap).
-
----
-
 **To a local machine** - example:  
 
 <TabItem value="something" label="add_olap_connection_string_1">
@@ -169,9 +153,6 @@ PutConnectionStringResult connectionStringResult = store.Maintenance.Send(PutCon
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 **To a cloud-based server** - example:  
   
 * The following example shows a connection string to Amazon AWS.  
@@ -202,9 +183,6 @@ PutConnectionStringResult connectionStringResult = store.Maintenance.Send(PutCon
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 Syntax:
 <TabItem value="something" label="olap_connection_string">
 <CodeBlock language="csharp">
@@ -223,14 +201,11 @@ Syntax:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add an Elasticsearch connection string  " id="add-an-elasticsearch-connection-string" href="#add-an-elasticsearch-connection-string">
+
+## Add an Elasticsearch connection string  
 
 The Elasticsearch connection string is used by RavenDB's [Elasticsearch ETL Task](../../../../server/ongoing-tasks/etl/elasticsearch).
-
----
-
 Example:
 <TabItem value="something" label="add_elasticsearch_connection_string">
 <CodeBlock language="csharp">
@@ -262,9 +237,6 @@ PutConnectionStringResult connectionStringResult = store.Maintenance.Send(PutCon
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 Syntax:
 <TabItem value="something" label="elasticsearch_connection_string">
 <CodeBlock language="csharp">
@@ -282,30 +254,30 @@ Syntax:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Add a Kafka connection string " id="add-a-kafka-connection-string" href="#add-a-kafka-connection-string">
+
+## Add a Kafka connection string 
 
 The Kafkah connection string is used by RavenDB's [Kafka Queue ETL Task](../../../../server/ongoing-tasks/etl/queue-etl/kafka).  
 Learn how to add a Kafka connection string in section [Add a Kafka connection string]( ../../../../server/ongoing-tasks/etl/queue-etl/kafka#add-a-kafka-connection-string).
 
-</Admonition>
 
-<Admonition type="info" title="Add a RabbitMQ connection string " id="add-a-rabbitmq-connection-string" href="#add-a-rabbitmq-connection-string">
+
+## Add a RabbitMQ connection string 
 
 The RabbitMQ connection string is used by RavenDB's [RabbitMQ Queue ETL Task](../../../../server/ongoing-tasks/etl/queue-etl/rabbit-mq).  
 Learn how to add a RabbitMQ connection string in section [Add a RabbitMQ connection string]( ../../../../server/ongoing-tasks/etl/queue-etl/rabbit-mq#add-a-rabbitmq-connection-string).
 
-</Admonition>
 
-<Admonition type="info" title="Add an Azure Queue Storage connection string " id="add-an-azure-queue-storage-connection-string" href="#add-an-azure-queue-storage-connection-string">
+
+## Add an Azure Queue Storage connection string 
 
 The Azure Queue Storage connection string is used by RavenDB's [Azure Queue Storage ETL Task](../../../../server/ongoing-tasks/etl/queue-etl/azure-queue).  
 Learn to add an Azure Queue Storage connection string in section [Add an Azure Queue Storage connection string]( ../../../../server/ongoing-tasks/etl/queue-etl/azure-queue#add-an-azure-queue-storage-connection-string).
 
-</Admonition>
 
-<Admonition type="info" title="The&nbsp;`PutConnectionStringOperation`&nbsp;method" id="the-nbsp-putconnectionstringoperation-nbsp-method" href="#the-nbsp-putconnectionstringoperation-nbsp-method">
+
+## The&nbsp;`PutConnectionStringOperation`&nbsp;method
 
 <TabItem value="something" label="put_connection_string">
 <CodeBlock language="csharp">
@@ -350,7 +322,7 @@ public enum ConnectionStringType
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

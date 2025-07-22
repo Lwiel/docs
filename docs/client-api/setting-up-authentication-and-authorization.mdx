@@ -11,10 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Client API: Setting up Authentication and Authorization
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Client API: Setting up Authentication and Authorization
----
+
 <Admonition type="note" title="Note">
 
 * **Authentication and authorization** are based on [Client X.509 Certificates](../server/security/authorization/security-clearance-and-permissions).  
@@ -33,9 +36,7 @@ certificate.
 The server will use this certificate to authenticate the client when connection is established.  
 
 </Admonition>
-
----
-<Admonition type="info" title="Example - Initializing Document Store With a Client Certificate" id="example-initializing-document-store-with-a-client-certificate" href="#example-initializing-document-store-with-a-client-certificate">
+## Example - Initializing Document Store With a Client Certificate
 
 <TabItem value="something" label="client_cert">
 <CodeBlock language="csharp">
@@ -56,12 +57,12 @@ using (IDocumentStore store = new DocumentStore()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Client API: Setting up Authentication and Authorization
+
 
 Authentication and authorization is based on [client X.509 certificates](../server/security/authorization/security-clearance-and-permissions).
 
@@ -95,7 +96,7 @@ try (DocumentStore store = new DocumentStore())  \{
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Client API: Setting up Authentication and Authorization
+
 
 Authentication and authorization is based on [client X.509 certificates](../server/security/authorization/security-clearance-and-permissions).
 

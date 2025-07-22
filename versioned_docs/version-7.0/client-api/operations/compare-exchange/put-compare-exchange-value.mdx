@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Put Compare Exchange Operation
+export const supportedLanguages = ["csharp", "java", "nodejs"];
 
----
+
+# Put Compare Exchange Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -36,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Example III - Try to create an item with a non-zero index](../../../client-api/operations/compare-exchange/put-compare-exchange-value#example-iii---try-to-create-an-item-with-a-non-zero-index)  
   
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 **Method**:
 <TabItem value="something" label="put_0">
@@ -82,9 +80,9 @@ import LanguageContent from "@site/src/components/language-content";
 When calling the 'Put' operation, the index from the request is compared to the index that is currently stored in the server (compare stage).  
 The value is updated only if the two are **equal** (exchange stage).  
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Example I - Create a new key" id="example-i-create-a-new-key" href="#example-i-create-a-new-key">
+
+## Example I - Create a new key
 
 <TabItem value="something" label="put_1">
 <CodeBlock language="csharp">
@@ -97,9 +95,9 @@ bool successful = compareExchangeResult.Successful;
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
 
-<Admonition type="info" title="Example II - Update an existing key" id="example-ii-update-an-existing-key" href="#example-ii-update-an-existing-key">
+
+## Example II - Update an existing key
 
 <TabItem value="something" label="put_2">
 <CodeBlock language="csharp">
@@ -120,9 +118,9 @@ bool saveResultSuccessful = saveResult.Successful;
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
 
-<Admonition type="info" title="Example III - Try to create an item with a non-zero index" id="example-iii-try-to-create-an-item-with-a-non-zero-index" href="#example-iii-try-to-create-an-item-with-a-non-zero-index">
+
+## Example III - Try to create an item with a non-zero index
 
 <TabItem value="something" label="put_3">
 <CodeBlock language="csharp">
@@ -137,14 +135,11 @@ compareExchangeResult = store.Operations.Send(
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Put Compare Exchange Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -161,10 +156,7 @@ compareExchangeResult = store.Operations.Send(
   * [Example I - Create a new key](../../../client-api/operations/compare-exchange/put-compare-exchange-value#example-i---create-a-new-key)  
   * [Example II - Update an existing key](../../../client-api/operations/compare-exchange/put-compare-exchange-value#example-ii---update-an-existing-key)
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 **Method**:
 <TabItem value="something-something" label="put_0">
@@ -230,9 +222,9 @@ compareExchangeResult = store.Operations.Send(
 When calling the 'Put' operation, the index from the request is compared to the index that is currently stored in the server (compare stage).  
 The value is updated only if the two are **equal** (exchange stage).  
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Example I - Create a new key" id="example-i-create-a-new-key" href="#example-i-create-a-new-key">
+
+## Example I - Create a new key
 
 <TabItem value="something-something" label="put_1">
 <CodeBlock language="java">
@@ -244,9 +236,9 @@ boolean successful = compareExchangeResult.isSuccessful();
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
 
-<Admonition type="info" title="Example II - Update an existing key" id="example-ii-update-an-existing-key" href="#example-ii-update-an-existing-key">
+
+## Example II - Update an existing key
 
 <TabItem value="something-something" label="put_2">
 <CodeBlock language="java">
@@ -267,13 +259,11 @@ boolean saveResultSuccessful = saveResult.isSuccessful();
 `}
 </CodeBlock>
 </TabItem>
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Put Compare Exchange Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -292,10 +282,7 @@ boolean saveResultSuccessful = saveResult.isSuccessful();
   * [Syntax](../../../client-api/operations/compare-exchange/put-compare-exchange-value#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Create new cmpXchg item" id="create-new-cmpxchg-item" href="#create-new-cmpxchg-item">
+## Create new cmpXchg item
 
 <TabItem value="something-something" label="put_1">
 <CodeBlock language="nodejs">
@@ -324,9 +311,9 @@ const indexForItem = result.index;    // The version number assigned to the new 
 * Note:  
   Using `0` with a key that already exists will Not modify existing compare-exchange item.
 
-</Admonition>
 
-<Admonition type="info" title="Create new cmpXchg item with metadata" id="create-new-cmpxchg-item-with-metadata" href="#create-new-cmpxchg-item-with-metadata">
+
+## Create new cmpXchg item with metadata
 
 <TabItem value="something-something" label="put_2">
 <CodeBlock language="nodejs">
@@ -357,9 +344,9 @@ const indexForItem = result.index;    // The version number assigned to the new 
 
 * Find more examples of adding metadata to a compare-exchange item in [compare-exchange metadata](../../../client-api/operations/compare-exchange/compare-exchange-metadata).
 
-</Admonition>
 
-<Admonition type="info" title="Update existing cmpXchg item" id="update-existing-cmpxchg-item" href="#update-existing-cmpxchg-item">
+
+## Update existing cmpXchg item
 
 * When calling `PutCompareExchangeValueOperation`,  
   the index from the request is compared to the index that is currently stored in the server for the specified _key_.
@@ -397,9 +384,9 @@ assert(newIndex > item.index);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -437,7 +424,7 @@ class CompareExchangeResult \{
 | **value**      | `object`  | &lt;ul&gt;&lt;li&gt;Upon success - the value of the compare-exchange item that was saved.&lt;/li&gt;&lt;li&gt;Upon failure - the existing value on the server.&lt;/li&gt;&lt;/ul&gt;                                                                                                                                                                |
 | **index**      | `number`  | &lt;ul&gt;&lt;li&gt;The compare-exchange item's version.&lt;/li&gt;&lt;li&gt;This number increases with each successful modification of the `value` or `metadata`.&lt;/li&gt;&lt;li&gt;Upon success - the updated version of the compare-exchange item that was saved.&lt;/li&gt;&lt;li&gt;Upon failure - the existing version number in the server.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
+
 
 
 </LanguageContent>

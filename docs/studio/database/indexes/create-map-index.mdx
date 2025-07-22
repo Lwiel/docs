@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Create Map Index
----
-
 <Admonition type="note" title="Note">
 
 * A **Map index** consists of one or more LINQ-based or JavaScript mapping functions 
@@ -30,10 +28,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Additional Sources](../../../studio/database/indexes/create-map-index#additional-sources)  
   * [Spatial Field Options](../../../studio/database/indexes/create-map-index#spatial-field-options)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Edit Index View" id="edit-index-view" href="#edit-index-view">
+## Edit Index View
 
 ![Edit Index View](./assets/create-map-index_edit-index-view.png)
 
@@ -99,9 +94,9 @@ select new
     See the query results on this index in Query View.  
 
   * See more Map-Indexes examples in [Map Index defined from Code](../../../indexes/map-indexes)  
-</Admonition>
 
-<Admonition type="info" title="Test Index" id="test-index" href="#test-index">
+
+## Test Index
 
 The **Test Index** interface provides a secluded environment for the execution 
 of test-queries over indexes.  
@@ -165,9 +160,9 @@ modifications in the index maps and configuration.
 
       </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Index Fields & Terms" id="index-fields-terms" href="#index-fields-terms">
+
+## Index Fields & Terms
 
 ![Open Terms View](./assets/create-map-index_open-terms-view.png)
 
@@ -182,9 +177,9 @@ modifications in the index maps and configuration.
    Terms are created from the value of the field that was requested to be indexed 
    by the specified [Field Options](../../../studio/database/indexes/create-map-index#index-field-options).  
    </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Index Field Options" id="index-field-options" href="#index-field-options">
+
+## Index Field Options
 
 ![Index Field Options](./assets/create-map-index_index-field-options.png)
 
@@ -274,9 +269,6 @@ modifications in the index maps and configuration.
 
 7. **Delete Field**  
    Click to remove this field from the index.  
-
----
-
 #### Add Compound Field  
 
 Compound fields are used by Corax to optimize specific queries.  
@@ -293,16 +285,16 @@ Read more about this feature [here](../../../indexes/search-engine/corax#compoun
   to use compound fields. Click "Change to Corax" to set Corax as the 
   search engine for this index.  
 
-![Add Compound Field](./assets/create-map-index_add-compound-field-2.png)
+![Add Compound Field](./assets/create-map-index_add-compound-field-2.png "Add Compound Field")
 
 1. Click to set the search engine for this index to Corax and add a compound field.  
 2. Click to select the first data element for the compound field.  
 3. Click to select the second data element for the compound field.  
 4. Click to remove the compound field.    
 
-</Admonition>
 
-<Admonition type="info" title="Configuration" id="configuration" href="#configuration">
+
+## Configuration
 
 !["Index Configuration"](./assets/create-map-index_configuration-tab.png)
 
@@ -326,9 +318,9 @@ Read more about this feature [here](../../../indexes/search-engine/corax#compoun
    Remember to save the index using the **Save** button at the top to keep the modified configuration.  
    </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Additional Assemblies" id="additional-assemblies" href="#additional-assemblies">
+
+## Additional Assemblies
 
 Use the [Additional Assemblies](../../../indexes/additional-assemblies) 
 feature to enhance Index capabilities with classes and methods taken from libraries.  
@@ -356,9 +348,6 @@ runtime library `System.IO` is added as an additional assembly.
 
 4. **Remove Assembly**  
    Click to remove the assembly.  
-
----
-
 **Server Runtime Library**  
 
 ![Server Runtime Library](./assets/create-map-index_server-runtime-library.png)
@@ -383,9 +372,6 @@ runtime library `System.IO` is added as an additional assembly.
 
 7. **Remove Assembly**  
    Click to remove this assembly.  
-
----
-
 **Nuget Package**  
 
 ![Nugat Package](./assets/create-map-index_nugat-package.png)
@@ -412,9 +398,6 @@ runtime library `System.IO` is added as an additional assembly.
 
 7. **Remove Assembly**  
    Click to remove this assembly.  
-
----
-
 **Local Library Path**  
 
 ![Local Library Path](./assets/create-map-index_local-library-path.png)
@@ -434,9 +417,9 @@ runtime library `System.IO` is added as an additional assembly.
 5. **Remove Assembly**  
    Click to remove this assembly.  
 
-</Admonition>
 
-<Admonition type="info" title="Additional Sources" id="additional-sources" href="#additional-sources">
+
+## Additional Sources
 
 ![Additional Sources](./assets/create-map-index_additional-sources.png)
 
@@ -457,9 +440,9 @@ used to calculate the index entry _'SupplierEmail'_.
    Read-only view of the uploaded file's source code.  
    
 
-</Admonition>
 
-<Admonition type="info" title="Spatial Field Options" id="spatial-field-options" href="#spatial-field-options">
+
+## Spatial Field Options
 
 Spatial searches use geographical data. To perform such searches, 
 a _spatial index field_ has to be defined.  
@@ -499,5 +482,5 @@ queries can then use.
 Learn more about spatial indexes in [Indexing: Spatial](../../../indexes/indexing-spatial-data).  
 </Admonition>
 
-</Admonition>
+
 

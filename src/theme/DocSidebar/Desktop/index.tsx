@@ -39,7 +39,7 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }: Props) {
         <Link to="https://ravendb.net/community" className="menu__link">
           Community
         </Link>
-        <Link to="/start/whats-new" className="menu__link">
+        <Link to="/whats-new" className="menu__link">
           What's new
         </Link>
       </div>

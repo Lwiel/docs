@@ -13,7 +13,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Replication Options
 
-<Admonition type="info" title="Replication.ActiveConnectionTimeoutInSec" id="replication-activeconnectiontimeoutinsec" href="#replication-activeconnectiontimeoutinsec">
+## Replication.ActiveConnectionTimeoutInSec
 
 Threshold in seconds under which an incoming replication connection is considered active. If an incoming connection receives messages within this time-span, a new connection coming from the same source will be rejected (as the existing connection is considered active).
 
@@ -21,9 +21,9 @@ Threshold in seconds under which an incoming replication connection is considere
 - **Default**: `30`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Replication.ReplicationMinimalHeartbeatInSec" id="replication-replicationminimalheartbeatinsec" href="#replication-replicationminimalheartbeatinsec">
+
+## Replication.ReplicationMinimalHeartbeatInSec
 
 Minimal time in seconds before sending another heartbeat.  
 
@@ -31,9 +31,9 @@ Minimal time in seconds before sending another heartbeat.
 - **Default**: `15`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Replication.RetryReplicateAfterInSec" id="replication-retryreplicateafterinsec" href="#replication-retryreplicateafterinsec">
+
+## Replication.RetryReplicateAfterInSec
 
 This option determines how often the queue for retry attempts is updated. It does _not_ determine the timeout between retry attempts. To configure that,
 use `Replication.RetryMaxTimeoutInSec` below.
@@ -42,9 +42,9 @@ use `Replication.RetryMaxTimeoutInSec` below.
 - **Default**: `15`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Replication.RetryMaxTimeoutInSec" id="replication-retrymaxtimeoutinsec" href="#replication-retrymaxtimeoutinsec">
+
+## Replication.RetryMaxTimeoutInSec
 
 Maximum timeout in seconds for successive retry attempts.  
 If a replication fails, the server will retry after a timeout, and will continue to retry until it succeeds. The timeout value increases between each 
@@ -54,9 +54,9 @@ attempt, so the attempts become less frequent. The timeout continues to increase
 - **Default**: `300`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Replication.MaxItemsCount" id="replication-maxitemscount" href="#replication-maxitemscount">
+
+## Replication.MaxItemsCount
 
 Maximum number of items sent in a single batch during replication. If set to `null`, the number of items in the batch is not limited.
 
@@ -64,9 +64,9 @@ Maximum number of items sent in a single batch during replication. If set to `nu
 - **Default**: `16 * 1024`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Replication.MaxSizeToSendInMb" id="replication-maxsizetosendinmb" href="#replication-maxsizetosendinmb">
+
+## Replication.MaxSizeToSendInMb
 
 Maximum size in Mb of a single batch sent during replication. If set to `null`, the size of the batch is not limited.
 
@@ -74,4 +74,4 @@ Maximum size in Mb of a single batch sent during replication. If set to `null`, 
 - **Default**: `64`
 - **Scope**: Server-wide or per database
 
-</Admonition>
+

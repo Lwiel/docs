@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Spatial Queries Map View
----
-
 <Admonition type="note" title="Note">
 
 * [Spatial queries](../../../client-api/session/querying/how-to-make-a-spatial-query) retrieve documents using geographical criteria,  
@@ -39,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [Polygonal region example](../../../studio/database/queries/spatial-queries-map-view#polygonal-region-example)  
      * [Mixed shapes intersection example](../../../studio/database/queries/spatial-queries-map-view#mixed-shapes-intersection-example)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Spatial data in documents" id="spatial-data-in-documents" href="#spatial-data-in-documents">
+## Spatial data in documents
 
 * Documents that contain geographic data can be queried for using a spatial query.  
   The spatial data in a document can be in the form of:  
@@ -58,11 +53,8 @@ import LanguageContent from "@site/src/components/language-content";
 
 ![Figure 1. Spatial Data](./assets/spatial-map-view-query-1.png)
 
-</Admonition>
 
----
-
-<Admonition type="info" title="Running a dynamic spatial query" id="running-a-dynamic-spatial-query" href="#running-a-dynamic-spatial-query">
+## Running a dynamic spatial query
 
 ![Figure 2. The Query Section](./assets/spatial-map-view-query-2.png)
 
@@ -70,9 +62,6 @@ import LanguageContent from "@site/src/components/language-content";
   Open the **Indexes** section.  
 * **2**. **Query**  
   Choose **Query**.  
-
----
-
 ![Figure 3. Running a Query](./assets/spatial-map-view-query-3.png)
 
 * **1**. **Query box**  
@@ -104,14 +93,11 @@ where spatial.within(
   The query results will include two tabs:  
   * Results tab - listing all resulting documents in textual form  
   * Spatial map tab - showing results on the global map   
-
----
-
 ![Figure 4. Textual Results View](./assets/spatial-map-view-query-4.png)
 
-</Admonition>
 
-<Admonition type="info" title="Spatial map view" id="spatial-map-view" href="#spatial-map-view">
+
+## Spatial map view
 
 ![Figure 5. Spatial Map View](./assets/spatial-map-view-query-5.png)
 
@@ -121,18 +107,12 @@ where spatial.within(
 
 * **2**. **Expand results**  
   Click to expand the spatial map.  
-
----
-
 ![Figure 6. Zoom and Drag](./assets/spatial-map-view-query-6.png)
 
 * **1**. **Zoom control**  
   Click **+**/**-** or roll your mouse wheel to zoom in and out.  
 * **2**. **Map**  
   Click anywhere in the map area and drag to move the map.  
-
----
-
 ![Figure 7. Region and Points](./assets/spatial-map-view-query-7.png)
 
 ![Figure 8. Same Points, Zoomed In](./assets/spatial-map-view-query-8.png)
@@ -157,9 +137,6 @@ where spatial.within(
        hovering over it would display a crude scheme of these locations on the map.  
        ![Figure 11. Hovering over a Green Point](./assets/spatial-map-view-query-11.png)  
      * Clicking a green marker zooms in to reveal the locations it gathers.  
-
----
-
 ![Figure 12. Viewing-Options Tooltip](./assets/spatial-map-view-query-12.png)
 
 * **1**. **Viewing-options toggler**  
@@ -173,16 +150,13 @@ where spatial.within(
 * **5**. **Regions**  
   Show or hide circular/polygonal search regions.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 <Admonition type="note" title="Note">
 
 ### Circular region example
-
----
-
 The following query locates companies within **two separate circular regions**.  
 
 <TabItem value="something" label="csharp">
@@ -245,9 +219,6 @@ where spatial.within(
 <Admonition type="note" title="Note">
 
 ### Polygonal region example
-
----
-
 The following query searches for companies within the boundaries of a **polygonal** region.  
 
 * The polygon's coordinates must be provided in counterclockwise order.
@@ -281,9 +252,6 @@ spatial.within(
 <Admonition type="note" title="Note">
 
 ### Mixed shapes intersection example
-
----
-
 This query searches for companies at the intersection of a **circular region** and a **polygonal region**.  
 Though additional companies are located in each region, only companies located in both regions are retrieved.  
 
@@ -314,5 +282,5 @@ spatial.within(
 
 </Admonition>
 
-</Admonition>
+
 

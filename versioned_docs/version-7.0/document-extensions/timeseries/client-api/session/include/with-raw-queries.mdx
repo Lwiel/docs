@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Include Time Series with Raw Queries
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Include Time Series with Raw Queries
----
 
 <Admonition type="note" title="Note">
 
@@ -29,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Syntax](../../../../../document-extensions/timeseries/client-api/session/include/with-raw-queries#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include time series when making a raw query" id="include-time-series-when-making-a-raw-query" href="#include-time-series-when-making-a-raw-query">
+## Include time series when making a raw query
 
 In this example, we use a raw query to retrieve a document   
 and _include_ entries from the document's "HeartRates" time series.  
@@ -68,9 +67,9 @@ and _include_ entries from the document's "HeartRates" time series.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **`Advanced.RawQuery`**
 
@@ -85,13 +84,11 @@ and _include_ entries from the document's "HeartRates" time series.
 |-----------|----------|-------------------|
 | **query** | `string` | The raw RQL query |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Include Time Series with Raw Queries
----
 
 <Admonition type="note" title="Note">
 
@@ -106,10 +103,7 @@ and _include_ entries from the document's "HeartRates" time series.
    * [Syntax](../../../../../document-extensions/timeseries/client-api/session/include/with-raw-queries#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Include time series when making a raw query" id="include-time-series-when-making-a-raw-query" href="#include-time-series-when-making-a-raw-query">
+## Include time series when making a raw query
 
 In this example, we use a raw query to retrieve a document   
 and _include_ entries from the document's "HeartRates" time series.  
@@ -148,9 +142,9 @@ assert.equal(numberOfRequests1, numberOfRequests2);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 **`advanced.rawQuery`**
 
@@ -166,7 +160,7 @@ assert.equal(numberOfRequests1, numberOfRequests2);
 | **query**          | `string` | The raw RQL query.                           |
 | **documentType**   | `object` | The document class type (an optional param). |
 
-</Admonition>
+
 
 
 </LanguageContent>

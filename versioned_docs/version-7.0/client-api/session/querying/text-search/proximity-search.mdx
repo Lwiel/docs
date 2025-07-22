@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Proximity Search
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Proximity Search
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -33,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/session/querying/text-search/proximity-search#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why use proximity search" id="why-use-proximity-search" href="#why-use-proximity-search">
+## Why use proximity search
 
 * A basic linguistic assumption is that the proximity of words implies a relationship between them.
 
@@ -45,9 +43,9 @@ import LanguageContent from "@site/src/components/language-content";
 * By limiting the search to only include matches where the terms are within the specified maximum proximity,  
   the search results can be more relevant than those with scattered terms.
 
-</Admonition>
 
-<Admonition type="info" title="How proximity works" id="how-proximity-works" href="#how-proximity-works">
+
+## How proximity works
 
 * When searching with some specified distance between search terms `term1` and `term2`:
 
@@ -66,9 +64,9 @@ import LanguageContent from "@site/src/components/language-content";
 
     * Search terms must be simple string terms without wildcards.
 
-</Admonition>
 
-<Admonition type="info" title="Proximity search examples" id="proximity-search-examples" href="#proximity-search-examples">
+
+## Proximity search examples
 
 ## Proximity search (0 distance)
 
@@ -196,9 +194,9 @@ where proximity(search(Notes, "fluent french"), 5)
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -211,12 +209,12 @@ where proximity(search(Notes, "fluent french"), 5)
 |---------------|-------|------------------------------------------------------------------------------------------|
 | **proximity** | `int` | The maximum number of terms between the search terms.<br/>Can be greater or equal to `0`. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Proximity Search
+
 
 To find words within a specific distance away use `proximity` method.  
 This method is available only from [DocumentQuery](../../../../client-api/session/querying/document-query/what-is-document-query) level and can only be used right after `search` method.
@@ -260,9 +258,6 @@ where proximity(search(Name, 'quick fox'), 2)
 
 </LanguageContent>
 <LanguageContent language="python">
-# Proximity Search
-
----
 
 <Admonition type="note" title="Note">
 
@@ -278,10 +273,7 @@ where proximity(search(Name, 'quick fox'), 2)
     * [Syntax](../../../../client-api/session/querying/text-search/proximity-search#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why use proximity search" id="why-use-proximity-search" href="#why-use-proximity-search">
+## Why use proximity search
 
 * A basic linguistic assumption is that the proximity of words implies a relationship between them.
 
@@ -290,9 +282,9 @@ where proximity(search(Name, 'quick fox'), 2)
 * By limiting the search to only include matches where the terms are within the specified maximum proximity,  
   the search results can be more relevant than those with scattered terms.
 
-</Admonition>
 
-<Admonition type="info" title="How proximity works" id="how-proximity-works" href="#how-proximity-works">
+
+## How proximity works
 
 * When searching with some specified distance between search terms `term1` and `term2`:
 
@@ -311,9 +303,9 @@ where proximity(search(Name, 'quick fox'), 2)
 
     * Search terms must be simple string terms without wildcards.
 
-</Admonition>
 
-<Admonition type="info" title="Proximity search examples" id="proximity-search-examples" href="#proximity-search-examples">
+
+## Proximity search examples
 
 ## Proximity search (0 distance)
 
@@ -389,9 +381,9 @@ where proximity(search(Notes, "fluent french"), 5)
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -404,14 +396,11 @@ where proximity(search(Notes, "fluent french"), 5)
 |---------------|-------|------------------------------------------------------------------------------------------|
 | **proximity** | `int` | The maximum number of terms between the search terms.<br/>Can be greater or equal to `0`. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Proximity Search
-
----
 
 <Admonition type="note" title="Note">
 
@@ -427,10 +416,7 @@ where proximity(search(Notes, "fluent french"), 5)
     * [Syntax](../../../../client-api/session/querying/text-search/proximity-search#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why use proximity search" id="why-use-proximity-search" href="#why-use-proximity-search">
+## Why use proximity search
 
 * A basic linguistic assumption is that the proximity of words implies a relationship between them.
 
@@ -439,9 +425,9 @@ where proximity(search(Notes, "fluent french"), 5)
 * By limiting the search to only include matches where the terms are within the specified maximum proximity,  
   the search results can be more relevant than those with scattered terms.
 
-</Admonition>
 
-<Admonition type="info" title="How proximity works" id="how-proximity-works" href="#how-proximity-works">
+
+## How proximity works
 
 * When searching with some specified distance between search terms `term1` and `term2`:
 
@@ -460,9 +446,9 @@ where proximity(search(Notes, "fluent french"), 5)
 
     * Search terms must be simple string terms without wildcards.
 
-</Admonition>
 
-<Admonition type="info" title="Proximity search examples" id="proximity-search-examples" href="#proximity-search-examples">
+
+## Proximity search examples
 
 ## Proximity search (0 distance)
 
@@ -542,9 +528,9 @@ where the search terms are separated by a count of 4 terms.
 "in" & "and" are not taken into account as they are not part of the terms list generated
 by the analyzer.(Search is case-insensitive in this case).
                 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -557,14 +543,11 @@ by the analyzer.(Search is case-insensitive in this case).
 |---------------|-------|-------------------------------------------------------------------------------|
 | **$proximity** | `int` | The maximum number of terms between the search terms.<br/>Can be `0` or more. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Proximity Search
-
----
 
 <Admonition type="note" title="Note">
 
@@ -580,10 +563,7 @@ by the analyzer.(Search is case-insensitive in this case).
     * [Syntax](../../../../client-api/session/querying/text-search/proximity-search#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why use proximity search" id="why-use-proximity-search" href="#why-use-proximity-search">
+## Why use proximity search
 
 * A basic linguistic assumption is that the proximity of words implies a relationship between them.  
 
@@ -592,9 +572,9 @@ by the analyzer.(Search is case-insensitive in this case).
 * By limiting the search to only include matches where the terms are within the specified maximum proximity,  
   the search results can be more relevant than those with scattered terms.
 
-</Admonition>
 
-<Admonition type="info" title="How proximity works" id="how-proximity-works" href="#how-proximity-works">
+
+## How proximity works
 
 * When searching with some specified distance between search terms `term1` and `term2`:
 
@@ -613,9 +593,9 @@ by the analyzer.(Search is case-insensitive in this case).
 
     * Search terms must be simple string terms without wildcards.
 
-</Admonition>
 
-<Admonition type="info" title="Proximity search examples" id="proximity-search-examples" href="#proximity-search-examples">
+
+## Proximity search examples
 
 <Admonition type="note" title="Note">
 
@@ -700,9 +680,9 @@ where proximity(search(Notes, "fluent french"), 5)
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -715,7 +695,7 @@ where proximity(search(Notes, "fluent french"), 5)
 |---------------|----------|--------------------------------------------------------------------------------------------|
 | __proximity__ | `number` | The maximum number of terms between the search terms.<br/>Can be greater or equal to `0`.   |
 
-</Admonition>
+
 
 
 </LanguageContent>

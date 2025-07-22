@@ -13,9 +13,6 @@ import LanguageContent from "@site/src/components/language-content";
 
 
 # RQL Code Assistance
-
----
-
 <Admonition type="note" title="Note">
 
 * All queries addressed to the RavenDB server use [RQL](../../client-api/session/querying/what-is-rql), 
@@ -37,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Auto-Completion](../../studio/database/code-assistance#auto-completion)  
   * [Syntax Verification](../../studio/database/code-assistance#syntax-verification)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Auto-Completion" id="auto-completion" href="#auto-completion">
+## Auto-Completion
 
 * RQL code assistance is available in the following views:  
    - [Query View](../../studio/database/queries/query-view#query-view)  
@@ -49,9 +43,6 @@ import LanguageContent from "@site/src/components/language-content";
 * To invoke auto-completion, click **CTRL+Space** while writing RQL.  
 * The relevant options for the current cursor location will be listed.  
 * Clicking a list item will add it to the query.  
-  
----
-
 **At the very beginning of a query**, the suggested options will be the 
 most basic ones:  
 
@@ -69,9 +60,6 @@ most basic ones:
     * A Function  
     * A Keyword  
     * An Operator  
-
----
-
 **As the query evolves**, new options that are are relevant to the current code are suggested.  
 
 !["Evolving Query"](./assets/code-assistance-2.png)
@@ -84,9 +72,6 @@ most basic ones:
 4. The list of **operators** and **keywords** that can be used  
 
 </Admonition>
-
----
-
 ### Syntax Verification
 
 * As you write your query, its syntax is continuously verified and errors are detected.  
@@ -100,5 +85,5 @@ most basic ones:
 3. **Error details**  
    Hover over the warning sign to see the error details.  
 
-</Admonition>
+
 

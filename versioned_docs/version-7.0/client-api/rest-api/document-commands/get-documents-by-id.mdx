@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Get Documents by ID
-
----
-
 <Admonition type="note" title="Note">  
 
 * Use this endpoint with the **`GET`** method to retrieve documents from the database according to their document IDs:  
@@ -33,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Get Document Metadata Only](../../../client-api/rest-api/document-commands/get-documents-by-id#get-document-metadata-only)  
       * [Get Document Counters](../../../client-api/rest-api/document-commands/get-documents-by-id#get-document-counters)  
 </Admonition>  
-
----
-
-<Admonition type="info" title="Basic Example" id="basic-example" href="#basic-example">
+## Basic Example
 
 This is a cURL request to retrieve one document named "products/48-A" from a database named "Example" on our 
 [playground server](http://live-test.ravendb.net):  
@@ -89,9 +83,9 @@ Raven-Server-Version: 4.2.4.42
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Request Format" id="request-format" href="#request-format">
+
+## Request Format
 
 This is the general format of a cURL request that uses all parameters:  
 
@@ -129,9 +123,9 @@ Used once |
 | - | - | - |
 | **If-None-Match** | This header takes a hash representing the previous results of an **identical** request. The hash is found in the response header `ETag`. If the results were not modified since the previous request, the server responds with http status code `304` and the requested documents are retrieved from a local cache rather than over the network. | No |
 
-</Admonition>
 
-<Admonition type="info" title="Response Format" id="response-format" href="#response-format">
+
+## Response Format
 
 #### Http Status Codes
 
@@ -192,9 +186,9 @@ This is the general JSON format of the response body:
 </TabItem>
 Linebreaks are added for clarity.  
 
-</Admonition>
 
-<Admonition type="info" title="More Examples" id="more-examples" href="#more-examples">
+
+## More Examples
 
 [About Northwind](../../../start/about-examples), the database used in our examples.
 
@@ -204,9 +198,6 @@ In this section:
 * [Get Related Documents](../../../client-api/rest-api/document-commands/get-documents-by-id#get-related-documents)  
 * [Get Document Metadata Only](../../../client-api/rest-api/document-commands/get-documents-by-id#get-document-metadata-only)  
 * [Get Document Counters](../../../client-api/rest-api/document-commands/get-documents-by-id#get-document-counters)  
-
----
-
 ### Get Multiple Documents
 
 Example cURL request:  
@@ -264,9 +255,6 @@ Raven-Server-Version: 4.2.4.42
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Get Related Documents
 
 Example cURL request:  
@@ -367,9 +355,6 @@ Raven-Server-Version: 4.2.4.42
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Get Document Metadata Only
 
 Example cURL request:
@@ -416,9 +401,6 @@ Raven-Server-Version: 4.2.4.42
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Get Document Counters
 
 Example cURL request:
@@ -491,5 +473,5 @@ Raven-Server-Version: 4.2.4.42
 (Note that the standard [Northwind data](../../../start/about-examples) does not contain any [counters](../../../document-extensions/counters/overview) 
 when it is [generated in the studio](../../../studio/database/document-extensions/counters) - counters were added to "products/48-A" for this example)  
 
-</Admonition>
+
 

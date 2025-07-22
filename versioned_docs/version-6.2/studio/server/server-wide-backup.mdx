@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 #Server-Wide Backup
----
-
 <Admonition type="note" title="Note">
 
 * RavenDB lets you define a backup task per-database  
@@ -40,26 +38,17 @@ _-or-_
   * [The Responsible Node](../../studio/server/server-wide-backup#the-responsible-node)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Scheduling a Server-Wide Backup Task" id="scheduling-a-server-wide-backup-task" href="#scheduling-a-server-wide-backup-task">
+## Scheduling a Server-Wide Backup Task
 
 Click the **Manage Server** main-menu item.  
 
 ![Figure 1. Manage-Server Menu Item](./assets/server-wide-backup_01-manage-server.png)
-
----
-
 **The Server-Wide Backup View**  
 
 ![Figure 2. Add Server-Wide Backup Task](./assets/server-wide-backup_02-new-task.png)
 
 1. Click the **Server-Wide Tasks** menu item  
 2. Click the **Add Server-Wide Task** button to add a new task  
-
----
-
 **Configure the new Backup Task**.  
 
 ![Figure 3. Task Configuration](./assets/server-wide-backup_03-task-configuration.png)
@@ -130,9 +119,9 @@ Backup files are created in a separate child folder per database, under a common
 
 ![Figure 5. Backup Destination Folder](./assets/server-wide-backup_05-destination-local.png)
 
-</Admonition>
 
-<Admonition type="info" title="Restoring a Database From a Server-Wide Backup" id="restoring-a-database-from-a-server-wide-backup" href="#restoring-a-database-from-a-server-wide-backup">
+
+## Restoring a Database From a Server-Wide Backup
 
 There is no difference between restoring a database from a backup file created by the 
 [Server-Wide procedure](../../studio/server/server-wide-backup#scheduling-a-server-wide-backup-task) 
@@ -145,11 +134,8 @@ In both cases, you can restore the database by
 * When restoring a database from a backup file created by the Server-Wide procedure, make sure you provide the 
   link to the specific database backup file and not the common root folder that was created by the Server-Wide task.
 
-</Admonition>
 
----
-
-<Admonition type="info" title="Server-Wide Backup Tasks in the Database Tasks View" id="server-wide-backup-tasks-in-the-database-tasks-view" href="#server-wide-backup-tasks-in-the-database-tasks-view">
+## Server-Wide Backup Tasks in the Database Tasks View
 
 The Server-Wide Backup Tasks can also be viewed in both the database's [Ongoing-Tasks view](../../studio/database/tasks/ongoing-tasks/general-info) 
 & [Backups view.](../../studio/database/tasks/backup-task)  
@@ -172,11 +158,8 @@ To edit or modify a Server-Wide task, navigate back to the [Server-Wide Backup v
    5. Click this button to **toggle this task's detailed-view** on or off.  
    6. This is another **Server-Wide Backup Task**, with its detailed-view toggled off.  
 
-</Admonition>
 
----
-
-<Admonition type="info" title="The Responsible Node" id="the-responsible-node" href="#the-responsible-node">
+## The Responsible Node
 
 * When defining a Server-Wide backup, the user is not given the option to select a 
   [responsible node](../../studio/server/server-wide-backup#the-responsible-node) manually, 
@@ -192,17 +175,5 @@ To edit or modify a Server-Wide task, navigate back to the [Server-Wide Backup v
   
   ![Figure 8. Topology View](./assets/ongoing-tasks-view_02-topology-view.png)
 
-</Admonition>
 
-## Related articles  
 
-**Server**  
-[Backup Overview](../../server/ongoing-tasks/backup-overview)  
-
-**Studio**  
-[Ongoing Backup Tasks](../../studio/database/tasks/backup-task)  
-[Restore: Create DB From Backup](../../studio/database/create-new-database/from-backup#create-a-database-from-backup)  
-[Database Encryption](../../studio/database/create-new-database/encrypted#create-a-database-encrypted)  
-
-**Client API**  
-[Backup Encryption](../../client-api/operations/maintenance/backup/encrypted-backup#backup-encryption)  

@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Delete Attachment Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Delete Attachment Operation
+
 
 This operation is used to delete an attachment from a document. 
 
@@ -44,7 +48,7 @@ This operation is used to delete an attachment from a document.
 
 </LanguageContent>
 <LanguageContent language="java">
-# Delete Attachment Operation
+
 
 This operation is used to delete an attachment from a document. 
 
@@ -78,8 +82,6 @@ DeleteAttachmentOperation(String documentId, String name, String changeVector)
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Delete Attachment Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -91,10 +93,7 @@ DeleteAttachmentOperation(String documentId, String name, String changeVector)
     * [Syntax](../../../client-api/operations/attachments/delete-attachment#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Delete attachment example" id="delete-attachment-example" href="#delete-attachment-example">
+## Delete attachment example
 
 <TabItem value="something-something" label="delete_attachment">
 <CodeBlock language="nodejs">
@@ -107,9 +106,9 @@ await documentStore.operations.send(deleteAttachmentOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -126,7 +125,7 @@ const deleteAttachmentOp = new DeleteAttachmentOperation(documentId, name, chang
 | __name__         | `string` | Name of attachment to delete                                                      |
 | __changeVector__ | `string` | ChangeVector of attachment,<br/>used for concurrency checks (`null` to skip check) |
 
-</Admonition>
+
 
 
 </LanguageContent>

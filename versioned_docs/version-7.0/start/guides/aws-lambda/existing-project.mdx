@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Add RavenDB to an Existing AWS Lambda Project (.NET C#)
----
-
 <Admonition type="note" title="Note">
 
 * **AWS Lambda** is a serverless platform that supports multiple languages and frameworks 
@@ -34,7 +32,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Before We Get Started" id="before-we-get-started" href="#before-we-get-started">
+## Before We Get Started
 
 You will need the following before continuing:
 
@@ -51,9 +49,9 @@ which is set up with dependency injection, X.509/PEM certificate support, and AW
 You can also reference the template to see how the integration is set up.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Installing the RavenDB Client SDK" id="installing-the-ravendb-client-sdk" href="#installing-the-ravendb-client-sdk">
+
+## Installing the RavenDB Client SDK
 
 Get started by installing the [RavenDB.Client][nuget-ravendb-client] Nuget package in your solution 
 or project which provides the .NET client SDK.  
@@ -67,9 +65,9 @@ Using the .NET CLI:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Initializing the Document Store" id="initializing-the-document-store" href="#initializing-the-document-store">
+
+## Initializing the Document Store
 
 Import the `DocumentStore` from `Raven.Client.Documents` namespace to create a new instance with the 
 required configuration and initialize your connection to RavenDB by calling the `Initialize` method.  
@@ -176,9 +174,9 @@ otherwise it will be constructed each time the function warms up. For more, see 
 
 You can set options manually but it's more likely you'll want to configure support for app settings.  
 
-</Admonition>
 
-<Admonition type="info" title="Adding Support for App Settings" id="adding-support-for-app-settings" href="#adding-support-for-app-settings">
+
+## Adding Support for App Settings
 
 You will need a way to pass options to the `DocumentStore` on your local machine and when deployed to AWS Lambda.  
 
@@ -216,9 +214,9 @@ Environment variables follow the .NET conventions with `__` being the dot-notati
 
 You can pass environment variables in your terminal profile, OS settings, Docker `env`, on the command-line, or within AWS.  
 
-</Admonition>
 
-<Admonition type="info" title="Configuring Support for Certificates" id="configuring-support-for-certificates" href="#configuring-support-for-certificates">
+
+## Configuring Support for Certificates
 
 RavenDB uses client certificate authentication (mutual TLS) to secure your database connection.  
 The .NET Client SDK supports `X509Certificate2` which is passed to the `DocumentStore.Certificate` option.  
@@ -349,9 +347,9 @@ instead of relying on production environment variables.
 
 [Learn more about configuring AWS Secrets Manager](secrets-manager)
 
-</Admonition>
 
-<Admonition type="info" title="Configuring AWS" id="configuring-aws" href="#configuring-aws">
+
+## Configuring AWS
 
 You will need to configure certificate authentication in AWS Lambda. Depending on the method you choose above, the steps vary.  
 
@@ -392,16 +390,16 @@ still be parsed successfully with `X509Certificate2.CreateFromPem` without extra
 
 These values will override `appsettings.json` once saved.  
 
-</Admonition>
 
-<Admonition type="info" title="Next Steps" id="next-steps" href="#next-steps">
+
+## Next Steps
 
 - Learn more about [how to use the RavenDB .NET client SDK][docs-dotnet]  
 - Reference the [.NET AWS Lambda starter template][gh-ravendb-template] to see the code  
 - [Troubleshoot][troubleshooting] issues with RavenDB and AWS Lambda  
 - [Deployment Considerations][deployment-considerations] for RavenDB and AWS Lambda  
 
-</Admonition>
+
 
 [troubleshooting]: ../../../start/guides/aws-lambda/troubleshooting  
 [deployment-considerations]: ../../../start/guides/aws-lambda/deployment  

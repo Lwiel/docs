@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# How to Check for Entity Changes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# How to Check for Entity Changes
----
 
 <Admonition type="note" title="Note">
 
@@ -32,17 +34,11 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../client-api/session/how-to/check-if-entity-has-changed#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Check for entity changes " id="check-for-entity-changes" href="#check-for-entity-changes">
+## Check for entity changes 
 
 * The session's advanced property `HasChanged` indicates whether the specified entity was added, modified, or deleted within the session.
 
 * Note: The _HasChanged_ property is cleared after calling `SaveChanges()`.
-
----
-
 <TabItem value="something" label="changes_1">
 <CodeBlock language="csharp">
 {`using (var session = store.OpenSession())
@@ -76,9 +72,9 @@ import LanguageContent from "@site/src/components/language-content";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get entity changes " id="get-entity-changes" href="#get-entity-changes">
+
+## Get entity changes 
 
 * Use the session's advanced method `WhatChangedFor()` to get all changes made to the specified entity  
   within the session.
@@ -90,9 +86,6 @@ import LanguageContent from "@site/src/components/language-content";
 
 * Note: `WhatChangedFor()` reports changes made prior to calling `SaveChanges()`.  
   Calling it immediately after _SaveChanges_ will return no results, since all changes are cleared at that point.
-
----
-
 ##### Example I
 
 <TabItem value="something" label="changes_2">
@@ -149,9 +142,9 @@ import LanguageContent from "@site/src/components/language-content";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -199,12 +192,12 @@ public enum ChangeType
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# How to Check for Entity Changes
+
 
 To check if a specific entity differs from the one downloaded from server, the `hasChanged` method from the `advanced` session operations can be used.
 
@@ -240,8 +233,6 @@ hasChanged = session.advanced().hasChanged(employee);// true
 
 </LanguageContent>
 <LanguageContent language="python">
-# How to Check for Entity Changes
----
 
 <Admonition type="note" title="Note">
 
@@ -257,17 +248,11 @@ hasChanged = session.advanced().hasChanged(employee);// true
     * [Syntax](../../../client-api/session/how-to/check-if-entity-has-changed#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Check for entity changes " id="check-for-entity-changes" href="#check-for-entity-changes">
+## Check for entity changes 
 
 * The session's advanced property `has_changed` indicates whether the specified entity was added, modified, or deleted within the session.
 
 * Note: The `has_changed` property is cleared (reset to `False`) after calling `save_changes`.
-
----
-
 <TabItem value="something-something" label="changes_1">
 <CodeBlock language="python">
 {`with store.open_session() as session:
@@ -299,9 +284,9 @@ hasChanged = session.advanced().hasChanged(employee);// true
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get entity changes " id="get-entity-changes" href="#get-entity-changes">
+
+## Get entity changes 
 
 * Use the advanced session `what_changed` method to get all changes made to the specified entity  
   within the session.
@@ -313,9 +298,6 @@ hasChanged = session.advanced().hasChanged(employee);// true
 
 * Note: `what_changed` reports changes made prior to calling `save_changes`.  
   Calling it immediately after _save_changes_ will return no results, since all changes are cleared at that point.
-
----
-
 ##### Example I
 
 <TabItem value="something-something" label="changes_2">
@@ -375,9 +357,9 @@ hasChanged = session.advanced().hasChanged(employee);// true
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="python">
@@ -424,13 +406,11 @@ def what_changed(self) -> Dict[str, List[DocumentsChanges]]: ...
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# How to Check for Entity Changes
----
 
 <Admonition type="note" title="Note">
 
@@ -446,17 +426,11 @@ def what_changed(self) -> Dict[str, List[DocumentsChanges]]: ...
     * [Syntax](../../../client-api/session/how-to/check-if-entity-has-changed#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Check for entity changes " id="check-for-entity-changes" href="#check-for-entity-changes">
+## Check for entity changes 
 
 * The session's advanced property `hasChanged` indicates whether the specified entity was added, modified, or deleted within the session.
 
 * Note: The `hasChanged` property is cleared (reset to `false`) after calling `saveChanges`.
-
----
-
 <TabItem value="something-something" label="changes_1">
 <CodeBlock language="php">
 {`$session = $store->openSession();
@@ -495,9 +469,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get entity changes " id="get-entity-changes" href="#get-entity-changes">
+
+## Get entity changes 
 
 * Use the advanced session `whatChangedFor` method to get all changes made in the specified entity  
   within the session.
@@ -506,9 +480,6 @@ try \{
     * The name and path of the changed field
     * Its old and new values
     * The type of change
-
----
-
 ##### Example I
 
 <TabItem value="something-something" label="changes_2">
@@ -572,9 +543,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -625,13 +596,11 @@ class ChangeType
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# How to Check for Entity Changes
----
 
 <Admonition type="note" title="Note">
 
@@ -649,17 +618,11 @@ class ChangeType
     * [Syntax](../../../client-api/session/how-to/check-if-entity-has-changed#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Check for entity changes " id="check-for-entity-changes" href="#check-for-entity-changes">
+## Check for entity changes 
 
 * The session's advanced property `hasChanged` indicates whether the specified entity was added, modified, or deleted within the session.
 
 * Note: The _hasChanged_ property is cleared after calling `saveChanges()`.
-
----
-
 <TabItem value="something-something" label="changes_1">
 <CodeBlock language="nodejs">
 {`const session = documentStore.openSession();
@@ -694,9 +657,9 @@ assert.ok(!session.advanced.hasChanged(employee));   // FALSE
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get entity changes " id="get-entity-changes" href="#get-entity-changes">
+
+## Get entity changes 
 
 * Use the session's advanced method `whatChangedFor()` to get all changes made to the specified entity  
   within the session.
@@ -708,9 +671,6 @@ assert.ok(!session.advanced.hasChanged(employee));   // FALSE
 
 * Note: `whatChangedFor()` reports changes made prior to calling `saveChanges()`.  
   Calling it immediately after _saveChanges_ will return no results, since all changes are cleared at that point.
-
----
-
 ##### Example I
 
 <TabItem value="something-something" label="changes_2">
@@ -767,9 +727,9 @@ assert.equal(changesForEmployee[1].change, "FieldChanged");
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -826,7 +786,7 @@ assert.equal(changesForEmployee[1].change, "FieldChanged");
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

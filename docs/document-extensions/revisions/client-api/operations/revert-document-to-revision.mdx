@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Revert Document to Revision Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Revert Document to Revision Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -33,10 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/revert-document-to-revision#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 * To revert a document to a specific revision, provide the document ID and the change-vector of the target revision to the `RevertRevisionsByIdOperation` operation.  
   The document content will be overwritten by the content of the specified revision.
@@ -59,9 +58,6 @@ import LanguageContent from "@site/src/components/language-content";
 
 * When executing this operation on a document that had revisions and was deleted, placing it in the Revisions Bin,
   the document will be **recreated** with the content of the specified target revision and will be removed from the Revisions Bin.
-
----
-
 ##### How to obtain a revision's change-vector:  
 
 The change-vector of a revision can be obtained via:  
@@ -77,9 +73,9 @@ The change-vector of a revision can be obtained via:
    This top label indicates that you are viewing a revision and not the current document.
 4. Click the copy button in the Properties pane to copy this revision's change-vector to your clipboard.
 
-</Admonition>
 
-<Admonition type="info" title="Revert single document" id="revert-single-document" href="#revert-single-document">
+
+## Revert single document
 
 Using RavenDB's sample data, document _orders/1-A_ has a total of 7 revisions.  
 In this example, we revert document _orders/1-A_ to its very first revision.
@@ -145,9 +141,9 @@ In this example, we revert document _orders/1-A_ to its very first revision.
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Revert multiple documents" id="revert-multiple-documents" href="#revert-multiple-documents">
+
+## Revert multiple documents
 
 You can use the operation to revert multiple documents.  
 Note: The documents do not need to belong to the same collection.
@@ -205,9 +201,9 @@ Note: The documents do not need to belong to the same collection.
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -225,7 +221,7 @@ public RevertRevisionsByIdOperation(Dictionary<string, string> idToChangeVector)
 | **cv**               | `string`                     | The change vector of the revision to which the document should be reverted.                                                                 |
 | **idToChangeVector** | `Dictionary<string, string>` | A dictionary where each key is a document ID, and each value is the change-vector of the revision to which the document should be reverted. |
 
-</Admonition>
+
 
 
 </LanguageContent>

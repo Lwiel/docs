@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Ongoing Tasks: Snowflake ETL  
----
-
 <Admonition type="note" title="Note">
 
 * Snowflake is a widely used cloud-based [Data Warehouse](https://docs.snowflake.com/en/user-guide/warehouses) 
@@ -44,10 +42,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Advanced Options](../../../server/ongoing-tasks/etl/snowflake#advanced-options)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Creating a Task" id="creating-a-task" href="#creating-a-task">
+## Creating a Task
 
 A Snowflake ETL task can be created using **Code** or via **Studio**.
 
@@ -76,16 +71,16 @@ A Snowflake ETL task can be created using **Code** or via **Studio**.
         ![Define Snowflake Task](./assets/snowflake-etl-setup.png)
 
 
-</Admonition>
 
-<Admonition type="info" title="Snowflake warehouse setup" id="snowflake-warehouse-setup" href="#snowflake-warehouse-setup">
+
+## Snowflake warehouse setup
 
 Prior to running the ETL task, please create the **destination tables** in the warehouse database 
 that RavenDB records are to be transferred to.  
 
-</Admonition>
 
-<Admonition type="info" title="Snowflake Tables" id="snowflake-tables" href="#snowflake-tables">
+
+## Snowflake Tables
 
 Use the **Snowflake Tables** section to select which tables the ETL process is to transfer data to.  
 For each table, specify a column that would be used as the document ID column.  
@@ -128,9 +123,9 @@ The column does **not** have to be a table's primary key.
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Transformation Scripts" id="transformation-scripts" href="#transformation-scripts">
+
+## Transformation Scripts
 
 An ETL task can apply multiple transformation scripts.  
 The script is defined per collection, and **cannot** be empty.
@@ -163,9 +158,6 @@ You must pass the method a JavaScript object, e.g. -
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Alternative Syntax
 
 The target table name can be passed to the `loadTo` command separately as a string argument, using the following syntax:  
@@ -183,9 +175,6 @@ E.g., the following two calls to `loadTo` are equivalent.
    `-` and `.` in target names. This is not possible when the standard `loadToEmployees` syntax is 
    used because including special characters in the name of a JS function turns it invalid.  
 </Admonition>
-
----
-
 ### Filtering
 
 To filter documents out or include them in the transfer, use a logic of your choosing while calling `loadTp`.  
@@ -200,9 +189,6 @@ E.g.,
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Loading Other Documents
 
 Use the `load` method to load a document with a specified ID during script execution.  
@@ -213,9 +199,6 @@ Use the `load` method to load a document with a specified ID during script execu
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Accessing Metadata
 
 Access metadata as follows:  
@@ -226,9 +209,6 @@ Access metadata as follows:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Loading to Multiple Tables
 
 The `loadTo` method can be called as many times as needed by a single script.  
@@ -260,9 +240,6 @@ loadToOrders(orderData);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Document Extensions
 
 [Counters](../../../document-extensions/counters/overview), [Time series](../../../document-extensions/timeseries/overview), 
@@ -306,9 +283,9 @@ for (var i = 0; i < attachments.length; i++) \{
 Attachments can also be accessed using the `getAttachments()` helper function rather than grabbing them from metadata.  
 To check whether an attachment exists, use the `hasAttachment(name)` function.  
 
-</Admonition>
 
-<Admonition type="info" title="Transaction Processing" id="transaction-processing" href="#transaction-processing">
+
+## Transaction Processing
 
 * All records created in a single ETL run, one per each `loadTo` call, are sent in a single batch and processed 
   as part of the same transaction.  
@@ -324,9 +301,9 @@ To check whether an attachment exists, use the `hasAttachment(name)` function.
   stored in the database when transactions complete.  
   </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Advanced Options" id="advanced-options" href="#advanced-options">
+
+## Advanced Options
 
 #### Command timeout:
 You can set the number of seconds after which an SQL command will timeout.  
@@ -352,5 +329,5 @@ Default: `null` (use provider default)
 
     ![Command timeout](./assets/snowflake-etl-advanced_02.png)
 
-</Admonition>
+
 

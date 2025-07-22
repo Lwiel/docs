@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Cluster: Cluster-Wide Transactions
----
-
 <Admonition type="note" title="Note">
 
 * Cluster-wide transactions are a way to ensure that certain operations will favor consistency over availability in the CAP theorem.  
@@ -29,10 +27,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Debug Cluster-Wide Transactions](../../server/clustering/cluster-transactions#debug-cluster-wide-transactions)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Why Cluster-Wide Transactions" id="why-cluster-wide-transactions" href="#why-cluster-wide-transactions">
+## Why Cluster-Wide Transactions
 
 Usually, RavenDB uses the [multi-master model](../../client-api/faq/transaction-support#multi-master-model) and applies a transaction on a single node first and then asynchronously replicates the data to other
 members in the cluster. This ensures that even in the presence of network partitions or hard failures, RavenDB can 
@@ -55,9 +50,9 @@ the cluster. If it is not able to do so, the cluster-wide transaction will fail.
 For the rest of this document we are going to refer to single-node transactions, applied on a single node and then disseminated using async
 replication vs. cluster-wide transactions that are accepted by a majority of the nodes in the cluster and then applied on each of them.
 
-</Admonition>
 
-<Admonition type="info" title="How Cluster Transactions Work" id="how-cluster-transactions-work" href="#how-cluster-transactions-work">
+
+## How Cluster Transactions Work
 
 1. A request sent from the client via [SaveChanges()](../../client-api/session/saving-changes#transaction-mode---cluster-wide) using `TransactionMode.ClusterWide` will generate a [Raft Command](../../server/clustering/rachis/consensus-operations#implementation-details) 
    and the server will wait for a consensus on it.
@@ -78,9 +73,9 @@ replication vs. cluster-wide transactions that are accepted by a majority of the
 7. In the background, the [Cluster Observer](../../server/clustering/distribution/cluster-observer) tracks the completed cluster transactions 
    and removes the local cluster-state-machine only when it has been successfully committed on _all_ of the database nodes.
 
-</Admonition>
 
-<Admonition type="info" title="Cluster Transactions Properties" id="cluster-transactions-properties" href="#cluster-transactions-properties">
+
+## Cluster Transactions Properties
 
 The Cluster transaction feature enables RavenDB to perform consistent cluster-wide ACID transactions.  
 It can be composed of two optional parts:  
@@ -110,9 +105,9 @@ It will be added to any future requests in order to ensure that the node has com
 Once the transaction has been accepted, it is guaranteed to run on all the database's nodes, even in the case of system 
 (or even cluster-wide) restarts or failures.
 
-</Admonition>
 
-<Admonition type="info" title="Concurrent Cluster-Wide and Single-Node Transactions" id="concurrent-cluster-wide-and-single-node-transactions" href="#concurrent-cluster-wide-and-single-node-transactions">
+
+## Concurrent Cluster-Wide and Single-Node Transactions
 
 ### Case 1: Multiple concurrent cluster transactions  
 
@@ -130,9 +125,6 @@ to each of the database nodes without regard to the current node state (note: th
 <Admonition type="info" title="Info">
 If the concurrency check of the compare exchange has passed, the transaction will proceed and will be committed on all the database nodes.
 </Admonition>
-
----
-
 ### Case 2: Concurrent cluster and non-cluster transaction
 
 When mixing cluster-wide transactions and single-node transactions, you need to be aware of the rules RavenDB uses to 
@@ -150,9 +142,6 @@ the cluster-wide transaction will not be executed again.
 every document that was modified under the cluster transaction will receive the special `RAFT:int64-sequential-number` 
 [Change Vector](../../server/clustering/replication/change-vector) and the special flag `FromClusterTx` which ensures precedence 
 over a regular change vector.
-
----
-
 ### Case 3: Cluster transaction with an External incoming replication
 
 While the internal replication with the cluster is discussed in the previous case, the case where two clusters are connected via 
@@ -163,25 +152,19 @@ However, in the case where a conflict is on a document that was changed by both 
 the local one will have precedence. Furthermore, the `FromClusterTx` flag will be removed, which means that on the next conflict the local 
 is no longer treated as modified by a cluster-wide transaction.
 
-</Admonition>
 
-<Admonition type="info" title="Failure Modes in Cluster-Wide Transactions" id="failure-modes-in-cluster-wide-transactions" href="#failure-modes-in-cluster-wide-transactions">
+
+## Failure Modes in Cluster-Wide Transactions
 
 ### No majority
 
 A cluster-wide transaction can operate only within a functional cluster. 
 Thus, if no consensus was acquired for the cluster transaction by the majority of the nodes or currently there is no leader, 
 the transaction will be rolled back.
-
----
-
 ### Concurrency issues for compare-exchange operations
 
 Acquiring a consensus doesn't mean the acceptance of the transaction. Once the consensus is acquired, each node does a 
 concurrency check on the compare-exchange values. If the concurrency check fails, the transaction will be rolled back.  
-
----
-
 ### Failure to apply transaction on database nodes
 
 Once the transaction has passed the compare-exchange concurrency check, the transaction is guaranteed to be committed.
@@ -196,9 +179,9 @@ Any failure at this stage must be remedied.
 The execution of cluster transactions on the database will be stopped until these types of failures are fixed.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Debug Cluster-Wide Transactions" id="debug-cluster-wide-transactions" href="#debug-cluster-wide-transactions">
+
+## Debug Cluster-Wide Transactions
 
 The current state of the cluster transactions that are waiting to be completed by all of the database nodes can be found at:
 
@@ -213,5 +196,5 @@ Parameters
 |`from` (optional) | `long` (default: 0)| Get cluster transactions from the raft change vector index. |
 |`take` (optional) | `int` (default: `int.MaxValue`) | The number of cluster transaction to show. |
 
-</Admonition>
+
 

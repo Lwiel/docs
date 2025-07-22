@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Compare Exchange Expiration
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Compare Exchange Expiration
----
 
 <Admonition type="note" title="Note">
 
@@ -27,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Examples](../../../client-api/operations/compare-exchange/compare-exchange-expiration#examples)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 `@expires` is a metadata property that holds a `DateTime` value. Once the 
 specified date and time has passed, the compare exchange value is set for 
@@ -41,9 +40,9 @@ on the expiration frequency and other
 To set a compare exchange value to expire, simply put a `DateTime` value 
 (in UTC format) in the `@expires` field, then to send it to the server.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 Creating a new key with `CreateCompareExchangeValue()`:
 
@@ -92,7 +91,7 @@ CompareExchangeResult<string> result = store.Operations.Send(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Sort Index Query Results
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Sort Index Query Results
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -32,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Additional Sorting Options](../../indexes/querying/sorting#additional-sorting-options)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Order by index-field value" id="order-by-index-field-value" href="#order-by-index-field-value">
+## Order by index-field value
 
 * Use `OrderBy` or `OrderByDescending` to order the results by the specified index-field.
 
@@ -138,9 +136,9 @@ order by UnitsInStock as long desc
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order results when index-field is searchable" id="order-results-when-index-field-is-searchable" href="#order-results-when-index-field-is-searchable">
+
+## Order results when index-field is searchable
 
 * **When configuring an index-field** for [full-text search](../../indexes/querying/searching), 
   the content of the index-field is broken down into terms at indexing time. 
@@ -270,9 +268,9 @@ order by NameForSorting
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Additional sorting options" id="additional-sorting-options" href="#additional-sorting-options">
+
+## Additional sorting options
 
 * When querying an index, the following sorting options are the **same** as when making a dynamic query.
 
@@ -288,12 +286,12 @@ order by NameForSorting
 
   * [Custom sorters](../../client-api/session/querying/sort-query-results#custom-sorters)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Sorting Query Results
+
 
 ## Basics
 
@@ -668,9 +666,6 @@ order by spatial.distance(spatial.point(Latitude, Longitude), spatial.point(32.1
 
 </LanguageContent>
 <LanguageContent language="python">
-# Sort Index Query Results
-
----
 
 <Admonition type="note" title="Note">
 
@@ -687,10 +682,7 @@ order by spatial.distance(spatial.point(Latitude, Longitude), spatial.point(32.1
     * [Additional Sorting Options](../../indexes/querying/sorting#additional-sorting-options)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Order by index-field value" id="order-by-index-field-value" href="#order-by-index-field-value">
+## Order by index-field value
 
 * Use `order_by` or `order_by_descending` to order the results by the specified index-field.
 
@@ -758,9 +750,9 @@ order by UnitsInStock as long desc
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order results when index-field is searchable" id="order-results-when-index-field-is-searchable" href="#order-results-when-index-field-is-searchable">
+
+## Order results when index-field is searchable
 
 * **When configuring an index-field** for [full-text search](../../indexes/querying/searching), 
   the content of the index-field is broken down into terms at indexing time. 
@@ -850,9 +842,9 @@ order by NameForSorting
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Additional sorting options" id="additional-sorting-options" href="#additional-sorting-options">
+
+## Additional sorting options
 
 * When querying an index, the following sorting options are the **same** as when making a dynamic query.
 
@@ -868,14 +860,11 @@ order by NameForSorting
 
   * [Custom sorters](../../client-api/session/querying/sort-query-results#custom-sorters)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Sort Index Query Results
-
----
 
 <Admonition type="note" title="Note">
 
@@ -892,10 +881,7 @@ order by NameForSorting
     * [Additional Sorting Options](../../indexes/querying/sorting#additional-sorting-options)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Order by index-field value" id="order-by-index-field-value" href="#order-by-index-field-value">
+## Order by index-field value
 
 Use `orderByDescending` to order the results by the specified index-field.
 
@@ -993,9 +979,9 @@ order by UnitsInStock as long desc
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order results when index-field is searchable" id="order-results-when-index-field-is-searchable" href="#order-results-when-index-field-is-searchable">
+
+## Order results when index-field is searchable
 
 * **When configuring an index-field** for [full-text search](../../indexes/querying/searching), 
   the content of the index-field is broken down into terms at indexing time. 
@@ -1127,9 +1113,9 @@ order by NameForSorting
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Additional sorting options" id="additional-sorting-options" href="#additional-sorting-options">
+
+## Additional sorting options
 
 * When querying an index, the following sorting options are the **same** as when making a dynamic query.
 
@@ -1145,14 +1131,11 @@ order by NameForSorting
 
   * [Custom sorters](../../client-api/session/querying/sort-query-results#custom-sorters)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Sort Index Query Results
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1169,10 +1152,7 @@ order by NameForSorting
     * [Additional Sorting Options](../../indexes/querying/sorting#additional-sorting-options)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Order by index-field value" id="order-by-index-field-value" href="#order-by-index-field-value">
+## Order by index-field value
 
 * Use `orderBy` or `orderByDescending` to order the results by the specified index-field.
 
@@ -1234,9 +1214,9 @@ order by unitsInStock as long desc
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order results when index-field is searchable" id="order-results-when-index-field-is-searchable" href="#order-results-when-index-field-is-searchable">
+
+## Order results when index-field is searchable
 
 * **When configuring an index-field** for [full-text search](../../indexes/querying/searching), 
   the content of the index-field is broken down into terms at indexing time. 
@@ -1328,9 +1308,9 @@ order by nameForSorting
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Additional sorting options" id="additional-sorting-options" href="#additional-sorting-options">
+
+## Additional sorting options
 
 * When querying an index, the following sorting options are the **same** as when making a dynamic query.
 
@@ -1346,7 +1326,7 @@ order by nameForSorting
 
   * [Custom sorters](../../client-api/session/querying/sort-query-results#custom-sorters)
 
-</Admonition>
+
 
 
 </LanguageContent>

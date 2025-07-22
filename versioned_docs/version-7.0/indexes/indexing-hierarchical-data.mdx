@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["java", "csharp", "python", "php", "nodejs"];
+
+
+# Indexing Hierarchical Data
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="java">
-# Indexing Hierarchical Data
+
 
 One of the greatest advantages of a document database is that we have very few limits on how we structure our data.   
 One very common scenario is the usage of hierarchical data structures.   
@@ -170,8 +174,6 @@ This will index all the comments in the thread, regardless of their location in 
 
 </LanguageContent>
 <LanguageContent language="csharp">
-# Indexing Hierarchical Data
----
 
 <Admonition type="note" title="Note">
 
@@ -183,10 +185,7 @@ This will index all the comments in the thread, regardless of their location in 
    * [Query the index](../indexes/indexing-hierarchical-data#query-the-index)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Hierarchical data" id="hierarchical-data" href="#hierarchical-data">
+## Hierarchical data
 
 One significant advantage of document databases is their tendency not to impose limits on data structuring.
 **Hierarchical data structures** exemplify this quality well; for example, consider the commonly used comment thread, implemented using objects such as:
@@ -256,9 +255,9 @@ For example, the following document, `BlogPosts/1-A`, represents a blog post by 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Index hierarchical data" id="index-hierarchical-data" href="#index-hierarchical-data">
+
+## Index hierarchical data
 
 To index the elements of a hierarchical structure like the one above, use RavenDB's `Recurse` method.  
 
@@ -348,9 +347,9 @@ We can then [query the index](../indexes/indexing-hierarchical-data#query-the-in
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Query the index" id="query-the-index" href="#query-the-index">
+
+## Query the index
 
 The index can be queried for all blog posts that contain comments made by specific authors.
 
@@ -415,13 +414,11 @@ where Authors == "Moon"
 
       !["Index Terms"](./assets/index-terms.png)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Indexing Hierarchical Data
----
 
 <Admonition type="note" title="Note">
 
@@ -433,10 +430,7 @@ where Authors == "Moon"
    * [Query the index](../indexes/indexing-hierarchical-data#query-the-index)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Hierarchical data" id="hierarchical-data" href="#hierarchical-data">
+## Hierarchical data
 
 One significant advantage of document databases is their tendency not to impose limits on data structuring.
 **Hierarchical data structures** exemplify this quality well; for example, consider the commonly used comment thread, implemented using objects such as:
@@ -505,9 +499,9 @@ For example, the following document, `BlogPosts/1-A`, represents a blog post by 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Index hierarchical data" id="index-hierarchical-data" href="#index-hierarchical-data">
+
+## Index hierarchical data
 
 To index the elements of a hierarchical structure like the one above, use RavenDB's `Recurse` method.
 
@@ -550,9 +544,9 @@ select new
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Query the index" id="query-the-index" href="#query-the-index">
+
+## Query the index
 
 The index can be queried for all blog posts that contain comments made by specific authors.
 
@@ -594,13 +588,11 @@ where Authors == "Moon"
 
       !["Index Terms"](./assets/index-terms.png)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Indexing Hierarchical Data
----
 
 <Admonition type="note" title="Note">
 
@@ -612,10 +604,7 @@ where Authors == "Moon"
    * [Query the index](../indexes/indexing-hierarchical-data#query-the-index)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Hierarchical data" id="hierarchical-data" href="#hierarchical-data">
+## Hierarchical data
 
 One significant advantage of document databases is their tendency not to impose limits on data structuring.
 **Hierarchical data structures** exemplify this quality well; for example, consider the commonly used comment thread, implemented using objects such as:
@@ -763,9 +752,9 @@ For example, the following document, `BlogPosts/1-A`, represents a blog post by 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Index hierarchical data" id="index-hierarchical-data" href="#index-hierarchical-data">
+
+## Index hierarchical data
 
 To index the elements of a hierarchical structure like the one above, use RavenDB's `Recurse` method.
 
@@ -821,9 +810,9 @@ $store->maintenance()->send(new PutIndexesOperation($indexDefinition));
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Query the index" id="query-the-index" href="#query-the-index">
+
+## Query the index
 
 The index can be queried for all blog posts that contain comments made by specific authors.
 
@@ -877,13 +866,11 @@ where Authors == "Moon"
 
       !["Index Terms"](./assets/index-terms.png)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexing Hierarchical Data
----
 
 <Admonition type="note" title="Note">
 
@@ -895,10 +882,7 @@ where Authors == "Moon"
     * [Query the index](../indexes/indexing-hierarchical-data#query-the-index)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Hierarchical data" id="hierarchical-data" href="#hierarchical-data">
+## Hierarchical data
 
 One significant advantage of document databases is their tendency not to impose limits on data structuring.
 **Hierarchical data structures** exemplify this quality well; for example, consider the commonly used comment thread, implemented using objects such as:
@@ -970,9 +954,9 @@ For example, the following document, `BlogPosts/1-A`, represents a blog post by 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Index hierarchical data" id="index-hierarchical-data" href="#index-hierarchical-data">
+
+## Index hierarchical data
 
 To index the elements of a hierarchical structure like the one above, use RavenDB's `Recurse` method.
 
@@ -1016,9 +1000,9 @@ await store.maintenance.send(new PutIndexesOperation(indexDefinition));
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Query the index" id="query-the-index" href="#query-the-index">
+
+## Query the index
 
 The index can be queried for all blog posts that contain comments made by specific authors.
 
@@ -1060,7 +1044,7 @@ where authors == "Moon"
 
       !["Index Terms"](./assets/index-terms.png)
 
-</Admonition>
+
 
 
 </LanguageContent>

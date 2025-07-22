@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# How to Check for Session Changes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# How to Check for Session Changes
----
 
 <Admonition type="note" title="Note">
 
@@ -33,17 +35,11 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../client-api/session/how-to/check-if-there-are-any-changes-on-a-session#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Check for session changes " id="check-for-session-changes" href="#check-for-session-changes">
+## Check for session changes 
 
 * The session's advanced property `HasChanges` indicates whether any entities were added, modified, or deleted within the session.
 
 * Note: The _HasChanges_ property is cleared after calling `SaveChanges()`.
-
----
-
 <TabItem value="something" label="changes_1">
 <CodeBlock language="csharp">
 {`using (var session = store.OpenSession())
@@ -65,9 +61,9 @@ import LanguageContent from "@site/src/components/language-content";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get session changes " id="get-session-changes" href="#get-session-changes">
+
+## Get session changes 
 
 * Use the session's advanced method `WhatChanged()` to get all changes made to all the entities tracked by the session.
 
@@ -78,9 +74,6 @@ import LanguageContent from "@site/src/components/language-content";
   
 * Note: `WhatChanged()` reports changes made prior to calling `SaveChanges()`.  
   Calling it immediately after _SaveChanges_ will return no results, as the changes are cleared.
-
----
-
 ##### Example I
 
 <TabItem value="something" label="changes_2">
@@ -152,9 +145,9 @@ import LanguageContent from "@site/src/components/language-content";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -202,17 +195,17 @@ public enum ChangeType
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# How to Check for Session Changes
+
 
 Single entity can be checked for changes using [hasChanged](../../../client-api/session/how-to/check-if-entity-has-changed) method, but there is also a possibility to check if there are any changes on a session or even what has changed. 
 Both the `hasChanges`  method and the `whatChanged` method are available in the `advanced` session operations.
 
-<Admonition type="info" title="HasChanges" id="haschanges" href="#haschanges">
+## HasChanges
 
 Property indicates if the session contains any changes. If there are any new, changed or deleted entities.
 
@@ -242,9 +235,9 @@ Property indicates if the session contains any changes. If there are any new, ch
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="WhatChanged" id="whatchanged" href="#whatchanged">
+
+## WhatChanged
 
 Method returns all changes for each entity stored within the session. Including name of the field/property that changed, its old and new value, and change type. 
 
@@ -299,13 +292,11 @@ Method returns all changes for each entity stored within the session. Including 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# How to Check for Session Changes
----
 
 <Admonition type="note" title="Note">
 
@@ -322,17 +313,11 @@ Method returns all changes for each entity stored within the session. Including 
   * [Syntax](../../../client-api/session/how-to/check-if-there-are-any-changes-on-a-session#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Check for session changes " id="check-for-session-changes" href="#check-for-session-changes">
+## Check for session changes 
 
 * The advanced session `has_changes` property indicates whether any entities were added, modified, or deleted within the session.
 
 * Note: The `has_changes` property is cleared (reset to `False`) after calling `save_changes`.
-
----
-
 <TabItem value="something-something" label="changes_1">
 <CodeBlock language="python">
 {`with store.open_session() as session:
@@ -352,9 +337,9 @@ Method returns all changes for each entity stored within the session. Including 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get session changes " id="get-session-changes" href="#get-session-changes">
+
+## Get session changes 
 
 * Use the session's advanced method `what_changed` to get all changes made to all the entities tracked by the session.
 
@@ -365,9 +350,6 @@ Method returns all changes for each entity stored within the session. Including 
 
 * Note: `what_changed` reports changes made prior to calling `save_changes`.  
   Calling it immediately after _save_changes_ will return no results, as the changes are cleared.
-
----
-
 ##### Example I
 
 <TabItem value="something-something" label="changes_2">
@@ -439,9 +421,9 @@ Method returns all changes for each entity stored within the session. Including 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="python">
@@ -488,13 +470,11 @@ def what_changed(self) -> Dict[str, List[DocumentsChanges]]: ...
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# How to Check for Session Changes
----
 
 <Admonition type="note" title="Note">
 
@@ -511,17 +491,11 @@ def what_changed(self) -> Dict[str, List[DocumentsChanges]]: ...
   * [Syntax](../../../client-api/session/how-to/check-if-there-are-any-changes-on-a-session#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Check for session changes " id="check-for-session-changes" href="#check-for-session-changes">
+## Check for session changes 
 
 * The advanced session `hasChanges` property indicates whether any entities were added, modified, or deleted within the session.
 
 * Note: The `hasChanges` property is cleared (reset to `false`) after calling `saveChanges`.
-
----
-
 <TabItem value="something-something" label="changes_1">
 <CodeBlock language="php">
 {`$session = $store->openSession();
@@ -550,9 +524,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get session changes " id="get-session-changes" href="#get-session-changes">
+
+## Get session changes 
 
 * Use the session's advanced method `whatChanged` to get all changes made to all the entities tracked by the session.
 
@@ -560,9 +534,6 @@ try \{
    * The name and path of the changed field   
    * Its old and new values  
    * The type of change  
-
----
-
 ##### Example I
 
 <TabItem value="something-something" label="changes_2">
@@ -648,9 +619,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -702,13 +673,11 @@ class ChangeType
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# How to Check for Session Changes
----
 
 <Admonition type="note" title="Note">
 
@@ -727,17 +696,11 @@ class ChangeType
     * [Syntax](../../../client-api/session/how-to/check-if-there-are-any-changes-on-a-session#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Check for session changes" id="check-for-session-changes" href="#check-for-session-changes">
+## Check for session changes
 
 * The session's advanced property `hasChanges` indicates whether any entities were added, modified, or deleted within the session.
 
 * Note: The _hasChanges_ property is cleared after calling `saveChanges()`.
-
----
-
 <TabItem value="something-something" label="changes_1">
 <CodeBlock language="nodejs">
 {`const session = store.openSession();
@@ -762,9 +725,9 @@ assert.ok(!session.advanced.hasChanges());
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Get session changes" id="get-session-changes" href="#get-session-changes">
+
+## Get session changes
 
 * Use the session's advanced method `whatChanged()` to get all changes made to all the entities tracked by the session.
 
@@ -775,9 +738,6 @@ assert.ok(!session.advanced.hasChanges());
 
 * Note: `whatChanged()` reports changes made prior to calling `saveChanges()`.  
   Calling it immediately after _saveChanges_ will return no results, as the changes are cleared.
-
----
-
 ##### Example I
 
 <TabItem value="something-something" label="changes_2">
@@ -855,9 +815,9 @@ await session.saveChanges();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -887,7 +847,7 @@ session.advanced.whatChanged();
 | **fieldPath**       | string  | Path of field on which the change occurred                                                                                                                                                       |
 | **fieldFullName**   | string  | Path + Name of field on which the change occurred                                                                                                                                                |
 
-</Admonition>
+
 
 
 </LanguageContent>

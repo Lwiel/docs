@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Bulk Insert: How to Work With Bulk Insert Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Bulk Insert: How to Work With Bulk Insert Operation
+
 
 <Admonition type="note" title="Note">
 
@@ -35,7 +39,7 @@ In this page:
 
 </Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 <TabItem value="something" label="bulk_inserts_1">
 <CodeBlock language="csharp">
@@ -52,9 +56,6 @@ In this page:
 | Return Value | |
 | ------------- | ----- |
 | `BulkInsertOperation`| Instance of `BulkInsertOperation` used for interaction. |
-
----
-
 <TabItem value="something" label="bulk_inserts_2">
 <CodeBlock language="csharp">
 {`BulkInsertOperation BulkInsert(string database, BulkInsertOptions options, CancellationToken token = default);
@@ -71,9 +72,6 @@ In this page:
 | Return Value | |
 | ------------- | ----- |
 | `BulkInsertOperation`| Instance of `BulkInsertOperation` used for interaction. |
-
----
-
 <TabItem value="something" label="bulk_inserts_3">
 <CodeBlock language="csharp">
 {`BulkInsertOperation BulkInsert(BulkInsertOptions options, CancellationToken token = default);
@@ -90,9 +88,9 @@ In this page:
 | ------------- | ----- |
 | `BulkInsertOperation`| Instance of `BulkInsertOperation` used for interaction. |
 
-</Admonition>
 
-<Admonition type="info" title="`BulkInsertOperation`" id="bulkinsertoperation" href="#bulkinsertoperation">
+
+## `BulkInsertOperation`
 
 The following methods can be used when creating a bulk insert.
 
@@ -181,9 +179,9 @@ finally
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="`BulkInsertOptions`" id="bulkinsertoptions" href="#bulkinsertoptions">
+
+## `BulkInsertOptions`
 
 The following options can be configured for BulkInsert.
 
@@ -214,12 +212,12 @@ the existing documents and the ones that are being inserted.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Bulk Insert: How to Work With Bulk Insert Operation
+
 
 One of the features that is particularly useful when inserting large amount of data is `bulk inserting`.  
 This is an optimized time-saving approach with few drawbacks that will be described later.
@@ -287,7 +285,7 @@ Here we create a bulk insert operation and insert a million documents of type Em
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Bulk Insert: How to Work With Bulk Insert Operation
+
 
 One of the features that is particularly useful when inserting large amount of data is `bulk inserting`.  
 This is an optimized time-saving approach with few drawbacks that will be described later.

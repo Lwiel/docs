@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java"];
+
+
+# Operations: Server: How to Get the Names of Databases on a Server
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Operations: Server: How to Get the Names of Databases on a Server
+
 
 To download available database names from a server, use the `GetDatabaseNames` operation.
 
@@ -47,7 +51,7 @@ string[] databaseNames = store.Maintenance.Server.Send(operation);
 
 </LanguageContent>
 <LanguageContent language="java">
-# Operations: Server: How to Get the Names of Databases on a Server
+
 
 To download available database names from a server, use the `GetDatabaseNames` operation.
 

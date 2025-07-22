@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Compact Database Operation
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
- ---
+
+# Compact Database Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -50,10 +51,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../client-api/operations/server-wide/compact-database#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 #### Compact documents:
 
@@ -109,9 +107,6 @@ await operation.WaitForCompletionAsync().ConfigureAwait(false);
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Compact specific indexes:
 
 The following example will compact only specific indexes.
@@ -176,9 +171,6 @@ await operation.WaitForCompletionAsync().ConfigureAwait(false);
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Compact all indexes:
 
 The following example will compact all indexes and documents.  
@@ -245,9 +237,6 @@ await operation.WaitForCompletionAsync();
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Compact on other nodes:
 
 * By default, an operation executes on the server node that is defined by the [client configuration](../../../client-api/configuration/load-balance/overview#client-logic-for-choosing-a-node).  
@@ -321,9 +310,9 @@ foreach (string nodeTag in allMemberNodes)
 </TabItem>
 </Tabs>
  
-</Admonition>
 
-<Admonition type="info" title="Compaction triggers compression" id="compaction-triggers-compression" href="#compaction-triggers-compression">
+
+## Compaction triggers compression
 
 * When document [compression](../../../server/storage/documents-compression) is turned on, compression is applied to the documents when:
   * **New** documents that are created and saved.  
@@ -334,9 +323,9 @@ foreach (string nodeTag in allMemberNodes)
 
 * Learn more about Compression -vs- Compaction [here](../../../server/storage/documents-compression#compression--vs--compaction).
 
-</Admonition>
 
-<Admonition type="info" title="Compact from Studio" id="compact-from-studio" href="#compact-from-studio">
+
+## Compact from Studio
 
 * Compaction can be triggered from the [Storage Report](../../../studio/database/stats/storage-report) view in the Studio.  
   The operation will compact the database only on the node being viewed (node info is in the Studio footer).
@@ -344,9 +333,9 @@ foreach (string nodeTag in allMemberNodes)
 * To compact the database on another node,  
   simply trigger compaction from the Storage Report view in a browser tab opened for that other node.
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="csharp">
@@ -367,14 +356,11 @@ foreach (string nodeTag in allMemberNodes)
 | **SkipOptimizeIndexes** | `bool` | `true` - Skip Lucene's index optimization while compacting<br/>`false` - Lucene's index optimization will take place while compacting |
 | | | **Note**: Either _Documents_ or _Indexes_ (or both) must be specified |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Compact Database Operation
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -406,10 +392,7 @@ foreach (string nodeTag in allMemberNodes)
   * [Compact from Studio](../../../client-api/operations/server-wide/compact-database#compact-from-studio)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 #### Compact documents:
 
@@ -437,9 +420,6 @@ operation.wait_for_completion()
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Compact specific indexes:
 
 The following example will compact only specific indexes.
@@ -468,9 +448,6 @@ operation.wait_for_completion()
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Compact all indexes:
 
 The following example will compact all indexes and documents.  
@@ -500,9 +477,9 @@ operation.wait_for_completion()
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Compaction triggers compression" id="compaction-triggers-compression" href="#compaction-triggers-compression">
+
+## Compaction triggers compression
 
 * When document [compression](../../../server/storage/documents-compression) is turned on, compression is applied to the documents when:
   * **New** documents that are created and saved.  
@@ -514,9 +491,9 @@ operation.wait_for_completion()
 
 * Learn more about Compression -vs- Compaction [here](../../../server/storage/documents-compression#compression--vs--compaction).
 
-</Admonition>
 
-<Admonition type="info" title="Compact from Studio" id="compact-from-studio" href="#compact-from-studio">
+
+## Compact from Studio
 
 * Compaction can be triggered from the [Storage Report](../../../studio/database/stats/storage-report) view in the Studio.  
   The operation will compact the database only on the node being viewed (node info is in the Studio footer).
@@ -524,16 +501,13 @@ operation.wait_for_completion()
 * To compact the database on another node,  
   simply trigger compaction from the Storage Report view in a browser tab opened for that other node.
 
-</Admonition>
+
 
 
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Compact Database Operation
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -567,10 +541,7 @@ operation.wait_for_completion()
   * [Syntax](../../../client-api/operations/server-wide/compact-database#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 #### Compact documents:
 
@@ -599,9 +570,6 @@ $operation->waitForCompletion();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Compact specific indexes:
 
 The following example will compact only specific indexes.
@@ -637,9 +605,6 @@ $operation->waitForCompletion();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Compact all indexes:
 
 The following example will compact all indexes and documents.  
@@ -672,9 +637,6 @@ $operation->waitForCompletion();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Compact on other nodes:
 
 * By default, an operation executes on the server node that is defined by the [client configuration](../../../client-api/configuration/load-balance/overview#client-logic-for-choosing-a-node).  
@@ -712,9 +674,9 @@ foreach ($allMemberNodes as $nodeTag) \{
 </CodeBlock>
 </TabItem>
  
-</Admonition>
 
-<Admonition type="info" title="Compaction triggers compression" id="compaction-triggers-compression" href="#compaction-triggers-compression">
+
+## Compaction triggers compression
 
 * When document [compression](../../../server/storage/documents-compression) is turned on, compression is applied to the documents when:
   * **New** documents that are created and saved.  
@@ -726,9 +688,9 @@ foreach ($allMemberNodes as $nodeTag) \{
 
 * Learn more about Compression -vs- Compaction [here](../../../server/storage/documents-compression#compression--vs--compaction).
 
-</Admonition>
 
-<Admonition type="info" title="Compact from Studio" id="compact-from-studio" href="#compact-from-studio">
+
+## Compact from Studio
 
 * Compaction can be triggered from the [Storage Report](../../../studio/database/stats/storage-report) view in the Studio.  
   The operation will compact the database only on the node being viewed (node info is in the Studio footer).
@@ -736,9 +698,9 @@ foreach ($allMemberNodes as $nodeTag) \{
 * To compact the database on another node,  
   simply trigger compaction from the Storage Report view in a browser tab opened for that other node.
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="csharp">
@@ -759,14 +721,11 @@ foreach ($allMemberNodes as $nodeTag) \{
 | **$skipOptimizeIndexes** | `bool` | `true` - Skip Lucene's index optimization while compacting<br/>`false` - Lucene's index optimization will take place while compacting |
 | | | **Note**: Either **$documents** or **$indexes** (or both) must be specified |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Compact Database Operation
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -801,10 +760,7 @@ foreach ($allMemberNodes as $nodeTag) \{
   * [Syntax](../../../client-api/operations/server-wide/compact-database#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 <Admonition type="note" title="Note">
 
@@ -948,9 +904,9 @@ for (let i = 0; i < allMemberNodes.length; i++) \{
 </TabItem>
  
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Compaction triggers compression" id="compaction-triggers-compression" href="#compaction-triggers-compression">
+
+## Compaction triggers compression
 
 * When document [compression](../../../server/storage/documents-compression) is turned on, compression is applied to the documents when:
     * **New** documents that are created and saved.
@@ -961,9 +917,9 @@ for (let i = 0; i < allMemberNodes.length; i++) \{
 
 * Learn more about Compression -vs- Compaction [here](../../../server/storage/documents-compression#compression--vs--compaction).
 
-</Admonition>
 
-<Admonition type="info" title="Compact from Studio" id="compact-from-studio" href="#compact-from-studio">
+
+## Compact from Studio
 
 * Compaction can be triggered from the [Storage Report](../../../studio/database/stats/storage-report) view in the Studio.  
   The operation will compact the database only on the node being viewed (node info is in the Studio footer).
@@ -971,9 +927,9 @@ for (let i = 0; i < allMemberNodes.length; i++) \{
 * To compact the database on another node,  
   simply trigger compaction from the Storage Report view in a browser tab opened for that other node.
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -993,7 +949,7 @@ for (let i = 0; i < allMemberNodes.length; i++) \{
 | **indexes** | `string[]` | List of index names to compact. Optional param. |
 | | | **Note**: Either _Documents_ or _Indexes_ (or both) must be specified |
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java"];
+
+
+# Operations: Server: How to Get a Certificate
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Operations: Server: How to Get a Certificate
+
 
 To get a client certificate by thumbprint use **GetCertificateOperation**.
 
@@ -47,7 +51,7 @@ CertificateDefinition definition =
 
 </LanguageContent>
 <LanguageContent language="java">
-# Operations: Server: How to Get a Certificate
+
 
 To get a client certificate by thumbprint use **GetCertificateOperation**.
 

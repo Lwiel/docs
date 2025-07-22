@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Indexes: Indexing LINQ Extensions
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Indexes: Indexing LINQ Extensions
+
 
 Various indexing LINQ extensions are available to enhance the usability and reduce the complexity of the indexing functions. The available extensions are:
 
@@ -23,13 +27,13 @@ Various indexing LINQ extensions are available to enhance the usability and redu
 - [WhereEntityIs](../indexes/indexing-linq-extensions#whereentityis)
 - [ParseInt, ParseLong, ParseDecimal, ParseDouble](../indexes/indexing-linq-extensions#parsing-numbers)
 
-<Admonition type="info" title="**Boost**" id="boost" href="#boost">
+## **Boost**
 
 You can read more about boosting [here](../indexes/boosting).
 
-</Admonition>
 
-<Admonition type="info" title="**Reverse**" id="reverse" href="#reverse">
+
+## **Reverse**
 
 **Strings** and **enumerables** can be reversed by using `Reverse` extension.
 
@@ -61,21 +65,21 @@ You can read more about boosting [here](../indexes/boosting).
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="**WhereEntityIs**" id="whereentityis" href="#whereentityis">
+
+## **WhereEntityIs**
 
 `WhereEntityIs` can be used to check if given `Raven-Entity-Name` value in metadata for the given document matches any of the given values. This can be useful when indexing polymorphic data. Please visit our dedicated article to get more information (or click [here](../indexes/indexing-polymorphic-data#other-ways)).
 
-</Admonition>
 
-<Admonition type="info" title="**IfEntityIs**" id="ifentityis" href="#ifentityis">
+
+## **IfEntityIs**
 
 `IfEntityIs` is similar to `WhereEntityIs`, yet it checks only against one value.
 
-</Admonition>
 
-<Admonition type="info" title="**Parsing numbers**" id="parsing-numbers" href="#parsing-numbers">
+
+## **Parsing numbers**
 
 String values can be safely parsed to `int`, `long`, `decimal` and `double` using the appropriate methods:
 
@@ -150,12 +154,12 @@ Assert.True(results.Any(x => x.MajorWithCustomDefault == -1));
 Default `Storage` value for the `StoreAllFields()` method is `FieldStorage.No`. Keep in mind that storing fields will increase disk space usage.
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Indexes: Indexing LINQ Extensions
+
 
 Various indexing LINQ extensions are available to enhance the usability and reduce the complexity of the indexing functions. The available extensions are:
 
@@ -165,13 +169,13 @@ Various indexing LINQ extensions are available to enhance the usability and redu
 - [WhereEntityIs](../indexes/indexing-linq-extensions#whereentityis)
 - [ParseInt, ParseLong, ParseDecimal, ParseDouble](../indexes/indexing-linq-extensions#parsing-numbers)
 
-<Admonition type="info" title="**Boost**" id="boost" href="#boost">
+## **Boost**
 
 You can read more about boosting [here](../indexes/boosting).
 
-</Admonition>
 
-<Admonition type="info" title="**Reverse**" id="reverse" href="#reverse">
+
+## **Reverse**
 
 **Strings** and **enumerables** can be reversed by using `Reverse` extension.
 
@@ -199,21 +203,21 @@ You can read more about boosting [here](../indexes/boosting).
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="**WhereEntityIs**" id="whereentityis" href="#whereentityis">
+
+## **WhereEntityIs**
 
 `WhereEntityIs` can be used to check if given `Raven-Entity-Name` value in metadata for the given document matches any of the given values. This can be useful when indexing polymorphic data. Please visit our dedicated article to get more information (or click [here](../indexes/indexing-polymorphic-data#other-ways)).
 
-</Admonition>
 
-<Admonition type="info" title="**IfEntityIs**" id="ifentityis" href="#ifentityis">
+
+## **IfEntityIs**
 
 `IfEntityIs` is similar to `WhereEntityIs`, yet it checks only against one value.
 
-</Admonition>
 
-<Admonition type="info" title="**Parsing numbers**" id="parsing-numbers" href="#parsing-numbers">
+
+## **Parsing numbers**
 
 String values can be safely parsed to `int`, `long`, `decimal` and `double` using the appropriate methods:
 
@@ -307,7 +311,7 @@ Assert.assertTrue(results.stream().anyMatch(x -> x.getMajorWithCustomDefault() =
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 ## Remarks
 
@@ -319,7 +323,7 @@ Default `storage` value for the `storeAllFields()` method is `FieldStorage.NO`. 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexes: Indexing LINQ Extensions
+
 
 Various indexing LINQ extensions are available to enhance the usability and reduce the complexity of the indexing functions. The available extensions are:
 
@@ -329,13 +333,13 @@ Various indexing LINQ extensions are available to enhance the usability and redu
 - [WhereEntityIs](../indexes/indexing-linq-extensions#whereentityis)
 - [ParseInt, ParseLong, ParseDecimal, ParseDouble](../indexes/indexing-linq-extensions#parsing-numbers)
 
-<Admonition type="info" title="**Boost**" id="boost" href="#boost">
+## **Boost**
 
 You can read more about boosting [here](../indexes/boosting).
 
-</Admonition>
 
-<Admonition type="info" title="**Reverse**" id="reverse" href="#reverse">
+
+## **Reverse**
 
 **Strings** and **enumerables** can be reversed by using `Reverse` extension.
 
@@ -365,21 +369,21 @@ You can read more about boosting [here](../indexes/boosting).
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="**WhereEntityIs**" id="whereentityis" href="#whereentityis">
+
+## **WhereEntityIs**
 
 `WhereEntityIs` can be used to check if given `Raven-Entity-Name` value in metadata for the given document matches any of the given values. This can be useful when indexing polymorphic data. Please visit our dedicated article to get more information (or click [here](../indexes/indexing-polymorphic-data#other-ways)).
 
-</Admonition>
 
-<Admonition type="info" title="**IfEntityIs**" id="ifentityis" href="#ifentityis">
+
+## **IfEntityIs**
 
 `IfEntityIs` is similar to `WhereEntityIs`, yet it checks only against one value.
 
-</Admonition>
 
-<Admonition type="info" title="**Parsing numbers**" id="parsing-numbers" href="#parsing-numbers">
+
+## **Parsing numbers**
 
 String values can be safely parsed to `int`, `long`, `decimal` and `double` using the appropriate methods:
 
@@ -445,7 +449,7 @@ assert.ok(results.some(x => x.majorWithCustomDefault === -1));
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>

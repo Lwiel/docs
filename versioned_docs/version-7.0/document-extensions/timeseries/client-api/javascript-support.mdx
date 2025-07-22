@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Time Series: JavaScript Support
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Time Series: JavaScript Support
----
 
 <Admonition type="note" title="Note">
 
@@ -38,15 +40,9 @@ import LanguageContent from "@site/src/components/language-content";
   * [Examples](../../../document-extensions/timeseries/client-api/javascript-support#examples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="JavaScript time series API methods" id="javascript-time-series-api-methods" href="#javascript-time-series-api-methods">
+## JavaScript time series API methods
 
 The JavaScript time series API includes these methods:  
-
----
-
 #### `timeseries (doc, name)`  
 
 Choose a time series by the ID of its owner document and by the series name.  
@@ -111,9 +107,9 @@ Values are returned in an array of time series entries, i.e. -
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 * This example shows a script that appends 100 entries to time series "HeartRates" in document "Users/john".  
   The script is passed to method [session.Advanced.Defer](../../../document-extensions/timeseries/client-api/session/patch).
@@ -187,13 +183,11 @@ store.Operations.Send(deleteByQueryOp);
 </CodeBlock>
 </TabItem>  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Time Series: JavaScript Support
----
 
 <Admonition type="note" title="Note">
 
@@ -217,15 +211,9 @@ store.Operations.Send(deleteByQueryOp);
   * [Examples](../../../document-extensions/timeseries/client-api/javascript-support#examples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="JavaScript time series API methods" id="javascript-time-series-api-methods" href="#javascript-time-series-api-methods">
+## JavaScript time series API methods
 
 The JavaScript time series API includes these methods:  
-
----
-
 #### `timeseries (doc, name)`  
 
 Choose a time series by the ID of its owner document and by the series name.  
@@ -290,9 +278,9 @@ Values are returned in an array of time series entries, i.e. -
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 * This example shows a script that appends 100 entries to time series "HeartRates" in document "Users/john".  
   The script is passed to method [session.Advanced.Defer](../../../document-extensions/timeseries/client-api/session/patch).
@@ -374,7 +362,7 @@ await documentStore.operations.send(deleteByQueryOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -24,9 +24,6 @@ import LanguageContent from "@site/src/components/language-content";
 * [Installing](../../start/installation/setup-wizard) RavenDB as 
   a [secure](../../server/security/overview) server allows you to authenticate 
   PostgreSQL clients, granting access only to clients that provide the proper credentials.  
-
----
-
 <Admonition type="note" title="Note">
 
 * In this page:  
@@ -36,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [PostgreSQL Port](../../integrations/postgresql-protocol/overview#postgresql-port)  
   * [Security](../../integrations/postgresql-protocol/overview#security)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Enabling PostgreSQL support" id="enabling-postgresql-support" href="#enabling-postgresql-support">
+## Enabling PostgreSQL support
 
 ### License
 
@@ -50,9 +44,6 @@ import LanguageContent from "@site/src/components/language-content";
 * To [use Power BI with RavenDB as its PostgreSQL server](../../integrations/postgresql-protocol/power-bi), 
   your license must explicitly enable Power BI.  
   If your current license doesn't include Power BI Support, you can acquire one that does [here](https://ravendb.net/buy).  
-
----
-
 ### Settings
 
 * PostgreSQL protocol support must be explicitly enabled in your [settings](../../server/configuration/configuration-options#settings.json).  
@@ -72,9 +63,6 @@ import LanguageContent from "@site/src/components/language-content";
 `}
 </CodeBlock>
 </TabItem>  
-
----
-
 ### PostgreSQL Port
 
 * To access RavenDB, your clients need not only its **URL** but also its 
@@ -89,9 +77,9 @@ import LanguageContent from "@site/src/components/language-content";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Security" id="security" href="#security">
+
+## Security
 
 Allowing just any client to connect to your database (via PostgreSQL or otherwise) 
 without authentication is risky, and should in general be avoided.  
@@ -108,5 +96,5 @@ To allow access only for authorized clients -
   PostgreSQL credentials are a **user name** and a **password**, that a client 
   would have to provide in order to access the database.  
 
-</Admonition>
+
 

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Installation: License a RavenDB Docker Image
----
-
 <Admonition type="note" title="Note">
 
 * This page explains how to pass a license to a RavenDB server that runs 
@@ -33,9 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Licensing RavenDB under Linux](../../start/licensing/license-under-docker#licensing-ravendb-under-linux)  
 
 </Admonition>
-
----
-<Admonition type="info" title="Prerequisites" id="prerequisites" href="#prerequisites">
+## Prerequisites
 
 * Docker images of RavenDB versions up to `5.x` require no special permissions 
   since they are installed and handled by the `root` user, that is innately allowed 
@@ -44,9 +40,9 @@ import LanguageContent from "@site/src/components/language-content";
   security reasons, requiring that this user would be explicitly permitted to access 
   RavenDB properties, including any mounted license folder.  
 * Read more about this in the dedicated [migration page](../../migration/server/docker).  
-</Admonition>
 
-<Admonition type="info" title="Licensing a RavenDB docker image" id="licensing-a-ravendb-docker-image" href="#licensing-a-ravendb-docker-image">  
+
+## Licensing a RavenDB docker image  
 
 Please find below a few methods to license a RavenDB server that runs in a Docker container.  
 
@@ -122,9 +118,9 @@ The full license string can also be added as a docker `RAVEN_License` environmen
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Licensing RavenDB under Linux" id="licensing-ravendb-under-linux" href="#licensing-ravendb-under-linux">  
+
+## Licensing RavenDB under Linux  
 
 To license RavenDB under Linux, pass a license **file** rather than a **directory**.  
 
@@ -136,6 +132,6 @@ To license RavenDB under Linux, pass a license **file** rather than a **director
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 

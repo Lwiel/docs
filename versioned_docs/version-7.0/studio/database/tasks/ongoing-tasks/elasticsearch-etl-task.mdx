@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Elasticsearch ETL Task
-
----
-
 <Admonition type="note" title="Note">
 
 * An **Elasticsearch ETL Task** creates an ETL process that transfers data 
@@ -36,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [Test Transformation Script](../../../../studio/database/tasks/ongoing-tasks/elasticsearch-etl-task#test-transformation-script)  
      * [Test Results](../../../../studio/database/tasks/ongoing-tasks/elasticsearch-etl-task#test-results)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Navigate to the Elasticsearch ETL Task View" id="navigate-to-the-elasticsearch-etl-task-view" href="#navigate-to-the-elasticsearch-etl-task-view">
+## Navigate to the Elasticsearch ETL Task View
 
 To begin creating your Elasticsearch ETL task:  
 
@@ -47,9 +41,9 @@ To begin creating your Elasticsearch ETL task:
 
 !["Task selection view"](./assets/elasticsearch-etl-task-selection-view.png)
 
-</Admonition>
 
-<Admonition type="info" title="Define the Elasticsearch ETL Task" id="define-the-elasticsearch-etl-task" href="#define-the-elasticsearch-etl-task">
+
+## Define the Elasticsearch ETL Task
 
 !["Define Elasticsearch ETL task"](./assets/elasticsearch-etl-define-task.png)
 
@@ -78,9 +72,9 @@ To begin creating your Elasticsearch ETL task:
           Elasticsearch node(s)
           !["Authentication Methods"](./assets/elasticsearch-connection-string-authentication.png)
 
-</Admonition>
 
-<Admonition type="info" title="Elasticsearch Indexes" id="elasticsearch-indexes" href="#elasticsearch-indexes">
+
+## Elasticsearch Indexes
 
 Elasticsearch uses [Indexes](https://www.elastic.co/blog/what-is-an-elasticsearch-index) to store, access, and delete documents.  
 Use the task's **Elasticsearch Indexes** settings to determine which Elastsicsearch 
@@ -150,9 +144,9 @@ Indexes the ETL task will access.
 
 * Can be edited or deleted.  
 
-</Admonition>
 
-<Admonition type="info" title="Transformation Script" id="transformation-script" href="#transformation-script">
+
+## Transformation Script
 
 The transformation script defines the JSON document that will be sent to the 
 Elasticsearch destination per RavenDB document from the selected collections.  
@@ -168,9 +162,6 @@ Elasticsearch destination per RavenDB document from the selected collections.
      a. **Script** name & **Collections** on which it is defined. (Informative)  
      b. **Edit** - Click to edit the script.  
      c. **Remove** - Click to remove the script from the list.  
-
----
-
 ### Edit Transformation Script
 
 !["Edit Transformation Script"](./assets/elasticsearch-edit-transformation-script.png)
@@ -225,9 +216,6 @@ Elasticsearch destination per RavenDB document from the selected collections.
 
 8. **Test Script**  
    Click to **test** the transformation script (read more about this option below).  
-
----
-
 ### Test Transformation Script
 
 !["Transformation script"](./assets/elasticsearch-test-script-view.png)
@@ -239,21 +227,12 @@ Elasticsearch destination per RavenDB document from the selected collections.
    The test will display the commands that would be sent to Elasticsearch, **without** actually sending them.  
 3. **Close Test Area**  
    Close this view.  
-
----
-
 ### Test Results
 
 The test results view displays a **preview** of the tested document, and the **commands** the task would send Elasticsearch.  
-
----
-
 * **Document Preview Tab**  
 
   !["Document Preview Tab"](./assets/elasticsearch-test-results-preview-tab.png)
-
----
-
 * **Test Results Tab**  
 
   !["Test Results Tab"](./assets/elasticsearch-test-results.png)
@@ -270,5 +249,5 @@ The test results view displays a **preview** of the tested document, and the **c
    4. [_bulk ](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html) Segment  
       The bulk POST command with a list of document objects, each with data extracted from RavenDB and an ID that Elasticsearch stores it by.  
 
-</Admonition>
+
 

@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Query the Database
-
----
-
 <Admonition type="note" title="Note">
 
 * Use this endpoint with the **`POST`** method to query the database:  
@@ -29,10 +26,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [More Examples](../../../client-api/rest-api/queries/query-the-database#more-examples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Basic Example" id="basic-example" href="#basic-example">
+## Basic Example
 
 This cURL request queries the [collection](../../../client-api/faq/what-is-a-collection) `Shippers` in a database named 
 "Example" on our [playground server](http://live-test.ravendb.net).  
@@ -110,9 +104,9 @@ Content-Length: 1103
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Request Format" id="request-format" href="#request-format">
+
+## Request Format
 
 This is the general format of a cURL request that uses all query string parameters:
 
@@ -186,9 +180,9 @@ double quotes within the request body using a backslash: `"` -&gt; `\"`.
 | **QueryParameters** | A list of values that can be used in the query, such as strings, ints, or documents IDs.
 Inputs from your users should always be passed as query parameters to avoid SQL injection attacks, and in general it's best practice to pass all your right-hand operands as parameters. |
 
-</Admonition>
 
-<Admonition type="info" title="Response Format" id="response-format" href="#response-format">
+
+## Response Format
 
 #### Http Status Codes
 
@@ -292,9 +286,9 @@ roughly add up to the duration of the parent stage because `DurationInMs` values
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="More Examples" id="more-examples" href="#more-examples">
+
+## More Examples
 
 [About Northwind](../../../start/about-examples), the database used in our examples.
 
@@ -303,9 +297,6 @@ In this section:
 * [Include Related Documents](../../../client-api/rest-api/queries/query-the-database#include-related-documents)  
 * [Page Results](../../../client-api/rest-api/queries/query-the-database#page-results)  
 * [Get Timing Details](../../../client-api/rest-api/queries/query-the-database#get-timing-details)  
-
----
-
 ### Include Related Documents
 
 This query tells the server to include a [related document](../../../client-api/how-to/handle-document-relationships#includes).  
@@ -629,5 +620,5 @@ stage during which the indexing itself took place. Lastly came the `Query` stage
 substage and a `Retriever` substage. As you can see, since the index has already done all the work, the query itself takes less 
 than a millisecond. From now on, similar queries on this index will also take the server a millisecond or less to complete.  
 
-</Admonition>
+
 

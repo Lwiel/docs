@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Terraform
-
----
-
 <Admonition type="note" title="Note">
 
 * [Terraform](https://www.terraform.io/intro/index.html) is an 
@@ -40,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [Terraform Output Values](../integrations/terraform#terraform-output-values)  
   * [Apply Terraform Configuration](../integrations/terraform#apply-terraform-configuration)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Prerequisites" id="prerequisites" href="#prerequisites">
+## Prerequisites
 
 To deploy RavenDB using Terraform, you need:  
 
@@ -72,9 +66,9 @@ To deploy RavenDB using Terraform, you need:
    * Download the application [here](https://www.terraform.io/downloads.html).  
    * Learn to use it [here](https://learn.hashicorp.com/tutorials/terraform/install-cli).  
 
-</Admonition>
 
-<Admonition type="info" title="Prepare Terraform Configuration" id="prepare-terraform-configuration" href="#prepare-terraform-configuration">
+
+## Prepare Terraform Configuration
 
 <Admonition type="note" title="Note">
 This section explains how Terraform handles configuration files 
@@ -93,9 +87,6 @@ options please consult the official Terraform documentation.
    * **Create, Update, and Destroy** infrastructure resources by 
      the execution plan, until the infrastructure's state matches 
      the requested configuration.  
-
----
-
 ### Provider
 Use the `provider` object to **set RavenDB as the provider**.  
 
@@ -112,9 +103,6 @@ block's **package** field).
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Terraform Local Parameters
 Use the `locals` block to **define local configuration properties** 
 that your resources definitions will be able to refer, including:  
@@ -155,9 +143,6 @@ that your resources definitions will be able to refer, including:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### RavenDB Resource
 Use the `resource` block to define your RavenDB node, its hosts, and its properties.  
 Terraform will use this resource to create your cluster nodes.  
@@ -242,9 +227,6 @@ including mandatory properties (also listed in the example below) and optional o
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Terraform Output Values
 Defining [Output Values](https://www.terraform.io/docs/language/values/outputs.html) 
 makes Terraform return values you're interested in after applying your configuration.  
@@ -264,9 +246,9 @@ output "database_name" \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Apply Terraform Configuration" id="apply-terraform-configuration" href="#apply-terraform-configuration">
+
+## Apply Terraform Configuration
 
 To apply your configuration, pass your configuration file to the 
 Terraform application via CLI.  
@@ -279,17 +261,5 @@ Terraform application via CLI.
   to destroy your infrastructure (e.g. if you created it as 
   a temporary testing environment).  
 
-</Admonition>
 
-## Related Articles
 
-**Terraform**:  
-[RavenDB Terraform provider](https://github.com/ravendb/terraform-provider-ravendb#terraform-provider-for-ravendb)  
-
-**Server**:  
-[Cluster Overview](../server/clustering/overview)  
-
-**External Links**:  
-[Terraform Language Documentation](https://www.terraform.io/docs/language/index.html)  
-[Terraform Output Values](https://www.terraform.io/docs/language/values/outputs.html)  
-[Terraform Provisioning](https://www.terraform.io/docs/cli/run/index.html)  

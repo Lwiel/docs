@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Including Time Series
+export const supportedLanguages = ["csharp", "nodejs"];
 
----
+
+# Including Time Series
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -33,9 +34,6 @@ import LanguageContent from "@site/src/components/language-content";
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Including Time Series
-
----
 
 <Admonition type="note" title="Note">
 

@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["java", "csharp", "python", "php", "nodejs"];
+
+
+# Revisions and Other Features
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="java">
-# Revisions and Other Features
+
 
 When the revisions feature is enabled, a snapshot of a document that holds *Counters* will include in its metadata a `@counters-snapshot` property, 
 that holds all the document's counter names **and values** (at the time of the revision creation).  
@@ -45,9 +49,6 @@ List<MetadataAsDictionary> orderCountersSnapshots = orderRevisionsMetadata
 
 </LanguageContent>
 <LanguageContent language="csharp">
-# Revisions and Other Features
-
----
 
 <Admonition type="note" title="Note">
 
@@ -66,10 +67,7 @@ List<MetadataAsDictionary> orderCountersSnapshots = orderRevisionsMetadata
    * [Revisions Import and Export](../../document-extensions/revisions/revisions-and-other-features#revisions-import-and-export)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Revisions and Counters" id="revisions-and-counters" href="#revisions-and-counters">
+## Revisions and Counters
 
 ### Revisions creation:
 
@@ -78,9 +76,6 @@ List<MetadataAsDictionary> orderCountersSnapshots = orderRevisionsMetadata
   * A counter is **deleted** from the document.
     
 * A revision will Not be created upon modifying the value of an existing [counter](../../document-extensions/counters/overview).
-
----
-
 ### Stored data:
 
 * A revision that is created for a document that contains counters  
@@ -107,16 +102,10 @@ List<MetadataAsDictionary> orderCountersSnapshots = orderRevisionsMetadata
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Reverted data:
 
 When a document is [reverted](../../document-extensions/revisions/revert-revisions) to a revision that has counters,  
 the counters from the revision are restored to functionality along with their values.  
-
----
-
 ### Extract counters data from revisions:
 
 Use [GetMetadataFor](../../document-extensions/revisions/client-api/session/loading#get-revisions-metadata) to get the revisions metadata for a specified document,  
@@ -157,9 +146,9 @@ List<MetadataAsDictionary> countersDataInRevisions = revisionsMetadata
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Time Series" id="revisions-and-time-series" href="#revisions-and-time-series">
+
+## Revisions and Time Series
 
 ### Revisions Creation:
 
@@ -169,9 +158,6 @@ List<MetadataAsDictionary> countersDataInRevisions = revisionsMetadata
       (A time series is deleted from a document when all its entries are deleted)
 
 * A revision will Not be created upon modifying the values of an existing [time series](../../document-extensions/timeseries/overview).
-
----
-
 ### Stored Data:
 
 * A revision that is created for a document that contains time series  
@@ -209,9 +195,6 @@ List<MetadataAsDictionary> countersDataInRevisions = revisionsMetadata
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Reverted Data:
 
 When a document is [reverted](../../document-extensions/revisions/revert-revisions) to a revision that has a time series:  
@@ -225,9 +208,9 @@ When a document is [reverted](../../document-extensions/revisions/revert-revisio
   * The reverted document will have the time series from the revision  
   * However, the entries count will be 0  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Attachments" id="revisions-and-attachments" href="#revisions-and-attachments">
+
+## Revisions and Attachments
 
 ### Revisions Creation:
 
@@ -235,9 +218,6 @@ A document revision will be created when:
 
   * A new [attachment](../../document-extensions/attachments/what-are-attachments) is **added** to the document.  
   * An attachment is **deleted** from the document.   
-
----
-
 ### Stored Data:
 
 * A revision that is created for a document with attachments  
@@ -274,17 +254,14 @@ A document revision will be created when:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Reverted Data:
 
 When a document is [reverted](../../document-extensions/revisions/revert-revisions) to a revision that has attachments,  
 the attachments are restored to their state when the revision was created.
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Replication" id="revisions-and-replication" href="#revisions-and-replication">
+
+## Revisions and Replication
 
 * Revisions are transferred during [replication](../../server/clustering/replication/replication) from one database instance to another.
 
@@ -295,9 +272,9 @@ the attachments are restored to their state when the revision was created.
 
 * Revisions can [help keep data consistency](../../server/clustering/replication/replication#how-revisions-replication-help-data-consistency).  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and ETL" id="revisions-and-etl" href="#revisions-and-etl">
+
+## Revisions and ETL
 
 * An [ETL](../../server/ongoing-tasks/etl/raven) ongoing task does Not send  revisions to the destination database.  
 
@@ -305,21 +282,21 @@ the attachments are restored to their state when the revision was created.
   whenever the ETL process sends a modified document and the target document is overwritten,  
   a new revision will be created for the document in the target database as expected.  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Backup" id="revisions-and-backup" href="#revisions-and-backup">
+
+## Revisions and Backup
 
 Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-contents) both by a logical-backup and by a snapshot.
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Data Subscriptions" id="revisions-and-data-subscriptions" href="#revisions-and-data-subscriptions">
+
+## Revisions and Data Subscriptions
 
 * Learn about revisions and data subscriptions [here](../../client-api/data-subscriptions/advanced-topics/subscription-with-revisioning).  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions Import and Export" id="revisions-import-and-export" href="#revisions-import-and-export">
+
+## Revisions Import and Export
 
 * Revisions can be imported and exported with a `.ravendbdump` file:
     * Using [the Client API](../../client-api/smuggler/what-is-smuggler)
@@ -329,14 +306,11 @@ Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-cont
 
   ![Import from Live Server](./assets/import-from-live-server.png)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Revisions and Other Features
-
----
 
 <Admonition type="note" title="Note">
 
@@ -355,10 +329,7 @@ Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-cont
    * [Revisions Import and Export](../../document-extensions/revisions/revisions-and-other-features#revisions-import-and-export)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Revisions and Counters" id="revisions-and-counters" href="#revisions-and-counters">
+## Revisions and Counters
 
 ### Revisions creation:
 
@@ -367,9 +338,6 @@ Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-cont
   * A counter is **deleted** from the document.
     
 * A revision will Not be created upon modifying the value of an existing [counter](../../document-extensions/counters/overview).
-
----
-
 ### Stored data:
 
 * A revision that is created for a document that contains counters  
@@ -396,17 +364,14 @@ Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-cont
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Reverted data:
 
 When a document is [reverted](../../document-extensions/revisions/revert-revisions) to a revision that has counters,  
 the counters from the revision are restored to functionality along with their values.  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Time Series" id="revisions-and-time-series" href="#revisions-and-time-series">
+
+## Revisions and Time Series
 
 ### Revisions Creation:
 
@@ -416,9 +381,6 @@ the counters from the revision are restored to functionality along with their va
       (A time series is deleted from a document when all its entries are deleted)
 
 * A revision will Not be created upon modifying the values of an existing [time series](../../document-extensions/timeseries/overview).
-
----
-
 ### Stored Data:
 
 * A revision that is created for a document that contains time series  
@@ -456,9 +418,6 @@ the counters from the revision are restored to functionality along with their va
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Reverted Data:
 
 When a document is [reverted](../../document-extensions/revisions/revert-revisions) to a revision that has a time series:  
@@ -472,9 +431,9 @@ When a document is [reverted](../../document-extensions/revisions/revert-revisio
   * The reverted document will have the time series from the revision  
   * However, the entries count will be 0  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Attachments" id="revisions-and-attachments" href="#revisions-and-attachments">
+
+## Revisions and Attachments
 
 ### Revisions Creation:
 
@@ -482,9 +441,6 @@ A document revision will be created when:
 
   * A new [attachment](../../document-extensions/attachments/what-are-attachments) is **added** to the document.  
   * An attachment is **deleted** from the document.   
-
----
-
 ### Stored Data:
 
 * A revision that is created for a document with attachments  
@@ -521,17 +477,14 @@ A document revision will be created when:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Reverted Data:
 
 When a document is [reverted](../../document-extensions/revisions/revert-revisions) to a revision that has attachments,  
 the attachments are restored to their state when the revision was created.
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Replication" id="revisions-and-replication" href="#revisions-and-replication">
+
+## Revisions and Replication
 
 * Revisions are transferred during [replication](../../server/clustering/replication/replication) from one database instance to another.
 
@@ -542,9 +495,9 @@ the attachments are restored to their state when the revision was created.
 
 * Revisions can [help keep data consistency](../../server/clustering/replication/replication#how-revisions-replication-help-data-consistency).  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and ETL" id="revisions-and-etl" href="#revisions-and-etl">
+
+## Revisions and ETL
 
 * An [ETL](../../server/ongoing-tasks/etl/raven) ongoing task does Not send  revisions to the destination database.  
 
@@ -552,21 +505,21 @@ the attachments are restored to their state when the revision was created.
   whenever the ETL process sends a modified document and the target document is overwritten,  
   a new revision will be created for the document in the target database as expected.  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Backup" id="revisions-and-backup" href="#revisions-and-backup">
+
+## Revisions and Backup
 
 Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-contents) both by a logical-backup and by a snapshot.
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Data Subscriptions" id="revisions-and-data-subscriptions" href="#revisions-and-data-subscriptions">
+
+## Revisions and Data Subscriptions
 
 * Learn about revisions and data subscriptions [here](../../client-api/data-subscriptions/advanced-topics/subscription-with-revisioning).  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions Import and Export" id="revisions-import-and-export" href="#revisions-import-and-export">
+
+## Revisions Import and Export
 
 * Revisions can be imported and exported with a `.ravendbdump` file 
   from the [import](../../studio/database/tasks/import-data/import-data-file#import-options) and [export](../../studio/database/tasks/export-database#export-options) views in the Studio  
@@ -575,14 +528,11 @@ Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-cont
 
   ![Import from Live Server](./assets/import-from-live-server.png)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Revisions and Other Features
-
----
 
 <Admonition type="note" title="Note">
 
@@ -600,10 +550,7 @@ Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-cont
    * [Revisions Import and Export](../../document-extensions/revisions/revisions-and-other-features#revisions-import-and-export)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Revisions and Counters" id="revisions-and-counters" href="#revisions-and-counters">
+## Revisions and Counters
 
 ### Revisions creation:
 
@@ -612,9 +559,6 @@ Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-cont
   * A counter is **deleted** from the document.
     
 * A revision will Not be created upon modifying the value of an existing [counter](../../document-extensions/counters/overview).
-
----
-
 ### Stored data:
 
 * A revision that is created for a document that contains counters  
@@ -641,17 +585,14 @@ Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-cont
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Reverted data:
 
 When a document is [reverted](../../document-extensions/revisions/revert-revisions) to a revision that has counters,  
 the counters from the revision are restored to functionality along with their values.  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Time Series" id="revisions-and-time-series" href="#revisions-and-time-series">
+
+## Revisions and Time Series
 
 ### Revisions Creation:
 
@@ -661,9 +602,6 @@ the counters from the revision are restored to functionality along with their va
       (A time series is deleted from a document when all its entries are deleted)
 
 * A revision will Not be created upon modifying the values of an existing [time series](../../document-extensions/timeseries/overview).
-
----
-
 ### Stored Data:
 
 * A revision that is created for a document that contains time series  
@@ -701,9 +639,6 @@ the counters from the revision are restored to functionality along with their va
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Reverted Data:
 
 When a document is [reverted](../../document-extensions/revisions/revert-revisions) to a revision that has a time series:  
@@ -717,9 +652,9 @@ When a document is [reverted](../../document-extensions/revisions/revert-revisio
   * The reverted document will have the time series from the revision  
   * However, the entries count will be 0  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Attachments" id="revisions-and-attachments" href="#revisions-and-attachments">
+
+## Revisions and Attachments
 
 ### Revisions Creation:
 
@@ -727,9 +662,6 @@ A document revision will be created when:
 
   * A new [attachment](../../document-extensions/attachments/what-are-attachments) is **added** to the document.  
   * An attachment is **deleted** from the document.   
-
----
-
 ### Stored Data:
 
 * A revision that is created for a document with attachments  
@@ -766,17 +698,14 @@ A document revision will be created when:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Reverted Data:
 
 When a document is [reverted](../../document-extensions/revisions/revert-revisions) to a revision that has attachments,  
 the attachments are restored to their state when the revision was created.
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Replication" id="revisions-and-replication" href="#revisions-and-replication">
+
+## Revisions and Replication
 
 * Revisions are transferred during [replication](../../server/clustering/replication/replication) from one database instance to another.
 
@@ -787,9 +716,9 @@ the attachments are restored to their state when the revision was created.
 
 * Revisions can [help keep data consistency](../../server/clustering/replication/replication#how-revisions-replication-help-data-consistency).  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and ETL" id="revisions-and-etl" href="#revisions-and-etl">
+
+## Revisions and ETL
 
 * An [ETL](../../server/ongoing-tasks/etl/raven) ongoing task does Not send  revisions to the destination database.  
 
@@ -797,15 +726,15 @@ the attachments are restored to their state when the revision was created.
   whenever the ETL process sends a modified document and the target document is overwritten,  
   a new revision will be created for the document in the target database as expected.  
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Backup" id="revisions-and-backup" href="#revisions-and-backup">
+
+## Revisions and Backup
 
 Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-contents) both by a logical-backup and by a snapshot.
 
-</Admonition>
 
-<Admonition type="info" title="Revisions Import and Export" id="revisions-import-and-export" href="#revisions-import-and-export">
+
+## Revisions Import and Export
 
 * Revisions can be imported and exported with a `.ravendbdump` file 
   from the [import](../../studio/database/tasks/import-data/import-data-file#import-options) and [export](../../studio/database/tasks/export-database#export-options) views in the Studio  
@@ -814,14 +743,11 @@ Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-cont
 
   ![Import from Live Server](./assets/import-from-live-server.png)
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Revisions and Other Features
-
----
 
 <Admonition type="note" title="Note">
 
@@ -840,10 +766,7 @@ Revisions are [backed up](../../server/ongoing-tasks/backup-overview#backup-cont
    * [Revisions Import and Export](../../document-extensions/revisions/revisions-and-other-features#revisions-import-and-export)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Revisions and Counters" id="revisions-and-counters" href="#revisions-and-counters">
+## Revisions and Counters
 
 <Admonition type="note" title="Note">
 
@@ -919,9 +842,9 @@ const countersDataInRevisions = revisionsMetadata
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Time Series" id="revisions-and-time-series" href="#revisions-and-time-series">
+
+## Revisions and Time Series
 
 <Admonition type="note" title="Note">
 
@@ -995,9 +918,9 @@ When a document is [reverted](../../document-extensions/revisions/revert-revisio
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Attachments" id="revisions-and-attachments" href="#revisions-and-attachments">
+
+## Revisions and Attachments
 
 <Admonition type="note" title="Note">
 
@@ -1059,9 +982,9 @@ When a document is [reverted](../../document-extensions/revisions/revert-revisio
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Replication" id="revisions-and-replication" href="#revisions-and-replication">
+
+## Revisions and Replication
 
 <Admonition type="note" title="Note">
 
@@ -1076,9 +999,9 @@ When a document is [reverted](../../document-extensions/revisions/revert-revisio
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and ETL" id="revisions-and-etl" href="#revisions-and-etl">
+
+## Revisions and ETL
 
 <Admonition type="note" title="Note">
 
@@ -1090,9 +1013,9 @@ When a document is [reverted](../../document-extensions/revisions/revert-revisio
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Backup" id="revisions-and-backup" href="#revisions-and-backup">
+
+## Revisions and Backup
 
 <Admonition type="note" title="Note">
 
@@ -1100,9 +1023,9 @@ When a document is [reverted](../../document-extensions/revisions/revert-revisio
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions and Data Subscriptions" id="revisions-and-data-subscriptions" href="#revisions-and-data-subscriptions">
+
+## Revisions and Data Subscriptions
 
 <Admonition type="note" title="Note">
 
@@ -1110,9 +1033,9 @@ When a document is [reverted](../../document-extensions/revisions/revert-revisio
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Revisions Import and Export" id="revisions-import-and-export" href="#revisions-import-and-export">
+
+## Revisions Import and Export
 
 <Admonition type="note" title="Note">
 
@@ -1126,7 +1049,7 @@ When a document is [reverted](../../document-extensions/revisions/revert-revisio
 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>

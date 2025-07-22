@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding: API Administration
----
-
 <Admonition type="note" title="Note">
 
 * This page explains how to manage a sharded database using RavenDB's API.  
@@ -32,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
      * [Removing a Shard](../../sharding/administration/api-admin#removing-a-shard)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Creating a Sharded Database" id="creating-a-sharded-database" href="#creating-a-sharded-database">
+## Creating a Sharded Database
 
 To create a sharded database:  
 
@@ -87,9 +82,9 @@ store.Maintenance.Server.Send(new CreateDatabaseOperation(dbRecord));
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Orchestrator Administration" id="orchestrator-administration" href="#orchestrator-administration">
+
+## Orchestrator Administration
 
 Prior to granting a cluster node an orchestrator functionality, we should 
 make sure that the node is up for the task, with no other tasks contesting 
@@ -159,9 +154,9 @@ orchestrators nodes that host no shards.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Shard Administration" id="shard-administration" href="#shard-administration">
+
+## Shard Administration
 
 ## Adding a Shard 
 
@@ -351,6 +346,6 @@ orchestrators nodes that host no shards.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 

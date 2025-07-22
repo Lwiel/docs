@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Time Series Querying 
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Time Series Querying 
----
 
 <Admonition type="note" title="Note">
 
@@ -46,10 +48,7 @@ import LanguageContent from "@site/src/components/language-content";
 <Admonition type="info" title="Info">
 Learn more about time series queries in the [section dedicated to this subject](../../../../document-extensions/timeseries/querying/overview-and-syntax).  
 </Admonition>
-
----
-
-<Admonition type="info" title="Query" id="query" href="#query">
+## Query
 
 ### Query usage
 
@@ -64,9 +63,6 @@ Learn more about time series queries in the [section dedicated to this subject](
   * `TimeSeriesAggregationResult` for aggregated data  
 * Note:  
   The RavenDB client translates the LINQ query to [RQL](../../../../client-api/session/querying/what-is-rql) before transmitting it to the server for execution.
-
----
-
 ### Query examples
 
 * This LINQ query filters users by their age and retrieves their HeartRates time series.  
@@ -200,9 +196,6 @@ List<TimeSeriesAggregationResult> result = query.ToList();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Query syntax
 
 * The `session.Query` syntax is available [here](../../../../client-api/session/querying/how-to-query#syntax).
@@ -249,9 +242,9 @@ Where(Expression<Func<TimeSeriesEntry, bool>> predicate);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="DocumentQuery" id="documentquery" href="#documentquery">
+
+## DocumentQuery
 
 ### DocumentQuery usage
 
@@ -266,9 +259,6 @@ Where(Expression<Func<TimeSeriesEntry, bool>> predicate);
     * `TimeSeriesAggregationResult` for aggregated data
 * Note:  
   The RavenDB client translates query to [RQL](../../../../client-api/session/querying/what-is-rql) before transmitting it to the server for execution.
-
----
-
 ### DocumentQuery examples
 
 * A _DocumentQuery_ using only the `From()` method.  
@@ -362,9 +352,6 @@ List<TimeSeriesRawResult> results = query.ToList();
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### DocumentQuery syntax
 
 The session [DocumentQuery](../../../../client-api/session/querying/document-query/what-is-document-query),
@@ -430,9 +417,9 @@ Where(Expression<Func<TimeSeriesEntry, TTag, bool>> predicate);
 * **`List<TimeSeriesRawResult>`** for non-aggregated data.  
   When the query doesn't aggregate time series entries, the results are returned in a list of time series results.
 
-</Admonition>
 
-<Admonition type="info" title="RawQuery" id="rawquery" href="#rawquery">
+
+## RawQuery
 
 ### RawQuery usage
 
@@ -443,9 +430,6 @@ Where(Expression<Func<TimeSeriesEntry, TTag, bool>> predicate);
    * `TimeSeriesAggregationResult` for aggregated data
 * Note:  
   The raw query transmits the provided RQL to the server as is, without checking or altering its content.
-
----
-
 ### RawQuery examples
 
 * In this example, we retrieve all HearRates time series for all users under 30.
@@ -540,9 +524,6 @@ List<TimeSeriesAggregationResult> results = query.ToList();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### RawQuery syntax
 
 <TabItem value="something" label="RawQuery-definition">
@@ -565,13 +546,11 @@ List<TimeSeriesAggregationResult> results = query.ToList();
 * **`List<TimeSeriesRawResult>`** for non-aggregated data.  
   When the query doesn't aggregate time series entries, the results are returned in a list of time series results.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Time Series Querying 
----
 
 <Admonition type="note" title="Note">
 
@@ -598,10 +577,7 @@ List<TimeSeriesAggregationResult> results = query.ToList();
 <Admonition type="info" title="Info">
 Learn more about time series queries in the [section dedicated to this subject](../../../../document-extensions/timeseries/querying/overview-and-syntax).  
 </Admonition>
-
----
-
-<Admonition type="info" title="Query" id="query" href="#query">
+## Query
 
 ### Query usage
 
@@ -615,9 +591,6 @@ Learn more about time series queries in the [section dedicated to this subject](
   * `TimeSeriesAggregationResult` for aggregated data  
 * Note:  
   The RavenDB client translates the query to [RQL](../../../../client-api/session/querying/what-is-rql) before transmitting it to the server for execution.
-
----
-
 ### Query examples
 
 * This query filters users by their age and retrieves their HeartRates time series.
@@ -831,9 +804,6 @@ select timeseries(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Query syntax
 
 The `session.query` syntax is available [here](../../../../client-api/session/querying/how-to-query#syntax).
@@ -885,9 +855,9 @@ class TimeSeriesAggregationResult extends TimeSeriesQueryResult \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="RawQuery" id="rawquery" href="#rawquery">
+
+## RawQuery
 
 ### RawQuery usage
 
@@ -898,9 +868,6 @@ class TimeSeriesAggregationResult extends TimeSeriesQueryResult \{
     * `TimeSeriesAggregationResult` for aggregated data
 * Note:  
   The raw query transmits the provided RQL to the server as is, without checking or altering its content.
-
----
-
 ### RawQuery examples
 
 * In this example, we retrieve all HearRates time series for all users under 30.
@@ -1051,9 +1018,6 @@ select timeseries(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### RawQuery syntax
 
 <TabItem value="something-something" label="syntax_4">
@@ -1069,7 +1033,7 @@ select timeseries(
 
 The return value is the same as listed under the [query syntax](../../../../document-extensions/timeseries/client-api/session/querying#query-syntax).
 
-</Admonition>
+
 
 
 </LanguageContent>

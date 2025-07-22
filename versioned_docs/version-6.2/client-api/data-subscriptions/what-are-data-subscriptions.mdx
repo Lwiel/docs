@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Data Subscriptions
+export const supportedLanguages = ["csharp", "java", "nodejs"];
 
----
+
+# Data Subscriptions
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -34,10 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Data subscriptions usage example](../../client-api/data-subscriptions/what-are-data-subscriptions#data-subscriptions-usage-example)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Data subscription consumption" id="data-subscription-consumption" href="#data-subscription-consumption">
+## Data subscription consumption
 
 * Data subscriptions are consumed by clients, called **Subscription Workers**.  
 * You can determine whether workers would be able to connect a subscription 
@@ -46,9 +44,9 @@ import LanguageContent from "@site/src/components/language-content";
   Depending on the code that the client provided the worker with, processing can take from seconds to hours.  
   When all documents are processed, the worker informs the server of its progress and the server can send it the next batch.  
 
-</Admonition>
 
-<Admonition type="info" title="What defines a data subscription" id="what-defines-a-data-subscription" href="#what-defines-a-data-subscription">
+
+## What defines a data subscription
 
 Data subscriptions are defined by the server-side definition and by the worker connecting to it:
 
@@ -56,9 +54,9 @@ Data subscriptions are defined by the server-side definition and by the worker c
 
 2. [Subscription Worker Options](../../client-api/data-subscriptions/consumption/api-overview#subscriptionworkeroptions): Worker batch processing logic, batch size, interaction with other connections.
 
-</Admonition>
 
-<Admonition type="info" title="Documents processing" id="documents-processing" href="#documents-processing">
+
+## Documents processing
 
 Documents are sent in batches and progress will be registered only after the whole batch is processed and acknowledged. 
 Documents are always sent in Etag order which means that data that has already been processed and acknowledged won't be sent twice, except for the following scenarios:
@@ -75,9 +73,9 @@ of subsequent document revisions.
 Read more here: [revisions support](../../client-api/data-subscriptions/advanced-topics/subscription-with-revisioning)
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Progress Persistence" id="progress-persistence" href="#progress-persistence">
+
+## Progress Persistence
 
 * The processing progress is persisted on the server and therefore the subscription 
   task can be paused and resumed from the last point it was stopped.  
@@ -87,9 +85,9 @@ Read more here: [revisions support](../../client-api/data-subscriptions/advanced
   In the case of a node failure, the processing can be automatically failed over to another node.  
 * The usage of **Change Vectors** allows us to continue from a point that is close to 
   the last point reached before failure rather than starting the process from scratch.  
-</Admonition>
 
-<Admonition type="info" title="How the worker communicates with the server" id="how-the-worker-communicates-with-the-server" href="#how-the-worker-communicates-with-the-server">
+
+## How the worker communicates with the server
 
 A worker communicates with the data subscription using a custom protocol on top of a long-lived TCP connection. Each successful batch processing consists of these stages:
 
@@ -116,9 +114,9 @@ See the sequence diagram below that summarizes the lifespan of a subscription co
 
 ![Subscription document processing](./assets/SubscriptionsDocumentProcessing.png)
 
-</Admonition>
 
-<Admonition type="info" title="Working with multiple clients" id="working-with-multiple-clients" href="#working-with-multiple-clients">
+
+## Working with multiple clients
 
 You can use a **Subscription Worker Strategy** to determine whether multiple 
 workers of the same subscription can connect to it one by one, or **concurrently**.  
@@ -142,9 +140,9 @@ workers of the same subscription can connect to it one by one, or **concurrently
      active available workers.  
    * Read more about this strategy [here](../../client-api/data-subscriptions/concurrent-subscriptions).  
 
-</Admonition>
 
-<Admonition type="info" title="Data subscriptions usage example" id="data-subscriptions-usage-example" href="#data-subscriptions-usage-example">
+
+## Data subscriptions usage example
 
 Data subscriptions are accessible by a document store.  
 Here's an example of creating and using a data subscription:
@@ -172,14 +170,11 @@ Here's an example of creating and using a data subscription:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Data Subscriptions
-
----
 
 <Admonition type="note" title="Note">
 
@@ -199,18 +194,15 @@ Here's an example of creating and using a data subscription:
 
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Data subscription consumption" id="data-subscription-consumption" href="#data-subscription-consumption">
+## Data subscription consumption
 
 Data subscriptions are consumed by clients, called subscription workers. In any given moment, only one worker can be connected to a data subscription. 
 A worker connected to a data subscription receives a batch of documents and gets to process it. 
 When it's done, depending on the code that the client gave the worker, it can take from seconds to hours. It informs the server about the progress, and the server is ready to send the next batch.
 
-</Admonition>
 
-<Admonition type="info" title="What defines a data subscription" id="what-defines-a-data-subscription" href="#what-defines-a-data-subscription">
+
+## What defines a data subscription
 
 Data subscriptions are defined by the server side definition and by the worker connecting to it:
 
@@ -218,9 +210,9 @@ Data subscriptions are defined by the server side definition and by the worker c
 
 2. [Subscription Worker Options](../../client-api/data-subscriptions/consumption/api-overview#subscriptionworkeroptions): Worker batch processing logic, batch size, interaction with other connections.
 
-</Admonition>
 
-<Admonition type="info" title="Documents processing" id="documents-processing" href="#documents-processing">
+
+## Documents processing
 
 Documents are sent in batches and progress will be registered only after the whole batch is processed and acknowledged. 
 Documents are always sent in Etag order which means that data that already been processed and acknowledged won't be sent twice, except for the following scenarios:
@@ -237,17 +229,17 @@ of subsequent document revisions.
 Read more here: [revisions support](../../client-api/data-subscriptions/advanced-topics/subscription-with-revisioning)
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Progress Persistence" id="progress-persistence" href="#progress-persistence">
+
+## Progress Persistence
 
 Processing progress is persisted and therefore it can be paused and resumed from the last point it was stopped. 
 The persistence mechanism also ensures that no documents are missed even in the presence of failure, whether it's client side related, communication, or any other disaster. 
 Subscriptions progress is stored in the cluster level, in the `Enterprise edition`. In the case of node failure, the processing can be automatically failed over to another node.
 The usage of Change Vectors allows us to continue from a point that is close to the last point reached before failure rather than starting the process from scratch.
-</Admonition>
 
-<Admonition type="info" title="How the worker communicates with the server" id="how-the-worker-communicates-with-the-server" href="#how-the-worker-communicates-with-the-server">
+
+## How the worker communicates with the server
 
 A worker communicates with the data subscription using a custom protocol on top of a long-lived TCP connection. Each successful batch processing consists of these stages:
 
@@ -269,18 +261,18 @@ See the sequence diagram below that summarizes the lifetime of a subscription co
 
 ![Subscription document processing](./assets/SubscriptionsDocumentProcessing.png)
 
-</Admonition>
 
-<Admonition type="info" title="Working with multiple clients" id="working-with-multiple-clients" href="#working-with-multiple-clients">
+
+## Working with multiple clients
 
 In order to support various inter-worker scenarios, one worker is allowed to take the place of another in the processing of a subscription. 
 Thanks to subscriptions persistence, the worker will be able to continue the work from the point it's predecessor stopped. 
 
 It's possible to configure that a worker will wait for an existing connection to fail, and take it's place, or we can configure it to force close an existing connection etc. See more in [Workers interplay](../../client-api/data-subscriptions/consumption/how-to-consume-data-subscription#workers-interplay).
 
-</Admonition>
 
-<Admonition type="info" title="Data subscriptions usage example" id="data-subscriptions-usage-example" href="#data-subscriptions-usage-example">
+
+## Data subscriptions usage example
 
 Data subscriptions are accessible by a document store. Here's an example of an ad-hoc creation and usage of data subscriptions:
 
@@ -310,14 +302,11 @@ Data subscriptions are accessible by a document store. Here's an example of an a
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Data Subscriptions
-
----
 
 <Admonition type="note" title="Note">
 
@@ -337,18 +326,15 @@ Data subscriptions are accessible by a document store. Here's an example of an a
 
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Data subscription consumption" id="data-subscription-consumption" href="#data-subscription-consumption">
+## Data subscription consumption
 
 Data subscriptions are consumed by clients, called subscription workers. In any given moment, only one worker can be connected to a data subscription. 
 A worker connected to a data subscription receives a batch of documents and gets to process it. 
 When it's done, depending on the code that the client gave the worker, it can take from seconds to hours. It informs the server about the progress, and the server is ready to send the next batch.
 
-</Admonition>
 
-<Admonition type="info" title="What defines a data subscription" id="what-defines-a-data-subscription" href="#what-defines-a-data-subscription">
+
+## What defines a data subscription
 
 Data subscriptions are defined by the server side definition and by the worker connecting to it:
 
@@ -356,9 +342,9 @@ Data subscriptions are defined by the server side definition and by the worker c
 
 2. [Subscription Worker Options](../../client-api/data-subscriptions/consumption/api-overview#subscriptionworkeroptions): Worker batch processing logic, batch size, interaction with other connections.
 
-</Admonition>
 
-<Admonition type="info" title="Documents processing" id="documents-processing" href="#documents-processing">
+
+## Documents processing
 
 Documents are sent in batches and progress will be registered only after the whole batch is processed and acknowledged. 
 Documents are always sent in Etag order which means that data that already been processed and acknowledged won't be sent twice, except for the following scenarios:
@@ -375,17 +361,17 @@ of subsequent document revisions.
 Read more here: [revisions support](../../client-api/data-subscriptions/advanced-topics/subscription-with-revisioning)
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Progress Persistence" id="progress-persistence" href="#progress-persistence">
+
+## Progress Persistence
 
 Processing progress is persisted and therefore it can be paused and resumed from the last point it was stopped. 
 The persistence mechanism also ensures that no documents are missed even in the presence of failure, whether it's client side related, communication, or any other disaster. 
 Subscriptions progress is stored in the cluster level, in the `Enterprise edition`. In the case of node failure, the processing can be automatically failed over to another node.
 The usage of Change Vectors allows us to continue from a point that is close to the last point reached before failure rather than starting the process from scratch.
-</Admonition>
 
-<Admonition type="info" title="How the worker communicates with the server" id="how-the-worker-communicates-with-the-server" href="#how-the-worker-communicates-with-the-server">
+
+## How the worker communicates with the server
 
 A worker communicates with the data subscription using a custom protocol on top of a long-lived TCP connection. Each successful batch processing consists of these stages:
 
@@ -407,18 +393,18 @@ See the sequence diagram below that summarizes the lifetime of a subscription co
 
 ![Subscription document processing](./assets/SubscriptionsDocumentProcessing.png)
 
-</Admonition>
 
-<Admonition type="info" title="Working with multiple clients" id="working-with-multiple-clients" href="#working-with-multiple-clients">
+
+## Working with multiple clients
 
 In order to support various inter-worker scenarios, one worker is allowed to take the place of another in the processing of a subscription. 
 Thanks to subscriptions persistence, the worker will be able to continue the work from the point it's predecessor stopped. 
 
 It's possible to configure that a worker will wait for an existing connection to fail, and take it's place, or we can configure it to force close an existing connection etc. See more in [Workers interplay](../../client-api/data-subscriptions/consumption/how-to-consume-data-subscription#workers-interplay).
 
-</Admonition>
 
-<Admonition type="info" title="Data subscriptions usage example" id="data-subscriptions-usage-example" href="#data-subscriptions-usage-example">
+
+## Data subscriptions usage example
 
 Data subscriptions are accessible by a document store. Here's an example of an ad-hoc creation and usage of data subscriptions:
 
@@ -447,7 +433,7 @@ Data subscriptions are accessible by a document store. Here's an example of an a
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

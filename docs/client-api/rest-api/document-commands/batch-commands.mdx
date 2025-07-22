@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Batch Commands
-
----
-
 <Admonition type="note" title="Note">
 
 * Use this endpoint with the **`POST`** method to send multiple commands in one request:  
@@ -35,10 +32,7 @@ for indexing and replication to complete before returning.
   * [Response Format](../../../client-api/rest-api/document-commands/batch-commands#response-format)  
   * [More Examples](../../../client-api/rest-api/document-commands/batch-commands#more-examples)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Basic Example" id="basic-example" href="#basic-example">
+## Basic Example
 
 This is a cURL request to a database named "Example" on our [playground server](http://live-test.ravendb.net).  
 It batches two commands:  
@@ -114,9 +108,9 @@ Raven-Server-Version: 4.2.4.42
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Request Format" id="request-format" href="#request-format">
+
+## Request Format
 
 This is the general format of a cURL request with a batch of commands that _does not_ include a Put Attachment Command 
 (see the format for batching a Put Attachment Command [below](../../../client-api/rest-api/document-commands/batch-commands#put-attachment-command)):  
@@ -184,9 +178,6 @@ The following commands can be sent using the batch command:
 * [Delete by Prefix Command](../../../client-api/rest-api/document-commands/batch-commands#delete-by-prefix-command)  
 * [Put Attachment Command](../../../client-api/rest-api/document-commands/batch-commands#put-attachment-command)  
 * [Delete Attachment Command](../../../client-api/rest-api/document-commands/batch-commands#delete-attachment-command)  
-
----
-
 ### Batch Options
 
 These options, configured in the query string, make the server wait until indexing or replication have completed before responding. If these have not 
@@ -257,9 +248,6 @@ An exception is also thrown if the document does not exist. | No |
 | **Document** | JSON document to create, or to replace the existing document | Yes |
 | **Type** | Set to `PUT` | Yes |
 | **ForceRevisionCreationStrategy** | When updating an existing document, set to `Before` to make a [revision](../../../document-extensions/revisions/overview) of the document before it is updated. | No |
-
----
-
 ### Patch Document Command
 
 Update a document. A [patch](../../../client-api/operations/patching/single-document) is executed on the server side and 
@@ -308,9 +296,6 @@ wrap strings.
 | - | - | - |
 | **Script** | Javascript commands to perform on the document. Use arguments from `Values` with a `$` prefix, i.e. `$<argument name>`. | Yes |
 | **Values** | Arguments that can be used in the script. | No |
-
----
-
 ### Delete Document Command
 
 Delete a document by its ID.  
@@ -333,9 +318,6 @@ Format within the `Commands` array in the [request body](../../../client-api/res
 | **Id** | ID of document to delete (only one can be deleted per command) | Yes |
 | **ChangeVector** | The document's expected [change vector](../../../server/clustering/replication/change-vector). If it does not match the server-side change vector a concurrency exception is thrown. | No |
 | **Type** | Set to `DELETE` | Yes |
-
----
-
 ### Delete by Prefix Command
 
 Delete all documents whose IDs begin with a certain prefix.  
@@ -358,9 +340,6 @@ Format within the `Commands` array in the [request body](../../../client-api/res
 | **Id** | All documents whose IDs begin with this string will be deleted | Yes |
 | **IdPrefixed** | Set to `true` (distinguishes this as a Delete by Prefix Command rather than the Delete Document Command described above) | Yes |
 | **Type** | Set to `DELETE` | Yes |
-
----
-
 ### Put Attachment Command
 
 Add an [attachment](../../../document-extensions/attachments/what-are-attachments) to a document, or update an existing attachment.  
@@ -411,9 +390,6 @@ The string used as a separator must not appear elsewhere in the request body - i
 | **ContentType** | Mime type of the attachment | No |
 | **ChangeVector** | The document's expected [change vector](../../../server/clustering/replication/change-vector). If it does not match the server-side change vector a concurrency exception is thrown. | No |
 | **Type** | Set to `AttachmentPUT` | Yes |
-
----
-
 ### Delete Attachment Command
 
 Delete an attachment in a certain document.  
@@ -439,9 +415,9 @@ Format within the `Commands` array in the [request body](../../../client-api/res
 | **ChangeVector** | The document's expected [change vector](../../../server/clustering/replication/change-vector). If it does not match the server-side change vector a concurrency exception is thrown. | No |
 | **Type** | Set to `AttachmentDELETE` | Yes |
 
-</Admonition>
 
-<Admonition type="info" title="Response Format" id="response-format" href="#response-format">
+
+## Response Format
 
 ### Http Status Codes
 
@@ -475,9 +451,6 @@ Results appear in the same order as the commands in the request body.
   * [Delete by Prefix Command](../../../client-api/rest-api/document-commands/batch-commands#delete-by-prefix-command-1)  
   * [Put Attachment Command](../../../client-api/rest-api/document-commands/batch-commands#put-attachment-command-1)  
   * [Delete Attachment Command](../../../client-api/rest-api/document-commands/batch-commands#delete-attachment-command-1)  
-
----
-
 ### Put Document Command
 
 <TabItem value="something" label="javascript">
@@ -499,9 +472,6 @@ Results appear in the same order as the commands in the request body.
 | **@id** | The ID of the document that has been created or modified. |
 | **@collection** | Name of the [collection](../../../client-api/faq/what-is-a-collection) that contains the document. If none was specified, the collection will be `@empty`. |
 | **@change-vector** | The document's change vector after the command was executed. |
-
----
-
 ### Patch Document Command
 
 <TabItem value="something" label="javascript">
@@ -526,9 +496,6 @@ Results appear in the same order as the commands in the request body.
 | **Type** | Same as the `Type` of the command sent - in this case `PATCH`. |
 | **PatchStatus** | See [below](../../../client-api/rest-api/document-commands/batch-commands#patchstatus) |
 | **Debug** | Should always return `null` in the context of batch commands. |
-
----
-
 #### PatchStatus
 
 | Status | Description |
@@ -538,9 +505,6 @@ Results appear in the same order as the commands in the request body.
 | **Patched** | The specified document was successfully patched. |
 | **Skipped** | Should not appear in the context of batch commands. |
 | **NotModified** | Patch was successful but did not result in a modification to the document. |
-
----
-
 ### Delete Document Command
 
 <TabItem value="something" label="javascript">
@@ -559,9 +523,6 @@ Results appear in the same order as the commands in the request body.
 | **Id** | The ID of the document that has been deleted. |
 | **Type** | Same as the `Type` of the command sent - in this case `DELETE`. |
 | **Deleted** | `true` if the document was successfully deleted, `false` if not (for instance, because the specified document did not exist). |
-
----
-
 ### Delete by Prefix Command
 
 <TabItem value="something" label="javascript">
@@ -580,9 +541,6 @@ Results appear in the same order as the commands in the request body.
 | **Id** | The document ID prefix of the documents that were deleted. |
 | **Type** | Same as the `Type` of the command sent - in this case `DELETE`. |
 | **Deleted** | `true` if the documents were successfully deleted, `false` if not (for instance, because no documents with the specified prefix exist). |
-
----
-
 ### Put Attachment Command
 
 <TabItem value="something" label="javascript">
@@ -611,9 +569,6 @@ Results appear in the same order as the commands in the request body.
 | **ContentType** | MIME type of the attachment. |
 | **Size** | Size of the attachment in bytes. |
 | **DocumentChangeVector** | The document's change vector after the command was executed. |
-
----
-
 ### Delete Attachment Command
 
 <TabItem value="something" label="javascript">
@@ -635,9 +590,9 @@ Results appear in the same order as the commands in the request body.
 | **Name** | Name of the attachment that was deleted. |
 | **DocumentChangeVector** | The document's change vector after the command was executed. |
 
-</Admonition>
 
-<Admonition type="info" title="More Examples" id="more-examples" href="#more-examples">
+
+## More Examples
 
 [About Northwind](../../../start/about-examples), the database used in our examples.
 
@@ -648,9 +603,6 @@ Results appear in the same order as the commands in the request body.
   * [Delete by Prefix Command](../../../client-api/rest-api/document-commands/batch-commands#delete-by-prefix-command-2)  
   * [Put Attachment Command](../../../client-api/rest-api/document-commands/batch-commands#put-attachment-command-2)  
   * [Delete Attachment Command](../../../client-api/rest-api/document-commands/batch-commands#delete-attachment-command-2)  
-
----
-
 ### Put Document Command
 
 Request:
@@ -703,9 +655,6 @@ Raven-Server-Version:"4.2.4.42"
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Patch Document Command
 
 Request:
@@ -760,9 +709,6 @@ Raven-Server-Version:"4.2.4.42"
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Delete Document Command
 
 Request:
@@ -811,9 +757,6 @@ Raven-Server-Version:"4.2.4.42"
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Delete by Prefix Command
 
 Request:
@@ -862,9 +805,6 @@ Raven-Server-Version:"4.2.4.42"
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Put Attachment Command
 
 Request:
@@ -925,9 +865,6 @@ Raven-Server-Version:"4.2.4.42"
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Delete Attachment Command
 
 Request:
@@ -978,5 +915,5 @@ Raven-Server-Version:"4.2.4.42"
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

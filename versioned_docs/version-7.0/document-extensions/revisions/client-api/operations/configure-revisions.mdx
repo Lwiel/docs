@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Configure Revisions Operation
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Configure Revisions Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -41,10 +42,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/configure-revisions#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Replace configuration" id="replace-configuration" href="#replace-configuration">
+## Replace configuration
 
 * In this example, we create a new `RevisionsConfiguration` for the database.  
   If revisions configuration already exists in the database - it will be **replaced**.
@@ -198,9 +196,9 @@ await documentStore.Maintenance.SendAsync(configureRevisionsOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Modify configuration" id="modify-configuration" href="#modify-configuration">
+
+## Modify configuration
 
 * In this example, we fetch the existing revisions configuration from the database record and **modify** it.   
 
@@ -293,9 +291,9 @@ await documentStore.Maintenance.SendAsync(configureRevisionsOp);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -348,14 +346,11 @@ await documentStore.Maintenance.SendAsync(configureRevisionsOp);
 | **PurgeOnDelete** | `bool` | &lt;ul&gt;&lt;li&gt;`false` ( **Default** ) - Revisions of a deleted document are moved to the [Revisions Bin](../../../../studio/database/document-extensions/revisions/revisions-bin).&lt;/li&gt;&lt;li&gt;`true` - When a document is deleted all its revisions are also deleted.&lt;/li&gt;&lt;/ul&gt;             |
 | **Disabled** | `bool` | &lt;ul&gt;&lt;li&gt;`false` ( **Default** ) - Revisions will be created and purged according to the configuration.&lt;/li&gt;&lt;li&gt;`true` - No revisions will be created or purged.&lt;/li&gt;&lt;/ul&gt;                                                      |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Configure Revisions Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -373,10 +368,7 @@ await documentStore.Maintenance.SendAsync(configureRevisionsOp);
   * [Example](../../../../document-extensions/revisions/client-api/operations/configure-revisions#example)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 The ConfigureRevisionsOperation modifies the revisions settings for a particular [database](../../../../studio/database/settings/manage-database-group). 
 Within that database, each [collection](../../../../client-api/faq/what-is-a-collection) can have its own separate revisions 
@@ -392,9 +384,6 @@ Put those `RevisionsCollectionConfiguration` objects in a `RevisionsConfiguratio
 
 [3.](../../../../document-extensions/revisions/client-api/operations/configure-revisions#configurerevisionsoperation) 
 Send that RevisionsConfiguration` to the server.  
-
----
-
 ### RevisionsCollectionConfiguration
 
 This object contains the four revisions settings for a particular collection:  
@@ -433,9 +422,6 @@ indefinitely.
 
 These deletions will only take place _when a new revision is added_ to a document. Until a new revision is added, that 
 document's revisions can exceed these limits.  
-
----
-
 ### RevisionsConfiguration
 
 This object contains a `Map` of revision configurations for each collection in the database, plus an optional default 
@@ -461,9 +447,6 @@ Note that when this object is sent to the server, it overrides the configuration
 configurations currently on the server. If a collection is not listed in `collections` and `defaultConfig` has not been set, the 
 default values listed in the table [above](../../../../document-extensions/revisions/client-api/operations/configure-revisions#revisionscollectionconfiguration) 
 are applied.  
-
----
-
 ### ConfigureRevisionsOperation
 
 Lastly, the operation itself sends the `RevisionsConfiguration` to the server, overriding **all** existing collection configurations. 
@@ -481,9 +464,9 @@ modify them.
 | - | - |
 | **configuration** | The new revision settings for a particular database |
 
-</Admonition>
 
-<Admonition type="info" title="Example" id="example" href="#example">
+
+## Example
 
 The following code sample updates the settings of the Document Store's [default database](../../../../client-api/setting-up-default-database) 
 - which in this case is a database named "Northwind". To update the configuration of different database, use the 
@@ -518,14 +501,11 @@ documentStore.maintenance().send(new ConfigureRevisionsOperation(northwindRevCon
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Configure Revisions Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -551,10 +531,7 @@ documentStore.maintenance().send(new ConfigureRevisionsOperation(northwindRevCon
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/configure-revisions#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Replace configuration" id="replace-configuration" href="#replace-configuration">
+## Replace configuration
 
 In this example, we create a new `RevisionsConfiguration` for the database.  
 If revisions configuration already exists in the database - it will be **replaced**.
@@ -619,9 +596,9 @@ store.maintenance.send(configure_revisions_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Modify configuration" id="modify-configuration" href="#modify-configuration">
+
+## Modify configuration
 
 In this example, we fetch the existing revisions configuration from the database record and **modify** it.   
 <TabItem value="something-something" label="modify_configuration">
@@ -662,9 +639,9 @@ store.maintenance.send(configure_revisions_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="python">
@@ -720,14 +697,11 @@ store.maintenance.send(configure_revisions_op)
 | **purge_on_delete** | `bool` | &lt;ul&gt;&lt;li&gt;`False` ( **Default** ) - Revisions of a deleted document are moved to the [Revisions Bin](../../../../studio/database/document-extensions/revisions/revisions-bin).&lt;/li&gt;&lt;li&gt;`True` - When a document is deleted all its revisions are also deleted.&lt;/li&gt;&lt;/ul&gt; |
 | **maximum_revisions_to_delete_upon_document_creation** | `int` | &lt;ul&gt;&lt;li&gt;The maximum number of revisions to delete upon each document modification.&lt;/li&gt;&lt;li&gt; **Default** : `None` = no limit,<br/> all revisions that pend purging will be deleted.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Configure Revisions Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -753,10 +727,7 @@ store.maintenance.send(configure_revisions_op)
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/configure-revisions#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Replace configuration" id="replace-configuration" href="#replace-configuration">
+## Replace configuration
 
 In this example, we create a new `RevisionsConfiguration` for the database.  
 If revisions configuration already exists in the database - it will be **replaced**.
@@ -828,9 +799,9 @@ $documentStore->maintenance()->send($configureRevisionsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Modify configuration" id="modify-configuration" href="#modify-configuration">
+
+## Modify configuration
 
 In this example, we fetch the existing revisions configuration from the database record and **modify** it.   
 <TabItem value="something-something" label="modify_configuration">
@@ -876,9 +847,9 @@ $documentStore->maintenance()->send($configureRevisionsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -935,14 +906,11 @@ $documentStore->maintenance()->send($configureRevisionsOp);
 | **purgeOnDelete** | `bool` | &lt;ul&gt;&lt;li&gt;`False` ( **Default** ) - Revisions of a deleted document are moved to the [Revisions Bin](../../../../studio/database/document-extensions/revisions/revisions-bin).&lt;/li&gt;&lt;li&gt;`True` - When a document is deleted all its revisions are also deleted.&lt;/li&gt;&lt;/ul&gt; |
 | **maximumRevisionsToDeleteUponDocumentUpdate** | `?int` | &lt;ul&gt;&lt;li&gt;The maximum number of revisions to delete upon each document modification.&lt;/li&gt;&lt;li&gt; **Default** : `None` = no limit,<br/> all revisions that pend purging will be deleted.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Configure Revisions Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -968,10 +936,7 @@ $documentStore->maintenance()->send($configureRevisionsOp);
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/configure-revisions#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Replace configuration" id="replace-configuration" href="#replace-configuration">
+## Replace configuration
 
 * In this example, we create a new `RevisionsConfiguration` for the database.  
   If revisions configuration already exists in the database - it will be **replaced**.
@@ -1043,9 +1008,9 @@ await store.maintenance.send(configureRevisionsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Modify configuration" id="modify-configuration" href="#modify-configuration">
+
+## Modify configuration
 
 * In this example, we fetch the existing revisions configuration from the database record and **modify** it.   
 
@@ -1087,9 +1052,9 @@ await documentStore.maintenance.send(configureRevisionsOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -1142,7 +1107,7 @@ await documentStore.maintenance.send(configureRevisionsOp);
 | **purgeOnDelete** | `boolean` | &lt;ul&gt;&lt;li&gt;`false` ( **Default** ) - Revisions of a deleted document are moved to the [Revisions Bin](../../../../studio/database/document-extensions/revisions/revisions-bin).&lt;/li&gt;&lt;li&gt;`true` - When a document is deleted all its revisions are also deleted.&lt;/li&gt;&lt;/ul&gt; |
 | **disabled** | `boolean` | &lt;ul&gt;&lt;li&gt;`false` ( **Default** ) - Revisions will be created and purged according to the configuration.&lt;/li&gt;&lt;li&gt;`true` - No revisions will be created or purged.&lt;/li&gt;&lt;/ul&gt; |
 
-</Admonition>
+
 
 
 </LanguageContent>

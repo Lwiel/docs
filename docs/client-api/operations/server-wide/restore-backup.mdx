@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Operations: Server: How to Restore a Database from the Backup
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Operations: Server: How to Restore a Database from the Backup
+
 
 * To restore a database from its backup, use `RestoreBackupOperation`.  
 * A backup can also be restored using [Studio](../../../studio/database/create-new-database/from-backup).  
@@ -72,7 +76,7 @@ store.Maintenance.Server.Send(restoreOperation)
 
 </LanguageContent>
 <LanguageContent language="java">
-# Operations: Server: How to Restore a Database from the Backup
+
 
 * To restore a database from its backup, use `RestoreBackupOperation`.  
 * A backup can also be restored using [Studio](../../../studio/database/create-new-database/from-backup).  
@@ -177,7 +181,7 @@ store.maintenance().server().send(restoreOperation);
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Operations: Server: How to Restore a Database from the Backup
+
 
 * To restore a database from its backup, use `RestoreBackupOperation`.  
 * A backup can also be restored using [Studio](../../../studio/database/create-new-database/from-backup).  

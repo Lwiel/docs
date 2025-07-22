@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Introduction to the REST API
-
----
-
 <Admonition type="note" title="Note">
 
 * This page covers some basic information that will help you learn to use the REST API:  
@@ -33,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Common HTTP Status Codes](../../client-api/rest-api/rest-api-intro#common-http-status-codes)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="cURL Basics" id="curl-basics" href="#curl-basics">
+## cURL Basics
 
 A good way to familiarize yourself with the RavenDB REST API is with the command line tool cURL, which allows you to construct and 
 send individual HTTP requests. You can download cURL from [curl.haxx.se](https://curl.haxx.se/download.html) (If you're using Linux 
@@ -74,9 +68,9 @@ This request uploads a document to a database on the playground server from a lo
 </TabItem>
 [More about how to upload documents](../../client-api/rest-api/document-commands/put-documents)
 
-</Admonition>
 
-<Admonition type="info" title="Document Format and Structure" id="document-format-and-structure" href="#document-format-and-structure">
+
+## Document Format and Structure
 
 In RavenDB all documents have a standard [JSON](https://www.json.org/) format. In essence, every JSON object is composed of a series 
 of key-value pairs. A document with a complex structure might look something like this:  
@@ -130,9 +124,9 @@ In addition to JSON, pure binary data can be stored as an [attachment](../../doc
 associated with an existing document. Files can be added to the request with the `-T` option. Some types of requests, though, allow you to include raw binary in the body - such as the 
 [Put Attachment Command](../../client-api/rest-api/document-commands/batch-commands#put-attachment-command).  
 
-</Admonition>
 
-<Admonition type="info" title="Using cURL With HTTPS" id="using-curl-with-https" href="#using-curl-with-https">
+
+## Using cURL With HTTPS
 
 HTTPS adds public-key encryption on top of standard HTTP to protect information during transit between client and server. It has 
 become increasingly common throughout the internet in recent years. Our [setup wizard](../../start/installation/setup-wizard) makes 
@@ -153,9 +147,9 @@ again by going to this endpoint: `<the URL of your server>/admin/debug/cluster-i
 the root of the package with the names: `admin.client.certificate.<your domain name>.crt`, and 
 `admin.client.certificate.<your domain name>.key` respectively.  
 
-</Admonition>
 
-<Admonition type="info" title="Common HTTP Status Codes" id="common-http-status-codes" href="#common-http-status-codes">
+
+## Common HTTP Status Codes
 
 These are a few of the HTTP status codes we use in our REST API, and what we mean by them:  
 
@@ -168,5 +162,5 @@ These are a few of the HTTP status codes we use in our REST API, and what we mea
 | 409 | Conflict | Indicates that the database has received [conflicting commands](../../server/clustering/replication/replication-conflicts). This happens in clusters when different nodes receive commands to modify the same data at the same time - before the modification could be passed on to the rest of the cluster. |
 | 500 | Internal Server Error | Used for exceptions that occur on the server side |
 
-</Admonition>
+
 

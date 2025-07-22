@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Resume Index Operation
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Resume Index Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -33,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/indexes/start-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Resume index example" id="resume-index-example" href="#resume-index-example">
+## Resume index example
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -79,9 +77,9 @@ Assert.Equal(IndexRunningStatus.Running, index.Status);
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -95,12 +93,12 @@ public StartIndexOperation(string indexName)
 | - | - |-|
 | **indexName** | `string` | Name of an index to resume |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Resume Index Operation
+
 
 The **StartIndexOperation** is used to resume indexing for an index.
 
@@ -129,9 +127,6 @@ The **StartIndexOperation** is used to resume indexing for an index.
 
 </LanguageContent>
 <LanguageContent language="python">
-# Resume Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -149,10 +144,7 @@ The **StartIndexOperation** is used to resume indexing for an index.
     * [Syntax](../../../../client-api/operations/maintenance/indexes/start-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Resume index example" id="resume-index-example" href="#resume-index-example">
+## Resume index example
 
 <TabItem value="something-something" label="resume_index">
 <CodeBlock language="python">
@@ -174,9 +166,9 @@ self.assertEqual(index.status, IndexRunningStatus.RUNNING)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -190,14 +182,11 @@ self.assertEqual(index.status, IndexRunningStatus.RUNNING)
 | - | - |-|
 | **index_name** | `str` | Name of an index to resume |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Resume Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -215,10 +204,7 @@ self.assertEqual(index.status, IndexRunningStatus.RUNNING)
     * [Syntax](../../../../client-api/operations/maintenance/indexes/start-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Resume index example" id="resume-index-example" href="#resume-index-example">
+## Resume index example
 
 <TabItem value="something-something" label="resume_index">
 <CodeBlock language="php">
@@ -246,9 +232,9 @@ $this->assertTrue($index->getStatus()->isRunning());
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -262,14 +248,11 @@ StartIndexOperation(?string $indexName)
 | - | - |-|
 | **$indexName** | `?string` | Name of an index to resume |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Resume Index Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -287,10 +270,7 @@ StartIndexOperation(?string $indexName)
     * [Syntax](../../../../client-api/operations/maintenance/indexes/start-index#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Resume index example" id="resume-index-example" href="#resume-index-example">
+## Resume index example
 
 <TabItem value="something-something" label="resume_index">
 <CodeBlock language="nodejs">
@@ -312,9 +292,9 @@ assert.strictEqual(index.status, "Running");
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -328,7 +308,7 @@ const resumeIndexOp = new StartIndexOperation(indexName);
 | - | - |-|
 | **indexName** | `string` | Name of an index to resume |
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Session: How to Refresh an Entity
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: How to Refresh an Entity
+
 
 To update an entity with the latest changes from the server, use the `Refresh` method 
 from `Advanced` session operations.
@@ -53,7 +57,7 @@ Refreshing a transient entity (not attached) or an entity that was deleted on se
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Refresh an Entity
+
 
 To update an entity with the latest changes from the server, use the `refresh` method 
 from `advanced` session operations.
@@ -94,7 +98,7 @@ Refreshing a transient entity (not attached) or an entity that was deleted on se
 
 </LanguageContent>
 <LanguageContent language="python">
-# Session: How to Refresh an Entity
+
 
 To update an entity with the latest changes from the server, use the `refresh` method from `advanced` session operations.
 
@@ -133,7 +137,7 @@ Refreshing a transient entity (not attached) or an entity that was deleted on se
 
 </LanguageContent>
 <LanguageContent language="php">
-# Session: How to Refresh an Entity
+
 
 To update an entity with the latest changes from the server, use the `refresh` method from `advanced` session operations.
 
@@ -173,7 +177,7 @@ Refreshing a transient entity (not attached) or an entity that was deleted on se
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: How to Refresh an Entity
+
 
 To update an entity with the latest changes from the server, use the `refresh()` method 
 from `advanced` session operations.

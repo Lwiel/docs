@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Patching
----
-
 <Admonition type="note" title="Note">
 
 * The following configuration options control the behavior of the **JavaScript engine** during patch operations.
@@ -21,34 +19,25 @@ import LanguageContent from "@site/src/components/language-content";
   *  [Single document patch operations](../../client-api/operations/patching/single-document)
   *  [Set-base patch operations](../../client-api/operations/patching/set-based)
   *  [Apply patching from the Studio](../../studio/database/documents/patch-view)
-
----
-
 * In this article:
     * [Patching.AllowStringCompilation](../../server/configuration/patching-configuration#patching.allowstringcompilation)
     * [Patching.MaxStepsForScript](../../server/configuration/patching-configuration#patching.maxstepsforscript)
     * [Patching.StrictMode](../../server/configuration/patching-configuration#patching.strictmode)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Patching.AllowStringCompilation" id="patching-allowstringcompilation" href="#patching-allowstringcompilation">
+## Patching.AllowStringCompilation
 
 * Determines whether the JavaScript engine is allowed to compile code from strings at runtime,  
   using constructs such as `eval(...)` or `new Function(arg1, arg2, ..., functionBody)`.
 
 * A `JavaScriptException` is thrown if this option is disabled and such a construct is used.
-
----
-
 - **Type**: `bool`
 - **Default**: `false`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Patching.MaxStepsForScript" id="patching-maxstepsforscript" href="#patching-maxstepsforscript">
+
+## Patching.MaxStepsForScript
 
 Specifies the maximum number of execution steps a patch script can perform.  
 A `Jint.Runtime.StatementsCountOverflowException` is thrown if the script exceeds this number.
@@ -57,9 +46,9 @@ A `Jint.Runtime.StatementsCountOverflowException` is thrown if the script exceed
 - **Default**: `10_000`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Patching.StrictMode" id="patching-strictmode" href="#patching-strictmode">
+
+## Patching.StrictMode
 
 Enables strict mode in the JavaScript engine used during patching.
 
@@ -67,4 +56,4 @@ Enables strict mode in the JavaScript engine used during patching.
 - **Default**: `true`
 - **Scope**: Server-wide or per database
 
-</Admonition>
+

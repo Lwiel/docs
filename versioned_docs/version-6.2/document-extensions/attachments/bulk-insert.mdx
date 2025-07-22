@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Bulk Insert Attachments
+export const supportedLanguages = ["csharp", "python", "nodejs"];
 
----
+
+# Bulk Insert Attachments
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -29,7 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Usage flow" id="usage-flow" href="#usage-flow">
+## Usage flow
 
 * Create a `BulkInsert` instance.  
 
@@ -43,9 +44,9 @@ import LanguageContent from "@site/src/components/language-content";
   If an attachment with the specified name already exists on the document,  
   the bulk insert operation will overwrite it.
 
-</Admonition>
 
-<Admonition type="info" title="Usage example" id="usage-example" href="#usage-example">
+
+## Usage example
 
 In this example, we attach a file to all User documents that match a query.  
  
@@ -100,9 +101,9 @@ using (var bulkInsert = store.BulkInsert())
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="AttachmentsFor-definition">
 <CodeBlock language="csharp">
@@ -128,14 +129,11 @@ using (var bulkInsert = store.BulkInsert())
 | `stream`      | `Stream` | The attachment's stream            |
 | `contentType` | `string` | Type of attachment (default: null) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Bulk Insert Attachments
-
----
 
 <Admonition type="note" title="Note">
 
@@ -150,7 +148,7 @@ using (var bulkInsert = store.BulkInsert())
 
 </Admonition>
 
-<Admonition type="info" title="Usage flow" id="usage-flow" href="#usage-flow">
+## Usage flow
 
 * Create a `bulk_insert` instance.  
 
@@ -164,9 +162,9 @@ using (var bulkInsert = store.BulkInsert())
   If an attachment with the specified name already exists on the document,  
   the bulk insert operation will overwrite it.
 
-</Admonition>
 
-<Admonition type="info" title="Usage example" id="usage-example" href="#usage-example">
+
+## Usage example
 
 In this example, we attach a file to all User documents that match a query.  
 <TabItem value="something-something" label="bulk_insert_attachment">
@@ -194,14 +192,11 @@ with store.bulk_insert() as bulk_insert:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Bulk Insert Attachments
-
----
 
 <Admonition type="note" title="Note">
 
@@ -215,7 +210,7 @@ with store.bulk_insert() as bulk_insert:
 
 </Admonition>
 
-<Admonition type="info" title="Usage flow" id="usage-flow" href="#usage-flow">
+## Usage flow
 
 * Create a `bulkInsert` instance.  
 
@@ -229,9 +224,9 @@ with store.bulk_insert() as bulk_insert:
   If an attachment with the specified name already exists on the document,  
   the bulk insert operation will overwrite it.
 
-</Admonition>
 
-<Admonition type="info" title="Usage example" id="usage-example" href="#usage-example">
+
+## Usage example
 
 In this example, we attach a file to all User documents that match a query.  
  
@@ -290,9 +285,9 @@ try {
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -319,7 +314,7 @@ store(name, bytes, contentType);
 | `bytes`       | `Buffer` | The attachment's content           |
 | `contentType` | `string` | Type of attachment (default: null) |
 
-</Admonition>
+
 
 
 </LanguageContent>

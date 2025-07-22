@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Include Compare Exchange Values
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Include Compare Exchange Values
----
 
 <Admonition type="note" title="Note">
 
@@ -32,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Examples](../../../client-api/operations/compare-exchange/include-compare-exchange#examples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 #### Include method
 
@@ -90,9 +89,9 @@ use `includes.cmpxchg()` (see the RawQuery example
 | **key** | `string`;
 path to `string` | The key of the compare exchange value you want to include, or a path to the key. |
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Load" label="Load">
@@ -196,13 +195,11 @@ foreach (User u in users2){
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Include Compare Exchange Values
----
 
 <Admonition type="note" title="Note">
 
@@ -220,10 +217,7 @@ foreach (User u in users2){
     * [Syntax](../../../client-api/operations/compare-exchange/include-compare-exchange#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Sample data" id="sample-data" href="#sample-data">
+## Sample data
 
 * The examples in this article are based on the following __sample data__:
 
@@ -296,16 +290,13 @@ foreach (User u in users2){
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Include CmpXchg items when loading" id="include-cmpxchg-items-when-loading" href="#include-cmpxchg-items-when-loading">
+
+## Include CmpXchg items when loading
 
 <Admonition type="note" title="Note">
 
 __Include single item__:
-
----
-
 <TabItem value="something-something" label="include_1">
 <CodeBlock language="nodejs">
 {`// Open a session with cluster-wide mode to enable calling 'includeCompareExchangeValue'
@@ -350,9 +341,6 @@ const value = item.value;
 <Admonition type="note" title="Note">
 
 __Include multiple items__:
-
----
-
 <TabItem value="something-something" label="include_2">
 <CodeBlock language="nodejs">
 {`const session = documentStore.openSession(\{
@@ -392,16 +380,13 @@ const value2 = items["employees/2"].value;
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Include CmpXchg items when querying" id="include-cmpxchg-items-when-querying" href="#include-cmpxchg-items-when-querying">
+
+## Include CmpXchg items when querying
 
 <Admonition type="note" title="Note">
 
 __dynamic query__:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
 <CodeBlock language="nodejs">
@@ -533,9 +518,6 @@ assert.equal(session.advanced.numberOfRequests, numberOfRequests);
 <Admonition type="note" title="Note">
 
 __Index query__:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
 <CodeBlock language="nodejs">
@@ -617,9 +599,9 @@ select includeCmpXchg(c)
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <Admonition type="note" title="Note">
 
@@ -671,7 +653,7 @@ __When using javascript functions within RQL__:
 | __key__   | `string`  | The key of the compare exchange value you want to include, or a path to the key. |
 
 </Admonition>
-</Admonition>
+
 
 
 </LanguageContent>

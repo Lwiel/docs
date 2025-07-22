@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Integrating with Akka.NET Persistence
----
-
 <Admonition type="note" title="Note">
 
 * This article provides guidance on integrating RavenDB with Akka.Persistence.
@@ -28,10 +26,7 @@ import LanguageContent from "@site/src/components/language-content";
        * [Syntax](../../integrations/akka.net-persistence/integrating-with-akka-persistence#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 **What is Akka.Net**  
 [Akka.NET](https://getakka.net/) is a robust set of open-source libraries for building highly concurrent, distributed, and scalable applications on the .NET platform.
@@ -55,9 +50,9 @@ Akka.NET supports various persistence stores through a plugin model, which speci
 Ensuring that your actor’s data and any critical messages are persisted and recovered is paramount to building a reliable system. 
 Persistence database plugins play a crucial role by providing the necessary mechanisms to achieve this reliability.
 
-</Admonition>
 
-<Admonition type="info" title="Akka.Persistence.RavenDB" id="akka-persistence-ravendb" href="#akka-persistence-ravendb">
+
+## Akka.Persistence.RavenDB
 
 [Akka.Persistence.RavenDB](https://github.com/ravendb/Akka.Persistence.RavenDB) is a **persistence plugin** for Akka.NET that integrates RavenDB as the durable storage backend.
 
@@ -73,9 +68,9 @@ With the RavenDB plugin your application can:
   * Persist and recover Snapshots to/from a **Snapshot store**. Learn more in [Snapshots](../../integrations/akka.net-persistence/events-and-snapshots#storing-snapshots). 
   * Query the stored events. Learn more in [Queries](../../integrations/akka.net-persistence/queries).
 
-</Admonition>
 
-<Admonition type="info" title="Installing the RavenDB persistence plugin" id="installing-the-ravendb-persistence-plugin" href="#installing-the-ravendb-persistence-plugin">
+
+## Installing the RavenDB persistence plugin
 
 Integrate RavenDB with Akka.Persistence using one of the two available NuGet packages:  
 
@@ -103,9 +98,6 @@ dotnet add package Akka.Persistence.RavenDB.Hosting
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 Installing either package will also install the _Akka.Persistence_ package.
 
 <Admonition type="info" title="Info">
@@ -113,9 +105,9 @@ When configuring the plugin using both Hosting and HOCON, if the same parameters
 the configuration provided via Hosting takes precedence and will override the corresponding HOCON settings.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Configuring the RavenDB persistence plugin with HOCON" id="configuring-the-ravendb-persistence-plugin-with-hocon" href="#configuring-the-ravendb-persistence-plugin-with-hocon"> 
+
+## Configuring the RavenDB persistence plugin with HOCON 
 
 * While both the journal and the snapshot-store share the same configuration keys, they reside in separate scopes.  
   So when configuring using HOCON, the settings for the journal and snapshot-store must be defined separately,  
@@ -190,9 +182,6 @@ the configuration provided via Hosting takes precedence and will override the co
 <Admonition type="note" title="Note">
 
 #### Journal and snapshot config keys
-
----
-
 Predefined plugins and class names to use:
 
 * **journal.plugin**  
@@ -207,9 +196,6 @@ Predefined plugins and class names to use:
 * **snapshot-store.ravendb.class**  
   The fully qualified class name for the RavenDB persistence snapshot actor.  
   Value to set: `"Akka.Persistence.RavenDb.Snapshot.RavenDbSnapshotStore, Akka.Persistence.RavenDb"`  
-
----
-
 Common config keys for journal and snapshot-store:
 
 * **plugin-dispatcher**  
@@ -250,9 +236,6 @@ Default: `false`
 <Admonition type="note" title="Note">
 
 #### Query config keys
-
----
-
 * **query.ravendb.class**  
   The fully qualified class name for the RavenDB journal provider.  
   Value to set: `"Akka.Persistence.RavenDb.Query.RavenDbReadJournalProvider, Akka.Persistence.RavenDb"`  
@@ -264,9 +247,9 @@ Default: `false`
   Default: `65536`
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Configuring the RavenDB persistence plugin with Hosting" id="configuring-the-ravendb-persistence-plugin-with-hosting" href="#configuring-the-ravendb-persistence-plugin-with-hosting">
+
+## Configuring the RavenDB persistence plugin with Hosting
 
 * Using Hosting, you can easily set up the RavenDB plugin during your application's startup.
 
@@ -315,9 +298,6 @@ namespace Raven.Documentation.Samples.Integrations.AkkaPersistence
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax
 
 <TabItem value="something-something" label="syntax_1">
@@ -361,9 +341,6 @@ public static AkkaConfigurationBuilder WithRavenDbPersistence(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 <TabItem value="something-something" label="syntax_3">
 <CodeBlock language="csharp">
 {`// These overloads allow for applying separate configurations to the Journal and Snapshot stores
@@ -386,9 +363,6 @@ public static AkkaConfigurationBuilder WithRavenDbPersistence(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 <TabItem value="something-something" label="syntax_5">
 <CodeBlock language="csharp">
 {`// Use this class to define the Journal store configuration
@@ -426,5 +400,5 @@ public class RavenDbSnapshotOptions
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

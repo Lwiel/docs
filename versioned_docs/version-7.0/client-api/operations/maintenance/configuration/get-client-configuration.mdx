@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Get Client Configuration Operation <br/> (for database)
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Get Client Configuration Operation  (for database)
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../client-api/operations/maintenance/configuration/get-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get client-configuration" id="get-client-configuration" href="#get-client-configuration">
+## Get client-configuration
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -61,9 +59,9 @@ ClientConfiguration clientConfiguration = config.Configuration;
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -87,12 +85,12 @@ public class Result
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Get Client Configuration Operation
+
 
 **GetClientConfigurationOperation** is used to return a client configuration, which is saved on the server and overrides client behavior. 
 
@@ -150,9 +148,6 @@ ClientConfiguration clientConfiguration = config.getConfiguration();
 
 </LanguageContent>
 <LanguageContent language="python">
-# Get Client Configuration Operation <br/> (for database)
-
----
 
 <Admonition type="note" title="Note">
 
@@ -165,10 +160,7 @@ ClientConfiguration clientConfiguration = config.getConfiguration();
     * [Syntax](../../../../client-api/operations/maintenance/configuration/get-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get client-configuration" id="get-client-configuration" href="#get-client-configuration">
+## Get client-configuration
 
 <TabItem value="something-something" label="get_config">
 <CodeBlock language="python">
@@ -183,9 +175,9 @@ client_configuration = result.configuration
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="python">
@@ -209,14 +201,11 @@ class Result:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Get Client Configuration Operation <br/> (for database)
-
----
 
 <Admonition type="note" title="Note">
 
@@ -229,10 +218,7 @@ class Result:
     * [Syntax](../../../../client-api/operations/maintenance/configuration/get-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get client-configuration" id="get-client-configuration" href="#get-client-configuration">
+## Get client-configuration
 
 <TabItem value="something-something" label="get_config">
 <CodeBlock language="php">
@@ -248,9 +234,9 @@ $clientConfiguration = $result->getConfiguration();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -272,14 +258,11 @@ class GetClientConfigurationResult implements ResultInterface
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Client Configuration Operation <br/> (for database)
-
----
 
 <Admonition type="note" title="Note">
 
@@ -292,10 +275,7 @@ class GetClientConfigurationResult implements ResultInterface
     * [Syntax](../../../../client-api/operations/maintenance/configuration/get-client-configuration#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get client-configuration" id="get-client-configuration" href="#get-client-configuration">
+## Get client-configuration
 
 <TabItem value="something-something" label="get_config">
 <CodeBlock language="nodejs">
@@ -310,9 +290,9 @@ const configuration = result.configuration;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -343,7 +323,7 @@ const configuration = result.configuration;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

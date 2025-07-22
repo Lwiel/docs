@@ -11,14 +11,18 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "php", "nodejs"];
+
+
+# Get Counters Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Get Counters Operation
+
 
 This operation is used to get counters' values for a specific document.  
 It can be used to get the value of a single counter, multiple counters' values, or all counters' values.
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 #### Get Single Counter
 
@@ -45,9 +49,6 @@ sum of all the local values of this counter from each node.
 In order to get the counter values per database node, set the `returnFullResults` flag to `true`
 
 </Admonition>
-
----
-
 #### Get Multiple Counters 
 
 <TabItem value="something-something" label="get_multiple_counters">
@@ -62,9 +63,6 @@ In order to get the counter values per database node, set the `returnFullResults
 | **docId** | string | The ID of the document that holds the counters |
 | **counters** | string[] | The names of the counters to get |
 | **returnFullResults** | bool | A flag which indicates if the operation should include a dictionary of counter values per database node in the result  |
-
----
-
 #### Get All Counters of a Document 
 
 <TabItem value="something-something" label="get_all_counters">
@@ -79,9 +77,9 @@ In order to get the counter values per database node, set the `returnFullResults
 | **docId** | string | The ID of the document that holds the counters |
 | **returnFullResults** | bool | A flag which indicates if the operation should include a dictionary of counter values per database node in the result  |
 
-</Admonition>
 
-<Admonition type="info" title="Return Value" id="return-value" href="#return-value">
+
+## Return Value
 
 The operation returns a `CountersDetail` object, which holds a list of `CounterDetail` objects
 
@@ -110,9 +108,9 @@ The operation returns a `CountersDetail` object, which holds a list of `CounterD
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 Assume we have a `users/1` document that holds 3 counters:  
 `likes`, `dislikes` and `downloads` -  with values 10, 20 and 30 (respectively)
@@ -258,17 +256,17 @@ Assuming a 3-node cluster, the distribution of the counter's value to nodes A, B
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Get Counters Operation
+
 
 This operation is used to get counters' values for a specific document.  
 It can be used to get the value of a single counter, multiple counters' values, or all counters' values.
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 #### Get Single Counter
 
@@ -296,9 +294,6 @@ sum of all the local values of this counter from each node.
 In order to get the counter values per database node, set the `returnFullResults` flag to `true`
 
 </Admonition>
-
----
-
 #### Get Multiple Counters 
 
 <TabItem value="something-something" label="get_multiple_counters">
@@ -314,9 +309,6 @@ public GetCountersOperation(String docId, String[] counters, boolean returnFullR
 | **docId** | String | The ID of the document that holds the counters |
 | **counters** | String[] | The names of the counters to get |
 | **returnFullResults** | boolean | A flag which indicates if the operation should include a dictionary of counter values per database node in the result  |
-
----
-
 #### Get All Counters of a Document 
 
 <TabItem value="something-something" label="get_all_counters">
@@ -332,9 +324,9 @@ public GetCountersOperation(String docId, boolean returnFullResults)
 | **docId** | String | The ID of the document that holds the counters |
 | **returnFullResults** | boolean | A flag which indicates if the operation should include a dictionary of counter values per database node in the result  |
 
-</Admonition>
 
-<Admonition type="info" title="Return Value" id="return-value" href="#return-value">
+
+## Return Value
 
 The operation returns a `CountersDetail` object, which holds a list of `CounterDetail` objects
 
@@ -367,9 +359,9 @@ The operation returns a `CountersDetail` object, which holds a list of `CounterD
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 Assume we have a `users/1` document that holds 3 counters:  
 `likes`, `dislikes` and `downloads` -  with values 10, 20 and 30 (respectively)
@@ -515,17 +507,17 @@ Assuming a 3-node cluster, the distribution of the counter's value to nodes A, B
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Get Counters Operation
+
 
 This operation is used to get counters' values for a specific document.  
 It can be used to get the value of a single counter, multiple counters' values, or all counters' values.
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 #### `GetCountersOperation`
 
@@ -546,9 +538,6 @@ Find usage examples below for getting a single counter, multiple counters, or al
 | **docId** | string | The ID of the document that holds the counters |
 | **counter** | `string` or `StringArray` or `array` or `null` | The name or names array of the counter/s to get, <br/>or `null` for all document counters |
 | **returnFullResults** | bool | A flag which indicates if the operation should include a dictionary of counter values per database node in the result |
-
----
-
 #### Get Single Counter
 
 <TabItem value="something-something" label="get_single_counter">
@@ -578,9 +567,6 @@ sum of all the local values of this counter from each node.
 In order to get the counter values per database node, set the `returnFullResults` flag to `true`
 
 </Admonition>
-
----
-
 #### Get Multiple Counters 
 
 <TabItem value="something-something" label="get_multiple_counters">
@@ -599,9 +585,6 @@ $operation = new GetCountersOperation($docId, $counters, $returnFullResults);
 | **docId** | string | The ID of the document that holds the counters |
 | **counters** | `StringArray` or `array` | The names of the counters to get |
 | **returnFullResults** | bool | A flag which indicates if the operation should include a dictionary of counter values per database node in the result |
-
----
-
 #### Get All Counters of a Document 
 
 <TabItem value="something-something" label="get_all_counters">
@@ -619,9 +602,9 @@ $operation = new GetCountersOperation($docId, null, $returnFullResults);
 | **docId** | string | The ID of the document that holds the counters |
 | **returnFullResults** | bool | A flag which indicates if the operation should include a dictionary of counter values per database node in the result |
 
-</Admonition>
 
-<Admonition type="info" title="Return Value" id="return-value" href="#return-value">
+
+## Return Value
 
 The operation returns a `CountersDetail` object, which holds a list of `CounterDetail` objects
 
@@ -662,9 +645,9 @@ class CounterDetailList extends TypedList
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 Assume we have a `users/1` document that holds 3 counters:  
 `likes`, `dislikes` and `downloads` -  with values 10, 20 and 30 (respectively)
@@ -817,17 +800,17 @@ Assuming a 3-node cluster, the distribution of the counter's value to nodes A, B
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Counters Operation
+
 
 This operation is used to get counters' values for a specific document.  
 It can be used to get the value of a single counter, multiple counters' values, or all counters' values.
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -873,9 +856,9 @@ To get the counter values per database node, set the `returnFullResults` flag to
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Return Value" id="return-value" href="#return-value">
+
+## Return Value
 
 The operation returns a `CountersDetail` object, which holds a list of `CounterDetail` objects
 
@@ -918,15 +901,12 @@ The operation returns a `CountersDetail` object, which holds a list of `CounterD
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 Assume we have a `users/1` document that holds 3 counters:  
 `Likes`, `Dislikes` and `Downloads` -  with values 10, 20 and 30 (respectively)
-
----
-
 ### Example #1 : Get single counter
 
 <TabItem value="something-something" label="example_1">
@@ -1078,7 +1058,7 @@ Assuming a 3-node cluster, the distribution of the counter's value to nodes A, B
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

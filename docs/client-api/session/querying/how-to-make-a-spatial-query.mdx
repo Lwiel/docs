@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Make a Spatial Query
+export const supportedLanguages = ["csharp", "java", "python", "nodejs"];
 
----
+
+# Make a Spatial Query
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -35,9 +36,6 @@ import LanguageContent from "@site/src/components/language-content";
 
 * When making a dynamic spatial query from Studio,  
   results are also displayed on the global map. See [spatial queries map view](../../../studio/database/queries/spatial-queries-map-view).
-
----
-
 * In this page:
 
   * [Search by radius](../../../client-api/session/querying/how-to-make-a-spatial-query#search-by-radius)  
@@ -57,10 +55,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [`OrderByDistanceDescending`](../../../client-api/session/querying/how-to-make-a-spatial-query#section-4)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Search by radius" id="search-by-radius" href="#search-by-radius">
+## Search by radius
 
 Use the `WithinRadius` method to search for all documents containing spatial data that is located  
 within the specified distance from the given center point.
@@ -151,9 +146,9 @@ where spatial.within(
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Search by shape" id="search-by-shape" href="#search-by-shape">
+
+## Search by shape
 
 * Use the `RelatesToShape` method to search for all documents containing spatial data that is located  
   in the specified relation to the given shape.
@@ -161,9 +156,6 @@ where spatial.within(
 * The shape is specified as either a **circle** or a **polygon** in a [WKT](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) format.
 
 * The relation to the shape can be one of: `Within`, `Contains`, `Disjoint`, `Intersects`.
-
----
-
 #### Circle
 
 <Tabs groupId='languageSyntax'>
@@ -266,9 +258,6 @@ where spatial.within(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Polygon
 
 <Tabs groupId='languageSyntax'>
@@ -403,17 +392,14 @@ where spatial.within(
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Spatial sorting" id="spatial-sorting" href="#spatial-sorting">
+
+## Spatial sorting
 
 * Use `OrderByDistance` or `OrderByDistanceDescending` to sort the results by distance from a given point.
 
 * By default, distance is measured by RavenDB in **kilometers**.  
   The distance can be rounded to a specific range.  
-
----
-
 #### Order by distance
 
 <Tabs groupId='languageSyntax'>
@@ -528,9 +514,6 @@ order by spatial.distance(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Order by distance descending
 
 <Tabs groupId='languageSyntax'>
@@ -608,9 +591,6 @@ order by spatial.distance(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Sort results by rounded distance
 
 <Tabs groupId='languageSyntax'>
@@ -702,9 +682,6 @@ order by spatial.distance(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Get resulting distance
 
 * The distance is available in the `@spatial` metadata property within each result.
@@ -734,9 +711,9 @@ var longitude = spatialResults["Longitude"]; // The entity's longitude value
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Spatial API" id="spatial-api" href="#spatial-api">
+
+## Spatial API
 
 #### `Spatial`
 
@@ -767,9 +744,6 @@ IRavenQueryable<T> Spatial<T>(
 | **fieldName** | `string`                                                                                  | Path to spatial field in an index<br/>(when querying an index)                                                            |
 | **field**     | `Func<DynamicSpatialFieldFactory<T>, DynamicSpatialField>`<br/>or<br/>`DynamicSpatialField` | Factory or field that points to a document field<br/>(when making a dynamic query).<br/>Either `PointField` or `WktField`. |
 | **clause**    | `Func<SpatialCriteriaFactory, SpatialCriteria>`                                           | Spatial criteria that will be executed on a given spatial field                                                          |
-
----
-
 #### `DynamicSpatialFieldFactory`
 
 <TabItem value="something" label="spatial_8">
@@ -786,9 +760,6 @@ WktField Wkt(Expression<Func<T, object>> wktPath);
 | Parameters                                         | Type                          | Description                                                                  |
 |----------------------------------------------------|-------------------------------|------------------------------------------------------------------------------|
 | **latitudePath** / **longitudePath** / **wktPath** | `Expression<Func<T, object>>` | Path to the field in a document containing either longitude, latitude or WKT |
-
----
-
 #### `SpatialCriteriaFactory`
 
 <TabItem value="something" label="spatial_9">
@@ -857,9 +828,6 @@ SpatialCriteria WithinRadius(
 | **distErrorPercent**                      | `double`          | Maximum distance error tolerance in percents. Default: 0.025                                                                        |
 | **radius** / **latitude** / **longitude** | `double`          | Used to define a radius of a circle                                                                                                 |
 | **radiusUnits** / **units**               | `SpatialUnits`    | Determines if circle or shape should be calculated in `Kilometers` or `Miles`.<br/>By default, distances are measured in kilometers. |
-
----
-
 #### `OrderByDistance`
 
 <TabItem value="something" label="spatial_10">
@@ -927,9 +895,6 @@ IOrderedQueryable<T> OrderByDistance<T>(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### `OrderByDistanceDescending`
 
 <TabItem value="something" label="spatial_11">
@@ -1007,12 +972,12 @@ IOrderedQueryable<T> OrderByDistanceDescending<T>(
 | **latitude** / **longitude** | `double`                                                                                   | Used to define a point from which distance will be measured                                                                                                                                                                                                      |
 | **roundFactor**              | `double`                                                                                   | A distance interval in kilometers.<br/>The distance from the point is rounded up to the nearest interval.<br/>The results within the same interval can be sorted by a secondary order.<br/>If no other order was specified, then by ascending order of document Id. |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Make a Spatial Query
+
 
 Spatial indexes can be queried using the `spatial` method which contains a full spectrum of spatial methods. The following article will cover these methods:
 
@@ -1020,7 +985,7 @@ Spatial indexes can be queried using the `spatial` method which contains a full 
 - [OrderByDistance](../../../client-api/session/querying/how-to-make-a-spatial-query#orderbydistance)
 - [OrderByDistanceDescending](../../../client-api/session/querying/how-to-make-a-spatial-query#orderbydistancedescending)
 
-<Admonition type="info" title="Spatial" id="spatial" href="#spatial">
+## Spatial
 
 <TabItem value="something-something" label="spatial_1">
 <CodeBlock language="java">
@@ -1156,9 +1121,9 @@ where spatial.within(spatial.point(Latitude, Longitude), spatial.wkt('Circle(32.
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="OrderByDistance" id="orderbydistance" href="#orderbydistance">
+
+## OrderByDistance
 
 To sort by distance from given point use the `orderByDistance` method. The closest results will come first.
 
@@ -1214,9 +1179,9 @@ order by spatial.distance(spatial.point(Latitude, Longitude), spatial.point(32.1
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="OrderByDistanceDescending" id="orderbydistancedescending" href="#orderbydistancedescending">
+
+## OrderByDistanceDescending
 
 To sort by distance from given point use the `OrderByDistanceDescending` method. The farthest results will come first.
 
@@ -1272,7 +1237,7 @@ order by spatial.distance(spatial.point(Latitude, Longitude), spatial.point(32.1
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 ## Remarks
 
@@ -1283,9 +1248,6 @@ By default, distances are measured in **kilometers**.
 
 </LanguageContent>
 <LanguageContent language="python">
-# Make a Spatial Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1305,9 +1267,6 @@ By default, distances are measured in **kilometers**.
 
 * When making a dynamic spatial query from Studio,  
   results are also displayed on the global map. See [spatial queries map view](../../../studio/database/queries/spatial-queries-map-view).
-
----
-
 * In this page:
 
   * [Search by radius](../../../client-api/session/querying/how-to-make-a-spatial-query#search-by-radius)  
@@ -1327,10 +1286,7 @@ By default, distances are measured in **kilometers**.
       * [`order_by_distance_descending`, `order_by_distance_descending_wkt`](../../../client-api/session/querying/how-to-make-a-spatial-query#section-4)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Search by radius" id="search-by-radius" href="#search-by-radius">
+## Search by radius
 
 Use the `within_radius` method to search for all documents containing spatial data that is located  
 within the specified distance from the given center point.
@@ -1374,9 +1330,9 @@ where spatial.within(
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Search by shape" id="search-by-shape" href="#search-by-shape">
+
+## Search by shape
 
 * Use the `relates_to_shape` method to search for all documents containing spatial data that is located  
   in the specified relation to the given shape.
@@ -1384,9 +1340,6 @@ where spatial.within(
 * The shape is specified as either a **circle** or a **polygon** in a [WKT](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) format.
 
 * The relation to the shape can be one of: `WITHIN`, `CONTAINS`, `DISJOINT`, `INTERSECTS`.
-
----
-
 #### Circle
 
 <Tabs groupId='languageSyntax'>
@@ -1433,9 +1386,6 @@ where spatial.within(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Polygon
 
 <Tabs groupId='languageSyntax'>
@@ -1504,17 +1454,14 @@ where spatial.within(
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Spatial sorting" id="spatial-sorting" href="#spatial-sorting">
+
+## Spatial sorting
 
 * Use `order_by_distance` or `order_by_distance_descending` to sort the results by distance from a given point.
 
 * By default, distance is measured by RavenDB in **kilometers**.  
   The distance can be rounded to a specific range.  
-
----
-
 #### Order by distance
 
 <Tabs groupId='languageSyntax'>
@@ -1562,9 +1509,6 @@ order by spatial.distance(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Order by distance descending
 
 <Tabs groupId='languageSyntax'>
@@ -1601,9 +1545,6 @@ order by spatial.distance(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Sort results by rounded distance
 
 <Tabs groupId='languageSyntax'>
@@ -1659,9 +1600,6 @@ order by spatial.distance(
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Get resulting distance
 
 * The distance is available in the `@spatial` metadata property within each result.
@@ -1691,9 +1629,9 @@ longitude = spatial_results["Longitude"]  # The entity's longitude value
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Spatial API" id="spatial-api" href="#spatial-api">
+
+## Spatial API
 
 #### `spatial`
 
@@ -1712,9 +1650,6 @@ longitude = spatial_results["Longitude"]  # The entity's longitude value
 |---------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | **field_name_or_field** | `Union[str, DynamicSpatialField]` | `Str` - Path to spatial field in an index (when querying an index)<br/><br/>**-or-**<br/><br/>`DynamicSpatialField` - Object that contains the document's spatial fields, either `PointField` or `WktField`(when making a dynamic query). |
 | **clause**    | `Callable[[SpatialCriteriaFactory], SpatialCriteria]` | Callback taking leverage of SpatialCriteriaFactory that comes as an argument, allowing to build SpatialCriteria. |
-
----
-
 #### `DynamicSpatialField`
 
 <TabItem value="something-something" label="spatial_8">
@@ -1733,9 +1668,6 @@ class WktField(DynamicSpatialField):
 | **latitude**  | `str` | Path to a document point field that contains the latitude |
 | **longitude** | `str` | Path to a document point field that contains the longitude |
 | **wkt** | `str` | Path to a document wkt field that contains the WKT string |
-
----
-
 #### `SpatialCriteria`
 
 <TabItem value="something-something" label="spatial_9">
@@ -1795,9 +1727,6 @@ def within_radius(
 | **units** / **radius_units** | `SpatialUnits` | Determines if circle or shape should be calculated in `KILOMETERS` or `MILES`.<br/>By default, distances are measured in kilometers. |
 | **dist_error_percent** (Optional) | `float` | Maximum distance error tolerance in percents.<br/>**Default: 0.025** |
 | **radius** / **latitude** / **longitude** | `float` | Used to define a radius of a circle |
-
----
-
 #### `order_by_distance`, `order_by_distance_wkt`
 
 <TabItem value="something-something" label="spatial_10">
@@ -1820,9 +1749,6 @@ def order_by_distance_wkt(
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### `order_by_distance_descending`, `order_by_distance_descending_wkt`
 
 <TabItem value="something-something" label="spatial_11">
@@ -1854,14 +1780,11 @@ def order_by_distance_descending_wkt(
 | **round_factor** (Optional) | `float` | A distance interval in kilometers.<br/>The distance from the point is rounded up to the nearest interval.<br/>The results within the same interval can be sorted by a secondary order.<br/>If no other order was specified, then by ascending order of document Id. |
 | **shape_wkt** | `str` | [WKT](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry)-based shape used in query criteria |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Make a Spatial Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1881,9 +1804,6 @@ def order_by_distance_descending_wkt(
 
 * When making a dynamic spatial query from Studio,  
   results are also displayed on the global map. See [spatial queries map view](../../../studio/database/queries/spatial-queries-map-view).
-
----
-
 * In this page:
 
   * [Search by radius](../../../client-api/session/querying/how-to-make-a-spatial-query#search-by-radius)  
@@ -1898,10 +1818,7 @@ def order_by_distance_descending_wkt(
   * [Spatial API](../../../client-api/session/querying/how-to-make-a-spatial-query#spatial-api)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Search by radius" id="search-by-radius" href="#search-by-radius">
+## Search by radius
 
 Use the `withinRadius` method to search for all documents containing spatial data that is located  
 within the specified distance from the given center point.
@@ -1943,9 +1860,9 @@ where spatial.within(
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Search by shape" id="search-by-shape" href="#search-by-shape">
+
+## Search by shape
 
 * Use the `relatesToShape` method to search for all documents containing spatial data that is located  
   in the specified relation to the given shape.
@@ -2074,9 +1991,9 @@ where spatial.within(
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Spatial sorting" id="spatial-sorting" href="#spatial-sorting">
+
+## Spatial sorting
 
 * Use `orderByDistance` or `orderByDistanceDescending` to sort the results by distance from a given point.
 
@@ -2257,12 +2174,9 @@ const longitude = spatialResults.Longitude; // The entity's longitude value
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Spatial API" id="spatial-api" href="#spatial-api">
 
----
-
+## Spatial API
 <Admonition type="info" title="Info">
 #### spatial
 </Admonition>
@@ -2280,9 +2194,6 @@ spatial(field, clause);
 | __fieldName__ | `string`                                       | Path to spatial field in an index<br/>(when querying an index).                                                             |
 | __field__     | `DynamicSpatialField`                          | Object that contains the document's spatial fields,<br/>either `PointField` or `WktField`<br/>(when making a dynamic query). |
 | __clause__    | `(SpatialCriteriaFactory) => SpatialCrieteria` | Spatial criteria that will be executed on a given spatial field.                                                           |
-
----
-
 <Admonition type="info" title="Info">
 #### DynamicSpatialField
 </Admonition>
@@ -2306,9 +2217,6 @@ class WktField \{
 | __latitude__  | `string` | Path to the document field that contains the latitude   |
 | __longitude__ | `string` | Path to the document field that contains the longitude  |
 | __wktPath__   | `string` | Path to the document field that contains the WKT string |
-
----
-
 <Admonition type="info" title="Info">
 #### SpatialCriteriaFactory
 </Admonition>
@@ -2347,9 +2255,6 @@ withinRadius(radius, latitude, longitude, radiusUnits, distErrorPercent);
 | __distErrorPercent__                      | `number` | Maximum distance error tolerance in percents. Default: 0.025                                                                        |
 | __radius__ / __latitude__ / __longitude__ | `number` | Used to define a radius of a circle                                                                                                 |
 | __radiusUnits__ / __units__               | `string` | Determines if circle or shape should be calculated in `Kilometers` or `Miles`.<br/>By default, distances are measured in kilometers. |
-
----
-
 <Admonition type="info" title="Info">
 #### orderByDistance
 </Admonition>
@@ -2364,9 +2269,6 @@ orderByDistance(fieldName, shapeWkt);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 <Admonition type="info" title="Info">
 #### orderByDistanceDescending
 </Admonition>
@@ -2390,7 +2292,7 @@ orderByDistanceDescending(fieldName, shapeWkt);
 | __latitude__ / __longitude__ | `number`              | Used to define a point from which distance will be measured                                                                                                                                                                                                      |
 | __roundFactor__              | `number`              | A distance interval in kilometers.<br/>The distance from the point is rounded up to the nearest interval.<br/>The results within the same interval can be sorted by a secondary order.<br/>If no other order was specified, then by ascending order of document Id. |
 
-</Admonition>
+
 
 
 </LanguageContent>

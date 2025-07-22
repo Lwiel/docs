@@ -11,20 +11,18 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Querying an Index
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Querying an Index
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
 * Prior to this article, it is recommended that you first read this [Query Overview](../../client-api/session/querying/how-to-query).  
   
 * For a basic indexes overview, see the [Indexes Overview](../../studio/database/indexes/indexes-overview).
-
----
-
 * Indexing the content of your documents allows for **fast document retrieval** when querying the index.  
 
 * This article is a basic overview of how to query a **static index** using **code**.  
@@ -38,17 +36,11 @@ import LanguageContent from "@site/src/components/language-content";
    * [Query an index by `RawQuery`](../../indexes/querying/query-index#query-an-index-by-rawquery) (using RQL)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query an index by `Query`" id="query-an-index-by-query" href="#query-an-index-by-query">
+## Query an index by `Query`
 
 * In the following examples we **query an index** using the session's `Session.Query` method, which supports LINQ.  
 
 * Querying can be enhanced using these [extension methods](../../client-api/session/querying/how-to-query#custom-methods-and-extensions-for-linq).
-
----
-
 #### Query index - no filtering:
 
 <Tabs groupId='languageSyntax'>
@@ -148,9 +140,6 @@ from index "Employees/ByName"
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query index - with filtering:
 
 <Tabs groupId='languageSyntax'>
@@ -252,9 +241,6 @@ where LastName == "King"
 * An exception will be thrown when filtering by fields that are Not defined in the index.
 
 * Read more about filtering [here](../../indexes/querying/filtering).
-
----
-
 #### Query index - with paging:
 
 <Tabs groupId='languageSyntax'>
@@ -345,9 +331,9 @@ limit 5, 10 // skip 5, take 10
 
 * Read more about paging [here](../../indexes/querying/paging).
 
-</Admonition>
 
-<Admonition type="info" title="Query an index by `DocumentQuery`" id="query-an-index-by-documentquery" href="#query-an-index-by-documentquery">
+
+## Query an index by `DocumentQuery`
 
 * `Session.Advanced.DocumentQuery` provides low-level access to RavenDB's querying mechanism,  
   giving you more flexibility and control when making complex queries.
@@ -487,9 +473,9 @@ where LastName == "King"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Query an index by `RawQuery`" id="query-an-index-by-rawquery" href="#query-an-index-by-rawquery">
+
+## Query an index by `RawQuery`
 
 * Queries defined with [Query](../../indexes/querying/query-index#session.query) 
   or [DocumentQuery](../../indexes/querying/query-index#session.advanced.documentquery) 
@@ -580,12 +566,12 @@ where LastName == "King"
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Querying: Basics
+
 
 Indexes are used by RavenDB to satisfy queries.
 
@@ -775,18 +761,12 @@ You can check the API reference for the `DocumentQuery` [here](../../client-api/
 
 </LanguageContent>
 <LanguageContent language="python">
-# Querying an Index
-
----
 
 <Admonition type="note" title="Note">
 
 * Prior to this article, it is recommended that you first read this [Query Overview](../../client-api/session/querying/how-to-query).
 
 * For a basic indexes overview, see the [Indexes Overview](../../studio/database/indexes/indexes-overview).
-
----
-
 * Indexing the content of your documents allows for **fast document retrieval** when querying the index.  
 
 * This article is a basic overview of how to query a **static index** using **code**.  
@@ -799,17 +779,11 @@ You can check the API reference for the `DocumentQuery` [here](../../client-api/
    * [Query an index by `raw_query`](../../indexes/querying/query-index#query-an-index-by-raw_query) (using RQL)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query an index by `query_index_type` and `query_index`" id="query-an-index-by-query_index_type-and-query_index" href="#query-an-index-by-query_index_type-and-query_index">
+## Query an index by `query_index_type` and `query_index`
 
 * In the following examples we **query an index** using the session `query_index_type` and `query_index` methods.  
 
 * Querying can be enhanced using these [extension methods](../../client-api/session/querying/how-to-query#custom-methods).
-
----
-
 #### Query index - no filtering:
 
 <Tabs groupId='languageSyntax'>
@@ -885,9 +859,6 @@ from index "Employees/ByName"
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query index - with filtering:
 
 <Tabs groupId='languageSyntax'>
@@ -964,9 +935,6 @@ where LastName == "King"
 * An exception will be thrown when filtering by fields that are Not defined in the index.
 
 * Read more about filtering [here](../../indexes/querying/filtering).
-
----
-
 #### Query index - with paging:
 
 <Tabs groupId='languageSyntax'>
@@ -1034,9 +1002,9 @@ limit 5, 10 // skip 5, take 10
 
 * Read more about paging [here](../../indexes/querying/paging).
 
-</Admonition>
 
-<Admonition type="info" title="Query an index by `raw_query`" id="query-an-index-by-raw_query" href="#query-an-index-by-raw_query">
+
+## Query an index by `raw_query`
 
 * Queries defined with [Query](../../indexes/querying/query-index#session.query) 
   or [DocumentQuery](../../indexes/querying/query-index#session.advanced.documentquery) 
@@ -1106,23 +1074,17 @@ where LastName == "King"
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Querying an Index
-
----
 
 <Admonition type="note" title="Note">
 
 * Prior to this article, it is recommended that you first read this [Query Overview](../../client-api/session/querying/how-to-query).
 
 * For a basic indexes overview, see the [Indexes Overview](../../studio/database/indexes/indexes-overview).
-
----
-
 * Indexing the content of your documents allows for **fast document retrieval** when querying the index.  
 
 * This article is a basic overview of how to query a **static index** using **code**.  
@@ -1140,10 +1102,7 @@ where LastName == "King"
    * [Query an index by `rawQuery`](../../indexes/querying/query-index#query-an-index-by-rawquery)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query index - no filtering" id="query-index-no-filtering" href="#query-index-no-filtering">
+## Query index - no filtering
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="query_index_type" label="query_index_type">
@@ -1246,9 +1205,9 @@ from index "Employees/ByName"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Query index - with filtering" id="query-index-with-filtering" href="#query-index-with-filtering">
+
+## Query index - with filtering
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="query_index_type" label="query_index_type">
@@ -1349,9 +1308,9 @@ where LastName == "King"
 
 * Read more about filtering [here](../../indexes/querying/filtering).
 
-</Admonition>
 
-<Admonition type="info" title="Query index - with paging" id="query-index-with-paging" href="#query-index-with-paging">
+
+## Query index - with paging
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="query_index_type" label="query_index_type">
@@ -1443,9 +1402,9 @@ limit 5, 10 // skip 5, take 10
 
 * Read more about paging [here](../../indexes/querying/paging).
 
-</Admonition>
 
-<Admonition type="info" title="Query an index by `documentQuery`" id="query-an-index-by-documentquery" href="#query-an-index-by-documentquery">
+
+## Query an index by `documentQuery`
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="documentQuery_1" label="documentQuery_1">
@@ -1556,9 +1515,9 @@ where LastName == "King"
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Query an index by `rawQuery`" id="query-an-index-by-rawquery" href="#query-an-index-by-rawquery">
+
+## Query an index by `rawQuery`
 
 * Queries defined with [Query](../../indexes/querying/query-index#session.query) 
   or [DocumentQuery](../../indexes/querying/query-index#session.advanced.documentquery) 
@@ -1654,23 +1613,17 @@ where LastName == "King"
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Querying an Index
-
----
 
 <Admonition type="note" title="Note">
 
 * Prior to this article, it is recommended that you first read this [Query Overview](../../client-api/session/querying/how-to-query).
 
 * For a basic indexes overview, see the [Indexes Overview](../../studio/database/indexes/indexes-overview).
-
----
-
 * Indexing the content of your documents allows for **fast document retrieval** when querying the index.  
  
 * This article is a basic overview of how to query a **static index** using **code**.  
@@ -1683,10 +1636,7 @@ where LastName == "King"
    * [Query an index by `RawQuery`](../../indexes/querying/query-index#query-an-index-by-rawquery) (using RQL)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Query an index by `Query`" id="query-an-index-by-query" href="#query-an-index-by-query">
+## Query an index by `Query`
 
 * The following examples **query an index** using the session's `query` method.  
 
@@ -1769,9 +1719,6 @@ from index "Employees/ByName"
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query index - with filtering:
 
 <Tabs groupId='languageSyntax'>
@@ -1857,9 +1804,6 @@ where lastName == "King"
 * An exception will be thrown when filtering by fields that are Not defined in the index.
 
 * Read more about filtering [here](../../indexes/querying/filtering).
-
----
-
 #### Query index - with paging:
 
 <Tabs groupId='languageSyntax'>
@@ -1941,9 +1885,9 @@ limit 5, 10 // skip 5, take 10
 
 * Read more about paging [here](../../indexes/querying/paging).
 
-</Admonition>
 
-<Admonition type="info" title="Query an index by `RawQuery`" id="query-an-index-by-rawquery" href="#query-an-index-by-rawquery">
+
+## Query an index by `RawQuery`
 
 * Queries defined with [query](../../indexes/querying/query-index#session.query) are translated by the RavenDB client to [RQL](../../client-api/session/querying/what-is-rql) when sent to the server.
 
@@ -2009,7 +1953,7 @@ where LastName == "King"
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>

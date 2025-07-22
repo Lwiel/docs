@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Put a Document
-
----
-
 <Admonition type="note" title="Note">  
 
 * Use this endpoint with the **`PUT`** method to upload a new document to the database, or update an existing one:  
@@ -27,10 +24,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Response Format](../../../client-api/rest-api/document-commands/put-documents#response-format)  
 
 </Admonition>  
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 These are cURL requests to a database named "Example" on our [playground server](http://live-test.ravendb.net) to store and 
 then modify a document.  
@@ -117,9 +111,9 @@ Raven-Server-Version: 4.2.3.42
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Request Format" id="request-format" href="#request-format">
+
+## Request Format
 
 This is the general format of the cURL request:  
 
@@ -180,9 +174,9 @@ the request body:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Response Format" id="response-format" href="#response-format">
+
+## Response Format
 
 The response body is JSON and contains the document ID and current [change vector](../../../server/clustering/replication/change-vector):
 
@@ -207,5 +201,5 @@ The response body is JSON and contains the document ID and current [change vecto
 | `409` | The change vector submitted did not match the server-side change vector. A concurrency exception is thrown. |
 | `500` | Server error, e.g. when the submitted document's collection tag did not match the specified document's collection tag. |
 
-</Admonition>
+
 

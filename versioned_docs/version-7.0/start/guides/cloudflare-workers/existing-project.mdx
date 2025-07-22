@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Add RavenDB to an Existing Cloudflare Worker (TypeScript)
----
-
 <Admonition type="note" title="Note">
 
 * [Cloudflare Workers](https://developers.cloudflare.com/workers/) is a serverless platform that allows 
@@ -38,7 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Before We Get Started" id="before-we-get-started" href="#before-we-get-started">
+## Before We Get Started
 
 You will need the following before continuing:
 
@@ -46,9 +44,9 @@ You will need the following before continuing:
 - A free or paid [Cloudflare account](https://cloudflare.com)  
 - [Node.js](https://nodejs.com) 16+ with npm  
 
-</Admonition>
 
-<Admonition type="info" title="Installing the RavenDB Client SDK" id="installing-the-ravendb-client-sdk" href="#installing-the-ravendb-client-sdk">
+
+## Installing the RavenDB Client SDK
 
 Get started by installing the [ravendb][npm-ravendb-client] npm package in your project which provides the Node.js client SDK.  
 
@@ -65,9 +63,9 @@ Using npm:
 Support for Cloudflare Workers was added in `5.2.8+`.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Initializing the Document Store" id="initializing-the-document-store" href="#initializing-the-document-store">
+
+## Initializing the Document Store
 
 Import the `DocumentStore` from `ravendb` package to create a new instance with the required configuration 
 and initialize your connection to RavenDB by calling the `initialize` method.   
@@ -109,9 +107,9 @@ For more on what options are available, see [Creating a Document Store][docs-wha
 You can set options manually but it's more likely you'll want to set config variables in Wrangler 
 or in Cloudflare to customize the document store initialization.  
 
-</Admonition>
 
-<Admonition type="info" title="Updating Database Connection Settings" id="updating-database-connection-settings" href="#updating-database-connection-settings">
+
+## Updating Database Connection Settings
 
 ### Enable Node Compatibility
 
@@ -225,9 +223,9 @@ For document caching during a session or across requests, using Cloudflare's KV 
 supported by the RavenDB Node.js client SDK but could be implemented manually through application logic.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Configuring Support for Certificates" id="configuring-support-for-certificates" href="#configuring-support-for-certificates">
+
+## Configuring Support for Certificates
 
 Client certificate authentication is handled through [Cloudflare mTLS authentication for Workers][cf-mtls-worker].  
 You will need to upload your certificate to your Cloudflare account so that it can be accessed and bound to your Worker.  
@@ -393,9 +391,9 @@ in your project and add the following type declarations:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Configuring Cloudflare" id="configuring-cloudflare" href="#configuring-cloudflare">
+
+## Configuring Cloudflare
 
 There is no extra configuration necessary if you are providing all the connection information in your `wrangler.toml` file. 
 However, you may want to override variables set in the `[env.production.vars]` through the Cloudflare Worker dashboard.  
@@ -405,15 +403,15 @@ Navigate to your Worker **Settings &gt; Variables &gt; Environment Variables** a
 
 ![Cloudflare Worker environment variables and settings](./assets/cf-env-vars.jpg)
 
-</Admonition>
 
-<Admonition type="info" title="Next Steps" id="next-steps" href="#next-steps">
+
+## Next Steps
 
 - Learn more about [how to use the RavenDB Node.js client SDK][docs-nodejs]  
 - Reference the [Cloudflare Worker starter template][gh-ravendb-template] to see the code  
 - [Troubleshoot][troubleshooting] issues with RavenDB and Cloudflare Workers  
 
-</Admonition>
+
 
 [troubleshooting]: ../../../start/guides/cloudflare-workers/troubleshooting
 [cloud-signup]: https://cloud.ravendb.net?utm_source=ravendb_docs&utm_medium=web&utm_campaign=howto_template_cloudflare_worker&utm_content=cloud_signup

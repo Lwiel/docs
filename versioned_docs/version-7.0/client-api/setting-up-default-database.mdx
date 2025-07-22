@@ -11,11 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Client API: Setting up a Default Database
+export const supportedLanguages = ["csharp", "java", "nodejs"];
 
----
+
+# Client API: Setting up a Default Database
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
+
 <Admonition type="note" title="Note">
 
 
@@ -33,9 +35,7 @@ explicitly passed.
   * [Example - Without a Default Database](../client-api/setting-up-default-database#example---without-a-default-database)  
   * [Example - With a Default Database](../client-api/setting-up-default-database#example---with-a-default-database)  
 </Admonition>
-
----
-<Admonition type="info" title="Example - Without a Default Database" id="example-without-a-default-database" href="#example-without-a-default-database">
+## Example - Without a Default Database
 
 <TabItem value="something" label="default_database_1">
 <CodeBlock language="csharp">
@@ -58,9 +58,9 @@ explicitly passed.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Example - With a Default Database" id="example-with-a-default-database" href="#example-with-a-default-database">
+
+## Example - With a Default Database
 
 The default database is defined in the Document Store's `Database` property.
 <TabItem value="something" label="default_database_2">
@@ -94,11 +94,11 @@ The default database is defined in the Document Store's `Database` property.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 </LanguageContent>
 <LanguageContent language="java">
-# Client API: How to Setup a Default Database
+
 
 `database` property allows you to setup a default database for a `DocumentStore`. Implication of setting up a default database is that each time you access [operations](../client-api/operations/what-are-operations) or create a [session](../client-api/session/what-is-a-session-and-how-does-it-work) without explicitly passing database on which they should operate on then default database is assumed.
 
@@ -163,7 +163,7 @@ By default value of `database` property in `DocumentStore` is `null` which means
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Client API: How to Setup a Default Database
+
 
 `database` property allows you to setup a default database for a `DocumentStore`. Implication of setting up a default database is that each time you access [operations](../client-api/operations/what-are-operations) or create a [session](../client-api/session/what-is-a-session-and-how-does-it-work) without explicitly passing database on which they should operate on then default database is assumed.
 

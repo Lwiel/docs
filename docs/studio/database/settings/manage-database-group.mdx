@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Manage Database Group
----
-
 <Admonition type="note" title="Note">
 
 * A **Database instance** can reside on a single node, on a number of nodes, or on all cluster nodes,  
@@ -45,10 +43,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Database Group Topology - Add New Node](../../../studio/database/settings/manage-database-group#database-group-topology---add-new-node)  
   * [Database Group Topology - Members Duties](../../../studio/database/settings/manage-database-group#database-group-topology---members-duties)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Database Group Topology - View" id="database-group-topology-view" href="#database-group-topology-view">
+## Database Group Topology - View
 
 ![Figure 1. Database Group Topology View](./assets/database-group-1.png)
 
@@ -66,10 +61,10 @@ import LanguageContent from "@site/src/components/language-content";
 4. This is the **responsible node** that will update the _Rehabed_ node once its up again.  
    Once Node 'E' will be up again, Node 'A' will update the database instance on 'E' with all changes that occurred while it was down.  
 
-</Admonition>
 
 
-<Admonition type="info" title="Database Group Topology - Actions" id="database-group-topology-actions" href="#database-group-topology-actions">
+
+## Database Group Topology - Actions
 
 ![Figure 2. Database Group Topology Actions](./assets/database-group-2.png)
 
@@ -96,9 +91,9 @@ import LanguageContent from "@site/src/components/language-content";
 5. **Full Screen**  
    Click to view graph in a full-screen mode. (Esc to exit)  
 
-</Admonition>
 
-<Admonition type="info" title="Database Group Topology - Add New Node " id="database-group-topology-add-new-node" href="#database-group-topology-add-new-node">
+
+## Database Group Topology - Add New Node 
 
 ![Figure 3. Database Group Topology - Add New Node](./assets/database-group-3.png)
 
@@ -122,9 +117,9 @@ import LanguageContent from "@site/src/components/language-content";
 * Once the new node is fully updated and has finished indexing the last data that was sent to it,  
   it will be promoted to a full `Member`.  
 
-</Admonition>
 
-<Admonition type="info" title="Database Group Topology - Members Duties " id="database-group-topology-members-duties" href="#database-group-topology-members-duties">
+
+## Database Group Topology - Members Duties 
 
 #### Members Duties Are:
 
@@ -145,4 +140,4 @@ The database record exists in each node in the cluster.
   each node in the Database Group checks the Database Record and determines (based on a pre-defined algorithm) if it is the task owner.  
 </Admonition>
 
-</Admonition>
+

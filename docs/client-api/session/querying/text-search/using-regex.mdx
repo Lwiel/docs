@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Using Regex
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Using Regex
+
 
 To return only documents that match regular expression,  
 use the `Regex` method which enables RavenDB to perform server-side pattern matching queries. 
@@ -57,7 +61,7 @@ where regex(Name, '^[NA]')
 
 </LanguageContent>
 <LanguageContent language="java">
-# Using Regex
+
 
 To return only documents that match regular expression,  
 use the `regex` method which enables RavenDB to perform server-side pattern matching queries. 
@@ -89,7 +93,7 @@ where regex(Name, '^[NA]')
 
 </LanguageContent>
 <LanguageContent language="python">
-# Using Regex
+
 
 To return only documents that match regular expression,  
 use the `where_regex` method which enables RavenDB to perform server-side pattern matching queries. 
@@ -119,7 +123,7 @@ where regex(Name, '^[NA]')
 
 </LanguageContent>
 <LanguageContent language="php">
-# Using Regex
+
 
 To return only documents that match a regular expression ("regex"),  
 use the `whereRegex` method which enables RavenDB to perform server-side pattern matching queries. 
@@ -167,7 +171,7 @@ where regex(Name, '^[NA]')
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Using Regex
+
 
 To return only documents that match a given regular expression,  
 use the `regex()` method which enables RavenDB to perform server-side pattern matching queries. 

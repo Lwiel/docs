@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Get Time Series Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Get Time Series Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -34,13 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
          * [Syntax](../../../../document-extensions/timeseries/client-api/operations/get#syntax-1)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get entries - from single time series" id="get-entries-from-single-time-series" href="#get-entries-from-single-time-series">
-
----
-
+## Get entries - from single time series
 ### Example
 
 In this example, we retrieve all entries from a single time series.  
@@ -62,9 +58,6 @@ var firstEntryReturned = timeSeriesEntries.Entries[0];
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Syntax
 
 <TabItem value="something" label="GetTimeSeriesOperation-Definition">
@@ -123,12 +116,9 @@ var firstEntryReturned = timeSeriesEntries.Entries[0];
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Get entries - from multiple time series" id="get-entries-from-multiple-time-series" href="#get-entries-from-multiple-time-series">
 
----
-
+## Get entries - from multiple time series
 ### Example
 
 In this example, we retrieve entries from the specified ranges of two time series.
@@ -157,9 +147,6 @@ var timeSeriesEntry = timesSeriesEntries.Values["ExerciseHeartRates"][0].Entries
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Syntax
 
 <TabItem value="something" label="GetMultipleTimeSeriesOperation-Definition">
@@ -239,13 +226,11 @@ var timeSeriesEntry = timesSeriesEntries.Values["ExerciseHeartRates"][0].Entries
 
 * No exceptions are generated.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Time Series Operation
----
 
 <Admonition type="note" title="Note">
 
@@ -265,13 +250,7 @@ var timeSeriesEntry = timesSeriesEntries.Values["ExerciseHeartRates"][0].Entries
          * [Syntax](../../../../document-extensions/timeseries/client-api/operations/get#syntax-1)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get entries - from single time series" id="get-entries-from-single-time-series" href="#get-entries-from-single-time-series">
-
----
-
+## Get entries - from single time series
 ### Example
 
 In this example, we retrieve all entries from a single time series.  
@@ -291,9 +270,6 @@ const firstEntryReturned = timeSeriesEntries.entries[0];
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Syntax
 
 <TabItem value="something-something" label="syntax_1">
@@ -348,12 +324,9 @@ const getTimeSeriesOp = new GetTimeSeriesOperation(docId, timeseries, from, to, 
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Get entries - from multiple time series" id="get-entries-from-multiple-time-series" href="#get-entries-from-multiple-time-series">
 
----
-
+## Get entries - from multiple time series
 ### Example
 
 In this example, we retrieve entries from the specified ranges of two time series.
@@ -392,9 +365,6 @@ const timeSeriesEntry = timesSeriesEntries.values.get("ExerciseHeartRates")[0].e
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Syntax
 
 <TabItem value="something-something" label="syntax_3">
@@ -475,7 +445,7 @@ const getMultipleTimeSeriesOp = new GetMultipleTimeSeriesOperation(docId, ranges
 
 * No exceptions are generated.
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Filtering Time Series Queries
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Filtering Time Series Queries
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -30,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Filter by referenced document](../../../document-extensions/timeseries/querying/filtering#filter-by-referenced-document)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Filter by value" id="filter-by-value" href="#filter-by-value">
+## Filter by value
 
 * A time series entry can have up to 32 [values](../../../document-extensions/timeseries/overview#values).
 
@@ -119,9 +117,9 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filter by tag" id="filter-by-tag" href="#filter-by-tag">
+
+## Filter by tag
 
 * A time series entry can have an optional [tag](../../../document-extensions/timeseries/overview#tags).
 
@@ -290,9 +288,9 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filter by referenced document" id="filter-by-referenced-document" href="#filter-by-referenced-document">
+
+## Filter by referenced document
 
 * A time series entry's [tag](../../../document-extensions/timeseries/overview#tags) can contain the **ID of a document**.
 
@@ -373,14 +371,11 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Filtering Time Series Queries
-
----
 
 <Admonition type="note" title="Note">
 
@@ -393,10 +388,7 @@ you can filter the time series entries by their **values**, **tag**, or by the c
   * [Filter by referenced document](../../../document-extensions/timeseries/querying/filtering#filter-by-referenced-document)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Filter by value" id="filter-by-value" href="#filter-by-value">
+## Filter by value
 
 * A time series entry can have up to 32 [values](../../../document-extensions/timeseries/overview#values).
 
@@ -445,9 +437,9 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filter by tag" id="filter-by-tag" href="#filter-by-tag">
+
+## Filter by tag
 
 * A time series entry can have an optional [tag](../../../document-extensions/timeseries/overview#tags).
 
@@ -541,9 +533,9 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filter by referenced document" id="filter-by-referenced-document" href="#filter-by-referenced-document">
+
+## Filter by referenced document
 
 * A time series entry's [tag](../../../document-extensions/timeseries/overview#tags) can contain the **ID of a document**.
 
@@ -588,14 +580,11 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Filtering Time Series Queries
-
----
 
 <Admonition type="note" title="Note">
 
@@ -608,10 +597,7 @@ select timeseries (
   * [Filter by referenced document](../../../document-extensions/timeseries/querying/filtering#filter-by-referenced-document)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Filter by value" id="filter-by-value" href="#filter-by-value">
+## Filter by value
 
 * A time series entry can have up to 32 [values](../../../document-extensions/timeseries/overview#values).
 
@@ -699,9 +685,9 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filter by tag" id="filter-by-tag" href="#filter-by-tag">
+
+## Filter by tag
 
 * A time series entry can have an optional [tag](../../../document-extensions/timeseries/overview#tags).
 
@@ -868,9 +854,9 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filter by referenced document" id="filter-by-referenced-document" href="#filter-by-referenced-document">
+
+## Filter by referenced document
 
 * A time series entry's [tag](../../../document-extensions/timeseries/overview#tags) can contain the **ID of a document**.
 
@@ -958,14 +944,11 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Filtering Time Series Queries
-
----
 
 <Admonition type="note" title="Note">
 
@@ -980,10 +963,7 @@ select timeseries (
   * [Filter by referenced document](../../../document-extensions/timeseries/querying/filtering#filter-by-referenced-document)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Filter by value" id="filter-by-value" href="#filter-by-value">
+## Filter by value
 
 * A time series entry can have up to 32 [values](../../../document-extensions/timeseries/overview#values).
 
@@ -1045,9 +1025,9 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filter by tag" id="filter-by-tag" href="#filter-by-tag">
+
+## Filter by tag
 
 * A time series entry can have an optional [tag](../../../document-extensions/timeseries/overview#tags).
 
@@ -1164,9 +1144,9 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filter by referenced document" id="filter-by-referenced-document" href="#filter-by-referenced-document">
+
+## Filter by referenced document
 
 * A time series entry's [tag](../../../document-extensions/timeseries/overview#tags) can contain the **ID of a document**.
 
@@ -1230,7 +1210,7 @@ select timeseries (
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>

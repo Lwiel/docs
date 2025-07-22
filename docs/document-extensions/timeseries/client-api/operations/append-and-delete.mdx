@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Append & Delete Time Series Operations
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Append & Delete Time Series Operations
----
 
 <Admonition type="note" title="Note">
 
@@ -34,10 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Syntax](../../../../document-extensions/timeseries/client-api/operations/append-and-delete#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Usage" id="usage" href="#usage">
+## Usage
 
 **Flow**:
 
@@ -59,9 +58,9 @@ import LanguageContent from "@site/src/components/language-content";
 * Appending entries to a time series that doesn't yet exist yet will create the time series.
 * An exception will be thrown if the specified document does Not exist.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Append multiple entries:
 
@@ -113,9 +112,6 @@ store.Operations.Send(timeSeriesBatchOp);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Delete multiple entries:
 
 In this example, we delete a range of two entries from a time series.  
@@ -142,9 +138,6 @@ store.Operations.Send(timeSeriesBatchOp);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Append & Delete entries in the same batch:
 
 * In this example, we append and delete entries in the same batch operation.
@@ -201,9 +194,9 @@ store.Operations.Send(timeSeriesBatchOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 #### `TimeSeriesBatchOperation`
 
@@ -276,13 +269,11 @@ store.Operations.Send(timeSeriesBatchOp);
 | **From**   | `DateTime?` | Entries will be deleted starting at this timestamp (inclusive)<br/>Default: `DateTime.MinValue` |
 | **To**     | `DateTime?` | Entries will be deleted up to this timestamp (inclusive)<br/>Default: `DateTime.MaxValue`       |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Append & Delete Time Series Operations
----
 
 <Admonition type="note" title="Note">
 
@@ -302,10 +293,7 @@ store.Operations.Send(timeSeriesBatchOp);
    * [Syntax](../../../../document-extensions/timeseries/client-api/operations/append-and-delete#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Usage" id="usage" href="#usage">
+## Usage
 
 **Flow**:
 
@@ -327,9 +315,9 @@ store.Operations.Send(timeSeriesBatchOp);
    * Appending entries to a time series that doesn't yet exist yet will create the time series.
    * An exception will be thrown if the specified document does Not exist.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Append multiple entries:
 
@@ -369,9 +357,6 @@ await documentStore.operations.send(timeSeriesBatchOp);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Delete multiple entries:
 
 In this example, we delete a range of two entries from a time series.  
@@ -400,9 +385,6 @@ await documentStore.operations.send(timeSeriesBatchOp);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Append & delete entries in the same batch:
 
 * In this example, we append and delete entries in the same batch operation.
@@ -453,9 +435,9 @@ await documentStore.operations.send(timeSeriesBatchOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 #### `TimeSeriesBatchOperation`
 
@@ -526,7 +508,7 @@ await documentStore.operations.send(timeSeriesBatchOp);
 | **from**  | `Date` | Entries will be deleted starting at this timestamp (inclusive)<br/>Default: the minimum date value |
 | **to**    | `Date` | Entries will be deleted up to this timestamp (inclusive)<br/>Default: the maximum date value       |
 
-</Admonition>
+
 
 
 </LanguageContent>

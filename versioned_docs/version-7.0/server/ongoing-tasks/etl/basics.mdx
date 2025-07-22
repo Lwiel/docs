@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Ongoing Tasks: ETL Basics
----
-
 <Admonition type="note" title="Note">
 
 * **ETL (Extract, Transform & Load)** is a three-stage RavenDB process that transfers data from a RavenDB database to an external target. 
@@ -38,10 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Load](../../../server/ongoing-tasks/etl/basics#load)  
   * [Troubleshooting](../../../server/ongoing-tasks/etl/basics#troubleshooting)  
 </Admonition>
-
----
-
-<Admonition type="info" title="Why use ETL" id="why-use-etl" href="#why-use-etl">
+## Why use ETL
 
 * **Share relevant data**  
   Send data in a well-defined format to match specific requirements, ensuring only relevant data is transmitted  
@@ -63,9 +58,9 @@ import LanguageContent from "@site/src/components/language-content";
   Data sent from multiple locations can be aggregated in a central server  
   (e.g., aggregating sales data from point of sales systems for centralized calculations).
 
-</Admonition>
 
-<Admonition type="info" title="Defining ETL Tasks" id="defining-etl-tasks" href="#defining-etl-tasks">
+
+## Defining ETL Tasks
 
 * The following ETL tasks can be defined:  
   * [RavenDB ETL](../../../server/ongoing-tasks/etl/raven) - send data to another _RavenDB database_  
@@ -85,18 +80,15 @@ import LanguageContent from "@site/src/components/language-content";
   If one of the destination nodes is unavailable, RavenDB automatically executes the ETL process against another node specified in the connection string. 
   Learn more in the [Connection Strings](../../../client-api/operations/maintenance/connection-strings/add-connection-string) article.  
 
-</Admonition>
 
-<Admonition type="info" title="ETL Stages" id="etl-stages" href="#etl-stages">
+
+## ETL Stages
 
 ETL's three stages are:  
 
 * [Extract](../../../server/ongoing-tasks/etl/basics#extract) - Extract the documents from the database  
 * [Transform](../../../server/ongoing-tasks/etl/basics#transform) - Transform & filter the documents data according to the supplied script (optional)  
 * [Load](../../../server/ongoing-tasks/etl/basics#load) - Load (write) the transformed data into the target destination  
-
----
-
 ### Extract
 
 The ETL process starts with retrieving the documents from the database.  
@@ -107,9 +99,6 @@ The possible options are:
 * Documents from a single collection  
 * Documents from multiple collections  
 * All documents
-
----
-
 ### Transform
 
 * This stage transforms and filters the extracted documents according to a provided script.  
@@ -189,9 +178,6 @@ The two methods are equivalent, offering alternative syntax.
     This is not possible when the `loadTo<TargetName>` syntax is used because including special characters in the name of a JavaScript function makes it invalid.
   * This syntax may vary for some ETL types.  
     Find the accurate syntax for each ETL type in the type's specific documentation.
-
---- 
-
 For each ETL type, the target must be:   
 
   * RavenDB ETL: a _collection_ name
@@ -224,9 +210,6 @@ The number of documents processed depends on the following configuration limits:
   Maximum size of an ETL batch in MB.
 
 </Admonition>
-
----
-
 ### Load
 
 * Loading the results to the target destination is the last stage.
@@ -257,9 +240,9 @@ Please note that in such cases, your data encrypted at rest _won't_ be protected
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Troubleshooting" id="troubleshooting" href="#troubleshooting">
+
+## Troubleshooting
 
 ETL errors and warnings are [logged to files](../../../server/troubleshooting/logging) and displayed in the notification center panel.  
 You will be notified if any of the following events happen:
@@ -279,5 +262,5 @@ but it never crosses [`ETL.MaxFallbackTimeInSec`](../../../server/configuration/
 
 Once the process is in the fallback mode, then the _Reconnect_ state is shown in the Studio.
 
-</Admonition>
+
 

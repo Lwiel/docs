@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Index Attachments
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Index Attachments
----
 
 <Admonition type="note" title="Note">
 
@@ -33,10 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Leveraging indexed attachments](../../document-extensions/attachments/indexing#leveraging-indexed-attachments)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 ### Using AttachmentsFor()
 
@@ -98,9 +97,9 @@ public string GetContentAsString(); // Default: UTF-8
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Indexes with `AttachmentsFor()`
 
@@ -293,9 +292,9 @@ List<Employee> employees = session
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Leveraging indexed attachments" id="leveraging-indexed-attachments" href="#leveraging-indexed-attachments">
+
+## Leveraging indexed attachments
 
 * Access to the indexed attachment content opens the door to many different applications,  
   including many that can be integrated directly into RavenDB.
@@ -304,13 +303,11 @@ List<Employee> employees = session
   Oren Eini demonstrates how image recognition can be applied to indexed attachments using the [additional sources](../../indexes/extending-indexes) feature.
   The resulting index allows filtering and querying based on image content.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Index Attachments
----
 
 <Admonition type="note" title="Note">
 
@@ -328,10 +325,7 @@ List<Employee> employees = session
   * [Leveraging indexed attachments](../../document-extensions/attachments/indexing#leveraging-indexed-attachments)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 ### Using AttachmentsFor()
 
@@ -393,9 +387,9 @@ public string GetContentAsString(); // Default: UTF-8
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Indexes with `AttachmentsFor()`
 
@@ -482,9 +476,9 @@ List<Employee> employees = session.query(Employees_ByAttachmentNames.class)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Leveraging indexed attachments" id="leveraging-indexed-attachments" href="#leveraging-indexed-attachments">
+
+## Leveraging indexed attachments
 
 * Access to the indexed attachment content opens the door to many different applications,  
   including many that can be integrated directly into RavenDB.
@@ -493,14 +487,12 @@ List<Employee> employees = session.query(Employees_ByAttachmentNames.class)
   Oren Eini demonstrates how image recognition can be applied to indexed attachments using the [additional sources](../../indexes/extending-indexes) feature.
   The resulting index allows filtering and querying based on image content.
 
-</Admonition>
+
 
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Index Attachments
----
 
 <Admonition type="note" title="Note">
 
@@ -519,10 +511,7 @@ List<Employee> employees = session.query(Employees_ByAttachmentNames.class)
   * [Leveraging indexed attachments](../../document-extensions/attachments/indexing#leveraging-indexed-attachments)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 ### Using `AttachmentsFor`
 
@@ -582,9 +571,9 @@ public string GetContentAsString(); // Default: UTF-8
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Indexes with `AttachmentsFor`
 
@@ -745,9 +734,9 @@ employees = list(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Leveraging indexed attachments" id="leveraging-indexed-attachments" href="#leveraging-indexed-attachments">
+
+## Leveraging indexed attachments
 
 * Access to the indexed attachment content opens a door to many different applications,  
   including ones that can be integrated directly into RavenDB.
@@ -757,13 +746,11 @@ employees = list(
   [additional sources](../../indexes/extending-indexes) feature.  
   The resulting index allows filtering and querying based on image content.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Index Attachments
----
 
 <Admonition type="note" title="Note">
 
@@ -782,10 +769,7 @@ employees = list(
   * [Leveraging indexed attachments](../../document-extensions/attachments/indexing#leveraging-indexed-attachments)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 ### Using `AttachmentsFor`
 
@@ -811,9 +795,6 @@ public long Size;
 </Tabs>
 
 The `AttachmentsFor` method is available in `AbstractIndexCreationTask`.
-
----
-
 ### Using `LoadAttachment`/`LoadAttachments`
 
 `LoadAttachment` loads an attachment to the index by document and attachment name.  
@@ -847,9 +828,9 @@ public string GetContentAsString(); // Default: UTF-8
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Indexes with `AttachmentsFor`"
 
@@ -930,9 +911,6 @@ class Employees_ByAttachmentNames_JS extends AbstractJavaScriptIndexCreationTask
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Indexes with `LoadAttachment`:
 
 <Tabs groupId='languageSyntax'>
@@ -988,9 +966,6 @@ class Employees_ByAttachmentNames_JS extends AbstractJavaScriptIndexCreationTask
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Indexes with `LoadAttachments`:
 
 <Tabs groupId='languageSyntax'>
@@ -1038,9 +1013,6 @@ class Employees_ByAttachmentNames_JS extends AbstractJavaScriptIndexCreationTask
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Querying the Index:
 
 <TabItem value="something-something" label="query1">
@@ -1056,9 +1028,9 @@ $employees = $session
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Leveraging indexed attachments" id="leveraging-indexed-attachments" href="#leveraging-indexed-attachments">
+
+## Leveraging indexed attachments
 
 * Access to the indexed attachment content opens a door to many different applications,  
   including ones that can be integrated directly into RavenDB.
@@ -1068,13 +1040,11 @@ $employees = $session
   `additional sources` feature.  
   The resulting index allows filtering and querying based on image content.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Index Attachments
----
 
 <Admonition type="note" title="Note">
 
@@ -1094,17 +1064,11 @@ $employees = $session
   * [Syntax](../../document-extensions/attachments/indexing#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Index attachments details" id="index-attachments-details" href="#index-attachments-details">
+## Index attachments details
 
 <Admonition type="note" title="Note">
 
 **The index**:
-
----
-
 * To index attachments' details, call `attachmentsFor()` within the index definition.  
 
 * `attachmentsFor()` provides access to the **name**, **size**, **hash**, and **content-type** of each attachment a document has.
@@ -1145,9 +1109,6 @@ $employees = $session
 <Admonition type="note" title="Note">
 
 **Query the Index**:
-
----
-
 You can now query for Employee documents based on their attachments details.
 
 <Tabs groupId='languageSyntax'>
@@ -1179,16 +1140,13 @@ where attachmentNames == "photo.jpg" and attachmentSizes > 20000
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Index details & content - by attachment name" id="index-details-content-by-attachment-name" href="#index-details-content-by-attachment-name">
+
+## Index details & content - by attachment name
 
 <Admonition type="note" title="Note">
 
 **Sample data**:
-
----
-
 * Each Employee document in the Northwind sample data already includes a _photo.jpg_ attachment.
 
 * For all following examples, let's store a textual attachment (file _notes.txt_) on 3 documents  
@@ -1217,9 +1175,6 @@ await session.saveChanges();
 <Admonition type="note" title="Note">
 
 **The index**:
-
----
-
 * To index the **details & content** for a specific attachment, call `loadAttachment()` within the index definition.  
  
 * In addition to accessing the attachment details, `loadAttachment()` provides access to the attachment's content, 
@@ -1266,9 +1221,6 @@ await session.saveChanges();
 <Admonition type="note" title="Note">
 
 **Query the Index**:
-
----
-
 You can now query for Employee documents based on their attachment details and/or its content.
 
 <Tabs groupId='languageSyntax'>
@@ -1301,16 +1253,13 @@ where search(attachmentContent, "Colorado Dallas")
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Index details & content - all attachments" id="index-details-content-all-attachments" href="#index-details-content-all-attachments">
+
+## Index details & content - all attachments
 
 <Admonition type="note" title="Note">
 
 **The index**:
-
----
-
 * Use `loadAttachments()` to be able to index the **details & content** of ALL attachments.
 
 * Note how the index example below is employing the [Fanout index](../../indexes/indexing-nested-data#fanout-index---multiple-index-entries-per-document) pattern.
@@ -1356,9 +1305,6 @@ where search(attachmentContent, "Colorado Dallas")
 <Admonition type="note" title="Note">
 
 **Query the Index**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
 <CodeBlock language="nodejs">
@@ -1389,9 +1335,9 @@ where attachmentSize > 20000 or search(attachmentContent, "Colorado Dallas")
 </Tabs>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Leveraging indexed attachments" id="leveraging-indexed-attachments" href="#leveraging-indexed-attachments">
+
+## Leveraging indexed attachments
 
 * Access to the indexed attachment content opens the door to many different applications,  
   including many that can be integrated directly into RavenDB.
@@ -1400,9 +1346,9 @@ where attachmentSize > 20000 or search(attachmentContent, "Colorado Dallas")
   how image recognition can be applied to indexed attachments using the [additional sources](../../indexes/extending-indexes) feature. 
   The resulting index allows filtering and querying based on image content.
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -1427,9 +1373,6 @@ where attachmentSize > 20000 or search(attachmentContent, "Colorado Dallas")
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 <TabItem value="something-something" label="syntax_3">
 <CodeBlock language="nodejs">
 {`loadAttachment(document, attachmentName);
@@ -1462,9 +1405,6 @@ where attachmentSize > 20000 or search(attachmentContent, "Colorado Dallas")
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 <TabItem value="something-something" label="syntax_5">
 <CodeBlock language="nodejs">
 {`loadAttachments(document);
@@ -1474,7 +1414,7 @@ where attachmentSize > 20000 or search(attachmentContent, "Colorado Dallas")
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

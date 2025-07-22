@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Session: Create & Modify Incremental Time Series
-
----
-
 <Admonition type="note" title="Note">
 
 * Create and modify incremental time series and their entries using `IncrementalTimeSeriesFor.Increment`.  
@@ -33,12 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
          * [Usage Flow](../../../../../document-extensions/timeseries/incremental-time-series/client-api/session/increment#usage-flow)  
          * [Code Samples](../../../../../document-extensions/timeseries/incremental-time-series/client-api/session/increment#code-samples)  
 </Admonition>
-
-
-
----
-
-<Admonition type="info" title="`IncrementalTimeSeriesFor.Increment`" id="incrementaltimeseriesfor-increment" href="#incrementaltimeseriesfor-increment">
+## `IncrementalTimeSeriesFor.Increment`
 
 * `IncrementalTimeSeriesFor.Increment` is used for the creation of incremental time series and 
   their entries, and for the modification of entry values.  
@@ -51,9 +43,9 @@ import LanguageContent from "@site/src/components/language-content";
    * **Modifying Entry Values**  
      Increment a value for an existing entry by a number of your choice.  
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 * There are four `IncrementalTimeSeriesFor.Increment` methods:  
    * Increment a time series entry's array of values at the provided timestamp.   
@@ -104,9 +96,9 @@ void Increment(double value);
 * **Exceptions**  
   If the document doesn't exist, a `DocumentDoesNotExistException` exception is thrown.  
 
-</Admonition>
 
-<Admonition type="info" title="Usage Flow" id="usage-flow" href="#usage-flow">
+
+## Usage Flow
 
 * Open a session  
 * Create an instance of `IncrementalTimeSeriesFor` and pass it:  
@@ -120,9 +112,9 @@ void Increment(double value);
 * Call `IncrementalTimeSeriesFor.Increment`.  
 * Call `session.SaveChanges` for the action to take effect on the server.  
 
-</Admonition>
 
-<Admonition type="info" title="Code Samples" id="code-samples" href="#code-samples">
+
+## Code Samples
 
 * Increment an array of values in an incremental time series entry.  
 <TabItem value="something" label="incremental_create-incremental-time-series">
@@ -138,5 +130,5 @@ session.SaveChanges();
     * If the entry exists, its values will be increased by the provided values.  
        * a negative number will decrease the current value.  
 
-</Admonition>
+
 

@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "nodejs"];
+
+
+# Consume Subscriptions API 
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Consume Subscriptions API 
----
 
 <Admonition type="note" title="Note">
 
@@ -27,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [SubscriptionWorker&lt;T&gt;](../../../client-api/data-subscriptions/consumption/api-overview#subscriptionworker&lt;t&gt;)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Create the subscription worker" id="create-the-subscription-worker" href="#create-the-subscription-worker">
+## Create the subscription worker
 
 A subscription worker can be created using the following `GetSubscriptionWorker` methods available through the `Subscriptions` property of the `DocumentStore`.
 
@@ -64,9 +63,9 @@ SubscriptionWorker<T> GetSubscriptionWorker<T>(
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `SubscriptionWorker` | The subscription worker that has been created.<br/>Initially, it is idle and will only start processing documents when the `Run` function is called. |
 
-</Admonition>
 
-<Admonition type="info" title="SubscriptionWorkerOptions" id="subscriptionworkeroptions" href="#subscriptionworkeroptions">
+
+## SubscriptionWorkerOptions
 
 <TabItem value="something" label="worker_options">
 <CodeBlock language="csharp">
@@ -124,9 +123,9 @@ Learn more about `SubscriptionOpeningStrategy` in [worker strategies](../../../c
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Run the subscription worker" id="run-the-subscription-worker" href="#run-the-subscription-worker">
+
+## Run the subscription worker
 
 After [creating](../../../client-api/data-subscriptions/consumption/api-overview#create-the-subscription-worker) a subscription worker, the subscription worker is still not processing any documents.  
 To start processing, you need to call the `Run` method of the [SubscriptionWorker](../../../client-api/data-subscriptions/consumption/api-overview#subscriptionworker&lt;t&gt;).  
@@ -154,9 +153,9 @@ Task Run(Func<SubscriptionBatch<T>, Task> processDocuments,
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Task`        | Task that is alive as long as the subscription worker is processing or tries processing.<br/>If the processing is aborted, the task exits with an exception. |
 
-</Admonition>
 
-<Admonition type="info" title="SubscriptionBatch&lt;T&gt;" id="subscriptionbatch-lt-t-gt" href="#subscriptionbatch-lt-t-gt">
+
+## SubscriptionBatch&lt;T&gt;
 
 | Member                   | Type                              | Description                                                                                                                                                            |
 |--------------------------|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -178,9 +177,9 @@ The node that the worker succeeded connecting to, will inform the worker which n
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="SubscriptionBatch&lt;T&gt;.Item" id="subscriptionbatch-lt-t-gt-item" href="#subscriptionbatch-lt-t-gt-item">
+
+## SubscriptionBatch&lt;T&gt;.Item
 
 This class represents a single item in a subscription batch results.
 
@@ -217,9 +216,9 @@ This class should only be used within the subscription's `Run` delegate.
 Using it outside this scope may cause unexpected behavior.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="SubscriptionWorker&lt;T&gt;" id="subscriptionworker-lt-t-gt" href="#subscriptionworker-lt-t-gt">
+
+## SubscriptionWorker&lt;T&gt;
 
 <Admonition type="note" title="Note">
 
@@ -273,13 +272,11 @@ Using it outside this scope may cause unexpected behavior.
 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Consume Subscriptions API
----
 
 <Admonition type="note" title="Note">
 
@@ -291,10 +288,7 @@ Using it outside this scope may cause unexpected behavior.
    * [SubscriptionWorker&lt;T&gt;](../../../client-api/data-subscriptions/consumption/api-overview#subscriptionworker&lt;t&gt;)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Create the subscription worker" id="create-the-subscription-worker" href="#create-the-subscription-worker">
+## Create the subscription worker
 
 Subscription worker generation is accessible through the `DocumentStore`'s `subscriptions()` method, of type `DocumentSubscriptions`:
 <TabItem value="something-something" label="subscriptionWorkerGeneration">
@@ -331,9 +325,9 @@ SubscriptionWorker<ObjectNode> getSubscriptionWorker(String subscriptionName, St
 | `SubscriptionWorker` | The subscription worker that has been created.<br/>Initially, it is idle and will only start processing documents when the `run` function is called. |
 
 
-</Admonition>
 
-<Admonition type="info" title="SubscriptionWorkerOptions" id="subscriptionworkeroptions" href="#subscriptionworkeroptions">
+
+## SubscriptionWorkerOptions
 
 When creating a worker with `SubscriptionWorkerOptions`, the only mandatory property is `subscriptionName`.  
 All other parameters are optional and will default to their respective default values if not specified.
@@ -350,9 +344,9 @@ All other parameters are optional and will default to their respective default v
 | **sendBufferSizeInBytes**           | `int`                                   | The size in bytes of the TCP socket buffer used for _sending_ data.<br/>Default: 32,768 bytes (32 KiB).                                                                                                                                                                                                                                                                                                            |
 | **receiveBufferSizeInBytes**        | `int`                                   | The size in bytes of the TCP socket buffer used for _receiving_ data.<br/>Default: 4096 (4 KiB).                                                                                                                                                                                                                                                                                                                   |
 
-</Admonition>
 
-<Admonition type="info" title="Run the subscription worker" id="run-the-subscription-worker" href="#run-the-subscription-worker">
+
+## Run the subscription worker
 
 After [creating](../../../client-api/data-subscriptions/consumption/api-overview#create-the-subscription-worker) a subscription worker, the subscription worker is still not processing any documents.  
 To start processing, you need to call the `run` method of the [SubscriptionWorker](../../../client-api/data-subscriptions/consumption/api-overview#subscriptionworker&lt;t&gt;).
@@ -374,10 +368,10 @@ The `run` function takes a delegate, which is your client-side code responsible 
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `CompletableFuture<Void>` | Task that is alive as long as the subscription worker is processing or tries processing. If the processing is aborted, the future exits with an exception | 
 
-</Admonition>
 
 
-<Admonition type="info" title="SubscriptionBatch&lt;T&gt;" id="subscriptionbatch-lt-t-gt" href="#subscriptionbatch-lt-t-gt">
+
+## SubscriptionBatch&lt;T&gt;
 
 | Member                   | Type                              | Description                   |
 |--------------------------|-----------------------------------|-------------------------------| 
@@ -419,9 +413,9 @@ if T is `ObjectNode`, no deserialization will take place
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="SubscriptionWorker&lt;T&gt;" id="subscriptionworker-lt-t-gt" href="#subscriptionworker-lt-t-gt">
+
+## SubscriptionWorker&lt;T&gt;
 
 <Admonition type="note" title="Methods" id="methods" href="#methods">
 
@@ -451,13 +445,11 @@ if T is `ObjectNode`, no deserialization will take place
 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Consume Subscriptions API
----
 
 <Admonition type="note" title="Note">
 
@@ -469,10 +461,7 @@ if T is `ObjectNode`, no deserialization will take place
    * [`SubscriptionWorker[_T]`](../../../client-api/data-subscriptions/consumption/api-overview#subscriptionworker[_t])  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Create the subscription worker" id="create-the-subscription-worker" href="#create-the-subscription-worker">
+## Create the subscription worker
 
 Create a subscription worker using `get_subscription_worker` or `get_subscription_worker_by_name`.  
 
@@ -506,9 +495,9 @@ def get_subscription_worker_by_name(
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `SubscriptionWorker` | The subscription worker that has been created.<br/>Initially, it is idle and will only start processing documents when the `run` function is called. |
 
-</Admonition>
 
-<Admonition type="info" title="`SubscriptionWorkerOptions`" id="subscriptionworkeroptions" href="#subscriptionworkeroptions">
+
+## `SubscriptionWorkerOptions`
 
 When creating a worker with `SubscriptionWorkerOptions`, the only mandatory property is `subscription_name`.  
 All other parameters are optional and will default to their respective default values if not specified.
@@ -537,9 +526,9 @@ Learn more about `SubscriptionOpeningStrategy` in [worker strategies](../../../c
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Run the subscription worker" id="run-the-subscription-worker" href="#run-the-subscription-worker">
+
+## Run the subscription worker
 
 After [creating](../../../client-api/data-subscriptions/consumption/api-overview#create-the-subscription-worker) a subscription worker, the subscription worker is still not processing any documents.  
 To start processing, you need to call the `run` function of the [SubscriptionWorker](../../../client-api/data-subscriptions/consumption/api-overview#subscriptionworker[_t]).
@@ -557,10 +546,10 @@ The `run` function receives the client-side code as a function that will process
 |----------------------------------|--------------------------------------------|-----------------------------------|
 | **process_documents** (Optional) | `[Callable[[SubscriptionBatch[_T]], Any]]` | Delegate to sync batch processing |
 
-</Admonition>
 
 
-<Admonition type="info" title="`SubscriptionBatch[_T]`" id="subscriptionbatch-_t" href="#subscriptionbatch-_t">
+
+## `SubscriptionBatch[_T]`
 
 | Member                       | Type                               | Description                  |
 |------------------------------|------------------------------------|------------------------------| 
@@ -631,21 +620,15 @@ Usage of `raw_result`, `raw_metadata`, and `_metadata` values outside of the doc
 is not supported.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="`SubscriptionWorker[_T]`" id="subscriptionworker-_t" href="#subscriptionworker-_t">
 
----
-
+## `SubscriptionWorker[_T]`
 ### Methods:
 
 | Method                                          | Return Type    | Description                                                                                                                                                                                                             |
 |-------------------------------------------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
 | `close(bool wait_for_subscription_task = True)` | `void`         | Aborts subscription worker operation ungracefully by waiting for the task returned by the `run` function to finish running.                                                                                             |
 | `run`                                           | `Future[None]` | Call `run` to begin the worker's batch processing.<br/>Pass the batch processing delegates to this method<br/>(see [above](../../../client-api/data-subscriptions/consumption/api-overview#run-the-subscription-worker)). |
-
----
-
 ### Events:
 
 | Event                     | Type\Return type                          | Description                                                                      |
@@ -667,13 +650,11 @@ is not supported.
 | **current_node_tag**  | `str`   | The node tag of the current RavenDB server handling the subscription. |
 | **subscription_name** | `str`   | The name of the currently processed subscription.                     |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Data Subscriptions: Consumption API Overview
----
 
 <Admonition type="note" title="Note">
 
@@ -686,10 +667,7 @@ is not supported.
   * [Subscription worker](../../../client-api/data-subscriptions/consumption/api-overview#subscription-worker)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Create the subscription worker" id="create-the-subscription-worker" href="#create-the-subscription-worker">
+## Create the subscription worker
 
 A subscription worker can be created using the following `getSubscriptionWorker` methods available through the `subscriptions` property of the `documentStore`.
 
@@ -717,9 +695,9 @@ await documentStore.subscriptions.getSubscriptionWorker(options, database);
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `SubscriptionWorker` | The [subscription worker](../../../client-api/data-subscriptions/consumption/api-overview#subscription-worker) that has been created.<br/>The worker will start processing documents once you define the worker's `on` method,<br/> which listens to the `batch` event. |
 
-</Admonition>
 
-<Admonition type="info" title="Subscription worker options" id="subscription-worker-options" href="#subscription-worker-options">
+
+## Subscription worker options
 
 <TabItem value="something-something" label="consume_syntax_2">
 <CodeBlock language="nodejs">
@@ -753,9 +731,9 @@ All other parameters are optional and will default to their respective default v
 | **maxErroneousPeriod**              | `number`  | The maximum amount of time (in ms) a subscription connection can remain in an erroneous state before it is terminated. Default: 5 minutes.                                                                                                                                                                                                                                                                 |
 | **strategy**                        | `string`  | The strategy configures how the server handles connection attempts from workers to a specific subscription task.<br/><br/>Available options:<br/>`OpenIfFree` (default), `TakeOver`, `WaitForFree`, or `Concurrent`.<br/><br/>Learn more in [worker strategies](../../../client-api/data-subscriptions/consumption/how-to-consume-data-subscription#worker-strategies).                                         |
 
-</Admonition>
 
-<Admonition type="info" title="Run the subscription worker" id="run-the-subscription-worker" href="#run-the-subscription-worker">
+
+## Run the subscription worker
 
 After [creating](../../../client-api/data-subscriptions/consumption/api-overview#create-the-subscription-worker) a subscription worker, the subscription worker is still not processing any documents.  
 To initiate processing, you need to define an event handler and attach it to the worker's `batch` event listener.  
@@ -780,9 +758,9 @@ Whenever a new batch of documents is ready, the provided handler will be trigger
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription batch" id="subscription-batch" href="#subscription-batch">
+
+## Subscription batch
 
 The subscription batch class contains the following public properties & methods:
 
@@ -807,9 +785,9 @@ The node that the worker succeeded connecting to, will inform the worker which n
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Subscription batch item" id="subscription-batch-item" href="#subscription-batch-item">
+
+## Subscription batch item
 
 This class represents a single item in a subscription batch result.
 
@@ -841,9 +819,9 @@ This class represents a single item in a subscription batch result.
 | **rawMetadata**      | `object`  | Current batch item's underlying document metadata.                                  |
 | **metadata**         | `object`  | Current batch item's underlying metadata values.                                    |
 
-</Admonition>
 
-<Admonition type="info" title="Subscription worker" id="subscription-worker" href="#subscription-worker">
+
+## Subscription worker
 
 <Admonition type="note" title="Note">
 
@@ -882,7 +860,7 @@ This class represents a single item in a subscription batch result.
 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>

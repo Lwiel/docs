@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Query by Facets
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Query by Facets
----
 
 <Admonition type="note" title="Note">
 
@@ -23,9 +25,6 @@ import LanguageContent from "@site/src/components/language-content";
 * Multiple filters (facets) are applied to narrow down the search results according to different attributes or categories.
 
 ![Facets](./assets/CNET_faceted_search.jpg)
-
----
-
 * In this page
    * [Define an index](../../indexes/querying/faceted-search#define-an-index)
    * [Facets - Basics](../../indexes/querying/faceted-search#facets---basics)
@@ -35,10 +34,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Syntax](../../indexes/querying/faceted-search#syntax)
    
 </Admonition>
-
----
-
-<Admonition type="info" title="Define an index" id="define-an-index" href="#define-an-index">
+## Define an index
 
 * To make a faceted search, **a static-index must be defined** for the fields you want to query and apply facets on.
 
@@ -122,9 +118,9 @@ using (var session = store.OpenSession())
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Basics" id="facets-basics" href="#facets-basics">
+
+## Facets - Basics
 
 #### Facets definition:
 
@@ -172,9 +168,6 @@ List<FacetBase> facets = new List<FacetBase>
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index for facets results:
 
 * Query the index to get the aggregated facets information.  
@@ -280,9 +273,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query results:
 
 * **Query results** are Not the collection documents, they are of type:  
@@ -363,9 +353,9 @@ Assert.Equal(3, facetValue.Count); // Number of documents in this range
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Options" id="facets-options" href="#facets-options">
+
+## Facets - Options
 
 #### Facets definition:
 
@@ -401,9 +391,6 @@ List<FacetBase> facetsWithOptions = new List<FacetBase>
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index for facets results:
 
 <Tabs groupId='languageSyntax'>
@@ -487,9 +474,6 @@ select facet(Brand, $p0)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query results:
 
 <TabItem value="something" label="facets_14">
@@ -524,9 +508,9 @@ Assert.Equal(4, facetValue.Count);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Aggregations" id="facets-aggregations" href="#facets-aggregations">
+
+## Facets - Aggregations
 
 #### Facets definition:
 
@@ -642,9 +626,6 @@ List<FacetBase> facetsWithAggregations = new List<FacetBase>
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index for facets results:
 
 <Tabs groupId='languageSyntax'>
@@ -780,9 +761,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query results:
 
 <TabItem value="something" label="facets_21">
@@ -849,9 +827,9 @@ Assert.Equal(17, facetValue.Sum);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Storing facets definition in a document" id="storing-facets-definition-in-a-document" href="#storing-facets-definition-in-a-document">
+
+## Storing facets definition in a document
 
 #### Define and store facets in a document:
 
@@ -901,9 +879,6 @@ session.SaveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query using facets from document:
 
 <Tabs groupId='languageSyntax'>
@@ -964,9 +939,9 @@ select facet(id("customDocumentID"))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -1087,12 +1062,12 @@ IFacetOperations<T> AverageOn(Expression<Func<T, object>> path);
 | **PageSize**              | `int`               | Number of items to return                                                                                   |
 | **IncludeRemainingTerms** | `bool`              | Indicates if remaining terms that didn't make it into the requested PageSize should be included in results  |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Querying: Faceted (Aggregation) Search
+
 
 When displaying a large amount of data, paging is often used to make viewing the data manageable. 
 It's also useful to give some context of the entire data-set and a easy way to drill-down into 
@@ -1453,8 +1428,6 @@ As an alternative for creating a list of facets and passing it to the `aggregate
 
 </LanguageContent>
 <LanguageContent language="python">
-# Query by Facets
----
 
 <Admonition type="note" title="Note">
 
@@ -1463,9 +1436,6 @@ As an alternative for creating a list of facets and passing it to the `aggregate
 * Multiple filters (facets) are applied to narrow down the search results according to different attributes or categories.
 
 ![Facets](./assets/CNET_faceted_search.jpg)
-
----
-
 * In this page
    * [Define an index](../../indexes/querying/faceted-search#define-an-index)
    * [Facets - Basics](../../indexes/querying/faceted-search#facets---basics)
@@ -1475,10 +1445,7 @@ As an alternative for creating a list of facets and passing it to the `aggregate
    * [Syntax](../../indexes/querying/faceted-search#syntax)
    
 </Admonition>
-
----
-
-<Admonition type="info" title="Define an index" id="define-an-index" href="#define-an-index">
+## Define an index
 
 * To make a faceted search, **a static-index must be defined** for the fields you want to query and apply facets on.
 
@@ -1567,9 +1534,9 @@ with store.open_session() as session:
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Basics" id="facets-basics" href="#facets-basics">
+
+## Facets - Basics
 
 #### Facets definition:
 
@@ -1614,9 +1581,6 @@ facets = [facet, range_facet]
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index for facets results:
 
 * Query the index to get the aggregated facets information.  
@@ -1710,9 +1674,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query results:
 
 * **Query results** are Not the collection documents, they are of type:  
@@ -1793,9 +1754,9 @@ self.assertEqual(3, facet_value.count_)
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Options" id="facets-options" href="#facets-options">
+
+## Facets - Options
 
 #### Facets definition:
 
@@ -1829,9 +1790,6 @@ facets_with_options[0].options.start = 0
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index for facets results:
 
 <Tabs groupId='languageSyntax'>
@@ -1901,9 +1859,6 @@ select facet(Brand, $p0)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query results:
 
 <TabItem value="something-something" label="facets_14">
@@ -1936,9 +1891,9 @@ self.assertEqual(4, facet_value.count_)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Aggregations" id="facets-aggregations" href="#facets-aggregations">
+
+## Facets - Aggregations
 
 #### Facets definition:
 
@@ -2023,9 +1978,6 @@ facets_with_aggregations = [facet_with_aggregations, range_facet_with_aggregatio
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index for facets results:
 
 <Tabs groupId='languageSyntax'>
@@ -2150,9 +2102,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query results:
 
 <TabItem value="something-something" label="facets_21">
@@ -2219,9 +2168,9 @@ self.assertEqual(17, facet_value.sum_)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Storing facets definition in a document" id="storing-facets-definition-in-a-document" href="#storing-facets-definition-in-a-document">
+
+## Storing facets definition in a document
 
 #### Define and store facets in a document:
 
@@ -2259,9 +2208,6 @@ session.save_changes()
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query using facets from document:
 
 <Tabs groupId='languageSyntax'>
@@ -2300,9 +2246,9 @@ select facet(id("customDocumentID"))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="python">
@@ -2420,13 +2366,11 @@ def average_on(self, path: str, display_name: Optional[str] = None) -> FacetOper
 | **page_size**              | `int` | Number of items to return |
 | **include_remaining_terms** | `bool` | Indicates if remaining terms that didn't make it into the requested PageSize should be included in results<br/>Default value: `False` |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Query by Facets
----
 
 <Admonition type="note" title="Note">
 
@@ -2435,9 +2379,6 @@ def average_on(self, path: str, display_name: Optional[str] = None) -> FacetOper
 * Multiple filters (facets) are applied to narrow down the search results according to different attributes or categories.
 
 ![Facets](./assets/CNET_faceted_search.jpg)
-
----
-
 * In this page
    * [Define an index](../../indexes/querying/faceted-search#define-an-index)
    * [Facets - Basics](../../indexes/querying/faceted-search#facets---basics)
@@ -2447,10 +2388,7 @@ def average_on(self, path: str, display_name: Optional[str] = None) -> FacetOper
    * [Syntax](../../indexes/querying/faceted-search#syntax)
    
 </Admonition>
-
----
-
-<Admonition type="info" title="Define an index" id="define-an-index" href="#define-an-index">
+## Define an index
 
 * To make a faceted search, **a static-index must be defined** for the fields you want to query and apply facets on.
 
@@ -2653,9 +2591,9 @@ try {
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Basics" id="facets-basics" href="#facets-basics">
+
+## Facets - Basics
 
 #### Facets definition:
 
@@ -2703,9 +2641,6 @@ $facets[] = $rangeFacet;
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index for facets results:
 
 * Query the index to get the aggregated facets information.  
@@ -2794,9 +2729,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query results:
 
 * **Query results** are Not the collection documents, they are of type:  
@@ -2882,9 +2814,9 @@ $this->assertEquals(3, $facetValue->getCount()); // Number of documents in this 
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Options" id="facets-options" href="#facets-options">
+
+## Facets - Options
 
 #### Facets definition:
 
@@ -2920,9 +2852,6 @@ $facetsWithOptions[] = $facet;
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index for facets results:
 
 <Tabs groupId='languageSyntax'>
@@ -2983,9 +2912,6 @@ select facet(Brand, $p0)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query results:
 
 <TabItem value="something-something" label="facets_14">
@@ -3022,9 +2948,9 @@ $this->assertEquals(4, $facetValue->getCount());
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Aggregations" id="facets-aggregations" href="#facets-aggregations">
+
+## Facets - Aggregations
 
 #### Facets definition:
 
@@ -3121,9 +3047,6 @@ $rangeFacet->setAggregations($rangeAggregations);
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query the index for facets results:
 
 <Tabs groupId='languageSyntax'>
@@ -3243,9 +3166,6 @@ select
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Query results:
 
 <TabItem value="something-something" label="facets_21">
@@ -3316,9 +3236,9 @@ $this->assertEquals(17, $facetValue->getSum());
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Storing facets definition in a document" id="storing-facets-definition-in-a-document" href="#storing-facets-definition-in-a-document">
+
+## Storing facets definition in a document
 
 #### Define and store facets in a document:
 
@@ -3363,9 +3283,6 @@ $session->saveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Query using facets from document:
 
 <Tabs groupId='languageSyntax'>
@@ -3405,9 +3322,9 @@ select facet(id("customDocumentID"))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="php">
@@ -3541,13 +3458,11 @@ public function averageOn(string $path, ?string $displayName = null): FacetOpera
 | **pageSize** | `int` | Number of items to return |
 | **includeRemainingTerms** | `bool` | Indicates if remaining terms that didn't make it into the requested PageSize should be included in results<br/>Default value: `False` |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Query by Facets
----
 
 <Admonition type="note" title="Note">
 
@@ -3556,9 +3471,6 @@ public function averageOn(string $path, ?string $displayName = null): FacetOpera
 * Multiple filters (facets) are applied to narrow down the search results according to different attributes or categories.
 
 ![Facets](./assets/CNET_faceted_search.jpg)
-
----
-
 * In this page
    * [Define an index](../../indexes/querying/faceted-search#define-an-index)
    * [Facets - Basics](../../indexes/querying/faceted-search#facets---basics)
@@ -3568,10 +3480,7 @@ public function averageOn(string $path, ?string $displayName = null): FacetOpera
    * [Syntax](../../indexes/querying/faceted-search#syntax)
    
 </Admonition>
-
----
-
-<Admonition type="info" title="Define an index" id="define-an-index" href="#define-an-index">
+## Define an index
 
 * To make a faceted search, **a static-index must be defined** for the fields you want to query and apply facets on.
 
@@ -3651,16 +3560,13 @@ await bulkInsert.finish();
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Basics" id="facets-basics" href="#facets-basics">
+
+## Facets - Basics
 
 <Admonition type="note" title="Note">
 
 **Facets definition**:
-
----
-
 * Define a list of facets by which to aggregate the data.
 
 * There are two **Facet types**:
@@ -3703,9 +3609,6 @@ const facets = [brandFacet, priceRangeFacet];
 <Admonition type="note" title="Note">
 
 **Query the index for facets results**:
-
----
-
 * Query the index to get the aggregated facets information.  
 
 * Either:  
@@ -3795,9 +3698,6 @@ select
 <Admonition type="note" title="Note">
 
 **Query results**:
-
----
-
 * **Query results** are Not the collection documents, they are of type `FacetResultObject`  
   which is the facets results per index-field specified.  
 
@@ -3857,9 +3757,6 @@ assert.equalfacetValue.count, 3); // Number of documents in this range
 <Admonition type="info" title="Info">
 
 **Query further**:
-
----
-
 * Typically, after presenting users with the initial facets results which show the available options,  
   users can select specific categories to explore further.
 
@@ -3880,16 +3777,13 @@ assert.equalfacetValue.count, 3); // Number of documents in this range
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Options" id="facets-options" href="#facets-options">
+
+## Facets - Options
 
 <Admonition type="note" title="Note">
 
 **Facets definition**:
-
----
-
 * **Options** are available only for the `Facet` type.  
 
 * Available options:  
@@ -3924,9 +3818,6 @@ facet.options = facetOptions;
 <Admonition type="note" title="Note">
 
 **Query the index for facets results**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
 <CodeBlock language="nodejs">
@@ -3991,9 +3882,6 @@ select facet(brand, $p0)
 <Admonition type="note" title="Note">
 
 **Query results**:
-
----
-
 <TabItem value="something-something" label="facets_10">
 <CodeBlock language="nodejs">
 {`// The resulting items will contain:
@@ -4028,16 +3916,13 @@ assert.equal(facetValue.count, 4);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Facets - Aggregations" id="facets-aggregations" href="#facets-aggregations">
+
+## Facets - Aggregations
 
 <Admonition type="note" title="Note">
 
 **Facets definition**:
-
----
-
 * Aggregation of data is available for an index-field per unique Facet or Range item.  
   For example:  
   * Get the total number of unitsInStock per Brand  
@@ -4104,9 +3989,6 @@ const facetsWithAggregations = [facet, rangeFacet];
 <Admonition type="note" title="Note">
 
 **Query the index for facets results**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
 <CodeBlock language="nodejs">
@@ -4225,9 +4107,6 @@ select
 <Admonition type="note" title="Note">
 
 **Query results**:
-
----
-
 <TabItem value="something-something" label="facets_15">
 <CodeBlock language="nodejs">
 {`// The resulting items will contain (Showing partial results):
@@ -4294,18 +4173,15 @@ assert.equal(facetValue.sum, 17);
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Storing facets definition in a document" id="storing-facets-definition-in-a-document" href="#storing-facets-definition-in-a-document">
+
+## Storing facets definition in a document
 
 
 
 <Admonition type="note" title="Note">
 
 **Define and store facets in a document**:
-
----
-
 * The facets definitions can be stored in a document.
 
 * That document can then be used by a faceted search query.
@@ -4352,9 +4228,6 @@ await session.saveChanges();
 <Admonition type="note" title="Note">
 
 **Query using facets from document**:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
 <CodeBlock language="nodejs">
@@ -4391,9 +4264,9 @@ select facet(id("customDocumentID"))
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -4501,7 +4374,7 @@ averageOn(path, displayName);
 | **pageSize**              | `number`            | Number of items to return                                                                                   |
 | **includeRemainingTerms** | `boolean`           | Indicates if remaining terms that didn't make it into the requested PageSize should be included in results  |
 
-</Admonition>
+
 
 
 </LanguageContent>

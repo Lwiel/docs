@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Indexing: Numerical Type Conversion
+export const supportedLanguages = ["csharp"];
 
----
+
+# Indexing: Numerical Type Conversion
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Examples](../indexes/number-type-conversion#examples)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 The following methods are used to convert values into one of the common primitive numerical 
 types - `int`, `long`, `float`, or `double`. They are called from within the 
@@ -70,9 +68,9 @@ In **JavaScript syntax**, use `tryConvertToNumber()`.
 | - | - | - |
 | **value** | `object` | The value you want to convert, such as a document field. If you pass a `string` or `object`, the method will attempt to parse it for a numerical value. |
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 The class `Item` has fields of type `int`, `long`, `float`, `double`, `string`, and an object 
 field of type [Company](../start/about-examples). The following indexes take an `Item` 
@@ -140,9 +138,6 @@ failure, the field is indexed with value `-1` instead.
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 This next index takes the [`string` field `Employee.Address.PostalCode`](../start/about-examples) 
 and attempts to convert it to `long`.  
 
@@ -183,7 +178,7 @@ Query:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

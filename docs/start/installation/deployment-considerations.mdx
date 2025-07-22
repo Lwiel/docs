@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Installation: Deployment Considerations
----
-
 <Admonition type="note" title="Note">
 
 * In this page:
@@ -26,7 +24,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
-<Admonition type="info" title="Deployment Considerations" id="deployment-considerations" href="#deployment-considerations">
+## Deployment Considerations
 
 The deployment of a RavenDB cluster requires some thought regarding the best network, cluster, and databases setup.  
 In terms of hardware, while more (CPU speed, memory size, etc.) is generally better, RavenDB can do quite well on 
@@ -105,9 +103,9 @@ In either case, you can configure RavenDB using the [settings.json](../../server
 IPs and ports RavenDB will listen to. It is recommended that you'll pick the fastest drives for RavenDB's data directory, while the binaries
 for RavenDB can reside anywhere in the system.
 
-</Admonition>
 
-<Admonition type="info" title="When the Database Grows Bigger" id="when-the-database-grows-bigger" href="#when-the-database-grows-bigger">
+
+## When the Database Grows Bigger
 
 One way to keep a very large database as effective and available 
 as ever is to split its content between multiple, autonomous 
@@ -118,5 +116,5 @@ Read more about sharding here:
 * [Sharding Overview](../../sharding/overview)  
 * [Migrating](../../sharding/migration) from a non-sharded to a sharded database  
 
-</Admonition>
+
 

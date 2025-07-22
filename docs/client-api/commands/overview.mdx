@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Commands Overview
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Commands Overview
----
 
 <Admonition type="note" title="Note">
 
@@ -55,10 +57,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../client-api/commands/overview#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Execute command - using the Store Request Executor" id="execute-command-using-the-store-request-executor" href="#execute-command-using-the-store-request-executor">
+## Execute command - using the Store Request Executor
 
 This example shows how to execute the low-level `CreateSubscriptionCommand` via the **Store**.  
 (For examples of creating a subscription using higher-level methods, see [subscription creation examples](../../client-api/data-subscriptions/creation/examples)).
@@ -110,9 +109,9 @@ using (store.GetRequestExecutor().ContextPool.AllocateOperationContext(out var c
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Execute command - using the Session Request Executor" id="execute-command-using-the-session-request-executor" href="#execute-command-using-the-session-request-executor">
+
+## Execute command - using the Session Request Executor
 
 This example shows how to execute the low-level `GetDocumentsCommand` via the **Session**.  
 (For loading a document using higher-level methods, see [loading entities](../../client-api/session/loading-entities)).
@@ -177,9 +176,9 @@ using (var asyncSession = store.OpenAsyncSession())
 
 * Learn more about transactions in RavenDB in [Transaction support](../../client-api/faq/transaction-support).
 
-</Admonition>
 
-<Admonition type="info" title="Available commands" id="available-commands" href="#available-commands">
+
+## Available commands
 
 * **The following low-level commands, which inherit from `RavenCommand`, are available**:
 
@@ -220,9 +219,9 @@ using (var asyncSession = store.OpenAsyncSession())
     * [SingleNodeBatchCommand](../../client-api/commands/batches/how-to-send-multiple-commands-using-a-batch)  
     * WaitForRaftIndexCommand  
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="execute_syntax">
 <CodeBlock language="csharp">
@@ -238,13 +237,11 @@ Task ExecuteAsync<TResult>(RavenCommand<TResult> command,
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Commands Overview
----
 
 <Admonition type="note" title="Note">
 
@@ -283,10 +280,7 @@ Task ExecuteAsync<TResult>(RavenCommand<TResult> command,
     * [Syntax](../../client-api/commands/overview#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+## Examples
 
 #### GetDocumentsCommand
 
@@ -313,9 +307,9 @@ Task ExecuteAsync<TResult>(RavenCommand<TResult> command,
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Available commands" id="available-commands" href="#available-commands">
+
+## Available commands
 
 * **The Following low-level commands are available**:
     * ConditionalGetDocumentsCommand
@@ -355,9 +349,9 @@ Task ExecuteAsync<TResult>(RavenCommand<TResult> command,
     * [SingleNodeBatchCommand](../../client-api/commands/batches/how-to-send-multiple-commands-using-a-batch)
     * WaitForRaftIndexCommand
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="java">
@@ -368,13 +362,11 @@ public <TResult> void execute(RavenCommand<TResult> command, SessionInfo session
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Commands Overview
----
 
 <Admonition type="note" title="Note">
 
@@ -415,9 +407,7 @@ public <TResult> void execute(RavenCommand<TResult> command, SessionInfo session
     * [Syntax](../../client-api/commands/overview#syntax)
 
 </Admonition>
----
-
-<Admonition type="info" title="Execute command - using the Store Request Executor" id="execute-command-using-the-store-request-executor" href="#execute-command-using-the-store-request-executor">
+## Execute command - using the Store Request Executor
 
 This example shows how to execute the low-level `CreateSubscriptionCommand` via the **Store**.  
 (For examples of creating a subscription using higher-level methods, see [subscription creation examples](../../client-api/data-subscriptions/creation/examples)).
@@ -437,9 +427,9 @@ await documentStore.getRequestExecutor().execute(cmd);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Execute command - using the Session Request Executor" id="execute-command-using-the-session-request-executor" href="#execute-command-using-the-session-request-executor">
+
+## Execute command - using the Session Request Executor
 
 This example shows how to execute the low-level `GetDocumentsCommand` via the **Session**.  
 (For loading a document using higher-level methods, see [loading entities](../../client-api/session/loading-entities)).
@@ -469,9 +459,9 @@ const orderedAt = order.OrderedAt;
 
 * Learn more about transactions in RavenDB in [Transaction support](../../client-api/faq/transaction-support).
 
-</Admonition>
 
-<Admonition type="info" title="Available commands" id="available-commands" href="#available-commands">
+
+## Available commands
 
 * **The Following low-level commands are available**:
     * ConditionalGetDocumentsCommand
@@ -511,9 +501,9 @@ const orderedAt = order.OrderedAt;
     * [SingleNodeBatchCommand](../../client-api/commands/batches/how-to-send-multiple-commands-using-a-batch)
     * WaitForRaftIndexCommand
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="execute_syntax">
 <CodeBlock language="nodejs">
@@ -524,7 +514,7 @@ execute(command, sessionInfo, executeOptions);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

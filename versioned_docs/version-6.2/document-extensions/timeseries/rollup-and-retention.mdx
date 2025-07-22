@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
+
+
+# Time Series Rollups and Retention
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Time Series Rollups and Retention
----
 
 <Admonition type="note" title="Note">
 
@@ -35,10 +37,7 @@ Many time series applications produce massive amounts of data at a steady rate.
   * [Syntax](../../document-extensions/timeseries/rollup-and-retention#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Time series policies" id="time-series-policies" href="#time-series-policies">
+## Time series policies
 
 #### What are rollups?
 
@@ -96,9 +95,9 @@ The aggregated values have the names: `"First (<name of raw value>)", "Last (<na
 
 Because time series entries are limited to 32 values, rollups are limited to the first five values of an original time series entry, or 30 aggregate values.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Create time series policies:
 
@@ -139,9 +138,6 @@ store.Maintenance.Send(new ConfigureTimeSeriesOperation(timeSeriesConfig));
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Retrieve rollup data:
 
 * Retrieving entries from a rollup time series is similar to getting the raw time series data.
@@ -182,9 +178,9 @@ Assert.Equal(rollupData[0].IsRollup, true);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 ### The time series policies
 
@@ -244,9 +240,6 @@ The main reason we use `TimeValue` rather than something like `TimeSpan` is that
 because a calendar month is not a standard unit of time (as it can range from 28 to 31 days).  
 `TimeValue` enables you to define retention and aggregation spans specifically tailored to calendar months.
 </Admonition>
-
----
-
 ### The time series configuration object
 
 <TabItem value="something" label="csharp">
@@ -272,9 +265,6 @@ public class TimeSeriesCollectionConfiguration
 | **Disabled**    | If set to `true`, rollup processes will stop, and time series data will not be deleted by retention policies.             |
 | **Policies**    | Populate this `List` with your rollup policies.                                                                           |
 | **RawPolicy**   | The `RawTimeSeriesPolicy`, the retention policy for the raw time series.                                                  |
-
----
-
 ### The time series configuration operation
 
 <TabItem value="something" label="csharp">
@@ -285,9 +275,6 @@ public class TimeSeriesCollectionConfiguration
 </TabItem>
 
 Learn more about operations in: [What are operations](../../client-api/operations/what-are-operations).  
-
----
-
 ### Casting time series entries
 
 Time series entries are of one of the following classes:  
@@ -324,13 +311,11 @@ TimeSeriesEntry<int> TSEntry = (TimeSeriesEntry<int>)rollupEntry;
 
 Read more about time series with generic types [here](../../document-extensions/timeseries/client-api/named-time-series-values).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Time Series Rollups and Retention
----
 
 <Admonition type="note" title="Note">
 
@@ -351,10 +336,7 @@ Many time series applications produce massive amounts of data at a steady rate.
   * [Syntax](../../document-extensions/timeseries/rollup-and-retention#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Time series policies" id="time-series-policies" href="#time-series-policies">
+## Time series policies
 
 #### What are rollups?
 
@@ -412,9 +394,9 @@ The aggregated values have the names: `"First (<name of raw value>)", "Last (<na
 
 Because time series entries are limited to 32 values, rollups are limited to the first five values of an original time series entry, or 30 aggregate values.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Create time series policies:
 
@@ -446,9 +428,6 @@ store.maintenance.send(ConfigureTimeSeriesOperation(database_ts_config))
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Retrieve rollup data:
 
 * Retrieving entries from a rollup time series is similar to getting the raw time series data.
@@ -475,9 +454,9 @@ rollup_data = daily_rollup_TS.get(datetime.min, datetime.max)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 ### The time series policies
 
@@ -551,9 +530,6 @@ class TimeSeriesPolicy:
 
 Each of the above `TimeValue` methods returns a `TimeValue` object representing a whole number of the specified time units. 
 These methods are used to define the aggregation and retention spans om time series policies.  
-
----
-
 ### The time series configuration object
 
 <TabItem value="something" label="python">
@@ -584,9 +560,6 @@ class TimeSeriesCollectionConfiguration:
 | **disabled** (Optional) | `bool` | If set to `true`, rollup processes will stop, and time series data will not be deleted by retention policies. |
 | **policies** (Optional) | `List[TimeSeriesPolicy]` | Populate this `List` with your rollup policies. |
 | **raw_policy** (Optional) | `RawTimeSeriesPolicy` | The `RawTimeSeriesPolicy`, the retention policy for the raw time series. |
-
----
-
 ### The time series configuration operation
 
 <TabItem value="something" label="python">
@@ -597,9 +570,6 @@ class TimeSeriesCollectionConfiguration:
 </TabItem>
 
 Learn more about operations in: [What are operations](../../client-api/operations/what-are-operations).  
-
----
-
 ### Time series entries
 
 Time series entries are of one of the following classes:  
@@ -649,13 +619,11 @@ class TypedTimeSeriesRollupEntry(Generic[_T_Values]):
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Time Series Rollups and Retention
----
 
 <Admonition type="note" title="Note">
 
@@ -676,10 +644,7 @@ Many time series applications produce massive amounts of data at a steady rate.
   * [Syntax](../../document-extensions/timeseries/rollup-and-retention#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Time series policies" id="time-series-policies" href="#time-series-policies">
+## Time series policies
 
 #### What are rollups?
 
@@ -737,9 +702,9 @@ The aggregated values have the names: `"First (<name of raw value>)", "Last (<na
 
 Because time series entries are limited to 32 values, rollups are limited to the first five values of an original time series entry, or 30 aggregate values.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Create time series policies:
 
@@ -782,9 +747,6 @@ $store->maintenance()->send(new ConfigureTimeSeriesOperation($timeSeriesConfig))
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Retrieve rollup data:
 
 * Retrieving entries from a rollup time series is similar to getting the raw time series data.
@@ -825,9 +787,9 @@ $this->assertTrue($rollupData[0]->isRollup());
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 ### The time series policies
 
@@ -901,9 +863,6 @@ class TimeSeriesPolicy:
 
 Each of the above `TimeValue` methods returns a `TimeValue` object representing a whole number of the specified time units. 
 These methods are used to define the aggregation and retention spans om time series policies.  
-
----
-
 ### The time series configuration object
 
 <TabItem value="something" label="python">
@@ -934,9 +893,6 @@ class TimeSeriesCollectionConfiguration:
 | **disabled** (Optional) | `bool` | If set to `true`, rollup processes will stop, and time series data will not be deleted by retention policies. |
 | **policies** (Optional) | `List[TimeSeriesPolicy]` | Populate this `List` with your rollup policies. |
 | **raw_policy** (Optional) | `RawTimeSeriesPolicy` | The `RawTimeSeriesPolicy`, the retention policy for the raw time series. |
-
----
-
 ### The time series configuration operation
 
 <TabItem value="something" label="python">
@@ -947,9 +903,6 @@ class TimeSeriesCollectionConfiguration:
 </TabItem>
 
 Learn more about operations in: [What are operations](../../client-api/operations/what-are-operations).  
-
----
-
 ### Time series entries
 
 Time series entries are of one of the following classes:  
@@ -999,13 +952,11 @@ class TypedTimeSeriesRollupEntry(Generic[_T_Values]):
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Time Series Rollups and Retention
----
 
 <Admonition type="note" title="Note">
 
@@ -1026,10 +977,7 @@ Many time series applications produce massive amounts of data at a steady rate.
   * [Syntax](../../document-extensions/timeseries/rollup-and-retention#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Time series policies" id="time-series-policies" href="#time-series-policies">
+## Time series policies
 
 #### What are rollups?
 
@@ -1087,9 +1035,9 @@ The aggregated values have the names: `"First (<name of raw value>)", "Last (<na
 
 Because time series entries are limited to 32 values, rollups are limited to the first five values of an original time series entry, or 30 aggregate values.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Create time series policies:
 
@@ -1127,9 +1075,6 @@ await documentStore.maintenance.send(new ConfigureTimeSeriesOperation(timeSeries
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Retrieve rollup data:
 
 * Retrieving entries from a rollup time series is similar to getting the raw time series data.
@@ -1170,12 +1115,9 @@ assert.equal(rollupData[0].isRollup, true);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
 
----
-
+## Syntax
 ### The time series policies
 
 * Raw policy:  
@@ -1228,9 +1170,6 @@ The main reason we use `TimeValue` rather than something like `TimeSpan` is that
 because a calendar month is not a standard unit of time (as it can range from 28 to 31 days).  
 `TimeValue` enables you to define retention and aggregation spans specifically tailored to calendar months.
 </Admonition>
-
----
-
 ### The time series configuration object
 
 <TabItem value="something-something" label="syntax_3">
@@ -1254,9 +1193,6 @@ class TimeSeriesCollectionConfiguration \{
 | **disabled**    | If set to `true`, rollup processes will stop, and time series data will not be deleted by retention policies.           |
 | **policies**    | Populate this list with your rollup policies.                                                                          |
 | **rawPolicy**   | The `RawTimeSeriesPolicy`, the retention policy for the raw time series.                                                |
-
----
-
 ### The time series configuration operation
 
 <TabItem value="something-something" label="syntax_4">
@@ -1272,7 +1208,7 @@ class TimeSeriesCollectionConfiguration \{
 
 Learn more about operations in: [What are operations](../../client-api/operations/what-are-operations).  
 
-</Admonition>
+
 
 
 </LanguageContent>

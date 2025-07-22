@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Highly Available Tasks
----
-
 <Admonition type="note" title="Note">
 
 * A **RavenDB Task** can be one of the following:  
@@ -34,10 +32,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Tasks Relocation](../../../server/clustering/distribution/highly-available-tasks#tasks-relocation)  
   * [Pinning a Task](../../../server/clustering/distribution/highly-available-tasks#pinning-a-task)  
 </Admonition>
-
----
-
-<Admonition type="info" title="License" id="license" href="#license">
+## License
 
 Please see [available license types](https://ravendb.net/buy) and check your 
 [own license](http://live-test.ravendb.net/studio/index.html#about) 
@@ -57,9 +52,9 @@ to verify whether the Highly Available Tasks feature is activated in your databa
 * Scenarios [below](../../../server/clustering/distribution/highly-available-tasks#tasks-relocation) 
   are meant to demonstrate the behavior of a system licensed for highly available tasks.  
 
-</Admonition>
 
-<Admonition type="info" title="Constraints" id="constraints" href="#constraints">
+
+## Constraints
 
 1. Task is defined per [Database Group](../../../server/clustering/distribution/distributed-database).  
 
@@ -71,9 +66,9 @@ to verify whether the Highly Available Tasks feature is activated in your databa
 4. The node must be in a [Member](../../../server/clustering/distribution/distributed-database#database-topology) state in the `Database Group` in order to perform a task.  
 
 5. Cluster must be in a functional state.  
-</Admonition>
 
-<Admonition type="info" title="Responsible Node" id="responsible-node" href="#responsible-node">
+
+## Responsible Node
 
 * `Responsible Node` is the node that is responsible to perform a specific Ongoing Task.  
 
@@ -88,9 +83,9 @@ Learn more [here](../../../server/clustering/distribution/distributed-database#d
 about database nodes' relations and states. 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Tasks Relocation" id="tasks-relocation" href="#tasks-relocation">
+
+## Tasks Relocation
 
 Upon a `Database Topology` change, _all_ existing tasks will be re-evaluated and 
 re-distributed among the functional nodes.   
@@ -114,9 +109,9 @@ In the meanwhile, node B which has no communication with the [Cluster Leader](..
 moves itself to be a `Candidate` and removes all its tasks.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Pinning a Task" id="pinning-a-task" href="#pinning-a-task">
+
+## Pinning a Task
 
 It is sometimes preferable to **prevent** the failover of tasks to different responsible nodes.  
 An example for such a case is a heavy duty backup task, that better be left for the continuous care 
@@ -136,9 +131,6 @@ The failover of a task to another responsible node can be prevented by **pinning
   [cluster.timebeforeaddingreplicainsec](../../../server/configuration/cluster-configuration#cluster.timebeforeaddingreplicainsec), 
   the cluster observer will attempt to select an available node to replace it in the database group 
   and redistribute the fallen node's tasks, including pinned ones, among database group members.  
-
----
-
 A task can be pinned to a selected node via Studio or using code.  
 
 #### Pinning via Studio
@@ -183,5 +175,5 @@ AddEtlOperationResult result = store.Maintenance.Send(operation);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

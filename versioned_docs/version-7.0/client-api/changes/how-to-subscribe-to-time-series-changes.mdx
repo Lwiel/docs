@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Changes API: How to Subscribe to Time Series Changes
+export const supportedLanguages = ["csharp"];
 
----
+
+# Changes API: How to Subscribe to Time Series Changes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -34,13 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [ForAllTimeSeries](../../client-api/changes/how-to-subscribe-to-time-series-changes#foralltimeseries)
 
 </Admonition>
-
----
-
-
-
-
-<Admonition type="info" title="ForTimeSeries" id="fortimeseries" href="#fortimeseries">
+## ForTimeSeries
 
 Subscribe to changes in **all time-series with a given name**, no matter which document they belong to, 
 using the `ForTimeSeries` method.  
@@ -83,18 +78,15 @@ using the `ForTimeSeries` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForTimeSeriesOfDocument" id="fortimeseriesofdocument" href="#fortimeseriesofdocument">
+
+## ForTimeSeriesOfDocument
 
 Use `ForTimeSeriesOfDocument` to subscribe to changes in **time series of a chosen document**.  
 
 * Two overload methods allow you to  
    * Track **a specific** time series of the chosen document  
    * Track **any** time series of the chosen document  
-
----
-
 ### Overload #1
 Use this `ForTimeSeriesOfDocument` overload to track changes in a **specific time** series of the chosen document.  
 
@@ -136,9 +128,6 @@ Use this `ForTimeSeriesOfDocument` overload to track changes in a **specific tim
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Overload #2
 Use this `ForTimeSeriesOfDocument` overload to track changes in **any time series** of the chosen document.  
 
@@ -180,9 +169,9 @@ Use this `ForTimeSeriesOfDocument` overload to track changes in **any time serie
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForAllTimeSeries" id="foralltimeseries" href="#foralltimeseries">
+
+## ForAllTimeSeries
 
 Subscribe to changes in **all time-series** using the `ForAllTimeSeries` method.  
 
@@ -220,9 +209,9 @@ Subscribe to changes in **all time-series** using the `ForAllTimeSeries` method.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="TimeSeriesChange" id="timeserieschange" href="#timeserieschange">
+
+## TimeSeriesChange
 
 | Name | Type | Description |
 | ------------- | ------------- | ----- |
@@ -234,9 +223,9 @@ Subscribe to changes in **all time-series** using the `ForAllTimeSeries` method.
 | **To** | DateTime | Time series values To date |
 | **ChangeVector** | string | Time series Change Vector |
 
-</Admonition>
 
-<Admonition type="info" title="TimeSeriesChangeTypes" id="timeserieschangetypes" href="#timeserieschangetypes">
+
+## TimeSeriesChangeTypes
 
 | Name | Value |
 | ---- | ----- |
@@ -245,7 +234,7 @@ Subscribe to changes in **all time-series** using the `ForAllTimeSeries` method.
 | **Delete** | `2` |
 | **Mixed** | `3` |
 
-</Admonition>
+
 
 ## Remarks
 

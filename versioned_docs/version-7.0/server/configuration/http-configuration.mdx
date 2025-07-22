@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: HTTP
----
-
 <Admonition type="note" title="Note">
 
 * RavenDB uses [Kestrel](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.server.kestrel?view=aspnetcore-8.0), which is an HTTP web server built on ASP.NET Core.
@@ -38,17 +36,11 @@ import LanguageContent from "@site/src/components/language-content";
   * [Http.AllowSynchronousIO](../../server/configuration/http-configuration#http.allowsynchronousio)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Http.MinDataRateBytesPerSec" id="http-mindataratebytespersec" href="#http-mindataratebytespersec">
+## Http.MinDataRateBytesPerSec
 
 * Set Kestrel's minimum required data rate in bytes per second.  
 
 * This option must be configured together with [Http.MinDataRateGracePeriod](../../server/configuration/http-configuration#http.mindatarategraceperiodinsec).  
-
----
-
 - **Type**: `int`
 - **Default**: `null`
 - **Scope**: Server-wide only
@@ -56,9 +48,9 @@ import LanguageContent from "@site/src/components/language-content";
     - [MinResponseDataRate](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.minresponsedatarate?view=aspnetcore-8.0#microsoft-aspnetcore-server-kestrel-core-kestrelserverlimits-minresponsedatarate)
     - [MinRequestBodyDataRate](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.minrequestbodydatarate?view=aspnetcore-8.0)
 
-</Admonition>
 
-<Admonition type="info" title="Http.MinDataRateGracePeriodInSec" id="http-mindatarategraceperiodinsec" href="#http-mindatarategraceperiodinsec">
+
+## Http.MinDataRateGracePeriodInSec
 
 * Set Kestrel's allowed request and response grace period in seconds.  
   This option must be configured together with [Http.MinDataRateBytesPerSec](../../server/configuration/http-configuration#http.mindataratebytespersec)
@@ -70,9 +62,6 @@ import LanguageContent from "@site/src/components/language-content";
   The grace period helps avoid dropping connections that are initially sending data at a slow rate due to TCP slow-start.
 
 * When set to `null` then rates are unlimited, no minimum data rate will be enforced.
-
----
-
 - **Type**: `int`
 - **Default**: `null`
 - **Scope**: Server-wide only
@@ -85,24 +74,21 @@ If __either__ one of _Http.MinDataRateBytesPerSec_ or _Http.MinDataRateGracePeri
 then __both__ Kestrel's properties ( _MinResponseDataRate_ & _MinRequestBodyDataRate_ ) will be set to `null`.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Http.MaxRequestBufferSizeInKb" id="http-maxrequestbuffersizeinkb" href="#http-maxrequestbuffersizeinkb">
+
+## Http.MaxRequestBufferSizeInKb
 
 * Set the maximum size of the response buffer before write calls begin to block or return tasks that don't complete until the buffer size drops below the configured limit.
   
 * If not set, or set to `null`, then the size of the request buffer is unlimited.
-
----
-
 - **Type**: `int`
 - **Default**: `null`
 - **Scope**: Server-wide only
 - **Used for setting Kestrel property**: [MaxRequestBufferSize](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbuffersize?view=aspnetcore-8.0#microsoft-aspnetcore-server-kestrel-core-kestrelserverlimits-maxrequestbuffersize)
 
-</Admonition>
 
-<Admonition type="info" title="Http.MaxRequestLineSizeInKb" id="http-maxrequestlinesizeinkb" href="#http-maxrequestlinesizeinkb">
+
+## Http.MaxRequestLineSizeInKb
 
 Set the maximum allowed size for the HTTP request line.
 
@@ -111,9 +97,9 @@ Set the maximum allowed size for the HTTP request line.
 - **Scope**: Server-wide only
 - **Used for setting Kestrel property**: [MaxRequestLineSize](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestlinesize?view=aspnetcore-8.0#microsoft-aspnetcore-server-kestrel-core-kestrelserverlimits-maxrequestlinesize)
 
-</Admonition>
 
-<Admonition type="info" title="Http.Http2.KeepAlivePingTimeoutInSec" id="http-http2-keepalivepingtimeoutinsec" href="#http-http2-keepalivepingtimeoutinsec">
+
+## Http.Http2.KeepAlivePingTimeoutInSec
 
 Set Kestrel's HTTP2 keep alive ping timeout.
 
@@ -122,9 +108,9 @@ Set Kestrel's HTTP2 keep alive ping timeout.
 - **Scope**: Server-wide only
 - **Used for setting Kestrel property**: [KeepAlivePingTimeout](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.server.kestrel.core.http2limits.keepalivepingtimeout?view=aspnetcore-8.0#microsoft-aspnetcore-server-kestrel-core-http2limits-keepalivepingtimeout)
 
-</Admonition>
 
-<Admonition type="info" title="Http.Http2.KeepAlivePingDelayInSec" id="http-http2-keepalivepingdelayinsec" href="#http-http2-keepalivepingdelayinsec">
+
+## Http.Http2.KeepAlivePingDelayInSec
 
 Set Kestrel's HTTP2 keep alive ping delay.
 
@@ -133,9 +119,9 @@ Set Kestrel's HTTP2 keep alive ping delay.
 - **Scope**: Server-wide only
 - **Used for setting Kestrel property**: [KeepAlivePingDelay](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.server.kestrel.core.http2limits.keepalivepingdelay?view=aspnetcore-8.0#microsoft-aspnetcore-server-kestrel-core-http2limits-keepalivepingdelay)
 
-</Admonition>
 
-<Admonition type="info" title="Http.Http2.MaxStreamsPerConnection" id="http-http2-maxstreamsperconnection" href="#http-http2-maxstreamsperconnection">
+
+## Http.Http2.MaxStreamsPerConnection
 
 * Set Kestrel's HTTP2 max streams per connection.  
 
@@ -144,47 +130,38 @@ Set Kestrel's HTTP2 keep alive ping delay.
 
 * When _Http.Http2.MaxStreamsPerConnection_ is `null` or not set,  
   RavenDB assigns _int.MaxValue_ to _MaxStreamsPerConnection_.
-
----
-
 - **Type**: `int`
 - **Default**: `null` (no limit)
 - **Scope**: Server-wide only
 - **Used for setting Kestrel property**: [MaxStreamsPerConnection](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.server.kestrel.core.http2limits.maxstreamsperconnection?view=aspnetcore-8.0#microsoft-aspnetcore-server-kestrel-core-http2limits-maxstreamsperconnection)
 
-</Admonition>
 
-<Admonition type="info" title="Http.UseResponseCompression" id="http-useresponsecompression" href="#http-useresponsecompression">
+
+## Http.UseResponseCompression
 
 * Set whether Raven's HTTP server should compress its responses.
 
 * Using compression lowers the network bandwidth usage.   
   However, setting to `false` is needed in order to debug or view the response via sniffer tools.
-
----
-
 - **Type**: `bool`
 - **Default**: `true`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Http.AllowResponseCompressionOverHttps" id="http-allowresponsecompressionoverhttps" href="#http-allowresponsecompressionoverhttps">
+
+## Http.AllowResponseCompressionOverHttps
 
 * Set whether Raven's HTTP server should allow response compression to happen when HTTPS is enabled.
 
 * Please see http://breachattack.com/ before enabling this.
-
----
-
 - **Type**: `bool`
 - **Default**: `true`
 - **Scope**: Server-wide only
 - **Used for setting Kestrel property**: [EnableForHttps](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.responsecompression.responsecompressionoptions.enableforhttps?view=aspnetcore-8.0#microsoft-aspnetcore-responsecompression-responsecompressionoptions-enableforhttps)
 
-</Admonition>
 
-<Admonition type="info" title="Http.GzipResponseCompressionLevel" id="http-gzipresponsecompressionlevel" href="#http-gzipresponsecompressionlevel">
+
+## Http.GzipResponseCompressionLevel
 
 Set the compression level to be used when compressing HTTP responses with GZip.
 
@@ -193,9 +170,9 @@ Set the compression level to be used when compressing HTTP responses with GZip.
 - **Scope**: Server-wide only
 - **Used for setting Kestrel property**: [Level](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.responsecompression.gzipcompressionprovideroptions.level?view=aspnetcore-8.0#microsoft-aspnetcore-responsecompression-gzipcompressionprovideroptions-level)
 
-</Admonition>
 
-<Admonition type="info" title="Http.DeflateResponseCompressionLevel" id="http-deflateresponsecompressionlevel" href="#http-deflateresponsecompressionlevel">
+
+## Http.DeflateResponseCompressionLevel
 
 Set the compression level to be used when compressing HTTP responses with Deflate.
 
@@ -204,9 +181,9 @@ Set the compression level to be used when compressing HTTP responses with Deflat
 - **Scope**: Server-wide only
 - **Used for setting Kestrel property**: [Level](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.responsecompression.gzipcompressionprovideroptions.level?view=aspnetcore-8.0#microsoft-aspnetcore-responsecompression-gzipcompressionprovideroptions-level)
 
-</Admonition>
 
-<Admonition type="info" title="Http.ZstdResponseCompressionLevel" id="http-zstdresponsecompressionlevel" href="#http-zstdresponsecompressionlevel">
+
+## Http.ZstdResponseCompressionLevel
 
 Set the compression level to be used when compressing HTTP responses with Zstd.
 
@@ -215,9 +192,9 @@ Set the compression level to be used when compressing HTTP responses with Zstd.
 - **Scope**: Server-wide only
 - **Used for setting Kestrel property**: [Level](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.responsecompression.gzipcompressionprovideroptions.level?view=aspnetcore-8.0#microsoft-aspnetcore-responsecompression-gzipcompressionprovideroptions-level)
 
-</Admonition>
 
-<Admonition type="info" title="Http.StaticFilesResponseCompressionLevel" id="http-staticfilesresponsecompressionlevel" href="#http-staticfilesresponsecompressionlevel">
+
+## Http.StaticFilesResponseCompressionLevel
 
 Set the compression level to be used when compressing static files.
 
@@ -225,9 +202,9 @@ Set the compression level to be used when compressing static files.
 - **Default**: `Optimal`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Http.Protocols" id="http-protocols" href="#http-protocols">
+
+## Http.Protocols
 
 * Set HTTP protocols that should be supported by the server.
 
@@ -236,16 +213,13 @@ Set the compression level to be used when compressing static files.
 
 * If the platform running RavenDB is either Windows 10 or higher, Windows Server 2016 or newer, or POSIX,  
   the constructor sets Http.Protocols to `Http1AndHttp2`. Otherwise, it is set to `Http1`.
-
----
-
 - **Type**: `enum HttpProtocols` ( `None`, `Http1`, `Http2`, `Http1AndHttp2`, `Http3`, `Http1AndHttp2AndHttp3`)
 - **Default**: `DefaultValueSetInConstructor`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Http.AllowSynchronousIO" id="http-allowsynchronousio" href="#http-allowsynchronousio">
+
+## Http.AllowSynchronousIO
 
 Set a value that controls whether synchronous IO is allowed for the Request and Response.
 
@@ -254,4 +228,4 @@ Set a value that controls whether synchronous IO is allowed for the Request and 
 - **Scope**: Server-wide only
 - **Used for setting Kestrel property**: [AllowSynchronousIO](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.allowsynchronousio?view=aspnetcore-8.0#microsoft-aspnetcore-server-kestrel-core-kestrelserveroptions-allowsynchronousio)
 
-</Admonition>
+

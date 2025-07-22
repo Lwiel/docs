@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Get Revisions Operation
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Get Revisions Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -29,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/get-revisions#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get all revisions" id="get-all-revisions" href="#get-all-revisions">
+## Get all revisions
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Sync" label="Sync">
@@ -65,9 +63,9 @@ int revisionsCount = revisions.TotalResults;    // Number of revisions
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Paging results" id="paging-results" href="#paging-results">
+
+## Paging results
 
 * Get and process revisions, one page at a time:
 
@@ -156,9 +154,9 @@ RevisionsResult<Company> revisions = await documentStore.Operations.SendAsync(
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 Available overloads:
 
@@ -209,14 +207,11 @@ public GetRevisionsOperation(Parameters parameters)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Get Revisions Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -230,10 +225,7 @@ public GetRevisionsOperation(Parameters parameters)
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/get-revisions#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get all revisions" id="get-all-revisions" href="#get-all-revisions">
+## Get all revisions
 
 <TabItem value="something-something" label="getAllRevisions">
 <CodeBlock language="python">
@@ -250,9 +242,9 @@ revisions_count = revisions.total_results  # Total number of revisions
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Paging results" id="paging-results" href="#paging-results">
+
+## Paging results
 
 * Get and process revisions, one page at a time:
 <TabItem value="something-something" label="getRevisionsWithPaging">
@@ -286,9 +278,9 @@ revisions = store.operations.send(GetRevisionsOperation.from_parameters(paramete
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 | Parameter | Type | Description |
 | - | - | - |
@@ -297,14 +289,11 @@ revisions = store.operations.send(GetRevisionsOperation.from_parameters(paramete
 | **page_size** | `int` | Number of revisions to get |
 | **parameters** | `Parameters` | An object that wraps `id`, `start`, and `page_size` |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Get Revisions Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -318,10 +307,7 @@ revisions = store.operations.send(GetRevisionsOperation.from_parameters(paramete
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/get-revisions#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get all revisions" id="get-all-revisions" href="#get-all-revisions">
+## Get all revisions
 
 <TabItem value="something-something" label="getAllRevisions">
 <CodeBlock language="php">
@@ -340,9 +326,9 @@ $revisionsCount = $revisions->getTotalResults();    // Total number of revisions
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Paging results" id="paging-results" href="#paging-results">
+
+## Paging results
 
 * Get and process revisions, one page at a time:
 <TabItem value="something-something" label="getRevisionsWithPaging">
@@ -385,9 +371,9 @@ $revisions = $documentStore->operations->send(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 | Parameter | Type | Description |
 | - | - | - |
@@ -396,14 +382,11 @@ $revisions = $documentStore->operations->send(
 | **pageSize** | `int` | Number of revisions to get |
 | **parameters** | `Parameters` | An object that wraps `id`, `start`, and `pageSize` |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Revisions Operation
-
----
 
 <Admonition type="note" title="Note">
 
@@ -417,10 +400,7 @@ $revisions = $documentStore->operations->send(
   * [Syntax](../../../../document-extensions/revisions/client-api/operations/get-revisions#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Get all revisions" id="get-all-revisions" href="#get-all-revisions">
+## Get all revisions
 
 <TabItem value="something-something" label="getAllRevisions">
 <CodeBlock language="nodejs">
@@ -437,9 +417,9 @@ const revisionsCount = revisions.totalResults; // Total number of revisions
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Paging results" id="paging-results" href="#paging-results">
+
+## Paging results
 
 * Get and process revisions, one page at a time:
 
@@ -471,9 +451,9 @@ while (true)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -515,7 +495,7 @@ const getRevisionsOp = new GetRevisionsOperation(id, parameters);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

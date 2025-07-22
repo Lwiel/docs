@@ -32,10 +32,7 @@ In this page:
    - [Standard-grade Production Cluster](../cloud/cloud-instances#standard-grade-production-cluster)  
    - [Performance-grade Production Cluster](../cloud/cloud-instances#performance-grade-production-cluster)  
 </Admonition>
-
----
-
-<Admonition type="info" title="A Free Cloud Node" id="a-free-cloud-node" href="#a-free-cloud-node">
+## A Free Cloud Node
 
 Free RavenDB cloud nodes are great for experiments and evaluation. They are equipped with the 
 most basic configuration and capabilities. They have a single node and no Service-Level Agreement (SLA).  
@@ -57,9 +54,9 @@ to create a **free**-tier instance.
 
 * If you don't use your free instance for over 30 days, it will be terminated.  
 
-</Admonition>
 
-<Admonition type="info" title="A Development Cloud Server" id="a-development-cloud-server" href="#a-development-cloud-server">
+
+## A Development Cloud Server
 
 A development server is equipped with all of RavenDB's [features](https://ravendb.net/buy) 
 but is **not** suitable for production for the following reasons:  
@@ -73,9 +70,6 @@ but is **not** suitable for production for the following reasons:
 To raise a cloud Development server, create a product using the Products tab and select the **Development** tier.  
 
 !["Tiers and Instances: Development"](./assets/tiers-and-instances-002-development.png)
-
----
-  
 #### Select your server's configuration  
   
 Select a configuration from Dev10 to Dev70.  
@@ -84,9 +78,6 @@ The configurations are increasingly more and more powerful.
 !["Development Tier DEV10"](./assets/tiers-and-instances-0021-development-dev10.png)
 
 !["Development Tier DEV70"](./assets/tiers-and-instances-0022-development-dev70.png)
-
----
-
 #### Select your storage  
 
 Select your storage type and size.  
@@ -101,9 +92,9 @@ RavenDB, as a database, is sensitive to I/O latencies resulting from slow storag
 high I/O latencies, RavenDB will alert you to the issue so you can upgrade the type of storage you are using and the 
 number of IOPS reserved for your instances.  
 
-</Admonition>
 
-<Admonition type="info" title="A Production Cloud Cluster" id="a-production-cloud-cluster" href="#a-production-cloud-cluster">
+
+## A Production Cloud Cluster
 
 The default production configuration is a three-node cluster, provisioned in separate 
 availability zones for maximum durability.
@@ -131,9 +122,6 @@ The production tier offers three instance levels:
 1. [Basic](../cloud/cloud-instances#basic-grade-production-cluster)  
 2. [Standard](../cloud/cloud-instances#standard-grade-production-cluster)  
 3. [Performance](../cloud/cloud-instances#performance-grade-production-cluster)  
-  
----
-  
 #### 1. Basic-grade Production Cluster
 Basic production clusters are [burstable](../cloud/cloud-overview#burstable-instances).  
 While suitable for low to medium workloads, they trade-off peak efficiency for lower costs.  
@@ -143,9 +131,6 @@ While suitable for low to medium workloads, they trade-off peak efficiency for l
  </Admonition>
 
 !["Production: Basic"](./assets/tiers-and-instances-0031-production-basic.png)
-
----
-
 #### 2. Standard-grade Production Cluster
 The resources of standard production clusters are [reserved](../cloud/cloud-overview#reserved-clusters).  
 The cluster can utilize them at all times, and is equipped to handle constant production load.  
@@ -165,9 +150,6 @@ to also understand the impact of the storage type and allocated IOPS on the over
 RavenDB, as a database, is sensitive to I/O latencies resulting from slow storage. If your instances are running into 
 high I/O latencies, RavenDB will alert you to the issue so you can upgrade the type of storage you are using and the 
 number of IOPS reserved for your instances.  
-
----
-
 #### 3. Performance-grade Production Cluster
 
 Performance tier cluster are special [reserved](../cloud/cloud-overview#reserved-clusters) production clusters featuring high-throughput and low latency with a directly mapped local NVMe storage. When multiple NVME disks are available, in order to achieve the best possible throughput and to get as many IOPS as possible, multiple NVME volumes are striped together with RAID0. 
@@ -193,16 +175,6 @@ Local NVMe drives on PN clusters are encrypted by default using hardware-based e
 
 !["Production: Performance"](./assets/tiers-and-instances-0034-production-performance.png)  
 
-</Admonition>
 
 
-## Related Articles
-  
-[Portal](../cloud/portal/cloud-portal)  
-  
-[RavenDB on Burstable Instances](https://ayende.com/blog/187681-B/running-ravendb-on-burstable-cloud-instances)  
-[AWS CPU Credits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html)  
 
-**Links**  
-[Register]( https://cloud.ravendb.net/user/register)  
-[Login]( https://cloud.ravendb.net/user/login)  

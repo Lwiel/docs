@@ -11,16 +11,20 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Changes API: How to Subscribe to Operation Changes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Changes API: How to Subscribe to Operation Changes
+
 
 The following methods allow you to subscribe to operation changes:
 
 - [ForOperationId](../../client-api/changes/how-to-subscribe-to-operation-changes#foroperationid)
 - [ForAllOperations](../../client-api/changes/how-to-subscribe-to-operation-changes#foralloperations)
 
-<Admonition type="info" title="ForOperationId" id="foroperationid" href="#foroperationid">
+## ForOperationId
 
 Operation changes for one operation can be observed using the `ForOperationId` method.
 
@@ -83,9 +87,9 @@ tracking to a single node: `store.Changes(dbName, nodeTag)`
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="ForAllOperations" id="foralloperations" href="#foralloperations">
+
+## ForAllOperations
 
 Operations changes for all Operations can be observed using the `ForAllOperations` method.
 
@@ -124,9 +128,9 @@ tracking to a single node: `store.Changes(dbName, nodeTag)`
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OperationChange" id="operationchange" href="#operationchange">
+
+## OperationChange
 
 ### Properties
 
@@ -135,9 +139,9 @@ tracking to a single node: `store.Changes(dbName, nodeTag)`
 | **State** | [OperationState](../../client-api/changes/how-to-subscribe-to-operation-changes#operationstate) | Operation state |
 | **OperationId** | long | Operation ID |
 
-</Admonition>
 
-<Admonition type="info" title="OperationState" id="operationstate" href="#operationstate">
+
+## OperationState
 
 ### Members
 
@@ -146,9 +150,9 @@ tracking to a single node: `store.Changes(dbName, nodeTag)`
 | **Result** | [IOperationResult](../../client-api/changes/how-to-subscribe-to-operation-changes#operationresult) | Operation result |
 | **Progress** | IOperationProgress| Instance of IOperationProgress (json representation of the progress) |
 | **Status** | [OperationStatus](../../client-api/changes/how-to-subscribe-to-operation-changes#operationstatus) | Operation status |
-</Admonition>
 
-<Admonition type="info" title="OperationResult" id="operationresult" href="#operationresult">
+
+## OperationResult
 
 ### Members
 
@@ -156,9 +160,9 @@ tracking to a single node: `store.Changes(dbName, nodeTag)`
 | ------------- | ------------- | ----- |
 | **Message** | string | Operation message |
 | **ShouldPersist** | bool | determine whether or not the result should be saved in the storage |
-</Admonition>
 
-<Admonition type="info" title="OperationStatus" id="operationstatus" href="#operationstatus">
+
+## OperationStatus
 
 # OperationStatus (enum)
 
@@ -168,7 +172,7 @@ tracking to a single node: `store.Changes(dbName, nodeTag)`
 | **Completed** | `Indicates that the operation has completed` |
 | **Faulted** | `Indicates that the operation is faulted` |
 | **Canceled** | `Indicates that the operation has been Canceled` |
-</Admonition>
+
 
 ## Remarks
 
@@ -180,14 +184,14 @@ To get more method overloads, especially ones supporting **delegates**, please a
 
 </LanguageContent>
 <LanguageContent language="java">
-# Changes API: How to Subscribe to Operation Changes
+
 
 The following methods allow you to subscribe to operation changes:
 
 - [forOperationId](../../client-api/changes/how-to-subscribe-to-operation-changes#foroperation)
 - [forAllOperations](../../client-api/changes/how-to-subscribe-to-operation-changes#foralloperations)
 
-<Admonition type="info" title="forOperation" id="foroperation" href="#foroperation">
+## forOperation
 
 Operation changes for one operation can be observed using the `forOperationId` method.
 
@@ -224,9 +228,9 @@ Operation changes for one operation can be observed using the `forOperationId` m
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="forAllOperations" id="foralloperations" href="#foralloperations">
+
+## forAllOperations
 
 Operations changes for all Operations can be observed using the `forAllOperations` method.
 
@@ -257,9 +261,9 @@ Operations changes for all Operations can be observed using the `forAllOperation
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OperationChange" id="operationchange" href="#operationchange">
+
+## OperationChange
 
 ### Properties
 
@@ -268,20 +272,20 @@ Operations changes for all Operations can be observed using the `forAllOperation
 | **State** | ObjectNode | Operation state |
 | **OperationId** | long | Operation ID |
 
-</Admonition>
+
 
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Changes API: How to Subscribe to Operation Changes
+
 
 The following methods allow you to subscribe to operation changes:
 
 - [forOperationId()](../../client-api/changes/how-to-subscribe-to-operation-changes#foroperation)
 - [forAllOperations()](../../client-api/changes/how-to-subscribe-to-operation-changes#foralloperations)
 
-<Admonition type="info" title="forOperation" id="foroperation" href="#foroperation">
+## forOperation
 
 Operation changes for one operation can be observed using the `forOperationId()` method.
 
@@ -316,9 +320,9 @@ Operation changes for one operation can be observed using the `forOperationId()`
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="forAllOperations" id="foralloperations" href="#foralloperations">
+
+## forAllOperations
 
 Operations changes for all Operations can be observed using the `forAllOperations()` method.
 
@@ -347,9 +351,9 @@ Operations changes for all Operations can be observed using the `forAllOperation
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="OperationChange" id="operationchange" href="#operationchange">
+
+## OperationChange
 
 ### Properties
 
@@ -358,7 +362,7 @@ Operations changes for all Operations can be observed using the `forAllOperation
 | **state** | object | Operation state |
 | **operationId** | number | Operation ID |
 
-</Admonition>
+
 
 
 

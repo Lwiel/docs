@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Sort Query Results
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Sort Query Results
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -57,10 +58,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../client-api/session/querying/sort-query-results#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Order by field value" id="order-by-field-value" href="#order-by-field-value">
+## Order by field value
 
 * Use `OrderBy` or `OrderByDescending` to order the results by the specified document-field.
 
@@ -137,9 +135,9 @@ __Ordering Type__:
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order by score" id="order-by-score" href="#order-by-score">
+
+## Order by score
 
 * When querying with some filtering conditions, a basic score is calculated for each item in the results  
   by the underlying indexing engine.
@@ -209,9 +207,6 @@ order by score()
 <Admonition type="info" title="Info">
 
 #### Get resulting score:
-
----
-
 The score details can be retrieved by either:
 
 * __Request to include explanations__:  
@@ -260,9 +255,9 @@ var score = metadata[Constants.Documents.Metadata.IndexScore];
  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order by random" id="order-by-random" href="#order-by-random">
+
+## Order by random
 
 * Use `RandomOrdering` to randomize the order of the query results.
 
@@ -325,18 +320,18 @@ order by random()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Order by spatial" id="order-by-spatial" href="#order-by-spatial">
+
+## Order by spatial
 
 * If your data contains geographical locations,  
   spatial query results can be sorted based on their distance from a specific point.
 
 * See detailed explanation in [Spatial Sorting](../../../client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting).
 
-</Admonition>
 
-<Admonition type="info" title="Order by count (aggregation query)" id="order-by-count-aggregation-query" href="#order-by-count-aggregation-query">
+
+## Order by count (aggregation query)
 
 * The results of a [group-by query](../../../client-api/session/querying/how-to-perform-group-by-query) can be sorted by the `Count` aggregation operation used in the query.
 
@@ -415,9 +410,9 @@ select key() as "Category", count()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Order by sum (aggregation query)" id="order-by-sum-aggregation-query" href="#order-by-sum-aggregation-query">
+
+## Order by sum (aggregation query)
 
 * The results of a [group-by query](../../../client-api/session/querying/how-to-perform-group-by-query) can be sorted by the `Sum` aggregation operation used in the query.
 
@@ -500,9 +495,9 @@ select key() as 'Category', sum(UnitsInStock) as Sum
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Force ordering type" id="force-ordering-type" href="#force-ordering-type">
+
+## Force ordering type
 
 * By default, the `OrderBy` methods will determine the `OrderingType` from the property path expression  
   and specify that ordering type in the generated RQL that is sent to the server.
@@ -600,9 +595,9 @@ order by QuantityPerUnit as alphanumeric
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Chain ordering" id="chain-ordering" href="#chain-ordering">
+
+## Chain ordering
 
 * It is possible to chain multiple orderings in the query.  
   Any combination of secondary sorting is possible as the fields are indexed independently of one another.
@@ -679,9 +674,9 @@ order by UnitsInStock as long desc, score(), Name
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Custom sorters " id="custom-sorters" href="#custom-sorters">
+
+## Custom sorters 
 
 * The Lucene indexing engine allows you to create your own custom sorters.  
   Custom sorters are not supported by [Corax](../../../indexes/search-engine/corax).  
@@ -747,9 +742,9 @@ order by custom(UnitsInStock, "MySorter")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="syntax">
 <CodeBlock language="csharp">
@@ -775,14 +770,11 @@ IOrderedQueryable<T> OrderByDescending<T>(Expression<Func<T, object>> path, stri
 | __ordering__   | `QueryStatistics`             | The ordering type that will be used to sort the results:<br/>`OrderingType.Long`<br/>`OrderingType.Double`<br/>`OrderingType.AlphaNumeric`<br/>`OrderingType.String` (default) |
 | __sorterName__ | `string`                      | The name of your custom sorter class                                                                                                                                       |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Sort Query Results
-
----
 
 <Admonition type="note" title="Note">
 
@@ -824,10 +816,7 @@ IOrderedQueryable<T> OrderByDescending<T>(Expression<Func<T, object>> path, stri
     * [Syntax](../../../client-api/session/querying/sort-query-results#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Order by field value" id="order-by-field-value" href="#order-by-field-value">
+## Order by field value
 
 * Use `OrderBy` or `OrderByDescending` to order the results by the specified document-field.
 
@@ -874,9 +863,9 @@ order by UnitsInStock as long
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order by score" id="order-by-score" href="#order-by-score">
+
+## Order by score
 
 * When querying with some filtering conditions, a basic score is calculated for each item in the results  
   by the underlying indexing engine.
@@ -916,9 +905,6 @@ order by score()
 <Admonition type="info" title="Info">
 
 #### Get resulting score:
-
----
-
 The score details can be retrieved by either:
 
 * **Request to include explanations**:  
@@ -942,9 +928,9 @@ The score details can be retrieved by either:
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order by random" id="order-by-random" href="#order-by-random">
+
+## Order by random
 
 * Use `RandomOrdering` to randomize the order of the query results.
 
@@ -976,18 +962,18 @@ order by random()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Order by spatial" id="order-by-spatial" href="#order-by-spatial">
+
+## Order by spatial
 
 * If your data contains geographical locations,  
   spatial query results can be sorted based on their distance from a specific point.
 
 * See detailed explanation in [Spatial Sorting](../../../client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting).
 
-</Admonition>
 
-<Admonition type="info" title="Order by count (aggregation query)" id="order-by-count-aggregation-query" href="#order-by-count-aggregation-query">
+
+## Order by count (aggregation query)
 
 * The results of a [group_by query](../../../client-api/session/querying/how-to-perform-group-by-query) can be sorted by the `count` aggregation operation used in the query.
 
@@ -1020,9 +1006,9 @@ select key() as "Category", count()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Order by sum (aggregation query)" id="order-by-sum-aggregation-query" href="#order-by-sum-aggregation-query">
+
+## Order by sum (aggregation query)
 
 * The results of a [group_by query](../../../client-api/session/querying/how-to-perform-group-by-query) can be sorted by the `sum` aggregation operation used in the query.
 
@@ -1055,9 +1041,9 @@ select key() as 'Category', sum(UnitsInStock) as Sum
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Force ordering type" id="force-ordering-type" href="#force-ordering-type">
+
+## Force ordering type
 
 * By default, the `order_by` methods will determine the `OrderingType` from the property path expression  
   and specify that ordering type in the generated RQL that is sent to the server.
@@ -1107,9 +1093,9 @@ order by QuantityPerUnit as alphanumeric
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Chain ordering" id="chain-ordering" href="#chain-ordering">
+
+## Chain ordering
 
 * It is possible to chain multiple orderings in the query.  
   Any combination of secondary sorting is possible as the fields are indexed independently of one another.
@@ -1147,9 +1133,9 @@ order by UnitsInStock as long desc, score(), Name
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Custom sorters " id="custom-sorters" href="#custom-sorters">
+
+## Custom sorters 
 
 * The Lucene indexing engine allows you to create your own custom sorters.  
   Custom sorters are not supported by [Corax](../../../indexes/search-engine/corax).  
@@ -1186,9 +1172,9 @@ order by custom(UnitsInStock, "MySorter")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="python">
@@ -1210,14 +1196,11 @@ def order_by_descending(
 | **field**       | `str`                      | The name of the field to sort by                                                                                                                                           |
 | **sorter_name_or_ordering_type**       | `Union[str, OrderingType]` | The custom sorter class name<br/>**-or-**<br/>The results sorting ordering type<br/>Can be:<br/>`OrderingType.LONG`<br/>`OrderingType.DOUBLE`<br/>`OrderingType.ALPHA_NUMERIC`<br/>`OrderingType.STRING` (default) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Sort Query Results
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1259,10 +1242,7 @@ def order_by_descending(
     * [Syntax](../../../client-api/session/querying/sort-query-results#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Order by field value" id="order-by-field-value" href="#order-by-field-value">
+## Order by field value
 
 * Use `orderBy` or `orderByDescending` (see below) to order the results by the specified document field.
 
@@ -1325,9 +1305,9 @@ order by UnitsInStock as long
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order by score" id="order-by-score" href="#order-by-score">
+
+## Order by score
 
 * When querying with some filtering conditions, a basic score is calculated for each item in the results  
   by the underlying indexing engine. (Read more about Lucene scoring [here](https://lucene.apache.org/core/3_3_0/scoring.html)).
@@ -1386,9 +1366,6 @@ order by score()
 <Admonition type="info" title="Info">
 
 #### Get resulting score:
-
----
-
 The score details can be retrieved by either:  
  
   * **Request to include explanations**:  
@@ -1426,9 +1403,9 @@ $score = $metadata[DocumentsMetadata::INDEX_SCORE];
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order by random" id="order-by-random" href="#order-by-random">
+
+## Order by random
 
 * Use `randomOrdering` to randomize the order of the query results.
 
@@ -1477,18 +1454,18 @@ order by random()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Order by spatial" id="order-by-spatial" href="#order-by-spatial">
+
+## Order by spatial
 
 * If your data contains geographical locations,  
   spatial query results can be sorted based on their distance from a specific point.
 
 * See detailed explanation in [Spatial Sorting](../../../client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting).
 
-</Admonition>
 
-<Admonition type="info" title="Order by count (aggregation query)" id="order-by-count-aggregation-query" href="#order-by-count-aggregation-query">
+
+## Order by count (aggregation query)
 
 * The results of a [group-by query](../../../client-api/session/querying/how-to-perform-group-by-query) can be sorted by the `Count` aggregation operation used in the query.
 
@@ -1542,9 +1519,9 @@ select key() as "Category", count()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Order by sum (aggregation query)" id="order-by-sum-aggregation-query" href="#order-by-sum-aggregation-query">
+
+## Order by sum (aggregation query)
 
 * The results of a [group-by query](../../../client-api/session/querying/how-to-perform-group-by-query) can be sorted by the `Sum` aggregation operation used in the query.
 
@@ -1597,9 +1574,9 @@ select key() as 'Category', sum(UnitsInStock) as Sum
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Force ordering type" id="force-ordering-type" href="#force-ordering-type">
+
+## Force ordering type
 
 * By default, the `orderBy` methods will determine the `OrderingType` from the property path expression  
   and specify that ordering type in the generated RQL that is sent to the server.
@@ -1662,9 +1639,9 @@ order by QuantityPerUnit as alphanumeric
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Chain ordering" id="chain-ordering" href="#chain-ordering">
+
+## Chain ordering
 
 * It is possible to chain multiple orderings in the query.  
   Any combination of secondary sorting is possible as the fields are indexed independently of one another.
@@ -1722,9 +1699,9 @@ order by UnitsInStock as long desc, score(), Name
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Custom sorters " id="custom-sorters" href="#custom-sorters">
+
+## Custom sorters 
 
 * The Lucene indexing engine allows you to create your own custom sorters.  
   Custom sorters can be deployed to the server by either:  
@@ -1776,9 +1753,9 @@ order by custom(UnitsInStock, "MySorter")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="php">
@@ -1810,14 +1787,11 @@ function orderByDescending(string $field, $sorterNameOrOrdering = null): Documen
 | **$field** | `string` | The field to sort by |
 | **$sorterNameOrOrdering** | `string` | The ordering type to sort the results by:<br/>`OrderingType::long`<br/>`OrderingType::double`<br/>`OrderingType::alphaNumeric`<br/>`OrderingType::string` (default) |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Sort Query Results
-
----
 
 <Admonition type="note" title="Note">
 
@@ -1859,10 +1833,7 @@ function orderByDescending(string $field, $sorterNameOrOrdering = null): Documen
     * [Syntax](../../../client-api/session/querying/sort-query-results#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Order by field value" id="order-by-field-value" href="#order-by-field-value">
+## Order by field value
 
 * Use `orderBy` or `orderByDescending` to order the results by the specified document-field.
 
@@ -1906,9 +1877,9 @@ __Ordering Type__:
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order by score" id="order-by-score" href="#order-by-score">
+
+## Order by score
 
 * When querying with some filtering conditions, a basic score is calculated for each item in the results  
   by the underlying indexing engine.
@@ -1948,9 +1919,6 @@ order by score()
 <Admonition type="info" title="Info">
 
 #### Get resulting score:
-
----
-
 The score details can be retrieved by either:
 
 * __Request to include explanations__:  
@@ -2000,9 +1968,9 @@ const score = metadata[CONSTANTS.Documents.Metadata.INDEX_SCORE];
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Order by random" id="order-by-random" href="#order-by-random">
+
+## Order by random
 
 * Use `randomOrdering` to randomize the order of the query results.
 
@@ -2035,18 +2003,18 @@ order by random()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Order by spatial" id="order-by-spatial" href="#order-by-spatial">
+
+## Order by spatial
 
 * If your data contains geographical locations,  
   spatial query results can be sorted based on their distance from a specific point.
 
 * See detailed explanation in [Spatial Sorting](../../../client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting).
 
-</Admonition>
 
-<Admonition type="info" title="Order by count (aggregation query)" id="order-by-count-aggregation-query" href="#order-by-count-aggregation-query">
+
+## Order by count (aggregation query)
 
 * The results of a [group-by query](../../../client-api/session/querying/how-to-perform-group-by-query) can be sorted by the `count` aggregation operation used in the query.
 
@@ -2080,9 +2048,9 @@ select key() as "Category", count()
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Order by sum (aggregation query)" id="order-by-sum-aggregation-query" href="#order-by-sum-aggregation-query">
+
+## Order by sum (aggregation query)
 
 * The results of a [group-by query](../../../client-api/session/querying/how-to-perform-group-by-query) can be sorted by the `sum` aggregation operation used in the query.
 
@@ -2116,9 +2084,9 @@ select key() as 'Category', sum(UnitsInStock) as sum
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Force ordering type" id="force-ordering-type" href="#force-ordering-type">
+
+## Force ordering type
 
 * If no ordering type is specified in the query then the server will apply the default lexicographical ordering.
 
@@ -2191,9 +2159,9 @@ order by QuantityPerUnit as alphanumeric
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Chain ordering" id="chain-ordering" href="#chain-ordering">
+
+## Chain ordering
 
 * It is possible to chain multiple orderings in the query.  
   Any combination of secondary sorting is possible as the fields are indexed independently of one another.
@@ -2230,9 +2198,9 @@ order by UnitsInStock as long desc, score(), Name
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Custom sorters " id="custom-sorters" href="#custom-sorters">
+
+## Custom sorters 
 
 * The Lucene indexing engine allows you to create your own custom sorters.  
   Custom sorters are not supported by [Corax](../../../indexes/search-engine/corax).  
@@ -2270,9 +2238,9 @@ order by custom(UnitsInStock, "MySorter")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -2295,7 +2263,7 @@ orderByDescending(field, options);
 | __ordering__ | `string` | The ordering type that will be used to sort the results:<br/>`Long`<br/>`Double`<br/>`AlphaNumeric`<br/>`String` (default) |
 | __options__  | `object` | An object that specifies the custom `sorterName`                                                                       |
 
-</Admonition>
+
 
 
 </LanguageContent>

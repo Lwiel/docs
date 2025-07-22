@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding: Backup
----
-
 <Admonition type="note" title="Note">
 
 * Sharded databases are backed up using user-defined periodic 
@@ -50,10 +48,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Backup Options Summary](../../sharding/backup-and-restore/backup#backup-options-summary)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Backup" id="backup" href="#backup">
+## Backup
 
 ## Sharded and Non-Sharded Backup Tasks
 
@@ -247,9 +242,9 @@ This type is specific to a sharded database, and casting it using a non-sharded 
 [will fail](../../migration/client-api/client-breaking-changes#casting-smuggler-results).  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Backup Options Summary" id="backup-options-summary" href="#backup-options-summary">
+
+## Backup Options Summary
 
 | Option | Available on a Sharded Database | Comment |
 | -------------------- | --------------- | --------------------- |
@@ -263,5 +258,5 @@ This type is specific to a sharded database, and casting it using a non-sharded 
 | Run a manual [one-time](../../studio/database/tasks/backup-task#manually-creating-one-time-backups) backup operation on a sharded database | **Yes** |  |
 | Include sharded databases in a [server-wide backup operation](../../sharding/backup-and-restore/backup#server-wide-backup) | **Yes** | A server-wide backup operation will create backups for all databases, including the sharded ones. |
 
-</Admonition>
+
 

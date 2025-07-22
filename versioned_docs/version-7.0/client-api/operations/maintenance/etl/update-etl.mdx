@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java"];
+
+
+# Operations: How to Update ETL
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Operations: How to Update ETL
+
 
 You can modify ETL task by using **UpdateEtlOperation**.
 
@@ -68,7 +72,7 @@ UpdateEtlOperationResult result = store.Maintenance.Send(operation);
 
 </LanguageContent>
 <LanguageContent language="java">
-# Operations: How to Update ETL
+
 
 You can modify ETL task by using **UpdateEtlOperation**.
 

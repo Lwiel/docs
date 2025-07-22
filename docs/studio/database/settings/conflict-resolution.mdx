@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Conflict Resolution
----
-
 <Admonition type="note" title="Note">
 
 * Define the server behaviour upon a conflict between documents.  
@@ -24,10 +22,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [The Conflicts Resolution View](../../../studio/database/settings/conflict-resolution#the-conflicts-resolution-view)  
   * [Script Examples](../../../studio/database/settings/conflict-resolution#script-examples)  
 </Admonition>
-
----
-
-<Admonition type="info" title="The Conflicts Resolution View" id="the-conflicts-resolution-view" href="#the-conflicts-resolution-view">
+## The Conflicts Resolution View
 
 ![Figure 1. Conflicts Resolution View](./assets/conflict-resolution-view-1.png)
 
@@ -53,9 +48,9 @@ import LanguageContent from "@site/src/components/language-content";
      * ***hasTombstone*** - true if either of the conflicted documents was deleted  
      * ***resolveToTombstone*** - return this value from script if the resolution wanted is to delete this document  
 
-</Admonition>
 
-<Admonition type="info" title="Script Examples" id="script-examples" href="#script-examples">
+
+## Script Examples
 
 <Admonition type="note" title="Note">
 
@@ -131,5 +126,5 @@ return result;
 </CodeBlock>
 </TabItem>
 </Admonition>
-</Admonition>
+
 

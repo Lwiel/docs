@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: AI Integration
----
-
 <Admonition type="note" title="Note">
 
 * The following configuration keys apply to integrating **AI-powered embeddings generation**:
@@ -27,10 +25,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Ai.Embeddings.MaxFallbackTimeInSec](../../server/configuration/ai-integration-configuration#ai.embeddings.maxfallbacktimeinsec)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Ai.Embeddings.MaxBatchSize" id="ai-embeddings-maxbatchsize" href="#ai-embeddings-maxbatchsize">
+## Ai.Embeddings.MaxBatchSize
 
 The maximum number of documents processed in a single batch by an embeddings generation task.  
 Higher values may improve throughput but can increase latency and require more resources and higher limits from the embeddings generation service.
@@ -39,9 +34,9 @@ Higher values may improve throughput but can increase latency and require more r
 - **Default**: `128`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Ai.Embeddings.MaxConcurrentBatches" id="ai-embeddings-maxconcurrentbatches" href="#ai-embeddings-maxconcurrentbatches">
+
+## Ai.Embeddings.MaxConcurrentBatches
 
 The maximum number of **query embedding batches** that can be processed concurrently.  
 This setting controls the degree of parallelism when sending query embedding requests to AI providers.  
@@ -52,9 +47,9 @@ Higher values may improve throughput but can increase resource usage and may tri
 - **Min value**: `1`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Ai.Embeddings.MaxFallbackTimeInSec" id="ai-embeddings-maxfallbacktimeinsec" href="#ai-embeddings-maxfallbacktimeinsec">
+
+## Ai.Embeddings.MaxFallbackTimeInSec
 
 The maximum time (in seconds) the embeddings generation task remains suspended (fallback mode) following a connection failure to the embeddings generation service.
 Once this time expires, the system will retry the connection automatically.
@@ -63,4 +58,4 @@ Once this time expires, the system will retry the connection automatically.
 - **Default**: `60 * 15`
 - **Scope**: Server-wide or per database
 
-</Admonition>
+

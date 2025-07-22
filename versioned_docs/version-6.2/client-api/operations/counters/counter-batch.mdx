@@ -11,13 +11,17 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "php", "nodejs"];
+
+
+# Counters Batch Operation
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Counters Batch Operation
+
 
 *CounterBatchOperation* allows you to operate on multiple counters (`Increment`, `Get`, `Delete`) of different documents in a **single request**.
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 <TabItem value="something-something" label="counter_batch_op">
 <CodeBlock language="csharp">
@@ -95,9 +99,9 @@ If `DocumentCountersOperation` doesn't contain any `CounterOperation` that affec
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Return Value" id="return-value" href="#return-value">
+
+## Return Value
 
 * *CounterBatchOperation* returns a `CountersDetail` object, which holds a list of `CounterDetail` objects.
 
@@ -129,15 +133,12 @@ If `DocumentCountersOperation` doesn't contain any `CounterOperation` that affec
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 Assume we have two documents, *"users/1"* and *"users/2"*, that hold 3 counters each -  
 *"likes"*, *"dislikes"* and *"downloads"* -  with values 10, 20 and 30 (respectively)
-
----
-
 ### Example #1 : Increment Multiple Counters in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl1">
@@ -230,9 +231,6 @@ Assume we have two documents, *"users/1"* and *"users/2"*, that hold 3 counters 
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #2 : Get Multiple Counters in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl2">
@@ -317,9 +315,6 @@ Assume we have two documents, *"users/1"* and *"users/2"*, that hold 3 counters 
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #3 : Delete Multiple Counters in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl3">
@@ -376,9 +371,6 @@ Assume we have two documents, *"users/1"* and *"users/2"*, that hold 3 counters 
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #4 : Mix Different Types of CounterOperations in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl4">
@@ -463,16 +455,16 @@ Assume we have two documents, *"users/1"* and *"users/2"*, that hold 3 counters 
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Counters Batch Operation
+
 
 *CounterBatchOperation* allows you to operate on multiple counters (`INCREMENT`, `GET`, `DELETE`) of different documents in a **single request**.
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 <TabItem value="something-something" label="counter_batch_op">
 <CodeBlock language="java">
@@ -553,9 +545,9 @@ If `DocumentCountersOperation` doesn't contain any `CounterOperation` that affec
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Return Value" id="return-value" href="#return-value">
+
+## Return Value
 
 * *CounterBatchOperation* returns a `CountersDetail` object, which holds a list of `CounterDetail` objects.
 
@@ -591,15 +583,12 @@ If `DocumentCountersOperation` doesn't contain any `CounterOperation` that affec
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 Assume we have two documents, *"users/1"* and *"users/2"*, that hold 3 counters each -  
 *"likes"*, *"dislikes"* and *"downloads"* -  with values 10, 20 and 30 (respectively)
-
----
-
 ### Example #1 : Increment Multiple Counters in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl1">
@@ -664,9 +653,6 @@ store.operations().send(new CounterBatchOperation(counterBatch));
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #2 : Get Multiple Counters in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl2">
@@ -728,9 +714,6 @@ store.operations().send(new CounterBatchOperation(counterBatch));
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #3 : Delete Multiple Counters in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl3">
@@ -767,9 +750,6 @@ store.operations().send(new CounterBatchOperation(counterBatch));
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #4 : Mix Different Types of CounterOperations in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl4">
@@ -826,16 +806,16 @@ store.operations().send(new CounterBatchOperation(counterBatch));
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Counters Batch Operation
+
 
 *CounterBatchOperation* allows you to operate on multiple counters (`Increment`, `Get`, `Delete`) of different documents in a **single request**.
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 <TabItem value="something-something" label="counter_batch_op">
 <CodeBlock language="php">
@@ -930,9 +910,9 @@ If `DocumentCountersOperation` doesn't contain any `CounterOperation` that affec
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Return Value" id="return-value" href="#return-value">
+
+## Return Value
 
 * *CounterBatchOperation* returns a `CountersDetail` object, which holds a list of `CounterDetail` objects.
 
@@ -976,15 +956,12 @@ class CounterDetailList extends TypedList
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 Assume we have two documents, `users/1` and `users/2`, that hold 3 counters each:  
 `likes`, `dislikes` and `downloads` -  with values 10, 20 and 30 (respectively)
-
----
-
 ### Example #1 : Increment Multiple Counters in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl1">
@@ -1048,9 +1025,6 @@ $store->operations()->send(new CounterBatchOperation($counterBatch));
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #2 : Get Multiple Counters in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl2">
@@ -1113,9 +1087,6 @@ $store->operations()->send(new CounterBatchOperation($counterBatch));
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #3 : Delete Multiple Counters in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl3">
@@ -1152,9 +1123,6 @@ $store->operations()->send(new CounterBatchOperation($counterBatch));
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #4 : Mix Different Types of CounterOperations in a Batch
 
 <TabItem value="something-something" label="counter_batch_exmpl4">
@@ -1211,16 +1179,16 @@ $store->operations()->send(new CounterBatchOperation($counterBatch));
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Counters Batch Operation
+
 
 *CounterBatchOperation* allows you to operate on multiple counters (`Increment`, `Get`, `Delete`) of different documents in a **single request**.
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -1289,9 +1257,9 @@ If `DocumentCountersOperation` doesn't contain any `CounterOperation` that affec
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Return Value" id="return-value" href="#return-value">
+
+## Return Value
 
 * *CounterBatchOperation* returns a `CountersDetail` object, which holds a list of `CounterDetail` objects.
 
@@ -1337,15 +1305,12 @@ If `DocumentCountersOperation` doesn't contain any `CounterOperation` that affec
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 Assume we have two documents, `users/1` and `users/2`, that hold 3 counters each -  
 _"Likes"_, _"Dislikes"_ and _"Downloads"_ -  with values 10, 20 and 30 (respectively)
-
----
-
 ### Example #1 : Increment Multiple Counters in a Batch
 
 <TabItem value="something-something" label="example_1">
@@ -1420,9 +1385,6 @@ const counters = result.counters;
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #2 : Get Multiple Counters in a Batch
 
 <TabItem value="something-something" label="example_2">
@@ -1497,9 +1459,6 @@ const counters = result.counters;
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #3 : Delete Multiple Counters in a Batch
 
 <TabItem value="something-something" label="example_3">
@@ -1549,9 +1508,6 @@ const counters = result.counters;
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Example #4 : Mix Different Types of CounterOperations in a Batch
 
 <TabItem value="something-something" label="example_4">
@@ -1621,7 +1577,7 @@ const counters = result.counters;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

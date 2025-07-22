@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # FAQ: Transaction Support in RavenDB
-
----
-
 <Admonition type="note" title="Note">  
 
 * In this page:
@@ -28,18 +25,15 @@ import LanguageContent from "@site/src/components/language-content";
   * [BASE for query operations](../../client-api/faq/transaction-support#base-for-query-operations)
 
 </Admonition>  
-
----
-
-<Admonition type="info" title="ACID storage" id="acid-storage" href="#acid-storage">
+## ACID storage
 
 All storage operations performed in RavenDB are fully ACID-compliant (Atomicity, Consistency, Isolation, Durability),  
 this is because internally RavenDB uses a storage engine called [Voron](../../server/storage/storage-engine), built specifically for RavenDB's usage,
 which guarantees all ACID properties, whether executed on document, index or local cluster data.
 
-</Admonition>
 
-<Admonition type="info" title="What is and what isn't a transaction" id="what-is-and-what-isn-t-a-transaction" href="#what-is-and-what-isn-t-a-transaction">
+
+## What is and what isn't a transaction
 
 * A transaction represents a set of operations executed against a database as a single, atomic, and isolated unit.
 
@@ -61,9 +55,9 @@ which guarantees all ACID properties, whether executed on document, index or loc
   It is entirely managed on the client side without maintaining a corresponding session state on the server. 
   The server does not reference or keep track of the session context.
 
-</Admonition>
 
-<Admonition type="info" title="Working with transactions in RavenDB" id="working-with-transactions-in-ravendb" href="#working-with-transactions-in-ravendb">
+
+## Working with transactions in RavenDB
 
 ### Single-node model
 
@@ -208,9 +202,9 @@ If a document got updated meanwhile by someone else then a `ConcurrencyException
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="ACID for document operations" id="acid-for-document-operations" href="#acid-for-document-operations">
+
+## ACID for document operations
 
 In RavenDB all actions performed on documents are fully ACID. 
 Each document operation or a batch of operations applied to a set of documents sent in a single HTTP request will execute in a single transaction.  
@@ -237,9 +231,9 @@ All of these constraints are guaranteed for each individual request made to the 
 In particular, every `Load` call is a separate transaction, and the [`SaveChanges`](../../client-api/session/saving-changes) 
 call will encapsulate all documents created, deleted, or modified within the session into a single transaction.
 
-</Admonition>
 
-<Admonition type="info" title="BASE for query operations" id="base-for-query-operations" href="#base-for-query-operations">
+
+## BASE for query operations
 
 The transaction model is different when indexes are involved, because indexes are BASE (Basically Available, Soft state, Eventual consistency), not ACID. 
 The indexing in RavenDB will always happen in the background. When you write a new document or update an existing one, RavenDB doesn't wait to update all the indexes before it completes the write operation.
@@ -269,5 +263,5 @@ The async nature of RavenDB indexes means that you need to be aware that, by def
 Although there are ways to wait for the indexes to complete as part of the write or even during the read (although that is not recommended). 
 Please read a dedicated article about the [stale indexes](../../indexes/stale-indexes).
 
-</Admonition>
+
 

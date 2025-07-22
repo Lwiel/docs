@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "nodejs"];
+
+
+# Set-Based Patch Operations
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Set-Based Patch Operations
+
 
 <Admonition type="note" title="Note">
 Sometimes we need to update a large number of documents matching certain criteria. A simple SQL query doing that will look like this:
@@ -31,7 +35,7 @@ In this page:
 </Admonition>
 
 
-<Admonition type="info" title="Syntax overview" id="syntax-overview" href="#syntax-overview">
+## Syntax overview
 
 ### Sending a Patch Request
 
@@ -72,9 +76,9 @@ In this page:
 | **queryToUpdate** | `IndexQuery`            | Object containing the query & the patching string,<br/>with the option to use parameters.                                                                                                  |
 | **options**       | `QueryOperationOptions` | Options defining how the operation will be performed and various constraints on how it is performed.<br/>Default: `null`                                                                   |
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 ### Update whole collection
 <TabItem value="something" label="update_value_in_whole_collection">
@@ -308,9 +312,9 @@ formattedResults.ForEach(Console.WriteLine);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Additional notes" id="additional-notes" href="#additional-notes">
+
+## Additional notes
 
 <Admonition type="note" title="Safe By Default" id="safe-by-default" href="#safe-by-default">
 
@@ -333,12 +337,12 @@ Each batch is handled in a separate write transaction.
 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Set-Based Patch Operations
+
 
 <Admonition type="note" title="Note">
 Sometimes we need to update a large number of documents matching certain criteria. A simple SQL query doing that will look like this:
@@ -356,7 +360,7 @@ In this page:
 </Admonition>
 
 
-<Admonition type="info" title="Syntax overview" id="syntax-overview" href="#syntax-overview">
+## Syntax overview
 
 ### Sending a Patch Request
 
@@ -398,9 +402,9 @@ public PatchByQueryOperation(IndexQuery queryToUpdate, QueryOperationOptions opt
 | **queryToUpdate** | `String` or `IndexQuery` | RQL query defining the update operation. The RQL query starts as any other RQL query with "from" and "update" statements. Later, it continues with an "update" clause in which you describe the Javascript patch code
 | **options** | `QueryOperationOptions` | Options defining how the operation will be performed and various constraints on how it is performed
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 ### Update whole collection
 <TabItem value="something-something" label="update_value_in_whole_collection">
@@ -566,9 +570,9 @@ operation.waitForCompletion();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Additional notes" id="additional-notes" href="#additional-notes">
+
+## Additional notes
 
 <Admonition type="note" title="Safe By Default" id="safe-by-default" href="#safe-by-default">
 
@@ -591,13 +595,11 @@ Each batch is handled in a separate write transaction.
 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Set-Based Patch Operations
----
 
 <Admonition type="note" title="Note">
 
@@ -624,17 +626,11 @@ Each batch is handled in a separate write transaction.
       * [PatchByQueryOperation syntax](../../../client-api/operations/patching/set-based#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 <Admonition type="note" title="Note">
 
 <a id="defining-set-based-patching"/> __Defining set-based patching__:  
-
----
-
   * In other databases, a simple SQL query that updates a set of documents can look like this:  
     `UPDATE Users SET IsActive = 0 WHERE LastLogin < '2020-01-01'`  
 
@@ -670,9 +666,6 @@ update  \{
 <Admonition type="note" title="Note">
 
 <a id="important-characteristics"/> __Important characteristics__:
-
----
-
 * __Transactional batches__:  
   The patching of documents matching a specified query is run in batches of size 1024.  
   Each batch is handled in a separate write transaction.
@@ -697,16 +690,13 @@ update  \{
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 <Admonition type="note" title="Note">
 
 <a id="update-by-collection-query"/> __Update by collection query__:
-
----
-
 <TabItem value="something-something" label="update_whole_collection">
 <CodeBlock language="nodejs">
 {`// Update all documents in a collection
@@ -731,9 +721,6 @@ const operation = await documentStore.operations.send(patchByQueryOp);
 <Admonition type="note" title="Note">
 
 <a id="update-by-collection-query---access-metadata"/> __Update by collection query - access metadata__:
-
----
-
 <TabItem value="something-something" label="update_collection_name">
 <CodeBlock language="nodejs">
 {`// Update the collection name for all documents in the collection
@@ -758,9 +745,6 @@ const operation = await documentStore.operations.send(patchByQueryOp);
 <Admonition type="note" title="Note">
 
 <a id="update-by-dynamic-query"/> __Update by dynamic query__:
-
----
-
 <TabItem value="something-something" label="update_by_dynamic_query">
 <CodeBlock language="nodejs">
 {`// Update all documents matching a dynamic query
@@ -785,9 +769,6 @@ const operation = await documentStore.operations.send(patchByQueryOp);
 <Admonition type="note" title="Note">
 
 <a id="update-by-static-index-query"/> __Update by static index query__:
-
----
-
 <Tabs groupId='languageSyntax'>
 <TabItem value="Update_by_static_index_query" label="Update_by_static_index_query">
 <CodeBlock language="nodejs">
@@ -827,9 +808,6 @@ const operation = await documentStore.operations.send(patchByQueryOp);
 <Admonition type="note" title="Note">
 
 <a id="update-all-documents"/> __Update all documents__:
-
----
-
 <TabItem value="something-something" label="update_all_documents">
 <CodeBlock language="nodejs">
 {`// Update all documents matching an @all_docs query
@@ -851,9 +829,6 @@ const operation = await documentStore.operations.send(patchByQueryOp);
 <Admonition type="note" title="Note">
 
 <a id="update-by-document-id"/> __Update by document ID__:
-
----
-
 <TabItem value="something-something" label="update_by_id">
 <CodeBlock language="nodejs">
 {`// Update all documents matching a query by ID
@@ -876,9 +851,6 @@ const operation = await documentStore.operations.send(patchByQueryOp);
 <Admonition type="note" title="Note">
 
 <a id="update-by-document-id-using-parameters"/> __Update by document ID using parameters__:
-
----
-
 <TabItem value="something-something" label="update_by_id_using_parameters">
 <CodeBlock language="nodejs">
 {`// Update all documents matching a query by ID using query parmeters
@@ -914,9 +886,6 @@ const operation = await documentStore.operations.send(patchByQueryOp);
 <Admonition type="note" title="Note">
 
 <a id="allow-updating-stale-results"/> __Allow updating stale results__:
-
----
-
 * Set `allowStale` to _true_ to allow patching of stale results.
 
 * The RQL in this example is using an auto-index.  
@@ -956,12 +925,9 @@ const operation = await documentStore.operations.send(patchByQueryOp);
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
 
----
-
+## Syntax
 #### Send syntax
 
 <TabItem value="something-something" label="syntax_1">
@@ -978,9 +944,6 @@ const operation = await documentStore.operations.send(patchByQueryOp);
 | Return value                          |                                                                                         |
 |---------------------------------------|-----------------------------------------------------------------------------------------|
 | `Promise<OperationCompletionAwaiter>` | A promise that resolves to an object that allows waiting for the operation to complete. |
-
----
-
 #### PatchByQueryOperation syntax
 
 <TabItem value="something-something" label="syntax_2">
@@ -1032,7 +995,7 @@ patchByQueryOp = new PatchByQueryOperation(queryToUpdate, options);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

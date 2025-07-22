@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Indexes: Additional Assemblies
-
----
-
 <Admonition type="note" title="Note">
 
 * Index capabilities can be expanded by importing whole libraries 
@@ -40,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
        * [Pre-Release Packages](../indexes/additional-assemblies#pre-release-packages)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+## Syntax
 
 Additional assemblies are defined using the `AdditionalAssembly` object.
 
@@ -74,9 +68,6 @@ Additional assemblies are defined using the `AdditionalAssembly` object.
 | **packageVersion** | `string` | The version number of the NuGet package - optional |
 | **packageSourceUrl** | `string` | The URL of the package's original source - optional |
 | **usings** | `HashSet<string>` | A set of namespaces to attach to the compiled index with `using` - optional |
-
----
-
 The `AdditionalAssembly`s are collected in `AdditionalAssemblies`, a property of 
 `IndexDefinition`:  
 
@@ -87,9 +78,9 @@ The `AdditionalAssembly`s are collected in `AdditionalAssemblies`, a property of
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Basic Example
 
@@ -184,5 +175,5 @@ Additional assemblies are allowed to include pre-release packages.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

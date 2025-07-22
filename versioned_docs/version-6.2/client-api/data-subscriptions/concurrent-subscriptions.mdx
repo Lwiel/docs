@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "nodejs"];
+
+
+# Concurrent Subscriptions
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Concurrent Subscriptions
----
 
 <Admonition type="note" title="Note">
 
@@ -34,10 +36,7 @@ import LanguageContent from "@site/src/components/language-content";
    * [Connection failure](../../client-api/data-subscriptions/concurrent-subscriptions#connection-failure)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Defining concurrent workers" id="defining-concurrent-workers" href="#defining-concurrent-workers">
+## Defining concurrent workers
 
 Concurrent workers are defined similarly to other workers, except their 
 [strategy](../../client-api/data-subscriptions/consumption/how-to-consume-data-subscription#worker-strategies) 
@@ -96,9 +95,9 @@ var subscriptionRuntimeTask2 = subscriptionWorker2.Run(batch =>
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Dropping a connection" id="dropping-a-connection" href="#dropping-a-connection">
+
+## Dropping a connection
 
 * Use `Subscriptions.DropSubscriptionWorker` to **forcefully disconnect** 
   the specified worker from the subscription it is connected to.  
@@ -118,9 +117,9 @@ store.Subscriptions.DropSubscriptionWorker(subscriptionWorker2);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Connection failure" id="connection-failure" href="#connection-failure">
+
+## Connection failure
 
 * When a concurrent worker's connection ends unexpectedly, 
   the server may reassign the documents this worker has been processing to any other concurrent worker that is available.  
@@ -130,13 +129,11 @@ store.Subscriptions.DropSubscriptionWorker(subscriptionWorker2);
   - first by a worker that disconnected unexpectedly without acknowledging the completion of its assigned documents, 
   - and later by other workers the documents are reassigned to.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Concurrent Subscriptions
----
 
 <Admonition type="note" title="Note">
 
@@ -156,10 +153,7 @@ store.Subscriptions.DropSubscriptionWorker(subscriptionWorker2);
    * [Connection failure](../../client-api/data-subscriptions/concurrent-subscriptions#connection-failure)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Defining concurrent workers" id="defining-concurrent-workers" href="#defining-concurrent-workers">
+## Defining concurrent workers
 
 Concurrent workers are defined similarly to other workers, except their 
 [strategy](../../client-api/data-subscriptions/consumption/how-to-consume-data-subscription#worker-strategies) 
@@ -219,9 +213,9 @@ worker2.on("batch", (batch, callback) => \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Dropping a connection" id="dropping-a-connection" href="#dropping-a-connection">
+
+## Dropping a connection
 
 * Use `dropSubscriptionWorker` to **forcefully disconnect**
   the specified worker from the subscription it is connected to.
@@ -247,9 +241,9 @@ dropSubscriptionWorker(worker, database);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Connection failure" id="connection-failure" href="#connection-failure">
+
+## Connection failure
 
 * When a concurrent worker's connection ends unexpectedly, 
   the server may reassign the documents this worker has been processing to any other concurrent worker that is available.  
@@ -259,7 +253,7 @@ dropSubscriptionWorker(worker, database);
   - first by a worker that disconnected unexpectedly without acknowledging the completion of its assigned documents, 
   - and later by other workers the documents are reassigned to.
 
-</Admonition>
+
 
 
 </LanguageContent>

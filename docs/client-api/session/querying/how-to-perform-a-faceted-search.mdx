@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Perform a Faceted (Aggregated) Search
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
 
----
+
+# Perform a Faceted (Aggregated) Search
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -27,12 +28,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 </Admonition>
 
----
-
-
 </LanguageContent>
 <LanguageContent language="java">
-# Session: Querying: How to Perform a Faceted (Aggregated) Search
+
 
 To execute facet (aggregation) query using the session `query` method, use the `aggregateBy` or `aggregateUsing` methods. This will scope you to the aggregation query builder where you will be allowed to define single or multiple facets for the query using a straightforward and fluent API.
 
@@ -369,7 +367,7 @@ select facet(id('facets/CameraFacets'))
 
 </LanguageContent>
 <LanguageContent language="python">
-# Session: Querying: How to Perform a Faceted (Aggregated) Search
+
 
 To execute facet (aggregation) query via the session `query` method, use `aggregate_by`, 
 `aggregate_by_facets`, or `aggregate_using`.  
@@ -637,9 +635,6 @@ select facet(id('facets/CameraFacets'))
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 <Admonition type="info" title="Info">
 `aggregate_by` only supports aggregation by a single field.  
 If you want to aggregate by multiple fields, emit a single field that contains all values. 
@@ -648,9 +643,6 @@ If you want to aggregate by multiple fields, emit a single field that contains a
 
 </LanguageContent>
 <LanguageContent language="php">
-# Perform a Faceted (Aggregated) Search
-
----
 
 <Admonition type="note" title="Note">
 
@@ -662,14 +654,8 @@ If you want to aggregate by multiple fields, emit a single field that contains a
 
 </Admonition>
 
----
-
-
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Perform a Faceted (Aggregated) Search
-
----
 
 <Admonition type="note" title="Note">
 
@@ -680,8 +666,5 @@ If you want to aggregate by multiple fields, emit a single field that contains a
   Please refer to article **Query by Facets** under [Indexes &gt; Querying &gt; Faceted search](../../../indexes/querying/faceted-search).
 
 </Admonition>
-
----
-
 
 </LanguageContent>

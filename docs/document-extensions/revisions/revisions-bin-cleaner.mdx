@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Revisions Bin Cleaner
----
-
 <Admonition type="note" title="Note">
 
 * The [Revisions Bin](../../studio/database/document-extensions/revisions/revisions-bin) stores revisions of deleted documents, ensuring they remain accessible.
@@ -30,10 +28,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../document-extensions/revisions/revisions-bin-cleaner#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="The revisions bin cleaner" id="the-revisions-bin-cleaner" href="#the-revisions-bin-cleaner">
+## The revisions bin cleaner
     
 Each entry in the [Revisions Bin](../../studio/database/document-extensions/revisions/revisions-bin) represents a "Delete Revision",
 which is a revision that marks a document as deleted and provides access to the revisions that were created for the document before it was deleted.
@@ -42,9 +37,6 @@ which is a revision that marks a document as deleted and provides access to the 
 When the cleaner removes a "Delete Revision" entry,  
 ALL the revisions associated with the deleted document are **permanently deleted**.
 </Admonition>
-
----
-
 * The Revisions Bin Cleaner is configured with the following parameters:
     * **Frequency** - How often the cleaner runs.
     * **Entries age to keep** - The cleaner deletes revision entries older than this value.
@@ -57,9 +49,9 @@ ALL the revisions associated with the deleted document are **permanently deleted
    * Configuring the Revisions Bin Cleaner is logged in the [audit log](../../server/security/audit-log/audit-log).
    * Deleting revisions is only available to a client certificate with a security clearance of [Database Admin](../../server/security/authorization/security-clearance-and-permissions#section) or higher.
 
-</Admonition>
 
-<Admonition type="info" title="Setting the revisions bin cleaner - from the Studio" id="setting-the-revisions-bin-cleaner-from-the-studio" href="#setting-the-revisions-bin-cleaner-from-the-studio">
+
+## Setting the revisions bin cleaner - from the Studio
 
 ![Revisions bin cleaner view](./assets/revisions-bin-cleaner.png)
 
@@ -75,9 +67,9 @@ ALL the revisions associated with the deleted document are **permanently deleted
    * Define how often (in seconds) the Revisions Bin Cleaner runs.
    * Default: `300` seconds (5 minutes).
 
-</Admonition>
 
-<Admonition type="info" title="Setting the revisions bin cleaner - from the Client API" id="setting-the-revisions-bin-cleaner-from-the-client-api" href="#setting-the-revisions-bin-cleaner-from-the-client-api">
+
+## Setting the revisions bin cleaner - from the Client API
 
 * Use `ConfigureRevisionsBinCleanerOperation` to configure the Revisions Bin Cleaner from the Client API.
 
@@ -126,9 +118,9 @@ await store.Maintenance.SendAsync(configRevisionsBinCleanerOp);
 </TabItem>
     </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="csharp">
@@ -158,5 +150,5 @@ await store.Maintenance.SendAsync(configRevisionsBinCleanerOp);
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

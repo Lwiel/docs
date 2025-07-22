@@ -11,9 +11,13 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "php", "nodejs"];
+
+
+# Session: How to Get the Current Session Node
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Session: How to Get the Current Session Node
+
 
 When working in a RavenDB cluster, a database can reside on multiple nodes.  
 When the client needs to send a request to the server, it can have several nodes to choose from.
@@ -71,7 +75,7 @@ Console.WriteLine(serverNode.Url);
 
 </LanguageContent>
 <LanguageContent language="java">
-# Session: How to Get the Current Session Node
+
 
 When working in a RavenDB cluster, a database can reside on multiple nodes.  
 When the client needs to send a request to the server, it can have several nodes to choose from.
@@ -128,7 +132,7 @@ System.out.println(serverNode.getUrl());
 
 </LanguageContent>
 <LanguageContent language="php">
-# Session: How to Get the Current Session Node
+
 
 When working in a RavenDB cluster, a database can reside on multiple nodes.  
 When the client needs to send a request to the server, it can have several nodes to choose from.
@@ -193,7 +197,7 @@ echo $serverNode->getUrl();
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Session: How to Get the Current Session Node
+
 
 When working in a RavenDB cluster, a database can reside on multiple nodes.  
 When the client needs to send a request to the server, it can have several nodes to choose from.

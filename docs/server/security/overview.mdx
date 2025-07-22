@@ -15,7 +15,7 @@ import LanguageContent from "@site/src/components/language-content";
 
 In the security section, we will review the security features in RavenDB and explain how to manage your secured server or cluster.
 
-<Admonition type="info" title="Authentication" id="authentication" href="#authentication">
+## Authentication
 
 RavenDB uses X.509 certificate-based authentication. 
 X.509 certificates are standardized, secured and widely used in many applications. They allow you to use TLS/SSL and HTTPS which keeps your communications encrypted and secured.
@@ -44,9 +44,9 @@ In the Studio, administrators can use the [Certificates View](../../server/secur
 - [Let's Encrypt Certificates](../../server/security/authentication/lets-encrypt-certificates)
 - [Common Errors & FAQ](../../server/security/common-errors-and-faq)
 
-</Admonition>
 
-<Admonition type="info" title="Authorization" id="authorization" href="#authorization">
+
+## Authorization
 
 Authorization in RavenDB is based on the same X.509 certificates.
 
@@ -56,9 +56,9 @@ Every client certificate is associated with a security clearance and access perm
 
 - [Security Clearance & Permissions](../../server/security/authorization/security-clearance-and-permissions)
 
-</Admonition>
 
-<Admonition type="info" title="Encryption" id="encryption" href="#encryption">
+
+## Encryption
 
 RavenDB offers full database encryption using [libsodium](https://download.libsodium.org/doc/), a well-known battle tested encryption library. 
 
@@ -73,5 +73,5 @@ When database encryption is on, all the features of a database are automatically
 - [Server Store Encryption](../../server/security/encryption/server-store-encryption)
 - [Secret Key Management](../../server/security/encryption/secret-key-management)
 
-</Admonition>
+
 

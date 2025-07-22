@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Read balance behavior
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
- ---
+
+# Read balance behavior
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -37,10 +38,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [When to use](../../../client-api/configuration/load-balance/read-balance-behavior#when-to-use)
      
 </Admonition>
-
----
-
-<Admonition type="info" title="readBalanceBehavior options " id="readbalancebehavior-options" href="#readbalancebehavior-options">
+## readBalanceBehavior options 
 
 ### `None` (default option)
 
@@ -49,9 +47,6 @@ import LanguageContent from "@site/src/components/language-content";
     The client will always send _Read_ requests to the [preferred node](../../../client-api/configuration/load-balance/overview#the-preferred-node).
   * **Failover**  
     The client will failover nodes in the order they appear in the [topology nodes list](../../../studio/database/settings/manage-database-group#database-group-topology---actions).
-
----
-
 ### `RoundRobin`
 
 * **Read-balance**
@@ -63,9 +58,6 @@ import LanguageContent from "@site/src/components/language-content";
     will go to the preferred node.  
 * **Failover**  
   In case of a failure, the client will try the next node from the topology nodes list.  
-
----
-
 ### `FastestNode`
 
   * **Read-balance**  
@@ -75,9 +67,9 @@ import LanguageContent from "@site/src/components/language-content";
     In case of a failure, a speed test will be triggered again,  
     and in the meantime the client will use the preferred node.
 
-</Admonition>
 
-<Admonition type="info" title="Initialize ReadBalanceBehavior on the client " id="initialize-readbalancebehavior-on-the-client" href="#initialize-readbalancebehavior-on-the-client">
+
+## Initialize ReadBalanceBehavior on the client 
 
 * The `ReadBalanceBehavior` convention can be set **on the client** when initializing the Document Store.  
   This will set the read balance behavior for the default database that is set on the store.  
@@ -103,9 +95,9 @@ var documentStore = new DocumentStore
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set ReadBalanceBehavior on the server " id="set-readbalancebehavior-on-the-server" href="#set-readbalancebehavior-on-the-server">
+
+## Set ReadBalanceBehavior on the server 
 
 #### Set ReadBalanceBehavior on the server - by operation:
 
@@ -177,9 +169,9 @@ using (documentStore)
 * Once configuration on the server has changed, the running client will get updated with the new settings.  
   See [keeping client up-to-date](../../../client-api/configuration/load-balance/overview#keeping-the-client-topology-up-to-date).  
 
-</Admonition>
 
-<Admonition type="info" title="When to use " id="when-to-use" href="#when-to-use">
+
+## When to use 
 
 * Setting the read balance behavior is beneficial when you only care about distributing the _Read_ requests among the cluster nodes,
   and when all _Write_ requests can go to the same node.
@@ -187,14 +179,11 @@ using (documentStore)
 * Using the 'FastestNode' option is beneficial when some nodes in the system are known to be faster than others,
   thus letting the fastest node serve each read request.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Read balance behavior
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -216,10 +205,7 @@ using (documentStore)
     * [When to use](../../../client-api/configuration/load-balance/read-balance-behavior#when-to-use)
      
 </Admonition>
-
----
-
-<Admonition type="info" title="readBalanceBehavior options " id="readbalancebehavior-options" href="#readbalancebehavior-options">
+## readBalanceBehavior options 
 
 ### `None` (default option)
 
@@ -228,9 +214,6 @@ using (documentStore)
     The client will always send _Read_ requests to the [preferred node](../../../client-api/configuration/load-balance/overview#the-preferred-node).
   * **Failover**  
     The client will failover nodes in the order they appear in the [topology nodes list](../../../studio/database/settings/manage-database-group#database-group-topology---actions).
-
----
-
 ### `RoundRobin`
 
 * **Read-balance**
@@ -242,9 +225,6 @@ using (documentStore)
     will go to the preferred node.  
 * **Failover**  
   In case of a failure, the client will try the next node from the topology nodes list.  
-
----
-
 ### `FastestNode`
 
   * **Read-balance**  
@@ -254,9 +234,9 @@ using (documentStore)
     In case of a failure, a speed test will be triggered again,  
     and in the meantime the client will use the preferred node.
 
-</Admonition>
 
-<Admonition type="info" title="Initialize ReadBalanceBehavior on the client " id="initialize-readbalancebehavior-on-the-client" href="#initialize-readbalancebehavior-on-the-client">
+
+## Initialize ReadBalanceBehavior on the client 
 
 * The `ReadBalanceBehavior` convention can be set **on the client** when initializing the Document Store.  
   This will set the read balance behavior for the default database that is set on the store.  
@@ -281,9 +261,9 @@ document_store.conventions = conventions
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set ReadBalanceBehavior on the server " id="set-readbalancebehavior-on-the-server" href="#set-readbalancebehavior-on-the-server">
+
+## Set ReadBalanceBehavior on the server 
 
 #### Set ReadBalanceBehavior on the server - by operation:
 
@@ -347,9 +327,9 @@ with document_store:
 * Once configuration on the server has changed, the running client will get updated with the new settings.  
   See [keeping client up-to-date](../../../client-api/configuration/load-balance/overview#keeping-the-client-topology-up-to-date).  
 
-</Admonition>
 
-<Admonition type="info" title="When to use " id="when-to-use" href="#when-to-use">
+
+## When to use 
 
 * Setting the read balance behavior is beneficial when you only care about distributing the _Read_ requests among the cluster nodes,
   and when all _Write_ requests can go to the same node.
@@ -357,14 +337,11 @@ with document_store:
 * Using the 'FastestNode' option is beneficial when some nodes in the system are known to be faster than others,
   thus letting the fastest node serve each read request.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Read balance behavior
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -386,10 +363,7 @@ with document_store:
     * [When to use](../../../client-api/configuration/load-balance/read-balance-behavior#when-to-use)
      
 </Admonition>
-
----
-
-<Admonition type="info" title="readBalanceBehavior options " id="readbalancebehavior-options" href="#readbalancebehavior-options">
+## readBalanceBehavior options 
 
 ### `None` (default option)
 
@@ -398,9 +372,6 @@ with document_store:
     The client will always send _Read_ requests to the [preferred node](../../../client-api/configuration/load-balance/overview#the-preferred-node).
   * **Failover**  
     The client will failover nodes in the order they appear in the [topology nodes list](../../../studio/database/settings/manage-database-group#database-group-topology---actions).
-
----
-
 ### `RoundRobin`
 
 * **Read-balance**
@@ -412,9 +383,6 @@ with document_store:
     will go to the preferred node.  
 * **Failover**  
   In case of a failure, the client will try the next node from the topology nodes list.  
-
----
-
 ### `FastestNode`
 
   * **Read-balance**  
@@ -424,9 +392,9 @@ with document_store:
     In case of a failure, a speed test will be triggered again,  
     and in the meantime the client will use the preferred node.
 
-</Admonition>
 
-<Admonition type="info" title="Initialize ReadBalanceBehavior on the client " id="initialize-readbalancebehavior-on-the-client" href="#initialize-readbalancebehavior-on-the-client">
+
+## Initialize ReadBalanceBehavior on the client 
 
 * The `ReadBalanceBehavior` convention can be set **on the client** when initializing the Document Store.  
   This will set the read balance behavior for the default database that is set on the store.  
@@ -450,9 +418,9 @@ $documentStore->initialize();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set ReadBalanceBehavior on the server " id="set-readbalancebehavior-on-the-server" href="#set-readbalancebehavior-on-the-server">
+
+## Set ReadBalanceBehavior on the server 
 
 #### Set ReadBalanceBehavior on the server - by operation:
 
@@ -525,9 +493,9 @@ try {
 * Once configuration on the server has changed, the running client will get updated with the new settings.  
   See [keeping client up-to-date](../../../client-api/configuration/load-balance/overview#keeping-the-client-topology-up-to-date).  
 
-</Admonition>
 
-<Admonition type="info" title="When to use " id="when-to-use" href="#when-to-use">
+
+## When to use 
 
 * Setting the read balance behavior is beneficial when you only care about distributing the _Read_ requests among the cluster nodes,
   and when all _Write_ requests can go to the same node.
@@ -535,14 +503,11 @@ try {
 * Using the 'FastestNode' option is beneficial when some nodes in the system are known to be faster than others,
   thus letting the fastest node serve each read request.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Read balance behavior
-
- ---
 
 <Admonition type="note" title="Note">
 
@@ -564,10 +529,7 @@ try {
     * [When to use](../../../client-api/configuration/load-balance/read-balance-behavior#when-to-use)
      
 </Admonition>
-
----
-
-<Admonition type="info" title="readBalanceBehavior options " id="readbalancebehavior-options" href="#readbalancebehavior-options">
+## readBalanceBehavior options 
 
 ### `None` (default option)
 
@@ -576,9 +538,6 @@ try {
     The client will always send _Read_ requests to the [preferred node](../../../client-api/configuration/load-balance/overview#the-preferred-node).
   * **Failover**  
     The client will failover nodes in the order they appear in the [topology nodes list](../../../studio/database/settings/manage-database-group#database-group-topology---actions).
-
----
-
 ### `RoundRobin`
 
 * **Read-balance**
@@ -590,9 +549,6 @@ try {
     will go to the preferred node.  
 * **Failover**  
   In case of a failure, the client will try the next node from the topology nodes list.  
-
----
-
 ### `FastestNode`
 
   * **Read-balance**  
@@ -602,9 +558,9 @@ try {
     In case of a failure, a speed test will be triggered again,  
     and in the meantime the client will use the preferred node.
 
-</Admonition>
 
-<Admonition type="info" title="Initialize readBalanceBehavior on the client " id="initialize-readbalancebehavior-on-the-client" href="#initialize-readbalancebehavior-on-the-client">
+
+## Initialize readBalanceBehavior on the client 
 
 * The `readBalanceBehavior` convention can be set **on the client** when initializing the Document Store.  
   This will set the read balance behavior for the default database that is set on the store.  
@@ -629,9 +585,9 @@ documentStore.initialize();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Set readBalanceBehavior on the server " id="set-readbalancebehavior-on-the-server" href="#set-readbalancebehavior-on-the-server">
+
+## Set readBalanceBehavior on the server 
 
 #### Set readBalanceBehavior on the server - by operation:
 
@@ -690,9 +646,6 @@ await documentStore.maintenance.server.send(putConfigurationOp);
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Set readBalanceBehavior on the server - from Studio:
 
 * The `readBalanceBehavior` configuration can be set from the Studio's [Client Configuration view](../../../studio/database/settings/client-configuration-per-database).  
@@ -701,9 +654,9 @@ await documentStore.maintenance.server.send(putConfigurationOp);
 * Once configuration on the server has changed, the running client will get updated with the new settings.  
   See [keeping client up-to-date](../../../client-api/configuration/load-balance/overview#keeping-the-client-topology-up-to-date).  
 
-</Admonition>
 
-<Admonition type="info" title="When to use " id="when-to-use" href="#when-to-use">
+
+## When to use 
 
 * Setting the read balance behavior is beneficial when you only care about distributing the _Read_ requests among the cluster nodes,
   and when all _Write_ requests can go to the same node.
@@ -711,7 +664,7 @@ await documentStore.maintenance.server.send(putConfigurationOp);
 * Using the 'FastestNode' option is beneficial when some nodes in the system are known to be faster than others,
   thus letting the fastest node serve each read request.
 
-</Admonition>
+
 
 
 </LanguageContent>

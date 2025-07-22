@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
+
+
+# Toggle Databases State Operation  (Enable / Disable)
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Toggle Databases State Operation <br/> (Enable / Disable)
----
 
 <Admonition type="note" title="Note">
 
@@ -31,10 +33,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Disable database via the file system](../../../client-api/operations/server-wide/toggle-databases-state#disable-database-via-the-file-system)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Enable/Disable database from the Client API" id="enable-disable-database-from-the-client-api" href="#enable-disable-database-from-the-client-api">
+## Enable/Disable database from the Client API
 
 #### Enable database:  
 
@@ -66,9 +65,6 @@ var toggleResult = await documentStore.Maintenance.Server.SendAsync(enableDataba
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Disable database: 
 
 <Tabs groupId='languageSyntax'>
@@ -99,9 +95,6 @@ var toggleResult = await documentStore.Maintenance.Server.SendAsync(disableDatab
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Syntax: 
 
 <TabItem value="something" label="syntax_1">
@@ -133,9 +126,9 @@ public class DisableDatabaseToggleResult
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable database via the file system" id="disable-database-via-the-file-system" href="#disable-database-via-the-file-system">
+
+## Disable database via the file system
 
 It may sometimes be useful to disable a database manually, through the file system.  
 
@@ -156,13 +149,11 @@ It may sometimes be useful to disable a database manually, through the file syst
   * First, remove the `disable.marker` file from the database directory. 
   * Then, [reload the database](../../../studio/database/settings/database-settings#how-to-reload-the-database).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Toggle Databases State Operation <br/> (Enable / Disable)
----
 
 <Admonition type="note" title="Note">
 
@@ -179,10 +170,7 @@ It may sometimes be useful to disable a database manually, through the file syst
   * [Disable database via the file system](../../../client-api/operations/server-wide/toggle-databases-state#disable-database-via-the-file-system)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Enable/Disable database from the Client API" id="enable-disable-database-from-the-client-api" href="#enable-disable-database-from-the-client-api">
+## Enable/Disable database from the Client API
 
 #### Enable database:  
 
@@ -200,9 +188,6 @@ toggle_result = store.maintenance.server.send(enable_database_op)
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Disable database: 
 
 <TabItem value="something-something" label="disable">
@@ -219,9 +204,6 @@ toggle_result = store.maintenance.server.send(disable_database_op)
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax: 
 
 <TabItem value="something-something" label="syntax_1">
@@ -254,9 +236,9 @@ toggle_result = store.maintenance.server.send(disable_database_op)
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable database via the file system" id="disable-database-via-the-file-system" href="#disable-database-via-the-file-system">
+
+## Disable database via the file system
 
 It may sometimes be useful to disable a database manually, through the file system.  
 
@@ -277,13 +259,11 @@ It may sometimes be useful to disable a database manually, through the file syst
   * First, remove the `disable.marker` file from the database directory. 
   * Then, [reload the database](../../../studio/database/settings/database-settings#how-to-reload-the-database).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Toggle Databases State Operation <br/> (Enable / Disable)
----
 
 <Admonition type="note" title="Note">
 
@@ -300,10 +280,7 @@ It may sometimes be useful to disable a database manually, through the file syst
   * [Disable database via the file system](../../../client-api/operations/server-wide/toggle-databases-state#disable-database-via-the-file-system)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Enable/Disable database from the Client API" id="enable-disable-database-from-the-client-api" href="#enable-disable-database-from-the-client-api">
+## Enable/Disable database from the Client API
 
 #### Enable database:  
 
@@ -322,9 +299,6 @@ $toggleResult = $documentStore->maintenance()->server()->send($enableDatabaseOp)
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Disable database: 
 
 <TabItem value="something-something" label="disable">
@@ -342,9 +316,6 @@ $toggleResult = $documentStore->maintenance()->server()->send($disableDatabaseOp
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Syntax: 
 
 <TabItem value="something-something" label="syntax_1">
@@ -376,9 +347,9 @@ $toggleResult = $documentStore->maintenance()->server()->send($disableDatabaseOp
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Disable database via the file system" id="disable-database-via-the-file-system" href="#disable-database-via-the-file-system">
+
+## Disable database via the file system
 
 It may sometimes be useful to disable a database manually, through the file system.  
 
@@ -399,13 +370,11 @@ It may sometimes be useful to disable a database manually, through the file syst
   * First, remove the `disable.marker` file from the database directory. 
   * Then, [reload the database](../../../studio/database/settings/database-settings#how-to-reload-the-database).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Toggle Databases State Operation <br/> (Enable / Disable)
----
 
 <Admonition type="note" title="Note">
 
@@ -422,11 +391,7 @@ It may sometimes be useful to disable a database manually, through the file syst
     * [Disable database via the file system](../../../client-api/operations/server-wide/toggle-databases-state#disable-database-via-the-file-system)
 
 </Admonition>
-
----
-
-
-<Admonition type="info" title="Enable/Disable database from the Client API" id="enable-disable-database-from-the-client-api" href="#enable-disable-database-from-the-client-api">
+## Enable/Disable database from the Client API
 
 <Admonition type="note" title="Note">
 
@@ -503,9 +468,9 @@ const enableDatabaseOp = new ToggleDatabasesStateOperation(databaseNames, disabl
 </TabItem>
 
 </Admonition>
-</Admonition>
 
-<Admonition type="info" title="Disable database via the file system" id="disable-database-via-the-file-system" href="#disable-database-via-the-file-system">
+
+## Disable database via the file system
 
 It may sometimes be useful to disable a database manually, through the file system.
 
@@ -526,7 +491,7 @@ It may sometimes be useful to disable a database manually, through the file syst
     * First, remove the `disable.marker` file from the database directory.
     * Then, [reload the database](../../../studio/database/settings/database-settings#how-to-reload-the-database).
 
-</Admonition>
+
 
 
 </LanguageContent>

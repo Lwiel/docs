@@ -33,7 +33,7 @@ and [Production](../../cloud/cloud-overview#the-production-tier).
      - [Maintenance and Danger Zones: Terminate and Restart your Instance](../../cloud/portal/cloud-portal-products-tab#maintenance-and-danger-zones-terminate-and-restart-your-instance)  
 </Admonition>
 
-<Admonition type="info" title="Provisioning a New Product" id="provisioning-a-new-product" href="#provisioning-a-new-product">
+## Provisioning a New Product
 
 To provision a new product, open your Portal's Products tab and click **Add Product**.
 
@@ -45,9 +45,6 @@ A. [Plan](../../cloud/portal/cloud-portal-products-tab#a.-new-product-plan)
 B. [Billing](../../cloud/portal/cloud-portal-products-tab#b.-new-product-billing)  
 C. [Customize](../../cloud/portal/cloud-portal-products-tab#c.-new-product-customize)  
 D. [Summary](../../cloud/portal/cloud-portal-products-tab#d.-new-product-summary)  
-
----
-
 #### A. New Product: Plan
 Use the Plan page to choose your product's cloud **Provider**, **Region** and **Tier**.  
 
@@ -68,17 +65,11 @@ Use the Plan page to choose your product's cloud **Provider**, **Region** and **
   a [Development node](../../cloud/cloud-instances#a-development-cloud-server) or a 
   [Production cluster](../../cloud/cloud-instances#a-production-cloud-cluster).  
   Learn more about them in the [Tiers and Instances](../../cloud/cloud-instances) page.  
-
----
-
 #### B. New Product: Billing
 Enter your billing details and click Next,  
 or click **Skip Billing Information** to evaluate the cloud service using a basic free product.  
 
 !["Figure 3 - New Product: Billing"](./assets/portal-product-create-billing-section.png)
-
----
-
 #### C. New Product: Customize
 Choose your product's display name, release channel and allowed IP addresses.
 
@@ -90,15 +81,10 @@ The **Display Name** is simply the name that would appear in your Cloud Products
   This adds an important layer to your database security on the network level.
   You can read more about it in the [Security](../cloud-security#access-your-product) page.
 </Admonition>
-  ---
-
 #### D. New Product: Summary  
 The Summary stage shows you your choices and lets you edit them if you wish.
 
 !["Figure 5 - New Product: Summary"](./assets/portal-product-create-summary-section.png)
-
----
-
 When you finish defining your product, the cloud provisioning routine will show you 
 your new product's status until it's ready to go.  
 
@@ -106,22 +92,16 @@ your new product's status until it's ready to go.
 
 !["Figure 7 - New Product: Active"](./assets/portal-product-list-product-active.png)
 
-</Admonition>
 
----
-
-<Admonition type="info" title="View the Product Metrics" id="view-the-product-metrics" href="#view-the-product-metrics">
+## View the Product Metrics
 
 !["Figure 8 - Product Metrics: General View"](./assets/portal-product-details-metrics.png)
 
 This allows you to analyse your machine resources for a selected time period and cluster node.
 It's useful for analysing usage, instance overload and traffic.
 
-</Admonition>
 
----
-
-<Admonition type="info" title="View the Cluster Health" id="view-the-cluster-health" href="#view-the-cluster-health">
+## View the Cluster Health
 
 !["Figure 9 - Cluster Health: General View"](./assets/portal-product-details-cluster-health.png)
 
@@ -131,11 +111,8 @@ It's useful for analysing usage, instance overload and traffic.
 
 More details can be found [here](../cloud-maintenance-troubleshooting#cluster-health).
 
-</Admonition>
 
----
-
-<Admonition type="info" title="Managing an Existing Product" id="managing-an-existing-product" href="#managing-an-existing-product">
+## Managing an Existing Product
   
 To modify an existing product, find it in the Products tab and click its Manage button.  
 
@@ -144,33 +121,22 @@ To modify an existing product, find it in the Products tab and click its Manage 
 This is a general view of the product details page:
 
 !["Figure 11 - Product Details"](./assets/portal-product-details.png "Figure 11 - Manage Product: Product Details")
-
----
-
 ### Change Instance Type and Storage  
 You can view your configuration and change your product's instance type and storage size here.  
 
 !["Figure 12 - Manage Product tab"](./assets/portal-product-details-instance-parameters.png)
-
----
-
 * **Change Instance Type**  
   Use sliders to set your desired configuration. This can be changed later as you need to scale to changing data processing needs.
 
 !["Figure 13 - Manage Product: Scale"](./assets/portal-product-details-edit-tier.png)
 
   More details can be found [here](../cloud-scaling#change-instance-type).
-
----
-
 * **Change Storage**  
   Use this slider to modify your product's storage.  
 
 !["Figure 14 - Manage Product: Storage"](./assets/portal-product-details-edit-storage.png)
 
   More details can be found [here](../cloud-scaling#change-storage).
-
----
 ### Instance Access
 
 * **Open Studio**  
@@ -211,9 +177,6 @@ allowed to connect your database instance.
   trusted sources, e.g. your application servers. 
   More details can be found in the [Security](../cloud-security#access-your-product) page.
   </Admonition>
-
----
-
 ### Manage features
 
 You can view features available for your product, enable, disable and configure them here.  
@@ -227,9 +190,6 @@ After enabling features some of them must be configured to work properly.
 !["Figure 19 - Manage Features: Configure or disable features"](./assets/portal-product-features-enabled.png)
 
 Available features are described on [Product Features](../cloud-features) page.
-
----
-
 ### Nodes: Additional product nodes
 
 You can expand your cluster by adding *more product nodes* to your cluster. This helps improve *High Availability* and *task/load balancing*.
@@ -237,23 +197,14 @@ You can expand your cluster by adding *more product nodes* to your cluster. This
 !["Figure 20 - Nodes: Manage additional nodes"](./assets/portal-product-nodes-additional-nodes.png)
 
 More details can be found [here](../cloud-scaling#additional-product-nodes---general).
-
----
-
 ### Maintenance and Danger Zones: Terminate and Restart your Instance
 You can restart your product nodes, deploy additional tools and terminate your product here.
 
 !["Figure 21 - Manage Product: Maintenance and Termination"](./assets/portal-product-details-maintenance-and-termination.png)
-
----
-
 * **Maintenance Zone**  
   Use this tab to restart selected node and deploy RavenDB tools.
 
 !["Figure 22 - Manage Product: Storage"](./assets/portal-product-details-maintenance-zone.png)
-
----
-
 * **Danger Zone**  
   Use this tab's **Terminate** button to eliminate your cluster.
 
@@ -263,19 +214,4 @@ You can restart your product nodes, deploy additional tools and terminate your p
   Terminating your instance is **irreversible**. Your data and cluster properties will be permanently lost.  
   </Admonition>
 
----
 
-</Admonition>
-
-## Related Articles
-
-[Overview](../../cloud/cloud-overview)  
-  
-[The Backups Tab](../../cloud/portal/cloud-portal-backups-tab)  
-[The Billing & Costs Tab](../../cloud/portal/cloud-portal-billing-tab)  
-[The Support Tab](../../cloud/portal/cloud-portal-support-tab)  
-[The Account Tab](../../cloud/portal/cloud-portal-account-tab)  
-  
-**Links**  
-[Register]( https://cloud.ravendb.net/user/register)  
-[Login]( https://cloud.ravendb.net/user/login)  

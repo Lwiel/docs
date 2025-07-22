@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Append & Update Time Series
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Append & Update Time Series
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -36,9 +37,6 @@ import LanguageContent from "@site/src/components/language-content";
   * Use patching to update the time series. Learn more in [Patch time series entries](../../../../document-extensions/timeseries/client-api/session/patch).
   * Append entries directly on the _Store_ via [Operations](../../../../client-api/operations/what-are-operations). 
     Learn more in [Append time series operations](../../../../document-extensions/timeseries/client-api/operations/append-and-delete). 
-
----
-
 * In this page:
     * [`Append` usage](../../../../document-extensions/timeseries/client-api/session/append#append-usage)
     * [Examples](../../../../document-extensions/timeseries/client-api/session/append#examples)
@@ -47,10 +45,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Syntax](../../../../document-extensions/timeseries/client-api/session/append#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`Append` usage" id="append-usage" href="#append-usage">
+## `Append` usage
 
 **Flow**:
 
@@ -67,9 +62,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 * A `DocumentDoesNotExistException` exception is thrown if the specified document does not exist.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Append entries with a single value:
 
@@ -98,9 +93,6 @@ using (var session = store.OpenSession())
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Append entries with multiple values:
 
 * In this example, we append multi-value StockPrice entries.  
@@ -174,9 +166,9 @@ using (var session = store.OpenSession())
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="TimeSeriesFor-Append-definition-double">
 <CodeBlock language="csharp">
@@ -201,14 +193,11 @@ void Append(DateTime timestamp, IEnumerable<double> values, string tag = null);
 | **values**    | `IEnumerable<double>` | Entry's values                |
 | **tag**       | `string`              | An optional tag for the entry |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Append & Update Time Series
-
----
 
 <Admonition type="note" title="Note">
 
@@ -241,10 +230,7 @@ void Append(DateTime timestamp, IEnumerable<double> values, string tag = null);
     * [Syntax](../../../../document-extensions/timeseries/client-api/session/append#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Usage" id="usage" href="#usage">
+## Usage
 
 **Flow**:
 
@@ -262,9 +248,9 @@ void Append(DateTime timestamp, IEnumerable<double> values, string tag = null);
 
 * A `DocumentDoesNotExistException` exception is thrown if the specified document does not exist.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Append entries with a single value:
 
@@ -289,9 +275,6 @@ with store.open_session() as session:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Append entries with multiple values:
 
 * In this example, we append multi-value StockPrice entries.  
@@ -342,9 +325,9 @@ with store.open_session() as session:
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="TimeSeriesFor-Append-definition-double">
 <CodeBlock language="python">
@@ -367,14 +350,11 @@ with store.open_session() as session:
 | **values** | `List[float]` | Entry's values |
 | **tag** (Optional) | `str` | An optional tag for the entry |
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Append & Update Time Series
-
----
 
 <Admonition type="note" title="Note">
 
@@ -400,10 +380,7 @@ with store.open_session() as session:
        * [Append entries with multiple values](../../../../document-extensions/timeseries/client-api/session/append#append-entries-with-multiple-values)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Usage" id="usage" href="#usage">
+## Usage
 
 **Flow**:
 
@@ -421,9 +398,9 @@ with store.open_session() as session:
 
 * A `DocumentDoesNotExistException` exception is thrown if the specified document does not exist.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Append entries with a single value:
 
@@ -458,9 +435,6 @@ try {
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Append entries with multiple values:
 
 * In this example, we append multi-value StockPrice entries.  
@@ -561,14 +535,11 @@ try {
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Append & Update Time Series
-
----
 
 <Admonition type="note" title="Note">
 
@@ -589,9 +560,6 @@ try {
     * Use patching to update the time series. Learn more in [Patch time series entries](../../../../document-extensions/timeseries/client-api/session/patch).  
     * Append entries directly on the _Store_ via [Operations](../../../../client-api/operations/what-are-operations). 
       Learn more in [Append time series operations](../../../../document-extensions/timeseries/client-api/operations/append-and-delete).
-
----
-
 * In this page:  
   * [`append` usage](../../../../document-extensions/timeseries/client-api/session/append#append-usage)  
   * [Examples](../../../../document-extensions/timeseries/client-api/session/append#examples)
@@ -600,10 +568,7 @@ try {
   * [Syntax](../../../../document-extensions/timeseries/client-api/session/append#syntax)
   
 </Admonition>
-
----
-
-<Admonition type="info" title="`append` usage" id="append-usage" href="#append-usage">
+## `append` usage
 
 **Flow**:  
 
@@ -620,9 +585,9 @@ try {
 
 * A `DocumentDoesNotExistException` exception is thrown if the specified document does not exist.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Append entries with a single value:
 
@@ -678,9 +643,6 @@ await session.saveChanges();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Append entries with multiple values:
 
 * In this example, we append multi-value StockPrice entries.  
@@ -810,9 +772,9 @@ class StockPrice {
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -850,7 +812,7 @@ append(entry);
 | **tag**       | string   | An optional tag for the entry  |
 | **entry**     | object   | object with the entry's values |
 
-</Admonition>
+
 
 
 </LanguageContent>

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Database
----
-
 <Admonition type="note" title="Note">
 
 * The following configuration keys control database behavior.
@@ -37,10 +35,7 @@ import LanguageContent from "@site/src/components/language-content";
       [Databases.RegularCleanupThresholdInMin](../../server/configuration/database-configuration#databases.regularcleanupthresholdinmin)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Databases.Compression.CompressAllCollectionsDefault" id="databases-compression-compressallcollectionsdefault" href="#databases-compression-compressallcollectionsdefault">
+## Databases.Compression.CompressAllCollectionsDefault
 
 Set whether [documents compression](../../server/storage/documents-compression) is enabled by default for ALL COLLECTIONS in newly created databases.  
 Setting this to _false_ does not prevent you from enabling compression later, after a database is created.
@@ -49,9 +44,9 @@ Setting this to _false_ does not prevent you from enabling compression later, af
 - **Default**: `false`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Databases.Compression.CompressRevisionsDefault" id="databases-compression-compressrevisionsdefault" href="#databases-compression-compressrevisionsdefault">
+
+## Databases.Compression.CompressRevisionsDefault
 
 Set whether [documents compression](../../server/storage/documents-compression) is enabled by default for REVISIONS in newly created databases.  
 It may be useful to disable this option if the database is expected to run on very low-end hardware.  
@@ -61,9 +56,9 @@ Setting this to _false_ does not prevent you from enabling compression later, af
 - **Default**: `true`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Databases.ConcurrentLoadTimeoutInSec" id="databases-concurrentloadtimeoutinsec" href="#databases-concurrentloadtimeoutinsec">
+
+## Databases.ConcurrentLoadTimeoutInSec
 
 The time (in seconds) to wait for a database to start loading (and become available) when the system is under load - when many different databases are being loaded concurrently.
 
@@ -71,9 +66,9 @@ The time (in seconds) to wait for a database to start loading (and become availa
 - **Default**: `60`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Databases.FrequencyToCheckForIdleInSec" id="databases-frequencytocheckforidleinsec" href="#databases-frequencytocheckforidleinsec">
+
+## Databases.FrequencyToCheckForIdleInSec
 
 The interval (in seconds) at which the system checks for idle databases.
 
@@ -81,9 +76,9 @@ The interval (in seconds) at which the system checks for idle databases.
 - **Default**: `60`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Databases.MaxConcurrentLoads" id="databases-maxconcurrentloads" href="#databases-maxconcurrentloads">
+
+## Databases.MaxConcurrentLoads
 
 Specifies the maximum number of databases that can be loaded concurrently.
 
@@ -91,9 +86,9 @@ Specifies the maximum number of databases that can be loaded concurrently.
 - **Default**: `8`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Databases.CollectionOperationTimeoutInSec" id="databases-collectionoperationtimeoutinsec" href="#databases-collectionoperationtimeoutinsec">
+
+## Databases.CollectionOperationTimeoutInSec
 
 The time (in seconds) to wait before canceling certain collection operations (e.g., batch delete documents).  
 If the operation exceeds the specified duration, an *OperationCanceledException* is thrown.
@@ -102,9 +97,9 @@ If the operation exceeds the specified duration, an *OperationCanceledException*
 - **Default**: `300`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Databases.DeepCleanupThresholdInMin" id="databases-deepcleanupthresholdinmin" href="#databases-deepcleanupthresholdinmin">
+
+## Databases.DeepCleanupThresholdInMin
 
 EXPERT ONLY.  
 A deep database cleanup will be performed when this number of minutes has passed since the last time work was done on the database.
@@ -113,9 +108,9 @@ A deep database cleanup will be performed when this number of minutes has passed
 - **Default**: `5`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Databases.MaxIdleTimeInSec" id="databases-maxidletimeinsec" href="#databases-maxidletimeinsec">
+
+## Databases.MaxIdleTimeInSec
 
 Sets the maximum idle time (in seconds) for a database.  
 After this period, an idle database will be unloaded from memory.  
@@ -125,9 +120,9 @@ Consider using a lower value if memory resources are limited.
 - **Default**: `900`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Databases.OperationTimeoutInSec" id="databases-operationtimeoutinsec" href="#databases-operationtimeoutinsec">
+
+## Databases.OperationTimeoutInSec
 
 The time (in seconds) to wait before canceling certain operations, such as indexing terms.
 
@@ -135,9 +130,9 @@ The time (in seconds) to wait before canceling certain operations, such as index
 - **Default**: `300`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Databases.PulseReadTransactionLimitInMb" id="databases-pulsereadtransactionlimitinmb" href="#databases-pulsereadtransactionlimitinmb">
+
+## Databases.PulseReadTransactionLimitInMb
 
 The number of megabytes used by encryption buffers (for encrypted databases) or 32-bit mapped buffers (on 32-bit systems), 
 after which a read transaction is renewed to reduce memory usage during long-running operations such as backups or streaming.
@@ -151,9 +146,9 @@ after which a read transaction is renewed to reduce memory usage during long-run
     * More than 64 GB RAM: `256 MB`  
 - **Scope**: Server-wide or per database  
 
-</Admonition>
 
-<Admonition type="info" title="Databases.QueryOperationTimeoutInSec" id="databases-queryoperationtimeoutinsec" href="#databases-queryoperationtimeoutinsec">
+
+## Databases.QueryOperationTimeoutInSec
 
 The time (in seconds) to wait before canceling a query-related operation (e.g., patch or delete query).  
 The timeout resets with each processed document,  
@@ -163,9 +158,9 @@ and will only be exceeded if no document is processed within the specified perio
 - **Default**: `300`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Databases.QueryTimeoutInSec" id="databases-querytimeoutinsec" href="#databases-querytimeoutinsec">
+
+## Databases.QueryTimeoutInSec
 
 The time (in seconds) to wait before canceling a query.  
 Applies to both regular and streamed queries.
@@ -178,9 +173,9 @@ The timeout will be exceeded only if no result is streamed within the timeout pe
 - **Default**: `300`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Databases.RegularCleanupThresholdInMin" id="databases-regularcleanupthresholdinmin" href="#databases-regularcleanupthresholdinmin">
+
+## Databases.RegularCleanupThresholdInMin
 
 EXPERT ONLY.  
 A regular database cleanup will be performed when this number of minutes has passed since the database was last idle.
@@ -189,4 +184,4 @@ A regular database cleanup will be performed when this number of minutes has pas
 - **Default**: `10`
 - **Scope**: Server-wide or per database
 
-</Admonition>
+

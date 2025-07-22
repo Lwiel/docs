@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Querying: Intersection
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Querying: Intersection
----
 
 <Admonition type="note" title="Note">
 
@@ -25,10 +27,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Intersection](../../indexes/querying/intersection#intersection)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Intersection" id="intersection" href="#intersection">
+## Intersection
 
 Let's consider a case where we have a T-Shirt class:
 
@@ -197,13 +196,11 @@ The above query will return `tshirts/1` and `tshirts/4`, that match **all** sub-
 `tshirts/2` will not be included in the results because it is not manufactured by `Raven`, 
 and `tshirts/3` will not be included because it is not available in `Small Blue`.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Querying: Intersection
----
 
 <Admonition type="note" title="Note">
 
@@ -214,10 +211,7 @@ and `tshirts/3` will not be included because it is not available in `Small Blue`
   * [Intersection](../../indexes/querying/intersection#intersection)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Intersection" id="intersection" href="#intersection">
+## Intersection
 
 Let's consider a case where we have a T-Shirt class:
 
@@ -434,13 +428,11 @@ The above query will return `tshirts/1` and `tshirts/4` as a result.
 The document `tshirts/2` will not be included because it is not manufactured by `Raven`, 
 and `tshirts/3` is not available in `Small Blue` so it does not match **all** the sub-queries.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Querying: Intersection
----
 
 <Admonition type="note" title="Note">
 
@@ -451,10 +443,7 @@ and `tshirts/3` is not available in `Small Blue` so it does not match **all** th
   * [Intersection](../../indexes/querying/intersection#intersection)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Intersection" id="intersection" href="#intersection">
+## Intersection
 
 Let's consider a case where we have a T-Shirt class:
 
@@ -590,13 +579,11 @@ The above query will return `tshirts/1` and `tshirts/4`, that match **all** sub-
 `tshirts/2` will not be included in the results because it is not manufactured by `Raven`, 
 and `tshirts/3` will not be included because it is not available in `Small Blue`.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Querying: Intersection
----
 
 <Admonition type="note" title="Note">
 
@@ -607,10 +594,7 @@ and `tshirts/3` will not be included because it is not available in `Small Blue`
   * [Intersection](../../indexes/querying/intersection#intersection)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Intersection" id="intersection" href="#intersection">
+## Intersection
 
 Let's consider a case where we have a T-Shirt class:
 
@@ -835,13 +819,11 @@ The above query will return `tshirts/1` and `tshirts/4`, that match **all** sub-
 `tshirts/2` will not be included in the results because it is not manufactured by `Raven`, 
 and `tshirts/3` will not be included because it is not available in `Small Blue`.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Querying: Intersection
----
 
 <Admonition type="note" title="Note">
 
@@ -852,10 +834,7 @@ and `tshirts/3` will not be included because it is not available in `Small Blue`
   * [Intersection](../../indexes/querying/intersection#intersection)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Intersection" id="intersection" href="#intersection">
+## Intersection
 
 Let's consider a case where we have a T-Shirt class:
 
@@ -999,7 +978,7 @@ The above query will return `tshirts/1` and `tshirts/4`, that match **all** sub-
 `tshirts/2` will not be included in the results because it is not manufactured by `Raven`, 
 and `tshirts/3` will not be included because it is not available in `Small Blue`.  
 
-</Admonition>
+
 
 
 </LanguageContent>

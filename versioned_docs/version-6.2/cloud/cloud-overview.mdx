@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # NoSQL Cloud Service: Overview
----
-
 <Admonition type="note" title="Note">
 
 Running RavenDB as a cloud service frees you from operational overhead by passing much of the administration to the hands
@@ -44,10 +42,7 @@ like adding or removing nodes, and run recurring tasks like backing up your data
         * [Accessing RavenDB Cloud Studio](../cloud/cloud-overview#accessing-ravendb-cloud-studio)
         * [What you can do with RavenDB Studio](../cloud/cloud-overview#what-you-can-do-with-ravendb-studio)
 </Admonition>
-
----
-
-<Admonition type="info" title="What do you get?" id="what-do-you-get" href="#what-do-you-get">
+## What do you get?
 
 Some of the key reasons for running RavenDB on the cloud are -
 
@@ -58,18 +53,18 @@ Some of the key reasons for running RavenDB on the cloud are -
 * Regular [backups](../cloud/cloud-backup-and-restore) to your database and settings.
 * Our [support](../cloud/portal/cloud-portal-support-tab).
 
-</Admonition>
 
-<Admonition type="info" title="Your Account" id="your-account" href="#your-account">
+
+## Your Account
 
 Your cloud-RavenDB account gathers your products' information, your details, and your contracts and
 billing data. We create your account and send you a link to its [Portal](../cloud/portal/cloud-portal)
 as soon as you finish registering, so you can immediately start creating and handling your
 [cloud products](../cloud/portal/cloud-portal-products-tab).
 
-</Admonition>
 
-<Admonition type="info" title="Register Your Account" id="register-your-account" href="#register-your-account">
+
+## Register Your Account
 
 To create a new account, enter [https://cloud.ravendb.net/user/register](https://cloud.ravendb.net/user/register)
 and allow the wizard to walk you through the 5 simple stages of the registration procedure:
@@ -79,18 +74,12 @@ and allow the wizard to walk you through the 5 simple stages of the registration
 3. **Billing information**
 4. **Payment information**
 5. **Summary**
-
----
-
 #### 1. Email
 !["Figure 1 - Registration page: Email Address"](./assets/registration-page-email-address.png)
 
 - Provide your email address.
 - Read the **terms & conditions** and the **privacy policy**.
 - Click the **Continue** button.
-
----
-
 #### 2. Account information
 !["Figure 2 - Registration page: Domain Name"](./assets/registration-page-domain-name-and-account-type.png)
 
@@ -98,9 +87,6 @@ and allow the wizard to walk you through the 5 simple stages of the registration
   The domain name is typically your organization or project name and will be used in all your products' URLs. The procedure will check this name's availability.
 - Select your account type. For typical purposes, select the **Regular** button. If you need a *HIPAA-compliant* account, select the **HIPAA** button.
 - Click the **Continue** button.
-
----
-
 #### 3. Billing information
 !["Figure 3 - Registration page: Billing information"](./assets/registration-page-billing-information.png)
 
@@ -110,17 +96,11 @@ and allow the wizard to walk you through the 5 simple stages of the registration
 <Admonition type="info" title="Info">
 Click the **Skip Billing Information** button if you prefer to evaluate the cloud service for now using the free product.
 </Admonition>
-
----
-
 #### 4. Payment information
 !["Figure 4 - Registration page: Payment information"](./assets/registration-page-payment-information.png)
 
 - Enter your payment information.
 - Click the **Continue** button.
-
----
-
 #### 5. Summary
 !["Figure 5 - Registration page: Summary"](./assets/registration-page-summary.png)
 
@@ -128,23 +108,17 @@ Click the **Skip Billing Information** button if you prefer to evaluate the clou
 - You’ll receive an email with sign in link which allows you to sign in to the RavenDB Cloud portal.
 
 !["Figure 6 - Registration page: Thank you page"](./assets/registration-page-thank-you.png)
-
----
-
 #### Signing up will send you a message with a link to your email.
 
 - The sign-up process will send a registration link to your email.
 - Click the link to enter your account. No password required.
 - The link will expire after a while, use the [login page](../cloud/cloud-overview#login-to-your-account) to re-visit your account.
 
-</Admonition>
 
-<Admonition type="info" title="Login To Your Account" id="login-to-your-account" href="#login-to-your-account">
+
+## Login To Your Account
 
 To access your account, click [https://cloud.ravendb.net/user/login](https://cloud.ravendb.net/user/login).
-
----
-
 #### Login
 !["Figure 7 - Login page"](./assets/login-page-email.png)
 
@@ -166,29 +140,20 @@ To access your account, click [https://cloud.ravendb.net/user/login](https://clo
   We advise you to enable 2FA. Setup is described [here](../cloud/cloud-security#enable-mfa).  
   </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="RavenDB on the Cloud" id="ravendb-on-the-cloud" href="#ravendb-on-the-cloud">
+
+## RavenDB on the Cloud
 
 ## Instances, Provisioning and RavenDB Products
-
----
-
 #### Cloud Instances
 
 A cloud instance is a RavenDB server, allocated for you on a cloud provider like AWS or Azure.  
 Your cloud instances are fully managed by RavenDB Cloud, including security, monitoring, backups, and patches.  
 You get operator-level access to your RavenDB instances and can perform most admin operations on your own.
-
----
-
 #### Provisioning
 
 Each RavenDB product is provisioned as many instances as it requires. A production cluster for example is
 allocated three instances at a minimum, while a development server's single node is allocated a single instance.
-
----
-
 #### RavenDB Products
 
 Your RavenDB **product** can be a single server or a multi-node cluster.  
@@ -204,33 +169,21 @@ while those of a higher-grade production cluster are [reserved](../cloud/cloud-o
 There are three types of RavenDB cloud products. They are explained in detail in the
 [Tiers and Instances ](../cloud/cloud-instances) section, in the meantime - here are
 a few words about each.
-
----
-
 #### The Free Tier  
 This tier offers a single product: a single-node RavenDB cloud server designated for experiments and evaluation.  
 It is operated by a low-end instance that is shared with other users and is equipped with the community subset of RavenDB features.  
 You can have only one free instance in your account. If you don't use your free instance for 30 days, it will be terminated.
-
----
-
 #### The Development Tier  
 The development tier offers a set of server configurations that can handle increasingly
 higher CPU load. All configurations are single-node servers, but a development server is equipped
 with RavenDB's full features set.  
 Though superior to a free instance, a development instance still runs a single node on shared
 hardware and is designated for development, not production.
-
----
-
 #### The Production Tier
 A production configuration is a full RavenDB cluster of at least three nodes. You can choose its
 components using the Portal from a set of pre-selected templates, or contact
 us and we'll custom-tailor your product for your specific production requirements, i.e. with a specific
 HW selection or a multi-region cluster.
-
----
-
 | **Tier** | **Sub-tiers** | **CPU** | **Options** | **SLA** |
 | -- | -- | -- | -- | -- |
 | Free | - | Very low | None | No |
@@ -243,9 +196,6 @@ HW selection or a multi-region cluster.
 Reserved clusters are production clusters of grade *Standard* or *Performance*. Their resources are
 pre-allocated and can be used only by them. Designed to run production systems with demanding workloads,
 these are the workhorses of the RavenDB Cloud.
-
----
-
 #### Burstable Instances  
 Free instances, Development instances, and low-end ("basic") Production clusters are operated by
 "burstable" CPUs. Such clusters are suitable for small to medium production loads but are limited
@@ -287,17 +237,11 @@ Credits are **consumed** when the instance uses computing and I/O resources, and
 The stronger your burstable instances are, the less susceptible they are to budget drainage and throttling.  
 If you are regularly warned or your product is actually throttled, consider [upscaling](../cloud/cloud-scaling) its configuration.  
 </Admonition>
-
----
-
 #### Throttling Warnings  
 Your instances will warn you when their credits are about to finish, and inform you when throttling is performed.  
 They will also perform preemptive actions to lower resource usage.  
 ![Throttling Is Coming](./assets/throttling-001-nearly-exhausted-messages.png)
 ![Throttling Is Here](./assets/throttling-002-indexing-paused.png)
-
----
-
 #### How much is a CPU credit, and what's in my budget?  
 A single credit represents using 100% of the CPU for a full minute out of an hour.
 
@@ -306,9 +250,9 @@ You can view what's currently in your instance's budget, by adding `/debug/cpu-c
 Note that the figures relate to CPU seconds; for CPU minutes, divide them by 60.  
 E.g., `"MaxCredits": 8640.0` means your instance can accumulate an entitlement for up to 144 minutes of full CPU usage.
 
-</Admonition>
 
-<Admonition type="info" title="RavenDB Studio - Graphic User Interface" id="ravendb-studio-graphic-user-interface" href="#ravendb-studio-graphic-user-interface">
+
+## RavenDB Studio - Graphic User Interface
 
 RavenDB provides a built-in [GUI to monitor and manage](../studio/overview) your cloud instances.
 
@@ -333,9 +277,6 @@ RavenDB provides a built-in [GUI to monitor and manage](../studio/overview) your
 5. **Product Labels**
    Product labels describe current alerts for given product. Product alerts are described
    on [Maintenance & Troubleshooting](./cloud-maintenance-troubleshooting) page.
-
----
-
 ### What you can do with RavenDB Studio
 
 * [Your RavenDB servers](../studio/server/server-dashboard)
@@ -357,18 +298,8 @@ RavenDB provides a built-in [GUI to monitor and manage](../studio/overview) your
           See [cloud-specific settings](../cloud/cloud-settings).
 
 
-</Admonition>
 
 
 
 
-## Related Articles
 
-* [Portal](../cloud/portal/cloud-portal)
-* [Cloud Instance Settings](../cloud/cloud-settings)
-
-**Links**
-
-* [Register]( https://cloud.ravendb.net/user/register)
-* [Login]( https://cloud.ravendb.net/user/login)  
-  

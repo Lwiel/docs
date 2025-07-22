@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Conventions: Deserialization
+export const supportedLanguages = ["csharp", "java"];
 
----
+
+# Conventions: Deserialization
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -30,10 +31,7 @@ by which entities are deserialized as they are received by the client.
   * [Number Deserialization](../../client-api/configuration/deserialization#number-deserialization)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Deserialization" id="deserialization" href="#deserialization">
+## Deserialization
 
 ## CustomizeJsonDeserializer
 
@@ -110,12 +108,12 @@ Read about this security convention and maintaining deserialization security
   [server side limitations](../../server/kb/numbers-in-ravendb) to numbers in this range.  
 * Other number types, like `BigInteger`, must be handled using custom deserialization.
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Conventions: Serialization
+
 
 ## Customize ObjectMapper
 

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # OpenTelemetry Support
----
-
 <Admonition type="note" title="Note">
 
 * [OpenTelemetry](https://opentelemetry.io) is an open-source observability framework that provides a set of APIs, SDKs, and tools 
@@ -21,9 +19,6 @@ import LanguageContent from "@site/src/components/language-content";
 
 * By standardizing data collection and integration, OpenTelemetry enables seamless monitoring and troubleshooting 
   across various platforms and backends, assisting in the analysis of software performance and behavior.
-
----
-
 * **RavenDB leverages the OpenTelemetry SDK** to send metrics data via the OpenTelemetry Protocol,  
   allowing seamless data collection and analysis by an OpenTelemetry retriever.
 
@@ -31,9 +26,6 @@ import LanguageContent from "@site/src/components/language-content";
   Learn more [below](../../../server/administration/monitoring/open-telemetry#retrieve-data-from-prometheus).
 
 * OpenTelemetry support is provided for RavenDB instances both on-premises and in the cloud.
-
----
-
 * In this page:
   * [Enabling OpenTelemetry in RavenDB](../../../server/administration/monitoring/open-telemetry#enabling-opentelemetry-in-ravendb)
   * [RavenDB OpenTelemetry meters](../../../server/administration/monitoring/open-telemetry#ravendb-opentelemetry-meters)
@@ -47,10 +39,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Retrieve data from Prometheus](../../../server/administration/monitoring/open-telemetry#retrieve-data-from-prometheus)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Enabling OpenTelemetry in RavenDB" id="enabling-opentelemetry-in-ravendb" href="#enabling-opentelemetry-in-ravendb">
+## Enabling OpenTelemetry in RavenDB
 
 * To enable the OpenTelemetry metrics in RavenDB,  
   you **must** first set the [Monitoring.OpenTelemetry.Enabled](../../../server/configuration/monitoring-configuration#monitoring.opentelemetry.enabled) configuration key to _true_.
@@ -60,9 +49,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 * Please remember that it is necessary to restart the RavenDB process for changes to take effect.
 
-</Admonition>
 
-<Admonition type="info" title="RavenDB OpenTelemetry meters" id="ravendb-opentelemetry-meters" href="#ravendb-opentelemetry-meters">
+
+## RavenDB OpenTelemetry meters
 
 Each meter listed below groups similar or related [metric instruments](../../../server/administration/monitoring/open-telemetry#the-metric-instruments).  
 Each metric instrument observes some metric value.
@@ -100,9 +89,6 @@ RavenDB exposes the following meters:
   Description: Exposes aggregated information about databases on the server   
   Enabled by default: _true_   
   Configuration key: [Monitoring.OpenTelemetry.Meters.Server.TotalDatabases.Enabled](../../../server/configuration/monitoring-configuration#monitoring.opentelemetry.meters.server.totaldatabases.enabled)  
-
----
-
 RavenDB also supports exposing meters developed by Microsoft for AspNetCore and .NET Runtime:  
 
 * **Official AspNetCore instrumentation**  
@@ -114,9 +100,9 @@ RavenDB also supports exposing meters developed by Microsoft for AspNetCore and 
   Enabled by default: _false_   
   Configuration key: [Monitoring.OpenTelemetry.Meters.Runtime.Enabled](../../../server/configuration/monitoring-configuration#monitoring.opentelemetry.meters.runtime.enabled)  
 
-</Admonition>
 
-<Admonition type="info" title="Server identification in metrics" id="server-identification-in-metrics" href="#server-identification-in-metrics">
+
+## Server identification in metrics
 
 * OpenTelemetry monitoring requires a service instance ID for initialization.  
 
@@ -133,9 +119,9 @@ RavenDB also supports exposing meters developed by Microsoft for AspNetCore and 
     4. **Initialization Failure**  
        If none of the above options are available, OpenTelemetry will Not be initialized.
 
-</Admonition>
 
-<Admonition type="info" title="The metric instruments" id="the-metric-instruments" href="#the-metric-instruments">
+
+## The metric instruments
 
 #### `ravendb.server.cpucredits`
 
@@ -251,9 +237,9 @@ RavenDB also supports exposing meters developed by Microsoft for AspNetCore and 
 | ravendb.server.totaldatabases.number.faulty_indexes               | Number of faulty indexes in all loaded databases                                                   | UpDownCounter     |
 | ravendb.server.totaldatabases.writes_per_second                   | Number of writes \(documents, attachments, counters, timeseries\) in all loaded databases          | Gauge             |
 
-</Admonition>
 
-<Admonition type="info" title="Metrics export options" id="metrics-export-options" href="#metrics-export-options">
+
+## Metrics export options
 
 RavenDB offers two options for exporting metrics:  
 
@@ -263,9 +249,6 @@ RavenDB offers two options for exporting metrics:
 <Admonition type="note" title="Note">
 
 <a id="console"/> __Console__:
-
----
-
 * RavenDB can output telemetry data directly to the console,  
   providing real-time, local visibility of the OpenTelemetry metrics.  
 
@@ -279,9 +262,6 @@ RavenDB offers two options for exporting metrics:
 <Admonition type="note" title="Note">
 
 <a id="opentelemetry-protocol"/> __OpenTelemetry Protocol__:
-
----
-
 * OpenTelemetry supports the **OpenTelemetry Protocol** (OTLP),  
   a standard wire protocol used by all OpenTelemetry SDKs.
 
@@ -311,9 +291,6 @@ RavenDB offers two options for exporting metrics:
 <Admonition type="info" title="Info">
 
 <a id="configure-endpoint"/> __Configuring the OpenTelemetry Protocol endpoint__:
-
----
- 
 The defined endpoint must correspond to the endpoint [configured on the collector](../../../server/administration/monitoring/open-telemetry#configuring-the-opentelemetry-collector) for receiving metrics data.
 The endpoint format should match the transport protocol you are using:
 
@@ -342,9 +319,9 @@ The endpoint format should match the transport protocol you are using:
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Configuring the OpenTelemetry Collector" id="configuring-the-opentelemetry-collector" href="#configuring-the-opentelemetry-collector">
+
+## Configuring the OpenTelemetry Collector
 
 * The OpenTelemetry Collector is a vendor-agnostic proxy that can receive, process, and export telemetry data (traces, metrics, logs)
   from multiple sources to different backends. It acts as a centralized point for collecting and processing telemetry data.
@@ -358,9 +335,6 @@ The endpoint format should match the transport protocol you are using:
 <Admonition type="note" title="Note">
 
 <a id="receive-data-via-otlp"/> __Receive data via OTLP__:
-
----
-
 * The `otlp` receiver is used for receiving telemetry data in the OpenTelemetry Protocol (OTLP) format.
 
 * Specify the `endpoints` where the OpenTelemetry Collector should listen for incoming telemetry data,  
@@ -386,9 +360,6 @@ The endpoint format should match the transport protocol you are using:
 <Admonition type="note" title="Note">
  
 <a id="retrieve-data-from-prometheus"/> __Retrieve data from Prometheus__:
-
----
-
 * The OpenTelemetry Collector includes support for retrieving metrics from a Prometheus endpoint.  
 
 * RavenDB provides a Prometheus endpoint that can be used as a data source for the OpenTelemetry Collector.
@@ -422,5 +393,5 @@ The endpoint format should match the transport protocol you are using:
   The collector will access `http://localhost:8080/admin/monitoring/v1/prometheus` to retrieve the metrics.
  
 </Admonition>
-</Admonition>
+
 

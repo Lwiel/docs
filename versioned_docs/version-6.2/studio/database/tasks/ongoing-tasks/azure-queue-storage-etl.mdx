@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Azure Queue Storage ETL Task
----
-
 <Admonition type="note" title="Note">
 
 * The RavenDB **Azure Queue Storage ETL task** -  
@@ -28,9 +26,6 @@ import LanguageContent from "@site/src/components/language-content";
 * The Azure Queue Storage enqueues incoming messages at the tail of a queue. 
   [Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=python-v2%2Cisolated-process%2Cnodejs-v4%2Cextensionv5&pivots=programming-language-csharp) 
   can be triggered to access and consume messages when the enqueued messages advance to the queue head.
- 
----
-
 * This page explains how to create an Azure Queue Storage ETL task using Studio.  
   [Learn here](../../../../server/ongoing-tasks/etl/queue-etl/azure-queue) how to define an Azure Queue Storage ETL task using the Client API.  
  
@@ -42,10 +37,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Add transformation script](../../../../studio/database/tasks/ongoing-tasks/azure-queue-storage-etl#add-transformation-script)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Open Azure Queue Storage ETL task view" id="open-azure-queue-storage-etl-task-view" href="#open-azure-queue-storage-etl-task-view">
+## Open Azure Queue Storage ETL task view
 
 ![Ongoing Tasks View](./assets/add-ongoing-task.png)
 
@@ -53,14 +45,11 @@ import LanguageContent from "@site/src/components/language-content";
    Click to open the ongoing tasks view.  
 2. **Add a Database Task**  
    Click to create a new ongoing task.  
-
----
-
 ![Define ETL Task](./assets/aqs-task-selection.png)
    
-</Admonition>
 
-<Admonition type="info" title="Define Azure Queue Storage ETL task" id="define-azure-queue-storage-etl-task" href="#define-azure-queue-storage-etl-task">
+
+## Define Azure Queue Storage ETL task
 
 ![Define Azure Queue Storage ETL Task](./assets/aqs-etl-define-task.png)
 
@@ -95,14 +84,11 @@ import LanguageContent from "@site/src/components/language-content";
 7. **Advanced**  
    Click to open the [advanced section](../../../../studio/database/tasks/ongoing-tasks/azure-queue-storage-etl#options-per-queue) where you can configure the deletion of RavenDB documents per queue.
 
-</Admonition>  
+  
 
-<Admonition type="info" title="Authentication method" id="authentication-method" href="#authentication-method">
+## Authentication method
 
 The available authentication methods to an Azure storage account are:
-
----
-
 * **Connection String**  
 
   * A single string that includes all the options required to connect the Azure storage account.  
@@ -129,9 +115,9 @@ The available authentication methods to an Azure storage account are:
 
     ![Passwordless method](./assets/aqs-etl-passwordless-method.png)
 
-</Admonition>
 
-<Admonition type="info" title="Options per queue" id="options-per-queue" href="#options-per-queue">
+
+## Options per queue
 
 You can configure the ETL process to delete documents from RavenDB that have already been sent to the queues.
 
@@ -148,9 +134,9 @@ You can configure the ETL process to delete documents from RavenDB that have alr
 4. **Delete queue option**  
    Click to delete the queue option from the list.
 
-</Admonition>
 
-<Admonition type="info" title="Add transformation script" id="add-transformation-script" href="#add-transformation-script">
+
+## Add transformation script
 
 ![Add or Edit Transformation Script](./assets/add-or-edit-script.png)
 
@@ -160,9 +146,6 @@ You can configure the ETL process to delete documents from RavenDB that have alr
    Click to edit this script.  
 3. **Delete script**  
    Click to remove this script.
-   
----
-
 ![Define Transformation Script](./assets/aqs-etl-transformation-script.png)
 
 1. **Script Name** - Enter a name for the script (Optional).  
@@ -221,5 +204,5 @@ You can configure the ETL process to delete documents from RavenDB that have alr
 
 7. **Test Script** - Click to test the transformation script.  
 
-</Admonition>
+
 

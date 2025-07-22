@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "java", "python", "php", "nodejs"];
+
+
+# Indexes: Map Indexes
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Indexes: Map Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -42,10 +44,7 @@ import LanguageContent from "@site/src/components/language-content";
 </Admonition>
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing single fields" id="indexing-single-fields" href="#indexing-single-fields">
+## Indexing single fields
 
 Let's create an index that will help us search for `Employees` by their `FirstName`, `LastName`, or both.
 
@@ -281,9 +280,9 @@ The part you should pay attention to is `docs.Employees`. This syntax indicates 
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Combining multiple fields" id="combining-multiple-fields" href="#combining-multiple-fields">
+
+## Combining multiple fields
 
 Since each index contains a LINQ function, you can combine multiple fields into one.
 
@@ -370,9 +369,6 @@ where FullName = 'Robert King'
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example II
 
 <Admonition type="info" title="Information" id="information" href="#information">
@@ -467,9 +463,9 @@ where search(Query, 'John Doe')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing partial field data" id="indexing-partial-field-data" href="#indexing-partial-field-data">
+
+## Indexing partial field data
 
 Imagine that you would like to return all employees that were born in a specific year. 
 You can do it by indexing `Birthday` from `Employee`, then specify the year in `Birthday` as you query the index:  
@@ -642,9 +638,9 @@ where YearOfBirth = 1963
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filtering data within fields" id="filtering-data-within-fields" href="#filtering-data-within-fields">
+
+## Filtering data within fields
 
 In the examples above, `where` is used in the query to filter the results.  
 If you consistently want to filter with the same filtering conditions, 
@@ -704,9 +700,6 @@ Query the index:
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example II
 
 Imagine a seed company that needs to categorize its customers by latitude-based growing zones.  
@@ -765,10 +758,10 @@ Query the index:
 </TabItem>
 </Tabs>
 
-</Admonition>  
+  
 
 
-<Admonition type="info" title="Indexing nested data" id="indexing-nested-data" href="#indexing-nested-data">
+## Indexing nested data
 
 If your document contains nested data, e.g. `Employee` contains `Address`, you can index on its fields by accessing them directly in the index. Let's say that we would like to create an index that returns all employees that were born in a specific `Country`:  
 
@@ -856,9 +849,9 @@ where Country = 'USA'
 If a document relationship is represented by the document's ID, you can use the `LoadDocument` method to retrieve such a document.  
 Learn more [here](../indexes/indexing-related-documents).  
 
-</Admonition>
 
-<Admonition type="info" title="Indexing Missing Fields" id="indexing-missing-fields" href="#indexing-missing-fields">
+
+## Indexing Missing Fields
 
 By default, indexes will not index a document that contains none of the specified fields. This behavior can be changed 
 using the [Indexing.IndexEmptyEntries](../server/configuration/indexing-configuration#indexing.indexemptyentries) 
@@ -867,13 +860,11 @@ configuration option.
 The option [Indexing.IndexMissingFieldsAsNull](../server/configuration/indexing-configuration#indexing.indexmissingfieldsasnull) 
 determines whether missing fields in documents are indexed with the value `null`, or not indexed at all.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="java">
-# Indexes: Map Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -899,7 +890,7 @@ determines whether missing fields in documents are indexed with the value `null`
 
 </Admonition>
 
-<Admonition type="info" title="Indexing Single Fields" id="indexing-single-fields" href="#indexing-single-fields">
+## Indexing Single Fields
 
 Let's create an index that will help us search for `Employees` by their `FirstName`, `LastName`, or both.
 
@@ -1057,9 +1048,9 @@ The part you should pay attention to is `docs.Employees`. This syntax indicates 
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Combining Multiple Fields" id="combining-multiple-fields" href="#combining-multiple-fields">
+
+## Combining Multiple Fields
 
 Since each index contains a LINQ function, you can combine multiple fields into one.
 
@@ -1198,9 +1189,9 @@ where search(Query, 'John Doe')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing Partial Field Data" id="indexing-partial-field-data" href="#indexing-partial-field-data">
+
+## Indexing Partial Field Data
 
 Imagine that you would like to return all employees that were born in a specific year. You can do it by indexing `birthday` from `Employee` in the following way:  
 
@@ -1308,9 +1299,9 @@ where YearOfBirth = 1963
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing Nested Data" id="indexing-nested-data" href="#indexing-nested-data">
+
+## Indexing Nested Data
 
 If your document contains nested data, e.g. `Employee` contains `Address`, you can index on its fields by accessing them directly in the index. Let's say that we would like to create an index that returns all employees that were born in a specific `Country`:  
 
@@ -1366,13 +1357,11 @@ where Country = 'USA'
 
 If a document relationship is represented by the document's ID, you can use the `LoadDocument` method to retrieve such a document. More about it can be found [here](../indexes/indexing-related-documents).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Indexes: Map Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -1399,10 +1388,7 @@ If a document relationship is represented by the document's ID, you can use the 
 </Admonition>
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing single fields" id="indexing-single-fields" href="#indexing-single-fields">
+## Indexing single fields
 
 Let's create an index that will help us search for `Employees` by their `FirstName`, `LastName`, or both.
 
@@ -1619,9 +1605,9 @@ The part you should pay attention to is `docs.Employees`. This syntax indicates 
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Combining multiple fields" id="combining-multiple-fields" href="#combining-multiple-fields">
+
+## Combining multiple fields
 
 Since each index contains a function, you can combine multiple fields into one.
 
@@ -1684,9 +1670,6 @@ where FullName = 'Robert King'
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example II
 
 <Admonition type="info" title="Information" id="information" href="#information">
@@ -1767,9 +1750,9 @@ where search(Query, 'John Doe')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing partial field data" id="indexing-partial-field-data" href="#indexing-partial-field-data">
+
+## Indexing partial field data
 
 Imagine that you would like to return all employees that were born in a specific year. 
 You can do it by indexing `Birthday` from `Employee`, then specify the year in `Birthday` as you query the index:  
@@ -1905,9 +1888,9 @@ where YearOfBirth = 1963
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filtering data within fields" id="filtering-data-within-fields" href="#filtering-data-within-fields">
+
+## Filtering data within fields
 
 In the examples above, `where_equals` is used in the query to filter the results.  
 If you consistently want to filter with the same filtering conditions, 
@@ -1960,9 +1943,6 @@ Query the index:
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example II
 
 Imagine a seed company that needs to categorize its customers by latitude-based growing zones.  
@@ -2027,10 +2007,10 @@ Query the index:
 </TabItem>
 </Tabs>
 
-</Admonition>  
+  
 
 
-<Admonition type="info" title="Indexing nested data" id="indexing-nested-data" href="#indexing-nested-data">
+## Indexing nested data
 
 If your document contains nested data, e.g. `Employee` contains `Address`, you can index on its fields by accessing them directly in the index. Let's say that we would like to create an index that returns all employees that were born in a specific `Country`:  
 
@@ -2096,9 +2076,9 @@ where Country = 'USA'
 If a document relationship is represented by the document's ID, you can use the `LoadDocument` method to retrieve such a document.  
 Learn more [here](../indexes/indexing-related-documents).  
 
-</Admonition>
 
-<Admonition type="info" title="Indexing Missing Fields" id="indexing-missing-fields" href="#indexing-missing-fields">
+
+## Indexing Missing Fields
 
 By default, indexes will not index a document that contains none of the specified fields. This behavior can be changed 
 using the [Indexing.IndexEmptyEntries](../server/configuration/indexing-configuration#indexing.indexemptyentries) 
@@ -2107,13 +2087,11 @@ configuration option.
 The option [Indexing.IndexMissingFieldsAsNull](../server/configuration/indexing-configuration#indexing.indexmissingfieldsasnull) 
 determines whether missing fields in documents are indexed with the value `null`, or not indexed at all.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Indexes: Map Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -2140,10 +2118,7 @@ determines whether missing fields in documents are indexed with the value `null`
 </Admonition>
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing single fields" id="indexing-single-fields" href="#indexing-single-fields">
+## Indexing single fields
 
 Let's create an index that will help us search for `Employees` by their `FirstName`, `LastName`, or both.
 
@@ -2361,9 +2336,9 @@ The part you should pay attention to is `docs.Employees`. This syntax indicates 
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Combining multiple fields" id="combining-multiple-fields" href="#combining-multiple-fields">
+
+## Combining multiple fields
 
 Since each index contains a function, you can combine multiple fields into one.
 
@@ -2457,9 +2432,9 @@ where FullName = 'Robert King'
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing partial field data" id="indexing-partial-field-data" href="#indexing-partial-field-data">
+
+## Indexing partial field data
 
 Imagine that you would like to return all employees that were born in a specific year. 
 You can do it by indexing `Birthday` from `Employee`, then specify the year in `Birthday` as you query the index:  
@@ -2646,9 +2621,9 @@ where YearOfBirth = 1963
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Filtering data within fields" id="filtering-data-within-fields" href="#filtering-data-within-fields">
+
+## Filtering data within fields
 
 In the examples above, `where_equals` is used in the query to filter the results.  
 If you consistently want to filter with the same filtering conditions, 
@@ -2711,9 +2686,6 @@ Query the index:
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example II
 
 Imagine a seed company that needs to categorize its customers by latitude-based growing zones.  
@@ -2804,10 +2776,10 @@ Query the index:
 </TabItem>
 </Tabs>
 
-</Admonition>  
+  
 
 
-<Admonition type="info" title="Indexing nested data" id="indexing-nested-data" href="#indexing-nested-data">
+## Indexing nested data
 
 If your document contains nested data, e.g. `Employee` contains `Address`, you can index on its fields by accessing them directly in the index. Let's say that we would like to create an index that returns all employees that were born in a specific `Country`:  
 
@@ -2891,9 +2863,9 @@ where Country = 'USA'
 If a document relationship is represented by the document's ID, you can use the `LoadDocument` method to retrieve such a document.  
 Learn more [here](../indexes/indexing-related-documents).  
 
-</Admonition>
 
-<Admonition type="info" title="Indexing Missing Fields" id="indexing-missing-fields" href="#indexing-missing-fields">
+
+## Indexing Missing Fields
 
 By default, indexes will not index a document that contains none of the specified fields. This behavior can be changed 
 using the [Indexing.IndexEmptyEntries](../server/configuration/indexing-configuration#indexing.indexemptyentries) 
@@ -2902,13 +2874,11 @@ configuration option.
 The option [Indexing.IndexMissingFieldsAsNull](../server/configuration/indexing-configuration#indexing.indexmissingfieldsasnull) 
 determines whether missing fields in documents are indexed with the value `null`, or not indexed at all.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Indexes: Map Indexes
----
 
 <Admonition type="note" title="Note">
 
@@ -2934,10 +2904,7 @@ determines whether missing fields in documents are indexed with the value `null`
 </Admonition>
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Indexing Single Fields" id="indexing-single-fields" href="#indexing-single-fields">
+## Indexing Single Fields
 
 Let's create an index that will help us search for `Employees` by their `FirstName`, `LastName`, or both.
 
@@ -3047,9 +3014,9 @@ The part you should pay attention to is `docs.Employees`. This syntax indicates 
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Combining Multiple Fields" id="combining-multiple-fields" href="#combining-multiple-fields">
+
+## Combining Multiple Fields
 
 Since each index contains a LINQ function, you can combine multiple fields into one.
 
@@ -3090,9 +3057,6 @@ where FullName = 'Robert King'
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 #### Example II
 
 <Admonition type="info" title="Information" id="information" href="#information">
@@ -3146,9 +3110,9 @@ where search(Query, 'John Doe')
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing Partial Field Data" id="indexing-partial-field-data" href="#indexing-partial-field-data">
+
+## Indexing Partial Field Data
 
 Imagine that you would like to return all employees that were born in a specific year. You can do it by indexing `Birthday` from `Employee` in the following way:
 
@@ -3231,9 +3195,9 @@ where YearOfBirth = 1963
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Indexing Nested Data" id="indexing-nested-data" href="#indexing-nested-data">
+
+## Indexing Nested Data
 
 If your document contains nested data, e.g. `Employee` contains `Address`, you can index on its fields by accessing them directly in the index. Let's say that we would like to create an index that returns all employees that were born in a specific `Country`:
 
@@ -3276,9 +3240,9 @@ where Country = 'USA'
 
 If a document relationship is represented by the document's ID, you can use the `LoadDocument` method to retrieve such a document. More about it can be found [here](../indexes/indexing-related-documents).
 
-</Admonition>
 
-<Admonition type="info" title="Indexing Missing Fields" id="indexing-missing-fields" href="#indexing-missing-fields">
+
+## Indexing Missing Fields
 
 By default, indexes will not index a document that contains none of the specified fields. This behavior can be changed 
 using the [Indexing.IndexEmptyEntries](../server/configuration/indexing-configuration#indexing.indexemptyentries) 
@@ -3287,7 +3251,7 @@ configuration option.
 The option [Indexing.IndexMissingFieldsAsNull](../server/configuration/indexing-configuration#indexing.indexmissingfieldsasnull) 
 determines whether missing fields in documents are indexed with the value `null`, or not indexed at all.  
 
-</Admonition>
+
 
 
 </LanguageContent>

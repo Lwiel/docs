@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Create Map-Reduce Index
----
-
 <Admonition type="note" title="Note">
 
 * **Map-Reduce indexes** allow you to perform complex ***data aggregation*** that can be queried 
@@ -47,10 +45,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Artificial Documents Usage](../../../studio/database/indexes/create-map-reduce-index#artificial-documents-usage)  
       * [Artificial Documents Limitations](../../../studio/database/indexes/create-map-reduce-index#limitations)  
 </Admonition>
-
----
-
-<Admonition type="info" title="The Map Stage" id="the-map-stage" href="#the-map-stage">
+## The Map Stage
 
 **Define a Map Function:**  
 
@@ -87,9 +82,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 3. Next, click 'Add Reduction' to continue and add the 'Reduce' function. 
    See [The Reduce Stage](../../../studio/database/indexes/create-map-reduce-index#the-reduce-stage).
-</Admonition>
 
-<Admonition type="info" title="The Reduce Stage" id="the-reduce-stage" href="#the-reduce-stage">
+
+## The Reduce Stage
 
 **Define a Reduce Function:**  
 
@@ -110,9 +105,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 2. Optional: The results of the Map-Reduce index can be saved in a new collection.  
    Learn more in [Saving Map-Reduce Results in a Collection (Artificial Documents)](../../../studio/database/indexes/create-map-reduce-index#saving-map-reduce-results-in-a-collection-(artificial-documents))
-</Admonition>
 
-<Admonition type="info" title="Important Guidelines" id="important-guidelines" href="#important-guidelines">
+
+## Important Guidelines
 
 * Both the Map and the Reduce functions must be **pure functions**, they should have no external input.  
   i.e. usage of Random, DateTime.Now or any similar calls is _not_ allowed.  
@@ -120,9 +115,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 * The Reduce output must match the Map output, they must have the **same structure**.  
   RavenDB will error if you have a different shape for each of the functions.  
-</Admonition>
 
-<Admonition type="info" title="Map-Reduce Query Results" id="map-reduce-query-results" href="#map-reduce-query-results">
+
+## Map-Reduce Query Results
 
 ![Figure 3. Map Reduce Query Result](./assets/create-map-reduce-index-3.png)
 
@@ -132,9 +127,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 * The Map-Reduce results can also be visualized in [Map-Reduce Visualizer](../../../studio/database/indexes/map-reduce-visualizer).  
 
-</Admonition>
 
-<Admonition type="info" title="Multi-Map-Reduce" id="multi-map-reduce" href="#multi-map-reduce">
+
+## Multi-Map-Reduce
 
 * Multi-Map-Reduce indexes allow us to aggregate data from multiple collections.  
 
@@ -148,9 +143,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 ![Figure 4.1 The Multi-Map-Reduce](./assets/create-map-reduce-index-4.1.png)
 
-</Admonition>
 
-<Admonition type="info" title="Saving Map-Reduce Results in a Collection (Artificial Documents)" id="saving-map-reduce-results-in-a-collection-artificial-documents" href="#saving-map-reduce-results-in-a-collection-artificial-documents">
+
+## Saving Map-Reduce Results in a Collection (Artificial Documents)
 
 * The results of the Map-Reduce index can be saved as _output documents_ in a new output collection.  
 
@@ -229,5 +224,5 @@ to edit them manually since any index results update would overwrite all manual 
      or [Attachments](../../../document-extensions/attachments/what-are-attachments).  
 
 </Admonition>
-</Admonition>
+
 

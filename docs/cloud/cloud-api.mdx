@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Cloud: API
----
-
 <Admonition type="note" title="Note">
 
 *RavenDB Cloud API* provides client libraries that allow you to perform API operations. 
@@ -26,10 +24,7 @@ The API is defined using the OpenAPI 3.0 standard.
     * [Product quota](#product-quota)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Swagger & available clients" id="swagger-available-clients" href="#swagger-available-clients">
+## Swagger & available clients
 
 !["Figure 1 - Swagger UI"](./assets/cloud-api-swagger-ui-overview.png)
 
@@ -41,9 +36,9 @@ Client libraries are available in the following languages:
 [C#](https://www.nuget.org/packages/RavenDB.Cloud.Api.Client)  
 [node.js](https://www.npmjs.com/package/ravendb-cloud)
 
-</Admonition>
 
-<Admonition type="info" title="API methods overview" id="api-methods-overview" href="#api-methods-overview">
+
+## API methods overview
 
 *The RavenDB Cloud API* contains three categories of API methods: **Account**, **Metadata**, **Products**.
 
@@ -55,9 +50,9 @@ Client libraries are available in the following languages:
 
 More information about available methods, requests and responses can be found in the [Swagger & available clients](#swagger-&-available-clients) section.
 
-</Admonition>
 
-<Admonition type="info" title="API Keys expiration" id="api-keys-expiration" href="#api-keys-expiration">
+
+## API Keys expiration
 
 Max expiration period is *12 months* and cannot be longer than this period.
 
@@ -68,9 +63,9 @@ RavenDB Cloud does not send reminders about upcoming API key expiration.
 You can change the expiration date or extend it for another *12 months*.  
 For more details, please check the [Edit API Key](../cloud/portal/cloud-portal-api-tab#edit-api-key) section.
 
-</Admonition>
 
-<Admonition type="info" title="Product quota" id="product-quota" href="#product-quota">
+
+## Product quota
 
 You cannot create another product via the *RavenDB Cloud API* if you have **three or more** products.  
 
@@ -78,4 +73,4 @@ You cannot create another product via the *RavenDB Cloud API* if you have **thre
 Contact support to extend the quota.
 </Admonition>
 
-</Admonition>
+

@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
+
+
+# Perform requests lazily
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Perform requests lazily
----
 
 <Admonition type="note" title="Note">
 
@@ -48,10 +50,7 @@ import LanguageContent from "@site/src/components/language-content";
         * [Execute all requests - explicitly](../../../client-api/session/how-to/perform-operations-lazily#execute-all-requests---explicitly)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Operations that can be executed lazily" id="operations-that-can-be-executed-lazily" href="#operations-that-can-be-executed-lazily">
+## Operations that can be executed lazily
 
 ### Load entities
 
@@ -72,9 +71,6 @@ Employee employee = lazyEmployee.Value; // 'Load' operation is executed here
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Load entities with include
 
 [Load with include](../../../client-api/session/loading-entities#load-with-includes) loads both the document and the specified related document.    
@@ -114,9 +110,6 @@ Supplier supplier = session.Load<Supplier>(product.SupplierId);
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Load entities starting with
 
 [LoadStartingWith](../../../client-api/session/loading-entities#loadstartingwith) loads entities whose ID starts with the specified prefix.  
@@ -136,9 +129,6 @@ var employees = lazyEmployees.Value; // 'Load' operation is executed here
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Conditional load
 
 [ConditionalLoad](../../../client-api/session/loading-entities#conditionalload) logic is: 
@@ -183,9 +173,6 @@ using (var session2 = store.OpenSession())
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Run query
 
 A Query can be executed **lazily**.  
@@ -207,9 +194,6 @@ IEnumerable<Employee> employees = lazyEmployees.Value; // Query is executed here
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Get revisions
 
 All methods for [getting revisions](../../../document-extensions/revisions/client-api/session/loading) and their metadata can be executed **lazily**.
@@ -230,9 +214,6 @@ List<Employee> revisions = lazyRevisions.Value; // Getting revisions is executed
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Get compare-exchange value
 
 [Getting compare-exchange](../../../client-api/session/cluster-transaction/compare-exchange#get-compare-exchange) 
@@ -265,9 +246,9 @@ values can be executed **lazily**.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Multiple lazy requests " id="multiple-lazy-requests" href="#multiple-lazy-requests">
+
+## Multiple lazy requests 
 
 ### Execute all requests - implicitly
 
@@ -300,9 +281,6 @@ IEnumerable<Product> products = lazyProducts.Value;
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Execute all requests - explicitly
 
 Explicitly calling `ExecuteAllPendingLazyOperations` will execute 
@@ -334,13 +312,11 @@ IEnumerable<Product> products = lazyProducts.Value;
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Perform requests lazily
----
 
 <Admonition type="note" title="Note">
 
@@ -374,10 +350,7 @@ IEnumerable<Product> products = lazyProducts.Value;
         * [Execute all requests - explicitly](../../../client-api/session/how-to/perform-operations-lazily#execute-all-requests---explicitly)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Operations that can be executed lazily" id="operations-that-can-be-executed-lazily" href="#operations-that-can-be-executed-lazily">
+## Operations that can be executed lazily
 
 ### Load entities
 
@@ -400,9 +373,6 @@ employee = lazy_employee.value  # 'load' operation is executed here
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Load entities with include
 
 [load with include](../../../client-api/session/loading-entities#load-with-includes) loads 
@@ -443,9 +413,6 @@ supplier = session.load(product.SupplierId)
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Load entities starting with
 
 [load_starting_with](../../../client-api/session/loading-entities#loadstartingwith) loads 
@@ -468,9 +435,6 @@ employees = lazy_employees.value  # 'load' operation is executed here
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Conditional load
 
 [conditional_load](../../../client-api/session/loading-entities#conditionalload) logic is: 
@@ -512,9 +476,6 @@ with store.open_session() as session2:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Run query
 
 A query can be executed **lazily**.  
@@ -535,9 +496,6 @@ employees = lazy_employees.value  # query is executed here
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Get revisions
 
 All methods for [getting revisions](../../../document-extensions/revisions/client-api/session/loading) and their metadata can be executed **lazily**.
@@ -560,9 +518,6 @@ revisions = lazy_revisions.value  # Getting revisions is executed here
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Get compare-exchange value
 
 [get_compare_exchange_value](../../../client-api/session/cluster-transaction/compare-exchange#get-compare-exchange) 
@@ -594,9 +549,9 @@ can be executed **lazily**.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Multiple lazy requests " id="multiple-lazy-requests" href="#multiple-lazy-requests">
+
+## Multiple lazy requests 
 
 ### Execute all requests - implicitly
 
@@ -626,9 +581,6 @@ products = lazy_products.value
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Execute all requests - explicitly
 
 Explicitly calling `execute_all_pending_lazy_operations` will execute 
@@ -657,13 +609,11 @@ products = lazy_products.value
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Perform requests lazily
----
 
 <Admonition type="note" title="Note">
 
@@ -697,10 +647,7 @@ products = lazy_products.value
         * [Execute all requests - explicitly](../../../client-api/session/how-to/perform-operations-lazily#execute-all-requests---explicitly)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Operations that can be executed lazily" id="operations-that-can-be-executed-lazily" href="#operations-that-can-be-executed-lazily">
+## Operations that can be executed lazily
 
 ### Load entities
 
@@ -722,9 +669,6 @@ $employee = $lazyEmployee->getValue(); // 'Load' operation is executed here
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Load entities with include
 
 [load with include](../../../client-api/session/loading-entities#load-with-includes) loads 
@@ -796,9 +740,6 @@ $supplier = $session->load(Supplier::class, $product->getSuppierId());
 </CodeBlock>
 </TabItem>
 </Tabs>
-
----
-
 ### Load entities starting with
 
 [load_starting_with](../../../client-api/session/loading-entities#loadstartingwith) loads 
@@ -820,9 +761,6 @@ $employees = $lazyEmployees->getValue(); // 'Load' operation is executed here
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Conditional load
 
 [conditional_load](../../../client-api/session/loading-entities#conditionalload) logic is: 
@@ -872,9 +810,6 @@ try \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Run query
 
 A query can be executed `lazily`.  
@@ -897,9 +832,6 @@ $employees = $lazyEmployees->getValue(); // Query is executed here
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Get revisions
 
 All methods for [getting revisions](../../../document-extensions/revisions/client-api/session/loading) and their metadata can be executed `lazily`.
@@ -922,9 +854,6 @@ $revisions = $lazyRevisions->getValue(); // Getting revisions is executed here
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Get compare-exchange value
 
 [get_compare_exchange_value](../../../client-api/session/cluster-transaction/compare-exchange#get-compare-exchange) 
@@ -961,9 +890,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Multiple lazy requests " id="multiple-lazy-requests" href="#multiple-lazy-requests">
+
+## Multiple lazy requests 
 
 ### Execute all requests - implicitly
 
@@ -996,9 +925,6 @@ $products = $lazyProducts->getValue();
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 ### Execute all requests - explicitly
 
 Explicitly calling `executeAllPendingLazyOperations` will execute 
@@ -1030,13 +956,11 @@ $products = $lazyProducts->getValue();
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Perform requests lazily
----
 
 <Admonition type="note" title="Note">
 
@@ -1070,10 +994,7 @@ $products = $lazyProducts->getValue();
         * [Execute all requests - explicitly](../../../client-api/session/how-to/perform-operations-lazily#explicit)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Operations that can be executed lazily" id="operations-that-can-be-executed-lazily" href="#operations-that-can-be-executed-lazily">
+## Operations that can be executed lazily
 
 <Admonition type="note" title="Note">
 <a id="loadEntities"/> __Load entities__
@@ -1285,9 +1206,9 @@ const cmpXchgValue =
 </TabItem>
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Multiple lazy requests " id="multiple-lazy-requests" href="#multiple-lazy-requests">
+
+## Multiple lazy requests 
 
 <Admonition type="note" title="Note">
 
@@ -1359,7 +1280,7 @@ const products = await lazyProducts.getValue();
 
 </Admonition>
 
-</Admonition>
+
 
 
 </LanguageContent>

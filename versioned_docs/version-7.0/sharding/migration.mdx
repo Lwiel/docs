@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding: Migration
----
-
 <Admonition type="note" title="Note">
 
 When [it's time](../sharding/overview#when-should-sharding-be-used) 
@@ -38,10 +36,7 @@ database to the new one in several ways.
   * [External Replication](../sharding/migration#external-replication)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Export & Import" id="export-import" href="#export-import">
+## Export & Import
 
 Export is a **one-time operation** that dumps the current contents 
 of the database into a `.ravendbdump` file.  
@@ -65,9 +60,9 @@ a sharded database, that will distribute the data between its shard.
   but **not** create a sharded database or add its data to an existing database.  
   </Admonition>
    
-</Admonition>
 
-<Admonition type="info" title="Backup" id="backup" href="#backup">
+
+## Backup
 
 RavenDB backups are **periodic operations**, implemented by 
 [ongoing tasks](../server/ongoing-tasks/backup-overview) 
@@ -85,9 +80,9 @@ A backup created for a non-sharded database **cannot** be
 The data can be migrated into a sharded database only by importing it.  
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="External Replication" id="external-replication" href="#external-replication">
+
+## External Replication
 
 [External replication](../server/ongoing-tasks/external-replication) 
 is an **ongoing task** that keeps a live replica of its database's data 
@@ -110,5 +105,5 @@ and document extensions, but **not** server and cluster level features like
 indexes and compare exchange entries. Find the full list [here](../server/ongoing-tasks/external-replication#general-information-about-external-replication-task).  
 </Admonition>
 
-</Admonition>
+
 

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # The Revisions Bin View
----
-
 <Admonition type="note" title="Note">
 
 * The **Revisions Bin** stores revisions of deleted documents, ensuring they remain accessible.  
@@ -25,10 +23,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Restoring revisions](../../../../studio/database/document-extensions/revisions/revisions-bin#restoring-revisions)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 **What is the Revisions Bin**:
 
@@ -46,9 +41,6 @@ import LanguageContent from "@site/src/components/language-content";
 * This "Delete Revision" marks the document's deletion and is stored in the **Revisions Bin**.  
   In addition, all the revisions that were created over time for the deleted document are also moved to the Revisions Bin.
   Moving the revisions to the Revisions Bin ensures that historical data remains accessible.  
-
----
-
 **Deleting revisions**:
 
 * To clear up space, you can **manually** delete revisions from the Revisions Bin.  
@@ -63,17 +55,14 @@ import LanguageContent from "@site/src/components/language-content";
   where they can also be deleted.
 
 * For a complete list of deletion options, see [All ways to delete revisions](../../../../studio/database/document-extensions/revisions/all-revisions#all-ways-to-delete-revisions).
-
----
-
 **Restoring revisions**:
 
 * Revisions of a deleted document can be restored from the Revisions Bin and associated with a new document.
   Learn more [below](../../../../studio/database/document-extensions/revisions/revisions-bin#restoring-revisions).
 
-</Admonition>
 
-<Admonition type="info" title="The Revisions Bin view" id="the-revisions-bin-view" href="#the-revisions-bin-view">
+
+## The Revisions Bin view
 
 ![Revisions bin items](./assets/revisions-bin-1.png)
 
@@ -89,9 +78,6 @@ import LanguageContent from "@site/src/components/language-content";
     When a "Delete Revision" is removed, ALL its associated revisions are permanently deleted and cannot be recovered.
     This action is irrevocable.
     </Admonition>
-
----
-
 Clicking the `orders/829-A` ID from the above list will open the following view:
 
 
@@ -106,9 +92,9 @@ Clicking the `orders/829-A` ID from the above list will open the following view:
    You can click on each one to view and manage it like any other revision,  
    e.g., clone it or compare it with other revisions. 
 
-</Admonition>
 
-<Admonition type="info" title="Restoring revisions" id="restoring-revisions" href="#restoring-revisions">
+
+## Restoring revisions
 
 * Revisions of a deleted document can be restored and associated with a new document.  
   To restore them, create a new document with the **exact same ID** as the deleted document.  
@@ -130,5 +116,5 @@ Clicking the `orders/829-A` ID from the above list will open the following view:
    This revision is now part of the new document's revision history.
 6. These are the revisions of the deleted document that are now restored.
 
-</Admonition>
+
 

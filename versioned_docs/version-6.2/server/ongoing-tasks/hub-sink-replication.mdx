@@ -12,9 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Hub/Sink Replication
-
----
-
 <Admonition type="note" title="Note">
 
 Hub/Sink replication is used to maintain a live replica of a database 
@@ -47,11 +44,7 @@ Hub whenever they are online.
    * [Failover](../../server/ongoing-tasks/hub-sink-replication#failover)  
    * [Backward Compatibility](../../server/ongoing-tasks/hub-sink-replication#backward-compatibility)  
 </Admonition>
-
----
-
-
-<Admonition type="info" title="What is and is not replicated?" id="what-is-and-is-not-replicated" href="#what-is-and-is-not-replicated">
+## What is and is not replicated?
 
 <Admonition type="info" title="Info">
 
@@ -94,11 +87,11 @@ To learn more, see [Data Ownership in a Distributed System](https://ayende.com/b
 It is also best to ensure that each cluster defines policies, configurations, and ongoing tasks that are relevant for it.  
 </Admonition>
 
-</Admonition>
 
 
 
-<Admonition type="info" title="Defining Replication Tasks" id="defining-replication-tasks" href="#defining-replication-tasks">
+
+## Defining Replication Tasks
 
 To start replication via Hub and Sink tasks, you need to define -  
 
@@ -116,12 +109,6 @@ To start replication via Hub and Sink tasks, you need to define -
     * You can filter incoming and outgoing replication defining separate lists of allowed paths 
       for *incoming* and *outgoing* documents.  
       * Only documents that are allowed by both the hub and sink filters will be replicated.  
-
-
-
-
----
-
 ## Defining a Replication Hub  
 
 Use `PutPullReplicationAsHubOperation` to register a new Hub task,  
@@ -159,9 +146,6 @@ public PutPullReplicationAsHubOperation(PullReplicationDefinition pullReplicatio
     | `Name` | `string` | Task Name |
     | `TaskId` | `long` | Task ID |
     | `WithFiltering` | `bool` | Allow Replication Filtering |
-
----
-
 ### Defining a Hub Access
 
 Use `RegisterReplicationHubAccessOperation` to define a Hub Access,  
@@ -261,9 +245,6 @@ and configure it using a `PullReplicationAsSink` class.
     | `CertificatePassword` | `string` | Certificate Password |
     | `AccessName` | `string` | Access Name to connect to |
     | `HubName` | `string` | Hub Name to connect to |
-
----
-
 ### Defining a Connection String  
 
 The Sink needs a connection string to locate the Hub task it is to use.  
@@ -287,9 +268,9 @@ and configure it using a `RavenConnectionString` class.
 Learn about Connection Strings [here](../../client-api/operations/maintenance/connection-strings/add-connection-string#operations-how-to-add-a-connection-string).  
 
 
-</Admonition>
 
-<Admonition type="info" title="Usage Sample" id="usage-sample" href="#usage-sample">
+
+## Usage Sample
 
 <TabItem value="something" label="csharp">
 <CodeBlock language="csharp">
@@ -343,15 +324,12 @@ await store.Maintenance.SendAsync(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Failover" id="failover" href="#failover">
+
+## Failover
 
 Since the Sink task always initiates the replication, it is 
 also the Sink's responsibility to reconnect on network failure. 
-
----
-
 ### Hub Failure 
 As part of the connection handshake, the Sink fetches an ordered list 
 of nodes from the Hub cluster. If a preferred node is defined (by explicitly 
@@ -359,16 +337,13 @@ selecting a mentor node), it will be at the top of this list.
 The Sink will try to connect to the first node in the list, and proceed 
 down the list with every failed attempt.  
 If the connection fails with all nodes, the Sink will request the list again.  
-
----
-
 ### Sink Failure 
 If the failure occurs on the Sink node, the Sink cluster will 
 select a different node for the job.  
 
-</Admonition>
 
-<Admonition type="info" title="Backward Compatibility" id="backward-compatibility" href="#backward-compatibility">
+
+## Backward Compatibility
 
 RavenDB versions that precede 5.1 support **Pull Replication**, which allows 
 you to define *Hub and Sink* tasks and replicate data from Hub to Sink.  
@@ -390,6 +365,6 @@ Upgrade RavenDB from a version earlier than 5.1 if you want to implement
 Replication Filtering.  
 </Admonition>
 
-</Admonition>
+
 
 

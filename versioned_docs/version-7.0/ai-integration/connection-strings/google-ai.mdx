@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp"];
+
+
+# Connection String to Google AI
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Connection String to Google AI
----
 
 <Admonition type="note" title="Note">
 
@@ -29,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../ai-integration/connection-strings/google-ai#syntax) 
     
 </Admonition>
-
----
-
-<Admonition type="info" title="Define the connection string - from the Studio" id="define-the-connection-string-from-the-studio" href="#define-the-connection-string-from-the-studio">
+## Define the connection string - from the Studio
 
 ![connection string to google ai](./assets/google-ai.png)
 
@@ -70,9 +69,9 @@ import LanguageContent from "@site/src/components/language-content";
 
 10. Click **Save** to store the connection string or **Cancel** to discard changes.
 
-</Admonition>
 
-<Admonition type="info" title="Define the connection string - from the Client API" id="define-the-connection-string-from-the-client-api" href="#define-the-connection-string-from-the-client-api">
+
+## Define the connection string - from the Client API
 
 <TabItem value="something-something" label="create_connection_string_google_ai">
 <CodeBlock language="csharp">
@@ -104,9 +103,9 @@ import LanguageContent from "@site/src/components/language-content";
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="google_ai_settings">
 <CodeBlock language="csharp">
@@ -139,7 +138,7 @@ public class AbstractAiSettings
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

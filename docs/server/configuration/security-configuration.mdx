@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Configuration: Security
----
-
 <Admonition type="note" title="Note">
 
 * The following configuration keys allow you to control the desired level of security in a RavenDB server.  
@@ -67,10 +65,7 @@ import LanguageContent from "@site/src/components/language-content";
     [Security.UnsecuredAccessAllowed](../../server/configuration/security-configuration#security.unsecuredaccessallowed)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Security.AuditLog.EnableArchiveFileCompression" id="security-auditlog-enablearchivefilecompression" href="#security-auditlog-enablearchivefilecompression">
+## Security.AuditLog.EnableArchiveFileCompression
 
 Determines whether to compress the audit log files.
 
@@ -79,9 +74,9 @@ Determines whether to compress the audit log files.
 - **Scope**: Server-wide only
 - **Alias:** `Security.AuditLog.Compress`
 
-</Admonition>
 
-<Admonition type="info" title="Security.AuditLog.FolderPath" id="security-auditlog-folderpath" href="#security-auditlog-folderpath">
+
+## Security.AuditLog.FolderPath
 
 The folder path where RavenDB stores audit log files.  
 Setting the path enables writing to the audit log.
@@ -90,9 +85,9 @@ Setting the path enables writing to the audit log.
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.AuditLog.ArchiveAboveSizeInMb" id="security-auditlog-archiveabovesizeinmb" href="#security-auditlog-archiveabovesizeinmb">
+
+## Security.AuditLog.ArchiveAboveSizeInMb
 
 The largest size (in megabytes) that an audit log file may reach 
 before it is archived and logging is directed to a new file.
@@ -102,9 +97,9 @@ before it is archived and logging is directed to a new file.
 - **MinValue**: `16`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.AuditLog.MaxArchiveDays" id="security-auditlog-maxarchivedays" href="#security-auditlog-maxarchivedays">
+
+## Security.AuditLog.MaxArchiveDays
 
 The maximum number of days that an archived audit log file is kept.  
 
@@ -112,9 +107,9 @@ The maximum number of days that an archived audit log file is kept.
 - **Default**: `3`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.AuditLog.MaxArchiveFiles" id="security-auditlog-maxarchivefiles" href="#security-auditlog-maxarchivefiles">
+
+## Security.AuditLog.MaxArchiveFiles
 
 The maximum number of archived audit log files to keep.  
 Set this value to the number of days after which audit log files will be deleted,  
@@ -125,9 +120,9 @@ or set it to `null` to refrain from removing audit log files.
 - **Min Value**: `0`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Change.Exec" id="security-certificate-change-exec" href="#security-certificate-change-exec">
+
+## Security.Certificate.Change.Exec
 
 A command or executable that handles cluster certificate changes.  
 This executable allows you to implement your own custom logic for persisting the new certificate on all nodes.
@@ -138,9 +133,9 @@ Note: it will only be triggered if [Security.Certificate.Path](../../server/conf
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Change.Exec.Arguments" id="security-certificate-change-exec-arguments" href="#security-certificate-change-exec-arguments">
+
+## Security.Certificate.Change.Exec.Arguments
 
 The command line arguments for the [Security.Certificate.Change.Exec](../../server/configuration/security-configuration#security.certificate.change.exec) command or executable.
 
@@ -148,34 +143,31 @@ The command line arguments for the [Security.Certificate.Change.Exec](../../serv
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Exec" id="security-certificate-exec" href="#security-certificate-exec">
+
+## Security.Certificate.Exec
 
 Deprecated.  
 Use [Security.Certificate.Load.Exec](../../server/configuration/security-configuration#security.certificate.load.exec)
 along with [Security.Certificate.Renew.Exec](../../server/configuration/security-configuration#security.certificate.renew.exec)
 and [Security.Certificate.Change.Exec](../../server/configuration/security-configuration#security.certificate.change.exec) instead.
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Exec.TimeoutInSec" id="security-certificate-exec-timeoutinsec" href="#security-certificate-exec-timeoutinsec">
+
+## Security.Certificate.Exec.TimeoutInSec
 
 * The number of seconds to wait for the certificate executables to exit.
 * Applies to:
   * [Security.Certificate.Load.Exec](../../server/configuration/security-configuration#security.certificate.load.exec)
   * [Security.Certificate.Renew.Exec](../../server/configuration/security-configuration#security.certificate.renew.exec)
   * [Security.Certificate.Change.Exec](../../server/configuration/security-configuration#security.certificate.change.exec)
-
----
-
 - **Type**: `int`
 - **Default**: `30`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.ExpiringThresholdInDays" id="security-certificate-expiringthresholdindays" href="#security-certificate-expiringthresholdindays">
+
+## Security.Certificate.ExpiringThresholdInDays
 
 The number of days before certificate expiration when it will be considered _expiring_.
 
@@ -183,9 +175,9 @@ The number of days before certificate expiration when it will be considered _exp
 - **Default**: `14`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.LetsEncrypt.Email" id="security-certificate-letsencrypt-email" href="#security-certificate-letsencrypt-email">
+
+## Security.Certificate.LetsEncrypt.Email
 
 The E-mail address associated with the Let's Encrypt certificate.  
 Used for renewal requests.
@@ -194,9 +186,9 @@ Used for renewal requests.
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Load.Exec" id="security-certificate-load-exec" href="#security-certificate-load-exec">
+
+## Security.Certificate.Load.Exec
 
 * A command or executable that provides the `.pfx` cluster certificate when invoked by RavenDB.  
   If specified, RavenDB will use HTTPS/SSL for all network activities.
@@ -204,16 +196,13 @@ Used for renewal requests.
 * The [Security.Certificate.Path](../../server/configuration/security-configuration#security.certificate.path) setting takes precedence over this executable.
 
 * Learn more in [get certificate via loader](../../server/security/authentication/certificate-configuration#with-logic-foreign-to-ravendb-or-external-certificate-storage).
-
----
-
 - **Type**: `string`
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Load.Exec.Arguments" id="security-certificate-load-exec-arguments" href="#security-certificate-load-exec-arguments">
+
+## Security.Certificate.Load.Exec.Arguments
 
 The command line arguments for the [Security.Certificate.Load.Exec](../../server/configuration/security-configuration#security.certificate.load.exec) command or executable.
 
@@ -221,9 +210,9 @@ The command line arguments for the [Security.Certificate.Load.Exec](../../server
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Password" id="security-certificate-password" href="#security-certificate-password">
+
+## Security.Certificate.Password
 
 The (optional) password of the .pfx certificate file.
 
@@ -231,9 +220,9 @@ The (optional) password of the .pfx certificate file.
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Path" id="security-certificate-path" href="#security-certificate-path">
+
+## Security.Certificate.Path
 
 The path to the `.pfx` certificate file. If specified, RavenDB will use HTTPS/SSL for all network activities.  
 Certificate setting priority order:
@@ -244,9 +233,9 @@ Certificate setting priority order:
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Renew.Exec" id="security-certificate-renew-exec" href="#security-certificate-renew-exec">
+
+## Security.Certificate.Renew.Exec
 
 * A command or executable that handles automatic renewals, providing a renewed `.pfx` cluster certificate.
 
@@ -255,16 +244,13 @@ Certificate setting priority order:
 
 * The executable specified in [Security.Certificate.Change.Exec](../../server/configuration/security-configuration#security.certificate.change.exec)
   will then be used to persist the certificate across the cluster on all nodes.
-
----
-
 - **Type**: `string`
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Renew.Exec.Arguments" id="security-certificate-renew-exec-arguments" href="#security-certificate-renew-exec-arguments">
+
+## Security.Certificate.Renew.Exec.Arguments
 
 The command line arguments for the [Security.Certificate.Renew.Exec](../../server/configuration/security-configuration#security.certificate.renew.exec.arguments) command or executable.
 
@@ -272,9 +258,9 @@ The command line arguments for the [Security.Certificate.Renew.Exec](../../serve
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Validation.Exec" id="security-certificate-validation-exec" href="#security-certificate-validation-exec">
+
+## Security.Certificate.Validation.Exec
 
 EXPERT ONLY:
 
@@ -287,9 +273,9 @@ The executable will return a case-insensitive boolean string through the standar
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Validation.Exec.Arguments" id="security-certificate-validation-exec-arguments" href="#security-certificate-validation-exec-arguments">
+
+## Security.Certificate.Validation.Exec.Arguments
 
 EXPERT ONLY:
 
@@ -300,9 +286,9 @@ The arguments must be escaped for the command line.
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Validation.Exec.TimeoutInSec" id="security-certificate-validation-exec-timeoutinsec" href="#security-certificate-validation-exec-timeoutinsec">
+
+## Security.Certificate.Validation.Exec.TimeoutInSec
 
 The number of seconds to wait for the [Security.Certificate.Validation.Exec](../../server/configuration/security-configuration#security.certificate.validation.exec.arguments) executable to exit.
 
@@ -310,9 +296,9 @@ The number of seconds to wait for the [Security.Certificate.Validation.Exec](../
 - **Default**: `5`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Certificate.Validation.KeyUsages" id="security-certificate-validation-keyusages" href="#security-certificate-validation-keyusages">
+
+## Security.Certificate.Validation.KeyUsages
 
 EXPERT ONLY:
 
@@ -322,9 +308,9 @@ Indicates if 'KeyUsage' validation of certificates should be turned on or off.
 - **Default**: `true`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Csrf.AdditionalOriginHeaders" id="security-csrf-additionaloriginheaders" href="#security-csrf-additionaloriginheaders">
+
+## Security.Csrf.AdditionalOriginHeaders
 
 Specify additional request headers that RavenDB will check for the Origin of a request.  
 For example: `X-Forwarded-Host`.
@@ -333,9 +319,9 @@ For example: `X-Forwarded-Host`.
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Csrf.Enabled" id="security-csrf-enabled" href="#security-csrf-enabled">
+
+## Security.Csrf.Enabled
 
 Indicates whether the Cross-Site Request Forgery (CSRF) protection is enabled in RavenDB.
 
@@ -343,9 +329,9 @@ Indicates whether the Cross-Site Request Forgery (CSRF) protection is enabled in
 - **Default**: `true`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.Csrf.TrustedOrigins" id="security-csrf-trustedorigins" href="#security-csrf-trustedorigins">
+
+## Security.Csrf.TrustedOrigins
 
 List of Trusted Origins for CSRF filter.  
 Requests from these origins will be allowed without triggering CSRF checks.
@@ -354,9 +340,9 @@ Requests from these origins will be allowed without triggering CSRF checks.
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.MasterKey.Exec" id="security-masterkey-exec" href="#security-masterkey-exec">
+
+## Security.MasterKey.Exec
 
 A command or executable that RavenDB will run to obtain a 256-bit Master Key.   
 If specified, RavenDB will use this key to protect secrets.
@@ -365,9 +351,9 @@ If specified, RavenDB will use this key to protect secrets.
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.MasterKey.Exec.Arguments" id="security-masterkey-exec-arguments" href="#security-masterkey-exec-arguments">
+
+## Security.MasterKey.Exec.Arguments
 
 The command line arguments for the [Security.MasterKey.Exec](../../server/configuration/security-configuration#security.masterkey.exec) command or executable.
 
@@ -375,9 +361,9 @@ The command line arguments for the [Security.MasterKey.Exec](../../server/config
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.MasterKey.Exec.TimeoutInSec" id="security-masterkey-exec-timeoutinsec" href="#security-masterkey-exec-timeoutinsec">
+
+## Security.MasterKey.Exec.TimeoutInSec
 
 The number of seconds to wait for the Master Key executable to exit.
 
@@ -385,9 +371,9 @@ The number of seconds to wait for the Master Key executable to exit.
 - **Default**: `30`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.MasterKey.Path" id="security-masterkey-path" href="#security-masterkey-path">
+
+## Security.MasterKey.Path
 
 The file path to a (256-bit) Master Key.  
 If specified, RavenDB will use this key to protect secrets.
@@ -396,9 +382,9 @@ If specified, RavenDB will use this key to protect secrets.
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.TwoFactor.DefaultSessionDurationInMin" id="security-twofactor-defaultsessiondurationinmin" href="#security-twofactor-defaultsessiondurationinmin">
+
+## Security.TwoFactor.DefaultSessionDurationInMin
 
 The default duration of a two-factor authentication (2FA) session, in minutes.
 
@@ -408,9 +394,9 @@ After successfully completing the 2FA process, the session will remain active fo
 - **Default**: `120`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.TwoFactor.MaxSessionDurationInMin" id="security-twofactor-maxsessiondurationinmin" href="#security-twofactor-maxsessiondurationinmin">
+
+## Security.TwoFactor.MaxSessionDurationInMin
 
 The maximum duration of a two-factor authentication (2FA) session, in minutes.  
 This duration takes precedence over the default duration setting.
@@ -419,9 +405,9 @@ This duration takes precedence over the default duration setting.
 - **Default**: `1440`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.WellKnownCertificates.Admin" id="security-wellknowncertificates-admin" href="#security-wellknowncertificates-admin">
+
+## Security.WellKnownCertificates.Admin
 
 Specify well-known certificate thumbprints that will be trusted by the server as cluster admins.
 
@@ -430,17 +416,17 @@ Specify well-known certificate thumbprints that will be trusted by the server as
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.WellKnownIssuerHashes.Admin" id="security-wellknownissuerhashes-admin" href="#security-wellknownissuerhashes-admin">
+
+## Security.WellKnownIssuerHashes.Admin
 
 OBSOLETE.  
 This is no longer supported or used.  
 Use [Security.WellKnownIssuers.Admin](../../server/configuration/security-configuration#security.wellknownissuers.admin) instead.
 
-</Admonition>
 
-<Admonition type="info" title="Security.WellKnownIssuers.Admin" id="security-wellknownissuers-admin" href="#security-wellknownissuers-admin">
+
+## Security.WellKnownIssuers.Admin
 
 Specify well-known issuer certificates in Base64 format or provide file paths to the certificate files.  
 This will be used to validate a new client certificate when the issuer's certificate changes.
@@ -449,9 +435,9 @@ This will be used to validate a new client certificate when the issuer's certifi
 - **Default**: `null`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.WellKnownIssuers.Admin.ValidateCertificateNames" id="security-wellknownissuers-admin-validatecertificatenames" href="#security-wellknownissuers-admin-validatecertificatenames">
+
+## Security.WellKnownIssuers.Admin.ValidateCertificateNames
 
 Determine whether the server will validate the subject alternative names (SANs) of well-known issuer certificates against the server's domain name.
 
@@ -459,9 +445,9 @@ Determine whether the server will validate the subject alternative names (SANs) 
 - **Default**: `false`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.DisableHsts" id="security-disablehsts" href="#security-disablehsts">
+
+## Security.DisableHsts
 
 Disable HTTP Strict Transport Security (HSTS) on the server.
 
@@ -469,9 +455,9 @@ Disable HTTP Strict Transport Security (HSTS) on the server.
 - **Default**: `false`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.DisableHttpsRedirection" id="security-disablehttpsredirection" href="#security-disablehttpsredirection">
+
+## Security.DisableHttpsRedirection
 
 Disable automatic redirection when listening to HTTPS.  
 By default, when using port 443, RavenDB redirects all incoming HTTP traffic on port 80 to HTTPS on port 443.
@@ -480,9 +466,9 @@ By default, when using port 443, RavenDB redirects all incoming HTTP traffic on 
 - **Default**: `false`
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.DoNotConsiderMemoryLockFailureAsCatastrophicError" id="security-donotconsidermemorylockfailureascatastrophicerror" href="#security-donotconsidermemorylockfailureascatastrophicerror">
+
+## Security.DoNotConsiderMemoryLockFailureAsCatastrophicError
 
 EXPERT ONLY:
 
@@ -495,9 +481,9 @@ Setting this to true is **not** recommended and should be done only after proper
 - **Default**: `false`
 - **Scope**: Server-wide or per database
 
-</Admonition>
 
-<Admonition type="info" title="Security.TlsCipherSuites" id="security-tlsciphersuites" href="#security-tlsciphersuites">
+
+## Security.TlsCipherSuites
 
 EXPERT ONLY:
 
@@ -509,9 +495,9 @@ Values must be semicolon-separated.
 - **Default**: `null` (Operating System defaults)
 - **Scope**: Server-wide only
 
-</Admonition>
 
-<Admonition type="info" title="Security.UnsecuredAccessAllowed" id="security-unsecuredaccessallowed" href="#security-unsecuredaccessallowed">
+
+## Security.UnsecuredAccessAllowed
 
 If authentication is disabled, set the address range type for which server access is unsecured  
 (`None | Local | PrivateNetwork | PublicNetwork`).
@@ -520,4 +506,4 @@ If authentication is disabled, set the address range type for which server acces
 - **Default**: `Local`
 - **Scope**: Server-wide only
 
-</Admonition>
+

@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Time Series Overview
----
-
 <Admonition type="note" title="Note">
 
 * A huge number of systems, including an expanding variety of IoT devices, 
@@ -46,10 +44,7 @@ import LanguageContent from "@site/src/components/language-content";
       * [Tags](../../document-extensions/timeseries/overview#tags)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Overview" id="overview" href="#overview">
+## Overview
 
 Time series can be **aggregated** and **queried** to illustrate process 
 behavior, predict future developments, track noticeable value changes, 
@@ -67,23 +62,14 @@ handled by time series.
 * _Coordinates sent by delivery trucks' GPS trackers_ can be collected 
   and analyzed to secure the vehicles and improve the service.  
 * _Daily changes in stock prices_ can be used to build investment plans.  
-
----
-
 #### RavenDB's Time Series Implementation  
 
 Time series functionality is fully integrated into RavenDB's 
 distributed environment and document model.  
-
----
-
 #### Distributed Time Series
 
 Distributed clients and nodes can modify time series concurrently;  
 the modifications are merged by the cluster [without conflict](../../document-extensions/timeseries/design#no-conflicts).  
-
----
-
 #### Time Series as Document Extensions
 
 RavenDB's Time Series, like its 
@@ -102,9 +88,6 @@ are **document extensions**.
 
 * Like the other document extensions, time series can take part in fully 
   transactional operations.  
-
----
-
 #### Time Series Features
 
 Notable time series features include -  
@@ -137,9 +120,9 @@ Notable time series features include -
     * [Retention Policies](../../document-extensions/timeseries/rollup-and-retention)  
       You can set time series retention policies to automatically remove time series entries that have reached their expiration date/time.
 
-</Admonition>
 
-<Admonition type="info" title="Time Series Data" id="time-series-data" href="#time-series-data">
+
+## Time Series Data
 
 Time series **names** are kept in their parent documents' metadata, while their 
 **data** is kept [separately](../../document-extensions/timeseries/overview#separate-name-and-data-storage).  
@@ -147,18 +130,18 @@ Time series data is **compressed** and composed of consecutive
 [segments](../../document-extensions/timeseries/overview#time-series-segments) and 
 [entries](../../document-extensions/timeseries/overview#time-series-entries).  
 
-</Admonition>
 
-<Admonition type="info" title="Separate Name and Data Storage" id="separate-name-and-data-storage" href="#separate-name-and-data-storage">
+
+## Separate Name and Data Storage
 
 The separation of names and data prevents time series value updates from 
 invoking document-change events, keeping documents' availability and performance 
 whatever size their time series grow to be and however frequent their value-updates 
 are.  
 
-</Admonition>
 
-<Admonition type="info" title="Time Series Segments" id="time-series-segments" href="#time-series-segments">
+
+## Time Series Segments
 
 Time series are composed of consecutive **segments**.  
 When a time series is created, its values are held in a single segment.  
@@ -169,33 +152,23 @@ since the last entry appendage), segments are added to the series.
 Segments are managed automatically by RavenDB, clients do not need to do 
 anything in this regard.  
 </Admonition>
-
----
-
 #### Transactions Performance
 
 Time series segmentation heightens performance and minimizes transaction 
 and query time, since only the relevant segments of even a very long series 
 would be retrieved and queried, and only relevant segments would be updated.  
-
----
-
 #### Common Queries Performance
 Segmentation also helps provide results for common queries extremely 
 fast, since results for such queries as `Min`, `Max` and others are 
 automatically stored and updated in segment headers, and are always 
 available for instant retrieval.  
   
-</Admonition>
 
-<Admonition type="info" title="Time Series Entries" id="time-series-entries" href="#time-series-entries">
+
+## Time Series Entries
 
 Each time series segment is composed of consecutive **time series entries**.  
 Each entry is composed of a **timestamp**, 1 to 32 **values**, and an **optional tag**.  
-    
-
----
-
 #### Timestamps
 
 <Admonition type="info" title="Info">
@@ -208,9 +181,6 @@ Timestamps, and therefore time series entries, are always ordered **by time**,
 from the oldest timestamp to the newest.  
 E.g. in a heart rate time series, timestamps would indicate the time in which each 
 heart rate measurement has been taken.  
-
----
-
 #### Values
 
 <Admonition type="info" title="Info">
@@ -232,9 +202,6 @@ values may be a requirement for some time series. Here are a few examples.
   An entry with 5 values (stock price when the trade starts and 
   ends, its highest and lowest prices during the day, and its daily 
   trade volume) is added to the time series every day.  
-
----
-
 #### Tags
 
 <Admonition type="info" title="Info">
@@ -264,5 +231,5 @@ Tags are designated to provide information regarding their entries.
     to minimize memory and storage usage and optimize time series performance.  
     </Admonition>
 
-</Admonition>
+
 

@@ -32,7 +32,7 @@ The `rvn` executable can be found in the distribution package under **Server** d
 
 ---
 
-<Admonition type="info" title="info" id="info" href="#info">
+## info
 
 Prints basic information to the console, including build version information, process ID (PID), bitness, and system hardware information.
 
@@ -48,9 +48,9 @@ Prints basic information to the console, including build version information, pr
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="stats" id="stats" href="#stats">
+
+## stats
 
 Online display of memory usage by RavenDB. You can separate into Working Set, Native Mem, Managed Mem, and Memory Mapped Size. Hitting any key will return to CLI's input mode (beware not to hit Ctrl+C / Break to avoid unintended a shutdown of the server).
 
@@ -64,9 +64,9 @@ Online display of memory usage by RavenDB. You can separate into Working Set, Na
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="log" id="log" href="#log">
+
+## log
 
 Enable (or disable) online log printing to the console.
 
@@ -94,9 +94,9 @@ Enable (or disable) online log printing to the console.
 If log is enabled using `rvn admin-channel`, the information will be displayed in the main console application. If RavenDB is running as a service, you will see the log output in the service log.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="gc" id="gc" href="#gc">
+
+## gc
 
 Force Garbage Collection to a specific generation (0, 1 or 2).  See [GC.Collect Method](https://docs.microsoft.com/en-us/dotnet/api/system.gc.collect?redirectedfrom=MSDN&view=netframework-4.7.2#System_GC_Collect_System_Int32_)
 
@@ -117,9 +117,9 @@ After collecting, managed memory used:  10.09 MBytes at 0.0078154 Seconds
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="shutdown | q" id="shutdown-q" href="#shutdown-q">
+
+## shutdown | q
 
 Gracefully shuts down the Server.
 
@@ -138,9 +138,9 @@ Shutdown completed
 | ------------- | ------------- |
 | `no-confirmation` | Skips the confirmation question and shuts down immediately. |
 
-</Admonition>
 
-<Admonition type="info" title="restartServer, resetServer" id="restartserver-resetserver" href="#restartserver-resetserver">
+
+## restartServer, resetServer
 
 Gracefully shut down and restart the Server.
 
@@ -187,9 +187,9 @@ ravendb>
 </TabItem>
 
   
-</Admonition>
 
-<Admonition type="info" title="script" id="script" href="#script">
+
+## script
 
 Executes Admin JavaScript patches.
 
@@ -219,9 +219,9 @@ ravendb>
 Running scripts can harm the database beyond recovery. Use with care.
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="generateClientCert" id="generateclientcert" href="#generateclientcert">
+
+## generateClientCert
 
 Generate a new trusted client certificate with `ClusterAdmin` security clearance.
 
@@ -239,9 +239,9 @@ Generate a new trusted client certificate with `ClusterAdmin` security clearance
 | `number of months until expiration` | The number of months you want the certificate to last before it expires. |
 | `password` | The certificate's password. **Optional**. |
 
-</Admonition>
 
-<Admonition type="info" title="trustServerCert" id="trustservercert" href="#trustservercert">
+
+## trustServerCert
 
 Register a server certificate of another node to be trusted on this server. This is required when building a cluster where each node has a different certificate.
 
@@ -258,9 +258,9 @@ Register a server certificate of another node to be trusted on this server. This
 | `path to pfx` | The path to the certificate. |
 | `password` | The certificate's password, if it has one. |
 
-</Admonition>
 
-<Admonition type="info" title="trustClientCert" id="trustclientcert" href="#trustclientcert">
+
+## trustClientCert
 
 Register a client certificate to be trusted on this server with `ClusterAdmin` security clearance.
 
@@ -277,9 +277,9 @@ Register a client certificate to be trusted on this server with `ClusterAdmin` s
 | `path to pfx` | The path to the certificate. |
 | `password` | The certificate's password, if it has one. |
 
-</Admonition>
 
-<Admonition type="info" title="replaceClusterCert" id="replaceclustercert" href="#replaceclustercert">
+
+## replaceClusterCert
 
 Replace the cluster certificate.  
 <Admonition type="danger" title="Danger">
@@ -300,11 +300,11 @@ If **replaceImmediately** is specified, RavenDB will replace the certificate by 
 | `path to pfx` | The path to the certificate. |
 | `password` | The certificate's password, if it has one. |
 
-</Admonition>
+
 
 ---
 
-<Admonition type="info" title="clear" id="clear" href="#clear">
+## clear
 
 Clears the screen.
 
@@ -315,9 +315,9 @@ Clears the screen.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="prompt" id="prompt" href="#prompt">
+
+## prompt
 
 For usage type **helpPrompt**.
 
@@ -330,9 +330,9 @@ Can be used to show memory information used by **stats** while using `rvn`.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="logout" id="logout" href="#logout">
+
+## logout
 
 Exits CLI back to the terminal (with `rvn admin-channel` use only).
 
@@ -343,9 +343,9 @@ Exits CLI back to the terminal (with `rvn admin-channel` use only).
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="logo" id="logo" href="#logo">
+
+## logo
 
 Prints initial logo.
 
@@ -356,9 +356,9 @@ Prints initial logo.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="help" id="help" href="#help">
+
+## help
 
 Display help screen.
 
@@ -369,11 +369,11 @@ Display help screen.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 ---
 
-<Admonition type="info" title="lowMem" id="lowmem" href="#lowmem">
+## lowMem
 
 <Admonition type="warning" title="Warning">
 Debugging command. Not intended for normal use.
@@ -388,9 +388,9 @@ Simulates low memory state in RavenDB.
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="timer" id="timer" href="#timer">
+
+## timer
 
 <Admonition type="warning" title="Warning">
 Debugging command. Not intended for normal use.
@@ -405,5 +405,5 @@ Enable (or disable) candidate selection timer (Rachis), or fires timeout immedia
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 

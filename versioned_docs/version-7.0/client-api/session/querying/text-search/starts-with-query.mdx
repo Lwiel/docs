@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Starts-With Query
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Starts-With Query
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -29,10 +30,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Negate StartsWith](../../../../client-api/session/querying/text-search/starts-with-query#negate-startswith)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="StartsWith" id="startswith" href="#startswith">
+## StartsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -86,9 +84,9 @@ where startsWith(Name, "Ch")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="StartsWith (case-sensitive)" id="startswith-case-sensitive" href="#startswith-case-sensitive">
+
+## StartsWith (case-sensitive)
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -140,9 +138,9 @@ where exact(startsWith(Name, "Ch"))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Negate StartsWith" id="negate-startswith" href="#negate-startswith">
+
+## Negate StartsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -198,14 +196,11 @@ where (true and not startsWith(Name, "Ch"))
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Starts-With Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -219,10 +214,7 @@ where (true and not startsWith(Name, "Ch"))
   * [Negate StartsWith](../../../../client-api/session/querying/text-search/starts-with-query#negate-startswith)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="StartsWith" id="startswith" href="#startswith">
+## StartsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -248,9 +240,9 @@ where startsWith(Name, "Ch")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="StartsWith (case-sensitive)" id="startswith-case-sensitive" href="#startswith-case-sensitive">
+
+## StartsWith (case-sensitive)
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -275,9 +267,9 @@ where exact(startsWith(Name, "Ch"))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Negate StartsWith" id="negate-startswith" href="#negate-startswith">
+
+## Negate StartsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -304,14 +296,11 @@ where (true and not startsWith(Name, "Ch"))
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Starts-With Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -325,10 +314,7 @@ where (true and not startsWith(Name, "Ch"))
   * [Negate StartsWith](../../../../client-api/session/querying/text-search/starts-with-query#negate-startswith)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="StartsWith" id="startswith" href="#startswith">
+## StartsWith
 
 The results will contain only Product documents having a 'Name' field
 that starts with any case variation of 'ch'.
@@ -367,9 +353,9 @@ where startsWith(Name, "Ch")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="StartsWith (case-sensitive)" id="startswith-case-sensitive" href="#startswith-case-sensitive">
+
+## StartsWith (case-sensitive)
 
 The results will contain only Product documents having a 'Name' field
 that starts with 'Ch'.
@@ -407,9 +393,9 @@ where exact(startsWith(Name, "Ch"))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Negate StartsWith" id="negate-startswith" href="#negate-startswith">
+
+## Negate StartsWith
 
 The results will contain only Product documents having a 'Name' field
 that does NOT start with 'ch' or any other case variations of it.
@@ -452,14 +438,11 @@ where (true and not startsWith(Name, "Ch"))
 </TabItem>
 </Tabs>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Starts-With Query
-
----
 
 <Admonition type="note" title="Note">
 
@@ -474,10 +457,7 @@ where (true and not startsWith(Name, "Ch"))
   * [Syntax](../../../../client-api/session/querying/text-search/starts-with-query#syntax)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="whereStartsWith" id="wherestartswith" href="#wherestartswith">
+## whereStartsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -503,9 +483,9 @@ where startsWith(Name, "Ch")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="whereStartsWith (case-sensitive)" id="wherestartswith-case-sensitive" href="#wherestartswith-case-sensitive">
+
+## whereStartsWith (case-sensitive)
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -531,9 +511,9 @@ where exact(startsWith(Name, "Ch"))
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Negate whereStartsWith" id="negate-wherestartswith" href="#negate-wherestartswith">
+
+## Negate whereStartsWith
 
 <Tabs groupId='languageSyntax'>
 <TabItem value="Query" label="Query">
@@ -561,9 +541,9 @@ where exists(Name) and not startsWith(Name, "Ch")
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax">
 <CodeBlock language="nodejs">
@@ -581,7 +561,7 @@ whereStartsWith(fieldName, value, exact);
 | __exact__     | boolean | `false` - search is case-insensitive<br/>`true` - search is case-sensitive |
 
 
-</Admonition>
+
 
 
 </LanguageContent>

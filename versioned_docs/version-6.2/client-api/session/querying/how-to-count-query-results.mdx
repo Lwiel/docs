@@ -11,11 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
-<LanguageContent language="csharp">
-# Count Query Results 
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
 
----
+
+# Count Query Results 
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
+<LanguageContent language="csharp">
 
 <Admonition type="note" title="Note">
 
@@ -28,10 +29,7 @@ import LanguageContent from "@site/src/components/language-content";
     * [Get number of results from query stats](../../../client-api/session/querying/how-to-count-query-results#get-count-from-query-stats)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Count" id="count" href="#count">
+## Count
 
 * When the number of resulting items is expected to be an **`Int32`** variable,  
   use `Count` in a synchronous session (or `CountAsync` in an async session).  
@@ -105,9 +103,9 @@ where ShipTo.Country == "UK" limit 0, 0
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="LongCount" id="longcount" href="#longcount">
+
+## LongCount
 
 * When the number of resulting items is expected to be an **`Int64`** variable,  
   use `LongCount` in a synchronous session (or `LongCountAsync` in an async session).
@@ -181,23 +179,20 @@ where ShipTo.Country == "UK" limit 0, 0
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Get count from query stats" id="get-count-from-query-stats" href="#get-count-from-query-stats">
+
+## Get count from query stats
 
 * When executing a query, you can retrieve the query statistics, which include the total number of results.
 
 * The total number of results is available in the `TotalResults` property of the `QueryStatistics` object.  
   Learn more in [Get Query Statistics](../../../client-api/session/querying/how-to-get-query-statistics). 
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Count Query Results  
-
----
 
 <Admonition type="note" title="Note">
 
@@ -207,10 +202,7 @@ where ShipTo.Country == "UK" limit 0, 0
     * [Get number of results from query stats](../../../client-api/session/querying/how-to-count-query-results#get-count-from-query-stats)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`count`" id="count" href="#count">
+## `count`
 
 Count query results using the `count` method.  
 
@@ -236,9 +228,9 @@ where ship_to.country == "UK" limit 0, 0
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Get count from query stats" id="get-count-from-query-stats" href="#get-count-from-query-stats">
+
+## Get count from query stats
 
 When executing a query, you can retrieve query statistics that include the total number of results.  
 To do this, define a callback function that takes `QueryStatistics` as an argument and applies whatever 
@@ -270,14 +262,11 @@ session.query(object_type=Employee)
 
 Learn more in [Get Query Statistics](../../../client-api/session/querying/how-to-get-query-statistics).  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Count Query Results  
-
----
 
 <Admonition type="note" title="Note">
 
@@ -287,10 +276,7 @@ Learn more in [Get Query Statistics](../../../client-api/session/querying/how-to
     * [Get number of results from query stats](../../../client-api/session/querying/how-to-count-query-results#get-count-from-query-stats)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`Count`" id="count" href="#count">
+## `Count`
 
 Count query results using the `Count` method.  
 
@@ -320,21 +306,18 @@ where ShipTo.Country == "UK" limit 0, 0
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Get count from query stats" id="get-count-from-query-stats" href="#get-count-from-query-stats">
+
+## Get count from query stats
 
 When executing a query, you can retrieve the query statistics that include the total number of results.  
 Learn more in [Get Query Statistics](../../../client-api/session/querying/how-to-get-query-statistics).  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Count Query Results  
-
----
 
 <Admonition type="note" title="Note">
 
@@ -345,10 +328,7 @@ Learn more in [Get Query Statistics](../../../client-api/session/querying/how-to
     * [Get number of results from query stats](../../../client-api/session/querying/how-to-count-query-results#get-count-from-query-stats)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Count" id="count" href="#count">
+## Count
 
 * Call `count` to get the number of items in the query results.
 
@@ -384,9 +364,9 @@ where ShipTo.Country == "UK" limit 0, 0
 
 </Admonition>
 
-</Admonition>
 
-<Admonition type="info" title="Get count from query stats" id="get-count-from-query-stats" href="#get-count-from-query-stats">
+
+## Get count from query stats
 
 
 * When executing a query, you can retrieve the query statistics, which include the total number of results.
@@ -394,7 +374,7 @@ where ShipTo.Country == "UK" limit 0, 0
 * The total number of results is available in the `totalResults` property of the `QueryStatistics` object.  
   Learn more in [Get Query Statistics](../../../client-api/session/querying/how-to-get-query-statistics).
 
-</Admonition>
+
 
 
 </LanguageContent>

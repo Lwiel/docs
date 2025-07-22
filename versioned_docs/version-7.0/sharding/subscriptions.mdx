@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Sharding: Data Subscriptions
----
-
 <Admonition type="note" title="Note">
 
 * From a user's point of view, [Data Subscriptions](../client-api/data-subscriptions/what-are-data-subscriptions) 
@@ -33,10 +31,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Unsupported Features](../sharding/subscriptions#unsupported-features)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Data Subscriptions in a Sharded Database" id="data-subscriptions-in-a-sharded-database" href="#data-subscriptions-in-a-sharded-database">
+## Data Subscriptions in a Sharded Database
 
 To allow data subscriptions in a sharded database:  
 
@@ -62,9 +57,6 @@ To allow data subscriptions in a sharded database:
 Distributing the subscriptions between all shards this way 
 allows RavenDB to serve its workers efficiently no matter 
 how large the overall database gets.  
-
----
-
 ![Subscription](./assets/subscriptions.png)
 
 1. **Data Subscription Worker**  
@@ -92,9 +84,9 @@ how large the overall database gets.
    When the worker informs the orchestrator that all data has been consumed 
    and the orchestrator has an available batch, the batch is delivered to the worker.  
 
-</Admonition>
 
-<Admonition type="info" title="Unsupported Features" id="unsupported-features" href="#unsupported-features">
+
+## Unsupported Features
 
 Data subscriptions features that are not supported yet under a sharded database:  
 
@@ -114,5 +106,5 @@ Data subscriptions features that are not supported yet under a sharded database:
   </Admonition>
 
 
-</Admonition>
+
 

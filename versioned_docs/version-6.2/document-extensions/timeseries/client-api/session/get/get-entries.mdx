@@ -11,10 +11,12 @@ import CodeBlock from '@theme/CodeBlock';
 import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
-<LanguageSwitcher />
+export const supportedLanguages = ["csharp", "python", "php", "nodejs"];
+
+
+# Get Time Series Entries 
+<LanguageSwitcher supportedLanguages={supportedLanguages} />
 <LanguageContent language="csharp">
-# Get Time Series Entries 
----
 
 <Admonition type="note" title="Note">
 
@@ -45,10 +47,7 @@ import LanguageContent from "@site/src/components/language-content";
   * [Syntax](../../../../../document-extensions/timeseries/client-api/session/get/get-entries#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`Get` usage " id="get-usage" href="#get-usage">
+## `Get` usage 
 
 * Open a session.  
 * Create an instance of `TimeSeriesFor` and pass it the following:
@@ -58,9 +57,9 @@ import LanguageContent from "@site/src/components/language-content";
     * Specify the time series name.
 * Call `TimeSeriesFor.Get`.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Get all entries:
 
@@ -75,9 +74,6 @@ TimeSeriesEntry[] val = session.TimeSeriesFor("users/john", "HeartRates")
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Get range of entries:
 
 In this example, we query for a document and get its "Heartrate" time series data.
@@ -103,9 +99,6 @@ using (var session = store.OpenSession())
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Get entries with multiple values:
 
 * Here, we check whether a stock's closing-time price is rising from day to day (over three days).  
@@ -163,9 +156,9 @@ using (var session = store.OpenSession())
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Include parent and tagged documents" id="include-parent-and-tagged-documents" href="#include-parent-and-tagged-documents">
+
+## Include parent and tagged documents
 
 * When retrieving time series entries using `TimeSeriesFor.Get`,  
   you can include the series' parent document and/or documents referred to by the entries [tags](../../../../../document-extensions/timeseries/overview#tags).  
@@ -189,9 +182,9 @@ TimeSeriesEntry[] entries =
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something" label="TimeSeriesFor-Get-definition">
 <CodeBlock language="csharp">
@@ -242,13 +235,11 @@ Default: `DateTime.MaxValue`                                      |
 
 * **`TimeSeriesEntry<TValues>[]`** - Time series values that can be referred to [by name](../../../../../document-extensions/timeseries/client-api/named-time-series-values).
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="python">
-# Get Time Series Entries 
----
 
 <Admonition type="note" title="Note">
 
@@ -279,10 +270,7 @@ Default: `DateTime.MaxValue`                                      |
   * [Syntax](../../../../../document-extensions/timeseries/client-api/session/get/get-entries#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`Get` usage " id="get-usage" href="#get-usage">
+## `Get` usage 
 
 * Open a session.  
 * Create an instance of `time_series_for` and pass it the following:
@@ -293,9 +281,9 @@ Default: `DateTime.MaxValue`                                      |
     * Specify the time series name.
 * Call `time_series_for.get`.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Get all entries:
 
@@ -309,9 +297,6 @@ val = session.time_series_for("users/john", "HeartRates").get(datetime.min, date
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Get range of entries:
 
 In this example, we query for a document and get its "Heartrate" time series data.
@@ -335,9 +320,6 @@ with store.open_session() as session:
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Get entries with multiple values:
 
 * Here, we check whether a stock's closing-time price is rising from day to day (over three days).  
@@ -364,9 +346,9 @@ with store.open_session() as session:
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Include parent and tagged documents" id="include-parent-and-tagged-documents" href="#include-parent-and-tagged-documents">
+
+## Include parent and tagged documents
 
 * When retrieving time series entries using `time_series_for.get`,  
   you can include the series parent document and/or documents referred to by the entries 
@@ -392,9 +374,9 @@ entries = session.time_series_for("users/john", "HeartRates").get_with_include(
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="TimeSeriesFor-Get-definition">
 <CodeBlock language="python">
@@ -462,13 +444,11 @@ Default: `datetime.max` |
 
 * `TimeSeriesEntry<TValues>[]` - Time series values that can be referred to by name.  
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="php">
-# Get Time Series Entries 
----
 
 <Admonition type="note" title="Note">
 
@@ -498,10 +478,7 @@ Default: `datetime.max` |
   * [Syntax](../../../../../document-extensions/timeseries/client-api/session/get/get-entries#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`get` usage " id="get-usage" href="#get-usage">
+## `get` usage 
 
 * Open a session.  
 * Create an instance of `timeSeriesFor` and pass it the following:
@@ -512,9 +489,9 @@ Default: `datetime.max` |
     * Specify the time series name.
 * Call `timeSeriesFor.get`.  
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Get all entries:
 
@@ -530,9 +507,6 @@ $val = $session->timeSeriesFor("users/john", "HeartRates")
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Get range of entries:
 
 In this example, we query for a document and get its "Heartrate" time series data.
@@ -561,9 +535,6 @@ try \{
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Get entries with multiple values:
 
 * Here, we check whether a stock's closing-time price is rising from day to day (over three days).  
@@ -599,9 +570,9 @@ try \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Include parent and tagged documents" id="include-parent-and-tagged-documents" href="#include-parent-and-tagged-documents">
+
+## Include parent and tagged documents
 
 * When retrieving time series entries using `timeSeriesFor.get`,  
   you can include the series parent document and/or documents referred to by the entries 
@@ -629,9 +600,9 @@ $entries =
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="TimeSeriesFor-Get-definition">
 <CodeBlock language="php">
@@ -686,13 +657,11 @@ public function get(?DateTimeInterface $from = null, ?DateTimeInterface $to = nu
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>
 <LanguageContent language="nodejs">
-# Get Time Series Entries 
----
 
 <Admonition type="note" title="Note">
 
@@ -723,10 +692,7 @@ public function get(?DateTimeInterface $from = null, ?DateTimeInterface $to = nu
   * [Syntax](../../../../../document-extensions/timeseries/client-api/session/get/get-entries#syntax)
 
 </Admonition>
-
----
-
-<Admonition type="info" title="`get` usage " id="get-usage" href="#get-usage">
+## `get` usage 
 
 * Open a session.  
 * Create an instance of `timeSeriesFor` and pass it the following:
@@ -736,9 +702,9 @@ public function get(?DateTimeInterface $from = null, ?DateTimeInterface $to = nu
     * Specify the time series name.
 * Call `timeSeriesFor.get`.
 
-</Admonition>
 
-<Admonition type="info" title="Examples" id="examples" href="#examples">
+
+## Examples
 
 #### Get all entries:
 
@@ -754,9 +720,6 @@ const allEntries = await session
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Get range of entries:
 
 In this example, we query for a document and get a range of entries from its "Heartrate" time series.
@@ -778,9 +741,6 @@ const tsEntries = await session
 `}
 </CodeBlock>
 </TabItem>
-
----
-
 #### Get entries with multiple values:
 
 * Here, we check if a stock's closing price is rising consecutively over three days.  
@@ -840,9 +800,9 @@ if ((closePriceDay2 > closePriceDay1) && (closePriceDay3 > closePriceDay2)) {
 </TabItem>
 </Tabs>
 
-</Admonition>
 
-<Admonition type="info" title="Include parent and tagged documents" id="include-parent-and-tagged-documents" href="#include-parent-and-tagged-documents">
+
+## Include parent and tagged documents
 
 * When retrieving time series entries using `timeSeriesFor.get`,  
   you can include the series' parent document and/or documents referred to by the entries [tags](../../../../../document-extensions/timeseries/overview#tags).  
@@ -866,9 +826,9 @@ const user = await session.load("users/john");
 </CodeBlock>
 </TabItem>
 
-</Admonition>
 
-<Admonition type="info" title="Syntax" id="syntax" href="#syntax">
+
+## Syntax
 
 <TabItem value="something-something" label="syntax_1">
 <CodeBlock language="nodejs">
@@ -942,7 +902,7 @@ class TypedTimeSeriesEntry \{
 </CodeBlock>
 </TabItem>
 
-</Admonition>
+
 
 
 </LanguageContent>

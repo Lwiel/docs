@@ -12,8 +12,6 @@ import LanguageSwitcher from "@site/src/components/language-switcher";
 import LanguageContent from "@site/src/components/language-content";
 
 # Embedded Server: TestDriver Breaking Changes
----
-
 <Admonition type="note" title="Note">
 The features listed on this page were available in former RavenDB versions.  
 In RavenDB `6.2.x`, they are either unavailable or their behavior is inconsistent 
@@ -23,10 +21,7 @@ with their behavior in previous versions.
    * [Unlicensed TestDriver throws an exception](../../migration/embedded/testdriver-breaking-changes#unlicensed-testdriver-throws-an-exception)  
 
 </Admonition>
-
----
-
-<Admonition type="info" title="Unlicensed TestDriver throws an exception" id="unlicensed-testdriver-throws-an-exception" href="#unlicensed-testdriver-throws-an-exception">
+## Unlicensed TestDriver throws an exception
 
 ### Background:
 
@@ -60,9 +55,6 @@ can use up to 9 cores and run way faster.
      may therefore miss out on much of their system's potential.  
    * If the configuration option is set to **`false`**, **no exception will be thrown** 
      even if a license cannot be validated.  
-
----
-
 ### The breaking change:
 
 Up until RavenDB version `6.0`, we set `TestServerOptions.Licensing.ThrowOnInvalidOrMissingLicense` 
@@ -76,5 +68,5 @@ TestDriver fails to validate a license.
 Users that prefer that no exception would be thrown if an unlicensed embedded server is 
 used, can set `TestServerOptions.Licensing.ThrowOnInvalidOrMissingLicense` to **`false`**.  
 
-</Admonition>
+
 
