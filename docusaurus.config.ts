@@ -43,7 +43,7 @@ const config: Config = {
       "classic",
       {
         docs: {
-          sidebarPath: "./sidebars.ts",
+          sidebarPath: "sidebars.ts",
           routeBasePath: "/",
           includeCurrentVersion: true,
           lastVersion: 'current',
@@ -77,7 +77,18 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  plugins: [require.resolve("./src/plugins/tailwind-config")],
+  plugins: [
+    require.resolve("./src/plugins/tailwind-config"),
+    [
+      'content-docs',
+      {
+        id: 'cloud',
+        path: 'cloud',
+        routeBasePath: 'cloud',
+        sidebarPath: './sidebarsCloud.js',
+      },
+    ]
+  ],
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
