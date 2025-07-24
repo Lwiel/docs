@@ -74,6 +74,27 @@
   --docsearch-key-gradient: transparent;
 }
 
+/* Custom cloud themes */
+.plugin-id-cloud:root {
+  --ifm-color-primary: #417c5a;
+  --ifm-color-primary-dark: #3b7051;
+  --ifm-color-primary-darker: #37694d;
+  --ifm-color-primary-darkest: #2e573f;
+  --ifm-color-primary-light: #427e5c;
+  --ifm-color-primary-lighter: #44815e;
+  --ifm-color-primary-lightest: #45835f;
+}
+
+.plugin-id-cloud[data-theme="dark"] {
+  --ifm-color-primary: #63ffa6;
+  --ifm-color-primary-dark: #40ff92;
+  --ifm-color-primary-darker: #2eff88;
+  --ifm-color-primary-darkest: #00f86a;
+  --ifm-color-primary-light: #86ffba;
+  --ifm-color-primary-lighter: #98ffc4;
+  --ifm-color-primary-lightest: #cdffe3;
+}
+
 /* Merge Infima colors to tailwind table */
 @theme {
   --color-primary: var(--ifm-color-primary);
@@ -238,4 +259,8 @@
 
 .search-result-match {
   @apply !bg-primary/10 !p-0 rounded-xs;
+}
+
+.alert + .alert {
+  @apply mt-4;
 }

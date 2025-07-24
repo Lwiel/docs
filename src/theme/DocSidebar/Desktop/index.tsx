@@ -18,6 +18,8 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }: Props) {
     },
   } = useThemeConfig();
 
+  const isCloudPath = path.includes("/cloud");
+
   return (
     <div
       className={clsx(
@@ -29,12 +31,12 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }: Props) {
       {hideOnScroll && <Logo tabIndex={-1} className={styles.sidebarLogo} />}
       <div className="menu thin-scrollbar menu_Y1UP shrink-0 !grow-0">
         <div className="menu__list-item-collapsible">
-          <Link to="/" className="menu__link">
+          <Link to={isCloudPath ? "/cloud" : "/"} className="menu__link">
             Start
           </Link>
         </div>
-        <Link to="/cloud/cloud-overview" className="menu__link">
-          RavenDB Cloud Docs
+        <Link to={isCloudPath ? "/" : "/cloud"} className="menu__link">
+          RavenDB {!isCloudPath && "Cloud"} Docs
         </Link>
         <Link to="https://ravendb.net/community" className="menu__link">
           Community
@@ -44,7 +46,7 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }: Props) {
         </Link>
       </div>
       <hr className="!my-0 !mx-3 !bg-black/10 dark:!bg-white/10" />
-      <SidebarVersionDropdown />
+      {!isCloudPath && <SidebarVersionDropdown />}
       <Content path={path} sidebar={sidebar} />
       {hideable && <CollapseButton onClick={onCollapse} />}
     </div>
