@@ -11,7 +11,7 @@ import Link from "@docusaurus/Link";
 import SidebarVersionDropdown from "@site/src/components/SidebarVersionDropdown";
 
 import {
-  useActiveDocContext
+  useActiveDocContext, useLatestVersion
 } from "@docusaurus/plugin-content-docs/client";
 
 function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }: Props) {
@@ -24,7 +24,8 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }: Props) {
 
   const pluginId = "default";
   const { activeVersion } = useActiveDocContext(pluginId);
-  const versionLabel = activeVersion?.label || "";
+  const latestVersion = useLatestVersion(pluginId);
+  const versionLabel = activeVersion?.label ?? latestVersion.label;
 
   const isCloudPath = path.includes("/cloud");
 
@@ -43,13 +44,13 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }: Props) {
             Start
           </Link>
         </div>
-        <Link to={isCloudPath ? "/" : "/cloud"} className="menu__link">
+        <Link to={isCloudPath ? `/${versionLabel}` : "/cloud"} className="menu__link">
           RavenDB {!isCloudPath && "Cloud"} Docs
         </Link>
         <Link to="https://ravendb.net/community" className="menu__link">
           Community
         </Link>
-        <Link to={isCloudPath ? "/whats-new" : `/${versionLabel}/whats-new`} className="menu__link">
+        <Link to={`/${versionLabel}/whats-new`} className="menu__link">
           What's new
         </Link>
       </div>

@@ -1,17 +1,23 @@
 import React, { type ReactNode } from "react";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
+import {useActiveDocContext, useLatestVersion} from "@docusaurus/plugin-content-docs/client";
 
 export default function NavbarLogo(): ReactNode {
   const { pathname } = useLocation();
   const isCloudPath = pathname.includes("/cloud");
+
+  const pluginId = "default";
+  const { activeVersion } = useActiveDocContext(pluginId);
+  const latestVersion = useLatestVersion(pluginId);
+  const versionLabel = activeVersion?.label ?? latestVersion.label;
 
   return (
     <div className="flex gap-2 items-center">
       {isCloudPath ? (
         <>
           <Link
-            to="https://ravendb.net"
+            to="https://ravendb.net/cloud"
             aria-label="RavenDB Cloud"
             className="inline-block !transition-opacity transition-duration-300 hover:opacity-75 group"
           >
@@ -64,7 +70,7 @@ export default function NavbarLogo(): ReactNode {
           </Link>
           <span className="block h-5 w-px mx-1 bg-black/20 dark:bg-white/20"></span>
           <Link
-            to="/"
+            to={isCloudPath ? "/cloud" : `/${versionLabel}`}
             aria-label="Homepage"
             className="!no-underline !text-ifm-menu hover:opacity-75 !transition-opacity !transition-duration-300 flex justify-center items-center"
           >
