@@ -10,6 +10,10 @@ import styles from "./styles.module.css";
 import Link from "@docusaurus/Link";
 import SidebarVersionDropdown from "@site/src/components/SidebarVersionDropdown";
 
+import {
+  useActiveDocContext
+} from "@docusaurus/plugin-content-docs/client";
+
 function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }: Props) {
   const {
     navbar: { hideOnScroll },
@@ -17,6 +21,10 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }: Props) {
       sidebar: { hideable },
     },
   } = useThemeConfig();
+
+  const pluginId = "default";
+  const { activeVersion } = useActiveDocContext(pluginId);
+  const versionLabel = activeVersion?.label || "";
 
   const isCloudPath = path.includes("/cloud");
 
@@ -31,7 +39,7 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }: Props) {
       {hideOnScroll && <Logo tabIndex={-1} className={styles.sidebarLogo} />}
       <div className="menu thin-scrollbar menu_Y1UP shrink-0 !grow-0">
         <div className="menu__list-item-collapsible">
-          <Link to={isCloudPath ? "/cloud" : "/"} className="menu__link">
+          <Link to={isCloudPath ? "/cloud" : `/${versionLabel}`} className="menu__link">
             Start
           </Link>
         </div>
@@ -41,7 +49,7 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }: Props) {
         <Link to="https://ravendb.net/community" className="menu__link">
           Community
         </Link>
-        <Link to="/whats-new" className="menu__link">
+        <Link to={isCloudPath ? "/whats-new" : `/${versionLabel}/whats-new`} className="menu__link">
           What's new
         </Link>
       </div>

@@ -7,6 +7,12 @@
       "className": "hidden"
     },
     {
+      "type": "doc",
+      "id": "whats-new",
+      "label": "Whats New",
+      "className": "hidden"
+    },
+    {
       "type": "category",
       "label": "Getting Started",
       "items": [

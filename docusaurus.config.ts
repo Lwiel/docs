@@ -50,7 +50,7 @@ const config: Config = {
           versions: {
             current: {
               label: "7.1",
-              path: "/"
+              path: "/7.1"
             }
           }
           // Please change this to your repo.
