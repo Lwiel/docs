@@ -32,9 +32,7 @@
     "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   --anchor-icon: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIvPjxwYXRoIGQ9Ik0yMTAsNDZhNTEuOCw1MS44LDAsMCwwLTczLjUsMEwxMTYuNyw2NS44QTgsOCwwLDAsMCwxMjgsNzcuMWwxOS44LTE5LjhhMzYuMSwzNi4xLDAsMCwxLDUwLjksMCwzNS45LDM1LjksMCwwLDEsMCw1MC45bC0yOC4zLDI4LjNhMzYuMSwzNi4xLDAsMCwxLTUwLjksMCw4LDgsMCwxLDAtMTEuMywxMS4zLDUyLDUyLDAsMCwwLDczLjUsMEwyMTAsMTE5LjVBNTEuOCw1MS44LDAsMCwwLDIxMCw0NloiLz48cGF0aCBkPSJNMTI4LDE3OC45bC0xOS44LDE5LjhhMzYsMzYsMCwwLDEtNTAuOS01MC45bDI4LjMtMjguM2EzNi4xLDM2LjEsMCwwLDEsNTAuOSwwLDgsOCwwLDAsMCwxMS4zLTExLjMsNTIsNTIsMCwwLDAtNzMuNSwwTDQ2LDEzNi41QTUyLDUyLDAsMSwwLDExOS41LDIxMGwxOS44LTE5LjhBOCw4LDAsMCwwLDEyOCwxNzguOVoiLz48L3N2Zz4=");
-  --docsearch-searchbox-focus-background: var(
-    --ifm-background-color
-  ) !important;
+  --docsearch-searchbox-focus-background: var(--ifm-background-color) !important;
   --docsearch-hit-color: var(--ifm-color-primary-lightest) !important;
 }
 
@@ -143,8 +141,7 @@
   font-family: "JetBrains Mono";
   font-style: italic;
   src:
-    url("fonts/JetBrainsMono-Italic[wght].woff2")
-      format("woff2 supports variations"),
+    url("fonts/JetBrainsMono-Italic[wght].woff2") format("woff2 supports variations"),
     url("fonts/JetBrainsMono-Italic[wght].woff2") format("woff2-variations");
   font-weight: 100 900;
   font-display: swap;
@@ -179,7 +176,7 @@
   font-weight: var(--ifm-font-weight-normal);
 }
 
-.menu > .menu__list .menu__list {
+.menu>.menu__list .menu__list {
   @apply !border-black/10 dark:!border-white/10;
   border-left: 1px dashed;
   margin-left: var(--ifm-global-spacing);
@@ -261,6 +258,32 @@
   @apply !bg-primary/10 !p-0 rounded-xs;
 }
 
-.alert + .alert {
+/* Custom margin-top for repeating alerts */
+.alert+.alert {
   @apply mt-4;
+}
+
+/* Custom border-radius for document images */
+.theme-doc-markdown img {
+  @apply rounded-md;
+}
+
+/* Custom list-style */
+ol,
+ul {
+  list-style: revert;
+}
+
+/* Custom color for code */
+code {
+  color: var(--ifm-color-primary-lightest);
+}
+
+/* Custom display for card wrapper */
+.card-wrapper {
+  @apply flex !no-underline !text-inherit hover:!no-underline;
+}
+
+.card {
+  @apply grow
 }

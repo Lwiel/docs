@@ -36,7 +36,7 @@ export default function CardWithIcon({
   );
 
   return url ? (
-    <Link to={url} className="!no-underline !text-inherit !hover:no-underline">
+    <Link to={url} className="card-wrapper">
       {content}
     </Link>
   ) : (

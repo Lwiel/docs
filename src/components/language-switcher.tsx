@@ -14,38 +14,42 @@ type LanguageSwitcherProps = {
   supportedLanguages: string[];
 };
 
-export default function LanguageSwitcher({ supportedLanguages }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({
+  supportedLanguages,
+}: LanguageSwitcherProps) {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="flex flex-wrap gap-2 mb-4">
-      {languages.filter(lang => supportedLanguages.includes(lang.value)).map((lang) => {
-        const isActive = language === lang.value;
+    <div className="flex flex-wrap gap-2 mb-8">
+      {languages
+        .filter((lang) => supportedLanguages.includes(lang.value))
+        .map((lang) => {
+          const isActive = language === lang.value;
 
-        return (
-          <button
-            key={lang.value}
-            type="button"
-            onClick={() => setLanguage(lang.value)}
-            className={clsx(
-              "px-3 py-1.5 rounded-md border text-sm transition-colors cursor-pointer",
-              "border-gray-300 text-gray-500 hover:bg-black/5 hover:border-gray-500 hover:text-gray-600",
-              "dark:text-gray-300 dark:border-gray-600 dark:hover:text-gray-200 dark:hover:border-gray-400 dark:hover:bg-white/5",
-            )}
-            style={
-              isActive
-                ? {
-                    backgroundColor: `${lang.brand}20`,
-                    color: lang.brand,
-                    borderColor: lang.brand,
-                  }
-                : {}
-            }
-          >
-            {lang.label}
-          </button>
-        );
-      })}
+          return (
+            <button
+              key={lang.value}
+              type="button"
+              onClick={() => setLanguage(lang.value)}
+              className={clsx(
+                "px-3 py-1.5 rounded-md border text-sm transition-colors cursor-pointer",
+                "border-gray-300 text-gray-500 hover:bg-black/5 hover:border-gray-500 hover:text-gray-600",
+                "dark:text-gray-300 dark:border-gray-600 dark:hover:text-gray-200 dark:hover:border-gray-400 dark:hover:bg-white/5",
+              )}
+              style={
+                isActive
+                  ? {
+                      backgroundColor: `${lang.brand}20`,
+                      color: lang.brand,
+                      borderColor: lang.brand,
+                    }
+                  : {}
+              }
+            >
+              {lang.label}
+            </button>
+          );
+        })}
     </div>
   );
 }

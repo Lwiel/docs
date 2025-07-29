@@ -12,7 +12,7 @@ export interface ButtonProps
 }
 
 const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
-  default: "bg-primary !text-white hover:bg-primary-darker",
+  default: "bg-primary !text-white dark:!text-black hover:bg-primary-darker",
   outline:
     "border !text-black border-black/25 !text-foreground hover:bg-black/5 dark:!text-white dark:border-white/25 dark:hover:bg-white/5",
   ghost: "hover:bg-muted !text-foreground",

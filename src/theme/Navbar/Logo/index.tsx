@@ -1,7 +1,10 @@
 import React, { type ReactNode } from "react";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
-import {useActiveDocContext, useLatestVersion} from "@docusaurus/plugin-content-docs/client";
+import {
+  useActiveDocContext,
+  useLatestVersion,
+} from "@docusaurus/plugin-content-docs/client";
 
 export default function NavbarLogo(): ReactNode {
   const { pathname } = useLocation();
